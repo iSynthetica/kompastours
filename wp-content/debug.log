@@ -5125,3 +5125,51 @@ Stack trace:
 #3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(20): ittour_show_template('single-tour/con...', Array)
 #4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_load_single_tour('')
 #5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-h in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/flights.php on line 14
+[01-Oct-2018 10:57:22 UTC] PHP Notice:  Undefined variable: tour_info in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 19
+[01-Oct-2018 10:57:22 UTC] PHP Stack trace:
+[01-Oct-2018 10:57:22 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Oct-2018 10:57:22 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Oct-2018 10:57:22 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:74
+[01-Oct-2018 10:57:22 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/flights.php on line 14
+[01-Oct-2018 10:57:22 UTC] PHP Stack trace:
+[01-Oct-2018 10:57:22 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Oct-2018 10:57:22 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Oct-2018 10:57:22 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:74
+[01-Oct-2018 10:57:22 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP   7. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:19
+[01-Oct-2018 10:57:22 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP   9. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/content.php:19
+[01-Oct-2018 10:57:22 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/flights.php on line 20
+[01-Oct-2018 10:57:22 UTC] PHP Stack trace:
+[01-Oct-2018 10:57:22 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Oct-2018 10:57:22 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Oct-2018 10:57:22 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:74
+[01-Oct-2018 10:57:22 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:17
+[01-Oct-2018 10:57:22 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP   7. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:19
+[01-Oct-2018 10:57:22 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:22 UTC] PHP   9. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/content.php:19
+[01-Oct-2018 10:57:22 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:46 UTC] PHP Notice:  Undefined variable: tour_key in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 19
+[01-Oct-2018 10:57:46 UTC] PHP Stack trace:
+[01-Oct-2018 10:57:46 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Oct-2018 10:57:46 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Oct-2018 10:57:46 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Oct-2018 10:57:46 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:74
+[01-Oct-2018 10:57:46 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:17
+[01-Oct-2018 10:57:46 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Oct-2018 10:57:46 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/flights.php:14
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/content.php(19): ittour_show_template('single-tour/fli...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php(21): ittour_show_template('single-tour/con...', Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include('/var/www/synthe...')
+#5 /var/www/synthetica/magicc in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/flights.php on line 14

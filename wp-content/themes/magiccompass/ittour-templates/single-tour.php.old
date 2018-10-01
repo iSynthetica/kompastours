@@ -1,0 +1,60 @@
+<?php
+/**
+ * Display Single Tour content
+ *
+ * @package WordPress
+ * @subpackage Magiccompass/ITtour
+ * @since 1.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
+
+$is_ajax = false;
+
+if (empty($_GET['key'])) {
+    ittour_show_template('single-tour-content.php', array('tour_info' => $tour_info));
+} else {
+    $tour = ittour_tour($tour_key);
+    $tour_info = $tour->info();
+    ittour_show_template('single-tour/content.php', array('tour_info' => $tour_info));
+}
+?>
+
+<div class="wrap">
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <div class="container clearfix">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="single-tour__container">
+                            <?php
+                            if (empty($_GET['key'])) {
+                                ?>
+                                <?php ittour_show_template('single-tour-content.php', array('tour_info' => $tour_info)); ?>
+                                <?php
+                            }
+                            else {
+                                $tour_key = $_GET['key'];
+
+                                if (!$is_ajax) {
+                                    $tour = ittour_tour($tour_key);
+                                    $tour_info = $tour->info();
+                                    ?>
+                                    <?php ittour_show_template('single-tour/content.php', array('tour_info' => $tour_info)); ?>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <?php ittour_show_template('single-tour/content-ajax.php', array('tour_key' => $tour_key)); ?>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

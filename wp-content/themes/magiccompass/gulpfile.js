@@ -72,6 +72,8 @@ const SOURCE = {
         MODULES + '/@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}',
 
         VENDORS + '/Datedropper3/src/**/*.{ttf,woff,woff2,eot,svg}',
+
+        VENDORS + '/fontello/font/**/*.{ttf,woff,woff2,eot,svg}',
     ],
 
     // Scss files will be concantonated, minified if ran with --production
