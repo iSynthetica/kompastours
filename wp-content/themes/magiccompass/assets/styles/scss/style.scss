@@ -1,0 +1,30 @@
+/******************************************************************
+
+Stylesheet: Main Stylesheet
+
+Here's where the magic happens. Here is where you import
+all of your Sass files so they can compile into one
+CSS file.
+
+******************************************************************/
+@import "variables";
+
+/* Bootstrap */
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+/* Fontawesome */
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
+
+/* Theme styles */
+@import "theme-settings";
+@import "theme-functions";
+@import "theme-mixins";
+
+@import "site";
+@import "header";
+@import "footer";
+@import "navigation";
