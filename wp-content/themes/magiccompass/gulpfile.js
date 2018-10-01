@@ -17,13 +17,14 @@ const LOCAL_URL = 'http://jointswp-github.dev/';
 // Set path to Foundation files
 const MODULES = 'node_modules';
 const VENDORS = 'assets/vendors';
+const BOOTSTRAP = MODULES + '/bootstrap';
 // const BOOTSTRAP = MODULES + '/bootstrap-sass';
 
 // Select Foundation components, remove components project will not use
 const SOURCE = {
     scripts: [
 
-        BOOTSTRAP + '/assets/javascripts/bootstrap.js',
+        BOOTSTRAP + '/dist/js/bootstrap.js',
 
         // Jrespond
         MODULES + '/jrespond/js/jRespond.js',
@@ -31,12 +32,46 @@ const SOURCE = {
         // BlockUI
         VENDORS + '/jquery-blockui/jquery.blockUI.min.js',
 
+        VENDORS + '/retina-replace-js/retina-repalce.js',
+
+        MODULES + '/jquery-parallax.js/parallax.js',
+
+        MODULES + '/magnific-popup/dist/jquery.magnific-popup.js',
+
+        MODULES + '/wowjs/dist/wow.js',
+
+        MODULES + '/ion-rangeslider/js/ion.rangeSlider.js',
+
+        VENDORS + '/rAF.js',
+
+        VENDORS + '/footer-reveal/footer-reveal.js',
+
+        VENDORS + '/bootstrap-notify/bootstrap-notify.js',
+
+        VENDORS + '/Datedropper3/datedropper.js',
+
+        VENDORS + '/timedropper/timedropper.js',
+
+        MODULES + '/owl.carousel/dist/owl.carousel.js',
+
+        VENDORS + '/showpassword.js',
+
+        MODULES + '/owl.carousel/dist/owl.carousel.js',
+
+        VENDORS + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
+
+        VENDORS + '/bootstrap-timepicker/js/bootstrap-timepicker.js',
+
+        VENDORS + '/icheck/icheck.js',
+
         // Place custom JS here, files will be concantonated, minified if ran with --production
         'assets/scripts/js/**/*.js',
     ],
 
     fonts: [
-        MODULES + '/@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}'
+        MODULES + '/@fortawesome/fontawesome-free/webfonts/**/*.{ttf,woff,woff2,eot,svg}',
+
+        VENDORS + '/Datedropper3/src/**/*.{ttf,woff,woff2,eot,svg}',
     ],
 
     // Scss files will be concantonated, minified if ran with --production

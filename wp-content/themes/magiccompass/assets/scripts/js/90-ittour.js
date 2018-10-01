@@ -9,7 +9,6 @@
 
     $(window).on('load', function () {
         // block($('#tour-flights'));
-
         ittourLoadSingleTour();
     });
 
@@ -24,6 +23,10 @@
     function ittourLoadSingleTour() {
         var tourHolder = $('.single-tour__ajax'),
             tourKey = tourHolder.data('tourKey');
+
+        if (0 === tourHolder.length) {
+            return;
+        }
 
 
         $.post(
@@ -58,7 +61,7 @@
      */
     function is_blocked( $node ) {
         return $node.is( '.processing' ) || $node.parents( '.processing' ).length;
-    };
+    }
 
     /**
      * Block a node visually for processing.
@@ -75,7 +78,7 @@
                 }
             } );
         }
-    };
+    }
 
     /**
      * Unblock a node after processing is complete.
@@ -84,7 +87,7 @@
      */
     function unblock( $node ) {
         $node.removeClass( 'processing' ).unblock();
-    };
+    }
 
     /**
      *

@@ -26,8 +26,13 @@
     "gulp-util": "^3.0.5",
     "gulp-wp-pot": "^2.0.4",
     "imagesloaded": "^4.1.4",
+    "ion-rangeslider": "^2.2.0",
+    "jquery-parallax.js": "^1.5.0",
     "jrespond": "^1.0.0",
-    "jshint-stylish": "^2.0.0"
+    "jshint-stylish": "^2.0.0",
+    "magnific-popup": "^1.1.0",
+    "owl.carousel": "^2.3.4",
+    "wowjs": "^1.1.3"
   },
   "scripts": {
     "postinstall": "npm run build",
