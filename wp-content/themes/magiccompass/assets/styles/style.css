@@ -19304,7 +19304,6 @@ input.qty2 {
 
 .numbers-alt {
   position: relative;
-  width: 80px;
   height: 40px;
   overflow: visible; }
   .numbers-alt.list {
@@ -19316,40 +19315,51 @@ input.qty2 {
     -webkit-appearance: none; }
   .numbers-alt input[type="number"] {
     -moz-appearance: textfield; }
-  .numbers-alt input[type="number"] {
-    width: 2.5rem;
-    left: 1.25rem; }
   .numbers-alt .buttons_inc {
     cursor: pointer;
     position: absolute;
     width: 20px;
-    height: 40px;
     z-index: 9;
-    line-height: 2.5rem;
     text-align: center;
     border: none;
-    top: 0;
-    font-size: 1rem;
-    color: #83c99f; }
-    .numbers-alt .buttons_inc.decr {
-      left: 0; }
-    .numbers-alt .buttons_inc.incr {
-      right: 0; }
+    font-size: 0.6875rem;
+    color: #FFFFFF;
+    background-color: #83c99f;
+    transition: all 0.5s; }
+    .numbers-alt .buttons_inc:hover {
+      background-color: #67bd89; }
+  .numbers-alt.numbers-gor {
+    width: 80px; }
+    .numbers-alt.numbers-gor input[type="number"] {
+      width: 2.5rem;
+      left: 1.25rem;
+      border-radius: 0; }
+    .numbers-alt.numbers-gor .buttons_inc {
+      height: 40px;
+      line-height: 2.5rem; }
+      .numbers-alt.numbers-gor .buttons_inc.decr {
+        border-radius: 0.1875rem 0 0 0.1875rem;
+        top: 0;
+        left: 0; }
+      .numbers-alt.numbers-gor .buttons_inc.incr {
+        border-radius: 0 0.1875rem 0.1875rem 0;
+        top: 0;
+        right: 0; }
   .numbers-alt.numbers-ver {
     width: 60px; }
     .numbers-alt.numbers-ver input[type="number"] {
       width: 2.5rem;
-      left: 0; }
+      left: 0;
+      border-radius: 0.1875rem 0 0 0.1875rem; }
     .numbers-alt.numbers-ver .buttons_inc {
       height: 20px;
-      color: #83c99f;
       line-height: 1.25rem; }
       .numbers-alt.numbers-ver .buttons_inc.decr {
+        border-radius: 0 0 0.1875rem 0;
         bottom: 0;
-        top: auto;
-        left: auto;
         right: 0; }
       .numbers-alt.numbers-ver .buttons_inc.incr {
+        border-radius: 0 0.1875rem 0 0;
         top: 0;
         right: 0; }
 
@@ -19716,17 +19726,16 @@ ul.list_icons li i {
   text-align: center;
   cursor: pointer;
   color: #F66 !important; }
-
-.wishlist_close:before {
-  font-style: normal;
-  font-weight: normal;
-  font-family: "icon_set_1";
-  font-size: 30px;
-  content: "\72";
-  color: #F66;
-  position: absolute;
-  left: 0;
-  top: 3px; }
+  .wishlist_close:before {
+    font-style: normal;
+    font-weight: normal;
+    font-family: "icon_set_1";
+    font-size: 30px;
+    content: "\72";
+    color: #F66;
+    position: absolute;
+    left: 0;
+    top: 3px; }
 
 /*-------- 3.2 Map listing --------*/
 .marker_info_2 {

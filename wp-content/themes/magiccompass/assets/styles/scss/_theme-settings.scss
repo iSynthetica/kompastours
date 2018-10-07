@@ -19,6 +19,9 @@ $color-theme-alt: #A29F15;
 $color-green: #83c99f;
 $color-red: #e04f67;
 
+$color-green-darken: darken($color-green, 8%);
+$color-red-darken: darken($color-red, 8%);
+
 $color-amazon: #ff9900;
 $color-facebook: #3e5b98;
 $color-facebook-messenger: #0084ff;

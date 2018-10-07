@@ -21999,6 +21999,11 @@ $.fn.repeater = function (fig) {
         $('.repeater').repeater({
             initEmpty: true
         });
+
+        $('input.date-pick').datepicker({
+            setDate: 'today',
+            startDate: '+1d'
+        });
     });
 
 

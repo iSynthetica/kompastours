@@ -1136,7 +1136,6 @@ input.qty2 {
 
 .numbers-alt {
     position: relative;
-    width: 80px;
     height: 40px;
     overflow: visible;
     &.list {
@@ -1151,48 +1150,70 @@ input.qty2 {
     input[type="number"] {
         -moz-appearance: textfield;
     }
-    input[type="number"] {
-        width: rem-calc(40);
-        left: rem-calc(20);
-    }
     .buttons_inc {
         cursor: pointer;
         position: absolute;
         width: 20px;
-        height: 40px;
         z-index: 9;
-        line-height: rem-calc(40);
         text-align: center;
         border: none;
-        top: 0;
-        font-size: rem-calc(16);
-        color: $color-green;
-        &.decr {
-            left: 0;
-        }
+        font-size: rem-calc(11);
+        color: $color-white;
+        background-color: $color-green;
+        transition: all 0.5s;
 
-        &.incr {
-            right: 0;
+        &:hover {
+            background-color: $color-green-darken;
         }
     }
+
+    &.numbers-gor {
+        width: 80px;
+
+        input[type="number"] {
+            width: rem-calc(40);
+            left: rem-calc(20);
+            border-radius: rem-calc(0);
+        }
+
+        .buttons_inc {
+            height: 40px;
+            line-height: rem-calc(40);
+            &.decr {
+                border-radius: rem-calc(3 0 0 3);
+                top: 0;
+                left: 0;
+            }
+
+            &.incr {
+                border-radius: rem-calc(0 3 3 0);
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+
     &.numbers-ver {
         width: 60px;
+
         input[type="number"] {
             width: rem-calc(40);
             left: 0;
+            border-radius: rem-calc(3 0 0 3);
         }
+
         .buttons_inc {
             height: 20px;
-            color: $color-green;
             line-height: rem-calc(20);
+
             &.decr {
+                border-radius: rem-calc(0 0 3 0);
                 bottom: 0;
-                top: auto;
-                left: auto;
                 right: 0;
             }
 
             &.incr {
+                border-radius: rem-calc(0 3 0 0);
                 top: 0;
                 right: 0;
             }
@@ -1646,18 +1667,18 @@ ul.list_icons li i {
     text-align: center;
     cursor: pointer;
     color: #F66 !important;
-}
 
-.wishlist_close:before {
-    font-style: normal;
-    font-weight: normal;
-    font-family: "icon_set_1";
-    font-size: 30px;
-    content: "\72";
-    color: #F66;
-    position: absolute;
-    left: 0;
-    top: 3px;
+    &:before {
+        font-style: normal;
+        font-weight: normal;
+        font-family: "icon_set_1";
+        font-size: 30px;
+        content: "\72";
+        color: #F66;
+        position: absolute;
+        left: 0;
+        top: 3px;
+    }
 }
 
 /*-------- 3.2 Map listing --------*/
