@@ -13,18 +13,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo $tour_info['hotel_info']['images'][0]['full'] ?>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-2">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
-                    <h1>Mariott Hotel</h1>
-                    <span>Champ de Mars, 5 Avenue Anatole, 75007 Paris.</span>
+                    <span class="rating">
+                        <?php echo ittour_get_hotel_rating_by_id($tour_info['hotel_rating']); ?>
+                    </span>
+
+                    <h1><?php echo $tour_info['hotel']; ?></h1>
+
+                    <span><?php echo $tour_info['country'] . ', ' .$tour_info['region']; ?></span>
                 </div>
                 <div class="col-md-4">
                     <div id="price_single_main" class="hotel">
-                        from/per night <span><sup>$</sup>95</span>
+                        <span><sup><?php echo ittour_get_currency_by_id($tour_info['currency_id']); ?></sup><?php echo $tour_info['price'] ?></span>
                     </div>
                 </div>
             </div>
@@ -63,9 +67,38 @@ if ( ! defined( 'ABSPATH' ) ) {
                             </ul>
                         </div>
 
+                        <hr>
+
+                        <!-- Hotel Description - Start -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><?php _e('Flight', 'snthwp'); ?></h3>
+                            </div>
+
+                            <div class="col-12">
+                                <?php ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights'])); ?>
+                            </div>
+                        </div>
+                        <!-- Hotel Description - End -->
+
+                        <hr>
+
+                        <!-- Hotel Description - Start -->
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <h3><?php _e('Description', 'snthwp'); ?></h3>
+                            </div>
+
+                            <div class="col-lg-9">
+                                <?php ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
+                            </div>
+                        </div>
+                        <!-- Hotel Description - End -->
+
                     </div>
                 </div>
             </div>
+
             <?php ittour_show_template('single-tour/content.php', array('tour_info' => $tour_info)); ?>
         </main>
     </div>

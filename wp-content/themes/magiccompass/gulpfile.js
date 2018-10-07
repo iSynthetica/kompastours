@@ -54,6 +54,8 @@ const SOURCE = {
 
         MODULES + '/owl.carousel/dist/owl.carousel.js',
 
+        MODULES + '/jquery.repeater/jquery.repeater.js',
+
         VENDORS + '/showpassword.js',
 
         MODULES + '/owl.carousel/dist/owl.carousel.js',
@@ -63,6 +65,8 @@ const SOURCE = {
         VENDORS + '/bootstrap-timepicker/js/bootstrap-timepicker.js',
 
         VENDORS + '/icheck/icheck.js',
+
+        VENDORS + '/ddslick/jquery.ddslick.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production
         'assets/scripts/js/**/*.js',

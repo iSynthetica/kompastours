@@ -106,7 +106,7 @@ function itour_get_country_field($params) {
     return ob_get_clean();
 }
 
-function itour_get_adult_amount_field($params) {
+function itour_get_adult_amount_field() {
     ob_start();
     ?>
     <input type="number" name="adult_amount" class="form-control" min="1" max="4" value="2">

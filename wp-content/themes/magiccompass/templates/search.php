@@ -14,9 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php get_header(); ?>
 
-<?php snth_show_template('content/search.php', array(
-    'template' => 'no-sidebar',
-    'content' => 'loop',
-)) ?>
+<?php ittour_show_template('search-results.php') ?>
 
 <?php get_footer(); ?>

@@ -16076,6 +16076,1022 @@ $.magnificPopup.registerModule(RETINA_NS, {
 
 })(window.Zepto || window.jQuery, window, document);
 
+// jquery.repeater version 1.2.1
+// https://github.com/DubFriend/jquery.repeater
+// (MIT) 09-10-2016
+// Brian Detering <BDeterin@gmail.com> (http://www.briandetering.net/)
+(function ($) {
+'use strict';
+
+var identity = function (x) {
+    return x;
+};
+
+var isArray = function (value) {
+    return $.isArray(value);
+};
+
+var isObject = function (value) {
+    return !isArray(value) && (value instanceof Object);
+};
+
+var isNumber = function (value) {
+    return value instanceof Number;
+};
+
+var isFunction = function (value) {
+    return value instanceof Function;
+};
+
+var indexOf = function (object, value) {
+    return $.inArray(value, object);
+};
+
+var inArray = function (array, value) {
+    return indexOf(array, value) !== -1;
+};
+
+var foreach = function (collection, callback) {
+    for(var i in collection) {
+        if(collection.hasOwnProperty(i)) {
+            callback(collection[i], i, collection);
+        }
+    }
+};
+
+
+var last = function (array) {
+    return array[array.length - 1];
+};
+
+var argumentsToArray = function (args) {
+    return Array.prototype.slice.call(args);
+};
+
+var extend = function () {
+    var extended = {};
+    foreach(argumentsToArray(arguments), function (o) {
+        foreach(o, function (val, key) {
+            extended[key] = val;
+        });
+    });
+    return extended;
+};
+
+var mapToArray = function (collection, callback) {
+    var mapped = [];
+    foreach(collection, function (value, key, coll) {
+        mapped.push(callback(value, key, coll));
+    });
+    return mapped;
+};
+
+var mapToObject = function (collection, callback, keyCallback) {
+    var mapped = {};
+    foreach(collection, function (value, key, coll) {
+        key = keyCallback ? keyCallback(key, value) : key;
+        mapped[key] = callback(value, key, coll);
+    });
+    return mapped;
+};
+
+var map = function (collection, callback, keyCallback) {
+    return isArray(collection) ?
+        mapToArray(collection, callback) :
+        mapToObject(collection, callback, keyCallback);
+};
+
+var pluck = function (arrayOfObjects, key) {
+    return map(arrayOfObjects, function (val) {
+        return val[key];
+    });
+};
+
+var filter = function (collection, callback) {
+    var filtered;
+
+    if(isArray(collection)) {
+        filtered = [];
+        foreach(collection, function (val, key, coll) {
+            if(callback(val, key, coll)) {
+                filtered.push(val);
+            }
+        });
+    }
+    else {
+        filtered = {};
+        foreach(collection, function (val, key, coll) {
+            if(callback(val, key, coll)) {
+                filtered[key] = val;
+            }
+        });
+    }
+
+    return filtered;
+};
+
+var call = function (collection, functionName, args) {
+    return map(collection, function (object, name) {
+        return object[functionName].apply(object, args || []);
+    });
+};
+
+//execute callback immediately and at most one time on the minimumInterval,
+//ignore block attempts
+var throttle = function (minimumInterval, callback) {
+    var timeout = null;
+    return function () {
+        var that = this, args = arguments;
+        if(timeout === null) {
+            timeout = setTimeout(function () {
+                timeout = null;
+            }, minimumInterval);
+            callback.apply(that, args);
+        }
+    };
+};
+
+
+var mixinPubSub = function (object) {
+    object = object || {};
+    var topics = {};
+
+    object.publish = function (topic, data) {
+        foreach(topics[topic], function (callback) {
+            callback(data);
+        });
+    };
+
+    object.subscribe = function (topic, callback) {
+        topics[topic] = topics[topic] || [];
+        topics[topic].push(callback);
+    };
+
+    object.unsubscribe = function (callback) {
+        foreach(topics, function (subscribers) {
+            var index = indexOf(subscribers, callback);
+            if(index !== -1) {
+                subscribers.splice(index, 1);
+            }
+        });
+    };
+
+    return object;
+};
+
+// jquery.input version 0.0.0
+// https://github.com/DubFriend/jquery.input
+// (MIT) 09-04-2014
+// Brian Detering <BDeterin@gmail.com> (http://www.briandetering.net/)
+(function ($) {
+'use strict';
+
+var createBaseInput = function (fig, my) {
+    var self = mixinPubSub(),
+        $self = fig.$;
+
+    self.getType = function () {
+        throw 'implement me (return type. "text", "radio", etc.)';
+    };
+
+    self.$ = function (selector) {
+        return selector ? $self.find(selector) : $self;
+    };
+
+    self.disable = function () {
+        self.$().prop('disabled', true);
+        self.publish('isEnabled', false);
+    };
+
+    self.enable = function () {
+        self.$().prop('disabled', false);
+        self.publish('isEnabled', true);
+    };
+
+    my.equalTo = function (a, b) {
+        return a === b;
+    };
+
+    my.publishChange = (function () {
+        var oldValue;
+        return function (e, domElement) {
+            var newValue = self.get();
+            if(!my.equalTo(newValue, oldValue)) {
+                self.publish('change', { e: e, domElement: domElement });
+            }
+            oldValue = newValue;
+        };
+    }());
+
+    return self;
+};
+
+
+var createInput = function (fig, my) {
+    var self = createBaseInput(fig, my);
+
+    self.get = function () {
+        return self.$().val();
+    };
+
+    self.set = function (newValue) {
+        self.$().val(newValue);
+    };
+
+    self.clear = function () {
+        self.set('');
+    };
+
+    my.buildSetter = function (callback) {
+        return function (newValue) {
+            callback.call(self, newValue);
+        };
+    };
+
+    return self;
+};
+
+var inputEqualToArray = function (a, b) {
+    a = isArray(a) ? a : [a];
+    b = isArray(b) ? b : [b];
+
+    var isEqual = true;
+    if(a.length !== b.length) {
+        isEqual = false;
+    }
+    else {
+        foreach(a, function (value) {
+            if(!inArray(b, value)) {
+                isEqual = false;
+            }
+        });
+    }
+
+    return isEqual;
+};
+
+var createInputButton = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'button';
+    };
+
+    self.$().on('change', function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputCheckbox = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'checkbox';
+    };
+
+    self.get = function () {
+        var values = [];
+        self.$().filter(':checked').each(function () {
+            values.push($(this).val());
+        });
+        return values;
+    };
+
+    self.set = function (newValues) {
+        newValues = isArray(newValues) ? newValues : [newValues];
+
+        self.$().each(function () {
+            $(this).prop('checked', false);
+        });
+
+        foreach(newValues, function (value) {
+            self.$().filter('[value="' + value + '"]')
+                .prop('checked', true);
+        });
+    };
+
+    my.equalTo = inputEqualToArray;
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputEmail = function (fig) {
+    var my = {},
+        self = createInputText(fig, my);
+
+    self.getType = function () {
+        return 'email';
+    };
+
+    return self;
+};
+
+var createInputFile = function (fig) {
+    var my = {},
+        self = createBaseInput(fig, my);
+
+    self.getType = function () {
+        return 'file';
+    };
+
+    self.get = function () {
+        return last(self.$().val().split('\\'));
+    };
+
+    self.clear = function () {
+        // http://stackoverflow.com/questions/1043957/clearing-input-type-file-using-jquery
+        this.$().each(function () {
+            $(this).wrap('<form>').closest('form').get(0).reset();
+            $(this).unwrap();
+        });
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+        // self.publish('change', self);
+    });
+
+    return self;
+};
+
+var createInputHidden = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'hidden';
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+var createInputMultipleFile = function (fig) {
+    var my = {},
+        self = createBaseInput(fig, my);
+
+    self.getType = function () {
+        return 'file[multiple]';
+    };
+
+    self.get = function () {
+        // http://stackoverflow.com/questions/14035530/how-to-get-value-of-html-5-multiple-file-upload-variable-using-jquery
+        var fileListObject = self.$().get(0).files || [],
+            names = [], i;
+
+        for(i = 0; i < (fileListObject.length || 0); i += 1) {
+            names.push(fileListObject[i].name);
+        }
+
+        return names;
+    };
+
+    self.clear = function () {
+        // http://stackoverflow.com/questions/1043957/clearing-input-type-file-using-jquery
+        this.$().each(function () {
+            $(this).wrap('<form>').closest('form').get(0).reset();
+            $(this).unwrap();
+        });
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputMultipleSelect = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'select[multiple]';
+    };
+
+    self.get = function () {
+        return self.$().val() || [];
+    };
+
+    self.set = function (newValues) {
+        self.$().val(
+            newValues === '' ? [] : isArray(newValues) ? newValues : [newValues]
+        );
+    };
+
+    my.equalTo = inputEqualToArray;
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputPassword = function (fig) {
+    var my = {},
+        self = createInputText(fig, my);
+
+    self.getType = function () {
+        return 'password';
+    };
+
+    return self;
+};
+
+var createInputRadio = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'radio';
+    };
+
+    self.get = function () {
+        return self.$().filter(':checked').val() || null;
+    };
+
+    self.set = function (newValue) {
+        if(!newValue) {
+            self.$().each(function () {
+                $(this).prop('checked', false);
+            });
+        }
+        else {
+            self.$().filter('[value="' + newValue + '"]').prop('checked', true);
+        }
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputRange = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'range';
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputSelect = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'select';
+    };
+
+    self.$().change(function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputText = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'text';
+    };
+
+    self.$().on('change keyup keydown', function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputTextarea = function (fig) {
+    var my = {},
+        self = createInput(fig, my);
+
+    self.getType = function () {
+        return 'textarea';
+    };
+
+    self.$().on('change keyup keydown', function (e) {
+        my.publishChange(e, this);
+    });
+
+    return self;
+};
+
+var createInputURL = function (fig) {
+    var my = {},
+        self = createInputText(fig, my);
+
+    self.getType = function () {
+        return 'url';
+    };
+
+    return self;
+};
+
+var buildFormInputs = function (fig) {
+    var inputs = {},
+        $self = fig.$;
+
+    var constructor = fig.constructorOverride || {
+        button: createInputButton,
+        text: createInputText,
+        url: createInputURL,
+        email: createInputEmail,
+        password: createInputPassword,
+        range: createInputRange,
+        textarea: createInputTextarea,
+        select: createInputSelect,
+        'select[multiple]': createInputMultipleSelect,
+        radio: createInputRadio,
+        checkbox: createInputCheckbox,
+        file: createInputFile,
+        'file[multiple]': createInputMultipleFile,
+        hidden: createInputHidden
+    };
+
+    var addInputsBasic = function (type, selector) {
+        var $input = isObject(selector) ? selector : $self.find(selector);
+
+        $input.each(function () {
+            var name = $(this).attr('name');
+            inputs[name] = constructor[type]({
+                $: $(this)
+            });
+        });
+    };
+
+    var addInputsGroup = function (type, selector) {
+        var names = [],
+            $input = isObject(selector) ? selector : $self.find(selector);
+
+        if(isObject(selector)) {
+            inputs[$input.attr('name')] = constructor[type]({
+                $: $input
+            });
+        }
+        else {
+            // group by name attribute
+            $input.each(function () {
+                if(indexOf(names, $(this).attr('name')) === -1) {
+                    names.push($(this).attr('name'));
+                }
+            });
+
+            foreach(names, function (name) {
+                inputs[name] = constructor[type]({
+                    $: $self.find('input[name="' + name + '"]')
+                });
+            });
+        }
+    };
+
+
+    if($self.is('input, select, textarea')) {
+        if($self.is('input[type="button"], button, input[type="submit"]')) {
+            addInputsBasic('button', $self);
+        }
+        else if($self.is('textarea')) {
+            addInputsBasic('textarea', $self);
+        }
+        else if(
+            $self.is('input[type="text"]') ||
+            $self.is('input') && !$self.attr('type')
+        ) {
+            addInputsBasic('text', $self);
+        }
+        else if($self.is('input[type="password"]')) {
+            addInputsBasic('password', $self);
+        }
+        else if($self.is('input[type="email"]')) {
+            addInputsBasic('email', $self);
+        }
+        else if($self.is('input[type="url"]')) {
+            addInputsBasic('url', $self);
+        }
+        else if($self.is('input[type="range"]')) {
+            addInputsBasic('range', $self);
+        }
+        else if($self.is('select')) {
+            if($self.is('[multiple]')) {
+                addInputsBasic('select[multiple]', $self);
+            }
+            else {
+                addInputsBasic('select', $self);
+            }
+        }
+        else if($self.is('input[type="file"]')) {
+            if($self.is('[multiple]')) {
+                addInputsBasic('file[multiple]', $self);
+            }
+            else {
+                addInputsBasic('file', $self);
+            }
+        }
+        else if($self.is('input[type="hidden"]')) {
+            addInputsBasic('hidden', $self);
+        }
+        else if($self.is('input[type="radio"]')) {
+            addInputsGroup('radio', $self);
+        }
+        else if($self.is('input[type="checkbox"]')) {
+            addInputsGroup('checkbox', $self);
+        }
+        else {
+            //in all other cases default to a "text" input interface.
+            addInputsBasic('text', $self);
+        }
+    }
+    else {
+        addInputsBasic('button', 'input[type="button"], button, input[type="submit"]');
+        addInputsBasic('text', 'input[type="text"]');
+        addInputsBasic('password', 'input[type="password"]');
+        addInputsBasic('email', 'input[type="email"]');
+        addInputsBasic('url', 'input[type="url"]');
+        addInputsBasic('range', 'input[type="range"]');
+        addInputsBasic('textarea', 'textarea');
+        addInputsBasic('select', 'select:not([multiple])');
+        addInputsBasic('select[multiple]', 'select[multiple]');
+        addInputsBasic('file', 'input[type="file"]:not([multiple])');
+        addInputsBasic('file[multiple]', 'input[type="file"][multiple]');
+        addInputsBasic('hidden', 'input[type="hidden"]');
+        addInputsGroup('radio', 'input[type="radio"]');
+        addInputsGroup('checkbox', 'input[type="checkbox"]');
+    }
+
+    return inputs;
+};
+
+$.fn.inputVal = function (newValue) {
+    var $self = $(this);
+
+    var inputs = buildFormInputs({ $: $self });
+
+    if($self.is('input, textarea, select')) {
+        if(typeof newValue === 'undefined') {
+            return inputs[$self.attr('name')].get();
+        }
+        else {
+            inputs[$self.attr('name')].set(newValue);
+            return $self;
+        }
+    }
+    else {
+        if(typeof newValue === 'undefined') {
+            return call(inputs, 'get');
+        }
+        else {
+            foreach(newValue, function (value, inputName) {
+                inputs[inputName].set(value);
+            });
+            return $self;
+        }
+    }
+};
+
+$.fn.inputOnChange = function (callback) {
+    var $self = $(this);
+    var inputs = buildFormInputs({ $: $self });
+    foreach(inputs, function (input) {
+        input.subscribe('change', function (data) {
+            callback.call(data.domElement, data.e);
+        });
+    });
+    return $self;
+};
+
+$.fn.inputDisable = function () {
+    var $self = $(this);
+    call(buildFormInputs({ $: $self }), 'disable');
+    return $self;
+};
+
+$.fn.inputEnable = function () {
+    var $self = $(this);
+    call(buildFormInputs({ $: $self }), 'enable');
+    return $self;
+};
+
+$.fn.inputClear = function () {
+    var $self = $(this);
+    call(buildFormInputs({ $: $self }), 'clear');
+    return $self;
+};
+
+}(jQuery));
+
+$.fn.repeaterVal = function () {
+    var parse = function (raw) {
+        var parsed = [];
+
+        foreach(raw, function (val, key) {
+            var parsedKey = [];
+            if(key !== "undefined") {
+                parsedKey.push(key.match(/^[^\[]*/)[0]);
+                parsedKey = parsedKey.concat(map(
+                    key.match(/\[[^\]]*\]/g),
+                    function (bracketed) {
+                        return bracketed.replace(/[\[\]]/g, '');
+                    }
+                ));
+
+                parsed.push({
+                    val: val,
+                    key: parsedKey
+                });
+            }
+        });
+
+        return parsed;
+    };
+
+    var build = function (parsed) {
+        if(
+            parsed.length === 1 &&
+            (parsed[0].key.length === 0 || parsed[0].key.length === 1 && !parsed[0].key[0])
+        ) {
+            return parsed[0].val;
+        }
+
+        foreach(parsed, function (p) {
+            p.head = p.key.shift();
+        });
+
+        var grouped = (function () {
+            var grouped = {};
+
+            foreach(parsed, function (p) {
+                if(!grouped[p.head]) {
+                    grouped[p.head] = [];
+                }
+                grouped[p.head].push(p);
+            });
+
+            return grouped;
+        }());
+
+        var built;
+
+        if(/^[0-9]+$/.test(parsed[0].head)) {
+            built = [];
+            foreach(grouped, function (group) {
+                built.push(build(group));
+            });
+        }
+        else {
+            built = {};
+            foreach(grouped, function (group, key) {
+                built[key] = build(group);
+            });
+        }
+
+        return built;
+    };
+
+    return build(parse($(this).inputVal()));
+};
+
+$.fn.repeater = function (fig) {
+    fig = fig || {};
+
+    var setList;
+
+    $(this).each(function () {
+
+        var $self = $(this);
+
+        var show = fig.show || function () {
+            $(this).show();
+        };
+
+        var hide = fig.hide || function (removeElement) {
+            removeElement();
+        };
+
+        var $list = $self.find('[data-repeater-list]').first();
+
+        var $filterNested = function ($items, repeaters) {
+            return $items.filter(function () {
+                return repeaters ?
+                    $(this).closest(
+                        pluck(repeaters, 'selector').join(',')
+                    ).length === 0 : true;
+            });
+        };
+
+        var $items = function () {
+            return $filterNested($list.find('[data-repeater-item]'), fig.repeaters);
+        };
+
+        var $itemTemplate = $list.find('[data-repeater-item]')
+                                 .first().clone().hide();
+
+        var $firstDeleteButton = $filterNested(
+            $filterNested($(this).find('[data-repeater-item]'), fig.repeaters)
+            .first().find('[data-repeater-delete]'),
+            fig.repeaters
+        );
+
+        if(fig.isFirstItemUndeletable && $firstDeleteButton) {
+            $firstDeleteButton.remove();
+        }
+
+        var getGroupName = function () {
+            var groupName = $list.data('repeater-list');
+            return fig.$parent ?
+                fig.$parent.data('item-name') + '[' + groupName + ']' :
+                groupName;
+        };
+
+        var initNested = function ($listItems) {
+            if(fig.repeaters) {
+                $listItems.each(function () {
+                    var $item = $(this);
+                    foreach(fig.repeaters, function (nestedFig) {
+                        $item.find(nestedFig.selector).repeater(extend(
+                            nestedFig, { $parent: $item }
+                        ));
+                    });
+                });
+            }
+        };
+
+        var $foreachRepeaterInItem = function (repeaters, $item, cb) {
+            if(repeaters) {
+                foreach(repeaters, function (nestedFig) {
+                    cb.call($item.find(nestedFig.selector)[0], nestedFig);
+                });
+            }
+        };
+
+        var setIndexes = function ($items, groupName, repeaters) {
+            $items.each(function (index) {
+                var $item = $(this);
+                $item.data('item-name', groupName + '[' + index + ']');
+                $filterNested($item.find('[name]'), repeaters)
+                .each(function () {
+                    var $input = $(this);
+                    // match non empty brackets (ex: "[foo]")
+                    var matches = $input.attr('name').match(/\[[^\]]+\]/g);
+
+                    var name = matches ?
+                        // strip "[" and "]" characters
+                        last(matches).replace(/\[|\]/g, '') :
+                        $input.attr('name');
+
+
+                    var newName = groupName + '[' + index + '][' + name + ']' +
+                        ($input.is(':checkbox') || $input.attr('multiple') ? '[]' : '');
+
+                    $input.attr('name', newName);
+
+                    $foreachRepeaterInItem(repeaters, $item, function (nestedFig) {
+                        var $repeater = $(this);
+                        setIndexes(
+                            $filterNested($repeater.find('[data-repeater-item]'), nestedFig.repeaters || []),
+                            groupName + '[' + index + ']' +
+                                        '[' + $repeater.find('[data-repeater-list]').first().data('repeater-list') + ']',
+                            nestedFig.repeaters
+                        );
+                    });
+                });
+            });
+
+            $list.find('input[name][checked]')
+                .removeAttr('checked')
+                .prop('checked', true);
+        };
+
+        setIndexes($items(), getGroupName(), fig.repeaters);
+        initNested($items());
+        if(fig.initEmpty) {
+            $items().remove();
+        }
+
+        if(fig.ready) {
+            fig.ready(function () {
+                setIndexes($items(), getGroupName(), fig.repeaters);
+            });
+        }
+
+        var appendItem = (function () {
+            var setItemsValues = function ($item, data, repeaters) {
+                if(data || fig.defaultValues) {
+                    var inputNames = {};
+                    $filterNested($item.find('[name]'), repeaters).each(function () {
+                        var key = $(this).attr('name').match(/\[([^\]]*)(\]|\]\[\])$/)[1];
+                        inputNames[key] = $(this).attr('name');
+                    });
+
+                    $item.inputVal(map(
+                        filter(data || fig.defaultValues, function (val, name) {
+                            return inputNames[name];
+                        }),
+                        identity,
+                        function (name) {
+                            return inputNames[name];
+                        }
+                    ));
+                }
+
+
+                $foreachRepeaterInItem(repeaters, $item, function (nestedFig) {
+                    var $repeater = $(this);
+                    $filterNested(
+                        $repeater.find('[data-repeater-item]'),
+                        nestedFig.repeaters
+                    )
+                    .each(function () {
+                        var fieldName = $repeater.find('[data-repeater-list]').data('repeater-list');
+                        if(data && data[fieldName]) {
+                            var $template = $(this).clone();
+                            $repeater.find('[data-repeater-item]').remove();
+                            foreach(data[fieldName], function (data) {
+                                var $item = $template.clone();
+                                setItemsValues(
+                                    $item,
+                                    data,
+                                    nestedFig.repeaters || []
+                                );
+                                $repeater.find('[data-repeater-list]').append($item);
+                            });
+                        }
+                        else {
+                            setItemsValues(
+                                $(this),
+                                nestedFig.defaultValues,
+                                nestedFig.repeaters || []
+                            );
+                        }
+                    });
+                });
+
+            };
+
+            return function ($item, data) {
+                $list.append($item);
+                setIndexes($items(), getGroupName(), fig.repeaters);
+                $item.find('[name]').each(function () {
+                    $(this).inputClear();
+                });
+                setItemsValues($item, data || fig.defaultValues, fig.repeaters);
+            };
+        }());
+
+        var addItem = function (data) {
+            var $item = $itemTemplate.clone();
+            appendItem($item, data);
+            if(fig.repeaters) {
+                initNested($item);
+            }
+            show.call($item.get(0));
+        };
+
+        setList = function (rows) {
+            $items().remove();
+            foreach(rows, addItem);
+        };
+
+        $filterNested($self.find('[data-repeater-create]'), fig.repeaters).click(function () {
+            addItem();
+        });
+
+        $list.on('click', '[data-repeater-delete]', function () {
+            var self = $(this).closest('[data-repeater-item]').get(0);
+            hide.call(self, function () {
+                $(self).remove();
+                setIndexes($items(), getGroupName(), fig.repeaters);
+            });
+        });
+    });
+
+    this.setList = setList;
+
+    return this;
+};
+
+}(jQuery));
 /* ====================================================================================================
   SHOW PASSWORD
 ==================================================================================================== */
@@ -20271,7 +21287,369 @@ $.magnificPopup.registerModule(RETINA_NS, {
   }
 })(window.jQuery || window.Zepto);
 
+//Title: Custom DropDown plugin by PC
+//Documentation: http://designwithpc.com/Plugins/ddslick
+//Author: PC 
+//Website: http://designwithpc.com
+//Twitter: http://twitter.com/chaudharyp
+
 (function ($) {
+
+    $.fn.ddslick = function (method) {
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exists.');
+        }
+    };
+
+    var methods = {},
+
+        //Set defauls for the control
+        defaults = {
+            data: [],
+            keepJSONItemsOnTop: false,
+            width: '100%',
+            height: null,
+            background: "#fff",
+            selectText: "",
+            defaultSelectedIndex: null,
+            truncateDescription: true,
+            imagePosition: "left",
+            showSelectedHTML: true,
+            clickOffToClose: true,
+            onSelected: function () { }
+        },
+
+        ddSelectHtml = '<div class="dd-select"><input class="dd-selected-value" type="hidden" /><a class="dd-selected"></a><span class="dd-pointer dd-pointer-down"></span></div>',
+        ddOptionsHtml = '<ul class="dd-options"></ul>',
+
+        //CSS for ddSlick
+        ddslickCSS = '<style id="css-ddslick" type="text/css">' +
+            '.dd-select{ border-radius:4px; border:solid 1px #ccc; position:relative; cursor:pointer; }' +
+            '.dd-desc { color:#aaa; display:block; overflow: hidden; font-weight:normal; line-height: 1em; }' +
+            '.dd-selected{ overflow:hidden; display:block; padding:10px; font-weight:normal;}' +
+            '.dd-pointer{ width:0; height:0; position:absolute; right:10px; top:50%; margin-top:-3px;}' +
+            '.dd-pointer-down{ border:solid 5px transparent; border-top:solid 5px #000; }' +
+            '.dd-pointer-up{border:solid 5px transparent !important; border-bottom:solid 5px #000 !important; margin-top:-8px;}' +
+            '.dd-options{ border:solid 1px #ccc; list-style:none; box-shadow:none; display:none; position:absolute; z-index:2000; margin:5px 0 0 0; padding:0;background:#fff; overflow:auto;}' +
+            '.dd-option{ padding:10px; display:block; border-bottom:solid 1px #ddd; overflow:hidden; text-decoration:none; color:#999; cursor:pointer;-webkit-transition: all 0.25s ease-in-out; -moz-transition: all 0.25s ease-in-out;-o-transition: all 0.25s ease-in-out;-ms-transition: all 0.25s ease-in-out; }' +
+            '.dd-options > li:last-child > .dd-option{ border-bottom:none;}' +
+            '.dd-option:hover{ background:#f3f3f3; color:#000;}' +
+            '.dd-selected-description-truncated { text-overflow: ellipsis; white-space:nowrap; }' +
+            '.dd-option-selected { background:#f6f6f6; }' +
+            '.dd-option-image, .dd-selected-image { vertical-align:middle; float:left; margin-right:5px; max-width:64px;}' +
+            '.dd-image-right { float:right; margin-right:15px; margin-left:5px;}' +
+            '.dd-container{ position:relative;}​ .dd-selected-text { font-weight:normal}​</style>';
+
+    //CSS styles are only added once.
+    if ($('#css-ddslick').length <= 0) {
+        $(ddslickCSS).appendTo('head');
+    }
+
+    //Public methods
+    methods.init = function (options) {
+        //Preserve the original defaults by passing an empty object as the target
+        var options = $.extend({}, defaults, options);
+
+        //Apply on all selected elements
+        return this.each(function () {
+            var obj = $(this),
+                data = obj.data('ddslick');
+            //If the plugin has not been initialized yet
+            if (!data) {
+
+                var ddSelect = [], ddJson = options.data;
+
+                //Get data from HTML select options
+                obj.find('option').each(function () {
+                    var $this = $(this), thisData = $this.data();
+                    ddSelect.push({
+                        text: $.trim($this.text()),
+                        value: $this.val(),
+                        selected: $this.is(':selected'),
+                        description: thisData.description,
+                        imageSrc: thisData.imagesrc //keep it lowercase for HTML5 data-attributes
+                    });
+                });
+
+                //Update Plugin data merging both HTML select data and JSON data for the dropdown
+                if (options.keepJSONItemsOnTop)
+                    $.merge(options.data, ddSelect);
+                else options.data = $.merge(ddSelect, options.data);
+
+                //Replace HTML select with empty placeholder, keep the original
+                var original = obj, placeholder = $('<div id="' + obj.attr('id') + '"></div>');
+                obj.replaceWith(placeholder);
+                obj = placeholder;
+
+                //Add classes and append ddSelectHtml & ddOptionsHtml to the container
+                obj.addClass('dd-container').append(ddSelectHtml).append(ddOptionsHtml);
+
+                // Inherit name attribute from original element
+                obj.find("input.dd-selected-value").attr("name", $(original).attr("name"));
+
+                //Get newly created ddOptions and ddSelect to manipulate
+                var ddSelect = obj.find('.dd-select'),
+                    ddOptions = obj.find('.dd-options');
+
+
+
+                //Set widths
+                ddOptions.css({ width: options.width });
+                ddSelect.css({ width: options.width, background: options.background });
+                obj.css({ width: options.width });
+
+                //Set height
+                if (options.height != null)
+                    ddOptions.css({ height: options.height, overflow: 'auto' });
+
+                //Add ddOptions to the container. Replace with template engine later.
+                $.each(options.data, function (index, item) {
+                    if (item.selected) options.defaultSelectedIndex = index;
+                    ddOptions.append('<li>' +
+                        '<a class="dd-option">' +
+                        (item.value ? ' <input class="dd-option-value" type="hidden" value="' + item.value + '" />' : '') +
+                        (item.imageSrc ? ' <img class="dd-option-image' + (options.imagePosition == "right" ? ' dd-image-right' : '') + '" src="' + item.imageSrc + '" />' : '') +
+                        (item.text ? ' <label class="dd-option-text">' + item.text + '</label>' : '') +
+                        (item.description ? ' <small class="dd-option-description dd-desc">' + item.description + '</small>' : '') +
+                        '</a>' +
+                        '</li>');
+                });
+
+                //Save plugin data.
+                var pluginData = {
+                    settings: options,
+                    original: original,
+                    selectedIndex: -1,
+                    selectedItem: null,
+                    selectedData: null
+                }
+                obj.data('ddslick', pluginData);
+
+                //Check if needs to show the select text, otherwise show selected or default selection
+                if (options.selectText.length > 0 && options.defaultSelectedIndex == null) {
+                    obj.find('.dd-selected').html(options.selectText);
+                }
+                else {
+                    var index = (options.defaultSelectedIndex != null && options.defaultSelectedIndex >= 0 && options.defaultSelectedIndex < options.data.length)
+                        ? options.defaultSelectedIndex
+                        : 0;
+                    selectIndex(obj, index);
+                }
+
+                //EVENTS
+                //Displaying options
+                obj.find('.dd-select').on('click.ddslick', function () {
+                    open(obj);
+                });
+
+                //Selecting an option
+                obj.find('.dd-option').on('click.ddslick', function () {
+                    selectIndex(obj, $(this).closest('li').index());
+                });
+
+                //Click anywhere to close
+                if (options.clickOffToClose) {
+                    ddOptions.addClass('dd-click-off-close');
+                    obj.on('click.ddslick', function (e) { e.stopPropagation(); });
+                    $('body').on('click', function () {
+                        $('.dd-click-off-close').slideUp(50).siblings('.dd-select').find('.dd-pointer').removeClass('dd-pointer-up');
+                    });
+                }
+            }
+        });
+    };
+
+    //Public method to select an option by its index
+    methods.select = function (options) {
+        return this.each(function () {
+            if (options.index)
+                selectIndex($(this), options.index);
+        });
+    }
+
+    //Public method to open drop down
+    methods.open = function () {
+        return this.each(function () {
+            var $this = $(this),
+                pluginData = $this.data('ddslick');
+
+            //Check if plugin is initialized
+            if (pluginData)
+                open($this);
+        });
+    };
+
+    //Public method to close drop down
+    methods.close = function () {
+        return this.each(function () {
+            var $this = $(this),
+                pluginData = $this.data('ddslick');
+
+            //Check if plugin is initialized
+            if (pluginData)
+                close($this);
+        });
+    };
+
+    //Public method to destroy. Unbind all events and restore the original Html select/options
+    methods.destroy = function () {
+        return this.each(function () {
+            var $this = $(this),
+                pluginData = $this.data('ddslick');
+
+            //Check if already destroyed
+            if (pluginData) {
+                var originalElement = pluginData.original;
+                $this.removeData('ddslick').unbind('.ddslick').replaceWith(originalElement);
+            }
+        });
+    }
+
+    //Private: Select index
+    function selectIndex(obj, index) {
+
+        //Get plugin data
+        var pluginData = obj.data('ddslick');
+
+        //Get required elements
+        var ddSelected = obj.find('.dd-selected'),
+            ddSelectedValue = ddSelected.siblings('.dd-selected-value'),
+            ddOptions = obj.find('.dd-options'),
+            ddPointer = ddSelected.siblings('.dd-pointer'),
+            selectedOption = obj.find('.dd-option').eq(index),
+            selectedLiItem = selectedOption.closest('li'),
+            settings = pluginData.settings,
+            selectedData = pluginData.settings.data[index];
+
+        //Highlight selected option
+        obj.find('.dd-option').removeClass('dd-option-selected');
+        selectedOption.addClass('dd-option-selected');
+
+        //Update or Set plugin data with new selection
+        pluginData.selectedIndex = index;
+        pluginData.selectedItem = selectedLiItem;
+        pluginData.selectedData = selectedData;
+
+        //If set to display to full html, add html
+        if (settings.showSelectedHTML) {
+            ddSelected.html(
+                (selectedData.imageSrc ? '<img class="dd-selected-image' + (settings.imagePosition == "right" ? ' dd-image-right' : '') + '" src="' + selectedData.imageSrc + '" />' : '') +
+                (selectedData.text ? '<label class="dd-selected-text">' + selectedData.text + '</label>' : '') +
+                (selectedData.description ? '<small class="dd-selected-description dd-desc' + (settings.truncateDescription ? ' dd-selected-description-truncated' : '') + '" >' + selectedData.description + '</small>' : '')
+            );
+
+        }
+        //Else only display text as selection
+        else ddSelected.html(selectedData.text);
+
+        //Updating selected option value
+        ddSelectedValue.val(selectedData.value);
+
+        //BONUS! Update the original element attribute with the new selection
+        pluginData.original.val(selectedData.value);
+        obj.data('ddslick', pluginData);
+
+        //Close options on selection
+        close(obj);
+
+        //Adjust appearence for selected option
+        adjustSelectedHeight(obj);
+
+        //Callback function on selection
+        if (typeof settings.onSelected == 'function') {
+            settings.onSelected.call(this, pluginData);
+        }
+    }
+
+    //Private: Close the drop down options
+    function open(obj) {
+
+        var $this = obj.find('.dd-select'),
+            ddOptions = $this.siblings('.dd-options'),
+            ddPointer = $this.find('.dd-pointer'),
+            wasOpen = ddOptions.is(':visible');
+
+        //Close all open options (multiple plugins) on the page
+        $('.dd-click-off-close').not(ddOptions).slideUp(50);
+        $('.dd-pointer').removeClass('dd-pointer-up');
+
+        if (wasOpen) {
+            ddOptions.slideUp('fast');
+            ddPointer.removeClass('dd-pointer-up');
+        }
+        else {
+            ddOptions.slideDown('fast');
+            ddPointer.addClass('dd-pointer-up');
+        }
+
+        //Fix text height (i.e. display title in center), if there is no description
+        adjustOptionsHeight(obj);
+    }
+
+    //Private: Close the drop down options
+    function close(obj) {
+        //Close drop down and adjust pointer direction
+        obj.find('.dd-options').slideUp(50);
+        obj.find('.dd-pointer').removeClass('dd-pointer-up').removeClass('dd-pointer-up');
+    }
+
+    //Private: Adjust appearence for selected option (move title to middle), when no desripction
+    function adjustSelectedHeight(obj) {
+
+        //Get height of dd-selected
+        var lSHeight = obj.find('.dd-select').css('height');
+
+        //Check if there is selected description
+        var descriptionSelected = obj.find('.dd-selected-description');
+        var imgSelected = obj.find('.dd-selected-image');
+        if (descriptionSelected.length <= 0 && imgSelected.length > 0) {
+            obj.find('.dd-selected-text').css('lineHeight', lSHeight);
+        }
+    }
+
+    //Private: Adjust appearence for drop down options (move title to middle), when no desripction
+    function adjustOptionsHeight(obj) {
+        obj.find('.dd-option').each(function () {
+            var $this = $(this);
+            var lOHeight = $this.css('height');
+            var descriptionOption = $this.find('.dd-option-description');
+            var imgOption = obj.find('.dd-option-image');
+            if (descriptionOption.length <= 0 && imgOption.length > 0) {
+                $this.find('.dd-option-text').css('lineHeight', lOHeight);
+            }
+        });
+    }
+
+})(jQuery);
+(function ($) {
+
+    $(document).ready(function() {
+
+        $("select.ddslick").each(function() {
+            $(this).ddslick({
+
+            });
+        });
+
+        $('input.date-pick').datepicker({
+            setDate: '+1d',
+            startDate: '+1d'
+        });
+
+        $('input.time-pick').timepicker({
+            minuteStep: 15,
+            showInpunts: false
+        })
+
+        $('.repeater').repeater({
+            initEmpty: true
+        });
+
+    });
 
     /* Preload */
     $(window).load(function () { // makes sure the whole site is loaded
@@ -20432,22 +21810,61 @@ $.magnificPopup.registerModule(RETINA_NS, {
         });
 
         /* Input incrementer*/
-        $(".numbers-row").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
-        $(".button_inc").on("click", function () {
+        $(".numbers-row").append('<div class="inc button_inc"><i class="fas fa-plus"></i></div><div class="dec button_inc"><i class="fas fa-minus"></i></div>');
+
+        $( document.body ).on('click', ".button_inc", function () {
 
             var $button = $(this);
             var oldValue = $button.parent().find("input").val();
+            var max = $button.parent().find("input").data('max');
+            var min = $button.parent().find("input").data('min');
 
             if ($button.text() == "+") {
-                var newVal = parseFloat(oldValue) + 1;
+                if ( max && parseFloat(oldValue) === parseFloat(max) ) {
+                    var newVal = parseFloat(oldValue);
+                } else {
+                    var newVal = parseFloat(oldValue) + 1;
+                }
             } else {
                 // Don't allow decrementing below zero
-                if (oldValue > 1) {
+
+                if ( min && parseFloat(oldValue) === parseFloat(min) ) {
+                    var newVal = parseFloat(oldValue);
+                } else if ( oldValue > 1) {
                     var newVal = parseFloat(oldValue) - 1;
                 } else {
                     newVal = 0;
                 }
             }
+
+            $button.parent().find("input").val(newVal);
+        });
+
+        $( document.body ).on('click', ".buttons_inc", function () {
+
+            var $button = $(this);
+            var oldValue = $button.parent().find("input").val();
+            var max = $button.parent().find("input").data('max');
+            var min = $button.parent().find("input").data('min');
+
+            if ($button.hasClass('incr')) {
+                if ( max && parseFloat(oldValue) === parseFloat(max) ) {
+                    var newVal = parseFloat(oldValue);
+                } else {
+                    var newVal = parseFloat(oldValue) + 1;
+                }
+            } else {
+                // Don't allow decrementing below zero
+
+                if ( min && parseFloat(oldValue) === parseFloat(min) ) {
+                    var newVal = parseFloat(oldValue);
+                } else if ( oldValue > 1) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                }
+            }
+
             $button.parent().find("input").val(newVal);
         });
     });
@@ -20563,6 +21980,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
     $(window).on('load', function () {
         // block($('#tour-flights'));
         ittourLoadSingleTour();
+        ittourLoadSearchForm();
     });
 
     $(window).on('scroll', function() {
@@ -20572,6 +21990,41 @@ $.magnificPopup.registerModule(RETINA_NS, {
     $(window).on('resize', function(e) {
 
     });
+
+    $( document.body ).on('search_form_loaded', function() {
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
+
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
+
+        $('.repeater').repeater({
+            initEmpty: true
+        });
+    });
+
+
+    function ittourLoadSearchForm() {
+        var searchFormHolder = $('.search-form_ajax');
+
+        if (0 === searchFormHolder.length) {return;}
+
+        $.post(
+            snthWpJsObj.ajaxurl,
+            {
+                'action': 'ittour_ajax_load_search_form',
+            },
+            function(response) {
+                if( response.status === 'error') {
+
+                } else {
+                    var fragments = response.message.fragments;
+                    updateFragments(fragments);
+                }
+
+                $( document.body ).trigger( 'search_form_loaded' );
+            },
+            'json'
+        );
+    }
 
     function ittourLoadSingleTour() {
         var tourHolder = $('.single-tour__ajax'),

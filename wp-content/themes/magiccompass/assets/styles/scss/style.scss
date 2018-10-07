@@ -30,7 +30,7 @@ CSS file.
 @import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default";
 
 /* Bootstrap Date Time Picker */
-@import "../../vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker";
+@import "../../vendors/bootstrap-datepicker/dist/css/bootstrap-datepicker3";
 @import "../../vendors/bootstrap-timepicker/css/timepicker";
 
 /* Time Date Droppers */
@@ -45,6 +45,7 @@ CSS file.
 @import "theme-functions";
 @import "theme-mixins";
 
+// @import "vertical";
 @import "site";
 @import "header";
 @import "footer";

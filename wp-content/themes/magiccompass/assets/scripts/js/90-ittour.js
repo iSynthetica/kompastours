@@ -10,6 +10,7 @@
     $(window).on('load', function () {
         // block($('#tour-flights'));
         ittourLoadSingleTour();
+        ittourLoadSearchForm();
     });
 
     $(window).on('scroll', function() {
@@ -19,6 +20,41 @@
     $(window).on('resize', function(e) {
 
     });
+
+    $( document.body ).on('search_form_loaded', function() {
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
+
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
+
+        $('.repeater').repeater({
+            initEmpty: true
+        });
+    });
+
+
+    function ittourLoadSearchForm() {
+        var searchFormHolder = $('.search-form_ajax');
+
+        if (0 === searchFormHolder.length) {return;}
+
+        $.post(
+            snthWpJsObj.ajaxurl,
+            {
+                'action': 'ittour_ajax_load_search_form',
+            },
+            function(response) {
+                if( response.status === 'error') {
+
+                } else {
+                    var fragments = response.message.fragments;
+                    updateFragments(fragments);
+                }
+
+                $( document.body ).trigger( 'search_form_loaded' );
+            },
+            'json'
+        );
+    }
 
     function ittourLoadSingleTour() {
         var tourHolder = $('.single-tour__ajax'),

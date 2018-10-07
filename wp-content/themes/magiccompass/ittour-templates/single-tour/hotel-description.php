@@ -18,8 +18,6 @@ $description_order = array(
 ?>
 
 <div>
-    <h3><?php echo __('Hotel description', 'snthwp'); ?></h3>
-
     <?php
     foreach ($description_order as $feature => $title) {
         if (!empty($hotel_info[$feature])) {

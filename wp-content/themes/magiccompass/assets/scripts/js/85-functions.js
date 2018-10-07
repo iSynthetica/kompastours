@@ -1,5 +1,29 @@
 (function ($) {
 
+    $(document).ready(function() {
+
+        $("select.ddslick").each(function() {
+            $(this).ddslick({
+
+            });
+        });
+
+        $('input.date-pick').datepicker({
+            setDate: '+1d',
+            startDate: '+1d'
+        });
+
+        $('input.time-pick').timepicker({
+            minuteStep: 15,
+            showInpunts: false
+        })
+
+        $('.repeater').repeater({
+            initEmpty: true
+        });
+
+    });
+
     /* Preload */
     $(window).load(function () { // makes sure the whole site is loaded
         $('#status').fadeOut(); // will first fade out the loading animation
@@ -159,22 +183,61 @@
         });
 
         /* Input incrementer*/
-        $(".numbers-row").append('<div class="inc button_inc">+</div><div class="dec button_inc">-</div>');
-        $(".button_inc").on("click", function () {
+        $(".numbers-row").append('<div class="inc button_inc"><i class="fas fa-plus"></i></div><div class="dec button_inc"><i class="fas fa-minus"></i></div>');
+
+        $( document.body ).on('click', ".button_inc", function () {
 
             var $button = $(this);
             var oldValue = $button.parent().find("input").val();
+            var max = $button.parent().find("input").data('max');
+            var min = $button.parent().find("input").data('min');
 
             if ($button.text() == "+") {
-                var newVal = parseFloat(oldValue) + 1;
+                if ( max && parseFloat(oldValue) === parseFloat(max) ) {
+                    var newVal = parseFloat(oldValue);
+                } else {
+                    var newVal = parseFloat(oldValue) + 1;
+                }
             } else {
                 // Don't allow decrementing below zero
-                if (oldValue > 1) {
+
+                if ( min && parseFloat(oldValue) === parseFloat(min) ) {
+                    var newVal = parseFloat(oldValue);
+                } else if ( oldValue > 1) {
                     var newVal = parseFloat(oldValue) - 1;
                 } else {
                     newVal = 0;
                 }
             }
+
+            $button.parent().find("input").val(newVal);
+        });
+
+        $( document.body ).on('click', ".buttons_inc", function () {
+
+            var $button = $(this);
+            var oldValue = $button.parent().find("input").val();
+            var max = $button.parent().find("input").data('max');
+            var min = $button.parent().find("input").data('min');
+
+            if ($button.hasClass('incr')) {
+                if ( max && parseFloat(oldValue) === parseFloat(max) ) {
+                    var newVal = parseFloat(oldValue);
+                } else {
+                    var newVal = parseFloat(oldValue) + 1;
+                }
+            } else {
+                // Don't allow decrementing below zero
+
+                if ( min && parseFloat(oldValue) === parseFloat(min) ) {
+                    var newVal = parseFloat(oldValue);
+                } else if ( oldValue > 1) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } else {
+                    newVal = 0;
+                }
+            }
+
             $button.parent().find("input").val(newVal);
         });
     });

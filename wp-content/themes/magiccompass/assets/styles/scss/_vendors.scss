@@ -8,6 +8,67 @@
 - 9. Slider pro
 
 
+
+/*============================================================================================*/
+/* 4. Repeater */
+/*============================================================================================*/
+.child_amount_holder {
+    .btn-delete, .btn-create {
+        display: inline-block;
+        width: rem-calc(40);
+        height: rem-calc(40);
+        line-height: rem-calc(36);
+        border: 1px solid transparent;
+        background-color: transparent;
+    }
+
+    .btn-create {
+        background-color: $color-green;
+        border-color: $color-green;
+        color: $color-white;
+    }
+
+    .btn-delete {
+        border-color: $color-red;
+        background-color: transparent;
+        color: $color-red;
+    }
+    .child_amount_group {
+        float: left;
+    }
+    .child_amount_item {
+        position: relative;
+        padding-right: rem-calc(20);
+        width: rem-calc(90);
+        .form-control {
+            width: rem-calc(70);
+            display: inline-block;
+            padding-left: rem-calc(6);
+        }
+        .btn-delete {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: rem-calc(20);
+            border-color: transparent;
+        }
+        &:after {
+            display: table;
+            content: ' ';
+            clear: both;
+        }
+
+    }
+}
+.child_amount_group {
+    &:after {
+        display: table;
+        content: ' ';
+        clear: both;
+    }
+}
+
+
 /*============================================================================================*/
 /* 4. Popup */
 /*============================================================================================*/

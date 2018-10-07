@@ -56,7 +56,7 @@ h1, h2, h3 {
 }
 
 h2 span, h3 span, h4 span, h5 span, h6 span {
-    color: #e04f67;
+    color: $color-red;
 }
 
 .box_style_1 h3.inner {
@@ -111,7 +111,7 @@ a.button_intro, .button_intro  {
     font-family: inherit;
     font-size: inherit;
     color:#fff !important;
-    background: #e04f67;
+    background: $color-red;
     cursor: pointer;
     padding: 8px 25px;
     display: inline-block;
@@ -130,7 +130,7 @@ a.button_intro, .button_intro  {
 
     &:hover {
         background: #fff;
-        color:#e04f67 !important;
+        color:$color-red !important;
     }
     &.outline  {
         border: 2px solid #fff;
@@ -144,7 +144,7 @@ a.button_drop, .button_drop  {
     border: none;
     font-family: inherit;
     font-size: inherit;
-    color:#e04f67 !important;
+    color: $color-red !important;
     background: #ededed;
     cursor: pointer;
     padding: 5px 15px !important;
@@ -169,7 +169,7 @@ a.button_drop, .button_drop  {
     }
     &.outline  {
         border: 2px solid #ededed;
-        color:#e04f67;
+        color:$color-red;
         background: none;
         padding: 3px 23px !important;
 
@@ -203,9 +203,12 @@ a.btn_1, .btn_1{
 
 
 }
-a.btn_1.green, .btn_1.green  {background: #83c99f;}
+a.btn_1.green, .btn_1.green  {background: $color-green;}
 
-a.btn_1.white, .btn_1.white  {background: #fff; color:#e04f67;}
+a.btn_1.white, .btn_1.white  {
+    background: $color-white;
+    color: $color-red;
+}
 a.btn_1.white:hover, .btn_1.white a:hover  {background: #333; color:#fff;}
 
 a.btn_1.outline,.btn_1.outiline, input .btn_1.outiline{
@@ -216,8 +219,8 @@ a.btn_1.outline,.btn_1.outiline, input .btn_1.outiline{
 }
 a.btn_1.outline:hover,.btn_1.outiline:hover, input .btn_1.outiline:hover{
     color:#fff;
-    background:#e04f67;
-    border:2px solid #e04f67;
+    background:$color-red;
+    border:2px solid $color-red;
 }
 
 a.btn_1.medium, .btn_1.medium  {
@@ -240,7 +243,7 @@ a.btn_map{
     font-family: inherit;
     font-size: inherit;
     color:#fff;
-    background: #e04f67;
+    background: $color-red;
     cursor: pointer;
     padding: 12px 20px;
     display: inline-block;
