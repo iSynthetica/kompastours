@@ -78,16 +78,19 @@ function ittour_get_form_fields() {
 
     return array(
         'countries' =>  itour_get_country_field($params),
+        'regions' =>  itour_get_region_field($params),
         'adult_amount' =>  itour_get_adult_amount_field($params),
     );
 }
 
 function itour_get_country_field($params) {
+
     ob_start();
     if (!empty($params['countries'])) {
         ?>
-        <select name="country" class="form-control">
+        <select id="country_select" name="country" class="form-control">
             <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
+
             <?php
             foreach ($params['countries'] as $country) {
                 ?>
@@ -95,6 +98,36 @@ function itour_get_country_field($params) {
                 <?php
             }
             ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <input type="text" placeholder="Country" class="form-control" name="country" required>
+        <?php
+    }
+
+    return ob_get_clean();
+}
+
+function itour_get_region_field($params) {
+    ob_start();
+
+    if (!empty($params['regions'])) {
+        $regions_by_countries = array();
+
+        foreach ( $params['regions'] as $region ) {
+            $regions_by_countries[$region['country_id']][] = array(
+                'id' => $region['id'],
+                'name' => $region['name']
+            );
+        }
+
+        $regions_by_countries_json = json_encode($regions_by_countries, JSON_HEX_APOS);
+        ?>
+        <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
+
+        <select id="region_select" name="region" class="form-control">
+            <option value=""><?php echo __('Select country first', 'snthwp'); ?></option>
         </select>
         <?php
     } else {

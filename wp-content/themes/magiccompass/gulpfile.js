@@ -24,6 +24,8 @@ const BOOTSTRAP = MODULES + '/bootstrap';
 const SOURCE = {
     scripts: [
 
+        //MODULES + '/popper.js/dist/popper.js',
+
         BOOTSTRAP + '/dist/js/bootstrap.js',
 
         // Jrespond
@@ -54,17 +56,19 @@ const SOURCE = {
 
         MODULES + '/owl.carousel/dist/owl.carousel.js',
 
+        MODULES + '/handlebars/dist/handlebars.js',
+
         MODULES + '/jquery.repeater/jquery.repeater.js',
 
         VENDORS + '/showpassword.js',
 
         MODULES + '/owl.carousel/dist/owl.carousel.js',
 
-        VENDORS + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
-
-        VENDORS + '/bootstrap-timepicker/js/bootstrap-timepicker.js',
-
         VENDORS + '/icheck/icheck.js',
+
+        MODULES + '/daterangepicker/moment.min.js',
+
+        MODULES + '/daterangepicker/daterangepicker.js',
 
         VENDORS + '/ddslick/jquery.ddslick.js',
 

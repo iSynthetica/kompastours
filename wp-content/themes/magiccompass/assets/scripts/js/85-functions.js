@@ -2,26 +2,6 @@
 
     $(document).ready(function() {
 
-        $("select.ddslick").each(function() {
-            $(this).ddslick({
-
-            });
-        });
-
-        $('input.date-pick').datepicker({
-            setDate: '+1d',
-            startDate: '+1d'
-        });
-
-        $('input.time-pick').timepicker({
-            minuteStep: 15,
-            showInpunts: false
-        })
-
-        $('.repeater').repeater({
-            initEmpty: true
-        });
-
     });
 
     /* Preload */

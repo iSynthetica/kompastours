@@ -30,12 +30,112 @@
             initEmpty: true
         });
 
-        $('input.date-pick').datepicker({
-            setDate: 'today',
-            startDate: '+1d'
+        $('input.date-pick').daterangepicker({
+            startDate: moment().startOf('hour').add(12, 'hour'),
+            endDate: moment().startOf('hour').add(132, 'hour'),
+            minDate: moment().startOf('hour').add(12, 'hour'),
+            maxSpan: {
+                "days": 12
+            },
+            locale: {
+                format: 'DD.MM.YY'
+            }
         });
     });
 
+
+    $( document.body ).on('change', '#country_select', function() {
+        var selectedCountry = parseInt($('#country_select').find(":selected").val());
+        var regionsByCountries = $.parseJSON($('#regions_by_countries').val());
+
+        var regions = regionsByCountries[selectedCountry];
+
+        var regionsHtml = '<select name="region" id="region_select" class="form-control">';
+            regionsHtml += '<option value="">Select region</option>';
+
+            for (var i = 0; i < regions.length; i++) {
+                regionsHtml += '<option value="'+regions[i].id+'">'+regions[i].name+'</option>';
+            }
+
+            regionsHtml += '</select>';
+
+        $('#region_select').replaceWith( regionsHtml );
+
+        ittourShowDestinationSummary();
+        ittourGetHotelsList();
+    });
+
+    $( document.body ).on('change', '#region_select', function() {
+        ittourShowDestinationSummary();
+        ittourGetHotelsList();
+    });
+
+    $( document.body ).on('change', '#hotel_select', function() {
+        ittourShowDestinationSummary();
+    });
+
+    /**
+     * Get Destination summary
+     */
+    function ittourShowDestinationSummary() {
+        var selectedCountryVal = $('#country_select').find(":selected").val(),
+            selectedRegionVal = $('#region_select').find(":selected").val(),
+            selectedHotelVal = $('#hotel_select').find(":selected").val();
+
+        var destinationSummary = $('#destination_summary');
+
+        var selectedRegion = '', selectedCountry = '', selectedHotel = '';
+
+        if ( '' !== selectedCountryVal ) {
+            selectedCountry = $('#country_select').find(":selected").text();
+        }
+
+        if ( '' !== selectedRegionVal ) {
+            selectedRegion = $('#region_select').find(":selected").text() + ', ';
+        }
+
+        if ( '' !== selectedHotelVal ) {
+            selectedHotel = $('#hotel_select').find(":selected").text() + ', ';
+        }
+
+        destinationSummary.text(selectedHotel + selectedRegion + selectedCountry);
+    }
+
+    function ittourGetHotelsList() {
+        var selectedCountry = $('#country_select').find(":selected").val(),
+            selectedRegion = $('#region_select').find(":selected").val();
+
+        $.post(
+            snthWpJsObj.ajaxurl,
+            {
+                'action': 'ittour_ajax_get_country_parameters',
+                'country_id': selectedCountry,
+                'region': selectedRegion
+            },
+            function(response) {
+
+                if( response.status === 'error') {
+
+                } else {
+                    var hotels =  response.message.hotels;
+
+                    var hotelsHtml = '<select name="region" id="hotel_select" class="form-control">';
+                    hotelsHtml += '<option value="">Select hotel</option>';
+
+                    for (var i = 0; i < hotels.length; i++) {
+                        hotelsHtml += '<option value="'+hotels[i].id+'">'+hotels[i].name+'</option>';
+                    }
+
+                    hotelsHtml += '</select>';
+
+                    $('#hotel_select').replaceWith( hotelsHtml );
+
+
+                }
+            },
+            'json'
+        );
+    }
 
     function ittourLoadSearchForm() {
         var searchFormHolder = $('.search-form_ajax');
@@ -83,15 +183,11 @@
                 } else {
                     var fragments = response.message.fragments;
 
-                    console.log(fragments);
-
                     updateFragments(fragments);
                 }
             },
             'json'
         );
-
-        console.log(tourKey);
     }
 
     /**
@@ -136,8 +232,6 @@
      * @param fragments
      */
     function updateFragments( fragments ) {
-
-        console.log(fragments);
         if ( fragments ) {
             $.each( fragments, function( key ) {
                 $( key )

@@ -21,36 +21,52 @@ if ( !is_array( $form_fields ) ) {
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="country"><b><?php echo __('Country', 'snthwp') ?>:</b></label>
+                    <label for="destination_summary"><?php echo __('Destination', 'snthwp') ?>:</label>
+                    <div id="destination_summary" class="form-control"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country_select"><?php echo __('Country', 'snthwp') ?>:</label>
                     <?php echo $form_fields['countries']; ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="region_select"><?php echo __('Region', 'snthwp') ?>:</label>
+                    <?php echo $form_fields['regions']; ?>
+                </div>
+
+                <div class="form-group">
+                    <label for="hotel_select"><?php echo __('Hotel', 'snthwp') ?>:</label>
+
+                    <select id="hotel_select" name="hotel" class="form-control">
+                        <option value=""><?php echo __('Select country first', 'snthwp'); ?></option>
+                    </select>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="form-group">
-                    <label><i class="far fa-calendar-alt"></i> <?php echo __('Date (+/- 3d)', 'snthwp') ?></label>
-                    <input class="date-pick form-control" name="date_from" data-date-format="dd.mm.yy" type="text">
+                <div class="dates-holder">
+                    <div class="form-group">
+                        <label><i class="far fa-calendar-alt"></i> <?php echo __('Dates of start tour', 'snthwp') ?></label>
+                        <input class="date-pick form-control" name="date" type="text">
+                    </div>
+
+                    <div class="duration-holder">
+                        <label><?php echo __('Duration from', 'snthwp') ?></label>
+                        <div class="form-group">
+                            <div class="numbers-alt numbers-ver" style="display: inline-block">
+                                <input type="number" value="1" id="adult_amount" class="qty2 form-control" name="night_from">
+                            </div>
+                            -
+                            <div class="numbers-alt numbers-ver" style="display: inline-block">
+                                <input type="number" value="1" id="child_amount" class="qty2 form-control" name="night_till">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4">
 
-            <div class="col-md-4 col-6">
-                <?php echo __('from', 'snthwp') ?>
-
-                <div class="form-group" style="display: inline-block">
-                    <label><?php echo __('Duration from', 'snthwp') ?></label>
-                    <div class="numbers-alt numbers-ver">
-                        <input type="number" value="1" id="adult_amount" class="qty2 form-control" name="night_from">
-                    </div>
-                </div>
-
-                <?php echo __('till', 'snthwp') ?>
-
-                <div class="form-group" style="display: inline-block">
-                    <label><?php echo __('Duration till', 'snthwp') ?></label>
-                    <div class="numbers-alt numbers-ver">
-                        <input type="number" value="1" id="child_amount" class="qty2 form-control" name="night_till">
-                    </div>
-                </div>
             </div>
         </div>
         <!-- End row -->

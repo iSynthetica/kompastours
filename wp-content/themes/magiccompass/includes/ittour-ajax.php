@@ -53,3 +53,27 @@ function ittour_ajax_load_search_form() {
 }
 add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
+
+function ittour_ajax_get_country_parameters() {
+
+    if(empty($_POST['country_id'])) {
+        echo json_encode(array( "status" => 'success', 'message' => 'Select country first' ));
+    }
+
+    $country_id = sanitize_key( $_POST['country_id'] );
+
+    $args = array();
+
+    if (!empty($_POST['region'])) {
+        $args['region'] = sanitize_key( $_POST['region'] );
+    }
+
+    $params_obj = ittour_params();
+    $params = $params_obj->getCountry($country_id, $args);
+
+    echo json_encode(array( "status" => 'success', 'message' => $params ));
+
+    die;
+}
+add_action('wp_ajax_nopriv_ittour_ajax_get_country_parameters', 'ittour_ajax_get_country_parameters');
+add_action('wp_ajax_ittour_ajax_get_country_parameters', 'ittour_ajax_get_country_parameters');

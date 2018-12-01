@@ -24,6 +24,8 @@ if (empty($_GET['country'])) {
 
     unset($_GET['country']);
 
+    $args = $_GET;
+
     if (!empty($_GET['child_amount_group'])) {
         $child_amount_group = $_GET['child_amount_group'];
         unset($_GET['child_amount_group']);
@@ -36,11 +38,17 @@ if (empty($_GET['country'])) {
         }
 
         $child_age = implode(':', $child_age_array);
+
+        $args['child_amount'] = $child_amount;
+        $args['child_age'] = $child_age;
     }
 
-    $args = $_GET;
-    $args['child_amount'] = $child_amount;
-    $args['child_age'] = $child_age;
+    if (!empty($_GET['date'])) {
+        $dates = explode('-', $_GET['date']);
+
+        $args['date_from'] = trim($dates[0]);
+        $args['date_till'] = trim($dates[1]);
+    }
 
     $search = ittour_search('ru');
     $search_result = $search->get($country_id, $args);
