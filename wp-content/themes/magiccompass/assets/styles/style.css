@@ -16857,6 +16857,27 @@ a.btn_login, .btn_login {
 a.btn_login:hover, .btn_login:hover {
   background: #333; }
 
+/** Search Form **/
+.form-data-summary {
+  font-size: 0.75rem;
+  color: #000;
+  height: 2.5rem;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ced4da; }
+
+#search-form-toggle__holder .form-data-toggle-target {
+  display: none;
+  padding: 0.9375rem 0; }
+
+#filter_options {
+  text-align: center;
+  font-size: 1.625rem;
+  line-height: 2.5rem;
+  color: #3F3F3F; }
+
 /* Header */
 #logo {
   margin-top: 10px; }

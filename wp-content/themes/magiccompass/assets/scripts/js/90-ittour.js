@@ -21,7 +21,7 @@
 
     });
 
-    $( document.body ).on('search_form_loaded', function() {
+    $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
 
         $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
@@ -43,8 +43,31 @@
         });
     });
 
+    $(document.body).on('click', '.form-data-toggle-control', function() {
+        var controller = $(this);
+        var form = controller.parents('#search-form');
+        var target = controller.data('form_toggle_target');
+        var toggleTarget  = form.find('#' + target);
+        var toggleTargets = form.find('.form-data-toggle-target');
 
-    $( document.body ).on('change', '#country_select', function() {
+        if (toggleTarget.hasClass('active')) {
+            toggleTarget.removeClass('active').slideUp();
+        } else {
+            toggleTargets.removeClass('active').hide();
+            toggleTarget.addClass('active').slideDown();
+        }
+    });
+
+    $(document.body).on('apply.daterangepicker', function(ev, picker) {
+        var datesSelect = $('#date-pick__select'),
+            datesVal = datesSelect.val();
+
+        datesSelect.data('current_value', datesVal);
+
+        ittourShowDatesDurationSummary();
+    });
+
+    $(document.body).on('change', '#country_select', function() {
         var selectedCountry = parseInt($('#country_select').find(":selected").val());
         var regionsByCountries = $.parseJSON($('#regions_by_countries').val());
 
@@ -65,13 +88,35 @@
         ittourGetHotelsList();
     });
 
-    $( document.body ).on('change', '#region_select', function() {
+    $(document.body).on('change', '#region_select', function() {
         ittourShowDestinationSummary();
         ittourGetHotelsList();
     });
 
-    $( document.body ).on('change', '#hotel_select', function() {
+    $(document.body).on('change', '#hotel_select', function() {
         ittourShowDestinationSummary();
+    });
+
+    $(document.body).on('change', '#duration-from__select', function() {
+        var durationSelect = $(this),
+            durationVal = durationSelect.val();
+
+        console.log(durationVal);
+
+        durationSelect.data('current_value', durationVal);
+
+        ittourShowDatesDurationSummary();
+    });
+
+    $(document.body).on('change', '#duration-till__select', function() {
+        var durationSelect = $(this),
+            durationVal = durationSelect.val();
+
+        console.log(durationVal);
+
+        durationSelect.data('current_value', durationVal);
+
+        ittourShowDatesDurationSummary();
     });
 
     /**
@@ -98,7 +143,7 @@
             selectedHotel = $('#hotel_select').find(":selected").text() + ', ';
         }
 
-        destinationSummary.text(selectedHotel + selectedRegion + selectedCountry);
+        destinationSummary.val(selectedHotel + selectedRegion + selectedCountry);
     }
 
     function ittourGetHotelsList() {
@@ -146,8 +191,7 @@
             snthWpJsObj.ajaxurl,
             {
                 'action': 'ittour_ajax_load_search_form',
-            },
-            function(response) {
+            }, function(response) {
                 if( response.status === 'error') {
 
                 } else {
@@ -188,6 +232,32 @@
             },
             'json'
         );
+    }
+
+    function ittourShowDatesDurationSummary() {
+        var datesSelect = $('#date-pick__select'),
+            datesCurrentValue = datesSelect.data('current_value');
+
+        var durationFromSelect = $('#duration-from__select'),
+            durationFromCurrentValue = durationFromSelect.data('current_value');
+
+        var durationTillSelect = $('#duration-till__select'),
+            durationTillCurrentValue = durationTillSelect.data('current_value');
+
+        var datesSelected = '',
+            durationSelected = '';
+
+        if (datesCurrentValue) {
+            datesSelected = datesCurrentValue + ', ';
+        }
+
+        if (durationFromCurrentValue && durationTillCurrentValue) {
+            durationSelected = durationFromCurrentValue + ' - ' + durationTillCurrentValue + ' nights';
+        }
+
+        var datesDurationSummary = $('#dates-duration_summary');
+
+        datesDurationSummary.val(datesSelected + durationSelected);
     }
 
     /**
@@ -250,6 +320,21 @@
                 $( key ).stop( true ).css( 'opacity', '1' ).unblock();
             });
         }
+    }
+
+    function $_GET(param) {
+        var vars = {};
+        window.location.href.replace( location.hash, '' ).replace(
+            /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+            function( m, key, value ) { // callback
+                vars[key] = value !== undefined ? value : '';
+            }
+        );
+
+        if ( param ) {
+            return vars[param] ? vars[param] : null;
+        }
+        return vars;
     }
 
 }(jQuery));

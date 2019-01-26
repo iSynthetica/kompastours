@@ -347,3 +347,32 @@ a.btn_login, .btn_login{
 a.btn_login:hover, .btn_login:hover{
     background:#333;
 }
+
+/** Search Form **/
+.search-form__holder {
+
+}
+.form-data-summary {
+    font-size: rem-calc(12);
+    color: $black;
+    height: rem-calc(40);
+    border-radius: rem-calc(3);
+    cursor: pointer;
+    width: 100%;
+    background-color: $white;
+    border: 1px solid #ced4da;
+}
+
+#search-form-toggle__holder {
+    .form-data-toggle-target {
+        display: none;
+        padding: rem-calc(15 0);
+    }
+
+}
+#filter_options {
+    text-align: center;
+    font-size: rem-calc(26);
+    line-height: rem-calc(40);
+    color: $color-dark-gray;
+}

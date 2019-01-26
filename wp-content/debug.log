@@ -5631,3 +5631,13 @@ Stack trace:
 [01-Dec-2018 14:07:52 UTC] PHP  10. WP_Automatic_Updater->run() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:562
 [01-Dec-2018 14:07:52 UTC] PHP  11. wp_update_plugins() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/class-wp-automatic-updater.php:443
 [01-Dec-2018 14:07:52 UTC] PHP  12. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:347
+[01-Dec-2018 16:16:53 UTC] PHP Notice:  Undefined index: images in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 76
+[01-Dec-2018 16:16:53 UTC] PHP Stack trace:
+[01-Dec-2018 16:16:53 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Dec-2018 16:16:53 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Dec-2018 16:16:53 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Dec-2018 16:16:53 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:74
+[01-Dec-2018 16:16:53 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[01-Dec-2018 16:16:53 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Dec-2018 16:16:53 UTC] PHP   7. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:60
+[01-Dec-2018 16:16:53 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
