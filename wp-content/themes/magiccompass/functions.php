@@ -40,7 +40,7 @@ define('SNTH_INCLUDES_URL', SNTH_URL.'/includes');
 //require_once(SNTH_INCLUDES.'/settings.php');
 //
 //// Theme support options
-//require_once(SNTH_INCLUDES.'/theme-support.php');
+require_once(SNTH_INCLUDES.'/theme-support.php');
 //
 //// Remove useless WP outputs
 //require_once(SNTH_INCLUDES.'/cleanup.php');

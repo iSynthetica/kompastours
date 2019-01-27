@@ -54,6 +54,20 @@ function ittour_ajax_load_search_form() {
 add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 
+function ittour_ajax_load_select_child() {
+    ob_start();
+
+    ittour_show_template('form/search-select-child-amount.php');
+
+    $html = ob_get_clean();
+
+    echo json_encode(array( "status" => 'success', 'html' => $html ));
+
+    die;
+}
+add_action('wp_ajax_nopriv_ittour_ajax_load_select_child', 'ittour_ajax_load_select_child');
+add_action('wp_ajax_ittour_ajax_load_select_child', 'ittour_ajax_load_select_child');
+
 function ittour_ajax_get_country_parameters() {
 
     if(empty($_POST['country_id'])) {

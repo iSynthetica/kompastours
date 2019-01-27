@@ -27,8 +27,8 @@ if ( !is_array( $form_fields ) ) {
                     <input id="dates-duration_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="dates-select_section" value="" readonly>
                 </div>
                 <div class="col-md-3">
-                    <label for="destination_summary"><?php echo __('Guests', 'snthwp') ?>:</label>
-                    <input type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" value="" readonly>
+                    <label for="guests_summary"><?php echo __('Guests', 'snthwp') ?>:</label>
+                    <input id="guests_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" value="" readonly>
                 </div>
                 <div class="col-md-1">
                     <label for="destination_summary"><?php echo __('Filter', 'snthwp') ?>:</label>
@@ -124,40 +124,13 @@ if ( !is_array( $form_fields ) ) {
 
                     <div class="col-md-3">
                         <div class="form-group child_amount_holder">
-                            <label><?php echo __('Child amount', 'snthwp') ?></label>
-                            <div class="repeater-holder">
-                                <div data-repeater-list="child_amount_group" class="child_amount_group">
-                                    <div data-repeater-item class="child_amount_item" data-limit="4" style="display:none;margin-right:10px;float:left">
-                                        <select name="child_amount" class="form-control" >
-                                            <option value="1"><?php _e('1 year', 'snthwp') ?></option>
-                                            <option value="2"><?php _e('2 years', 'snthwp') ?></option>
-                                            <option value="3"><?php _e('3 years', 'snthwp') ?></option>
-                                            <option value="4"><?php _e('4 years', 'snthwp') ?></option>
-                                            <option value="5"><?php _e('5 years', 'snthwp') ?></option>
-                                            <option value="6"><?php _e('6 years', 'snthwp') ?></option>
-                                            <option value="7"><?php _e('7 years', 'snthwp') ?></option>
-                                            <option value="8"><?php _e('8 years', 'snthwp') ?></option>
-                                            <option value="9"><?php _e('9 years', 'snthwp') ?></option>
-                                            <option value="10"><?php _e('10 years', 'snthwp') ?></option>
-                                            <option value="11"><?php _e('11 years', 'snthwp') ?></option>
-                                            <option value="12"><?php _e('12 years', 'snthwp') ?></option>
-                                            <option value="13"><?php _e('13 years', 'snthwp') ?></option>
-                                            <option value="14"><?php _e('14 years', 'snthwp') ?></option>
-                                            <option value="15"><?php _e('15 years', 'snthwp') ?></option>
-                                            <option value="16"><?php _e('16 years', 'snthwp') ?></option>
-                                            <option value="17"><?php _e('17 years', 'snthwp') ?></option>
-                                        </select>
+                            <label><?php echo __('Children amount', 'snthwp') ?></label>
+                            <div id="child_amount_repeater_holder" data-limit="3">
+                                <div class="child_amount_group"></div>
 
-                                        <button class="btn-delete" data-repeater-delete type="button">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <button class="btn-create" data-repeater-create type="button">
+                                <button class="btn-create" type="button">
                                     <i class="fas fa-plus"></i>
                                 </button>
-
                             </div>
                         </div>
                     </div>
@@ -168,7 +141,31 @@ if ( !is_array( $form_fields ) ) {
             </div>
 
             <div id="filter-select__section" class="form-data-toggle-target">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="hotel_rating"><?php echo __('Hotel Rating', 'snthwp') ?>:</label>
 
+                            <?php echo $form_fields['hotel_ratings']; ?>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="hotel_rating"><?php echo __('Transport Type', 'snthwp') ?>:</label>
+
+                            <?php echo $form_fields['transport_types']; ?>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p><?php echo __('Select adults, and childrens', 'snthwp') ?></p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p><?php echo __('Select adults, and childrens', 'snthwp') ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </form>

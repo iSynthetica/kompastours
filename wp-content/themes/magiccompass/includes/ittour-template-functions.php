@@ -79,8 +79,72 @@ function ittour_get_form_fields() {
     return array(
         'countries' =>  itour_get_country_field($params),
         'regions' =>  itour_get_region_field($params),
-        'adult_amount' =>  itour_get_adult_amount_field($params),
+        'hotel_ratings' =>  itour_get_hotel_ratings_field($params),
+        'transport_types' =>  itour_get_transport_type_field($params),
     );
+}
+
+function itour_get_hotel_ratings_field($params) {
+    ob_start();
+    ?>
+    <ul class="form-list">
+        <?php
+        foreach ($params['hotel_ratings'] as $hotel_rating) {
+            ?>
+            <li>
+                <label>
+                    <input class="iCheckGray" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"> <?php echo $hotel_rating['name'] ?>*
+                </label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+function itour_get_transport_type_field($params) {
+    ob_start();
+    ?>
+    <ul class="form-list">
+        <?php
+        foreach ($params['transport_types'] as $transport_type) {
+            ?>
+            <li>
+                <label>
+                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
+                </label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+function itour_get_meal_type_field() {
+    $meal_types = array(
+        560 => ''
+    );
+    ob_start();
+    ?>
+    <ul class="form-list">
+        <?php
+        foreach ($params['transport_types'] as $transport_type) {
+            ?>
+            <li>
+                <label>
+                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
+                </label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
 }
 
 function itour_get_country_field($params) {

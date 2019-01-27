@@ -218,7 +218,7 @@
                 }
             }
 
-            $button.parent().find("input").val(newVal).trigger('change');
+            $button.parent().find("input").val(newVal).trigger('input');
         });
     });
 

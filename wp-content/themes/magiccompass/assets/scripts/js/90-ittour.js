@@ -30,6 +30,11 @@
             initEmpty: true
         });
 
+        $('.iCheckGray').iCheck({
+            checkboxClass: 'icheckbox_square-grey',
+            radioClass: 'iradio_square-grey'
+        });
+
         $('input.date-pick').daterangepicker({
             startDate: moment().startOf('hour').add(12, 'hour'),
             endDate: moment().startOf('hour').add(132, 'hour'),
@@ -97,7 +102,7 @@
         ittourShowDestinationSummary();
     });
 
-    $(document.body).on('change', '#duration-from__select', function() {
+    $(document.body).on('input', '#duration-from__select', function() {
         var durationSelect = $(this),
             durationVal = durationSelect.val();
 
@@ -108,7 +113,7 @@
         ittourShowDatesDurationSummary();
     });
 
-    $(document.body).on('change', '#duration-till__select', function() {
+    $(document.body).on('input', '#duration-till__select', function() {
         var durationSelect = $(this),
             durationVal = durationSelect.val();
 
@@ -118,6 +123,79 @@
 
         ittourShowDatesDurationSummary();
     });
+
+    $(document.body).on('input', '#adult_amount', function() {
+        var adults = $(this).val();
+
+        ittourShowGuestsSummary();
+    });
+
+    $(document.body).on('click', '#child_amount_repeater_holder .btn-create', function() {
+        var btn = $(this);
+        var limit = $('#child_amount_repeater_holder').data('limit');
+        var childSelectItems = $('#child_amount_repeater_holder .child_amount_item');
+
+        console.log(limit);
+        console.log(childSelectItems.length);
+
+        ittourLoadSelectChild(function(selectChildHtml) {
+            var repeaterHolder = $('#child_amount_repeater_holder .child_amount_group');
+            repeaterHolder.append(selectChildHtml);
+
+            var childSelectItemsNew = $('#child_amount_repeater_holder .child_amount_item');
+            console.log(childSelectItemsNew.length);
+
+            if (limit === childSelectItemsNew.length) {
+                btn.addClass('disabled').hide();
+            }
+
+            ittourShowGuestsSummary();
+        });
+
+    });
+
+    $(document.body).on('change', '#child_amount_repeater_holder .child_amount_item select', function() {
+        ittourShowGuestsSummary();
+    });
+
+    $(document.body).on('click', '#child_amount_repeater_holder .child_amount_item .btn-delete', function() {
+        $(this).parent('.child_amount_item').remove();
+
+        var btn = $('#child_amount_repeater_holder .btn-create');
+        var limit = $('#child_amount_repeater_holder').data('limit');
+        var childSelectItemsNew = $('#child_amount_repeater_holder .child_amount_item');
+
+        if (limit > childSelectItemsNew.length && btn.hasClass('disabled')) {
+            btn.removeClass('disabled').show();
+        }
+
+        ittourShowGuestsSummary();
+    });
+    
+    function ittourShowGuestsSummary() {
+        var adults = $('#adult_amount');
+        var children = $('#child_amount_repeater_holder .child_amount_item');
+
+        var adultsAmount = adults.val();
+        var childrenAmount = children.length;
+
+        var childrenSummary = '';
+
+        if (childrenAmount > 0) {
+            childrenSummary += ' + ' + childrenAmount + ' (';
+
+            children.each(function() {
+                var childAge = $(this).find('select').val();
+
+                childrenSummary += ' ' + childAge + 'y ';
+            });
+            childrenSummary += ')';
+        }
+
+        var guestsSummary = $('#guests_summary');
+
+        guestsSummary.val(adultsAmount + childrenSummary);
+    }
 
     /**
      * Get Destination summary
@@ -228,6 +306,29 @@
                     var fragments = response.message.fragments;
 
                     updateFragments(fragments);
+                }
+            },
+            'json'
+        );
+    }
+
+    function ittourLoadSelectChild(cb) {
+        $.post(
+            snthWpJsObj.ajaxurl,
+            {
+                'action': 'ittour_ajax_load_select_child',
+            }, function(response) {
+
+                var selectChildHtml = '';
+
+                console.log(response);
+
+                if( response.status === 'success') {
+                    selectChildHtml = response.html;
+                }
+
+                if (typeof cb === 'function') {
+                    cb(selectChildHtml);
                 }
             },
             'json'
