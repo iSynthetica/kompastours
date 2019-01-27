@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php snth_show_template('single.php', array(
     'template' => 'no-sidebar',
-    'content' => 'loop',
+    'content' => 'contacts',
 )) ?>
 
 <?php get_footer(); ?>

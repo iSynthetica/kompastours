@@ -13,7 +13,7 @@ if (empty($template)) {
 }
 
 if (empty($content)) {
-    $content = 'single';
+    $content = 'page';
 }
 ?>
 
