@@ -37,9 +37,9 @@ define('SNTH_FONTS_URL', SNTH_ASSETS_URL.'/fonts');
 define('SNTH_INCLUDES_URL', SNTH_URL.'/includes');
 
 // Helpers library
-//require_once(SNTH_INCLUDES.'/settings.php');
-//
-//// Theme support options
+require_once(SNTH_INCLUDES.'/settings.php');
+
+// Theme support options
 require_once(SNTH_INCLUDES.'/theme-support.php');
 //
 //// Remove useless WP outputs
@@ -47,7 +47,7 @@ require_once(SNTH_INCLUDES.'/theme-support.php');
 //
 //// Helpers library
 //require_once(SNTH_INCLUDES.'/customizer.php');
-//
+
 // Helpers library
 require_once(SNTH_INCLUDES.'/helpers.php');
 //
@@ -59,12 +59,12 @@ require_once(SNTH_INCLUDES.'/ittour-bootstrap.php');
 
 // ittour API
 require_once(SNTH_INCLUDES.'/cpt.php');
-//
-//// Helpers library
-//require_once(SNTH_INCLUDES.'/media.php');
-//
-//// Helpers library
-//require_once(SNTH_INCLUDES.'/menu.php');
+
+// Helpers library
+require_once(SNTH_INCLUDES.'/media.php');
+
+// Helpers library
+require_once(SNTH_INCLUDES.'/menu.php');
 //
 //// Helpers library
 //require_once(SNTH_INCLUDES.'/content.php');

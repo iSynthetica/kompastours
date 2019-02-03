@@ -5641,3 +5641,33 @@ Stack trace:
 [01-Dec-2018 16:16:53 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
 [01-Dec-2018 16:16:53 UTC] PHP   7. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:60
 [01-Dec-2018 16:16:53 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[29-Jan-2019 10:13:00 UTC] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php:1044
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php(3978): wp_check_invalid_utf8('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(684): esc_attr('')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(647): load_template('/var/www/synthe...', true)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(12): get_header()
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(15): snth_show_template('archive.php', Array)
+#7  in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php on line 1044
+[29-Jan-2019 10:13:00 UTC] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php:1044
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php(3978): wp_check_invalid_utf8('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(684): esc_attr('')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(647): load_template('/var/www/synthe...', true)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(12): get_header()
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(15): snth_show_template('archive.php', Array)
+#7  in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php on line 1044
+[29-Jan-2019 10:13:01 UTC] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php:1044
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php(3978): wp_check_invalid_utf8('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(684): esc_attr('')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(647): load_template('/var/www/synthe...', true)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(12): get_header()
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(15): snth_show_template('archive.php', Array)
+#7  in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php on line 1044

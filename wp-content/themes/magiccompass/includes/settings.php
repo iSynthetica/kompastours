@@ -26,3 +26,15 @@ function snth_settings_theme_logos ( $logos ) {
     );
 }
 add_filter( 'snth_custom_logos', 'snth_settings_theme_logos', 999 );
+
+function snth_settings_media_image_sizes ( $sizes ) {
+    return array(
+        'archive_photo_thumb' => array (
+            'w'     =>  950,
+            'h'     =>  375,
+            'c'  =>  true,
+            'label' =>  __('Archive Photo Template', 'snthwp')
+        ),
+    );
+}
+add_filter( 'snth_image_sizes', 'snth_settings_media_image_sizes', 999 );
