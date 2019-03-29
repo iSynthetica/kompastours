@@ -871,58 +871,39 @@ ul.list_order li span {
     background-color: #333;
     padding: 10px 0;
     font-size: 11px;
-}
 
-#position ul li:first-child {
-    padding-left: 20px;
-}
+    ul {
+        margin: 0;
+        padding: 0;
+        color: #888;
 
-#position ul li:first-child:before {
-    content: "\eaf4";
-    font-style: normal;
-    font-weight: normal;
-    font-family: "fontello";
-    position: absolute;
-    left: 0;
-    top: 1px;
-    color: #fff;
-}
+        li {
+            display: inline-block;
+            position: relative;
+            &.separator {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
 
-#position ul {
-    margin: 0;
-    padding: 0;
-    color: #888;
-}
+            &:first-child {
+                &:before {}
+            }
 
-#position ul li a {
-    color: #fff;
-    opacity: 0.7;
-}
+            &:after {}
 
-#position ul li a:hover {
-    color: #fff;
-    opacity: 1;
-}
+            &:last-child:after {}
 
-#position ul li {
-    display: inline-block;
-    padding-right: 8px;
-    margin-right: 3px;
-    position: relative;
-}
+            a {
+                color: #fff;
+                opacity: 0.7;
 
-#position ul li:after {
-    content: "\e9ee";
-    font-style: normal;
-    font-weight: normal;
-    font-family: "fontello";
-    position: absolute;
-    right: 0;
-    top: 2px;
-}
-
-#position ul li:last-child:after {
-    content: '';
+                &:hover {
+                    color: #fff;
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }
 
 /*Banners*/

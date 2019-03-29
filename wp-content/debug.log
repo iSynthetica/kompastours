@@ -5834,3 +5834,13 @@ Stack trace:
 #6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
 #7 {main}
   thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125
+[29-Mar-2019 12:07:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function snth_the_breadcrumbs() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:24
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/page.php(30): snth_show_template('breadcrumbs.php')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/page.php(15): snth_show_template('page.php')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php(77): include('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php(19): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/index.php(17): require('/var/www/syn in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php on line 24
+[29-Mar-2019 12:24:59 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 61
