@@ -1,11 +1,20 @@
 <?php
-
+/**
+ * Template part for displaying posts
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Twenty_Seventeen
+ * @since 1.0
+ * @version 1.2
+ */
 ?>
 <section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400"
          data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>Contact us</h1>
+            <h1>Search</h1>
             <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
         </div>
     </div>

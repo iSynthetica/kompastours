@@ -5671,3 +5671,166 @@ Stack trace:
 #5 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
 #6 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php(15): snth_show_template('archive.php', Array)
 #7  in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/formatting.php on line 1044
+[18-Feb-2019 16:12:26 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 347
+[18-Feb-2019 16:12:26 UTC] PHP Stack trace:
+[18-Feb-2019 16:12:26 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[18-Feb-2019 16:12:26 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:126
+[18-Feb-2019 16:12:26 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:515
+[18-Feb-2019 16:12:26 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[18-Feb-2019 16:12:26 UTC] PHP   5. wp_update_plugins() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[18-Feb-2019 16:12:26 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:347
+[29-Mar-2019 10:57:20 UTC] PHP Warning:  include_once(/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php): failed to open stream: No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:20 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:20 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:20 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:20 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:20 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:20 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:20 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:20 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:20 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:20 UTC] PHP Warning:  include_once(): Failed opening '/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php' for inclusion (include_path='.:/usr/share/php') in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:20 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:20 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:20 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:20 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:20 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:20 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:20 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:20 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:20 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:20 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function acf_include() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:125
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(666): ACF->initialize()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(677): acf()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(342): include_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(78): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php(34): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125
+[29-Mar-2019 10:57:30 UTC] PHP Warning:  include_once(/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php): failed to open stream: No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:30 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:30 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:30 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:30 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:30 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:30 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:30 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:30 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:30 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:30 UTC] PHP Warning:  include_once(): Failed opening '/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php' for inclusion (include_path='.:/usr/share/php') in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:30 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:30 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:30 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:30 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:30 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:30 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:30 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:30 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:30 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:30 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function acf_include() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:125
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(666): ACF->initialize()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(677): acf()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(342): include_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(78): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php(34): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125
+[29-Mar-2019 10:57:40 UTC] PHP Warning:  include_once(/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php): failed to open stream: No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:40 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:40 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:40 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:40 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:40 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:40 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:40 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:40 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:40 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:40 UTC] PHP Warning:  include_once(): Failed opening '/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php' for inclusion (include_path='.:/usr/share/php') in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:40 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:40 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:40 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:40 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:40 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:40 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:40 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:40 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:40 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function acf_include() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:125
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(666): ACF->initialize()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(677): acf()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(342): include_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(78): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php(34): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125
+[29-Mar-2019 10:57:43 UTC] PHP Warning:  include_once(/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php): failed to open stream: No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:43 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:43 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:43 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:43 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:43 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:43 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:43 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:43 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:43 UTC] PHP Warning:  include_once(): Failed opening '/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php' for inclusion (include_path='.:/usr/share/php') in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:43 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:43 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:43 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:43 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:43 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:43 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:43 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:43 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function acf_include() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:125
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(666): ACF->initialize()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(677): acf()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(342): include_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(78): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php(34): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125
+[29-Mar-2019 10:57:44 UTC] PHP Warning:  include_once(/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php): failed to open stream: No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:44 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:44 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:44 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:44 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:44 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:44 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:44 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:44 UTC] PHP Warning:  include_once(): Failed opening '/var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/includes/api/api-helpers.php' for inclusion (include_path='.:/usr/share/php') in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 124
+[29-Mar-2019 10:57:44 UTC] PHP Stack trace:
+[29-Mar-2019 10:57:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:0
+[29-Mar-2019 10:57:44 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php:10
+[29-Mar-2019 10:57:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:34
+[29-Mar-2019 10:57:44 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[29-Mar-2019 10:57:44 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[29-Mar-2019 10:57:44 UTC] PHP   6. include_once() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:342
+[29-Mar-2019 10:57:44 UTC] PHP   7. acf() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:677
+[29-Mar-2019 10:57:44 UTC] PHP   8. ACF->initialize() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:666
+[29-Mar-2019 10:57:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function acf_include() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php:125
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(666): ACF->initialize()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php(677): acf()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(342): include_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(78): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php(34): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/plugins.php(10): require_once('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/advanced-custom-fields-pro/acf.php on line 125

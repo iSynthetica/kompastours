@@ -58,8 +58,6 @@ if ( have_posts() ) {
                 </a>
             </article>
         <?php
-
-            // End the loop.
         endwhile;
         ?>
     </div>
