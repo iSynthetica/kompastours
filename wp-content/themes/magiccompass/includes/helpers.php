@@ -117,3 +117,13 @@ function snth_is_woocommerce_active()
 {
     return snth_is_plugin_active ( 'woocommerce/woocommerce.php' );
 }
+
+/**
+ * Checks if a woocommerce is activated
+ *
+ * @return mixed
+ */
+function snth_is_yoast_seo_active()
+{
+    return snth_is_plugin_active ( 'wordpress-seo/wp-seo.php' );
+}

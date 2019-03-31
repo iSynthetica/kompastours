@@ -21,6 +21,9 @@ function snth_the_breadcrumbs() {
     $home_page_for_posts = 1;
     $show_current = 1;
 
+    $is_woo_active = snth_is_woocommerce_active();
+    $is_yoast_seo_active = snth_is_yoast_seo_active();
+
     $wrap_before = '<section id="breadcrumbs-section"><div id="position"><div class="container"><ul>';
     $wrap_after = '</ul></div></div></section>';
 
@@ -61,6 +64,44 @@ function snth_the_breadcrumbs() {
 
         if (is_category()) {
 
+        }
+        elseif (is_single()) {
+            $id = $post->ID;
+
+            if ( get_post_type() === 'product' ) {
+
+            }
+            else {
+                $cat = false;
+
+                if ($is_yoast_seo_active) {
+                    $cat = get_post_meta($post->ID , '_yoast_wpseo_primary_category', true);
+                }
+
+                if (!$cat) {
+                    $cat = get_the_category();
+                    $cat = $cat[0];
+                }
+
+                $cats = get_category_parents($cat, TRUE, $sep);
+                $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr .'>' . $link_in_before . '$2' . $link_in_after .'</a>' . $link_after, $cats);
+
+                if (!$show_current || get_query_var('cpage')) {
+                    $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
+                }
+
+                if ($show_home_link) {
+                    echo $sep;
+                }
+
+                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+
+                echo $sep . $cats;
+
+                if ($show_current) {
+                    echo $link_before . $current_before . get_the_title($id) . $current_after . $link_after;
+                }
+            }
         }
         elseif ( is_page() ) {
             $id = $post->ID;

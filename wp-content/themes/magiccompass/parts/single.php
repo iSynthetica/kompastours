@@ -27,6 +27,8 @@ if (empty($content)) {
     </div>
 </section>
 
+<?php snth_show_template('breadcrumbs.php'); ?>
+
 <div class="wrap">
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
