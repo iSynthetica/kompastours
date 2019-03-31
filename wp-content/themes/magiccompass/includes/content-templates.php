@@ -14,9 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function snth_the_breadcrumbs() {
     /* == Options - Start == */
     $text['home'] = __('Home', 'snthwp');
+    $text['blog'] = __('Blog', 'snthwp');
 
     $show_home_link = 1;
     $show_on_home = 0;
+    $home_page_for_posts = 1;
     $show_current = 1;
 
     $wrap_before = '<section id="breadcrumbs-section"><div id="position"><div class="container"><ul>';
@@ -43,9 +45,12 @@ function snth_the_breadcrumbs() {
     $home_url = home_url('/');
     $home_link = $link_before . '<a href="' . $home_url . '"' . $link_attr . '>' . $link_in_before . $text['home'] . $link_in_after . '</a>' . $link_after;
     $frontpage_id = get_option('page_on_front');
+    $homepage_id = get_option('page_for_posts');
 
-    if (is_home() || is_front_page()) {
-        if ($show_on_home) echo $wrap_before . $home_link . $wrap_after;
+    if ((is_home() && !$home_page_for_posts) || is_front_page()) {
+        if ($show_on_home) {
+            echo $wrap_before . $home_link . $wrap_after;
+        }
     }
     else {
         echo $wrap_before;
@@ -94,6 +99,16 @@ function snth_the_breadcrumbs() {
 
             if ($show_current) {
                 echo $link_before . $current_before . get_the_title($id) . $current_after . $link_after;
+            }
+        }
+        elseif (is_home() && $home_page_for_posts) {
+
+            if ($show_home_link) {
+                echo $sep;
+            }
+
+            if ($show_current) {
+                echo $link_before . $current_before . $text['blog'] . $current_after . $link_after;
             }
         }
 

@@ -28,6 +28,10 @@ $thumbnail = get_field('blog_page_thumbnail', 'options');
     </div>
 </section>
 
+<?php
+snth_show_template('breadcrumbs.php');
+?>
+
 <div class="wrap">
     <div class="container margin_60">
         <div class="row">
