@@ -49,6 +49,9 @@ require_once(SNTH_INCLUDES.'/theme-support.php');
 //require_once(SNTH_INCLUDES.'/customizer.php');
 
 // Helpers library
+require_once(SNTH_INCLUDES.'/sidebar.php');
+
+// Helpers library
 require_once(SNTH_INCLUDES.'/content-templates.php');
 
 // Helpers library

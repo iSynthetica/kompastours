@@ -5844,3 +5844,59 @@ Stack trace:
 #5 /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php(19): require_once('/var/www/synthe...')
 #6 /var/www/synthetica/magiccompass/ru/public_html/index.php(17): require('/var/www/syn in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php on line 24
 [29-Mar-2019 12:24:59 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 61
+[04-Apr-2019 08:13:43 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'joints_register_sidebars' not found or invalid function name in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php on line 286
+[04-Apr-2019 08:13:43 UTC] PHP Stack trace:
+[04-Apr-2019 08:13:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-Apr-2019 08:13:43 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-Apr-2019 08:13:43 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:13
+[04-Apr-2019 08:13:43 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[04-Apr-2019 08:13:43 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[04-Apr-2019 08:13:43 UTC] PHP   6. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:505
+[04-Apr-2019 08:13:43 UTC] PHP   7. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:43 UTC] PHP   8. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:43 UTC] PHP   9. wp_widgets_init() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[04-Apr-2019 08:13:43 UTC] PHP  10. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php:1715
+[04-Apr-2019 08:13:43 UTC] PHP  11. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:43 UTC] PHP  12. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'joints_register_sidebars' not found or invalid function name in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php on line 286
+[04-Apr-2019 08:13:44 UTC] PHP Stack trace:
+[04-Apr-2019 08:13:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-Apr-2019 08:13:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-Apr-2019 08:13:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:13
+[04-Apr-2019 08:13:44 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[04-Apr-2019 08:13:44 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[04-Apr-2019 08:13:44 UTC] PHP   6. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:505
+[04-Apr-2019 08:13:44 UTC] PHP   7. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP   8. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP   9. wp_widgets_init() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[04-Apr-2019 08:13:44 UTC] PHP  10. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php:1715
+[04-Apr-2019 08:13:44 UTC] PHP  11. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP  12. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'joints_register_sidebars' not found or invalid function name in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php on line 286
+[04-Apr-2019 08:13:44 UTC] PHP Stack trace:
+[04-Apr-2019 08:13:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-Apr-2019 08:13:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-Apr-2019 08:13:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:13
+[04-Apr-2019 08:13:44 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[04-Apr-2019 08:13:44 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[04-Apr-2019 08:13:44 UTC] PHP   6. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:505
+[04-Apr-2019 08:13:44 UTC] PHP   7. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP   8. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP   9. wp_widgets_init() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[04-Apr-2019 08:13:44 UTC] PHP  10. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php:1715
+[04-Apr-2019 08:13:44 UTC] PHP  11. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP  12. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP Warning:  call_user_func_array() expects parameter 1 to be a valid callback, function 'joints_register_sidebars' not found or invalid function name in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php on line 286
+[04-Apr-2019 08:13:44 UTC] PHP Stack trace:
+[04-Apr-2019 08:13:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-Apr-2019 08:13:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-Apr-2019 08:13:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:13
+[04-Apr-2019 08:13:44 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[04-Apr-2019 08:13:44 UTC] PHP   5. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:78
+[04-Apr-2019 08:13:44 UTC] PHP   6. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:505
+[04-Apr-2019 08:13:44 UTC] PHP   7. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP   8. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[04-Apr-2019 08:13:44 UTC] PHP   9. wp_widgets_init() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[04-Apr-2019 08:13:44 UTC] PHP  10. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php:1715
+[04-Apr-2019 08:13:44 UTC] PHP  11. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[04-Apr-2019 08:13:44 UTC] PHP  12. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310

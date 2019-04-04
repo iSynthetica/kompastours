@@ -2,7 +2,7 @@
 /**
  * Content template file
  *
- * @package Hooka
+ * @package Magiccompass/Parts
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
