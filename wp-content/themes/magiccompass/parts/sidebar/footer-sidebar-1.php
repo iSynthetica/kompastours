@@ -29,9 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <div class="row">
     <div class="col-lg-4 col-md-4">
         <h3>Need help?</h3>
+
         <a href="tel://004542344599" id="phone">+45 423 445 99</a>
         <a href="mailto:help@citytours.com" id="email_footer">help@citytours.com</a>
-        <p><img src="img/payments.png" width="231" height="30" alt="Image" data-retina="true" class="img-fluid"></p>
     </div>
 
     <div class="col-lg-2 col-md-3 ml-md-auto">

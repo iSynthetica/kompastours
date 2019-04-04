@@ -19,6 +19,93 @@
             "endpoint": 0
         },
         {
+            "key": "field_5ca5cb0429f95",
+            "label": "Телефоны",
+            "name": "phones",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ca5cb47f99ae",
+                    "label": "Текст",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ca5cb83e3dc2",
+                    "label": "Ссылка",
+                    "name": "link",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ca5cbab6ab4e",
+                    "label": "Девайс",
+                    "name": "use_on",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "both": "Desktop and Mobile",
+                        "mobile": "Mobile",
+                        "desktop": "Desktop"
+                    },
+                    "default_value": [
+                        "both"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
             "key": "field_5c4da139eac8d",
             "label": "Map",
             "name": "map",
@@ -94,5 +181,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1548756973
+    "modified": 1554369491
 }

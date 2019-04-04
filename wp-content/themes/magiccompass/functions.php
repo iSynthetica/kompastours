@@ -41,6 +41,9 @@ require_once(SNTH_INCLUDES.'/settings.php');
 
 // Theme support options
 require_once(SNTH_INCLUDES.'/theme-support.php');
+
+// Helpers library
+require_once(SNTH_INCLUDES.'/helpers.php');
 //
 //// Remove useless WP outputs
 //require_once(SNTH_INCLUDES.'/cleanup.php');
@@ -54,8 +57,8 @@ require_once(SNTH_INCLUDES.'/sidebar.php');
 // Helpers library
 require_once(SNTH_INCLUDES.'/content-templates.php');
 
-// Helpers library
-require_once(SNTH_INCLUDES.'/helpers.php');
+// Shortcodes library
+require_once(SNTH_INCLUDES.'/shortcodes.php');
 //
 //// Helpers library
 //require_once(SNTH_INCLUDES.'/core.php');

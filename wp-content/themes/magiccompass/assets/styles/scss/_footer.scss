@@ -67,6 +67,25 @@ footer.site-footer {
     }
 }
 
+#phone_container {
+    position: relative;
+    padding-left: rem-calc(40);
+    min-height: rem-calc(25);
+
+    .contact-item__holder {
+        margin-top: 3px;
+        margin-bottom: 3px;
+        font-size: rem-calc(16);
+    }
+    .contact-item__icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: rem-calc(23);
+    }
+}
+
 a#phone,
 a#email_footer {
     display: block;

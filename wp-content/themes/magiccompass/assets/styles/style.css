@@ -17877,6 +17877,23 @@ footer.site-footer {
           background: #fff;
           color: #111; }
 
+#phone_container {
+  position: relative;
+  padding-left: 2.5rem;
+  min-height: 1.5625rem; }
+  #phone_container .contact-item__holder {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 1rem; }
+  #phone_container .contact-item__icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 1.4375rem; }
+
 a#phone,
 a#email_footer {
   display: block;

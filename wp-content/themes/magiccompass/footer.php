@@ -2,7 +2,7 @@
 /**
  * The Footer for our theme
  *
- * @package Hooka
+ * @package Magiccompass
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
