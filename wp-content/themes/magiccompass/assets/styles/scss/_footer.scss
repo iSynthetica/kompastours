@@ -67,15 +67,17 @@ footer.site-footer {
     }
 }
 
-#phone_container {
+.contact__container {
     position: relative;
+    padding-top: rem-calc(5);
+    padding-bottom: rem-calc(5);
     padding-left: rem-calc(40);
     min-height: rem-calc(25);
 
     .contact-item__holder {
         margin-top: 3px;
         margin-bottom: 3px;
-        font-size: rem-calc(16);
+        font-size: rem-calc(14);
     }
     .contact-item__icon {
         position: absolute;
@@ -83,6 +85,7 @@ footer.site-footer {
         top: 50%;
         transform: translateY(-50%);
         font-size: rem-calc(23);
+        color: #fdf7ac;
     }
 }
 

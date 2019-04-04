@@ -17877,22 +17877,25 @@ footer.site-footer {
           background: #fff;
           color: #111; }
 
-#phone_container {
+.contact__container {
   position: relative;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
   padding-left: 2.5rem;
   min-height: 1.5625rem; }
-  #phone_container .contact-item__holder {
+  .contact__container .contact-item__holder {
     margin-top: 3px;
     margin-bottom: 3px;
-    font-size: 1rem; }
-  #phone_container .contact-item__icon {
+    font-size: 0.875rem; }
+  .contact__container .contact-item__icon {
     position: absolute;
     left: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-size: 1.4375rem; }
+    font-size: 1.4375rem;
+    color: #fdf7ac; }
 
 a#phone,
 a#email_footer {

@@ -11,7 +11,7 @@ $phones = get_field('phones', 'options');
 
 if (!empty($phones)) {
     ?>
-    <div id="phone_container">
+    <div id="phone_container" class="contact__container">
         <i class="fas fa-phone contact-item__icon"></i>
         <?php
         foreach ($phones as $phone) {
@@ -39,7 +39,39 @@ if (!empty($phones)) {
     </div>
     <?php
 }
-?>
 
-<a href="tel://004542344599" id="phone">+45 423 445 99</a>
-<a href="mailto:help@citytours.com" id="email_footer">help@citytours.com</a>
+$emails = get_field('emails', 'options');
+
+if (!empty($emails)) {
+    ?>
+    <div id="email_container" class="contact__container">
+        <i class="far fa-envelope contact-item__icon"></i>
+        <?php
+        foreach ($emails as $email) {
+            ?>
+            <p class="contact-item__holder">
+                <?php
+                if (!empty($email['link'])) {
+                    echo '<a href="'.$email['link'].'">';
+                } else {
+                    echo '<span>';
+                }
+
+                echo $email['label'];
+
+                if (!empty($email['link'])) {
+                    echo '</a>';
+                } else {
+                    echo '</span>';
+                }
+                ?>
+            </p>
+            <?php
+        }
+        ?>
+    </div>
+    <?php
+}
+
+
+?>
