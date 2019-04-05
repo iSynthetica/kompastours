@@ -20204,6 +20204,9 @@ ul.plan-features {
 .post-right {
   float: right; }
 
+.entry-subtitle {
+  font-size: 1.5625rem; }
+
 /*============================================================================================*/
 /* 3.  COMMON  */
 /*============================================================================================*/
@@ -20568,14 +20571,13 @@ ul.list_order li span {
   width: 100%;
   height: 470px;
   background: rgba(0, 0, 0, 0.6); }
-
-.parallax-content-1 > div {
-  display: table-cell;
-  padding: 0 15%;
-  vertical-align: middle;
-  text-align: center;
-  color: #fff;
-  font-size: 16px; }
+  .parallax-content-1 > div {
+    display: table-cell;
+    padding: 0 15%;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    font-size: 16px; }
 
 .parallax-content-1 div h1,
 .parallax-content-1 div h3 {
@@ -20583,6 +20585,9 @@ ul.list_order li span {
   text-transform: uppercase;
   font-weight: bold;
   color: #fff; }
+
+.parallax-content-1 div h3 {
+  font-size: 1.125rem; }
 
 .parallax-content-1 div h1 {
   margin-bottom: 0;

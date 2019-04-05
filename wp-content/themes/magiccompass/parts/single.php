@@ -15,6 +15,8 @@ if (empty($template)) {
 if (empty($content)) {
     $content = 'single';
 }
+
+$subtitle = get_field('subtitle', get_the_ID());
 ?>
 
 <section class="parallax-window" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url('full') ?>" data-natural-width="1400"
@@ -22,7 +24,12 @@ if (empty($content)) {
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
             <h1><?php the_title(); ?></h1>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+            <?php
+            if (!empty($subtitle)) {
+                ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
+            }
+            ?>
+
         </div>
     </div>
 </section>
@@ -30,9 +37,43 @@ if (empty($content)) {
 <?php snth_show_template('breadcrumbs.php'); ?>
 
 <div class="wrap">
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
-            <?php snth_show_template('content/'.$content.'.php'); ?>
-        </main>
+    <div class="container margin_60">
+        <div class="row">
+            <?php
+            if ( 'right-sidebar' === $template ) {
+                ?>
+                <div id="primary" class="content-area col-lg-9">
+                    <main id="main" class="site-main" role="main">
+                        <?php snth_show_template('content/'.$content.'.php'); ?>
+                    </main>
+                </div>
+
+                <aside class="col-lg-3">
+                    <?php get_sidebar(); ?>
+                </aside>
+                <?php
+            } elseif ( 'left-sidebar' === $template ) {
+                ?>
+                <aside class="col-lg-3">
+                    <?php get_sidebar(); ?>
+                </aside>
+
+                <div id="primary" class="content-area col-lg-9">
+                    <main id="main" class="site-main" role="main">
+                        <?php snth_show_template('content/'.$content.'.php'); ?>
+                    </main>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div id="primary" class="content-area col-12">
+                    <main id="main" class="site-main" role="main">
+                        <?php snth_show_template('content/'.$content.'.php'); ?>
+                    </main>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
     </div>
 </div>

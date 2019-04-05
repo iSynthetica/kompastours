@@ -70,7 +70,7 @@ snth_show_template('breadcrumbs.php');
                 <?php
             } else {
                 ?>
-                <div id="primary" class="content-area">
+                <div id="primary" class="content-area col-12">
                     <main id="main" class="site-main" role="main">
                         <?php snth_show_template('content/'.$content.'.php'); ?>
 
