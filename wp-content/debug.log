@@ -5900,3 +5900,4 @@ Stack trace:
 [04-Apr-2019 08:13:44 UTC] PHP  10. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php:1715
 [04-Apr-2019 08:13:44 UTC] PHP  11. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
 [04-Apr-2019 08:13:44 UTC] PHP  12. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[05-Apr-2019 07:54:08 UTC] PHP Notice: A feed could not be found at http://ru.wordpress.org/news/feed/. A feed with an invalid mime type may fall victim to this error, or SimplePie was unable to auto-discover it.. Use force_feed() if you are certain this URL is a real feed. in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-simplepie.php on line 1555

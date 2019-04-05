@@ -73,5 +73,26 @@ if (!empty($emails)) {
     <?php
 }
 
+$schedule = get_field('schedule', 'options');
+
+if (!empty($schedule)) {
+    ?>
+    <div id="schedule_container" class="contact__container">
+        <i class="far fa-clock contact-item__icon"></i>
+
+        <?php
+        foreach ($schedule as $item) {
+            if (!empty($item['description']) && !empty($item['time'])) {
+                ?>
+                <p class="contact-item__holder">
+                    <small><?php echo $item['description'] ?></small>: <strong><?php echo $item['time'] ?></strong>
+                </p>
+                <?php
+            }
+        }
+        ?>
+    </div>
+    <?php
+}
 
 ?>
