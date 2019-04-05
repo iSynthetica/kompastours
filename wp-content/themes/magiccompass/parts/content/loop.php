@@ -31,26 +31,27 @@ if ( have_posts() ) {
                 <div class="post_info clearfix">
                     <div class="post-left">
                         <ul>
-                            <li><i class="icon-calendar-empty"></i> On <span>12 Nov 2020</span>
+                            <li>
+                                <i class="far fa-calendar-alt"></i> <span><?php echo get_the_date(); ?></span>
                             </li>
-                            <li><i class="icon-inbox-alt"></i> In <a href="#">Top tours</a>
+
+                            <li>
+                                <i class="far fa-folder"></i> In <a href="#">Top tours</a>
                             </li>
-                            <li><i class="icon-tags"></i> Tags <a href="#">Works</a>, <a
-                                        href="#">Personal</a>
+
+                            <li>
+                                <i class="fas fa-tag"></i> Tags <?php echo get_the_tag_list('',', ',''); ?>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="post-right"><i class="icon-comment"></i><a href="#">25 </a></div>
+                    <div class="post-right"><i class="far fa-comment-dots"></i> <a href="#">25</a></div>
                 </div>
 
                 <h2 class="entry-title"><?php the_title(); ?></h2>
 
                 <p>
-                    Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
-                </p>
-                <p>
-                    Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
+                    <?php echo get_the_excerpt(); ?>
                 </p>
 
                 <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark" class="btn_1">

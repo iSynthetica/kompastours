@@ -41,6 +41,10 @@ snth_show_template('breadcrumbs.php');
                 <div id="primary" class="content-area col-lg-9">
                     <main id="main" class="site-main" role="main">
                         <?php snth_show_template('content/'.$content.'.php'); ?>
+
+                        <!-- Pagination -->
+                        <?php snth_pagination(); ?>
+                        <!-- End Pagination -->
                     </main>
                 </div>
 
@@ -57,6 +61,10 @@ snth_show_template('breadcrumbs.php');
                 <div id="primary" class="content-area col-lg-9">
                     <main id="main" class="site-main" role="main">
                         <?php snth_show_template('content/'.$content.'.php'); ?>
+
+                        <!-- Pagination -->
+                        <?php snth_pagination(); ?>
+                        <!-- End Pagination -->
                     </main>
                 </div>
                 <?php
@@ -65,6 +73,10 @@ snth_show_template('breadcrumbs.php');
                 <div id="primary" class="content-area">
                     <main id="main" class="site-main" role="main">
                         <?php snth_show_template('content/'.$content.'.php'); ?>
+
+                        <!-- Pagination -->
+                        <?php snth_pagination(); ?>
+                        <!-- End Pagination -->
                     </main>
                 </div>
                 <?php

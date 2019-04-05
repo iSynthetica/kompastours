@@ -156,3 +156,45 @@ function snth_the_breadcrumbs() {
         echo $wrap_after;
     }
 }
+
+function snth_pagination() {
+    global $wp_query;
+    $big = 999999999;
+
+    $paginate_links = paginate_links( array(
+        'base' => str_replace( $big, '%#%', html_entity_decode( get_pagenum_link( $big ) ) ),
+        'current' => max( 1, get_query_var( 'paged' ) ),
+        'total' => $wp_query->max_num_pages,
+        'end_size' => 1,
+        'mid_size' => 2,
+        'prev_next' => true,
+        'prev_text' => __( '<i class="fas fa-angle-left"></i>', 'snthwp' ),
+        'next_text' => __( '<i class="fas fa-angle-right"></i>', 'snthwp' ),
+        'type' => 'array',
+    ) );
+
+    if (!empty($paginate_links)) {
+        foreach ($paginate_links as $key => $link) {
+            $new_link = str_replace('<a class="prev page-numbers"', '<li class="page-item"><a class="page-link"', $link);
+            $new_link = str_replace('<a class="next page-numbers"', '<li class="page-item"><a class="page-link"', $new_link);
+            $new_link = str_replace('<a class="page-numbers"', '<li class="page-item"><a class="page-link"', $new_link);
+            $new_link = str_replace('<a class=\'page-numbers\'', '<li class="page-item"><a class="page-link"', $new_link);
+            $new_link = str_replace('<span class="page-numbers dots"', '<li class="page-item disabled"><span class="page-link"', $new_link);
+            $new_link = str_replace('<span aria-current=\'page\' class=\'page-numbers current\'', '<li class="page-item active"><span class="page-link"', $new_link);
+            $new_link = str_replace('</a>', '</a></li>', $new_link);
+            $new_link = str_replace('</span>', '</span></li>', $new_link);
+
+            $paginate_links[$key] = $new_link;
+        }
+    }
+
+    if ( $paginate_links ) {
+        echo '<nav aria-label="Page navigation" class="page-navigation">';
+        echo '<ul class="pagination justify-content-center">';
+        foreach ($paginate_links as $link) {
+            echo $link;
+        }
+        echo '</ul>';
+        echo '</nav><!--// end .pagination -->';
+    }
+}
