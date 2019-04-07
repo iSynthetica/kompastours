@@ -73,6 +73,12 @@ function snth_theme_support() {
 }
 add_action( 'after_setup_theme', 'snth_theme_support' );
 
+
+function load_translations(){
+    load_theme_textdomain( 'snthwp', get_template_directory() .'/languages' );
+}
+add_action('after_setup_theme', 'load_translations');
+
 function snth_google_map_api( $api ) {
     $api['key'] = 'AIzaSyDBeGNjLt_srVFXjDjduGyHtGu-fzn_Pt4';
     return $api;

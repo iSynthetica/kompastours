@@ -17,11 +17,11 @@
                     </li>
 
                     <li>
-                        <i class="far fa-folder"></i> In <a href="#">Top tours</a>
+                        <i class="far fa-folder"></i> In <?php echo get_the_term_list( get_the_ID(), 'category', '', ',', '' ); ?>
                     </li>
 
                     <li>
-                        <i class="fas fa-tag"></i> Tags <?php echo get_the_tag_list('',', ',''); ?>
+                        <i class="fas fa-tag"></i> Tags <?php echo get_the_term_list( get_the_ID(), 'post_tag', '', ',', '' ); ?>
                     </li>
                 </ul>
             </div>
@@ -31,10 +31,10 @@
 
         <?php the_content(); ?>
     </div>
-
-    <?php
-    if ( comments_open() || get_comments_number() ) :
-        comments_template();
-    endif;
-    ?>
 </div>
+
+<?php
+if ( comments_open() || get_comments_number() ) :
+    comments_template();
+endif;
+?>

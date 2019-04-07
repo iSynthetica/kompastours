@@ -36,11 +36,11 @@ if ( have_posts() ) {
                             </li>
 
                             <li>
-                                <i class="far fa-folder"></i> In <a href="#">Top tours</a>
+                                <i class="far fa-folder"></i> In <?php echo get_the_term_list( get_the_ID(), 'category', '', ',', '' ); ?>
                             </li>
 
                             <li>
-                                <i class="fas fa-tag"></i> Tags <?php echo get_the_tag_list('',', ',''); ?>
+                                <i class="fas fa-tag"></i> Tags <?php echo get_the_term_list( get_the_ID(), 'post_tag', '', ',', '' ); ?>
                             </li>
                         </ul>
                     </div>

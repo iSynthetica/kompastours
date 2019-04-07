@@ -23,9 +23,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<hr>
-
-<div id="comments" class="comments-area">
+<div class="comments-area">
 
 	<?php
 	// You can start editing here -- including this comment!
@@ -53,15 +51,21 @@ if ( post_password_required() ) {
 			?>
 		</h4>
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'avatar_size' => 100,
-					'style'       => 'ol',
-					'short_ping'  => true,
-				) );
-			?>
-		</ol>
+
+        <div id="comments">
+            <ol class="comment-list">
+                <?php
+                wp_list_comments( array(
+                    'max_depth'         => 4,
+                    'callback'          => 'snth_comments_cb_end',
+//                    'end-callback'      => 'snth_comments_cb_end',
+                    'avatar_size' => 100,
+                    'style'       => 'ol',
+//                    'short_ping'  => true,
+                ) );
+                ?>
+            </ol>
+        </div>
 
 		<?php the_comments_pagination(  );
 
@@ -74,7 +78,31 @@ if ( post_password_required() ) {
 	<?php
 	endif;
 
-	comment_form();
+	ob_start();
+    snth_show_template('content/comments-fields-comment_field.php');
+	$comment_field = ob_get_clean();
+
+	ob_start();
+    snth_show_template('content/comments-fields-author_field.php');
+	$author_field = ob_get_clean();
+
+	ob_start();
+    snth_show_template('content/comments-fields-email_field.php');
+	$email_field = ob_get_clean();
+
+	ob_start();
+    snth_show_template('content/comments-fields-url_field.php');
+	$url_field = ob_get_clean();
+
+	comment_form(array(
+        'fields' => array(
+            'author' => $author_field,
+            'email' => $email_field,
+            // 'url' => $url_field,
+        ),
+        'comment_field' => $comment_field,
+        'class_submit' => 'btn_1'
+    ));
 	?>
 
 </div><!-- #comments -->

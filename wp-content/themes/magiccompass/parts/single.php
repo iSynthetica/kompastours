@@ -49,13 +49,13 @@ $subtitle = get_field('subtitle', get_the_ID());
                 </div>
 
                 <aside class="col-lg-3">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('blog'); ?>
                 </aside>
                 <?php
             } elseif ( 'left-sidebar' === $template ) {
                 ?>
                 <aside class="col-lg-3">
-                    <?php get_sidebar(); ?>
+                    <?php get_sidebar('blog'); ?>
                 </aside>
 
                 <div id="primary" class="content-area col-lg-9">

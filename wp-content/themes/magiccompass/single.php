@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <?php get_header(); ?>
 
-<?php snth_show_template('single.php') ?>
+<?php snth_show_template('single.php', array(
+    'template'  =>  'right-sidebar'
+)) ?>
 
 <?php get_footer(); ?>

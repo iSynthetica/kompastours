@@ -20207,6 +20207,33 @@ ul.plan-features {
 .entry-subtitle {
   font-size: 1.5625rem; }
 
+#comments {
+  padding: 10px 0 0px 0;
+  margin-bottom: 15px; }
+  #comments ul, #comments ol {
+    padding: 0;
+    margin: 0;
+    list-style: none; }
+    #comments ul li, #comments ol li {
+      padding: 0 0 23px 0;
+      list-style: none; }
+      #comments ul li:after, #comments ol li:after {
+        display: table;
+        content: ' ';
+        clear: both; }
+    #comments ul.children li, #comments ol.children li {
+      padding: 23px 0 0 30px;
+      margin: 0; }
+  #comments .avatar {
+    float: left;
+    margin-right: 11px; }
+  #comments .comment_right {
+    display: table; }
+  #comments .comment_info {
+    padding-bottom: 7px; }
+  #comments .comment_info span {
+    padding: 0 12px; }
+
 /*============================================================================================*/
 /* 3.  COMMON  */
 /*============================================================================================*/

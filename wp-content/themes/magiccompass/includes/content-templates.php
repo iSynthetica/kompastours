@@ -198,3 +198,27 @@ function snth_pagination() {
         echo '</nav><!--// end .pagination -->';
     }
 }
+
+function snth_comments_cb($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+
+    snth_show_template('content/comments.php', array(
+        'comment' => $comment,
+        'args'    => $args,
+        'depth'   => $depth,
+    ) );
+}
+
+function snth_comments_cb_end($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+
+    snth_show_template('content/better_comments.php', array(
+        'comment' => $comment,
+        'args'    => $args,
+        'depth'   => $depth,
+    ) );
+}
+
+function snth_better_comments_cb($comment, $args, $depth) {
+
+}
