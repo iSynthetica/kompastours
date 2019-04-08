@@ -7,16 +7,7 @@
  */
 ?>
 
-<div class="widget">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search...">
-        <span class="input-group-btn">
-						<button class="btn btn-default" type="button" style="margin-left:0;"><i class="fas fa-search"></i></button>
-						</span>
-    </div>
-    <!-- /input-group -->
-</div>
-<!-- End Search -->
+<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 
 <hr>
 

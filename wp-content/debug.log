@@ -7226,3 +7226,21 @@ Stack trace:
 [05-Apr-2019 16:28:31 UTC] PHP  16. snth_comments_cb() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-walker-comment.php:179
 [05-Apr-2019 16:28:31 UTC] PHP  17. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php:205
 [05-Apr-2019 16:28:31 UTC] PHP  18. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 09:30:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/searchform.php:20
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/general-template.php(208): require()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets/class-wp-widget-search.php(54): get_search_form()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-widget.php(378): WP_Widget_Search->widget(Array, Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php(770): WP_Widget->display_callback(Array, Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/sidebar-blog.php(10): dynamic_sidebar('blog-sidebar')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(704): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(653): load_template('/var/www/synthe...', in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/searchform.php on line 20
+[08-Apr-2019 09:32:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function twentyseventeen_get_svg() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/searchform.php:20
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/general-template.php(208): require()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets/class-wp-widget-search.php(54): get_search_form()
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-widget.php(378): WP_Widget_Search->widget(Array, Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/widgets.php(770): WP_Widget->display_callback(Array, Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/sidebar-blog.php(10): dynamic_sidebar('blog-sidebar')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(704): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(653): load_template('/var/www/synthe...', in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/searchform.php on line 20
