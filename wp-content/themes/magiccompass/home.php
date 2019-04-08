@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php get_header(); ?>
 
 <?php snth_show_template('archive.php', array(
-    'template' => 'no-sidebar',
+    'template' => 'right-sidebar',
     'content' => 'loop',
 )) ?>
 

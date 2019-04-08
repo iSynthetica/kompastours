@@ -7,24 +7,9 @@
  */
 ?>
 
+<?php get_search_form(); ?>
+
 <?php dynamic_sidebar( 'blog-sidebar' ); ?>
-
-<hr>
-
-<div class="widget" id="cat_blog">
-    <h4>Categories</h4>
-    <ul>
-        <li><a href="#">Places to visit</a>
-        </li>
-        <li><a href="#">Top tours</a>
-        </li>
-        <li><a href="#">Tips for travellers</a>
-        </li>
-        <li><a href="#">Events</a>
-        </li>
-    </ul>
-</div>
-<!-- End widget -->
 
 <hr>
 
@@ -48,15 +33,3 @@
         </li>
     </ul>
 </div>
-<!-- End widget -->
-<hr>
-<div class="widget tags">
-    <h4>Tags</h4>
-    <a href="#">Lorem ipsum</a>
-    <a href="#">Dolor</a>
-    <a href="#">Long established</a>
-    <a href="#">Sit amet</a>
-    <a href="#">Latin words</a>
-    <a href="#">Excepteur sint</a>
-</div>
-<!-- End widget -->

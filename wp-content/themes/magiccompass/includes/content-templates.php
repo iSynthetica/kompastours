@@ -15,8 +15,12 @@ function snth_the_breadcrumbs() {
     /* == Options - Start == */
     $text['home'] = __('Home', 'snthwp');
     $text['blog'] = __('Blog', 'snthwp');
+    $text['category'] = '%s';
+    $text['tag'] = __('Posts tagged with "%s"', 'snthwp');
+    $text['page'] = __('Page %s', 'snthwp');
 
     $show_home_link = 1;
+    $show_blog_link = 1;
     $show_on_home = 0;
     $home_page_for_posts = 1;
     $show_current = 1;
@@ -64,6 +68,52 @@ function snth_the_breadcrumbs() {
 
         if (is_category()) {
 
+            if ($show_home_link) {
+                echo $sep;
+            }
+
+            if ($show_blog_link) {
+                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+                echo $sep;
+            }
+
+            $cat = get_category(get_query_var('cat'), false);
+
+            if ($cat->parent != 0) {
+                $cats = get_category_parents($cat->parent, TRUE, $sep);
+                $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
+                $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr .'>' . $link_in_before . '$2' . $link_in_after .'</a>' . $link_after, $cats);
+
+                echo $cats;
+                echo $sep;
+            }
+
+            if ( get_query_var('paged') ) {
+                $cat = $cat->cat_ID;
+                echo sprintf($link, get_category_link($cat), get_cat_name($cat)) . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
+            } else {
+                if ($show_current) echo $current_before . sprintf($text['category'], single_cat_title('', false)) . $current_after;
+            }
+
+        }
+        elseif (is_tag()) {
+
+            if ($show_home_link) {
+                echo $sep;
+            }
+
+            if ($show_blog_link) {
+                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+                echo $sep;
+            }
+
+            if ( get_query_var('paged') ) {
+                $tag_id = get_queried_object_id();
+                $tag = get_tag($tag_id);
+                echo sprintf($link, get_tag_link($tag_id), $tag->name) . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
+            } else {
+                if ($show_current) echo $current_before . sprintf($text['tag'], single_tag_title('', false)) . $current_after;
+            }
         }
         elseif (is_single()) {
             $id = $post->ID;
@@ -210,6 +260,9 @@ function snth_comments_cb($comment, $args, $depth) {
 }
 
 function snth_comments_cb_end($comment, $args, $depth) {
+}
+
+function snth_better_comments_cb($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 
     snth_show_template('content/better_comments.php', array(
@@ -217,8 +270,4 @@ function snth_comments_cb_end($comment, $args, $depth) {
         'args'    => $args,
         'depth'   => $depth,
     ) );
-}
-
-function snth_better_comments_cb($comment, $args, $depth) {
-
 }

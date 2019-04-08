@@ -7244,3 +7244,69 @@ Stack trace:
 #4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/sidebar-blog.php(10): dynamic_sidebar('blog-sidebar')
 #5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(704): require_once('/var/www/synthe...')
 #6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template.php(653): load_template('/var/www/synthe...', in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/searchform.php on line 20
+[08-Apr-2019 10:28:08 UTC] PHP Notice:  Undefined variable: before in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 87
+[08-Apr-2019 10:28:08 UTC] PHP Stack trace:
+[08-Apr-2019 10:28:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:28:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:28:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:28:08 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:28:08 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11
+[08-Apr-2019 10:28:08 UTC] PHP Notice:  Undefined index: category in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 87
+[08-Apr-2019 10:28:08 UTC] PHP Stack trace:
+[08-Apr-2019 10:28:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:28:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:28:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:28:08 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:28:08 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11
+[08-Apr-2019 10:28:08 UTC] PHP Notice:  Undefined variable: after in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 87
+[08-Apr-2019 10:28:08 UTC] PHP Stack trace:
+[08-Apr-2019 10:28:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:28:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:28:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:28:08 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:28:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:28:08 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:28:08 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11
+[08-Apr-2019 10:29:53 UTC] PHP Notice:  Undefined index: category in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 87
+[08-Apr-2019 10:29:53 UTC] PHP Stack trace:
+[08-Apr-2019 10:29:53 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:29:53 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:29:53 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:29:53 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:29:53 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:29:53 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:29:53 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:29:53 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:29:53 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11
+[08-Apr-2019 10:41:47 UTC] PHP Notice:  Undefined index: tag in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 102
+[08-Apr-2019 10:41:47 UTC] PHP Stack trace:
+[08-Apr-2019 10:41:47 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:41:47 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:41:47 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:41:47 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:41:47 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:41:47 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:41:47 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:41:47 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:41:47 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11
+[08-Apr-2019 10:43:31 UTC] PHP Notice:  Undefined index: page in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php on line 111
+[08-Apr-2019 10:43:31 UTC] PHP Stack trace:
+[08-Apr-2019 10:43:31 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[08-Apr-2019 10:43:31 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[08-Apr-2019 10:43:31 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[08-Apr-2019 10:43:31 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[08-Apr-2019 10:43:31 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/archive.php:19
+[08-Apr-2019 10:43:31 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:43:31 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/archive.php:32
+[08-Apr-2019 10:43:31 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[08-Apr-2019 10:43:31 UTC] PHP   9. snth_the_breadcrumbs() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/breadcrumbs.php:11

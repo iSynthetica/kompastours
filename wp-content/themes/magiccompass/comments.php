@@ -57,7 +57,7 @@ if ( post_password_required() ) {
                 <?php
                 wp_list_comments( array(
                     'max_depth'         => 4,
-                    'callback'          => 'snth_comments_cb_end',
+                    'callback'          => 'snth_better_comments_cb',
 //                    'end-callback'      => 'snth_comments_cb_end',
                     'avatar_size' => 100,
                     'style'       => 'ol',
