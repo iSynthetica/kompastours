@@ -1,0 +1,59 @@
+{
+    "key": "group_5cab72eb825e8",
+    "title": "Aside Posts",
+    "fields": [
+        {
+            "key": "field_5cab730c54b03",
+            "label": "Шаблон",
+            "name": "template",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "no-sidebar": "На всю ширину",
+                "right-sidebar": "Боковая колонка справа",
+                "left-sidebar": "Боковая колонка слева"
+            },
+            "default_value": [
+                "no-sidebar"
+            ],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1554740130
+}

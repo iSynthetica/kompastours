@@ -29,7 +29,6 @@ $subtitle = get_field('subtitle', get_the_ID());
                 ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
             }
             ?>
-
         </div>
     </div>
 </section>

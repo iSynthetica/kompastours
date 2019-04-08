@@ -7,11 +7,27 @@
  */
 ?>
 
-<div class="container margin_60">
-    <div class="main_title">
-        <h2>Some <span>Paris </span>tips for travellers</h2>
-        <p>
-            Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-        </p>
-    </div
+<div class="row">
+    <div class="col-md-8 col-lg-9">
+
+        <div class="form_title">
+            <h3><strong><i class="fas fa-pencil-alt"></i></strong>Fill the form below</h3>
+            <p>
+                Mussum ipsum cacilds, vidis litro abertis.
+            </p>
+        </div>
+
+        <div class="step">
+            <div id="message-contact"></div>
+
+            <?php echo do_shortcode('[contact-form-7 id="1760" title="Contacts"]'); ?>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+        <div class="box_style_4">
+            <i class="icon_set_1_icon-57"></i>
+
+            <?php echo do_shortcode('[snth_footer_first_sidebar]'); ?>
+        </div>
+    </div>
 </div>
