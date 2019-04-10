@@ -46,10 +46,12 @@ wp_localize_script('gmapLocations', 'jointsMapObj', array(
         </div>
     </div>
     <div class="col-md-4 col-lg-3">
-        <div class="box_style_4">
-            <i class="icon_set_1_icon-57"></i>
+        <div class="box_style_5">
+            <div class="box_header">
+                <i class="icon_set_1_icon-57"></i>
+            </div>
 
-            <?php echo do_shortcode('[snth_footer_first_sidebar]'); ?>
+            <?php snth_show_template('shortcodes/sidebar-contacts.php'); ?>
         </div>
     </div>
 </div>
