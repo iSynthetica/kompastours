@@ -80,7 +80,9 @@ function load_translations(){
 add_action('after_setup_theme', 'load_translations');
 
 function snth_google_map_api( $api ) {
-    $api['key'] = 'AIzaSyDBeGNjLt_srVFXjDjduGyHtGu-fzn_Pt4';
+    $api_key = apply_filters( 'snth_gmap_api_key', '' );
+    $api['key'] = $api_key;
+
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'snth_google_map_api');

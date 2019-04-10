@@ -17403,6 +17403,14 @@ a.btn_login:hover, .btn_login:hover {
   padding: 0;
   margin: 0 0 15px 0; }
 
+#map-canvas {
+  height: 410px;
+  position: relative;
+  background-color: #111 !important;
+  z-index: 1; }
+  #map-canvas.height-full {
+    height: 80vh; }
+
 /* Header */
 #logo {
   margin-top: 10px; }
@@ -19281,32 +19289,28 @@ a#filters_col_bt .icon_set_1_icon-65 {
   position: relative;
   padding-left: 55px;
   margin-bottom: 10px; }
-
-.form_title h3 strong {
-  background-color: #e04f67;
-  text-align: center;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 18px;
-  line-height: 40px;
-  text-align: center;
-  position: absolute;
-  left: 0;
-  top: 0; }
-
-.form_title h3 {
-  margin: 0;
-  padding: 0; }
-
-.form_title p {
-  color: #999;
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  line-height: 14px; }
+  .form_title h3 {
+    margin: 0;
+    padding: 0; }
+    .form_title h3 strong {
+      background-color: #e04f67;
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      line-height: 40px;
+      position: absolute;
+      left: 0;
+      top: 0; }
+  .form_title p {
+    color: #999;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 14px; }
 
 .step {
   border-left: 1px solid #ddd;

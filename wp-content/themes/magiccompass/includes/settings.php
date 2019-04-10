@@ -9,6 +9,11 @@ defined( 'ABSPATH' ) || exit;
 
 add_filter('show_admin_bar', '__return_false');
 
+function snth_settings_gmap_api_key( $key ) {
+    return 'AIzaSyDBeGNjLt_srVFXjDjduGyHtGu-fzn_Pt4';
+}
+add_filter( 'snth_gmap_api_key', 'snth_settings_gmap_api_key', 999 );
+
 /**
  *
  * @param $logos

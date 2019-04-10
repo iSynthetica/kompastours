@@ -31,6 +31,16 @@ function snth_enqueue_scripts() {
     // Register main stylesheet
     wp_enqueue_style( 'site-css', SNTH_STYLES_URL.'/'.$site_css, array(), SNTH_VERSION, 'all' );
 
+    // Google Map
+    $api_key = apply_filters( 'snth_gmap_api_key', '' );
+    wp_register_script('gmap', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key);
+    wp_register_script('gmap3', SNTH_VENDORS_URL . '/gmap/gmap3.min.js', array( 'gmap' ), SNTH_VERSION, true);
+    wp_register_script('infobox', SNTH_VENDORS_URL . '/gmap/InfoBox/infobox.js', array( 'gmap' ), '', true );
+    // wp_register_script('markerclusterer', SNTH_VENDORS_URL . '/gmap/js-marker-clusterer/markerclusterer.js', array( 'gmap' ), '', true );
+
+    wp_register_script('gmapTheme', SNTH_SCRIPTS_URL . '/gmap.js', array( 'gmap3' ), SNTH_VERSION, true);
+    wp_register_script('gmapLocations', SNTH_SCRIPTS_URL . '/gmapLocations.js', array( 'gmap3', 'infobox' ), SNTH_VERSION, true);
+
     // Comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
       wp_enqueue_script( 'comment-reply' );

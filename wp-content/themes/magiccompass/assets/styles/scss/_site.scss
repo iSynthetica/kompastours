@@ -384,3 +384,15 @@ a.btn_login:hover, .btn_login:hover{
         margin: 0 0 15px 0;
     }
 }
+
+
+#map-canvas{
+    height: 410px;
+    position: relative;
+    background-color: #111 !important;
+    z-index: 1;
+
+    &.height-full {
+        height: 80vh;
+    }
+}

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php get_header(); ?>
 
-<?php snth_show_template('page.php', array(
+<?php snth_show_template('contacts.php', array(
     'template' => 'no-sidebar',
     'content' => 'contacts',
 )) ?>

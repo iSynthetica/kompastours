@@ -5,6 +5,28 @@
  * Date: 27.01.19
  * Time: 12:56
  */
+
+$map = get_field('map', 'options');
+$map_markers = array();
+$map_markers[] = array(
+    'marker' => array(
+        'lat' => $map['lat'],
+        'lng' => $map['lng'],
+    ),
+    'title' => '',
+    'info'  => ''
+);
+
+$icon = SNTH_IMAGES_URL . '/map-marker.png';
+
+wp_enqueue_script('gmapLocations');
+
+wp_localize_script('gmapLocations', 'jointsMapObj', array(
+    'markers'   => $map_markers,
+    'center'    => $map,
+    'icon'      =>  $icon,
+    'zoom'      =>  17,
+));
 ?>
 
 <div class="row">
