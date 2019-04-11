@@ -47,7 +47,7 @@ if ( !is_array( $form_fields ) ) {
             <div id="destination-select_section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-3">
-                        <p><?php echo __('Select destination', 'snthwp') ?></p>
+                        <h3><?php echo __('Select destination', 'snthwp') ?></h3>
                     </div>
 
                     <div class="col-md-3">
@@ -81,7 +81,7 @@ if ( !is_array( $form_fields ) ) {
             <div id="dates-select_section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-3">
-                        <p><?php echo __('Select dates of start tour, duration', 'snthwp') ?></p>
+                        <h3><?php echo __('Select dates of start tour, duration', 'snthwp') ?></h3>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">

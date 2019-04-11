@@ -180,10 +180,12 @@ function itour_get_region_field($params) {
         $regions_by_countries = array();
 
         foreach ( $params['regions'] as $region ) {
-            $regions_by_countries[$region['country_id']][] = array(
-                'id' => $region['id'],
-                'name' => $region['name']
-            );
+            if (false === strpos($region['id'], '-')) {
+                $regions_by_countries[$region['country_id']][] = array(
+                    'id' => $region['id'],
+                    'name' => $region['name']
+                );
+            }
         }
 
         $regions_by_countries_json = json_encode($regions_by_countries, JSON_HEX_APOS);
@@ -249,6 +251,27 @@ function ittour_get_hotel_rating_by_id($id) {
             $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
             break;
         case '78':
+            $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            break;
+        default:
+            $rating = false;
+    }
+
+    return $rating;
+}
+
+function ittour_get_hotel_rating_by_number($id) {
+    switch ($id) {
+        case '2':
+            $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            break;
+        case '3':
+            $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            break;
+        case '4':
+            $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
+            break;
+        case '5':
             $rating = '<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>';
             break;
         default:

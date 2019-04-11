@@ -40,17 +40,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap">
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
-            <div id="position">
-                <div class="container">
-                    <ul>
-                        <li><a href="#">Home</a>
-                        </li>
-                        <li><a href="#">Category</a>
-                        </li>
-                        <li>Page active</li>
-                    </ul>
-                </div>
-            </div>
 
             <div class="container margin_60">
                 <div class="row">
@@ -69,19 +58,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                         <hr>
 
-                        <!-- Hotel Description - Start -->
-                        <div class="row">
-                            <div class="col-12">
-                                <h3><?php _e('Flight', 'snthwp'); ?></h3>
+                        <!-- Flights - Start -->
+                        <?php
+                        if (!empty($tour_info['flights'])) {
+                            ?>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3><?php _e('Flight', 'snthwp'); ?></h3>
+                                </div>
+
+                                <div class="col-12">
+                                    <?php
+                                    ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights']));
+                                    ?>
+                                </div>
                             </div>
 
-                            <div class="col-12">
-                                <?php ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights'])); ?>
-                            </div>
-                        </div>
+                            <hr>
+                            <?php
+                        }
+                        ?>
                         <!-- Hotel Description - End -->
-
-                        <hr>
 
                         <!-- Hotel Description - Start -->
                         <div class="row">

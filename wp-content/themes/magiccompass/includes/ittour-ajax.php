@@ -55,18 +55,20 @@ add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_sear
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 
 function ittour_ajax_get_tours_list() {
-    $country_id = 338;
+    $country_id = !empty($_POST['countryId']) ? (int)$_POST['countryId']  : 338;
     $search = ittour_search('ru');
+
     $args = array(
         'from_city' => '2014',
         'hotel_rating' => '4:78',
         'adult_amount' => 2,
         'night_from' => 7,
         'night_till' => 9,
-        'date_from' => '11.04.19',
-        'date_till' => '21.04.19',
+        'date_from' => '15.04.19',
+        'date_till' => '25.04.19',
         'items_per_page' => 12,
         'prices_in_group' => 1,
+        'currency' => 1,
     );
 
     $search_result = $search->get($country_id, $args);
