@@ -104,6 +104,24 @@ function itour_get_hotel_ratings_field($params) {
     return ob_get_clean();
 }
 
+function ittour_get_guests_icon($adult, $child) {
+    $icons = '';
+
+    if (!empty($adult)) {
+        for ($i = 0; $i < $adult; $i++) {
+            $icons .= '<i class="fas fa-male"></i>';
+        }
+    }
+
+    if (!empty($child)) {
+        for ($i = 0; $i < $child; $i++) {
+            $icons .= '<i class="fas fa-child"></i>';
+        }
+    }
+
+    return $icons;
+}
+
 function itour_get_transport_type_field($params) {
     ob_start();
     ?>
@@ -237,6 +255,27 @@ function ittour_get_currency_by_id($id) {
     }
 
     return $currency;
+}
+
+function ittour_get_hotel_review_rate_by_value($review_rate) {
+    switch ($review_rate) {
+        case $review_rate < 2:
+            $rating = '<i class="far fa-sad-tear"></i>';
+            break;
+        case $review_rate < 4:
+            $rating = '<i class="far fa-frown"></i>';
+            break;
+        case $review_rate < 6:
+            $rating = '<i class="far fa-meh"></i>';
+            break;
+        case $review_rate < 8:
+            $rating = '<i class="far fa-smile"></i>';
+            break;
+        default:
+            $rating = '<i class="far fa-grin-hearts"></i>';
+    }
+
+    return $rating;
 }
 
 function ittour_get_hotel_rating_by_id($id) {

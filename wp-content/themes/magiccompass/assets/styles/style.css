@@ -23535,6 +23535,39 @@ a.social_bt.linkedin:before {
     padding: 5px 8px; } }
 
 /* END MEDIA QUERIES max-width 480px - MOBILE PORTRAIT  */
+.tour_review_rate {
+  margin-bottom: 0.625rem; }
+  .tour_review_rate i {
+    font-size: 18px; }
+    .tour_review_rate i.fa-sad-tear {
+      color: #a60005; }
+    .tour_review_rate i.fa-frown {
+      color: rgba(177, 69, 0, 0.85); }
+    .tour_review_rate i.fa-meh {
+      color: #a47300; }
+    .tour_review_rate i.fa-smile {
+      color: #809116; }
+    .tour_review_rate i.fa-grin-hearts {
+      color: #4c803d; }
+  .tour_review_rate span {
+    font-size: 15px;
+    font-weight: bold; }
+
+.hotel_title {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 0.625rem;
+  text-transform: uppercase; }
+
+.hotel_location {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 0.6875rem; }
+
+.img_container {
+  position: relative;
+  overflow: hidden; }
+
 /* Tours boxes*/
 .tour_container {
   background-color: #fff;
@@ -23557,9 +23590,85 @@ a.social_bt.linkedin:before {
       margin-top: 5px;
       margin-bottom: 5px; }
 
-.img_container {
-  position: relative;
-  overflow: hidden; }
+.tour_list_container {
+  margin-bottom: 30px;
+  background-color: #fff;
+  display: block;
+  color: #777;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
+  .tour_list_container .hotel_title {
+    margin-bottom: 0; }
+  .tour_list_container .tour_list_details {
+    margin-top: 1.25rem;
+    font-size: 0.875rem; }
+    .tour_list_container .tour_list_details p {
+      margin-bottom: 0.625rem; }
+    .tour_list_container .tour_list_details i {
+      font-size: 1rem; }
+  .tour_list_container .img_container__wrapper {
+    padding: 0.625rem; }
+  .tour_list_container .tour_list_description {
+    padding: 10px 20px 0 0;
+    line-height: 17px; }
+  .tour_list_container .tour_list_price {
+    margin-left: -0.9375rem;
+    width: 100%;
+    display: table;
+    height: 100%; }
+    .tour_list_container .tour_list_price > div {
+      display: table-cell;
+      vertical-align: middle; }
+    .tour_list_container .tour_list_price .tour_price {
+      line-height: 1.625rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #e74c3c; }
+      .tour_list_container .tour_list_price .tour_price small {
+        font-size: 0.875rem; }
+    .tour_list_container .tour_list_price .tour_price_currency {
+      line-height: 1.1875rem;
+      text-align: center;
+      font-size: 1.0625rem;
+      color: #777; }
+      .tour_list_container .tour_list_price .tour_price_currency sup {
+        font-size: 0.75rem;
+        position: relative;
+        top: -0.25rem; }
+    .tour_list_container .tour_list_price .tour-meta p {
+      margin-top: 0.1875rem;
+      margin-bottom: 0.1875rem;
+      text-align: center;
+      font-size: 0.8125rem; }
+      .tour_list_container .tour_list_price .tour-meta p i {
+        font-size: 14px;
+        color: #999; }
+        .tour_list_container .tour_list_price .tour-meta p i.fa-male {
+          font-size: 1.125rem; }
+        .tour_list_container .tour_list_price .tour-meta p i.fa-child {
+          font-size: 0.8125rem; }
+    .tour_list_container .tour_list_price .tour-aside__footer {
+      margin-top: 0.9375rem; }
+      .tour_list_container .tour_list_price .tour-aside__footer a.btn_1 {
+        width: 100%;
+        text-align: center; }
+  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-male {
+    font-size: 1.125rem; }
+  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-child {
+    font-size: 0.8125rem; }
+  .tour_list_container .tour_list_more .tour_list_more_price {
+    line-height: 1.25rem;
+    font-size: 1.25rem;
+    color: #e74c3c; }
+    .tour_list_container .tour_list_more .tour_list_more_price small {
+      font-size: 0.875rem; }
+    .tour_list_container .tour_list_more .tour_list_more_price span {
+      color: #777;
+      line-height: 18px;
+      font-size: 16px; }
+      .tour_list_container .tour_list_more .tour_list_more_price span sup {
+        font-size: 11px;
+        position: relative;
+        top: -3px; }
 
 .wishlist {
   position: absolute;

@@ -237,7 +237,6 @@
                 'region': selectedRegion
             },
             function(response) {
-
                 if( response.status === 'error') {
 
                 } else {

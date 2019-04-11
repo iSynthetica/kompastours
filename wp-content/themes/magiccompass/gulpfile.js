@@ -24,7 +24,7 @@ const BOOTSTRAP = MODULES + '/bootstrap';
 const SOURCE = {
     scripts: [
 
-        //MODULES + '/popper.js/dist/popper.js',
+        MODULES + '/popper.js/dist/umd/popper.js',
 
         BOOTSTRAP + '/dist/js/bootstrap.js',
 
