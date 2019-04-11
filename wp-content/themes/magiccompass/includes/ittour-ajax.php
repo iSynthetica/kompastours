@@ -54,6 +54,40 @@ function ittour_ajax_load_search_form() {
 add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 
+function ittour_ajax_get_tours_list() {
+    $country_id = 338;
+    $search = ittour_search('ru');
+    $args = array(
+        'from_city' => '2014',
+        'hotel_rating' => '4:78',
+        'adult_amount' => 2,
+        'night_from' => 7,
+        'night_till' => 9,
+        'date_from' => '11.04.19',
+        'date_till' => '21.04.19',
+        'items_per_page' => 12,
+        'prices_in_group' => 1,
+    );
+
+    $search_result = $search->get($country_id, $args);
+
+    ob_start();
+    ittour_show_template('search/ajax-result.php', array('result' => $search_result));
+    $result = ob_get_clean();
+
+    $message = array(
+        'fragments' => array(
+            '.search-form__holder' => $result,
+        ),
+    );
+
+    echo json_encode(array( "status" => 'success', 'message' => $result ));
+
+    die;
+}
+add_action('wp_ajax_nopriv_ittour_ajax_get_tours_list', 'ittour_ajax_get_tours_list');
+add_action('wp_ajax_ittour_ajax_get_tours_list', 'ittour_ajax_get_tours_list');
+
 function ittour_ajax_load_select_child() {
     ob_start();
 

@@ -7354,3 +7354,12 @@ Stack trace:
 [10-Apr-2019 15:00:06 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
 [10-Apr-2019 15:00:06 UTC] PHP   9. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/content/contacts.php:54
 [10-Apr-2019 15:00:06 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[10-Apr-2019 17:07:37 UTC] PHP Notice:  Undefined index: hotel_review_rate in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 84
+[10-Apr-2019 17:07:37 UTC] PHP Stack trace:
+[10-Apr-2019 17:07:37 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[10-Apr-2019 17:07:37 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[10-Apr-2019 17:07:37 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[10-Apr-2019 17:07:37 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[10-Apr-2019 17:07:37 UTC] PHP   5. ittour_ajax_get_tours_list(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[10-Apr-2019 17:07:37 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:75
+[10-Apr-2019 17:07:37 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28

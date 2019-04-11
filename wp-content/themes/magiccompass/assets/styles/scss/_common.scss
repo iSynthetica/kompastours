@@ -469,11 +469,6 @@ ul.list_order li span {
     margin-bottom: 30px;
 }
 
-.margin_30 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
 /* Parallax bg */
 .parallax-window {
     min-height: 470px;
@@ -658,6 +653,17 @@ ul.list_order li span {
     width: 100%;
     padding: 45px 10px 8px 5px;
     color: #fff;
+}
+
+.img-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .short_info i {

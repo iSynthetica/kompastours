@@ -11,6 +11,7 @@
         // block($('#tour-flights'));
         ittourLoadSingleTour();
         ittourLoadSearchForm();
+        ittourLoadToursList();
     });
 
     $(window).on('scroll', function() {
@@ -260,13 +261,43 @@
         );
     }
 
+    function ittourLoadToursList() {
+        var toursListContainer = $('.tours-list-ajax');
+
+        if (toursListContainer.length > 0) {
+            toursListContainer.each(function() {
+                var container = $(this);
+
+                ittourGetToursList(container);
+            });
+        }
+    }
+
+    function ittourGetToursList(container) {
+        $.post(
+            snthWpJsObj.ajaxurl,
+            {
+                'action': 'ittour_ajax_get_tours_list',
+            }, function(response) {
+                if( response.status === 'error') {
+
+                } else {
+                    console.log(response.message);
+                    container.html(response.message);
+                }
+
+                $( document.body ).trigger( 'search_form_loaded' );
+            },
+            'json'
+        );
+    }
+
     function ittourLoadSearchForm() {
         var searchFormHolder = $('.search-form_ajax');
 
         if (0 === searchFormHolder.length) {return;}
 
-        $.post(
-            snthWpJsObj.ajaxurl,
+        $.post(snthWpJsObj.ajaxurl,
             {
                 'action': 'ittour_ajax_load_search_form',
             }, function(response) {
