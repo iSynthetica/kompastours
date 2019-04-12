@@ -26,23 +26,21 @@ if (empty($_GET['key'])) {
 
     $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));
     ?>
-    <section class="simple-page-title__section bg-gray pb-20 pt-20 mt-60">
+    <section class="simple-page-title__section bg-gray pb-20 pt-60 mt-60">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                        <span class="rating">
-                            <?php echo ittour_get_hotel_rating_by_id($tour_info['hotel_rating']); ?>
-                        </span>
+                <div class="col-md-8 col-lg-9">
+                    <div class="hotel_rating">
+                        <?php echo ittour_get_hotel_rating_by_id($tour_info['hotel_rating']); ?>
+                    </div>
 
-                    <h1><?php echo $tour_info['hotel']; ?></h1>
+                    <h1 class="hotel_title"><?php echo $tour_info['hotel']; ?></h1>
 
-                    <span><?php echo $tour_info['country'] . ', ' .$tour_info['region']; ?></span>
+                    <div class="hotel_location"><i class="fas fa-map-marker-alt"></i> <?php echo $tour_info['country'] . ', ' .$tour_info['region']; ?></div>
                 </div>
 
-                <div class="col-md-4">
-                    <div id="price_single_main" class="hotel">
-                        <span><sup><?php echo ittour_get_currency_by_id($tour_info['currency_id']); ?></sup><?php echo $tour_info['price'] ?></span>
-                    </div>
+                <div class="col-md-4 col-lg-3">
+
                 </div>
             </div>
         </div>

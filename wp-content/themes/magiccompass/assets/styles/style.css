@@ -23699,6 +23699,31 @@ a.social_bt.linkedin:before {
         position: relative;
         top: -3px; }
 
+.simple-page-title__section .hotel_title {
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase; }
+
+.simple-page-title__section .hotel_location {
+  font-size: 1rem; }
+
+#single-tour-main-info__container h3 {
+  margin-top: 0;
+  margin-bottom: 0.9375rem; }
+
+#single-tour-main-info__container .tour-details-list {
+  list-style: none;
+  padding-left: 0; }
+  #single-tour-main-info__container .tour-details-list li {
+    font-size: 1rem;
+    margin-bottom: 0.625rem; }
+    #single-tour-main-info__container .tour-details-list li i.list-item-icon {
+      width: 1.5625rem;
+      text-align: left;
+      color: #e04f67; }
+
 .wishlist {
   position: absolute;
   top: 10px;

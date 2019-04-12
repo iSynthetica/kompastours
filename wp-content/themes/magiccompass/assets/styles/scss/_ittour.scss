@@ -230,6 +230,40 @@
     }
 }
 
+.simple-page-title__section {
+    .hotel_title {
+        font-weight: bold;
+        font-size: rem-calc(32);
+        margin-top: 0;
+        margin-bottom: rem-calc(0);
+        text-transform: uppercase;
+    }
+    .hotel_location {
+        font-size: rem-calc(16);
+    }
+}
+
+#single-tour-main-info__container {
+    h3 {
+        margin-top: 0;
+        margin-bottom: rem-calc(15);
+    }
+    .tour-details-list {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            font-size: rem-calc(16);
+            margin-bottom: rem-calc(10);
+            i.list-item-icon {
+                width: rem-calc(25);
+                text-align: left;
+                color: #e04f67;
+            }
+        }
+    }
+}
+
 .wishlist {
     position: absolute;
     top: 10px;

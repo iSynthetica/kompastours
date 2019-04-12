@@ -1,14 +1,14 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-12 16:20+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2019-04-12 16:22+0000\n"
+"Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
+"Language-Team: Русский\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,32 +26,32 @@ msgstr ""
 
 #: ittour-templates/single-tour-content.php:29
 msgid "Tour price includes"
-msgstr ""
+msgstr "В стоимость тура включено"
 
 #: ittour-templates/single-tour-content.php:34
 msgid "Tour duration"
-msgstr ""
+msgstr "Продолжительность тура"
 
 #: ittour-templates/single-tour-content.php:35
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
-msgstr ""
+msgstr "ночей"
 
 #: ittour-templates/single-tour-content.php:40
 msgid "Meal type"
-msgstr ""
+msgstr "Тип питания"
 
 #: ittour-templates/single-tour-content.php:46
 msgid "Room type"
-msgstr ""
+msgstr "Тип номера"
 
 #: ittour-templates/single-tour-content.php:52
 msgid "Flight from"
-msgstr ""
+msgstr "Вылет из"
 
 #: ittour-templates/single-tour-content.php:58
 msgid "Flight date"
-msgstr ""
+msgstr "Дата вылета"
 
 #: ittour-templates/single-tour-content.php:70
 #: ittour-templates/loop-hotel/tour-list-default.php:151
@@ -504,7 +504,7 @@ msgstr ""
 
 #: parts/content/comments-fields-comment_field.php:17
 msgid "Your message *"
-msgstr ""
+msgstr "Ваше сообщение *"
 
 #: parts/content/comments-fields-email_field.php:16
 msgid "Enter email *"

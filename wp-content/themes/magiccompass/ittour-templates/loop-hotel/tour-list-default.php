@@ -5,6 +5,10 @@
  * Date: 11.04.19
  * Time: 16:29
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly.
+}
 ?>
 
 <div class="tour_list_container wow fadeIn" data-wow-delay="<?php echo $delay; ?>s">

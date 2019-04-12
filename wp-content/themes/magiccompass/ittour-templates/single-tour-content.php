@@ -12,38 +12,88 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div id="single_tour_feat">
-    <ul>
-        <li><i class="icon_set_2_icon-116"></i>Plasma TV</li>
-        <li><i class="icon_set_1_icon-86"></i>Free Wifi</li>
-        <li><i class="icon_set_2_icon-110"></i>Poll</li>
-        <li><i class="icon_set_1_icon-59"></i>Breakfast</li>
-        <li><i class="icon_set_1_icon-22"></i>Pet allowed</li>
-        <li><i class="icon_set_1_icon-13"></i>Accessibiliy</li>
-        <li><i class="icon_set_1_icon-27"></i>Parking</li>
-    </ul>
-</div>
 
-<!-- Flights - Start -->
-<?php
-if (!empty($tour_info['flights'])) {
-    ?>
+<section id="single-tour-main-info__container">
     <div class="row">
-        <div class="col-12">
-            <h3><?php _e('Flight', 'snthwp'); ?></h3>
-        </div>
+        <div class="col-md-8 col-lg-9">
+            <div class="row">
+                <div class="col-md-6 col-lg-7">
+                    <?php
+                    if (!empty($tour_info['hotel_info']['hotel_facilities'])) {
+                        echo ittour_get_hotel_facilities($tour_info['hotel_info']['hotel_facilities']);
+                    }
+                    ?>
+                </div>
 
-        <div class="col-12">
+                <div class="col-md-6 col-lg-5">
+                    <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
+
+                    <ul class="tour-details-list">
+                        <li>
+                            <i class="far fa-clock list-item-icon"></i>
+                            <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
+                            <strong><?php echo $tour_info["duration"] ?></strong> <?php _e('nights', 'snthwp'); ?>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-utensils list-item-icon"></i>
+                            <small><?php _e('Meal type', 'snthwp'); ?>:</small>
+                            <strong><?php echo $tour_info["meal_type"] ?></strong> <?php echo $tour_info["meal_type_full"] ?>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-key list-item-icon"></i>
+                            <small><?php _e('Room type', 'snthwp'); ?>:</small>
+                            <strong><?php echo $tour_info["accomodation"] ?></strong> <?php echo $tour_info["room_type"] ?>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-plane-departure list-item-icon"></i>
+                            <small><?php _e('Flight from', 'snthwp'); ?>:</small>
+                            <strong><?php echo $tour_info["from_city"] ?></strong>
+                        </li>
+
+                        <li>
+                            <i class="far fa-calendar-alt list-item-icon"></i>
+                            <small><?php _e('Flight date', 'snthwp'); ?>:</small>
+                            <strong><?php echo $tour_info["date_from"] ?></strong>
+                        </li>
+                    </ul>
+
+                    <hr>
+
+
+                    <?php
+                    ittour_show_template('single-tour/flights-list.php', array('flights_info' => $tour_info['flights']));
+                    ?>
+                </div>
+            </div>
+
             <?php
-            ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights']));
+            if (!empty($tour_info['flights'])) {
+                ?>
+                <div class="row">
+                    <div class="col-12">
+                        <h3><?php _e('Flight', 'snthwp'); ?></h3>
+                    </div>
+
+                    <div class="col-12">
+                        <?php
+                        ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights']));
+                        ?>
+                    </div>
+                </div>
+
+                <hr>
+                <?php
+            }
             ?>
         </div>
-    </div>
+        <div class="col-md-4 col-lg-3">
 
-    <hr>
-    <?php
-}
-?>
+        </div>
+    </div>
+</section>
 
 <div id="single_tour_tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
