@@ -60,7 +60,7 @@
             markers.push(marker);
         });
 
-        var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+        // var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
         return map;
     }
@@ -73,12 +73,14 @@
      * @param ib
      */
     function add_marker($marker, map, ib ) {
+        console.log($marker);
         let latlng = new google.maps.LatLng( $marker.marker.lat, $marker.marker.lng );
         let $icon = jointsMapObj.icon;
 
         let marker = new google.maps.Marker({
             position	: latlng,
             map			: map,
+
             label: {
                 text: $marker.title,
                 color: "#000",
@@ -120,14 +122,14 @@
             //         }
             //     ]
             // },
-            // {
-            //     "featureType": "poi",
-            //     "stylers": [
-            //         {
-            //             "visibility": "off"
-            //         }
-            //     ]
-            // }
+            {
+                "featureType": "poi",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            }
         ];
     }
 

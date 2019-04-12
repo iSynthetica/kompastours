@@ -8,6 +8,7 @@
 
 $map = get_field('map', 'options');
 $map_markers = array();
+
 $map_markers[] = array(
     'marker' => array(
         'lat' => $map['lat'],

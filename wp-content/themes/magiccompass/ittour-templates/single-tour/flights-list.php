@@ -11,7 +11,7 @@
 
 <h4><?php _e('Flight there', 'snthwp'); ?></h4>
 
-<ul class="tour-details-list" style="line-height: 1">
+<ul class="tour-details-list" style="line-height: 1.1">
     <?php
     if (!empty($flights_info['from'])) {
         foreach ($flights_info['from'] as $from) {
@@ -37,7 +37,7 @@
 
 <h4><?php _e('Flight back', 'snthwp'); ?></h4>
 
-<ul class="tour-details-list" style="line-height: 1">
+<ul class="tour-details-list" style="line-height: 1.1">
     <?php
     if (!empty($flights_info['to'])) {
         foreach ($flights_info['to'] as $from) {

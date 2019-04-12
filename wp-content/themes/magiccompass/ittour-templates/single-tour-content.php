@@ -68,29 +68,57 @@ if ( ! defined( 'ABSPATH' ) ) {
                     ?>
                 </div>
             </div>
-
-            <?php
-            if (!empty($tour_info['flights'])) {
-                ?>
-                <div class="row">
-                    <div class="col-12">
-                        <h3><?php _e('Flight', 'snthwp'); ?></h3>
-                    </div>
-
-                    <div class="col-12">
-                        <?php
-                        ittour_show_template('single-tour/flights.php', array('flights_info' => $tour_info['flights']));
-                        ?>
-                    </div>
-                </div>
-
-                <hr>
-                <?php
-            }
-            ?>
         </div>
-        <div class="col-md-4 col-lg-3">
 
+        <div class="col-md-4 col-lg-3">
+            <div class="box_style_1 expose">
+                <table class="table table_summary">
+                    <tbody>
+                    <tr>
+                        <td>
+                            Adults
+                        </td>
+                        <td class="text-right">
+                            2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Children
+                        </td>
+                        <td class="text-right">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total amount
+                        </td>
+                        <td class="text-right">
+                            3x $52
+                        </td>
+                    </tr>
+                    <tr class="total">
+                        <td>
+                            Total cost
+                        </td>
+                        <td class="text-right">
+                            $154
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <a class="btn_full" href="cart.html">Book now</a>
+                <a class="btn_full_outline" href="#"><i class=" icon-heart"></i> Add to whislist</a>
+            </div>
+            <!--/box_style_1 -->
+
+            <div class="box_style_4">
+                <i class="icon_set_1_icon-90"></i>
+                <h4><span>Book</span> by phone</h4>
+                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+                <small>Monday to Friday 9.00am - 7.30pm</small>
+            </div>
         </div>
     </div>
 </section>
@@ -112,15 +140,17 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?php ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
         </div>
+
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis.. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapiPhasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapi
+            <?php ittour_show_template('single-tour/hotel-map.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
         </div>
+
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Nullam mollis.. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapiPhasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapi
+            <?php ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
         </div>
     </div>
 </div>
 
 <!-- Hotel Description - End -->
 
-<?php ittour_show_template('single-tour/content.php', array('tour_info' => $tour_info)); ?>
+<?php // ittour_show_template('single-tour/content.php', array('tour_info' => $tour_info)); ?>
