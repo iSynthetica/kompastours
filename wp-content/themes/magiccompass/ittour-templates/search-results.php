@@ -9,26 +9,18 @@
  * @since 1.0
  * @version 1.2
  */
-?>
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1>Search</h1>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-        </div>
-    </div>
-</section>
-<!-- End Section -->
 
-<?php ittour_show_template('form/section-search.php'); ?>
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-<?php
+if (empty($template)) {
+    $template = 'left-sidebar';
+}
+
+$ittour_content = '';
 
 if (empty($_GET['country'])) {
-    ittour_show_template('search/no-parameters.php');
+    $ittour_content = ittour_get_template('search/no-parameters.php');
 } else {
-
     $country_id = $_GET['country'];
 
     unset($_GET['country']);
@@ -66,5 +58,60 @@ if (empty($_GET['country'])) {
         return;
     }
 
-    ittour_show_template('search/result.php', array('result' => $search_result));
+    $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result));
 }
+?>
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400"
+         data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1>Search</h1>
+            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<?php ittour_show_template('form/section-search.php'); ?>
+
+<div class="wrap">
+    <div class="container margin_60">
+        <div class="row">
+            <?php
+            if ( 'right-sidebar' === $template ) {
+                ?>
+                <div id="primary" class="content-area col-lg-9">
+                    <main id="main" class="site-main" role="main">
+                        <?php echo $ittour_content; ?>
+                    </main>
+                </div>
+
+                <aside class="col-lg-3">
+                    <?php get_sidebar(); ?>
+                </aside>
+                <?php
+            } elseif ( 'left-sidebar' === $template ) {
+                ?>
+                <aside class="col-lg-3">
+                    <?php get_sidebar(); ?>
+                </aside>
+
+                <div id="primary" class="content-area col-lg-9">
+                    <main id="main" class="site-main" role="main">
+                        <?php echo $ittour_content; ?>
+                    </main>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div id="primary" class="content-area col-12">
+                    <main id="main" class="site-main" role="main">
+                        <?php echo $ittour_content; ?>
+                    </main>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>
