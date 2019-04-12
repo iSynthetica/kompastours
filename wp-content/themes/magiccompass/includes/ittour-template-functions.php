@@ -122,6 +122,236 @@ function ittour_get_guests_icon($adult, $child) {
     return $icons;
 }
 
+function ittour_get_hotel_facilities($facilities) {
+    $wifi = array();
+    $food = array();
+    $pool = array();
+    $beach = array();
+    $children = array();
+    $sport = array();
+    $html = '';
+
+    foreach ($facilities as $facility) {
+        if (!empty($facility['id']) && '60' === $facility['id'] && isset($facility['is_paid']) && 0 === $facility['is_paid']) {
+            $wifi[] = __('Free WiFi', 'snthwp');
+        }
+
+        // Food
+        if (!empty($facility['id']) && '4' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $food[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '48' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $food[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '96' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $food[] = $facility['name'] . $paid;
+        }
+
+        // Pool
+        if (!empty($facility['id']) && '8' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $pool[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '46' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $pool[] = $facility['name'] . $paid;
+        }
+
+        // Beach
+        if (!empty($facility['id']) && '79' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $beach[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '81' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $beach[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '85' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $beach[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '88' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $beach[] = $facility['name'] . $paid;
+        }
+
+        // Children
+        if (!empty($facility['id']) && '8' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '36' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '47' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '50' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '94' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '95' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $children[] = $facility['name'] . $paid;
+        }
+
+        // Sport
+        if (!empty($facility['id']) && '17' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '19' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '22' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '23' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '39' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+
+        if (!empty($facility['id']) && '40' === $facility['id']) {
+            $paid = $facility['is_paid'] ? ' ($)' : '';
+            $sport[] = $facility['name'] . $paid;
+        }
+    }
+
+    if (!empty($wifi) || !empty($pool)) {
+        ob_start();
+
+        ?>
+        <div class="hotel_facilities">
+            <ul class="add_info">
+                <?php
+                if (!empty($wifi)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-wifi"></i></span>
+
+                            <div class="tooltip-content">
+                                <?php echo $wifi[0] ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+
+                if (!empty($food)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-utensils"></i></span>
+
+                            <div class="tooltip-content">
+                                <h4><?php echo __('Meal', 'snthwp'); ?></h4>
+                                <?php echo implode('<br>', $food); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+
+                if (!empty($pool)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-swimming-pool"></i></span>
+
+                            <div class="tooltip-content">
+                                <h4><?php echo __('Pool', 'snthwp'); ?></h4>
+                                <?php echo implode('<br>', $pool); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+
+                if (!empty($beach)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-umbrella-beach"></i></span>
+
+                            <div class="tooltip-content">
+                                <h4><?php echo __('Beach', 'snthwp'); ?></h4>
+                                <?php echo implode('<br>', $beach); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+
+                if (!empty($sport)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-dumbbell"></i></span>
+
+                            <div class="tooltip-content">
+                                <h4><?php echo __('Sport', 'snthwp'); ?></h4>
+                                <?php echo implode('<br>', $sport); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+
+                if (!empty($children)) {
+                    ?>
+                    <li>
+                        <div class="tooltip_styled tooltip-effect-4">
+                            <span class="tooltip-item"><i class="fas fa-baby"></i></span>
+
+                            <div class="tooltip-content">
+                                <h4><?php echo __('Children', 'snthwp'); ?></h4>
+                                <?php echo implode('<br>', $children); ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <?php
+        $html = ob_get_clean();
+    }
+
+    return $html;
+}
+
 function itour_get_transport_type_field($params) {
     ob_start();
     ?>

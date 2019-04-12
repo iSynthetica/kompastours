@@ -87,8 +87,12 @@
         margin-bottom: 0;
     }
 
+    .hotel_facilities {
+        margin-top: rem-calc(15);
+    }
+
     .tour_list_details {
-        margin-top: rem-calc(20);
+        margin-top: rem-calc(15);
         font-size: rem-calc(14);
         p {
             margin-bottom: rem-calc(10);
@@ -164,6 +168,30 @@
             a.btn_1 {
                 width: 100%;
                 text-align: center;
+            }
+        }
+    }
+    .more-offers__link {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        color: #51bce6;
+        &:hover {
+            color: #333;
+        }
+        .show-more-offers {
+            display: inline-block;
+        }
+        .hide-more-offers {
+            display: none;
+        }
+
+        &.active {
+            .show-more-offers {
+                display: none;
+            }
+            .hide-more-offers {
+                display: inline-block;
             }
         }
     }

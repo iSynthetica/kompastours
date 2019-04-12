@@ -14,7 +14,13 @@
                 <div class="img_container">
                     <a href="single_hotel.html">
                         <img src="<?php echo SNTH_IMAGES_URL; ?>/placeholder-520x450.png" width="800" height="533" class="img-fluid" alt="Image">
-                        <div class="img-overlay" style="background-image: url('<?php echo $hotel['images'][0]['full'] ?>')"></div>
+                        <?php
+                        if (!empty($hotel['images'][0]['full'])) {
+                            ?>
+                            <div class="img-overlay" style="background-image: url('<?php echo $hotel['images'][0]['full'] ?>')"></div>
+                            <?php
+                        }
+                        ?>
                         <div class="short_info"></div>
                     </a>
                 </div>
@@ -43,6 +49,12 @@
 
                 <div class="hotel_location"><?php echo $hotel['country'] . ', ' .$hotel['region']; ?></div>
             </div>
+
+            <?php
+            if (!empty($hotel['hotel_facilities'])) {
+                echo ittour_get_hotel_facilities($hotel['hotel_facilities']);
+            }
+            ?>
 
             <div class="tour_list_details">
                 <div class="row">
@@ -106,6 +118,17 @@
                         <p>
                             <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn_1"><?php echo __('Details', 'snthwp'); ?></a>
                         </p>
+                        <?php
+                        if (!empty($hotel['offers'])) {
+                            $count_offers = count($hotel['offers']);
+                            ?>
+                            <span class="more-offers__link">
+                                <span class="show-more-offers"><?php echo __('More offers', 'snthwp'); ?> (<?php echo $count_offers; ?>) <i class="fas fa-chevron-down"></i></span>
+                                <span class="hide-more-offers"><?php echo __('Hide offers', 'snthwp'); ?> <i class="fas fa-chevron-up"></i></span>
+                            </span>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -115,7 +138,7 @@
     <?php
     if (!empty($hotel['offers'])) {
         ?>
-        <div class="tour_list_more">
+        <div class="tour_list_more" style="display:none;">
             <div class="row">
                 <div class="col-12">
                     <table class="table table-striped">

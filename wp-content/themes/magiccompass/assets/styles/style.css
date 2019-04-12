@@ -23598,8 +23598,10 @@ a.social_bt.linkedin:before {
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
   .tour_list_container .hotel_title {
     margin-bottom: 0; }
+  .tour_list_container .hotel_facilities {
+    margin-top: 0.9375rem; }
   .tour_list_container .tour_list_details {
-    margin-top: 1.25rem;
+    margin-top: 0.9375rem;
     font-size: 0.875rem; }
     .tour_list_container .tour_list_details p {
       margin-bottom: 0.625rem; }
@@ -23651,6 +23653,21 @@ a.social_bt.linkedin:before {
       .tour_list_container .tour_list_price .tour-aside__footer a.btn_1 {
         width: 100%;
         text-align: center; }
+  .tour_list_container .more-offers__link {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #51bce6; }
+    .tour_list_container .more-offers__link:hover {
+      color: #333; }
+    .tour_list_container .more-offers__link .show-more-offers {
+      display: inline-block; }
+    .tour_list_container .more-offers__link .hide-more-offers {
+      display: none; }
+    .tour_list_container .more-offers__link.active .show-more-offers {
+      display: none; }
+    .tour_list_container .more-offers__link.active .hide-more-offers {
+      display: inline-block; }
   .tour_list_container .tour_list_more .tour_list_more_guests i.fa-male {
     font-size: 1.125rem; }
   .tour_list_container .tour_list_more .tour_list_more_guests i.fa-child {

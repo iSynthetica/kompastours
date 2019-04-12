@@ -8131,3 +8131,15 @@ Stack trace:
 [11-Apr-2019 14:00:01 UTC] PHP   5. ittour_ajax_get_tours_list() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
 [11-Apr-2019 14:00:01 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:77
 [11-Apr-2019 14:00:01 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Apr-2019 10:02:58 UTC] PHP Notice:  Undefined index: images in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/loop-hotel/tour-list-default.php on line 17
+[12-Apr-2019 10:02:58 UTC] PHP Stack trace:
+[12-Apr-2019 10:02:58 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[12-Apr-2019 10:02:58 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[12-Apr-2019 10:02:58 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[12-Apr-2019 10:02:58 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[12-Apr-2019 10:02:58 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[12-Apr-2019 10:02:58 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Apr-2019 10:02:58 UTC] PHP   7. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:69
+[12-Apr-2019 10:02:58 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Apr-2019 10:02:58 UTC] PHP   9. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php:34
+[12-Apr-2019 10:02:58 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28

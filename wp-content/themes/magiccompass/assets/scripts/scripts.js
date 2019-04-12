@@ -27664,6 +27664,20 @@ $.fn.repeater = function (fig) {
 
     });
 
+    $(document.body).on('click', '.more-offers__link', function() {
+        var control = $(this);
+        var parent = control.parents('.tour_list_container');
+        var moreOffers = parent.find('.tour_list_more');
+
+        if (control.hasClass('active')) {
+            control.removeClass('active');
+            moreOffers.slideUp();
+        } else {
+            control.addClass('active');
+            moreOffers.slideDown();
+        }
+    });
+
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
 
