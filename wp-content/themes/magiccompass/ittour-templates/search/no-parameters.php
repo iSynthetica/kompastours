@@ -12,6 +12,7 @@
         <div class="search-result__container">
             <div class="search-result__inner">
                 <h1 class="page-title"><?php echo __('Start Searching', 'snthwp'); ?></h1>
+
                 <p>
                     Lorem ipsum dolor sit amet, his graecis offendit ne, in nec clita eloquentiam, ex sed sanctus placerat temporibus. Id pri viris quidam. Ea has cetero aperiri, in quot rationibus est, an dico vocibus mea. Eum virtute dolorem pertinacia ne, mei congue integre molestie no. Ut malis elitr vituperata pro, mel ex senserit dissentiet, nam alii nominati molestiae cu. Quot harum labitur mei id, cu ceteros contentiones eos.
                 </p>

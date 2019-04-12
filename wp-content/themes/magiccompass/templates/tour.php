@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php get_header(); ?>
+<?php get_header('plain'); ?>
 
 <?php ittour_show_template('single-tour.php') ?>
 
