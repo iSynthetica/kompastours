@@ -127,3 +127,52 @@ function ittour_ajax_get_country_parameters() {
 }
 add_action('wp_ajax_nopriv_ittour_ajax_get_country_parameters', 'ittour_ajax_get_country_parameters');
 add_action('wp_ajax_ittour_ajax_get_country_parameters', 'ittour_ajax_get_country_parameters');
+
+/**
+ * Add Single Ittour country
+ */
+function ajax_admin_add_country() {
+    $ittour_id = !empty($_POST['ittourId']) ? $_POST['ittourId'] : false;
+    $ittour_name = !empty($_POST['ittourName']) ? $_POST['ittourName'] : false;
+    $ittour_slug = !empty($_POST['ittourSlug']) ? $_POST['ittourSlug'] : false;
+    $ittour_iso = !empty($_POST['ittourIso']) ? $_POST['ittourIso'] : false;
+    $ittour_group = !empty($_POST['ittourGroup']) ? $_POST['ittourGroup'] : false;
+    $ittour_type = !empty($_POST['ittourType']) ? $_POST['ittourType'] : false;
+    $ittour_transport = !empty($_POST['ittourTransport']) ? $_POST['ittourTransport'] : false;
+
+    if (!$ittour_id) {
+        $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour ID', 'wp2leads'));
+        echo json_encode($response);
+
+        wp_die();
+    }
+
+    if (!$ittour_name) {
+        $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour Name', 'wp2leads'));
+        echo json_encode($response);
+
+        wp_die();
+    }
+
+    if (!$ittour_slug) {
+        $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour Slug', 'wp2leads'));
+        echo json_encode($response);
+
+        wp_die();
+    }
+
+    if (!$ittour_iso) {
+        $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour ISO', 'wp2leads'));
+        echo json_encode($response);
+
+        wp_die();
+    }
+
+    $post_id = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+
+    $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));
+
+    echo json_encode($response);
+    wp_die();
+}
+add_action( 'wp_ajax_ittour_ajax_admin_add_country', 'ajax_admin_add_country' );

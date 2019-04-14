@@ -92,7 +92,7 @@ function ittour_hotels_admin_page() {
 
 function snth_enqueue_admin_scripts() {
     // Adding scripts file in the footer
-    // wp_enqueue_script( 'site-js', SNTH_SCRIPTS_URL.'/', array( 'jquery' ), SNTH_VERSION, true );
+    wp_enqueue_script( 'site-admin-js', SNTH_ASSETS_URL.'/admin/scripts/scripts.js', array( 'jquery' ), SNTH_VERSION, true );
 
     // Register main stylesheet
     wp_enqueue_style( 'snth-admin-css', SNTH_ASSETS_URL.'/admin/styles/style.css', array(), SNTH_VERSION, 'all' );

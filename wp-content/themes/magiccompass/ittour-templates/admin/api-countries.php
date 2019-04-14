@@ -50,7 +50,7 @@ $countries_en = $params_en['countries'];
     <thead>
     <tr>
         <th></th>
-        <th>ID</th>
+        <th>itTour ID</th>
         <th>Name</th>
         <th>Slug</th>
         <th>ISO</th>
@@ -110,7 +110,16 @@ $countries_en = $params_en['countries'];
                 ?>
             </td>
             <td>
-                <button class="button-primary button-small">
+                <button
+                    class="button-primary button-small ittour-add-country"
+                    data-ittour-id="<?php echo $country_id ?>"
+                    data-ittour-name="<?php echo $country_name ?>"
+                    data-ittour-slug="<?php echo $country_slug ?>"
+                    data-ittour-iso="<?php echo $country['iso'] ?>"
+                    data-ittour-group="<?php echo $country['group_id'] ?>"
+                    data-ittour-type="<?php echo $country['type_id'] ?>"
+                    data-ittour-transport="<?php echo $country['transport_type_id'] ?>"
+                >
                     <?php echo __('Add', 'snthwp'); ?>
                 </button>
             </td>

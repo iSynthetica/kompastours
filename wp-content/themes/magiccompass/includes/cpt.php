@@ -71,45 +71,6 @@ function snth_destination_cpt() {
 add_action( 'init', 'snth_destination_cpt', 0 );
 
 // Register Custom Taxonomy
-function snth_country_group_tax() {
-
-    $labels = array(
-        'name'                       => _x( 'Country Groups', 'Taxonomy General Name', 'snthwp' ),
-        'singular_name'              => _x( 'Country Group', 'Taxonomy Singular Name', 'snthwp' ),
-        'menu_name'                  => __( 'Country Group', 'snthwp' ),
-        'all_items'                  => __( 'All Country Groups', 'snthwp' ),
-        'parent_item'                => __( 'Parent Country Group', 'snthwp' ),
-        'parent_item_colon'          => __( 'Parent Country Group:', 'snthwp' ),
-        'new_item_name'              => __( 'New Country Group Name', 'snthwp' ),
-        'add_new_item'               => __( 'Add New Country Group', 'snthwp' ),
-        'edit_item'                  => __( 'Edit Country Group', 'snthwp' ),
-        'update_item'                => __( 'Update Country Group', 'snthwp' ),
-        'view_item'                  => __( 'View Country Group', 'snthwp' ),
-        'separate_items_with_commas' => __( 'Separate Country Groups with commas', 'snthwp' ),
-        'add_or_remove_items'        => __( 'Add or remove Country Groups', 'snthwp' ),
-        'choose_from_most_used'      => __( 'Choose from the most used', 'snthwp' ),
-        'popular_items'              => __( 'Popular Country Groups', 'snthwp' ),
-        'search_items'               => __( 'Search Country Groups', 'snthwp' ),
-        'not_found'                  => __( 'Not Found', 'snthwp' ),
-        'no_terms'                   => __( 'No Country Groups', 'snthwp' ),
-        'items_list'                 => __( 'Country Groups list', 'snthwp' ),
-        'items_list_navigation'      => __( 'Country Groups list navigation', 'snthwp' ),
-    );
-    $args = array(
-        'labels'                     => $labels,
-        'hierarchical'               => true,
-        'public'                     => true,
-        'show_ui'                    => true,
-        'show_admin_column'          => true,
-        'show_in_nav_menus'          => true,
-        'show_tagcloud'              => true,
-    );
-    register_taxonomy( 'country_group', array( 'destination' ), $args );
-
-}
-add_action( 'init', 'snth_country_group_tax', 0 );
-
-// Register Custom Taxonomy
 function snth_destination_type_tax() {
 
     $labels = array(
@@ -136,7 +97,7 @@ function snth_destination_type_tax() {
     );
     $args = array(
         'labels'                     => $labels,
-        'hierarchical'               => true,
+        'hierarchical'               => false,
         'public'                     => true,
         'show_ui'                    => true,
         'show_admin_column'          => true,
