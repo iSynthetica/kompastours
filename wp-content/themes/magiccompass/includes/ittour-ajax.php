@@ -161,13 +161,6 @@ function ajax_admin_add_country() {
         wp_die();
     }
 
-    if (!$ittour_iso) {
-        $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour ISO', 'wp2leads'));
-        echo json_encode($response);
-
-        wp_die();
-    }
-
     $post_id = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
 
     $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));

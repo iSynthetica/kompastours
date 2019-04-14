@@ -9,39 +9,39 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+$args = array(
+    'numberposts' => '-1',
+    'post_type'   => 'destination',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'destination_type',
+            'field'    => 'slug',
+            'terms'    => 'country'
+        )
+    )
+);
+$countries_site = get_posts($args);
+$countries_site_by_ittour_id = array();
+
+foreach ($countries_site as $country_site) {
+    $ittour_id = get_field('ittour_id', $country_site->ID);
+
+    if (!empty($ittour_id)) {
+        $countries_site_by_ittour_id[$ittour_id] = array(
+            'name'  => $country_site->post_title,
+            'modified' => $country_site->post_modified
+        );
+    }
+}
+
+wp_reset_postdata();
+
 $params_obj = ittour_params('ru');
 $params = $params_obj->get();
 
 $params_obj_en = ittour_params('en');
 $params_en = $params_obj_en->get();
 $countries_en = $params_en['countries'];
-?>
-
-<h2>Группы стран</h2>
-
-<table class="mc-table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <?php
-        foreach ($params['country_groups'] as $country_group) {
-            ?>
-            <tr>
-                <th><?php echo $country_group['id'] ?></th>
-                <td><?php echo $country_group['name'] ?></td>
-            </tr>
-            <?php
-        }
-        ?>
-    </tbody>
-</table>
-<?php
-
 ?>
 
 <h3>Страны (<?php echo count($params['countries']) ?>)</h3>
@@ -57,6 +57,7 @@ $countries_en = $params_en['countries'];
         <th>Type</th>
         <th>Transport</th>
         <th>Group</th>
+        <th>Modified</th>
         <th></th>
     </tr>
     </thead>
@@ -77,6 +78,14 @@ $countries_en = $params_en['countries'];
 
                 unset($countries_en[$key]);
             }
+        }
+
+        $country_site_modified = '';
+
+        if (!empty($countries_site_by_ittour_id[$country_id])) {
+            $country_site_modified = $countries_site_by_ittour_id[$country_id]['modified'];
+
+            unset ($countries_site_by_ittour_id[$country_id]);
         }
         ?>
         <tr>
@@ -109,19 +118,41 @@ $countries_en = $params_en['countries'];
                 echo $display;
                 ?>
             </td>
+            <td><?php echo $country_site_modified; ?></td>
             <td>
-                <button
-                    class="button-primary button-small ittour-add-country"
-                    data-ittour-id="<?php echo $country_id ?>"
-                    data-ittour-name="<?php echo $country_name ?>"
-                    data-ittour-slug="<?php echo $country_slug ?>"
-                    data-ittour-iso="<?php echo $country['iso'] ?>"
-                    data-ittour-group="<?php echo $country['group_id'] ?>"
-                    data-ittour-type="<?php echo $country['type_id'] ?>"
-                    data-ittour-transport="<?php echo $country['transport_type_id'] ?>"
-                >
-                    <?php echo __('Add', 'snthwp'); ?>
-                </button>
+                <?php
+                if ($country_site_modified) {
+                    ?>
+                    <button
+                            class="button-primary button-small ittour-update-country"
+                            data-ittour-id="<?php echo $country_id ?>"
+                            data-ittour-name="<?php echo $country_name ?>"
+                            data-ittour-slug="<?php echo $country_slug ?>"
+                            data-ittour-iso="<?php echo $country['iso'] ?>"
+                            data-ittour-group="<?php echo $country['group_id'] ?>"
+                            data-ittour-type="<?php echo $country['type_id'] ?>"
+                            data-ittour-transport="<?php echo $country['transport_type_id'] ?>"
+                    >
+                        <?php echo __('Update', 'snthwp'); ?>
+                    </button>
+                    <?php
+                } else {
+                    ?>
+                    <button
+                            class="button-primary button-small ittour-add-country"
+                            data-ittour-id="<?php echo $country_id ?>"
+                            data-ittour-name="<?php echo $country_name ?>"
+                            data-ittour-slug="<?php echo $country_slug ?>"
+                            data-ittour-iso="<?php echo $country['iso'] ?>"
+                            data-ittour-group="<?php echo $country['group_id'] ?>"
+                            data-ittour-type="<?php echo $country['type_id'] ?>"
+                            data-ittour-transport="<?php echo $country['transport_type_id'] ?>"
+                    >
+                        <?php echo __('Add', 'snthwp'); ?>
+                    </button>
+                    <?php
+                }
+                ?>
             </td>
         </tr>
         <?php
