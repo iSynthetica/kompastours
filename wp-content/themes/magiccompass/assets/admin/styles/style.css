@@ -1,0 +1,9 @@
+table.mc-table {
+    // width: 100%;
+    border-collapse: collapse;
+}
+table.mc-table th, table.mc-table td {
+    padding: 5px 10px;
+    vertical-align: top;
+    border-top: 1px solid #999;
+}

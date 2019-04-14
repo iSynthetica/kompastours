@@ -2,7 +2,9 @@
 /**
  * Shortcodes - Need Help
  *
- * @package Magiccompass
+ * @package Magiccompass/Parts/Shortcodes
+ * @version 0.0.7
+ * @since 0.0.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

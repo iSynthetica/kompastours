@@ -85,3 +85,6 @@ require_once(SNTH_INCLUDES.'/enqueue-scripts.php');
 //if (snth_is_woocommerce_active()) {
 //    require_once(SNTH_INCLUDES.'/wc.php');
 //}
+
+// Customize the WordPress admin
+require_once(SNTH_INCLUDES.'/admin.php');
