@@ -8,36 +8,29 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-
-$args = array(
-    'numberposts' => '-1',
-    'post_type'   => 'destination',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'destination_type',
-            'field'    => 'slug',
-            'terms'    => 'country'
-        )
-    )
-);
-$countries_site = get_posts($args);
-$countries_site_by_ittour_id = array();
-
-foreach ($countries_site as $country_site) {
-    $ittour_id = get_field('ittour_id', $country_site->ID);
-
-    if (!empty($ittour_id)) {
-        $countries_site_by_ittour_id[$ittour_id] = array(
-            'name'  => $country_site->post_title,
-            'modified' => $country_site->post_modified
-        );
-    }
-}
-
-wp_reset_postdata();
+$countries_site_by_ittour_id = ittour_get_destination_by_ittour_id('country');
 
 $params_obj = ittour_params('ru');
 $params = $params_obj->get();
+
+if (is_wp_error($params)) {
+    ?>
+    <h3>ITTour Error</h3>
+
+    <div class="notice notice-error inline">
+        <p>
+            ITTour Error: <strong><?php echo $params->errors['ittour_error'][0] ?></strong>
+        </p>
+
+        <p>
+            Please inform site administrator about this error.
+        </p>
+    </div>
+    <?php
+
+    return;
+}
+?><?php
 
 $params_obj_en = ittour_params('en');
 $params_en = $params_obj_en->get();
@@ -49,8 +42,15 @@ $countries_en = $params_en['countries'];
 <table class="mc-table">
     <thead>
     <tr>
-        <th></th>
-        <th>itTour ID</th>
+        <th>
+            Add all <br>
+            <input type="checkbox" id="country_add_all">
+        </th>
+        <th>
+            Update all <br>
+            <input type="checkbox" id="country_update_all">
+        </th>
+        <th>itTour ID / Post ID</th>
         <th>Name</th>
         <th>Slug</th>
         <th>ISO</th>
@@ -69,6 +69,7 @@ $countries_en = $params_en['countries'];
         $country_name = $country['name'];
         $country_name_en = '';
         $country_slug = '';
+
         foreach ($countries_en as $key => $country_en) {
             if ($country_en['id'] === $country_id) {
                 $country_name_en = $country_en['name'];
@@ -80,24 +81,41 @@ $countries_en = $params_en['countries'];
             }
         }
 
+        $country_site_id = '';
         $country_site_modified = '';
 
         if (!empty($countries_site_by_ittour_id[$country_id])) {
+            $country_site_id = $countries_site_by_ittour_id[$country_id]['ID'];
             $country_site_modified = $countries_site_by_ittour_id[$country_id]['modified'];
 
             unset ($countries_site_by_ittour_id[$country_id]);
         }
         ?>
         <tr>
-            <td>
+            <th>
                 <input
                     type="checkbox"
-                    id="country_<?php echo $country_id ?>"
-                    name="country_<?php echo $country_id ?>"
+                    id="country_add_<?php echo $country_id ?>"
+                    name="country_add_<?php echo $country_id ?>"
                     value="<?php echo $country_id ?>"
                 >
-            </td>
-            <th><?php echo $country_id ?></th>
+            </th>
+            <th>
+                <input
+                    type="checkbox"
+                    id="country_update_<?php echo $country_id ?>"
+                    name="country_update_<?php echo $country_id ?>"
+                    value="<?php echo $country_id ?>"
+                >
+            </th>
+            <th>
+                <?php echo $country_id ?>
+                <?php
+                if (!empty($country_site_id)) {
+                    ?>/ <?php echo $country_site_id ?><?php
+                }
+                ?>
+            </th>
             <td><?php echo $country_name ?> (<?php echo $country_name_en ?>)</td>
             <td><?php echo $country_slug; ?></td>
             <td><?php echo strtoupper($country['iso']) ?></td>
@@ -160,8 +178,4 @@ $countries_en = $params_en['countries'];
     ?>
     </tbody>
 </table>
-
-<h3>Регионы</h3>
-
-<h3>Отели</h3>
 
