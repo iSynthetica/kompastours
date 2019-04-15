@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <section id="tour_section">
-    <div class="tours-list-ajax" data-country="<?php echo $country_id ?>">
+    <div class="tours-list-ajax" data-country="<?php echo $country_id ?>" data-region="<?php echo $region_id ?>">
 
     </div>
 </section>

@@ -288,12 +288,14 @@
 
     function ittourGetToursList(container) {
         var country_id = container.data('country');
+        var region_id = container.data('region');
 
         $.post(
             snthWpJsObj.ajaxurl,
             {
                 action: 'ittour_ajax_get_tours_list',
-                countryId: country_id
+                countryId: country_id,
+                regionId: region_id
             }, function(response) {
                 if( response.status === 'error') {
 

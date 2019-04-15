@@ -22,9 +22,20 @@ $post_id = get_the_ID();
 $subtitle = get_field('subtitle', get_the_ID());
 $destination_type = wp_get_post_terms( $post_id, 'destination_type' );
 $destination_type_template = $destination_type[0]->slug;
-$ittour_destination_id = get_field('ittour_id', $post_id);
 
-$destination_content = snth_get_template('destination/'.$destination_type_template.'.php', array('ittour_id' => $ittour_destination_id));
+if ('country' === $destination_type_template) {
+    $country_id = get_field('ittour_id', $post_id);
+    $destination_content = snth_get_template('destination/country.php', array('country_id' => $country_id));
+} elseif('region' === $destination_type_template) {
+    $region_id = get_field('ittour_id', $post_id);
+    $country_id = get_field('ittour_country_id', $post_id);
+    $destination_content = snth_get_template('destination/region.php', array('country_id' => $country_id, 'region_id' => $region_id));
+} elseif('hotel' === $destination_type_template) {
+    $country_id = get_field('ittour_id', $post_id);
+    $destination_content = snth_get_template('destination/hotel.php', array('country_id' => $country_id));
+}
+
+
 ?>
 
 <section class="parallax-window" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url('full') ?>" data-natural-width="1400"

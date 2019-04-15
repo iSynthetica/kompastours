@@ -56,6 +56,7 @@ add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form
 
 function ittour_ajax_get_tours_list() {
     $country_id = !empty($_POST['countryId']) ? (int)$_POST['countryId']  : 338;
+    $region_id = !empty($_POST['regionId']) ? (int)$_POST['regionId']  : false;
     $search = ittour_search('ru');
 
     $args = array(
@@ -70,6 +71,10 @@ function ittour_ajax_get_tours_list() {
         'prices_in_group' => 1,
         'currency' => 1,
     );
+
+    if (!empty($region_id)) {
+        $args['region'] = $region_id;
+    }
 
     $search_result = $search->get($country_id, $args);
 

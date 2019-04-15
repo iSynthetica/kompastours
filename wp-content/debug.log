@@ -17127,3 +17127,44 @@ Stack trace:
 [15-Apr-2019 08:41:20 UTC] PHP   5. ittour_regions_admin_page(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
 [15-Apr-2019 08:41:20 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/admin.php:78
 [15-Apr-2019 08:41:20 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[15-Apr-2019 10:07:17 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(77): ittour_show_template('search/ajax-res...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_get_tours_list('')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(167): do_action('wp_ajax_ittour_...')
+#6 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php on line 9
+[15-Apr-2019 10:08:45 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(77): ittour_show_template('search/ajax-res...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_get_tours_list('')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(167): do_action('wp_ajax_ittour_...')
+#6 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php on line 9
+[15-Apr-2019 10:20:28 UTC] PHP Notice:  Undefined variable: ittour_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php on line 16
+[15-Apr-2019 10:20:28 UTC] PHP Stack trace:
+[15-Apr-2019 10:20:28 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[15-Apr-2019 10:20:28 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[15-Apr-2019 10:20:28 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[15-Apr-2019 10:20:28 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[15-Apr-2019 10:20:28 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[15-Apr-2019 10:20:28 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[15-Apr-2019 10:20:28 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:28
+[15-Apr-2019 10:20:28 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[15-Apr-2019 10:20:28 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[15-Apr-2019 10:20:29 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(82): ittour_show_template('search/ajax-res...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_get_tours_list('')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(167): do_action('wp_ajax_ittour_...')
+#6 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php on line 9
