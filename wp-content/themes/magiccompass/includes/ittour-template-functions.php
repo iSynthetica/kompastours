@@ -550,6 +550,34 @@ function ittour_get_hotel_rating_by_number($id) {
     return $rating;
 }
 
+function ittour_get_hotel_number_rating_by_id($id) {
+    switch ($id) {
+        case '2':
+            $rating = '2*';
+            break;
+        case '7':
+            $rating = '2*';
+            break;
+        case '3':
+            $rating = '3*';
+            break;
+        case '4':
+            $rating = '4*';
+            break;
+        case '5':
+            $rating = '5*';
+            break;
+            break;
+        case '78':
+            $rating = '5*';
+            break;
+        default:
+            $rating = false;
+    }
+
+    return $rating;
+}
+
 function ittour_get_transport_type_by_id($id) {
     switch ($id) {
         case "0":

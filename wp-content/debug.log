@@ -17168,3 +17168,12 @@ Stack trace:
 #5 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(167): do_action('wp_ajax_ittour_...')
 #6 {main}
   thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/ajax-result.php on line 9
+[15-Apr-2019 11:27:51 UTC] PHP Notice:  Undefined variable: destination_rating in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/admin/api-hotels.php on line 71
+[15-Apr-2019 11:27:51 UTC] PHP Stack trace:
+[15-Apr-2019 11:27:51 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[15-Apr-2019 11:27:51 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[15-Apr-2019 11:27:51 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[15-Apr-2019 11:27:51 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[15-Apr-2019 11:27:51 UTC] PHP   5. ittour_hotels_admin_page() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[15-Apr-2019 11:27:51 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/admin.php:88
+[15-Apr-2019 11:27:51 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28

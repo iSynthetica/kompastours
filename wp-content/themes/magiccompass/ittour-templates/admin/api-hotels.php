@@ -15,19 +15,6 @@ $params = $params_obj->get();
 $params_obj_en = ittour_params('en');
 $params_en = $params_obj_en->get();
 $regions_en = $params_en['regions'];
-
-$cyr = [
-    'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п',
-    'р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',
-    'А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П',
-    'Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я'
-];
-$lat = [
-    'a','b','v','g','d','e','io','zh','z','i','y','k','l','m','n','o','p',
-    'r','s','t','u','f','h','ts','ch','sh','sht','a','i','y','e','yu','ya',
-    'A','B','V','G','D','E','Io','Zh','Z','I','Y','K','L','M','N','O','P',
-    'R','S','T','U','F','H','Ts','Ch','Sh','Sht','A','I','Y','e','Yu','Ya'
-];
 ?>
 <h3>Select country</h3>
 <?php
@@ -47,19 +34,49 @@ if (empty($_GET['country'])) {
     return;
 }
 
-$hotels = $params_obj->getCountry($_GET['country'], array('entity' => 'hotel'))['hotels'];
+$destination_country_id = $_GET['country'];
+$hotels = $params_obj->getCountry($destination_country_id, array('entity' => 'hotel'))['hotels'];
+
+$countries_by_id = array();
+
+foreach ($params['countries'] as $key => $country) {
+    $countries_by_id[$country['id']] = array(
+        'name' => $country['name'],
+    );
+}
+
+$destination_country = '';
+
+if (!empty($countries_by_id[$destination_country_id])) {
+    $destination_country = $countries_by_id[$destination_country_id]['name'];
+}
+
+$regions_by_id = array();
+
+foreach ($params['regions'] as $key => $region) {
+    $regions_by_id[$region['id']] = array(
+        'name' => $region['name'],
+    );
+}
 ?>
 <h3>Отели (<?php echo count($hotels) ?>)</h3>
 
 <table class="mc-table">
     <thead>
     <tr>
-        <th></th>
+        <th>
+            Add all <br>
+            <input type="checkbox" id="country_add_all">
+        </th>
+        <th>
+            Update all <br>
+            <input type="checkbox" id="country_update_all">
+        </th>
         <th>ID</th>
         <th>Name</th>
         <th>Slug</th>
+        <th>Location</th>
         <th>Type</th>
-        <th>Region</th>
         <th></th>
     </tr>
     </thead>
@@ -68,40 +85,53 @@ $hotels = $params_obj->getCountry($_GET['country'], array('entity' => 'hotel'))[
     <?php
     foreach ($hotels as $destination) {
         $destination_id = $destination['id'];
-        $destination_name = $destination['name'];
-        $destination_type = $destination['type_id'];
         $destination_rating = $destination['hotel_rating_id'];
-        $destination_region = $destination['region_id'];
+        $destination_name = $destination['name'] . ' ' . ittour_get_hotel_number_rating_by_id($destination_rating);
+        $destination_type = $destination['type_id'];
         $destination_name_en = '';
-        $destination_slug = '';
+        $destination_slug = snth_get_slug_lat($destination_name);
+        $destination_region_id_array = array_map('trim',explode(',', $destination['region_id']));
+        $destination_region_id = end($destination_region_id_array);
+        $destination_region = '';
 
-//        foreach ($regions_en as $key => $destination_en) {
-//            if ($destination_en['id'] === $destination_id) {
-//                $destination_name_en = $textlat = str_replace($cyr, $lat, $destination_en['name']);
-//                $destination_slug = sanitize_title( $destination_name_en );
-//
-//                unset($regions_en[$key]);
-//            }
-//        }
+        if (!empty($regions_by_id[$destination_region_id])) {
+            $destination_region = $regions_by_id[$destination_region_id]['name'];
+        }
 
         if (0 < $destination_id * 1) {
             ?>
             <tr>
-                <td>
+                <th>
                     <input
-                            type="checkbox"
-                            id="region_<?php echo $destination_id ?>"
-                            name="region_<?php echo $destination_id ?>"
-                            value="<?php echo $destination_id ?>"
+                        type="checkbox"
+                        id="hotel_add_<?php echo $destination_id ?>"
+                        name="hotel_add_<?php echo $destination_id ?>"
+                        value="<?php echo $destination_id ?>"
                     >
-                </td>
+                </th>
+                <th>
+                    <input
+                        type="checkbox"
+                        id="hotel_update_<?php echo $destination_id ?>"
+                        name="hotel_update_<?php echo $destination_id ?>"
+                        value="<?php echo $destination_id ?>"
+                    >
+                </th>
                 <th><?php echo $destination_id; ?></th>
-                <td><?php echo $destination_name; ?> <?php echo $destination_rating ?></td>
+                <td><?php echo $destination_name; ?></td>
                 <td><?php echo $destination_slug; ?></td>
+                <td><?php echo $destination_country; ?> (<?php echo $destination_country_id; ?>), <?php echo $destination_region; ?> (<?php echo $destination_region_id; ?>)</td>
                 <td><?php echo $destination_type; ?></td>
-                <td><?php echo $destination_region; ?></td>
                 <td>
-                    <button class="button-primary button-small">
+                    <button
+                        class="button-primary button-small"
+                        data-ittour-id="<?php echo $destination_id ?>"
+                        data-ittour-name="<?php echo $destination_name ?>"
+                        data-ittour-country="<?php echo $destination_country_id ?>"
+                        data-ittour-region="<?php echo $destination_region_id ?>"
+                        data-ittour-slug="<?php echo $destination_slug ?>"
+                        data-ittour-type="<?php echo $destination_type ?>"
+                    >
                         <?php echo __('Add', 'snthwp'); ?>
                     </button>
                 </td>

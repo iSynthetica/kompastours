@@ -51,7 +51,7 @@ $countries_en = $params_en['countries'];
             <input type="checkbox" id="country_update_all">
         </th>
         <th>itTour ID / Post ID</th>
-        <th>Name</th>
+        <th>Name / Post Name</th>
         <th>Slug</th>
         <th>ISO</th>
         <th>Type</th>
@@ -82,10 +82,12 @@ $countries_en = $params_en['countries'];
         }
 
         $country_site_id = '';
+        $country_site_name = '';
         $country_site_modified = '';
 
         if (!empty($countries_site_by_ittour_id[$country_id])) {
             $country_site_id = $countries_site_by_ittour_id[$country_id]['ID'];
+            $country_site_name = $countries_site_by_ittour_id[$country_id]['name'];
             $country_site_modified = $countries_site_by_ittour_id[$country_id]['modified'];
 
             unset ($countries_site_by_ittour_id[$country_id]);
@@ -93,20 +95,32 @@ $countries_en = $params_en['countries'];
         ?>
         <tr>
             <th>
-                <input
-                    type="checkbox"
-                    id="country_add_<?php echo $country_id ?>"
-                    name="country_add_<?php echo $country_id ?>"
-                    value="<?php echo $country_id ?>"
-                >
+                <?php
+                if (!$country_site_id) {
+                    ?>
+                    <input
+                            type="checkbox"
+                            id="country_add_<?php echo $country_id ?>"
+                            name="country_add_<?php echo $country_id ?>"
+                            value="<?php echo $country_id ?>"
+                    >
+                    <?php
+                }
+                ?>
             </th>
             <th>
-                <input
-                    type="checkbox"
-                    id="country_update_<?php echo $country_id ?>"
-                    name="country_update_<?php echo $country_id ?>"
-                    value="<?php echo $country_id ?>"
-                >
+                <?php
+                if ($country_site_id) {
+                    ?>
+                    <input
+                            type="checkbox"
+                            id="country_update_<?php echo $country_id ?>"
+                            name="country_update_<?php echo $country_id ?>"
+                            value="<?php echo $country_id ?>"
+                    >
+                    <?php
+                }
+                ?>
             </th>
             <th>
                 <?php echo $country_id ?>
@@ -116,7 +130,14 @@ $countries_en = $params_en['countries'];
                 }
                 ?>
             </th>
-            <td><?php echo $country_name ?> (<?php echo $country_name_en ?>)</td>
+            <td>
+                <?php echo $country_name ?> (<?php echo $country_name_en ?>)
+                <?php
+                if (!empty($country_site_name)) {
+                    ?>/ <?php echo $country_site_name ?><?php
+                }
+                ?>
+            </td>
             <td><?php echo $country_slug; ?></td>
             <td><?php echo strtoupper($country['iso']) ?></td>
             <td><?php echo $country['type_id'] ?></td>

@@ -1,9 +1,9 @@
 {
-    "key": "group_5cb449e78b1d0",
-    "title": "Destinations - Regions",
+    "key": "group_5cb48cf669024",
+    "title": "Destinations - Hotels",
     "fields": [
         {
-            "key": "field_5cb449e7a12cf",
+            "key": "field_5cb48cf678b73",
             "label": "ITTour ID",
             "name": "ittour_id",
             "type": "text",
@@ -22,7 +22,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5cb449e7a134f",
+            "key": "field_5cb48cf678beb",
             "label": "ITTour Country ID",
             "name": "ittour_country_id",
             "type": "text",
@@ -41,7 +41,26 @@
             "maxlength": ""
         },
         {
-            "key": "field_5cb449e7a1449",
+            "key": "field_5cb48d0238cac",
+            "label": "ITTour Region ID",
+            "name": "ittour_region_id",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cb48cf678c60",
             "label": "ITTour Type",
             "name": "ittour_type",
             "type": "select",
@@ -78,7 +97,7 @@
             {
                 "param": "post_taxonomy",
                 "operator": "==",
-                "value": "destination_type:region"
+                "value": "destination_type:hotel"
             }
         ]
     ],
@@ -90,5 +109,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555336397
+    "modified": 1555336486
 }
