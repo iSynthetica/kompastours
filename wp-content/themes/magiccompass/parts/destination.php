@@ -52,6 +52,8 @@ if ('country' === $destination_type_template) {
     </div>
 </section>
 
+<?php snth_show_template('breadcrumbs.php'); ?>
+
 <div class="wrap">
     <?php
     if ( 'full-width' === $template ) {

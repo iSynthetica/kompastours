@@ -58,6 +58,8 @@ foreach ($params['regions'] as $key => $region) {
         'name' => $region['name'],
     );
 }
+
+$regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
 ?>
 <h3>Отели (<?php echo count($hotels) ?>)</h3>
 
@@ -98,6 +100,12 @@ foreach ($params['regions'] as $key => $region) {
             $destination_region = $regions_by_id[$destination_region_id]['name'];
         }
 
+        $parent_post_ID = '';
+
+        if (!empty($regions_site_by_ittour_id[$destination_region_id])) {
+            $parent_post_ID = $regions_site_by_ittour_id[$destination_region_id]['ID'];
+        }
+
         if (0 < $destination_id * 1) {
             ?>
             <tr>
@@ -124,11 +132,12 @@ foreach ($params['regions'] as $key => $region) {
                 <td><?php echo $destination_type; ?></td>
                 <td>
                     <button
-                        class="button-primary button-small"
+                        class="button-primary button-small ittour-add-hotel"
+                        data-parent-id="<?php echo $parent_post_ID ?>"
                         data-ittour-id="<?php echo $destination_id ?>"
                         data-ittour-name="<?php echo $destination_name ?>"
-                        data-ittour-country="<?php echo $destination_country_id ?>"
-                        data-ittour-region="<?php echo $destination_region_id ?>"
+                        data-ittour-country-id="<?php echo $destination_country_id ?>"
+                        data-ittour-region-id="<?php echo $destination_region_id ?>"
                         data-ittour-slug="<?php echo $destination_slug ?>"
                         data-ittour-type="<?php echo $destination_type ?>"
                     >

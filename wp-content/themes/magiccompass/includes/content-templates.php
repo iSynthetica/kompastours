@@ -118,7 +118,47 @@ function snth_the_breadcrumbs() {
         elseif (is_single()) {
             $id = $post->ID;
 
-            if ( get_post_type() === 'product' ) {
+            if ( get_post_type() === 'destination' ) {
+
+                if ($show_home_link) {
+                    echo $sep;
+                }
+
+                $id = $post->ID;
+                $parent_id = ($post) ? $post->post_parent : '';
+
+                if ($parent_id) {
+                    if ($parent_id != $frontpage_id) {
+                        $breadcrumbs = array();
+
+                        while ($parent_id) {
+                            $page = get_post($parent_id);
+
+                            if ($parent_id != $frontpage_id) {
+                                $breadcrumbs[] = sprintf($link, get_permalink($page->ID), get_the_title($page->ID));
+                            }
+
+                            $parent_id = $page->post_parent;
+                        }
+
+                        $breadcrumbs = array_reverse($breadcrumbs);
+
+                        for ($i = 0; $i < count($breadcrumbs); $i++) {
+                            echo $breadcrumbs[$i];
+                            if ($i != count($breadcrumbs)-1) echo $sep;
+                        }
+
+                        if ($show_current) {
+                            echo $sep;
+                        }
+                    }
+                }
+
+                if ($show_current) {
+                    echo $link_before . $current_before . get_the_title($id) . $current_after . $link_after;
+                }
+
+            } elseif ( get_post_type() === 'product' ) {
 
             }
             else {
