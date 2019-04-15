@@ -1,5 +1,50 @@
 (function ($) {
 
+    $(document.body).on('click', '.ittour-add-region', function() {
+        var button = $(this);
+        var parentId = button.data('parent-id');
+        var ittourId = button.data('ittour-id');
+        var ittourName = button.data('ittour-name');
+        var ittourCountryId = button.data('ittour-country-id');
+        var ittourSlug = button.data('ittour-slug');
+        var ittourType = button.data('ittour-type');
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'post',
+            data: {
+                action: 'ittour_ajax_admin_add_region',
+                parentId: parentId,
+                ittourId: ittourId,
+                ittourName: ittourName,
+                ittourCountryId: ittourCountryId,
+                ittourSlug: ittourSlug,
+                ittourType: ittourType
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = $.parseJSON(response);
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        alert(decoded.message);
+                    } else {
+                        alert(decoded.message);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+
+            }
+        });
+    });
+
     $(document.body).on('click', '.ittour-add-country', function() {
         var button = $(this);
         var ittourId = button.data('ittour-id');

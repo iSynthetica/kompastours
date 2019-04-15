@@ -1,9 +1,9 @@
 {
-    "key": "group_5cb301faab142",
-    "title": "Destinations - Countries",
+    "key": "group_5cb449e78b1d0",
+    "title": "Destinations - Countries (копия)",
     "fields": [
         {
-            "key": "field_5cb302da2deb4",
+            "key": "field_5cb449e7a12cf",
             "label": "ITTour ID",
             "name": "ittour_id",
             "type": "text",
@@ -22,9 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5cb303e47fad3",
-            "label": "ITTour ISO",
-            "name": "ittour_iso",
+            "key": "field_5cb449e7a134f",
+            "label": "ITTour Country ID",
+            "name": "ittour_country_id",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -41,35 +41,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_5cb3057416180",
-            "label": "ITTour Country Group",
-            "name": "ittour_country_group",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "1": "Самые популярные",
-                "2": "Популярные",
-                "3": "Остальные"
-            },
-            "default_value": [
-                3
-            ],
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 0,
-            "return_format": "array",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5cb302e92deb5",
+            "key": "field_5cb449e7a1449",
             "label": "ITTour Type",
             "name": "ittour_type",
             "type": "select",
@@ -94,35 +66,6 @@
             "ajax": 0,
             "return_format": "array",
             "placeholder": ""
-        },
-        {
-            "key": "field_5cb304bb7fad4",
-            "label": "ITTour Transport",
-            "name": "ittour_transport",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "0": "Все виды",
-                "1": "Авиа",
-                "2": "Автобус",
-                "-2": "Без транспорта"
-            },
-            "default_value": [
-                1
-            ],
-            "allow_null": 0,
-            "multiple": 1,
-            "ui": 1,
-            "ajax": 0,
-            "return_format": "array",
-            "placeholder": ""
         }
     ],
     "location": [
@@ -135,7 +78,7 @@
             {
                 "param": "post_taxonomy",
                 "operator": "==",
-                "value": "destination_type:country"
+                "value": "destination_type:region"
             }
         ]
     ],
@@ -147,5 +90,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555319262
+    "modified": 1555319576
 }

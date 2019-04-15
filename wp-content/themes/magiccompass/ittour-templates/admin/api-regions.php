@@ -10,9 +10,24 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $countries_site_by_ittour_id = ittour_get_destination_by_ittour_id('country');
+$regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
 
 $params_obj = ittour_params('ru');
 $params = $params_obj->get();
+$countries = $params['countries'];
+$countries_by_id = array();
+
+foreach ($countries as $key => $country) {
+    $countries_by_id[$country['id']] = array(
+        'name' => $country['name'],
+    );
+
+    if (!empty($countries_site_by_ittour_id[$country['id']]['ID'])) {
+        $countries_by_id[$country['id']]['parent_id'] = $countries_site_by_ittour_id[$country['id']]['ID'];
+    }
+
+    unset($countries[$key]);
+}
 
 $params_obj_en = ittour_params('en');
 $params_en = $params_obj_en->get();
@@ -47,7 +62,18 @@ $regions_en = $params_en['regions'];
         $destination_id = $destination['id'];
         $destination_name = $destination['name'];
         $destination_type = $destination['type_id'];
-        $destination_country = $destination['country_id'];
+        $destination_country_id = $destination['country_id'];
+        $destination_country = '';
+        $parent_post_ID = '';
+
+        if (!empty($countries_by_id[$destination_country_id])) {
+            $destination_country = $countries_by_id[$destination_country_id]['name'];
+        }
+
+        if (!empty($countries_by_id[$destination_country_id])) {
+            $parent_post_ID = $countries_by_id[$destination_country_id]['parent_id'];
+        }
+
         $destination_parent = $destination['parent_id'] * 1 > 0 ? $destination['parent_id'] : '-';
         $destination_name_en = '';
         $destination_slug = '';
@@ -83,12 +109,28 @@ $regions_en = $params_en['regions'];
                 <td><?php echo $destination_name; ?></td>
                 <td><?php echo $destination_slug; ?></td>
                 <td><?php echo $destination_type; ?></td>
-                <td><?php echo $destination_country; ?></td>
+                <td><?php echo $destination_country; ?> (<?php echo $destination_country_id; ?>)</td>
                 <td><?php echo $destination_parent; ?></td>
                 <td>
-                    <button class="button-primary button-small">
-                        <?php echo __('Add', 'snthwp'); ?>
-                    </button>
+                    <?php
+                    if (!empty($parent_post_ID)) {
+                        ?>
+                        <button
+                                class="button-primary button-small ittour-add-region"
+                                data-parent-id="<?php echo $parent_post_ID ?>"
+                                data-ittour-id="<?php echo $destination_id ?>"
+                                data-ittour-name="<?php echo $destination_name ?>"
+                                data-ittour-country-id="<?php echo $destination_country_id ?>"
+                                data-ittour-slug="<?php echo $destination_slug ?>"
+                                data-ittour-type="<?php echo $destination_type ?>"
+                        >
+                            <?php echo __('Add', 'snthwp'); ?>
+                        </button>
+                        <?php
+                    } else {
+                        ?>Please, add country first<?php
+                    }
+                    ?>
                 </td>
             </tr>
             <?php
