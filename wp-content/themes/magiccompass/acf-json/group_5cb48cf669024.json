@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5cb5fd7816fc5",
+            "label": "ITTour Hotel Rating",
+            "name": "ittour_hotel_rating",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5cb48cf678beb",
             "label": "ITTour Country ID",
             "name": "ittour_country_id",
@@ -109,5 +128,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555347104
+    "modified": 1555430804
 }

@@ -23846,6 +23846,14 @@ a.social_bt.linkedin:before {
     font-size: 12px;
     margin-bottom: 8px; }
 
+.hotel-calendar_table .current-item {
+  background-color: #85c99d;
+  color: #fff; }
+
+.hotel-calendar_table .outdated-item {
+  background-color: #F5F5F5;
+  color: #b4b4b4; }
+
 /*
 [Table of contents]
 

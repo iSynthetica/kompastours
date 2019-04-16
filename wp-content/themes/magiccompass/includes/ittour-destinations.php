@@ -147,3 +147,96 @@ function ittour_get_destinations_list_sort_by_ittour_id($destination_type = 'cou
 
     return $destinations_by_ittour_id;
 }
+
+function ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, $month, $year, $args = array()) {
+    $search = ittour_search('ru');
+
+    if (is_wp_error($search)) {
+        return false;
+    }
+
+    $args = wp_parse_args( $args, array(
+        'from_city' => '2014',
+        'adult_amount' => 2,
+        'night_from' => 7,
+        'night_till' => 9,
+        'items_per_page' => 1,
+        'prices_in_group' => 1,
+        'currency' => 1,
+    ) );
+
+    $args['hotel'] = $hotel_id;
+    $args['hotel_rating'] = $hotel_rating;
+
+    $date = mktime(12, 0, 0, $month, 1, $year);
+    $daysInMonth = date("t", $date);
+    $offset = (date("w", $date)-1)%7;
+    $searchMonth = date('m', $date);
+    $searchYear = date('y', $date);
+    $rows = 1;
+
+    ob_start();
+    ?>
+    <table class="table hotel-calendar_table">
+        <tr>
+            <th><?php _e('Monday', 'snthwp'); ?></th>
+            <th><?php _e('Tuesday', 'snthwp'); ?></th>
+            <th><?php _e('Wednesday', 'snthwp'); ?></th>
+            <th><?php _e('Thursday', 'snthwp'); ?></th>
+            <th><?php _e('Friday', 'snthwp'); ?></th>
+            <th><?php _e('Saturday', 'snthwp'); ?></th>
+            <th><?php _e('Sunday', 'snthwp'); ?></th>
+        </tr>
+        <?php
+        echo "\t";
+        echo "\n\t<tr>";
+
+        for($i = 1; $i <= $offset; $i++)  {
+            echo "<td></td>";
+        }
+
+        for($day = 1; $day <= $daysInMonth; $day++)
+        {
+            if( ($day + $offset - 1) % 7 == 0 && $day != 1) {
+                echo "</tr>\n\t<tr>";
+                $rows++;
+            }
+
+            if ($day == date("j")) {
+                echo "<td class='current-item'>" . $day . "<br>" . __('Today', 'snthwp') . "</td>";
+            } elseif ($day > date("j")) {
+                $args['date_from'] = $day . '.'.$searchMonth.'.' . $searchYear;
+                $args['date_from'] = $day . '.'.$searchMonth.'.' . $searchYear;
+
+                $search_result = $search->get($country_id, $args);
+
+                $offer_html = '';
+
+                if (!empty($search_result['hotels'][0])) {
+                    $offers = $search_result['hotels'][0]['offers'];
+                    $first_offer = $offers[0];
+
+                    $offer_html = '<br>' . __('from', 'snthwp') . ' <a href="/tour-result/?key='.$first_offer['key'].'">' . $first_offer['prices'][2] . '</a>';
+                }
+
+                echo "<td>" . $day . $offer_html . "</td>";
+            } else {
+                echo "<td class='outdated-item'>" . $day . "</td>";
+            }
+        }
+
+        while( ($day + $offset) <= $rows * 7) {
+            echo "<td></td>";
+            $day++;
+        }
+
+        echo "</tr>\n";
+        ?>
+    </table>
+    <?php
+    $table_html = ob_get_clean();
+
+    return array(
+        'table_html' => $table_html
+    );
+}

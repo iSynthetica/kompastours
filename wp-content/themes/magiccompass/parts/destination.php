@@ -31,7 +31,7 @@ if ('country' === $destination_type_template) {
     $country_id = get_field('ittour_country_id', $post_id);
     $destination_content = snth_get_template('destination/region.php', array('country_id' => $country_id, 'region_id' => $region_id));
 } elseif('hotel' === $destination_type_template) {
-    $country_id = get_field('ittour_id', $post_id);
+    $country_id = get_field('ittour_country_id', $post_id);
     $destination_content = snth_get_template('destination/hotel.php', array('country_id' => $country_id));
 }
 
@@ -42,7 +42,7 @@ if ('country' === $destination_type_template) {
          data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1><?php the_title(); ?></h1>
+            <h1 class="entry-title"><?php the_title(); ?></h1>
             <?php
             if (!empty($subtitle)) {
                 ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
