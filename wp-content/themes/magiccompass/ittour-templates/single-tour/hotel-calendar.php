@@ -34,8 +34,6 @@ for ($i = 0; $i < $month_period; $i++) {
 
 $params_obj = ittour_params();
 $params = $params_obj->getCountry($country_id);
-
-$hotel_calendar = ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, $month, $year);
 ?>
 <h3><?php echo date("F Y"); ?></h3>
 
@@ -59,8 +57,8 @@ $hotel_calendar = ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel
             <div class="styled-select-filters">
                 <select name="month" id="month">
                     <?php
-                    foreach ($month_select as $month) {
-                        echo $month;
+                    foreach ($month_select as $month_option) {
+                        echo $month_option;
                     }
                     ?>
                 </select>
@@ -77,15 +75,14 @@ $hotel_calendar = ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel
                 </select>
             </div>
         </div>
-        <div class="col-md-2 col-sm-3 col-4">
-            <div class="styled-select-filters">
-                <select name="sort_rating" id="sort_rating">
-                    <option value="" selected>Sort by ranking</option>
-                    <option value="lower">Lowest ranking</option>
-                    <option value="higher">Highest ranking</option>
-                </select>
-            </div>
-        </div>
     </div>
 </div>
-<?php echo $hotel_calendar['table_html']; ?>
+
+<section
+    id="hotel-tour-calendar__section"
+    data-month="<?php echo 7; ?>"
+    data-year="<?php echo $year; ?>"
+    data-country="<?php echo $country_id; ?>"
+    data-hotel-id="<?php echo $hotel_id; ?>"
+    data-hotel-rating="<?php echo $hotel_rating; ?>"
+></section>

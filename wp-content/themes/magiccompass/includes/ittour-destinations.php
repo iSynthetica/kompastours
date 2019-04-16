@@ -187,6 +187,11 @@ function ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, 
         return false;
     }
 
+    $current_month = date("n");
+    $current_year = date("Y");
+
+    $is_current_month = ($current_month === $month && $current_year === $year);
+
     $args = wp_parse_args( $args, array(
         'from_city' => '2014',
         'adult_amount' => 2,
@@ -234,11 +239,11 @@ function ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, 
                 $rows++;
             }
 
-            if ($day == date("j")) {
+            if ($day == date("j") && $is_current_month) {
                 echo "<td class='current-item'>" . $day . "<br>" . __('Today', 'snthwp') . "</td>";
-            } elseif ($day > date("j")) {
+            } elseif ($day > date("j") || !$is_current_month) {
                 $args['date_from'] = $day . '.'.$searchMonth.'.' . $searchYear;
-                $args['date_from'] = $day . '.'.$searchMonth.'.' . $searchYear;
+                $args['date_till'] = $day . '.'.$searchMonth.'.' . $searchYear;
 
                 $search_result = $search->get($country_id, $args);
 
