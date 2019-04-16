@@ -29,7 +29,7 @@
         }
     } else {
         ?>
-        <li><?php _e('Departure time is specified and will be available within 48 hours.', 'snthwp'); ?></li>
+        <li><small><?php _e('Departure time is specified and will be available within 48 hours.', 'snthwp'); ?></small></li>
         <?php
     }
     ?>

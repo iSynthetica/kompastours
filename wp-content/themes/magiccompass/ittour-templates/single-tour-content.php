@@ -29,42 +29,64 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
 
                     <ul class="tour-details-list">
-                        <li>
-                            <i class="far fa-clock list-item-icon"></i>
-                            <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
-                            <strong><?php echo $tour_info["duration"] ?></strong> <?php _e('nights', 'snthwp'); ?>
-                        </li>
+                        <?php
+                        if (!empty($tour_info["duration"])) {
+                            ?>
+                            <li>
+                                <i class="far fa-clock list-item-icon"></i>
+                                <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["duration"] ?></strong> <?php _e('nights', 'snthwp'); ?>
+                            </li>
+                            <?php
+                        }
 
-                        <li>
-                            <i class="fas fa-utensils list-item-icon"></i>
-                            <small><?php _e('Meal type', 'snthwp'); ?>:</small>
-                            <strong><?php echo $tour_info["meal_type"] ?></strong> <?php echo $tour_info["meal_type_full"] ?>
-                        </li>
+                        if (!empty($tour_info["meal_type"]) && !empty($tour_info["meal_type_full"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-utensils list-item-icon"></i>
+                                <small><?php _e('Meal type', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["meal_type"] ?></strong> <?php echo $tour_info["meal_type_full"] ?>
+                            </li>
+                            <?php
+                        }
 
-                        <li>
-                            <i class="fas fa-key list-item-icon"></i>
-                            <small><?php _e('Room type', 'snthwp'); ?>:</small>
-                            <strong><?php echo $tour_info["accomodation"] ?></strong> <?php echo $tour_info["room_type"] ?>
-                        </li>
+                        if (!empty($tour_info["accomodation"]) && !empty($tour_info["room_type"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-key list-item-icon"></i>
+                                <small><?php _e('Room type', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["accomodation"] ?></strong> <?php echo $tour_info["room_type"] ?>
+                            </li>
+                            <?php
+                        }
 
-                        <li>
-                            <i class="fas fa-plane-departure list-item-icon"></i>
-                            <small><?php _e('Flight from', 'snthwp'); ?>:</small>
-                            <strong><?php echo $tour_info["from_city"] ?></strong>
-                        </li>
+                        if (!empty($tour_info["from_city"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-plane-departure list-item-icon"></i>
+                                <small><?php _e('Flight from', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["from_city"] ?></strong>
+                            </li>
+                            <?php
+                        }
 
-                        <li>
-                            <i class="far fa-calendar-alt list-item-icon"></i>
-                            <small><?php _e('Flight date', 'snthwp'); ?>:</small>
-                            <strong><?php echo $tour_info["date_from"] ?></strong>
-                        </li>
+                        if (!empty($tour_info["date_from"])) {
+                            ?>
+                            <li>
+                                <i class="far fa-calendar-alt list-item-icon"></i>
+                                <small><?php _e('Flight date', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["date_from"] ?></strong>
+                            </li>
+                            <?php
+                        }
+                        ?>
                     </ul>
 
                     <hr>
 
-
                     <?php
-                    ittour_show_template('single-tour/flights-list.php', array('flights_info' => $tour_info['flights']));
+                    $flights = !empty($tour_info['flights']) ? $tour_info['flights'] : array();
+                    ittour_show_template('single-tour/flights-list.php', array('flights_info' => $flights));
                     ?>
                 </div>
             </div>
