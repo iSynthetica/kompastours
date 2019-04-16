@@ -10,8 +10,27 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$month = 4;
-$year = 2019;
+$month_period = 12;
+
+$month = date("n");
+$year = date("Y");
+
+$month_select_current = $month;
+$year_select_current = $year;
+$month_select = array();
+$month_select[] = '<option value="'.$month.'.'.$year.'">'.date("F Y").'</option>';
+
+for ($i = 0; $i < $month_period; $i++) {
+    if ($month_select_current == 12) {
+        $year_select_current++;
+        $month_select_current = 1;
+    } else {
+        $month_select_current++;
+    }
+
+    $month_select[] = '<option value="'.$month_select_current.'.'.$year_select_current.'">'.date("F Y", mktime(12, 0, 0, $month_select_current, 1, $year_select_current)).'</option>';
+
+}
 
 $params_obj = ittour_params();
 $params = $params_obj->getCountry($country_id);
@@ -30,6 +49,18 @@ $hotel_calendar = ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel
                         ?>
                         <option value="<?php echo $from_city['id'] ?>"<?php echo '2014' === $from_city['id'] ? ' selected' : ''; ?>><?php echo $from_city['name'] ?></option>
                         <?php
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-2 col-sm-3 col-4">
+            <div class="styled-select-filters">
+                <select name="month" id="month">
+                    <?php
+                    foreach ($month_select as $month) {
+                        echo $month;
                     }
                     ?>
                 </select>
