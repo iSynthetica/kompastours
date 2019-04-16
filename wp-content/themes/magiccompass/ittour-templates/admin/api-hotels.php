@@ -59,7 +59,18 @@ foreach ($params['regions'] as $key => $region) {
     );
 }
 
+$hotels_args = array(
+    'meta_query' => array(
+        array(
+            'key'     => 'ittour_country_id',
+            'value'   => $destination_country_id,
+            'compare' => '='
+        )
+    )
+);
+
 $regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
+$hotels_site_by_ittour_id = ittour_get_destination_by_ittour_id('hotel', $hotels_args);
 ?>
 <h3>Отели (<?php echo count($hotels) ?>)</h3>
 
@@ -78,7 +89,7 @@ $regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
         <th>Name</th>
         <th>Slug</th>
         <th>Location</th>
-        <th>Type</th>
+        <th>Modified</th>
         <th></th>
     </tr>
     </thead>
@@ -100,6 +111,16 @@ $regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
             $destination_region = $regions_by_id[$destination_region_id]['name'];
         }
 
+        $destination_site_id = '';
+        $destination_site_modified = '';
+
+        if (!empty($hotels_site_by_ittour_id[$destination_id])) {
+            $destination_site_id = $hotels_site_by_ittour_id[$destination_id]['ID'];
+            $destination_site_modified = $hotels_site_by_ittour_id[$destination_id]['modified'];
+
+            unset ($regions_site_by_ittour_id[$destination_id]);
+        }
+
         $parent_post_ID = '';
 
         if (!empty($regions_site_by_ittour_id[$destination_region_id])) {
@@ -110,39 +131,72 @@ $regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
             ?>
             <tr>
                 <th>
-                    <input
-                        type="checkbox"
-                        id="hotel_add_<?php echo $destination_id ?>"
-                        name="hotel_add_<?php echo $destination_id ?>"
-                        value="<?php echo $destination_id ?>"
-                    >
+                    <?php
+                    if (!empty($parent_post_ID) && empty($destination_site_modified)) {
+                        ?>
+                        <input
+                                type="checkbox"
+                                id="hotel_add_<?php echo $destination_id ?>"
+                                name="hotel_add_<?php echo $destination_id ?>"
+                                value="<?php echo $destination_id ?>"
+                        >
+                        <?php
+                    }
+                    ?>
                 </th>
                 <th>
-                    <input
-                        type="checkbox"
-                        id="hotel_update_<?php echo $destination_id ?>"
-                        name="hotel_update_<?php echo $destination_id ?>"
-                        value="<?php echo $destination_id ?>"
-                    >
+                    <?php
+                    if (!empty($parent_post_ID) && !empty($destination_site_modified)) {
+                        ?>
+                        <input
+                                type="checkbox"
+                                id="hotel_update_<?php echo $destination_id ?>"
+                                name="hotel_update_<?php echo $destination_id ?>"
+                                value="<?php echo $destination_id ?>"
+                        >
+                        <?php
+                    }
+                    ?>
                 </th>
                 <th><?php echo $destination_id; ?></th>
                 <td><?php echo $destination_name; ?></td>
                 <td><?php echo $destination_slug; ?></td>
-                <td><?php echo $destination_country; ?> (<?php echo $destination_country_id; ?>), <?php echo $destination_region; ?> (<?php echo $destination_region_id; ?>)</td>
-                <td><?php echo $destination_type; ?></td>
+                <td><?php echo $destination_country; ?> (<?php echo $destination_country_id; ?>) <br> <?php echo $destination_region; ?> (<?php echo $destination_region_id; ?>)</td>
+                <td><?php echo $destination_site_modified; ?></td>
                 <td>
-                    <button
-                        class="button-primary button-small ittour-add-hotel"
-                        data-parent-id="<?php echo $parent_post_ID ?>"
-                        data-ittour-id="<?php echo $destination_id ?>"
-                        data-ittour-name="<?php echo $destination_name ?>"
-                        data-ittour-country-id="<?php echo $destination_country_id ?>"
-                        data-ittour-region-id="<?php echo $destination_region_id ?>"
-                        data-ittour-slug="<?php echo $destination_slug ?>"
-                        data-ittour-type="<?php echo $destination_type ?>"
-                    >
-                        <?php echo __('Add', 'snthwp'); ?>
-                    </button>
+                    <?php
+                    if (!empty($destination_site_modified) && !empty($destination_site_id)) {
+                        ?>
+                        <button
+                                class="button-primary button-small ittour-add-hotel"
+                                data-parent-id="<?php echo $parent_post_ID ?>"
+                                data-ittour-id="<?php echo $destination_id ?>"
+                                data-ittour-name="<?php echo $destination_name ?>"
+                                data-ittour-country-id="<?php echo $destination_country_id ?>"
+                                data-ittour-region-id="<?php echo $destination_region_id ?>"
+                                data-ittour-slug="<?php echo $destination_slug ?>"
+                                data-ittour-type="<?php echo $destination_type ?>"
+                        >
+                            <?php echo __('Update', 'snthwp'); ?>
+                        </button>
+                        <?php
+                    } else {
+                        ?>
+                        <button
+                                class="button-primary button-small ittour-add-hotel"
+                                data-parent-id="<?php echo $parent_post_ID ?>"
+                                data-ittour-id="<?php echo $destination_id ?>"
+                                data-ittour-name="<?php echo $destination_name ?>"
+                                data-ittour-country-id="<?php echo $destination_country_id ?>"
+                                data-ittour-region-id="<?php echo $destination_region_id ?>"
+                                data-ittour-slug="<?php echo $destination_slug ?>"
+                                data-ittour-type="<?php echo $destination_type ?>"
+                        >
+                            <?php echo __('Add', 'snthwp'); ?>
+                        </button>
+                        <?php
+                    }
+                    ?>
                 </td>
             </tr>
             <?php

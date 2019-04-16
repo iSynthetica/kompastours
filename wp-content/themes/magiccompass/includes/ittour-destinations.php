@@ -90,7 +90,7 @@ function ittour_create_hotel($name, $slug, $id, $type, $country_id, $region_id, 
     return $post_id;
 }
 
-function ittour_get_destination_by_ittour_id($destination_type = 'country') {
+function ittour_get_destination_by_ittour_id($destination_type = 'country', $params = array()) {
     $args = array(
         'numberposts' => '-1',
         'post_type'   => 'destination',
@@ -102,6 +102,10 @@ function ittour_get_destination_by_ittour_id($destination_type = 'country') {
             )
         )
     );
+
+    if (!empty($params)) {
+        $args = array_merge($args, $params);
+    }
 
     $destinations = get_posts($args);
 
