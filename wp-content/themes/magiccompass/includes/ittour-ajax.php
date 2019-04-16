@@ -223,7 +223,9 @@ add_action( 'wp_ajax_ittour_ajax_admin_add_region', 'ajax_admin_add_region' );
 function ajax_admin_add_hotel() {
     $ittour_id = !empty($_POST['ittourId']) ? $_POST['ittourId'] : false;
     $parent_id = !empty($_POST['parentId']) ? $_POST['parentId'] : false;
+    $post_id = !empty($_POST['postId']) ? $_POST['postId'] : false;
     $ittour_name = !empty($_POST['ittourName']) ? $_POST['ittourName'] : false;
+    $ittour_rating = !empty($_POST['ittourRating']) ? $_POST['ittourRating'] : false;
     $ittour_country_id = !empty($_POST['ittourCountryId']) ? $_POST['ittourCountryId'] : false;
     $ittour_region_id = !empty($_POST['ittourRegionId']) ? $_POST['ittourRegionId'] : false;
     $ittour_slug = !empty($_POST['ittourSlug']) ? $_POST['ittourSlug'] : false;
@@ -250,7 +252,11 @@ function ajax_admin_add_hotel() {
         wp_die();
     }
 
-    $post_id = ittour_create_hotel($ittour_name, $ittour_slug, $ittour_id, $ittour_type, $ittour_country_id, $ittour_region_id, $parent_id);
+    if ($post_id) {
+        $post_created = ittour_update_hotel($post_id, $ittour_name, $ittour_slug, $ittour_id, $ittour_rating, $ittour_type, $ittour_country_id, $ittour_region_id, $parent_id);
+    } else {
+        $post_created = ittour_create_hotel($ittour_name, $ittour_slug, $ittour_id, $ittour_rating, $ittour_type, $ittour_country_id, $ittour_region_id, $parent_id);
+    }
 
     $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));
 

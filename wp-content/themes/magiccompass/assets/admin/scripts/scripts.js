@@ -2,9 +2,11 @@
 
     $(document.body).on('click', '.ittour-add-hotel', function() {
         var button = $(this);
+        var postId = button.data('post-id');
         var parentId = button.data('parent-id');
         var ittourId = button.data('ittour-id');
         var ittourName = button.data('ittour-name');
+        var ittourRating = button.data('ittour-rating');
         var ittourSlug = button.data('ittour-slug');
         var ittourCountryId = button.data('ittour-country-id');
         var ittourRegionId = button.data('ittour-region-id');
@@ -15,9 +17,11 @@
             method: 'post',
             data: {
                 action: 'ittour_ajax_admin_add_hotel',
+                postId: postId,
                 parentId: parentId,
                 ittourId: ittourId,
                 ittourName: ittourName,
+                ittourRating: ittourRating,
                 ittourSlug: ittourSlug,
                 ittourCountryId: ittourCountryId,
                 ittourRegionId: ittourRegionId,
