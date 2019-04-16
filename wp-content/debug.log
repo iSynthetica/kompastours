@@ -22059,3 +22059,19 @@ Stack trace:
 [16-Apr-2019 15:59:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
 [16-Apr-2019 15:59:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/hotel.php:17
 [16-Apr-2019 15:59:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[16-Apr-2019 16:39:29 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-destinations.php:247
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/hotel-calendar.php(20): ittour_get_hotel_tours_calendar(338, '4172', NULL, 4, 2019)
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include('/var/www/synthe...')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/hotel.php(19): ittour_show_template('single-tour/hot...', Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(66): snth_show_template('destination/hot...', Array, 'parts')
+#5 /var/www/s in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-destinations.php on line 247
+[16-Apr-2019 16:40:17 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-destinations.php:247
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/hotel-calendar.php(20): ittour_get_hotel_tours_calendar(338, '4172', NULL, 4, 2019)
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include('/var/www/synthe...')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/hotel.php(19): ittour_show_template('single-tour/hot...', Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(66): snth_show_template('destination/hot...', Array, 'parts')
+#5 /var/www/s in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-destinations.php on line 247

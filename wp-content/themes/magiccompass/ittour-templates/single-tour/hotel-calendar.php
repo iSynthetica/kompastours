@@ -12,12 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $month = 4;
 $year = 2019;
-$country_id = 338;
 
 $params_obj = ittour_params();
 $params = $params_obj->getCountry($country_id);
 
-$hotel_calendar = ittour_get_hotel_tours_calendar($country_id, '2984', '78', $month, $year);
+$hotel_calendar = ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, $month, $year);
 ?>
 <h3><?php echo date("F Y"); ?></h3>
 

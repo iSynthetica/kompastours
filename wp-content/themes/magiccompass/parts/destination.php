@@ -31,8 +31,16 @@ if ('country' === $destination_type_template) {
     $country_id = get_field('ittour_country_id', $post_id);
     $destination_content = snth_get_template('destination/region.php', array('country_id' => $country_id, 'region_id' => $region_id));
 } elseif('hotel' === $destination_type_template) {
+    $hotel_id = get_field('ittour_id', $post_id);
+    $hotel_rating = get_field('ittour_hotel_rating', $post_id);
     $country_id = get_field('ittour_country_id', $post_id);
-    $destination_content = snth_get_template('destination/hotel.php', array('country_id' => $country_id));
+    $region_id = get_field('ittour_region_id', $post_id);
+    $destination_content = snth_get_template('destination/hotel.php', array(
+            'country_id' => $country_id,
+            'region_id' => $region_id,
+            'hotel_id' => $hotel_id,
+            'hotel_rating' => $hotel_rating,
+    ));
 }
 
 
