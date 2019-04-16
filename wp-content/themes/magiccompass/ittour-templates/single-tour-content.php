@@ -112,14 +112,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                             0
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Total amount
-                        </td>
-                        <td class="text-right">
-                            3x $52
-                        </td>
-                    </tr>
                     <tr class="total">
                         <td>
                             Total cost
@@ -130,8 +122,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </tr>
                     </tbody>
                 </table>
+
                 <a class="btn_full" href="cart.html">Book now</a>
-                <a class="btn_full_outline" href="#"><i class=" icon-heart"></i> Add to whislist</a>
             </div>
             <!--/box_style_1 -->
 
@@ -151,7 +143,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?php _e('Location', 'snthwp'); ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
@@ -160,11 +152,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <?php ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
+            <?php
+            ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info']));
+            ?>
         </div>
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <?php ittour_show_template('single-tour/hotel-map.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
+            <?php ittour_show_template('single-tour/hotel-map.php', array('hotel_info' => $tour_info['hotel_info'], 'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating']))); ?>
         </div>
 
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">

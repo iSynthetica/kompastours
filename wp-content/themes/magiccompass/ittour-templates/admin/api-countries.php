@@ -8,7 +8,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-$countries_site_by_ittour_id = ittour_get_destination_by_ittour_id('country');
+$countries_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('country');
 
 $params_obj = ittour_params('ru');
 $params = $params_obj->get();

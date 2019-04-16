@@ -383,3 +383,27 @@
     position: relative;
     top: -5px;
 }
+
+.location-info {
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.27);
+    &__inner {
+        padding: 10px;
+    }
+    &__header {
+        h3 {
+            font-size: 14px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #555;
+        }
+    }
+    &__body {
+        p {
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+    }
+    &__footer {}
+}

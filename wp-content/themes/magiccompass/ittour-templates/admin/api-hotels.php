@@ -69,8 +69,8 @@ $hotels_args = array(
     )
 );
 
-$regions_site_by_ittour_id = ittour_get_destination_by_ittour_id('region');
-$hotels_site_by_ittour_id = ittour_get_destination_by_ittour_id('hotel', $hotels_args);
+$regions_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('region');
+$hotels_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('hotel', $hotels_args);
 ?>
 <h3>Отели (<?php echo count($hotels) ?>)</h3>
 

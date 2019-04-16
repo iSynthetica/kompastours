@@ -61,6 +61,26 @@ function ittour_create_region($name, $slug, $id, $type, $country_id, $parent_id 
     return $post_id;
 }
 
+function ittour_get_destination_by_ittour_id($id) {
+    $args = array(
+        'numberposts' => '1',
+        'post_type'   => 'destination',
+        'meta_query' => array(
+            array(
+                'key'     => 'ittour_id',
+                'value'   => $id,
+                'compare' => '='
+            )
+        )
+    );
+
+    $destinations = get_posts($args);
+
+    wp_reset_postdata();
+
+    return $destinations;
+}
+
 function ittour_create_hotel($name, $slug, $id, $type, $country_id, $region_id, $parent_id = 0) {
     // Prepare post data
     $post_data = array(
@@ -90,7 +110,7 @@ function ittour_create_hotel($name, $slug, $id, $type, $country_id, $region_id, 
     return $post_id;
 }
 
-function ittour_get_destination_by_ittour_id($destination_type = 'country', $params = array()) {
+function ittour_get_destinations_list_sort_by_ittour_id($destination_type = 'country', $params = array()) {
     $args = array(
         'numberposts' => '-1',
         'post_type'   => 'destination',
