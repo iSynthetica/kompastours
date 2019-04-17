@@ -153,6 +153,26 @@ function ittour_ajax_load_hotel_tour_calendar() {
 add_action('wp_ajax_nopriv_ittour_ajax_load_hotel_tour_calendar', 'ittour_ajax_load_hotel_tour_calendar');
 add_action('wp_ajax_ittour_ajax_load_hotel_tour_calendar', 'ittour_ajax_load_hotel_tour_calendar');
 
+function ittour_ajax_load_hotel_tours_table() {
+    $month = !empty($_POST['month']) ? $_POST['month'] : false;
+    $year = !empty($_POST['year']) ? $_POST['year'] : false;
+    $country_id = !empty($_POST['country']) ? $_POST['country'] : false;
+    $hotel_id = !empty($_POST['hotelId']) ? $_POST['hotelId'] : false;
+    $hotel_rating = !empty($_POST['hotelRating']) ? $_POST['hotelRating'] : false;
+
+    $hotel_calendar = ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating);
+
+    $response = array('success' => 1, 'error' => 0, 'message' => array(
+        'table_html' => $hotel_calendar['table_html']
+    ));
+
+    echo json_encode($response);
+
+    wp_die();
+}
+add_action('wp_ajax_nopriv_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel_tours_table');
+add_action('wp_ajax_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel_tours_table');
+
 /**
  * Add Single Ittour country
  */

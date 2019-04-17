@@ -13,6 +13,7 @@
         ittourLoadSearchForm();
         ittourLoadToursList();
         ittourLoadTourCalendar();
+        ittourLoadHotelToursTable();
     });
 
     $(window).on('scroll', function() {
@@ -309,6 +310,52 @@
             },
             'json'
         );
+    }
+
+    function ittourLoadHotelToursTable() {
+        var tourTableSection = $('#hotel-tour-table__section');
+
+        if (tourTableSection.length > 0) {
+            var month = tourTableSection.data('month');
+            var year = tourTableSection.data('year');
+            var country = tourTableSection.data('country');
+            var hotelId = tourTableSection.data('hotel-id');
+            var hotelRating = tourTableSection.data('hotel-rating');
+
+            $.ajax({
+                url: snthWpJsObj.ajaxurl,
+                method: 'post',
+                data: {
+                    action: 'ittour_ajax_load_hotel_tours_table',
+                    month: month,
+                    year: year,
+                    country: country,
+                    hotelId: hotelId,
+                    hotelRating: hotelRating
+                },
+                success: function (response) {
+                    var decoded;
+
+                    try {
+                        decoded = $.parseJSON(response);
+                    } catch(err) {
+                        console.log(err);
+                        decoded = false;
+                    }
+
+                    if (decoded) {
+                        if (decoded.success) {
+                            tourTableSection.html(decoded.message.table_html);
+                        } else {
+                            alert(decoded.message);
+                        }
+                    } else {
+                        alert('Something went wrong');
+                    }
+
+                }
+            });
+        }
     }
 
     function ittourLoadTourCalendar() {
