@@ -2,12 +2,10 @@
 /**
  * Template part for displaying posts
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.2
+ * @subpackage Magiccompass/IttourParts
+ * @version 0.0.8
+ * @since 0.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -19,6 +17,7 @@ if (empty($template)) {
 $ittour_content = '';
 
 if (empty($_GET['country'])) {
+    $template = 'no-sidebar';
     $ittour_content = ittour_get_template('search/no-parameters.php');
 } else {
     $country_id = $_GET['country'];
@@ -53,6 +52,13 @@ if (empty($_GET['country'])) {
 
     $search = ittour_search('ru');
     $search_result = $search->get($country_id, $args);
+
+    if (is_wp_error($search_result)) {
+        snth_show_template('content/hero-section-parallax.php', array(
+            'title' => __('Search Error', 'snthwp'),
+        ));
+        $ittour_content = ittour_get_template('search/result-error.php', array('error' => $search_result->errors['ittour_error'][0]));
+    }
 
     if ( !is_array( $search_result ) ) {
         return;

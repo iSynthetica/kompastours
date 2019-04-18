@@ -612,7 +612,7 @@ function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $
         'night_from' => 7,
         'night_till' => 9,
         'items_per_page' => 1,
-        'prices_in_group' => 100,
+        'prices_in_group' => 30,
         'currency' => 1,
     ) );
 

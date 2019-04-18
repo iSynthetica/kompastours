@@ -23854,6 +23854,107 @@ a.social_bt.linkedin:before {
   background-color: #F5F5F5;
   color: #b4b4b4; }
 
+/* TIMELINE */
+ul.cbp_tmtimeline {
+  margin: 45px 0 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  /* Line */
+  /* Date / Time */
+  /* Right Content */ }
+  ul.cbp_tmtimeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #e04f67;
+    left: 20%;
+    margin-left: -8px; }
+  ul.cbp_tmtimeline > li {
+    position: relative; }
+    ul.cbp_tmtimeline > li .cbp_tmtime {
+      display: block;
+      width: 25%;
+      padding-right: 100px;
+      position: absolute;
+      margin-top: -10px; }
+      ul.cbp_tmtimeline > li .cbp_tmtime span {
+        display: block;
+        text-align: right; }
+        ul.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+          font-size: 0.9em;
+          color: #888;
+          margin-bottom: 5px; }
+        ul.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+          font-size: 32px;
+          font-weight: 600; }
+    ul.cbp_tmtimeline > li .cbp_tmsteps {
+      display: block;
+      width: 25%;
+      padding-right: 100px;
+      position: absolute;
+      margin-top: -10px; }
+      ul.cbp_tmtimeline > li .cbp_tmsteps span {
+        display: block;
+        text-align: right; }
+        ul.cbp_tmtimeline > li .cbp_tmsteps span:first-child {
+          font-size: 0.875rem;
+          color: #888;
+          margin-bottom: 5px; }
+        ul.cbp_tmtimeline > li .cbp_tmsteps span:last-child {
+          font-size: 1.1875rem;
+          font-weight: 600; }
+    ul.cbp_tmtimeline > li .cbp_tmlabel {
+      margin: 0 0 15px 25%;
+      background: #f2f2f2;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      padding: 2em;
+      position: relative; }
+      ul.cbp_tmtimeline > li .cbp_tmlabel h2 {
+        margin-top: 0px;
+        padding: 0 0 10px 0;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-size: 26px; }
+        ul.cbp_tmtimeline > li .cbp_tmlabel h2 span {
+          display: block;
+          font-size: 18px;
+          color: #999;
+          text-transform: none; }
+      ul.cbp_tmtimeline > li .cbp_tmlabel:after {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-right-color: #f2f2f2;
+        border-width: 10px;
+        top: 10px; }
+    ul.cbp_tmtimeline > li .cbp_tmicon {
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      line-height: 48px;
+      -webkit-font-smoothing: antialiased;
+      position: absolute;
+      color: #e04f67;
+      background: #f9f9f9;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #e04f67;
+      text-align: center;
+      left: 19.6%;
+      top: -1%;
+      margin: 0 0 0 -25px; }
+  ul.cbp_tmtimeline img.speaker {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    border: 1px solid #fff; }
+
 /*
 [Table of contents]
 
