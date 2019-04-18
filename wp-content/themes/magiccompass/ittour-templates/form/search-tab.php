@@ -18,27 +18,35 @@ if ( !is_array( $form_fields ) ) {
     <form id="search-form" action="/search-results/" method="get" class="search-form repeater">
         <div id="search-form-main__holder">
             <div class="row">
-                <div class="col-md-3">
-                    <label for="destination_summary"><?php echo __('Destination', 'snthwp') ?>:</label>
-                    <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" value="" readonly>
-                </div>
-                <div class="col-md-3">
-                    <label for="dates-duration_summary"><?php echo __('Dates / Duration / Departure', 'snthwp') ?>:</label>
-                    <input id="dates-duration_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="dates-select_section" value="" readonly>
-                </div>
-                <div class="col-md-3">
-                    <label for="guests_summary"><?php echo __('Guests', 'snthwp') ?>:</label>
-                    <input id="guests_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" value="" readonly>
-                </div>
-                <div class="col-md-1">
-                    <label for="destination_summary"><?php echo __('Filter', 'snthwp') ?>:</label>
+                <div class="col-md-12 col-lg-9">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3">
+                            <input id="from_city" name="from_city" type="text" class="form-control" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="">
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="" readonly>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <input id="dates-duration_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="dates-select_section" placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>" value="" readonly>
+                        </div>
+                        <div class="col-md-3 col-lg-3">
+                            <input id="guests_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" placeholder="<?php echo __('Guests', 'snthwp') ?>" value="" readonly>
+                        </div>
 
-                    <div id="filter_options" class="form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section">
-                        <i class="fas fa-angle-double-down"></i>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn_1 green" type="submit"><i class="icon-search"></i><?php echo __('Search', 'snthwp') ?></button>
+
+                <div class="col-md-12 col-lg-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="filter_options" class="form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <button class="btn_1 green" type="submit"><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
