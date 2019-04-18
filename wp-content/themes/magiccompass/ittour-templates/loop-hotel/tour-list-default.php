@@ -71,7 +71,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <div class="col-lg-6 col-md-6">
                         <p>
                             <i class="fas fa-plane-departure"></i>
-                            <?php echo $first_offer['from_city']; ?>
+                            <?php
+                            if (!empty($first_offer['from_city'])) {
+                                echo $first_offer['from_city'];
+                            } else {
+                                echo __('Ask manager', 'snthwp');
+                            }
+                            ?>
                         </p>
                     </div>
                 </div>
@@ -163,7 +169,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 ?>
                                 <tr>
                                     <td>
-                                        <?php echo $offer['from_city'] ?> - <?php echo $offer['date_from'] ?>
+                                        <?php
+                                        if (!empty($offer['from_city'] )) {
+                                            echo $offer['from_city'];
+                                        } else {
+                                            echo __('Flight city will be available soon', 'snthwp');
+                                        }
+                                        ?> -
+                                        <?php echo $offer['date_from'] ?>
                                     </td>
                                     <td class="">
                                         <?php echo $offer['room_type']; ?>
