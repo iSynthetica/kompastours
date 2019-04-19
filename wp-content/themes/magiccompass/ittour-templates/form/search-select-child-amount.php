@@ -8,7 +8,7 @@
 ?>
 
 <div class="child_amount_item" style="margin-right:10px;float:left">
-    <select name="child_amount" class="form-control" >
+    <select name="child_amount[]" class="form-control" >
         <option value="1"><?php _e('1 year', 'snthwp') ?></option>
         <option value="2"><?php _e('2 years', 'snthwp') ?></option>
         <option value="3"><?php _e('3 years', 'snthwp') ?></option>

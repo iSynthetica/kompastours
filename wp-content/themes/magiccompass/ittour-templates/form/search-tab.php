@@ -16,7 +16,7 @@ if ( !is_array( $form_fields ) ) {
 }
 ?>
 <div class="search-form__holder">
-    <form id="search-form" action="/search-results/" method="get" class="search-form repeater">
+    <form id="search-form" action="/search/" method="get" class="search-form repeater">
         <div id="search-form-main__holder">
             <div id="select-from-city__holder">
                 <select class="form-control" name="from_city" id="from_city">
@@ -140,7 +140,7 @@ if ( !is_array( $form_fields ) ) {
                             <label><?php echo __('Adult amount', 'snthwp') ?></label>
 
                             <div class="numbers-alt numbers-gor">
-                                <input type="number" value="1" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount">
+                                <input type="number" value="2" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount">
                             </div>
                         </div>
                     </div>

@@ -27427,3 +27427,14 @@ Stack trace:
 [18-Apr-2019 09:03:18 UTC] PHP   5. ittour_ajax_get_tours_list() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
 [18-Apr-2019 09:03:18 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:82
 [18-Apr-2019 09:03:18 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[19-Apr-2019 11:00:36 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[19-Apr-2019 11:00:36 UTC] PHP Stack trace:
+[19-Apr-2019 11:00:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[19-Apr-2019 11:00:36 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[19-Apr-2019 11:00:36 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[19-Apr-2019 11:00:36 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[19-Apr-2019 11:00:36 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[19-Apr-2019 11:00:36 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[19-Apr-2019 11:00:36 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:60
+[19-Apr-2019 11:00:36 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[19-Apr-2019 11:00:36 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50

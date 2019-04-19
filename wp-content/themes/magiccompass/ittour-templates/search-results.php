@@ -26,21 +26,9 @@ if (empty($_GET['country'])) {
 
     $args = $_GET;
 
-    if (!empty($_GET['child_amount_group'])) {
-        $child_amount_group = $_GET['child_amount_group'];
-        unset($_GET['child_amount_group']);
-
-        $child_amount = count($child_amount_group);
-        $child_age_array = array();
-
-        foreach ($child_amount_group as $child) {
-            $child_age_array[] = $child['child_amount'];
-        }
-
-        $child_age = implode(':', $child_age_array);
-
-        $args['child_amount'] = $child_amount;
-        $args['child_age'] = $child_age;
+    if (!empty($_GET['child_amount'])) {
+        $args['child_amount'] = count($_GET['child_amount']);
+        $args['child_age'] = implode(':', $_GET['child_amount']);
     }
 
     if (!empty($_GET['date'])) {
@@ -57,6 +45,7 @@ if (empty($_GET['country'])) {
         snth_show_template('content/hero-section-parallax.php', array(
             'title' => __('Search Error', 'snthwp'),
         ));
+
         $ittour_content = ittour_get_template('search/result-error.php', array('error' => $search_result->errors['ittour_error'][0]));
     }
 
