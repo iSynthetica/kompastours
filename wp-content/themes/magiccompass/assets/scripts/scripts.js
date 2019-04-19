@@ -28036,7 +28036,7 @@ $.fn.repeater = function (fig) {
                 } else {
                     var hotels =  response.message.hotels;
 
-                    var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
+                    var hotelsHtml = '<select name="region" id="hotel_select" class="form-control">';
                     hotelsHtml += '<option value="">Select hotel</option>';
 
                     for (var i = 0; i < hotels.length; i++) {
@@ -28233,24 +28233,82 @@ $.fn.repeater = function (fig) {
 
         if (0 === searchFormHolder.length) {return;}
 
-        $.post(snthWpJsObj.ajaxurl,
-            {
-                'action': 'ittour_ajax_load_search_form',
-            }, function(response) {
-                if( response.status === 'error') {
+        var country = searchFormHolder.data('country');
+        var region = searchFormHolder.data('region');
+        var hotel = searchFormHolder.data('hotel');
+        var fromCity = searchFormHolder.data('from-city');
+        var dateFrom = searchFormHolder.data('date-from');
+        var dateTill = searchFormHolder.data('date-till');
+        var nightFrom = searchFormHolder.data('night-from');
+        var nightTill = searchFormHolder.data('night-till');
+        var adultAmount = searchFormHolder.data('adult-amount');
+        var childAmount = searchFormHolder.data('child-amount');
+        var childAge = searchFormHolder.data('child-age');
 
-                } else {
-                    var fragments = response.message.fragments;
-
-                    setTimeout(function () {
-                        updateFragments(fragments);
-
-                        $( document.body ).trigger( 'search_form_loaded' );
-                    }, 1000);
-                }
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            data: {
+                action: 'ittour_ajax_load_search_form',
+                country: country,
+                region: region,
+                hotel: hotel,
+                fromCity: fromCity,
+                dateFrom: dateFrom,
+                dateTill: dateTill,
+                nightFrom: nightFrom,
+                nightTill: nightTill,
+                adultAmount: adultAmount,
+                childAmount: childAmount,
+                childAge: childAge
             },
-            'json'
-        );
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = $.parseJSON(response);
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = decoded.message.fragments;
+
+                        setTimeout(function () {
+                            updateFragments(fragments);
+
+                            $( document.body ).trigger( 'search_form_loaded' );
+                        }, 1000);
+                    } else {
+                        alert(decoded.message);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+
+            }
+        });
+
+        // $.post(snthWpJsObj.ajaxurl,
+        //     {
+        //         'action': 'ittour_ajax_load_search_form',
+        //     }, function(response) {
+        //         if( response.status === 'error') {
+        //
+        //         } else {
+        //             var fragments = response.message.fragments;
+        //
+        //             setTimeout(function () {
+        //                 updateFragments(fragments);
+        //
+        //                 $( document.body ).trigger( 'search_form_loaded' );
+        //             }, 1000);
+        //         }
+        //     },
+        //     'json'
+        // );
     }
 
     /**

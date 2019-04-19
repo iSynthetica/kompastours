@@ -13,22 +13,41 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if (empty($template)) {
     $template = 'left-sidebar';
 }
+$country_id = !empty($_GET['country']) ? trim($_GET['country']) : false;
+$from_city = !empty($_GET['from_city']) ? trim($_GET['from_city']) : false;
+$adult_amount = !empty($_GET['adult_amount']) ? trim($_GET['adult_amount']) : false;
+$night_from = !empty($_GET['night_from']) ? trim($_GET['night_from']) : false;
+$night_till = !empty($_GET['night_till']) ? trim($_GET['night_till']) : false;
+$region = false;
+$hotel = false;
+$date_from = false;
+$date_till = false;
+$child_amount = false;
+$child_age = false;
 
 $ittour_content = '';
 
-if (empty($_GET['country'])) {
+if (!$country_id) {
     $template = 'no-sidebar';
     $ittour_content = ittour_get_template('search/no-parameters.php');
 } else {
-    $country_id = $_GET['country'];
 
-    unset($_GET['country']);
 
-    $args = $_GET;
+    $args = array();
 
-    if (!empty($_GET['child_amount'])) {
-        $args['child_amount'] = count($_GET['child_amount']);
-        $args['child_age'] = implode(':', $_GET['child_amount']);
+    $args['from_city'] = $from_city ? $from_city : '2014';
+    $args['adult_amount'] = $adult_amount ? $adult_amount : '2';
+    $args['night_from'] = $night_from ? $night_from : '7';
+    $args['night_till'] = $night_till ? $night_till : '9';
+
+    if (!empty($_GET['region'])) {
+        $region = trim($_GET['region']);
+        $args['region'] = trim($_GET['region']);
+    }
+
+    if (!empty($_GET['hotel'])) {
+        $hotel = trim($_GET['hotel']);
+        $args['hotel'] = trim($_GET['hotel']);
     }
 
     if (!empty($_GET['date'])) {
@@ -36,6 +55,17 @@ if (empty($_GET['country'])) {
 
         $args['date_from'] = trim($dates[0]);
         $args['date_till'] = trim($dates[1]);
+
+        $date_from = trim($dates[0]);
+        $date_till = trim($dates[1]);
+    }
+
+    if (!empty($_GET['child_amount'])) {
+        $args['child_amount'] = count($_GET['child_amount']);
+        $args['child_age'] = implode(':', $_GET['child_amount']);
+
+        $child_amount = count($_GET['child_amount']);
+        $child_age = implode(':', $_GET['child_amount']);
     }
 
     $search = ittour_search('ru');
@@ -67,7 +97,21 @@ if (empty($_GET['country'])) {
 </section>
 <!-- End Section -->
 
-<?php ittour_show_template('form/section-search.php'); ?>
+<?php
+ittour_show_template('form/section-search.php', array(
+    'country'       => $country_id,
+    'region'        => $region,
+    'hotel'         => $hotel,
+    'from_city'     => $from_city,
+    'date_from'     => $date_from,
+    'date_till'     => $date_till,
+    'night_from'    => $night_from,
+    'night_till'    => $night_till,
+    'adult_amount'  => $adult_amount,
+    'child_amount'  => $child_amount,
+    'child_age'     => $child_age,
+));
+?>
 
 <div class="wrap">
     <div class="container margin_60">

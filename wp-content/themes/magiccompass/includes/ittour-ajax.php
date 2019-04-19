@@ -35,10 +35,13 @@ add_action('wp_ajax_nopriv_ittour_ajax_load_single_tour', 'ittour_ajax_load_sing
 add_action('wp_ajax_ittour_ajax_load_single_tour', 'ittour_ajax_load_single_tour');
 
 function ittour_ajax_load_search_form() {
+    unset($_POST['action']);
+
+    $args = $_POST;
+
+
     ob_start();
-    ?>
-    <?php ittour_show_template('form/search-tab.php'); ?>
-    <?php
+    ittour_show_template('form/search-tab.php', array('args' => $args));
     $search_form_content = ob_get_clean();
 
     $message = array(
@@ -47,7 +50,7 @@ function ittour_ajax_load_search_form() {
         ),
     );
 
-    echo json_encode(array( "status" => 'success', 'message' => $message ));
+    echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $message ));
 
     die;
 }

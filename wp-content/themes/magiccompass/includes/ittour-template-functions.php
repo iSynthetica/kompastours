@@ -68,7 +68,7 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
     return $template;
 }
 
-function ittour_get_form_fields() {
+function ittour_get_form_fields($args = array()) {
     $params_obj = ittour_params();
     $params = $params_obj->get();
 
@@ -77,7 +77,7 @@ function ittour_get_form_fields() {
     }
 
     return array(
-        'countries' =>  itour_get_country_field($params),
+        'countries' =>  itour_get_country_field($params, $args),
         'regions' =>  itour_get_region_field($params),
         'hotel_ratings' =>  itour_get_hotel_ratings_field($params),
         'transport_types' =>  itour_get_transport_type_field($params),
@@ -395,7 +395,9 @@ function itour_get_meal_type_field() {
     return ob_get_clean();
 }
 
-function itour_get_country_field($params) {
+function itour_get_country_field($params, $args = array()) {
+
+    $country_id = !empty($args['country']) ? $args['country'] : false;
 
     ob_start();
     if (!empty($params['countries'])) {
@@ -405,8 +407,13 @@ function itour_get_country_field($params) {
 
             <?php
             foreach ($params['countries'] as $country) {
+                $selected = '';
+
+                if ($country_id && $country['id'] === $country_id) {
+                    $selected .= ' selected';
+                }
                 ?>
-                <option value="<?php echo $country['id'] ?>"><?php echo $country['name'] ?></option>
+                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
                 <?php
             }
             ?>
