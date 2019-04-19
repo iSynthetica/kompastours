@@ -9,6 +9,7 @@
 // var_dump(ittour_get_countries_list());
 
 $form_fields = ittour_get_form_fields();
+$from_cities_array = get_option('ittour_from_cities');
 
 if ( !is_array( $form_fields ) ) {
     return;
@@ -17,34 +18,42 @@ if ( !is_array( $form_fields ) ) {
 <div class="search-form__holder">
     <form id="search-form" action="/search-results/" method="get" class="search-form repeater">
         <div id="search-form-main__holder">
+            <div id="select-from-city__holder">
+                <select class="form-control" name="from_city" id="from_city">
+                    <?php
+                    foreach ($from_cities_array as $id => $city) {
+                        ?>
+                        <option value="<?php echo $id; ?>"<?php echo $id == 2014 ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
+                        <?php
+                    }
+                    ?>
+                </select>
+            </div>
+
             <div class="row">
                 <div class="col-md-12 col-lg-9">
                     <div class="row">
-                        <div class="col-md-3 col-lg-3">
-                            <input id="from_city" name="from_city" type="text" class="form-control" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="">
-                        </div>
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-md-4">
                             <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="" readonly>
                         </div>
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-6 col-md-4">
                             <input id="dates-duration_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="dates-select_section" placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>" value="" readonly>
                         </div>
-                        <div class="col-md-3 col-lg-3">
+                        <div class="col-6 col-md-4">
                             <input id="guests_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" placeholder="<?php echo __('Guests', 'snthwp') ?>" value="" readonly>
                         </div>
-
                     </div>
                 </div>
 
-                <div class="col-md-12 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div id="filter_options" class="form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section">
-                                <i class="fas fa-sliders-h"></i>
+                        <div class="col-12">
+                            <div class="search-btn__holder">
+                                <div id="filter_options" class="form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section">
+                                    <i class="fas fa-sliders-h"></i>
+                                </div>
+                                <button class="search-btn btn_1 green" type="submit"><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
                             </div>
-                        </div>
-                        <div class="col-md-8">
-                            <button class="btn_1 green" type="submit"><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
                         </div>
                     </div>
                 </div>
@@ -54,11 +63,11 @@ if ( !is_array( $form_fields ) ) {
         <div id="search-form-toggle__holder">
             <div id="destination-select_section" class="form-data-toggle-target">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-12 col-lg-3">
                         <h3><?php echo __('Select destination', 'snthwp') ?></h3>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4 col-lg-3">
                         <div class="form-group">
                             <label for="country_select"><?php echo __('Country', 'snthwp') ?>:</label>
 
@@ -66,7 +75,7 @@ if ( !is_array( $form_fields ) ) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4 col-lg-3">
                         <div class="form-group">
                             <label for="region_select"><?php echo __('Region', 'snthwp') ?>:</label>
 
@@ -74,13 +83,19 @@ if ( !is_array( $form_fields ) ) {
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4 col-lg-3">
                         <div class="form-group">
                             <label for="hotel_select"><?php echo __('Hotel', 'snthwp') ?>:</label>
 
                             <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
                                 <option value=""><?php echo __('Select country first', 'snthwp'); ?></option>
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hotel_rating"><?php echo __('or Hotel Rating', 'snthwp') ?>:</label>
+
+                            <?php echo $form_fields['hotel_ratings']; ?>
                         </div>
                     </div>
                 </div>

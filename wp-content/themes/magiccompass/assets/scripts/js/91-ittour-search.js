@@ -330,7 +330,7 @@
                         updateFragments(fragments);
 
                         $( document.body ).trigger( 'search_form_loaded' );
-                    }, 3000);
+                    }, 1000);
                 }
             },
             'json'

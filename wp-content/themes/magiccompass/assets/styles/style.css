@@ -18070,12 +18070,6 @@ a.btn_login:hover, .btn_login:hover {
   display: none;
   padding: 0.9375rem 0; }
 
-#filter_options {
-  text-align: center;
-  font-size: 1.625rem;
-  line-height: 2.5rem;
-  color: #3F3F3F; }
-
 #search-form .form-list {
   list-style: none;
   padding: 0;
@@ -23853,6 +23847,74 @@ a.social_bt.linkedin:before {
 .hotel-calendar_table .outdated-item {
   background-color: #F5F5F5;
   color: #b4b4b4; }
+
+#search-section {
+  position: relative;
+  z-index: 10; }
+
+#search-form-main__holder {
+  padding: 0.625rem;
+  background-color: #e04f67;
+  position: relative; }
+  #search-form-main__holder .search-btn__holder {
+    position: relative;
+    padding-left: 4.375rem; }
+    #search-form-main__holder .search-btn__holder .search-btn {
+      width: 100%;
+      padding-top: 0.625rem;
+      padding-bottom: 0.625rem; }
+  #search-form-main__holder #filter_options {
+    text-align: center;
+    font-size: 1.625rem;
+    line-height: 2.5rem;
+    color: #3F3F3F;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 0;
+    left: 0; }
+  #search-form-main__holder #select-from-city__holder {
+    position: absolute;
+    top: -1.875rem;
+    padding: 0.3125rem;
+    background-color: #e04f67; }
+    #search-form-main__holder #select-from-city__holder .form-control {
+      height: 1.5625rem;
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      padding-top: 0.1875rem;
+      padding-bottom: 0.1875rem; }
+      #search-form-main__holder #select-from-city__holder .form-control option {
+        color: #000; }
+      #search-form-main__holder #select-from-city__holder .form-control:focus {
+        box-shadow: none; }
+
+#search-form-toggle__holder .form-data-toggle-target {
+  background-color: #fff;
+  margin-top: 0.625rem;
+  padding: 0.625rem;
+  border: 1px solid #ccc; }
+  #search-form-toggle__holder .form-data-toggle-target h3 {
+    margin-top: 0; }
+
+@media (max-width: 991px) {
+  #search-form-main__holder #destination_summary, #search-form-main__holder #dates-duration_summary, #search-form-main__holder #guests_summary {
+    margin-bottom: 0.625rem;
+    height: 1.875rem; }
+  #search-form-main__holder .search-btn__holder {
+    position: relative;
+    padding-left: 3.4375rem; }
+    #search-form-main__holder .search-btn__holder .search-btn {
+      width: 100%;
+      padding-top: 0.125rem;
+      padding-bottom: 0.125rem; }
+  #search-form-main__holder #filter_options {
+    font-size: 1.125rem;
+    line-height: 1.5625rem;
+    color: #3F3F3F;
+    width: 1.5625rem;
+    height: 1.5625rem; } }
 
 /* TIMELINE */
 ul.cbp_tmtimeline {

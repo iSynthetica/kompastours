@@ -7,7 +7,7 @@
  */
 ?>
 
-<section id="search-section" class="pt-5 pb-5">
+<section id="search-section">
     <div class="container">
         <div class="search-form_ajax">
             <div class="search-form__holder">

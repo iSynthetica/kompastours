@@ -98,6 +98,7 @@
 
     $(document.body).on('click', '.ittour-add-country', function() {
         var button = $(this);
+        var postId = button.data('post-id');
         var ittourId = button.data('ittour-id');
         var ittourName = button.data('ittour-name');
         var ittourSlug = button.data('ittour-slug');
@@ -111,6 +112,7 @@
             method: 'post',
             data: {
                 action: 'ittour_ajax_admin_add_country',
+                postId: postId,
                 ittourId: ittourId,
                 ittourName: ittourName,
                 ittourSlug: ittourSlug,

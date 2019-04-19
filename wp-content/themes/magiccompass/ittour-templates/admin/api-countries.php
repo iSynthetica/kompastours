@@ -163,7 +163,8 @@ $countries_en = $params_en['countries'];
                 if ($country_site_modified) {
                     ?>
                     <button
-                            class="button-primary button-small ittour-update-country"
+                            class="button-primary button-small ittour-add-country"
+                            data-post-id="<?php echo $country_site_id ?>"
                             data-ittour-id="<?php echo $country_id ?>"
                             data-ittour-name="<?php echo $country_name ?>"
                             data-ittour-slug="<?php echo $country_slug ?>"

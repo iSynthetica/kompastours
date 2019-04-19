@@ -1,0 +1,97 @@
+#search-section {
+    position: relative;
+    z-index: 10;
+}
+
+#search-form-main__holder {
+    padding: rem-calc(10);
+    background-color: $main-site-color;
+    position: relative;
+
+    .search-btn__holder {
+        position: relative;
+        padding-left: rem-calc(70);
+
+        .search-btn {
+            width: 100%;
+            padding-top: rem-calc(10);
+            padding-bottom: rem-calc(10);
+        }
+    }
+
+    #filter_options {
+        text-align: center;
+        font-size: rem-calc(26);
+        line-height: rem-calc(40);
+        color: $color-dark-gray;
+        position: absolute;
+        width: rem-calc(40);
+        height: rem-calc(40);
+        top: 0;
+        left: 0;
+    }
+
+    #select-from-city__holder {
+        position: absolute;
+        top: rem-calc(-30);
+        padding: rem-calc(5);
+        background-color: $main-site-color;
+
+        .form-control {
+            height: rem-calc(25);
+            border: none;
+            background-color: transparent;
+            color: #fff;
+            padding-top: rem-calc(3);
+            padding-bottom: rem-calc(3);
+
+            option {
+                color: #000;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+#search-form-toggle__holder {
+    .form-data-toggle-target {
+        background-color: #fff;
+        margin-top: rem-calc(10);
+        padding: rem-calc(10);
+        border: 1px solid #ccc;
+        h3 {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    #search-form-main__holder {
+        #destination_summary, #dates-duration_summary, #guests_summary {
+            margin-bottom: rem-calc(10);
+            height: rem-calc(30);
+        }
+
+        .search-btn__holder {
+            position: relative;
+            padding-left: rem-calc(55);
+
+            .search-btn {
+                width: 100%;
+                padding-top: rem-calc(2);
+                padding-bottom: rem-calc(2);
+            }
+        }
+
+        #filter_options {
+            font-size: rem-calc(18);
+            line-height: rem-calc(25);
+            color: $color-dark-gray;
+            width: rem-calc(25);
+            height: rem-calc(25);
+        }
+    }
+}

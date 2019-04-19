@@ -178,6 +178,7 @@ add_action('wp_ajax_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel
  */
 function ajax_admin_add_country() {
     $ittour_id = !empty($_POST['ittourId']) ? $_POST['ittourId'] : false;
+    $post_id = !empty($_POST['postId']) ? $_POST['postId'] : false;
     $ittour_name = !empty($_POST['ittourName']) ? $_POST['ittourName'] : false;
     $ittour_slug = !empty($_POST['ittourSlug']) ? $_POST['ittourSlug'] : false;
     $ittour_iso = !empty($_POST['ittourIso']) ? $_POST['ittourIso'] : false;
@@ -206,7 +207,33 @@ function ajax_admin_add_country() {
         wp_die();
     }
 
-    $post_id = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+    if ($post_id) {
+        $post_created = ittour_update_country($post_id, $ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+    } else {
+        $post_created = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+    }
+
+    $params_obj = ittour_params();
+    $params = $params_obj->getCountry($ittour_id);
+
+    $from_cities_array = get_option('ittour_from_cities');
+
+    if (empty($from_cities_array)) {
+        $from_cities_array = array();
+    }
+
+    foreach ($params['from_cities'] as $from_city) {
+        if (!empty($from_cities_array[$from_city['id']])) {
+
+        } else {
+            $from_cities_array[$from_city['id']] = array(
+                'name' => $from_city['name'],
+                'genitive_case' => $from_city['genitive_case']
+            );
+        }
+    }
+
+    $option_added = update_option( 'ittour_from_cities', $from_cities_array );
 
     $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));
 
