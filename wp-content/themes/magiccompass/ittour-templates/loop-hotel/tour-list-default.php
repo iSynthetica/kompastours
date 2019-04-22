@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn_1"><?php echo __('Details', 'snthwp'); ?></a>
                         </p>
                         <?php
-                        if (!empty($hotel['offers'])) {
+                        if (!empty($hotel['offers']) && 1 !== $total) {
                             $count_offers = count($hotel['offers']);
                             ?>
                             <span class="more-offers__link">
@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php
     if (!empty($hotel['offers'])) {
         ?>
-        <div class="tour_list_more" style="display:none;">
+        <div class="tour_list_more"<?php echo 1 === $total ? '' : ' style="display:none;"';?>>
             <div class="row">
                 <div class="col-12">
                     <table class="table table-striped">

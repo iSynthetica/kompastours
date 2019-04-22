@@ -9,6 +9,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $i = 1;
+
+$total_offers = count($result['hotels']);
+
 foreach ($result['hotels'] as $hotel) {
     $delay = $i / 10;
     $first_offer = $hotel['offers'][0];
@@ -18,7 +21,8 @@ foreach ($result['hotels'] as $hotel) {
     ittour_show_template('loop-hotel/tour-list-default.php', array(
             'hotel' => $hotel,
             'first_offer' => $first_offer,
-            'delay' => $delay
+            'delay' => $delay,
+            'total' => $total_offers
         )
     );
     $i++;

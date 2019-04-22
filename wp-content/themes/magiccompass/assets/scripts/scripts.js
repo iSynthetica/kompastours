@@ -28036,7 +28036,7 @@ $.fn.repeater = function (fig) {
                 } else {
                     var hotels =  response.message.hotels;
 
-                    var hotelsHtml = '<select name="region" id="hotel_select" class="form-control">';
+                    var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
                     hotelsHtml += '<option value="">Select hotel</option>';
 
                     for (var i = 0; i < hotels.length; i++) {

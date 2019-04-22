@@ -1,5 +1,7 @@
 <?php
-
+if (!$result['has_more_pages']) {
+    return;
+}
 ?>
 
 <div class="search-result__pagination">
