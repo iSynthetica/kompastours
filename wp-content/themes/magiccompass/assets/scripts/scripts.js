@@ -27989,8 +27989,8 @@ $.fn.repeater = function (fig) {
 
     $(document.body).on('change', '#hotel_select', function() {
         ittourShowDestinationSummary();
+        ittourUpdateHotelRating();
     });
-
 
     /**
      * Get Destination summary
@@ -28062,6 +28062,23 @@ $.fn.repeater = function (fig) {
             },
             'json'
         );
+    }
+
+    function ittourUpdateHotelRating() {
+        var hotelSelect = $('#hotel_select'),
+            selectedHotelVal = hotelSelect.find(":selected").val(),
+            selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');
+
+        var hotelRatingSelect = $('#hotel_rating_select');
+        var hotelRatings = hotelRatingSelect.find('input');
+
+        hotelRatings.each(function() {
+            $(this).iCheck('disable').iCheck('uncheck');
+        });
+
+        hotelRatingSelect.find('#hotel_rating_' + selectedHotelRating).iCheck('check').iCheck('enable');
+
+        console.log(selectedHotelRating);
     }
 
     // ================================
@@ -28233,17 +28250,18 @@ $.fn.repeater = function (fig) {
 
         if (0 === searchFormHolder.length) {return;}
 
-        var country = searchFormHolder.data('country');
-        var region = searchFormHolder.data('region');
-        var hotel = searchFormHolder.data('hotel');
-        var fromCity = searchFormHolder.data('from-city');
-        var dateFrom = searchFormHolder.data('date-from');
-        var dateTill = searchFormHolder.data('date-till');
-        var nightFrom = searchFormHolder.data('night-from');
-        var nightTill = searchFormHolder.data('night-till');
-        var adultAmount = searchFormHolder.data('adult-amount');
-        var childAmount = searchFormHolder.data('child-amount');
-        var childAge = searchFormHolder.data('child-age');
+        var country         = searchFormHolder.data('country');
+        var region          = searchFormHolder.data('region');
+        var hotel           = searchFormHolder.data('hotel');
+        var hotelRating     = searchFormHolder.data('hotel-rating');
+        var fromCity        = searchFormHolder.data('from-city');
+        var dateFrom        = searchFormHolder.data('date-from');
+        var dateTill        = searchFormHolder.data('date-till');
+        var nightFrom       = searchFormHolder.data('night-from');
+        var nightTill       = searchFormHolder.data('night-till');
+        var adultAmount     = searchFormHolder.data('adult-amount');
+        var childAmount     = searchFormHolder.data('child-amount');
+        var childAge        = searchFormHolder.data('child-age');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -28253,6 +28271,7 @@ $.fn.repeater = function (fig) {
                 country: country,
                 region: region,
                 hotel: hotel,
+                hotelRating: hotelRating,
                 fromCity: fromCity,
                 dateFrom: dateFrom,
                 dateTill: dateTill,

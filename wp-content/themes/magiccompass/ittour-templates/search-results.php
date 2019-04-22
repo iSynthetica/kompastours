@@ -20,6 +20,7 @@ $night_from = !empty($_GET['night_from']) ? trim($_GET['night_from']) : false;
 $night_till = !empty($_GET['night_till']) ? trim($_GET['night_till']) : false;
 $region = false;
 $hotel = false;
+$hotel_rating = false;
 $date_from = false;
 $date_till = false;
 $child_amount = false;
@@ -48,6 +49,11 @@ if (!$country_id) {
     if (!empty($_GET['hotel'])) {
         $hotel = trim($_GET['hotel']);
         $args['hotel'] = trim($_GET['hotel']);
+    }
+
+    if (!empty($_GET['hotel_rating'])) {
+        $hotel_rating = implode(':', $_GET['hotel_rating']);
+        $args['hotel_rating'] = implode(':', $_GET['hotel_rating']);
     }
 
     if (!empty($_GET['date'])) {
@@ -102,6 +108,7 @@ ittour_show_template('form/section-search.php', array(
     'country'       => $country_id,
     'region'        => $region,
     'hotel'         => $hotel,
+    'hotel_rating'  => $hotel_rating,
     'from_city'     => $from_city,
     'date_from'     => $date_from,
     'date_till'     => $date_till,

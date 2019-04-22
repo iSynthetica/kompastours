@@ -15,6 +15,7 @@ $form_data = '';
 if (!empty($country)) $form_data        .= ' data-country="'.$country.'"';
 if (!empty($region)) $form_data         .= ' data-region="'.$region.'"';
 if (!empty($hotel)) $form_data          .= ' data-hotel="'.$hotel.'"';
+if (!empty($hotel_rating)) $form_data   .= ' data-hotel-rating="'.$hotel_rating.'"';
 if (!empty($from_city)) $form_data      .= ' data-from-city="'.$from_city.'"';
 if (!empty($date_from)) $form_data      .= ' data-date-from="'.$date_from.'"';
 if (!empty($date_till)) $form_data      .= ' data-date-till="'.$date_till.'"';

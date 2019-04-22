@@ -98,22 +98,28 @@ function ittour_get_country_field($params, $args = array()) {
     ob_start();
     if (!empty($params['countries'])) {
         ?>
-        <select id="country_select" name="country" class="form-control">
-            <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
+        <div class="input-group">
+            <select id="country_select" name="country" class="form-control">
+                <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
 
-            <?php
-            foreach ($params['countries'] as $country) {
-                $selected = '';
+                <?php
+                foreach ($params['countries'] as $country) {
+                    $selected = '';
 
-                if ($country_id && $country['id'] === $country_id) {
-                    $selected .= ' selected';
+                    if ($country_id && $country['id'] === $country_id) {
+                        $selected .= ' selected';
+                    }
+                    ?>
+                    <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                    <?php
                 }
                 ?>
-                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
-                <?php
-            }
-            ?>
-        </select>
+            </select>
+
+            <div class="input-group-append">
+                <button id="reset-country_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
         <?php
     } else {
         ?>
@@ -149,26 +155,31 @@ function ittour_get_region_field($params, $args = array()) {
         ?>
         <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
 
-        <select id="region_select" name="region" class="form-control">
+        <div class="input-group">
+            <select id="region_select" name="region" class="form-control">
+                <?php
+                if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
+                    ?><option value=""><?php echo __('Select region', 'snthwp'); ?></option><?php
+                    foreach ($regions_by_countries[$args['country']] as $region) {
+                        $selected = '';
 
-            <?php
-            if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
-                ?><option value=""><?php echo __('Select region', 'snthwp'); ?></option><?php
-                foreach ($regions_by_countries[$args['country']] as $region) {
-                    $selected = '';
-
-                    if (!empty($args['region']) && $args['region'] === $region['id']) {
-                        $selected .= ' selected';
+                        if (!empty($args['region']) && $args['region'] === $region['id']) {
+                            $selected .= ' selected';
+                        }
+                        ?>
+                        <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
+                        <?php
                     }
-                    ?>
-                    <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
-                    <?php
+                } else {
+                    ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
                 }
-            } else {
-                ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
-            }
-            ?>
-        </select>
+                ?>
+            </select>
+
+            <div class="input-group-append">
+                <button id="reset-region_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
         <?php
     } else {
         ?>
@@ -192,28 +203,39 @@ function ittour_get_hotel_field($params, $args = array()) {
 
     ob_start();
     ?>
-    <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
-        <?php
-        if (!empty($args['country'])) {
-            ?><option value=""><?php echo __('Select hotel', 'snthwp'); ?></option><?php
-            foreach ($params['hotels'] as $hotel) {
-                $show = true;
+        <div class="input-group">
+            <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
+                <?php
+                if (!empty($args['country'])) {
+                    ?><option value=""><?php echo __('Select hotel', 'snthwp'); ?></option><?php
+                    foreach ($params['hotels'] as $hotel) {
+                        $show = true;
 
-                if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
+                        if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
 
-                if ($show) {
-                    ?>
-                    <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>">
-                        <?php echo $hotel['name']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']); ?>
-                    </option>
-                    <?php
+                        if ($show) {
+                            $selected = '';
+
+                            if (!empty($args['hotel']) && $args['hotel'] === $hotel['id']) {
+                                $selected .= ' selected';
+                            }
+                            ?>
+                            <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>"<?php echo $selected ?>>
+                                <?php echo $hotel['name']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']); ?>
+                            </option>
+                            <?php
+                        }
+                    }
+                } else {
+                    ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
                 }
-            }
-        } else {
-            ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
-        }
-        ?>
-    </select>
+                ?>
+            </select>
+
+            <div class="input-group-append">
+                <button id="reset-hotel_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
     <?php
     return ob_get_clean();
 }
@@ -221,13 +243,13 @@ function ittour_get_hotel_field($params, $args = array()) {
 function ittour_get_hotel_ratings_field($params) {
     ob_start();
     ?>
-    <ul class="form-list">
+    <ul id="hotel_rating_select" class="form-list">
         <?php
         foreach ($params['hotel_ratings'] as $hotel_rating) {
             ?>
             <li>
                 <label>
-                    <input class="iCheckGray" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"> <?php echo $hotel_rating['name'] ?>*
+                    <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"> <?php echo $hotel_rating['name'] ?>*
                 </label>
             </li>
             <?php
