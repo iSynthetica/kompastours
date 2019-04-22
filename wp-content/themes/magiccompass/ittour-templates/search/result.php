@@ -35,7 +35,7 @@ foreach ($result['hotels'] as $hotel) {
             <?php // ittour_show_template('search/hotels.php', array('hotels' => $result['hotels'])); ?>
 
             <div class="row common-height clearfix">
-                <?php ittour_show_template('search/pagination.php', array('result' => $result)); ?>
+                <?php ittour_show_template('search/pagination.php', array('result' => $result, 'url' => $url)); ?>
             </div>
 
             <?php

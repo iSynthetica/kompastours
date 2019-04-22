@@ -74,6 +74,14 @@ if (!$country_id) {
         $child_age = implode(':', $_GET['child_amount']);
     }
 
+    if (!empty($_GET['search_page'])) {
+        $page = $_GET['search_page'];
+        $args['page'] = $_GET['search_page'];
+        unset($_GET['search_page']);
+    }
+
+    $url = http_build_query($_GET);
+
     $search = ittour_search('ru');
     $search_result = $search->get($country_id, $args);
 
@@ -89,7 +97,7 @@ if (!$country_id) {
         return;
     }
 
-    $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result));
+    $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result, 'url' => $url));
 }
 ?>
 <section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400"
