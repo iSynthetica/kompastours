@@ -91,9 +91,7 @@ if ( !is_array( $form_fields ) ) {
                         <div class="form-group">
                             <label for="hotel_select"><?php echo __('Hotel', 'snthwp') ?>:</label>
 
-                            <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
-                                <option value=""><?php echo __('Select country first', 'snthwp'); ?></option>
-                            </select>
+                            <?php echo $form_fields['hotels']; ?>
                         </div>
 
                         <div class="form-group">

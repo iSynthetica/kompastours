@@ -77,14 +77,148 @@ function ittour_get_form_fields($args = array()) {
     }
 
     return array(
-        'countries' =>  itour_get_country_field($params, $args),
-        'regions' =>  itour_get_region_field($params),
-        'hotel_ratings' =>  itour_get_hotel_ratings_field($params),
-        'transport_types' =>  itour_get_transport_type_field($params),
+        'countries' =>  ittour_get_country_field($params, $args),
+        'regions' =>  ittour_get_region_field($params, $args),
+        'hotels' =>  ittour_get_hotel_field($params, $args),
+        'hotel_ratings' =>  ittour_get_hotel_ratings_field($params),
+        'transport_types' =>  ittour_get_transport_type_field($params),
     );
 }
 
-function itour_get_hotel_ratings_field($params) {
+/**
+ * @param $params
+ * @param array $args
+ *
+ * @return string
+ */
+function ittour_get_country_field($params, $args = array()) {
+
+    $country_id = !empty($args['country']) ? $args['country'] : false;
+
+    ob_start();
+    if (!empty($params['countries'])) {
+        ?>
+        <select id="country_select" name="country" class="form-control">
+            <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
+
+            <?php
+            foreach ($params['countries'] as $country) {
+                $selected = '';
+
+                if ($country_id && $country['id'] === $country_id) {
+                    $selected .= ' selected';
+                }
+                ?>
+                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <input type="text" placeholder="Country" class="form-control" name="country" required>
+        <?php
+    }
+
+    return ob_get_clean();
+}
+
+/**
+ * @param $params
+ * @param array $args
+ *
+ * @return string
+ */
+function ittour_get_region_field($params, $args = array()) {
+    ob_start();
+
+    if (!empty($params['regions'])) {
+        $regions_by_countries = array();
+
+        foreach ( $params['regions'] as $region ) {
+            if (false === strpos($region['id'], '-')) {
+                $regions_by_countries[$region['country_id']][] = array(
+                    'id' => $region['id'],
+                    'name' => $region['name']
+                );
+            }
+        }
+
+        $regions_by_countries_json = json_encode($regions_by_countries, JSON_HEX_APOS);
+        ?>
+        <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
+
+        <select id="region_select" name="region" class="form-control">
+
+            <?php
+            if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
+                ?><option value=""><?php echo __('Select region', 'snthwp'); ?></option><?php
+                foreach ($regions_by_countries[$args['country']] as $region) {
+                    $selected = '';
+
+                    if (!empty($args['region']) && $args['region'] === $region['id']) {
+                        $selected .= ' selected';
+                    }
+                    ?>
+                    <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
+                    <?php
+                }
+            } else {
+                ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <input type="text" placeholder="Country" class="form-control" name="country" required>
+        <?php
+    }
+
+    return ob_get_clean();
+}
+
+/**
+ * @param array $args
+ *
+ * @return string
+ */
+function ittour_get_hotel_field($params, $args = array()) {
+    if (!empty($args['country'])) {
+        $params_obj = ittour_params();
+        $params = $params_obj->getCountry($args['country']);
+    }
+
+    ob_start();
+    ?>
+    <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
+        <?php
+        if (!empty($args['country'])) {
+            ?><option value=""><?php echo __('Select hotel', 'snthwp'); ?></option><?php
+            foreach ($params['hotels'] as $hotel) {
+                $show = true;
+
+                if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
+
+                if ($show) {
+                    ?>
+                    <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>">
+                        <?php echo $hotel['name']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']); ?>
+                    </option>
+                    <?php
+                }
+            }
+        } else {
+            ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
+        }
+        ?>
+    </select>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_hotel_ratings_field($params) {
     ob_start();
     ?>
     <ul class="form-list">
@@ -102,6 +236,65 @@ function itour_get_hotel_ratings_field($params) {
     </ul>
     <?php
     return ob_get_clean();
+}
+
+function ittour_get_transport_type_field($params) {
+    ob_start();
+    ?>
+    <ul class="form-list">
+        <?php
+        foreach ($params['transport_types'] as $transport_type) {
+            ?>
+            <li>
+                <label>
+                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
+                </label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+function itour_get_meal_type_field() {
+//    $meal_types = array(
+//        560 => ''
+//    );
+//    ob_start();
+//    ?>
+<!--    <ul class="form-list">-->
+<!--        --><?php
+//        foreach ($params['transport_types'] as $transport_type) {
+//            ?>
+<!--            <li>-->
+<!--                <label>-->
+<!--                    <input class="iCheckGray" type="checkbox" value="--><?php //echo $transport_type['id'] ?><!--"> --><?php //echo $transport_type['name'] ?><!--*-->
+<!--                </label>-->
+<!--            </li>-->
+<!--            --><?php
+//        }
+//        ?>
+<!--    </ul>-->
+<!--    --><?php
+//    return ob_get_clean();
+}
+
+function itour_get_adult_amount_field() {
+    ob_start();
+    ?>
+    <input type="number" name="adult_amount" class="form-control" min="1" max="4" value="2">
+    <?php
+
+    return ob_get_clean();
+}
+
+function itour_get_child_amount_field($params) {
+    ob_start();
+    ?>
+    <input type="number" name="child_amount" min="0" max="3" value="2">
+    <?php
 }
 
 function ittour_get_guests_icon($adult, $child) {
@@ -350,130 +543,6 @@ function ittour_get_hotel_facilities($facilities) {
     }
 
     return $html;
-}
-
-function itour_get_transport_type_field($params) {
-    ob_start();
-    ?>
-    <ul class="form-list">
-        <?php
-        foreach ($params['transport_types'] as $transport_type) {
-            ?>
-            <li>
-                <label>
-                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
-                </label>
-            </li>
-            <?php
-        }
-        ?>
-    </ul>
-    <?php
-    return ob_get_clean();
-}
-
-function itour_get_meal_type_field() {
-    $meal_types = array(
-        560 => ''
-    );
-    ob_start();
-    ?>
-    <ul class="form-list">
-        <?php
-        foreach ($params['transport_types'] as $transport_type) {
-            ?>
-            <li>
-                <label>
-                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
-                </label>
-            </li>
-            <?php
-        }
-        ?>
-    </ul>
-    <?php
-    return ob_get_clean();
-}
-
-function itour_get_country_field($params, $args = array()) {
-
-    $country_id = !empty($args['country']) ? $args['country'] : false;
-
-    ob_start();
-    if (!empty($params['countries'])) {
-        ?>
-        <select id="country_select" name="country" class="form-control">
-            <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
-
-            <?php
-            foreach ($params['countries'] as $country) {
-                $selected = '';
-
-                if ($country_id && $country['id'] === $country_id) {
-                    $selected .= ' selected';
-                }
-                ?>
-                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
-                <?php
-            }
-            ?>
-        </select>
-        <?php
-    } else {
-        ?>
-        <input type="text" placeholder="Country" class="form-control" name="country" required>
-        <?php
-    }
-
-    return ob_get_clean();
-}
-
-function itour_get_region_field($params) {
-    ob_start();
-
-    if (!empty($params['regions'])) {
-        $regions_by_countries = array();
-
-        foreach ( $params['regions'] as $region ) {
-            if (false === strpos($region['id'], '-')) {
-                $regions_by_countries[$region['country_id']][] = array(
-                    'id' => $region['id'],
-                    'name' => $region['name']
-                );
-            }
-        }
-
-        $regions_by_countries_json = json_encode($regions_by_countries, JSON_HEX_APOS);
-        ?>
-        <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
-
-        <select id="region_select" name="region" class="form-control">
-            <option value=""><?php echo __('Select country first', 'snthwp'); ?></option>
-        </select>
-        <?php
-    } else {
-        ?>
-        <input type="text" placeholder="Country" class="form-control" name="country" required>
-        <?php
-    }
-
-    return ob_get_clean();
-}
-
-function itour_get_adult_amount_field() {
-    ob_start();
-    ?>
-    <input type="number" name="adult_amount" class="form-control" min="1" max="4" value="2">
-    <?php
-
-    return ob_get_clean();
-}
-
-function itour_get_child_amount_field($params) {
-    ob_start();
-    ?>
-    <input type="number" name="child_amount" min="0" max="3" value="2">
-    <?php
 }
 
 function ittour_get_currency_by_id($id) {
