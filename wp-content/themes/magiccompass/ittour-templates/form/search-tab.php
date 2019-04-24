@@ -38,15 +38,7 @@ if ( !is_array( $form_fields ) ) {
                 <div class="col-md-12 col-lg-9">
                     <div class="row search-summary__row">
                         <div class="col-md-4 search-summary__col">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="btn btn-light">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </span>
-                                </div>
-
-                                <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="" readonly>
-                            </div>
+                            <?php echo $form_fields['destination_summary']; ?>
                         </div>
 
                         <div class="col-6 col-md-4 search-summary__col">

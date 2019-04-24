@@ -76,13 +76,90 @@ function ittour_get_form_fields($args = array()) {
         return $params->get_error_message();
     }
 
+    $country_params = array();
+
+    if (!empty($args['country'])) {
+        $country_params = $params_obj->getCountry($args['country']);
+
+        if (is_wp_error( $params )) {
+            return $country_params->get_error_message();
+        }
+    }
+
     return array(
+        'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
         'countries' =>  ittour_get_country_field($params, $args),
         'regions' =>  ittour_get_region_field($params, $args),
         'hotels' =>  ittour_get_hotel_field($params, $args),
         'hotel_ratings' =>  ittour_get_hotel_ratings_field($params),
         'transport_types' =>  ittour_get_transport_type_field($params),
     );
+}
+
+function ittour_get_destination_summary_field($params, $country_params, $args = array()) {
+    $value = '';
+
+    if (!empty($args)) {
+        if (!empty($args['hotel']) && !empty($country_params["hotels"])) {
+            $hotel_name = '';
+
+            foreach ($country_params["hotels"] as $hotel) {
+                if ($hotel['id'] === $args['hotel']) {
+                    $hotel_name = $hotel['name'] . ' ' . ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']);
+
+                    continue;
+                }
+            }
+
+            $value .= $hotel_name . ', ';
+        }
+
+        if (!empty($args['region']) && !empty($params['regions'])) {
+            $region_name = '';
+
+            foreach ($params['regions'] as $region) {
+                if ($region['id'] === $args['region']) {
+                    $region_name = $region['name'];
+                    continue;
+                }
+            }
+
+            $value .= $region_name . ', ';
+        }
+
+        if (!empty($args['country']) && !empty($params['countries'])) {
+            $country_name = '';
+
+            foreach ($params['countries'] as $country) {
+                if ($country['id'] === $args['country']) {
+                    $country_name = $country['name'];
+                    continue;
+                }
+            }
+
+            $value .= $country_name;
+        }
+    }
+    ob_start();
+    ?>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="btn btn-light">
+                <i class="fas fa-map-marker-alt"></i>
+            </span>
+        </div>
+
+        <input
+                id="destination_summary"
+                type="text"
+                class="form-control form-data-toggle-control"
+                data-form_toggle_target="destination-select_section"
+                placeholder="<?php echo __('Select Destination *', 'snthwp'); ?>"
+                value="<?php echo $value; ?>" readonly
+        >
+    </div>
+    <?php
+    return ob_get_clean();
 }
 
 /**
