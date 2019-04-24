@@ -161,7 +161,7 @@ $search_steps = get_field('timeline_items', 493);
 
                     <div class="col-md-4 col-lg-3">
                         <div class="form-group">
-                            <label for="country_select"><?php echo __('Country', 'snthwp') ?>:</label>
+                            <label for="country_select"><?php echo __('Country', 'snthwp') ?>*:</label>
 
                             <?php echo $form_fields['countries']; ?>
                         </div>
@@ -302,6 +302,7 @@ $search_steps = get_field('timeline_items', 493);
                     <div class="col-md-6">
                         <div class="form-group child_amount_holder">
                             <label><?php echo __('Children amount', 'snthwp') ?></label>
+
                             <div id="child_amount_repeater_holder" data-limit="3">
                                 <div class="child_amount_group">
                                     <?php
@@ -329,11 +330,6 @@ $search_steps = get_field('timeline_items', 493);
                     <div class="col-md-3">
                         <div class="search-form-step__section">
 
-                        </div>
-                        <div class="form-group">
-                            <label for="hotel_rating"><?php echo __('Hotel Rating', 'snthwp') ?>:</label>
-
-                            <?php echo $form_fields['hotel_ratings']; ?>
                         </div>
                     </div>
 

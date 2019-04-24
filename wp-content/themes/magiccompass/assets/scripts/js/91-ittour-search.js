@@ -9,10 +9,10 @@
             initEmpty: true
         });
 
-        $('.iCheckGray').iCheck({
-            checkboxClass: 'icheckbox_square-grey',
-            radioClass: 'iradio_square-grey'
-        });
+        // $('.iCheckGray').iCheck({
+        //     checkboxClass: 'icheckbox_square-grey',
+        //     radioClass: 'iradio_square-grey'
+        // });
 
         var dateFrom = $('input.date-pick').data('date-from');
         var dateTill = $('input.date-pick').data('date-till');
@@ -75,7 +75,7 @@
 
         regionsHtml += '</select>';
 
-        $('#region_select').replaceWith( regionsHtml );
+        $('#region_select').replaceWith(regionsHtml);
 
         ittourGetHotelsList(function() {
             ittourShowDestinationSummary();
@@ -96,14 +96,29 @@
 
     $(document.body).on('click', '#reset-country_select', function() {
         $("#country_select option[value='']").attr('selected', true);
+        $('#country_select').trigger('change');
     });
 
     $(document.body).on('click', '#reset-region_select', function() {
         $("#region_select option[value='']").attr('selected', true);
+        $('#region_select').trigger('change');
     });
 
     $(document.body).on('click', '#reset-hotel_select', function() {
         $("#hotel_select option[value='']").attr('selected', true);
+        $('#hotel_select').trigger('change');
+    });
+
+    $(document.body).on('change', '#hotel_rating_select input', function() {
+        var hotelSelect = $('#hotel_select'),
+            selectedHotelVal = hotelSelect.find(":selected").val(),
+            selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');
+
+        if ('' === selectedHotelVal) {
+
+        } else {
+            $(this).prop('disabled', false).prop('checked', true);
+        }
     });
 
     /**
@@ -119,15 +134,15 @@
         var selectedRegion = '', selectedCountry = '', selectedHotel = '';
 
         if ( '' !== selectedCountryVal ) {
-            selectedCountry = $('#country_select').find(":selected").text();
+            selectedCountry = $.trim($('#country_select').find(":selected").text());
         }
 
         if ( '' !== selectedRegionVal ) {
-            selectedRegion = $('#region_select').find(":selected").text() + ', ';
+            selectedRegion = $.trim($('#region_select').find(":selected").text()) + ', ';
         }
 
         if ( '' !== selectedHotelVal ) {
-            selectedHotel = $('#hotel_select').find(":selected").text() + ', ';
+            selectedHotel = $.trim($('#hotel_select').find(":selected").text()) + ', ';
         }
 
         destinationSummary.val(selectedHotel + selectedRegion + selectedCountry);
@@ -203,11 +218,18 @@
         var hotelRatingSelect = $('#hotel_rating_select');
         var hotelRatings = hotelRatingSelect.find('input');
 
-        hotelRatings.each(function() {
-            $(this).iCheck('disable').iCheck('uncheck');
-        });
+        if ('' === selectedHotelVal) {
+            hotelRatings.each(function() {
+                $(this).prop('disabled', false).prop('checked', false);
+            });
+        } else {
+            hotelRatings.each(function() {
+                $(this).prop('disabled', true).prop('checked', false);
+            });
 
-        hotelRatingSelect.find('#hotel_rating_' + selectedHotelRating).iCheck('check').iCheck('enable');
+            hotelRatingSelect.find('#hotel_rating_' + selectedHotelRating).prop('disabled', false).prop('checked', true);
+        }
+
     }
 
     // ================================

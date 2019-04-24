@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 12:51+0000\n"
-"PO-Revision-Date: 2019-04-24 14:19+0000\n"
+"PO-Revision-Date: 2019-04-24 14:20+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -608,12 +608,12 @@ msgstr ""
 
 #: ittour-templates/form/search-tab.php:70
 msgid "Dates / Duration *"
-msgstr ""
+msgstr "Даты / Продолжительность"
 
 #: ittour-templates/form/search-tab.php:89
 #: ittour-templates/form/search-select-child-amount.php:28
 msgid "y"
-msgstr ""
+msgstr "л"
 
 #: ittour-templates/form/search-tab.php:108
 msgid "Guests"

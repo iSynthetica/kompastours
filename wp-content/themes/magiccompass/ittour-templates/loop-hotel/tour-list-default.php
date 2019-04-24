@@ -43,12 +43,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php
                 }
                 ?>
-                <div class="hotel_rating">
-                    <?php echo ittour_get_hotel_rating_by_id($hotel['hotel_rating']); ?>
-                </div>
-
                 <h3 class="hotel_title">
-                    <strong><?php echo $hotel['hotel']; ?></strong>
+                    <strong><?php echo $hotel['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating']); ?></strong>
                 </h3>
 
                 <div class="hotel_location"><?php echo $hotel['country'] . ', ' .$hotel['region']; ?></div>

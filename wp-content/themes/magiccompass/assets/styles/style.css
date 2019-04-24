@@ -23542,6 +23542,55 @@ a.social_bt.linkedin:before {
     padding: 5px 8px; } }
 
 /* END MEDIA QUERIES max-width 480px - MOBILE PORTRAIT  */
+input.styled_1[type="checkbox"] {
+  position: absolute;
+  opacity: 0; }
+  input.styled_1[type="checkbox"] + label {
+    color: #3F3F3F;
+    font-size: 0.875rem;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0; }
+  input.styled_1[type="checkbox"] + label:before {
+    content: '';
+    margin-right: 0.375rem;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 1.0625rem;
+    height: 1.0625rem;
+    border: 1px solid #3F3F3F; }
+  input.styled_1[type="checkbox"]:hover + label:after {
+    content: '';
+    position: absolute;
+    left: 0.125rem;
+    top: 0.25rem;
+    background: #3F3F3F;
+    width: 0.8125rem;
+    height: 0.8125rem; }
+  input.styled_1[type="checkbox"]:hover:disabled + label:after {
+    content: '';
+    position: absolute;
+    left: 0.125rem;
+    top: 0.25rem;
+    background: transparent;
+    width: 0.8125rem;
+    height: 0.8125rem; }
+  input.styled_1[type="checkbox"]:disabled + label {
+    color: #BFBFBF;
+    cursor: auto; }
+  input.styled_1[type="checkbox"]:disabled + label:before {
+    border: 1px solid #BFBFBF; }
+  input.styled_1[type="checkbox"]:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 0.125rem;
+    top: 0.25rem;
+    background: #3F3F3F;
+    width: 0.8125rem;
+    height: 0.8125rem; }
+
 .tour_review_rate {
   margin-bottom: 0.625rem; }
   .tour_review_rate i {

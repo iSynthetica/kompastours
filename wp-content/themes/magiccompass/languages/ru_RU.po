@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 12:51+0000\n"
-"PO-Revision-Date: 2019-04-24 14:20+0000\n"
+"PO-Revision-Date: 2019-04-24 17:53+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -599,7 +599,7 @@ msgstr ""
 
 #: ittour-templates/form/search.php:21 ittour-templates/form/search-tab.php:140
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 #: ittour-templates/form/search.php:26
 #: ittour-templates/loop-hotel/part-price.php:14
@@ -629,15 +629,15 @@ msgstr ""
 
 #: ittour-templates/form/search-tab.php:148
 msgid "Region"
-msgstr ""
+msgstr "Регион"
 
 #: ittour-templates/form/search-tab.php:156
 msgid "Hotel"
-msgstr ""
+msgstr "Отель"
 
 #: ittour-templates/form/search-tab.php:162
 msgid "or Hotel Rating"
-msgstr ""
+msgstr "или количество звезд отеля"
 
 #: ittour-templates/form/search-tab.php:173
 msgid "Select dates of start tour, duration"

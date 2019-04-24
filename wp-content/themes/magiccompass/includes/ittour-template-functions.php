@@ -91,7 +91,7 @@ function ittour_get_form_fields($args = array()) {
         'countries' =>  ittour_get_country_field($params, $args),
         'regions' =>  ittour_get_region_field($params, $args),
         'hotels' =>  ittour_get_hotel_field($params, $args),
-        'hotel_ratings' =>  ittour_get_hotel_ratings_field($params),
+        'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
         'transport_types' =>  ittour_get_transport_type_field($params),
     );
 }
@@ -180,11 +180,13 @@ function ittour_get_country_field($params, $args = array()) {
                 <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
 
                 <?php
+                $btn_disabled = ' disabled';
                 foreach ($params['countries'] as $country) {
                     $selected = '';
 
                     if ($country_id && $country['id'] === $country_id) {
                         $selected .= ' selected';
+                        $btn_disabled = '';
                     }
                     ?>
                     <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
@@ -194,7 +196,7 @@ function ittour_get_country_field($params, $args = array()) {
             </select>
 
             <div class="input-group-append">
-                <button id="reset-country_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+                <button id="reset-country_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
             </div>
         </div>
         <?php
@@ -235,6 +237,7 @@ function ittour_get_region_field($params, $args = array()) {
         <div class="input-group">
             <select id="region_select" name="region" class="form-control">
                 <?php
+                $btn_disabled = ' disabled';
                 if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
                     ?><option value=""><?php echo __('Select region', 'snthwp'); ?></option><?php
                     foreach ($regions_by_countries[$args['country']] as $region) {
@@ -242,6 +245,7 @@ function ittour_get_region_field($params, $args = array()) {
 
                         if (!empty($args['region']) && $args['region'] === $region['id']) {
                             $selected .= ' selected';
+                            $btn_disabled = '';
                         }
                         ?>
                         <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
@@ -254,7 +258,7 @@ function ittour_get_region_field($params, $args = array()) {
             </select>
 
             <div class="input-group-append">
-                <button id="reset-region_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+                <button id="reset-region_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
             </div>
         </div>
         <?php
@@ -283,6 +287,7 @@ function ittour_get_hotel_field($params, $args = array()) {
         <div class="input-group">
             <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
                 <?php
+                $btn_disabled = ' disabled';
                 if (!empty($args['country'])) {
                     ?><option value=""><?php echo __('Select hotel', 'snthwp'); ?></option><?php
                     foreach ($params['hotels'] as $hotel) {
@@ -295,6 +300,7 @@ function ittour_get_hotel_field($params, $args = array()) {
 
                             if (!empty($args['hotel']) && $args['hotel'] === $hotel['id']) {
                                 $selected .= ' selected';
+                                $btn_disabled = '';
                             }
                             ?>
                             <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>"<?php echo $selected ?>>
@@ -310,24 +316,42 @@ function ittour_get_hotel_field($params, $args = array()) {
             </select>
 
             <div class="input-group-append">
-                <button id="reset-hotel_select" class="btn btn-danger" type="button"><i class="fas fa-times"></i></button>
+                <button id="reset-hotel_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
             </div>
         </div>
     <?php
     return ob_get_clean();
 }
 
-function ittour_get_hotel_ratings_field($params) {
+function ittour_get_hotel_ratings_field($params, $args = array()) {
     ob_start();
     ?>
     <ul id="hotel_rating_select" class="form-list">
         <?php
         foreach ($params['hotel_ratings'] as $hotel_rating) {
+            $selected = '';
+            $disabled = '';
+
+            if (!empty($args['hotel']) && !empty($args['hotelRating'])) {
+                if ($args['hotelRating'] === $hotel_rating['id']) {
+                    $selected = ' checked';
+                } else {
+                    $disabled = ' disabled';
+                }
+            } elseif (!empty($args['hotelRating'])) {
+                $hotel_rating_array = explode(':', $args['hotelRating']);
+
+                if (in_array($hotel_rating['id'], $hotel_rating_array)) {
+                    $selected = ' checked';
+                } else {
+                    $disabled = ' disabled';
+                }
+            }
             ?>
             <li>
-                <label>
-                    <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"> <?php echo $hotel_rating['name'] ?>*
-                </label>
+
+                <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray styled_1" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?><?php echo $disabled ?>>
+                <label for="hotel_rating_<?php echo $hotel_rating['id'] ?>"><?php echo $hotel_rating['name'] ?>*</label>
             </li>
             <?php
         }
