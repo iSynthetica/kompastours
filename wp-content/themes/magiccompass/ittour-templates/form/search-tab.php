@@ -36,15 +36,68 @@ if ( !is_array( $form_fields ) ) {
 
             <div class="row">
                 <div class="col-md-12 col-lg-9">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="" readonly>
+                    <div class="row search-summary__row">
+                        <div class="col-md-4 search-summary__col">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="btn btn-light">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                </div>
+
+                                <input id="destination_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="destination-select_section" placeholder="<?php echo __('Select Destination *', 'snthwp') ?>" value="" readonly>
+                            </div>
                         </div>
-                        <div class="col-6 col-md-4">
-                            <input id="dates-duration_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="dates-select_section" placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>" value="" readonly>
+
+                        <div class="col-6 col-md-4 search-summary__col">
+                            <?php
+                            $dates_value = '';
+                            if (empty($args['dateFrom'])) {
+                                $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
+                                $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
+                                $dates_value = $date_from . ' - ' . $date_till . ', 7 - 9 ' . __('nights', 'snthwp');
+                            }
+                            ?>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="btn btn-light">
+                                        <i class="far fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                                <input
+                                        id="dates-duration_summary"
+                                        type="text"
+                                        class="form-control form-data-toggle-control"
+                                        data-form_toggle_target="dates-select_section"
+                                        placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>"
+                                        value="<?php echo $dates_value ?>" readonly
+                                >
+                            </div>
                         </div>
-                        <div class="col-6 col-md-4">
-                            <input id="guests_summary" type="text" class="form-control form-data-toggle-control" data-form_toggle_target="guests-select_section" placeholder="<?php echo __('Guests', 'snthwp') ?>" value="" readonly>
+                        <div class="col-6 col-md-4 search-summary__col">
+                            <?php
+                            $guests_value = '';
+
+                            if (empty($args['adultAmount'])) {
+                                $guests_value = '2';
+                            }
+                            ?>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="btn btn-light">
+                                        <i class="fas fa-users"></i>
+                                    </span>
+                                </div>
+
+                                <input
+                                        id="guests_summary"
+                                        type="text"
+                                        class="form-control form-data-toggle-control"
+                                        data-form_toggle_target="guests-select_section"
+                                        placeholder="<?php echo __('Guests', 'snthwp') ?>"
+                                        value="<?php echo $guests_value ?>" readonly
+                                >
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,9 +162,15 @@ if ( !is_array( $form_fields ) ) {
                         <h3><?php echo __('Select dates of start tour, duration', 'snthwp') ?></h3>
                     </div>
                     <div class="col-md-3">
+                        <?php
+                        $dates_data = '';
+                        if (!empty($args['dateFrom']) && !empty($args['dateTill'])) {
+                            $dates_data = ' data-date-from="'.$args['dateFrom'].'" data-date-till="'.$args['dateTill'].'"';
+                        }
+                        ?>
                         <div class="form-group">
                             <label><i class="far fa-calendar-alt"></i> <?php echo __('Dates of start tour', 'snthwp') ?></label>
-                            <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value="">
+                            <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value=""<?php echo $dates_data; ?>>
                         </div>
                     </div>
                     <div class="col-md-3">

@@ -14,9 +14,23 @@
             radioClass: 'iradio_square-grey'
         });
 
+        var dateFrom = $('input.date-pick').data('date-from');
+        var dateTill = $('input.date-pick').data('date-till');
+
+        var startDate = moment().startOf('hour').add(12, 'hour');
+        var endDate = moment().startOf('hour').add(132, 'hour');
+
+        if (dateFrom && dateTill) {
+            startDate = moment(dateFrom, "DD.MM.YY");
+            endDate = moment(dateTill, "DD.MM.YY");
+        }
+
+        console.log(dateFrom);
+        console.log(dateTill);
+
         $('input.date-pick').daterangepicker({
-            startDate: moment().startOf('hour').add(12, 'hour'),
-            endDate: moment().startOf('hour').add(132, 'hour'),
+            startDate: startDate,
+            endDate: endDate,
             minDate: moment().startOf('hour').add(12, 'hour'),
             maxSpan: {
                 "days": 12
@@ -310,8 +324,9 @@
         }
 
         if (durationFromCurrentValue && durationTillCurrentValue) {
-            durationSelected = durationFromCurrentValue + ' - ' + durationTillCurrentValue + ' nights';
+            durationSelected = durationFromCurrentValue + ' - ' + durationTillCurrentValue + ' ' + snthWpJsObj.searchForm.nights;
         }
+
 
         var datesDurationSummary = $('#dates-duration_summary');
 

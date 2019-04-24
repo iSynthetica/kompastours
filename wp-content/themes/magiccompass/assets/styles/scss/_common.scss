@@ -193,7 +193,8 @@
     cursor: pointer;
 }
 
-.form-control {
+.form-control,
+.input-group > .form-control {
     font-size: 12px;
     color: #333;
     height: 40px;

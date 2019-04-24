@@ -21069,7 +21069,8 @@ ul.plan-features {
   vertical-align: middle;
   cursor: pointer; }
 
-.form-control {
+.form-control,
+.input-group > .form-control {
   font-size: 12px;
   color: #333;
   height: 40px;
@@ -23856,9 +23857,15 @@ a.social_bt.linkedin:before {
   padding: 0.625rem;
   background-color: #e04f67;
   position: relative; }
+  #search-form-main__holder .search-summary__row {
+    margin-right: -5px;
+    margin-left: -5px; }
+    #search-form-main__holder .search-summary__row .search-summary__col {
+      padding-right: 5px;
+      padding-left: 5px; }
   #search-form-main__holder .search-btn__holder {
     position: relative;
-    padding-left: 4.375rem; }
+    padding-left: 3.125rem; }
     #search-form-main__holder .search-btn__holder .search-btn {
       width: 100%;
       padding-top: 0.625rem;
@@ -23902,9 +23909,15 @@ a.social_bt.linkedin:before {
   #search-form-main__holder #destination_summary, #search-form-main__holder #dates-duration_summary, #search-form-main__holder #guests_summary {
     margin-bottom: 0.625rem;
     height: 1.875rem; }
+  #search-form-main__holder .input-group .input-group-prepend {
+    margin-bottom: 0.625rem; }
+    #search-form-main__holder .input-group .input-group-prepend .btn {
+      padding-top: 0.125rem;
+      padding-bottom: 0.125rem;
+      line-height: 1.5rem; }
   #search-form-main__holder .search-btn__holder {
     position: relative;
-    padding-left: 3.4375rem; }
+    padding-left: 2.1875rem; }
     #search-form-main__holder .search-btn__holder .search-btn {
       width: 100%;
       padding-top: 0.125rem;

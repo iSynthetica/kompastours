@@ -8,9 +8,19 @@
     background-color: $main-site-color;
     position: relative;
 
+    .search-summary__row {
+        margin-right: -5px;
+        margin-left: -5px;
+
+        .search-summary__col {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+    }
+
     .search-btn__holder {
         position: relative;
-        padding-left: rem-calc(70);
+        padding-left: rem-calc(50);
 
         .search-btn {
             width: 100%;
@@ -75,9 +85,21 @@
             height: rem-calc(30);
         }
 
+        .input-group {
+            .input-group-prepend {
+                margin-bottom: rem-calc(10);
+
+                .btn {
+                    padding-top: rem-calc(2);
+                    padding-bottom: rem-calc(2);
+                    line-height: rem-calc(24);
+                }
+            }
+        }
+
         .search-btn__holder {
             position: relative;
-            padding-left: rem-calc(55);
+            padding-left: rem-calc(35);
 
             .search-btn {
                 width: 100%;

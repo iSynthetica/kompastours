@@ -48,6 +48,9 @@ function snth_enqueue_scripts() {
 
     wp_localize_script( 'site-js', 'snthWpJsObj', array(
         'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+        'searchForm'       => array(
+            'nights' => __('nights', 'snthwp')
+        ),
         'nonce'         => wp_create_nonce( 'snth_nonce' ),
     ) );
 }

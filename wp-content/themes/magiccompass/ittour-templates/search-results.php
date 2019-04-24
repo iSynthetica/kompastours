@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if (empty($template)) {
     $template = 'left-sidebar';
 }
+
 $country_id = !empty($_GET['country']) ? trim($_GET['country']) : false;
 $from_city = !empty($_GET['from_city']) ? trim($_GET['from_city']) : false;
 $adult_amount = !empty($_GET['adult_amount']) ? trim($_GET['adult_amount']) : false;
