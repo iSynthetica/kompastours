@@ -48,12 +48,13 @@ function snth_enqueue_scripts() {
 
     wp_localize_script( 'site-js', 'snthWpJsObj', array(
         'ajaxurl'       => admin_url( 'admin-ajax.php' ),
-        'searchForm'       => array(
-            'nights' => __('nights', 'snthwp'),
-            'selectRegion' => __('Select region', 'snthwp'),
-            'selectHotel' => __('Select hotel', 'snthwp'),
-        ),
         'nonce'         => wp_create_nonce( 'snth_nonce' ),
+        'searchForm'    => array(
+            'nights'                => __('nights', 'snthwp'),
+            'selectCountryFirst'    => __('Select country first', 'snthwp'),
+            'selectRegion'          => __('Select region', 'snthwp'),
+            'selectHotel'           => __('Select hotel', 'snthwp'),
+        ),
     ) );
 }
 add_action('wp_enqueue_scripts', 'snth_enqueue_scripts', 999);

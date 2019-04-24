@@ -23897,6 +23897,22 @@ a.social_bt.linkedin:before {
       #search-form-main__holder #select-from-city__holder .form-control:focus {
         box-shadow: none; }
 
+.search-form-step__section .search-form-step__header {
+  text-align: center; }
+  .search-form-step__section .search-form-step__header .cbp_tmicon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+    -webkit-font-smoothing: antialiased;
+    color: #e04f67;
+    background: #f9f9f9;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #e04f67;
+    text-align: center;
+    margin-bottom: 0.9375rem;
+    margin-top: 0.9375rem; }
+
 #search-form-toggle__holder .form-data-toggle-target {
   background-color: #fff;
   margin-top: 0.625rem;

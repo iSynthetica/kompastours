@@ -25,9 +25,6 @@
             endDate = moment(dateTill, "DD.MM.YY");
         }
 
-        console.log(dateFrom);
-        console.log(dateTill);
-
         $('input.date-pick').daterangepicker({
             startDate: startDate,
             endDate: endDate,
@@ -60,16 +57,20 @@
     //  Destination
     // ================================
     $(document.body).on('change', '#country_select', function() {
-        var selectedCountry = parseInt($('#country_select').find(":selected").val());
+        var selectedCountry = $('#country_select').find(":selected").val();
         var regionsByCountries = $.parseJSON($('#regions_by_countries').val());
 
-        var regions = regionsByCountries[selectedCountry];
-
         var regionsHtml = '<select name="region" id="region_select" class="form-control">';
-        regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectRegion +'</option>';
 
-        for (var i = 0; i < regions.length; i++) {
-            regionsHtml += '<option value="'+regions[i].id+'">'+regions[i].name+'</option>';
+        if ('' === selectedCountry) {
+            regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
+        } else {
+            var regions = regionsByCountries[parseInt(selectedCountry)];
+            regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectRegion +'</option>';
+
+            for (var i = 0; i < regions.length; i++) {
+                regionsHtml += '<option value="'+regions[i].id+'">'+regions[i].name+'</option>';
+            }
         }
 
         regionsHtml += '</select>';
@@ -83,8 +84,9 @@
     });
 
     $(document.body).on('change', '#region_select', function() {
-        ittourGetHotelsList();
-        ittourShowDestinationSummary();
+        ittourGetHotelsList(function() {
+            ittourShowDestinationSummary();
+        });
     });
 
     $(document.body).on('change', '#hotel_select', function() {
@@ -112,10 +114,6 @@
             selectedRegionVal = $('#region_select').find(":selected").val(),
             selectedHotelVal = $('#hotel_select').find(":selected").val();
 
-        console.log(selectedCountryVal);
-        console.log(selectedRegionVal);
-        console.log(selectedHotelVal);
-
         var destinationSummary = $('#destination_summary');
 
         var selectedRegion = '', selectedCountry = '', selectedHotel = '';
@@ -139,48 +137,62 @@
         var selectedCountry = $('#country_select').find(":selected").val(),
             selectedRegion = $('#region_select').find(":selected").val();
 
-        $.post(
-            snthWpJsObj.ajaxurl,
-            {
-                'action': 'ittour_ajax_get_country_parameters',
-                'country_id': selectedCountry,
-                'region': selectedRegion
-            },
 
-            function(response) {
-                if( response.status === 'error') {
 
-                } else {
-                    var hotels =  response.message.hotels;
+        if ('' === selectedCountry) {
+            var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
+            hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
+            hotelsHtml += '</select>';
 
-                    var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
-                    hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectHotel +'</option>';
+            $('#hotel_select').replaceWith( hotelsHtml );
 
-                    for (var i = 0; i < hotels.length; i++) {
-                        var hotelRating = '5*';
+            if ('function' === typeof cb) {
+                cb();
+            }
+        } else {
+            $.post(
+                snthWpJsObj.ajaxurl,
+                {
+                    'action': 'ittour_ajax_get_country_parameters',
+                    'country_id': selectedCountry,
+                    'region': selectedRegion
+                },
 
-                        if ('7' === hotels[i].hotel_rating_id || '2' === hotels[i].hotel_rating_id) {
-                            hotelRating = '2*';
-                        } else if ('3' === hotels[i].hotel_rating_id) {
-                            hotelRating = '3*';
-                        }  else if ('4' === hotels[i].hotel_rating_id) {
-                            hotelRating = '4*';
+                function(response) {
+                    if( response.status === 'error') {
+
+                    } else {
+                        var hotels =  response.message.hotels;
+
+                        var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
+                        hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectHotel +'</option>';
+
+                        for (var i = 0; i < hotels.length; i++) {
+                            var hotelRating = '5*';
+
+                            if ('7' === hotels[i].hotel_rating_id || '2' === hotels[i].hotel_rating_id) {
+                                hotelRating = '2*';
+                            } else if ('3' === hotels[i].hotel_rating_id) {
+                                hotelRating = '3*';
+                            }  else if ('4' === hotels[i].hotel_rating_id) {
+                                hotelRating = '4*';
+                            }
+
+                            hotelsHtml += '<option value="'+hotels[i].id+'" data-hotel-rating="'+hotels[i].hotel_rating_id+'">'+hotels[i].name+ ' ' + hotelRating +'</option>';
                         }
 
-                        hotelsHtml += '<option value="'+hotels[i].id+'" data-hotel-rating="'+hotels[i].hotel_rating_id+'">'+hotels[i].name+ ' ' + hotelRating +'</option>';
+                        hotelsHtml += '</select>';
+
+                        $('#hotel_select').replaceWith( hotelsHtml );
+
+                        if ('function' === typeof cb) {
+                            cb();
+                        }
                     }
-
-                    hotelsHtml += '</select>';
-
-                    $('#hotel_select').replaceWith( hotelsHtml );
-
-                    if ('function' === typeof cb) {
-                        cb();
-                    }
-                }
-            },
-            'json'
-        );
+                },
+                'json'
+            );
+        }
     }
 
     function ittourUpdateHotelRating() {
@@ -196,8 +208,6 @@
         });
 
         hotelRatingSelect.find('#hotel_rating_' + selectedHotelRating).iCheck('check').iCheck('enable');
-
-        console.log(selectedHotelRating);
     }
 
     // ================================

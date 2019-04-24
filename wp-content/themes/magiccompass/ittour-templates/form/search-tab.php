@@ -18,6 +18,8 @@ $from_cities_array = get_option('ittour_from_cities');
 if ( !is_array( $form_fields ) ) {
     return;
 }
+
+$search_steps = get_field('timeline_items', 493);
 ?>
 <div class="search-form__holder">
     <form id="search-form" action="/search/" method="get" class="search-form repeater">
@@ -132,7 +134,29 @@ if ( !is_array( $form_fields ) ) {
             <div id="destination-select_section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-12 col-lg-3">
-                        <h3><?php echo __('Select destination', 'snthwp') ?></h3>
+                        <div class="search-form-step__section">
+                            <div class="search-form-step__header">
+                                <?php
+                                $step_index = 0;
+                                if (!empty($search_steps[$step_index])) {
+                                    if (!empty($search_steps[$step_index]["steps"]["icon"])) {
+                                        ?><i class="cbp_tmicon <?php echo $search_steps[$step_index]["steps"]["icon"] ?>"></i><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["steps"]["title"])) {
+                                        ?><h3><?php echo $search_steps[$step_index]["steps"]["title"] ?></h3><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["content"]["title"])) {
+                                        ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                    }
+                                } else {
+                                    ?><h3><?php echo __('Select destination', 'snthwp') ?></h3><?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="col-md-4 col-lg-3">
@@ -170,7 +194,28 @@ if ( !is_array( $form_fields ) ) {
             <div id="dates-select_section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-3">
-                        <h3><?php echo __('Select dates of start tour, duration', 'snthwp') ?></h3>
+                        <div class="search-form-step__section">
+                            <div class="search-form-step__header">
+                                <?php
+                                $step_index = 1;
+                                if (!empty($search_steps[$step_index])) {
+                                    if (!empty($search_steps[$step_index]["steps"]["icon"])) {
+                                        ?><i class="cbp_tmicon <?php echo $search_steps[$step_index]["steps"]["icon"] ?>"></i><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["steps"]["title"])) {
+                                        ?><h3><?php echo $search_steps[$step_index]["steps"]["title"] ?></h3><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["content"]["title"])) {
+                                        ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                    }
+                                } else {
+                                    ?><h3><?php echo __('Select dates of start tour, duration', 'snthwp') ?></h3><?php
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <?php
@@ -214,7 +259,28 @@ if ( !is_array( $form_fields ) ) {
             <div id="guests-select_section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-3">
-                        <p><?php echo __('Select adults, and childrens', 'snthwp') ?></p>
+                        <div class="search-form-step__section">
+                            <div class="search-form-step__header">
+                                <?php
+                                $step_index = 2;
+                                if (!empty($search_steps[$step_index])) {
+                                    if (!empty($search_steps[$step_index]["steps"]["icon"])) {
+                                        ?><i class="cbp_tmicon <?php echo $search_steps[$step_index]["steps"]["icon"] ?>"></i><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["steps"]["title"])) {
+                                        ?><h3><?php echo $search_steps[$step_index]["steps"]["title"] ?></h3><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["content"]["title"])) {
+                                        ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                    }
+                                } else {
+                                    ?><h3><?php echo __('Select adults, and childrens', 'snthwp') ?></h3><?php
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
@@ -261,6 +327,9 @@ if ( !is_array( $form_fields ) ) {
             <div id="filter-select__section" class="form-data-toggle-target">
                 <div class="row">
                     <div class="col-md-3">
+                        <div class="search-form-step__section">
+
+                        </div>
                         <div class="form-group">
                             <label for="hotel_rating"><?php echo __('Hotel Rating', 'snthwp') ?>:</label>
 
