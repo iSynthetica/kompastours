@@ -56,6 +56,12 @@ if ( !is_array( $form_fields ) ) {
                                 $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
                                 $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
                                 $dates_value = $date_from . ' - ' . $date_till . ', 7 - 9 ' . __('nights', 'snthwp');
+                            } else {
+                                $date_from = $args['dateFrom'];
+                                $date_till = $args['dateTill'];
+                                $night_from = $args['nightFrom'];
+                                $night_till = $args['nightTill'];
+                                $dates_value = $date_from . ' - ' . $date_till . ', '.$night_from.' - '.$night_till.' ' . __('nights', 'snthwp');
                             }
                             ?>
                             <div class="input-group">
@@ -80,6 +86,19 @@ if ( !is_array( $form_fields ) ) {
 
                             if (empty($args['adultAmount'])) {
                                 $guests_value = '2';
+                            } else {
+                                $adults_amount = $args['adultAmount'];
+                                $guests_value = $adults_amount;
+
+                                if (!empty($args['childAmount']) && !empty($args['childAge'])) {
+                                    $child_ages = explode(':', $args['childAge']);
+
+                                    foreach ($child_ages as $key => $child_age) {
+                                        $child_ages[$key] = $child_age . __('y', 'snthwp');
+                                    }
+
+                                    $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
+                                }
                             }
                             ?>
                             <div class="input-group">
@@ -169,20 +188,29 @@ if ( !is_array( $form_fields ) ) {
                         }
                         ?>
                         <div class="form-group">
-                            <label><i class="far fa-calendar-alt"></i> <?php echo __('Dates of start tour', 'snthwp') ?></label>
+                            <label><?php echo __('Dates of start tour', 'snthwp') ?></label>
                             <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value=""<?php echo $dates_data; ?>>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="duration-holder">
-                            <label><?php echo __('Duration', 'snthwp') ?></label>
+                            <?php
+                            $night_from = '7';
+                            $night_till = '9';
+
+                            if (!empty($args['nightFrom']) &&!empty($args['nightTill'])) {
+                                $night_from = $args['nightFrom'];
+                                $night_till = $args['nightTill'];
+                            }
+                            ?>
+                            <label><?php echo __('Duration', 'snthwp') ?> (<?php echo __('nights', 'snthwp') ?>)</label>
                             <div class="form-group">
                                 <div class="numbers-alt numbers-ver" style="display: inline-block">
-                                    <input type="number" value="7" id="duration-from__select" class="qty2 form-control" name="night_from" data-current_value="7">
+                                    <input type="number" value="<?php echo $night_from ?>" id="duration-from__select" class="qty2 form-control" name="night_from" data-current_value="<?php echo $night_from ?>">
                                 </div>
                                 -
                                 <div class="numbers-alt numbers-ver" style="display: inline-block">
-                                    <input type="number" value="9" id="duration-till__select" class="qty2 form-control" name="night_till" data-current_value="9">
+                                    <input type="number" value="<?php echo $night_till ?>" id="duration-till__select" class="qty2 form-control" name="night_till" data-current_value="<?php echo $night_till ?>">
                                 </div>
                             </div>
                         </div>
@@ -198,28 +226,42 @@ if ( !is_array( $form_fields ) ) {
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
+                            <?php
+                            $adult_amount = '2';
+
+                            if (!empty($args['adultAmount'])) {
+                                $adult_amount = $args['adultAmount'];
+                            }
+                            ?>
                             <label><?php echo __('Adult amount', 'snthwp') ?></label>
 
                             <div class="numbers-alt numbers-gor">
-                                <input type="number" value="2" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount">
+                                <input type="number" value="<?php echo $adult_amount ?>" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group child_amount_holder">
                             <label><?php echo __('Children amount', 'snthwp') ?></label>
                             <div id="child_amount_repeater_holder" data-limit="3">
-                                <div class="child_amount_group"></div>
+                                <div class="child_amount_group">
+                                    <?php
+                                    if (!empty($args['childAmount']) && !empty($args['childAge'])) {
+                                        $child_ages = explode(':', $args['childAge']);
+
+                                        foreach ($child_ages as $child_age) {
+                                            ittour_show_template('form/search-select-child-amount.php', array('child_age' => (int)$child_age));
+                                        }
+                                    }
+                                    ?>
+                                </div>
 
                                 <button class="btn-create" type="button">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-
                     </div>
                 </div>
             </div>
