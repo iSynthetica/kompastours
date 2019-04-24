@@ -63,8 +63,10 @@
         var regionsHtml = '<select name="region" id="region_select" class="form-control">';
 
         if ('' === selectedCountry) {
+            $('#reset-country_select').prop('disabled', true);
             regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
         } else {
+            $('#reset-country_select').prop('disabled', false);
             var regions = regionsByCountries[parseInt(selectedCountry)];
             regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectRegion +'</option>';
 
@@ -84,27 +86,51 @@
     });
 
     $(document.body).on('change', '#region_select', function() {
+        var newVal = $(this).val();
+
+        if ('' !== newVal) {
+            $('#reset-region_select').prop('disabled', false);
+        } else {
+            $('#reset-region_select').prop('disabled', true);
+        }
+
         ittourGetHotelsList(function() {
             ittourShowDestinationSummary();
         });
     });
 
     $(document.body).on('change', '#hotel_select', function() {
+        var newVal = $(this).val();
+
+        if ('' !== newVal) {
+            $('#reset-hotel_select').prop('disabled', false);
+        } else {
+            $('#reset-hotel_select').prop('disabled', true);
+        }
+
         ittourUpdateHotelRating();
         ittourShowDestinationSummary();
     });
 
     $(document.body).on('click', '#reset-country_select', function() {
+        $(this).prop('disabled', true);
+        $('#reset-region_select').prop('disabled', true);
+        $('#reset-hotel_select').prop('disabled', true);
         $("#country_select option[value='']").attr('selected', true);
         $('#country_select').trigger('change');
+        ittourUpdateHotelRating();
     });
 
     $(document.body).on('click', '#reset-region_select', function() {
+        $(this).prop('disabled', true);
+        $('#reset-hotel_select').prop('disabled', true);
         $("#region_select option[value='']").attr('selected', true);
         $('#region_select').trigger('change');
+        ittourUpdateHotelRating();
     });
 
     $(document.body).on('click', '#reset-hotel_select', function() {
+        $(this).prop('disabled', true);
         $("#hotel_select option[value='']").attr('selected', true);
         $('#hotel_select').trigger('change');
     });
@@ -115,7 +141,41 @@
             selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');
 
         if ('' === selectedHotelVal) {
+            var selectedRatingsCount = $( "#hotel_rating_select input:checked" ).length;
 
+            if (0 === selectedRatingsCount) {
+                $( "#hotel_rating_select input" ).prop('disabled', false);
+            } else if (2 === selectedRatingsCount) {
+                $( "#hotel_rating_select input" ).prop('disabled', true);
+
+                $( "#hotel_rating_select input:checked" ).each(function () {
+                    $(this).prop('disabled', false);
+                });
+            } else {
+                var selectedRating = $( "#hotel_rating_select input:checked" );
+                var selectedRatingVal = selectedRating.val();
+
+                console.log(selectedRatingVal);
+                console.log(typeof selectedRatingVal);
+
+                $( "#hotel_rating_select input" ).prop('disabled', true);
+
+                selectedRating.prop('disabled', false);
+
+                if ('78' === selectedRatingVal) {
+                    $( "input#hotel_rating_4" ).prop('disabled', false);
+                } else if ('4' === selectedRatingVal) {
+                    $( "input#hotel_rating_78" ).prop('disabled', false);
+                    $( "input#hotel_rating_3" ).prop('disabled', false);
+                } else if ('3' === selectedRatingVal) {
+                    $( "input#hotel_rating_4" ).prop('disabled', false);
+                    $( "input#hotel_rating_7" ).prop('disabled', false);
+                } else if ('7' === selectedRatingVal) {
+                    $( "input#hotel_rating_3" ).prop('disabled', false);
+                }
+            }
+
+            console.log(selectedRatingsCount);
         } else {
             $(this).prop('disabled', false).prop('checked', true);
         }
