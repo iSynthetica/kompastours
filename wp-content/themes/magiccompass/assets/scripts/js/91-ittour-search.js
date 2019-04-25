@@ -29,8 +29,6 @@
             hotelPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
         }
 
-        console.log(selectedCountryVal);
-
         $('#country_select').select2({
             placeholder: snthWpJsObj.searchForm.selectCountry,
             allowClear: true
@@ -42,9 +40,9 @@
         });
 
         // $('.form-select2').select2();
-        $('.form-select2-multiple').select2({
-            multiple: true,
-            placeholder: hotelPlaceholder
+        $('#hotel_select').select2({
+            placeholder: hotelPlaceholder,
+            maximumSelectionLength: 10
         });
 
         $('input.date-pick').daterangepicker({
@@ -86,11 +84,9 @@
 
         if ('' === selectedCountry) {
             var regionPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
-            $('#reset-country_select').prop('disabled', true);
             regionsHtml += '<option></option>';
         } else {
             regionPlaceholder = snthWpJsObj.searchForm.selectRegion;
-            $('#reset-country_select').prop('disabled', false);
             var regions = regionsByCountries[parseInt(selectedCountry)];
             regionsHtml += '<option></option>';
 
@@ -117,12 +113,6 @@
     $(document.body).on('change', '#region_select', function() {
         var newVal = $(this).val();
 
-        if ('' !== newVal) {
-            $('#reset-region_select').prop('disabled', false);
-        } else {
-            $('#reset-region_select').prop('disabled', true);
-        }
-
         ittourGetHotelsList(function() {
             ittourShowDestinationSummary();
         });
@@ -131,83 +121,44 @@
     $(document.body).on('change', '#hotel_select', function() {
         var newVal = $(this).val();
 
-        if ('' !== newVal) {
-            $('#reset-hotel_select').prop('disabled', false);
-        } else {
-            $('#reset-hotel_select').prop('disabled', true);
-        }
-
         ittourUpdateHotelRating();
         ittourShowDestinationSummary();
     });
 
-    $(document.body).on('click', '#reset-country_select', function() {
-        $(this).prop('disabled', true);
-        $('#reset-region_select').prop('disabled', true);
-        $('#reset-hotel_select').prop('disabled', true);
-        $("#country_select option[value='']").attr('selected', true);
-        $('#country_select').trigger('change');
-        ittourUpdateHotelRating();
-    });
-
-    $(document.body).on('click', '#reset-region_select', function() {
-        $(this).prop('disabled', true);
-        $('#reset-hotel_select').prop('disabled', true);
-        $("#region_select option[value='']").attr('selected', true);
-        $('#region_select').trigger('change');
-        ittourUpdateHotelRating();
-    });
-
-    $(document.body).on('click', '#reset-hotel_select', function() {
-        $(this).prop('disabled', true);
-        $("#hotel_select option[value='']").attr('selected', true);
-        $('#hotel_select').trigger('change');
-    });
-
     $(document.body).on('change', '#hotel_rating_select input', function() {
-        var hotelSelect = $('#hotel_select'),
-            selectedHotelVal = hotelSelect.find(":selected").val(),
-            selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');
+        console.log('change #hotel_rating_select input');
+        var selectedRatingsCount = $( "#hotel_rating_select input:checked" ).length;
 
-        if ('' === selectedHotelVal) {
-            var selectedRatingsCount = $( "#hotel_rating_select input:checked" ).length;
+        if (0 === selectedRatingsCount) {
+            $( "#hotel_rating_select input" ).prop('disabled', false);
+        } else if (2 === selectedRatingsCount) {
+            $( "#hotel_rating_select input" ).prop('disabled', true);
 
-            if (0 === selectedRatingsCount) {
-                $( "#hotel_rating_select input" ).prop('disabled', false);
-            } else if (2 === selectedRatingsCount) {
-                $( "#hotel_rating_select input" ).prop('disabled', true);
-
-                $( "#hotel_rating_select input:checked" ).each(function () {
-                    $(this).prop('disabled', false);
-                });
-            } else {
-                var selectedRating = $( "#hotel_rating_select input:checked" );
-                var selectedRatingVal = selectedRating.val();
-
-                console.log(selectedRatingVal);
-                console.log(typeof selectedRatingVal);
-
-                $( "#hotel_rating_select input" ).prop('disabled', true);
-
-                selectedRating.prop('disabled', false);
-
-                if ('78' === selectedRatingVal) {
-                    $( "input#hotel_rating_4" ).prop('disabled', false);
-                } else if ('4' === selectedRatingVal) {
-                    $( "input#hotel_rating_78" ).prop('disabled', false);
-                    $( "input#hotel_rating_3" ).prop('disabled', false);
-                } else if ('3' === selectedRatingVal) {
-                    $( "input#hotel_rating_4" ).prop('disabled', false);
-                    $( "input#hotel_rating_7" ).prop('disabled', false);
-                } else if ('7' === selectedRatingVal) {
-                    $( "input#hotel_rating_3" ).prop('disabled', false);
-                }
-            }
-
-            console.log(selectedRatingsCount);
+            $( "#hotel_rating_select input:checked" ).each(function () {
+                $(this).prop('disabled', false);
+            });
         } else {
-            $(this).prop('disabled', false).prop('checked', true);
+            var selectedRating = $( "#hotel_rating_select input:checked" );
+            var selectedRatingVal = selectedRating.val();
+
+            $( "#hotel_rating_select input" ).prop('disabled', true);
+
+            selectedRating.prop('disabled', false);
+
+            if ('78' === selectedRatingVal) {
+                $( "input#hotel_rating_4" ).prop('disabled', false);
+            } else if ('4' === selectedRatingVal) {
+                $( "input#hotel_rating_78" ).prop('disabled', false);
+                $( "input#hotel_rating_3" ).prop('disabled', false);
+            } else if ('3' === selectedRatingVal) {
+                $( "input#hotel_rating_4" ).prop('disabled', false);
+                $( "input#hotel_rating_7" ).prop('disabled', false);
+            } else if ('7' === selectedRatingVal) {
+                $( "input#hotel_rating_3" ).prop('disabled', false);
+            }
         }
+
+        ittourGetHotelsList();
     });
 
     /**
@@ -239,20 +190,29 @@
 
     function ittourGetHotelsList(cb) {
         var selectedCountry = $('#country_select').find(":selected").val(),
-            selectedRegion = $('#region_select').find(":selected").val();
+            selectedRegion = $('#region_select').find(":selected").val(),
+            selectedHotels = [],
+            selectedHotelRatings = [];
 
+        $.each($("input[name='hotel_rating[]']:checked"), function(){
+            selectedHotelRatings.push($(this).val());
+        });
 
+        $.each($('#hotel_select').find(":selected"), function(){
+            selectedHotels.push($(this).val());
+        });
 
         if ('' === selectedCountry) {
-            var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control form-select2-multiple" style="width: 100%">';
-            hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
+            var hotelsHtml = '<select name="hotel[]" id="hotel_select" class="form-control form-select2" style="width: 100%" multiple>';
             hotelsHtml += '</select>';
-
 
 
             $('#hotel_select').select2('destroy');
             $('#hotel_select').replaceWith( hotelsHtml );
-            $('#hotel_select').select2();
+            $('#hotel_select').select2({
+                placeholder: snthWpJsObj.searchForm.selectCountryFirst,
+                maximumSelectionLength: 10
+            });
 
             if ('function' === typeof cb) {
                 cb();
@@ -272,29 +232,36 @@
                     } else {
                         var hotels =  response.message.hotels;
 
-                        var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control form-select2-multiple" style="width: 100%">';
-                        hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectHotel +'</option>';
+                        var hotelsHtml = '<select name="hotel[]" id="hotel_select" class="form-control form-select2-multiple" style="width: 100%" multiple>';
 
                         for (var i = 0; i < hotels.length; i++) {
-                            var hotelRating = '5*';
+                            if (0 === selectedHotelRatings.length || -1 < $.inArray(hotels[i].hotel_rating_id, selectedHotelRatings)) {
+                                var hotelRating = '5*';
 
-                            if ('7' === hotels[i].hotel_rating_id || '2' === hotels[i].hotel_rating_id) {
-                                hotelRating = '2*';
-                            } else if ('3' === hotels[i].hotel_rating_id) {
-                                hotelRating = '3*';
-                            }  else if ('4' === hotels[i].hotel_rating_id) {
-                                hotelRating = '4*';
+                                if ('7' === hotels[i].hotel_rating_id || '2' === hotels[i].hotel_rating_id) {
+                                    hotelRating = '2*';
+                                } else if ('3' === hotels[i].hotel_rating_id) {
+                                    hotelRating = '3*';
+                                }  else if ('4' === hotels[i].hotel_rating_id) {
+                                    hotelRating = '4*';
+                                }
+
+                                hotelsHtml += '<option value="'+hotels[i].id+'" data-hotel-rating="'+hotels[i].hotel_rating_id+'">'+hotels[i].name+ ' ' + hotelRating +'</option>';
                             }
-
-                            hotelsHtml += '<option value="'+hotels[i].id+'" data-hotel-rating="'+hotels[i].hotel_rating_id+'">'+hotels[i].name+ ' ' + hotelRating +'</option>';
                         }
 
                         hotelsHtml += '</select>';
 
                         $('#hotel_select').select2('destroy');
                         $('#hotel_select').replaceWith( hotelsHtml );
+
+                        $.each(selectedHotels, function(index, value) {
+                            $('#hotel_select option[value="'+value+'"]').prop('selected', true);
+                        });
+
                         $('#hotel_select').select2({
-                            multiple: true
+                            placeholder: snthWpJsObj.searchForm.selectHotel,
+                            maximumSelectionLength: 10
                         });
 
                         if ('function' === typeof cb) {
@@ -308,6 +275,48 @@
     }
 
     function ittourUpdateHotelRating() {
+        var hotelSelect = $('#hotel_select'),
+            selectedHotel = hotelSelect.find(":selected"),
+            selectedHotelVal = selectedHotel.val(),
+            selectedHotelRatings = [];
+
+        var isRatingChanged = false;
+
+        var alreadySelectedHotelRatings = [];
+
+        $.each($("input[name='hotel_rating[]']:checked"), function(){
+            alreadySelectedHotelRatings.push(parseInt($(this).val()));
+        });
+
+        selectedHotel.each(function () {
+            var dataHotelRating = $(this).data('hotel-rating');
+
+            if (-1 === $.inArray(dataHotelRating, alreadySelectedHotelRatings)) {
+                selectedHotelRatings.push(dataHotelRating);
+                isRatingChanged = true;
+            }
+        });
+
+        selectedHotelRatings = $.unique(selectedHotelRatings);
+
+        var hotelRatingSelect = $('#hotel_rating_select');
+        var hotelRatings = hotelRatingSelect.find('input');
+
+        console.log(selectedHotelRatings);
+
+        $.each(selectedHotelRatings, function(index, value) {
+            hotelRatingSelect.find('#hotel_rating_' + value).prop('disabled', false).prop('checked', true);
+        });
+
+        console.log('Rating changed:');
+        console.log(isRatingChanged);
+
+        if (isRatingChanged) {
+            $( '#hotel_rating_select input' ).trigger( 'change' );
+        }
+    }
+
+    function ittourUpdateHotelRating1() {
         var hotelSelect = $('#hotel_select'),
             selectedHotelVal = hotelSelect.find(":selected").val(),
             selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');

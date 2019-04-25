@@ -175,30 +175,22 @@ function ittour_get_country_field($params, $args = array()) {
     ob_start();
     if (!empty($params['countries'])) {
         ?>
-        <div class="input-group">
-            <select id="country_select" name="country" class="form-control form-select2" style="width: 100%">
-                <option></option>
+        <select id="country_select" name="country" class="form-control form-select2" style="width: 100%">
+            <option></option>
 
-                <?php
-                $btn_disabled = ' disabled';
-                foreach ($params['countries'] as $country) {
-                    $selected = '';
+            <?php
+            foreach ($params['countries'] as $country) {
+                $selected = '';
 
-                    if ($country_id && $country['id'] === $country_id) {
-                        $selected .= ' selected';
-                        $btn_disabled = '';
-                    }
-                    ?>
-                    <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
-                    <?php
+                if ($country_id && $country['id'] === $country_id) {
+                    $selected .= ' selected';
                 }
                 ?>
-            </select>
-
-            <div class="input-group-append">
-                <button id="reset-country_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
-            </div>
-        </div>
+                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                <?php
+            }
+            ?>
+        </select>
         <?php
     } else {
         ?>
@@ -234,35 +226,27 @@ function ittour_get_region_field($params, $args = array()) {
         ?>
         <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
 
-        <div class="input-group">
-            <select id="region_select" name="region" class="form-control form-select2" style="width: 100%">
-                <?php
-                $btn_disabled = ' disabled';
-                if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
-                    ?>
-                    <option></option>
-                    <?php
-                    foreach ($regions_by_countries[$args['country']] as $region) {
-                        $selected = '';
-
-                        if (!empty($args['region']) && $args['region'] === $region['id']) {
-                            $selected .= ' selected';
-                            $btn_disabled = '';
-                        }
-                        ?>
-                        <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
-                        <?php
-                    }
-                } else {
-                    ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
-                }
+        <select id="region_select" name="region" class="form-control form-select2" style="width: 100%">
+            <?php
+            if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
                 ?>
-            </select>
+                <option></option>
+                <?php
+                foreach ($regions_by_countries[$args['country']] as $region) {
+                    $selected = '';
 
-            <div class="input-group-append">
-                <button id="reset-region_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
-            </div>
-        </div>
+                    if (!empty($args['region']) && $args['region'] === $region['id']) {
+                        $selected .= ' selected';
+                    }
+                    ?>
+                    <option value="<?php echo $region['id']; ?>"<?php echo $selected ?>><?php echo $region['name']; ?></option>
+                    <?php
+                }
+            } else {
+                ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
+            }
+            ?>
+        </select>
         <?php
     } else {
         ?>
@@ -286,41 +270,30 @@ function ittour_get_hotel_field($params, $args = array()) {
 
     ob_start();
     ?>
-        <div class="input-group">
-            <select id="hotel_select" name="hotel" class="form-control form-select2-multiple" data-current_value="" style="width: 100%">
-                <?php
-                $btn_disabled = ' disabled';
-                if (!empty($args['country'])) {
-                    ?><option value=""><?php echo __('Select hotel', 'snthwp'); ?></option><?php
-                    foreach ($params['hotels'] as $hotel) {
-                        $show = true;
+    <select id="hotel_select" name="hotel[]" class="form-control form-select2" data-current_value="" style="width: 100%" multiple>
+        <?php
+        if (!empty($args['country'])) {
+            foreach ($params['hotels'] as $hotel) {
+                $show = true;
 
-                        if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
+                if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
 
-                        if ($show) {
-                            $selected = '';
+                if ($show) {
+                    $selected = '';
 
-                            if (!empty($args['hotel']) && $args['hotel'] === $hotel['id']) {
-                                $selected .= ' selected';
-                                $btn_disabled = '';
-                            }
-                            ?>
-                            <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>"<?php echo $selected ?>>
-                                <?php echo $hotel['name']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']); ?>
-                            </option>
-                            <?php
-                        }
+                    if (!empty($args['hotel']) && $args['hotel'] === $hotel['id']) {
+                        $selected .= ' selected';
                     }
-                } else {
-                    ?><option value=""><?php echo __('Select country first', 'snthwp'); ?></option><?php
+                    ?>
+                    <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>"<?php echo $selected ?>>
+                        <?php echo $hotel['name']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']); ?>
+                    </option>
+                    <?php
                 }
-                ?>
-            </select>
-
-            <div class="input-group-append">
-                <button id="reset-hotel_select" class="btn btn-danger" type="button"<?php echo $btn_disabled ?>><i class="fas fa-times"></i></button>
-            </div>
-        </div>
+            }
+        }
+        ?>
+    </select>
     <?php
     return ob_get_clean();
 }
@@ -344,6 +317,12 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
                 $hotel_rating_array = explode(':', $args['hotelRating']);
 
                 if (in_array($hotel_rating['id'], $hotel_rating_array)) {
+                    $selected = ' checked';
+                } else {
+                    $disabled = ' disabled';
+                }
+            } else {
+                if ('78' === $hotel_rating['id'] || '4' === $hotel_rating['id']) {
                     $selected = ' checked';
                 } else {
                     $disabled = ' disabled';

@@ -24130,6 +24130,19 @@ input.styled_1[type="checkbox"] {
   .select2-container .select2-selection--single .select2-selection__arrow {
     height: 38px; }
 
+.select2-container .select2-selection--multiple {
+  min-height: 2.5rem;
+  font-size: 0.8125rem; }
+  .select2-container .select2-selection--multiple .select2-selection__rendered {
+    padding-top: 0.1875rem; }
+    .select2-container .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+      width: 90%;
+      white-space: normal; }
+    .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline:first-child {
+      width: 100% !important; }
+      .select2-container .select2-selection--multiple .select2-selection__rendered .select2-search--inline:first-child .select2-search__field {
+        width: 100% !important; }
+
 .input-group .select2-container .select2-selection--single {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
