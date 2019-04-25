@@ -80,3 +80,28 @@ input {
         }
     }
 }
+
+/* Select2 */
+.select2-container {
+    .select2-selection--single {
+        height: rem-calc(40);
+        font-size: rem-calc(13);
+
+        .select2-selection__rendered {
+            line-height: rem-calc(38);
+        }
+
+        .select2-selection__arrow {
+            height: 38px;
+        }
+    }
+}
+
+.input-group {
+    .select2-container {
+        .select2-selection--single {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}

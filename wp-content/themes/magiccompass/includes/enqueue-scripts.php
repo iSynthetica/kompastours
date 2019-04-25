@@ -52,6 +52,7 @@ function snth_enqueue_scripts() {
         'searchForm'    => array(
             'nights'                => __('nights', 'snthwp'),
             'selectCountryFirst'    => __('Select country first', 'snthwp'),
+            'selectCountry'         => __('Select country', 'snthwp'),
             'selectRegion'          => __('Select region', 'snthwp'),
             'selectHotel'           => __('Select hotel', 'snthwp'),
         ),

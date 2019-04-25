@@ -66,6 +66,8 @@ const SOURCE = {
 
         VENDORS + '/icheck/icheck.js',
 
+        MODULES + '/select2/dist/js/select2.js',
+
         MODULES + '/daterangepicker/moment.min.js',
 
         MODULES + '/daterangepicker/daterangepicker.js',

@@ -176,8 +176,8 @@ function ittour_get_country_field($params, $args = array()) {
     if (!empty($params['countries'])) {
         ?>
         <div class="input-group">
-            <select id="country_select" name="country" class="form-control">
-                <option value=""><?php echo __('Select country', 'snthwp'); ?></option>
+            <select id="country_select" name="country" class="form-control form-select2" style="width: 100%">
+                <option></option>
 
                 <?php
                 $btn_disabled = ' disabled';
@@ -235,11 +235,13 @@ function ittour_get_region_field($params, $args = array()) {
         <input id="regions_by_countries" type="hidden" value='<?php echo $regions_by_countries_json; ?>'>
 
         <div class="input-group">
-            <select id="region_select" name="region" class="form-control">
+            <select id="region_select" name="region" class="form-control form-select2" style="width: 100%">
                 <?php
                 $btn_disabled = ' disabled';
                 if (!empty($args['country']) && !empty($regions_by_countries[$args['country']])) {
-                    ?><option value=""><?php echo __('Select region', 'snthwp'); ?></option><?php
+                    ?>
+                    <option></option>
+                    <?php
                     foreach ($regions_by_countries[$args['country']] as $region) {
                         $selected = '';
 
@@ -285,7 +287,7 @@ function ittour_get_hotel_field($params, $args = array()) {
     ob_start();
     ?>
         <div class="input-group">
-            <select id="hotel_select" name="hotel" class="form-control" data-current_value="">
+            <select id="hotel_select" name="hotel" class="form-control form-select2-multiple" data-current_value="" style="width: 100%">
                 <?php
                 $btn_disabled = ' disabled';
                 if (!empty($args['country'])) {

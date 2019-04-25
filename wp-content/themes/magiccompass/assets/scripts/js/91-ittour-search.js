@@ -1,5 +1,4 @@
 (function ($) {
-
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
 
@@ -8,11 +7,6 @@
         $('.repeater').repeater({
             initEmpty: true
         });
-
-        // $('.iCheckGray').iCheck({
-        //     checkboxClass: 'icheckbox_square-grey',
-        //     radioClass: 'iradio_square-grey'
-        // });
 
         var dateFrom = $('input.date-pick').data('date-from');
         var dateTill = $('input.date-pick').data('date-till');
@@ -24,6 +18,34 @@
             startDate = moment(dateFrom, "DD.MM.YY");
             endDate = moment(dateTill, "DD.MM.YY");
         }
+
+        var selectedCountryVal = $('#country_select').val();
+
+        var regionPlaceholder = snthWpJsObj.searchForm.selectRegion;
+        var hotelPlaceholder = snthWpJsObj.searchForm.selectHotel;
+
+        if ('' === selectedCountryVal) {
+            regionPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
+            hotelPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
+        }
+
+        console.log(selectedCountryVal);
+
+        $('#country_select').select2({
+            placeholder: snthWpJsObj.searchForm.selectCountry,
+            allowClear: true
+        });
+
+        $('#region_select').select2({
+            placeholder: regionPlaceholder,
+            allowClear: true
+        });
+
+        // $('.form-select2').select2();
+        $('.form-select2-multiple').select2({
+            multiple: true,
+            placeholder: hotelPlaceholder
+        });
 
         $('input.date-pick').daterangepicker({
             startDate: startDate,
@@ -60,15 +82,17 @@
         var selectedCountry = $('#country_select').find(":selected").val();
         var regionsByCountries = $.parseJSON($('#regions_by_countries').val());
 
-        var regionsHtml = '<select name="region" id="region_select" class="form-control">';
+        var regionsHtml = '<select name="region" id="region_select" class="form-control form-select2" style="width: 100%">';
 
         if ('' === selectedCountry) {
+            var regionPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
             $('#reset-country_select').prop('disabled', true);
-            regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
+            regionsHtml += '<option></option>';
         } else {
+            regionPlaceholder = snthWpJsObj.searchForm.selectRegion;
             $('#reset-country_select').prop('disabled', false);
             var regions = regionsByCountries[parseInt(selectedCountry)];
-            regionsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectRegion +'</option>';
+            regionsHtml += '<option></option>';
 
             for (var i = 0; i < regions.length; i++) {
                 regionsHtml += '<option value="'+regions[i].id+'">'+regions[i].name+'</option>';
@@ -77,7 +101,12 @@
 
         regionsHtml += '</select>';
 
+        $('#region_select').select2('destroy');
         $('#region_select').replaceWith(regionsHtml);
+        $('#region_select').select2({
+            placeholder: regionPlaceholder,
+            allowClear: true
+        });
 
         ittourGetHotelsList(function() {
             ittourShowDestinationSummary();
@@ -215,11 +244,15 @@
 
 
         if ('' === selectedCountry) {
-            var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
+            var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control form-select2-multiple" style="width: 100%">';
             hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectCountryFirst +'</option>';
             hotelsHtml += '</select>';
 
+
+
+            $('#hotel_select').select2('destroy');
             $('#hotel_select').replaceWith( hotelsHtml );
+            $('#hotel_select').select2();
 
             if ('function' === typeof cb) {
                 cb();
@@ -239,7 +272,7 @@
                     } else {
                         var hotels =  response.message.hotels;
 
-                        var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control">';
+                        var hotelsHtml = '<select name="hotel" id="hotel_select" class="form-control form-select2-multiple" style="width: 100%">';
                         hotelsHtml += '<option value="">'+ snthWpJsObj.searchForm.selectHotel +'</option>';
 
                         for (var i = 0; i < hotels.length; i++) {
@@ -258,7 +291,11 @@
 
                         hotelsHtml += '</select>';
 
+                        $('#hotel_select').select2('destroy');
                         $('#hotel_select').replaceWith( hotelsHtml );
+                        $('#hotel_select').select2({
+                            multiple: true
+                        });
 
                         if ('function' === typeof cb) {
                             cb();
