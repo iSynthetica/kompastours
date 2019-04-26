@@ -57,10 +57,11 @@ $search_steps = get_field('timeline_items', 493);
                     <div class="row">
                         <div class="col-12">
                             <div class="search-btn__holder">
-                                <div id="filter_options" class="form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section">
+                                <button id="filter_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section"<?php echo empty($args['country']) ? ' disabled' : ''; ?>>
                                     <i class="fas fa-sliders-h"></i>
-                                </div>
-                                <button class="search-btn btn_1 green" type="submit"><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
+                                </button>
+
+                                <button class="search-btn btn_1 green" type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
                             </div>
                         </div>
                     </div>
@@ -94,7 +95,6 @@ $search_steps = get_field('timeline_items', 493);
                                 ?>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="col-md-4 col-lg-3">
@@ -267,7 +267,26 @@ $search_steps = get_field('timeline_items', 493);
                 <div class="row">
                     <div class="col-md-3">
                         <div class="search-form-step__section">
+                            <div class="search-form-step__header">
+                                <?php
+                                $step_index = 3;
+                                if (!empty($search_steps[$step_index])) {
+                                    if (!empty($search_steps[$step_index]["steps"]["icon"])) {
+                                        ?><i class="cbp_tmicon <?php echo $search_steps[$step_index]["steps"]["icon"] ?>"></i><?php
+                                    }
 
+                                    if (!empty($search_steps[$step_index]["steps"]["title"])) {
+                                        ?><h3><?php echo $search_steps[$step_index]["steps"]["title"] ?></h3><?php
+                                    }
+
+                                    if (!empty($search_steps[$step_index]["content"]["title"])) {
+                                        ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                    }
+                                } else {
+                                    ?><h3><?php echo __('Select destination', 'snthwp') ?></h3><?php
+                                }
+                                ?>
+                            </div>
                         </div>
                     </div>
 

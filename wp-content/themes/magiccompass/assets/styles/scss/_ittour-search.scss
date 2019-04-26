@@ -52,6 +52,17 @@
             width: 100%;
             padding-top: rem-calc(10);
             padding-bottom: rem-calc(10);
+
+            &[disabled] {
+                cursor: default;
+                background-color: $color-gray-20;
+                color: $color-gray-40;
+
+                &:hover {
+                    background-color: $color-gray-20;
+                    color: $color-gray-40;
+                }
+            }
         }
     }
 
@@ -59,12 +70,23 @@
         text-align: center;
         font-size: rem-calc(26);
         line-height: rem-calc(40);
-        color: $color-dark-gray;
         position: absolute;
         width: rem-calc(40);
         height: rem-calc(40);
+        padding: 0;
         top: 0;
         left: 0;
+        background-color: $color-white;
+        color: $color-green;
+        border-color: $color-green;
+
+        &:disabled {
+            opacity: 1;
+            background-color: $color-gray-20;
+            border-color: $color-gray-20;
+            color: $color-gray-40;
+            cursor: default;
+        }
     }
 
     #select-from-city__holder {

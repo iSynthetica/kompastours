@@ -24491,16 +24491,32 @@ input.styled_1[type="checkbox"] {
       width: 100%;
       padding-top: 0.625rem;
       padding-bottom: 0.625rem; }
+      #search-form-main__holder .search-btn__holder .search-btn[disabled] {
+        cursor: default;
+        background-color: #cccccc;
+        color: #999999; }
+        #search-form-main__holder .search-btn__holder .search-btn[disabled]:hover {
+          background-color: #cccccc;
+          color: #999999; }
   #search-form-main__holder #filter_options {
     text-align: center;
     font-size: 1.625rem;
     line-height: 2.5rem;
-    color: #545454;
     position: absolute;
     width: 2.5rem;
     height: 2.5rem;
+    padding: 0;
     top: 0;
-    left: 0; }
+    left: 0;
+    background-color: #FFFFFF;
+    color: #83c99f;
+    border-color: #83c99f; }
+    #search-form-main__holder #filter_options:disabled {
+      opacity: 1;
+      background-color: #cccccc;
+      border-color: #cccccc;
+      color: #999999;
+      cursor: default; }
   #search-form-main__holder #select-from-city__holder {
     position: absolute;
     top: -1.875rem;
