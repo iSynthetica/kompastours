@@ -39,78 +39,16 @@ $search_steps = get_field('timeline_items', 493);
             <div class="row">
                 <div class="col-md-12 col-lg-9">
                     <div class="row search-summary__row">
-                        <div class="col-md-4 search-summary__col">
+                        <div id="destination_summary__col" class="col-md-4 search-summary__col">
                             <?php echo $form_fields['destination_summary']; ?>
                         </div>
 
-                        <div class="col-6 col-md-4 search-summary__col">
-                            <?php
-                            $dates_value = '';
-                            if (empty($args['dateFrom'])) {
-                                $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
-                                $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
-                                $dates_value = $date_from . ' - ' . $date_till . ', 7 - 9 ' . __('nights', 'snthwp');
-                            } else {
-                                $date_from = $args['dateFrom'];
-                                $date_till = $args['dateTill'];
-                                $night_from = $args['nightFrom'];
-                                $night_till = $args['nightTill'];
-                                $dates_value = $date_from . ' - ' . $date_till . ', '.$night_from.' - '.$night_till.' ' . __('nights', 'snthwp');
-                            }
-                            ?>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="btn btn-light">
-                                        <i class="far fa-calendar-alt"></i>
-                                    </span>
-                                </div>
-                                <input
-                                        id="dates-duration_summary"
-                                        type="text"
-                                        class="form-control form-data-toggle-control"
-                                        data-form_toggle_target="dates-select_section"
-                                        placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>"
-                                        value="<?php echo $dates_value ?>" readonly
-                                >
-                            </div>
+                        <div id="dates-duration_summary__col" class="col-6 col-md-4 search-summary__col">
+                            <?php echo $form_fields['dates_summary']; ?>
                         </div>
-                        <div class="col-6 col-md-4 search-summary__col">
-                            <?php
-                            $guests_value = '';
 
-                            if (empty($args['adultAmount'])) {
-                                $guests_value = '2';
-                            } else {
-                                $adults_amount = $args['adultAmount'];
-                                $guests_value = $adults_amount;
-
-                                if (!empty($args['childAmount']) && !empty($args['childAge'])) {
-                                    $child_ages = explode(':', $args['childAge']);
-
-                                    foreach ($child_ages as $key => $child_age) {
-                                        $child_ages[$key] = $child_age . __('y', 'snthwp');
-                                    }
-
-                                    $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
-                                }
-                            }
-                            ?>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="btn btn-light">
-                                        <i class="fas fa-users"></i>
-                                    </span>
-                                </div>
-
-                                <input
-                                        id="guests_summary"
-                                        type="text"
-                                        class="form-control form-data-toggle-control"
-                                        data-form_toggle_target="guests-select_section"
-                                        placeholder="<?php echo __('Guests', 'snthwp') ?>"
-                                        value="<?php echo $guests_value ?>" readonly
-                                >
-                            </div>
+                        <div id="guests_summary__col" class="col-6 col-md-4 search-summary__col">
+                            <?php echo $form_fields['guests_summary']; ?>
                         </div>
                     </div>
                 </div>

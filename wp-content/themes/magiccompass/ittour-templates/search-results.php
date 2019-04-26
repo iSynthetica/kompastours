@@ -48,8 +48,8 @@ if (!$country_id) {
     }
 
     if (!empty($_GET['hotel'])) {
-        $hotel = trim($_GET['hotel']);
-        $args['hotel'] = trim($_GET['hotel']);
+        $hotel = implode(':', $_GET['hotel']);
+        $args['hotel'] = implode(':', $_GET['hotel']);
     }
 
     if (!empty($_GET['hotel_rating'])) {

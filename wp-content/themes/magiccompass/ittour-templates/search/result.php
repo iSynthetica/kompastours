@@ -32,16 +32,9 @@ foreach ($result['hotels'] as $hotel) {
 <div id="search-result" class="search-result">
     <div class="content-wrap">
         <div class="container clearfix">
-            <?php // ittour_show_template('search/hotels.php', array('hotels' => $result['hotels'])); ?>
-
             <div class="row common-height clearfix">
                 <?php ittour_show_template('search/pagination.php', array('result' => $result, 'url' => $url)); ?>
             </div>
-
-            <?php
-//            unset ($result['hotels']);
-//            var_dump($result);
-            ?>
         </div>
     </div>
 </div>

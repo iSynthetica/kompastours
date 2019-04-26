@@ -88,6 +88,8 @@ function ittour_get_form_fields($args = array()) {
 
     return array(
         'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
+        'dates_summary' => ittour_get_dates_summary_field($args),
+        'guests_summary' => ittour_get_guests_summary_field($args),
         'countries' =>  ittour_get_country_field($params, $args),
         'regions' =>  ittour_get_region_field($params, $args),
         'hotels' =>  ittour_get_hotel_field($params, $args),
@@ -142,21 +144,112 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
     }
     ob_start();
     ?>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="btn btn-light">
-                <i class="fas fa-map-marker-alt"></i>
-            </span>
-        </div>
+    <div id="dates-duration_summary__container" class="search-summary__container">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="btn"><i class="fas fa-map-marker-alt"></i></span>
+            </div>
 
-        <input
-                id="destination_summary"
+            <input id="destination_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="destination-select_section"
+                   placeholder="<?php echo __('Select Destination *', 'snthwp'); ?>"
+                   value="<?php echo $value; ?>" readonly
+            >
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_dates_summary_field($args) {
+    $disabled_class = '';
+    $field_status = ' readonly';
+
+    if (empty($args['country'])) {
+        $disabled_class = ' disabled-item';
+        $field_status = ' disabled';
+    }
+
+    if (empty($args['dateFrom'])) {
+        $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
+        $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
+        $dates_value = $date_from . ' - ' . $date_till . ', 7 - 9 ' . __('nights', 'snthwp');
+    } else {
+        $date_from = $args['dateFrom'];
+        $date_till = $args['dateTill'];
+        $night_from = $args['nightFrom'];
+        $night_till = $args['nightTill'];
+        $dates_value = $date_from . ' - ' . $date_till . ', '.$night_from.' - '.$night_till.' ' . __('nights', 'snthwp');
+    }
+
+    ob_start();
+    ?>
+    <div id="dates-duration_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
+        <div class="input-group">
+            <div class="input-group-prepend">
+            <span class="btn btn-light">
+                <i class="far fa-calendar-alt"></i>
+            </span>
+            </div>
+
+            <input id="dates-duration_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="dates-select_section"
+                   placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>"
+                   value="<?php echo $dates_value ?>"<?php echo $field_status; ?>
+            >
+        </div>
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_guests_summary_field($args) {
+    $disabled_class = '';
+    $field_status = ' readonly';
+
+    if (empty($args['country'])) {
+        $disabled_class = ' disabled-item';
+        $field_status = ' disabled';
+    }
+
+    if (empty($args['adultAmount'])) {
+        $guests_value = '2';
+    } else {
+        $adults_amount = $args['adultAmount'];
+        $guests_value = $adults_amount;
+
+        if (!empty($args['childAmount']) && !empty($args['childAge'])) {
+            $child_ages = explode(':', $args['childAge']);
+
+            foreach ($child_ages as $key => $child_age) {
+                $child_ages[$key] = $child_age . __('y', 'snthwp');
+            }
+
+            $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
+        }
+    }
+
+    ob_start();
+    ?>
+    <div id="guests_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="btn btn-light"><i class="fas fa-users"></i></span>
+            </div>
+
+            <input id="guests_summary"
                 type="text"
                 class="form-control form-data-toggle-control"
-                data-form_toggle_target="destination-select_section"
-                placeholder="<?php echo __('Select Destination *', 'snthwp'); ?>"
-                value="<?php echo $value; ?>" readonly
-        >
+                data-form_toggle_target="guests-select_section"
+                placeholder="<?php echo __('Guests', 'snthwp') ?>"
+                value="<?php echo $guests_value ?>"<?php echo $field_status; ?>
+            >
+        </div>
     </div>
     <?php
     return ob_get_clean();
@@ -281,8 +374,12 @@ function ittour_get_hotel_field($params, $args = array()) {
                 if ($show) {
                     $selected = '';
 
-                    if (!empty($args['hotel']) && $args['hotel'] === $hotel['id']) {
-                        $selected .= ' selected';
+                    if (!empty($args['hotel'])) {
+                        $hotels_array = explode(':', $args['hotel']);
+
+                        if (in_array($hotel['id'], $hotels_array)) {
+                            $selected .= ' selected';
+                        }
                     }
                     ?>
                     <option value="<?php echo $hotel['id']; ?>" data-hotel-rating="<?php echo $hotel['hotel_rating_id']; ?>"<?php echo $selected ?>>
@@ -307,13 +404,7 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             $selected = '';
             $disabled = '';
 
-            if (!empty($args['hotel']) && !empty($args['hotelRating'])) {
-                if ($args['hotelRating'] === $hotel_rating['id']) {
-                    $selected = ' checked';
-                } else {
-                    $disabled = ' disabled';
-                }
-            } elseif (!empty($args['hotelRating'])) {
+            if (!empty($args['hotelRating'])) {
                 $hotel_rating_array = explode(':', $args['hotelRating']);
 
                 if (in_array($hotel_rating['id'], $hotel_rating_array)) {

@@ -24076,7 +24076,7 @@ input.styled_1[type="checkbox"] {
   position: absolute;
   opacity: 0; }
   input.styled_1[type="checkbox"] + label {
-    color: #3F3F3F;
+    color: #545454;
     font-size: 0.875rem;
     position: relative;
     cursor: pointer;
@@ -24090,13 +24090,13 @@ input.styled_1[type="checkbox"] {
     vertical-align: text-top;
     width: 1.0625rem;
     height: 1.0625rem;
-    border: 1px solid #3F3F3F; }
+    border: 1px solid #545454; }
   input.styled_1[type="checkbox"]:hover + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;
     top: 0.25rem;
-    background: #3F3F3F;
+    background: #545454;
     width: 0.8125rem;
     height: 0.8125rem; }
   input.styled_1[type="checkbox"]:hover:disabled + label:after {
@@ -24117,7 +24117,7 @@ input.styled_1[type="checkbox"] {
     position: absolute;
     left: 0.125rem;
     top: 0.25rem;
-    background: #3F3F3F;
+    background: #545454;
     width: 0.8125rem;
     height: 0.8125rem; }
 
@@ -24468,6 +24468,22 @@ input.styled_1[type="checkbox"] {
     #search-form-main__holder .search-summary__row .search-summary__col {
       padding-right: 5px;
       padding-left: 5px; }
+      #search-form-main__holder .search-summary__row .search-summary__col .form-control[readonly] {
+        background-color: #FFFFFF; }
+      #search-form-main__holder .search-summary__row .search-summary__col .form-control[disabled] {
+        background-color: #e6e6e6;
+        color: #b2b2b2; }
+      #search-form-main__holder .search-summary__row .search-summary__col .input-group > .input-group-prepend > .btn {
+        background-color: #83c99f;
+        color: #FFFFFF;
+        border: 1px solid #FFFFFF;
+        width: 2.5rem;
+        padding-left: 0.3125rem;
+        padding-right: 0.3125rem; }
+      #search-form-main__holder .search-summary__row .search-summary__col .disabled-item .input-group > .input-group-prepend > .btn {
+        background-color: #cccccc;
+        color: #999999;
+        border: 1px solid #e6e6e6; }
   #search-form-main__holder .search-btn__holder {
     position: relative;
     padding-left: 3.125rem; }
@@ -24479,7 +24495,7 @@ input.styled_1[type="checkbox"] {
     text-align: center;
     font-size: 1.625rem;
     line-height: 2.5rem;
-    color: #3F3F3F;
+    color: #545454;
     position: absolute;
     width: 2.5rem;
     height: 2.5rem;
@@ -24546,7 +24562,7 @@ input.styled_1[type="checkbox"] {
   #search-form-main__holder #filter_options {
     font-size: 1.125rem;
     line-height: 1.5625rem;
-    color: #3F3F3F;
+    color: #545454;
     width: 1.5625rem;
     height: 1.5625rem; } }
 

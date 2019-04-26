@@ -15,6 +15,32 @@
         .search-summary__col {
             padding-right: 5px;
             padding-left: 5px;
+
+            .form-control[readonly] {
+                background-color: $color-white;
+            }
+
+            .form-control[disabled] {
+                background-color: $color-gray-10;
+                color: $color-gray-30;
+            }
+
+            .input-group > .input-group-prepend > .btn {
+                background-color: $color-green;
+                color: $color-white;
+                border: 1px solid $color-white;
+                width: rem-calc(40);
+                padding-left: rem-calc(5);
+                padding-right: rem-calc(5);
+            }
+
+            .disabled-item {
+                .input-group > .input-group-prepend > .btn {
+                    background-color: $color-gray-20;
+                    color: $color-gray-40;
+                    border: 1px solid $color-gray-10;
+                }
+            }
         }
     }
 
