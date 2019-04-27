@@ -34,8 +34,8 @@ function snth_enqueue_scripts() {
     // Google Map
     $api_key = apply_filters( 'snth_gmap_api_key', '' );
     wp_register_script('gmap', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key);
-    wp_register_script('gmap3', SNTH_VENDORS_URL . '/gmap/gmap3.min.js', array( 'gmap' ), SNTH_VERSION, true);
-    wp_register_script('infobox', SNTH_VENDORS_URL . '/gmap/InfoBox/infobox.js', array( 'gmap' ), '', true );
+    wp_register_script('gmap3', SNTH_SCRIPTS_URL . '/gmap3.min.js', array( 'gmap' ), SNTH_VERSION, true);
+    wp_register_script('infobox', SNTH_SCRIPTS_URL . '/infobox.js', array( 'gmap' ), '', true );
     // wp_register_script('markerclusterer', SNTH_VENDORS_URL . '/gmap/js-marker-clusterer/markerclusterer.js', array( 'gmap' ), '', true );
 
     wp_register_script('gmapTheme', SNTH_SCRIPTS_URL . '/gmap.js', array( 'gmap3' ), SNTH_VERSION, true);

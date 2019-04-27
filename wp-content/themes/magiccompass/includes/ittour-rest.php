@@ -71,6 +71,29 @@ function ittour_rest_tour_info($request) {
     return $tour_info;
 }
 
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/search/', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_search',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_search($request) {
+    $search = ittour_search('ru');
+
+    // $search_result = $search->get($country_id, $args);
+
+    return 'search';
+
+    //return $search_result;
+}
+
 function ittour_check_permission($request) {
     $headers = $request->get_headers();
 
