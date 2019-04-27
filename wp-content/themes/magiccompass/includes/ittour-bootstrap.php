@@ -13,3 +13,4 @@ include_once SNTH_INCLUDES.'/ittour-api.php';
 include_once SNTH_INCLUDES.'/ittour-destinations.php';
 include_once SNTH_INCLUDES.'/ittour-ajax.php';
 include_once SNTH_INCLUDES.'/ittour-template-functions.php';
+include_once SNTH_INCLUDES.'/ittour-rest.php';

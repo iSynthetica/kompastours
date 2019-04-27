@@ -1,3 +1,4 @@
 .idea
 wp-config.php
 wp-content/themes/magiccompass/node_modules
+/help.txt
