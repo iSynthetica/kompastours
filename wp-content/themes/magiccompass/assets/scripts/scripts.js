@@ -34355,7 +34355,9 @@ S2.define('jquery.select2',[
         var adultAmount     = searchFormHolder.data('adult-amount');
         var childAmount     = searchFormHolder.data('child-amount');
         var childAge        = searchFormHolder.data('child-age');
-        var priceLimit        = searchFormHolder.data('price-limit');
+        var priceLimit      = searchFormHolder.data('price-limit');
+        var tourType        = searchFormHolder.data('tour-type');
+        var tourKind        = searchFormHolder.data('tour-kind');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -34374,7 +34376,9 @@ S2.define('jquery.select2',[
                 adultAmount: adultAmount,
                 childAmount: childAmount,
                 childAge: childAge,
-                priceLimit: priceLimit
+                priceLimit: priceLimit,
+                tourType: tourType,
+                tourKind: tourKind
             },
             success: function (response) {
                 var decoded;

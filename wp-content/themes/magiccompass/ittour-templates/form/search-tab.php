@@ -292,8 +292,6 @@ $search_steps = get_field('timeline_items', 493);
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="hotel_rating"><?php echo __('Transport Type', 'snthwp') ?>:</label>
-
                             <?php echo $form_fields['transport_types']; ?>
                         </div>
                     </div>

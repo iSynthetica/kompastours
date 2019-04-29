@@ -94,7 +94,7 @@ function ittour_get_form_fields($args = array()) {
         'regions' =>  ittour_get_region_field($params, $args),
         'hotels' =>  ittour_get_hotel_field($params, $args),
         'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
-        'transport_types' =>  ittour_get_transport_type_field($params),
+        'transport_types' =>  ittour_get_transport_type_field($args),
         'price_limit' =>  ittour_get_price_limit_field($args),
     );
 }
@@ -531,7 +531,7 @@ function ittour_get_price_limit_field($args = array()) {
             <label for="price_limit_custom"><?php echo __('Your variant'); ?></label>
         </li>
 
-        <li id="custom_price_limit_holder" <?php echo $is_custom ? '' : ' style="display:none;"' ?>>
+        <li id="custom_price_limit_holder"<?php echo $is_custom ? '' : ' style="display:none;"' ?>>
             <div class="row">
                 <div class="col-md-6">
                     <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm" type="text" value="<?php echo $price_from; ?>" style="width: 100%" placeholder="<?php echo __('from'); ?>">
@@ -546,21 +546,53 @@ function ittour_get_price_limit_field($args = array()) {
     return ob_get_clean();
 }
 
-function ittour_get_transport_type_field($params) {
+function ittour_get_transport_type_field($args = array()) {
     ob_start();
-    ?>
-    <ul class="form-list">
-        <?php
-        foreach ($params['transport_types'] as $transport_type) {
-            ?>
-            <li>
-                <label>
-                    <input class="iCheckGray" type="checkbox" value="<?php echo $transport_type['id'] ?>"> <?php echo $transport_type['name'] ?>*
-                </label>
-            </li>
-            <?php
+    $type = '';
+    $kind = '';
+
+    if (!empty($args['tourType'])) {
+        $type = $args['tourType'];
+
+        if (!empty($args['tourKind'])) {
+            $kind = $args['tourKind'];
         }
-        ?>
+    }
+    ?>
+    <label><?php echo __('Transport', 'snthwp') ?></label>
+
+    <ul class="form-list">
+        <li>
+            <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo '1' === $type ? ' checked' : ''; ?>>
+            <label for="tour_type_included"><?php echo __('Transport included'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo '2' === $type ? ' checked' : ''; ?>>
+            <label for="tour_type_excluded"><?php echo __('No transport'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_type_no" class="styled_1" name="tour_type" type="radio" value="" <?php echo '' === $type ? ' checked' : ''; ?>>
+            <label for="tour_type_no"><?php echo __('Doesn\'t metter'); ?></label>
+        </li>
+    </ul>
+
+    <ul class="form-list"<?php echo !empty($type) ? '' : ' style="display:none;"' ?>>
+        <li>
+            <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo '1' === $kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_flight"><?php echo __('Flight'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo '2' === $kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_bus"><?php echo __('Bus'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_kind_no" class="styled_1" name="tour_kind" type="radio" value=""<?php echo '' === $kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_no"><?php echo __('Doesn\'t metter'); ?></label>
+        </li>
     </ul>
     <?php
     return ob_get_clean();

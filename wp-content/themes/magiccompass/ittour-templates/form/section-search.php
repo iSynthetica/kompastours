@@ -25,6 +25,8 @@ if (!empty($adult_amount)) $form_data   .= ' data-adult-amount="'.$adult_amount.
 if (!empty($child_amount)) $form_data   .= ' data-child-amount="'.$child_amount.'"';
 if (!empty($child_age)) $form_data      .= ' data-child-age="'.$child_age.'"';
 if (!empty($price_limit)) $form_data    .= ' data-price-limit="'.$price_limit.'"';
+if (!empty($tour_type)) $form_data      .= ' data-tour-type="'.$tour_type.'"';
+if (!empty($tour_kind)) $form_data      .= ' data-tour-kind="'.$tour_kind.'"';
 ?>
 
 <section id="search-section">

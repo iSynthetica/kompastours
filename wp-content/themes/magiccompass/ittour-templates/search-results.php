@@ -29,6 +29,8 @@ $child_age = false;
 $price_limit = false;
 $price_from = false;
 $price_till = false;
+$tour_type = false;
+$tour_kind = false;
 
 $ittour_content = '';
 
@@ -114,6 +116,16 @@ if (!$country_id) {
         unset($_GET['search_page']);
     }
 
+    if (!empty($_GET['tour_type'])) {
+        $tour_type = $_GET['tour_type'];
+        $args['type'] = $tour_type;
+
+        if (!empty($_GET['tour_kind'])) {
+            $tour_kind = $_GET['tour_kind'];
+            $args['kind'] = $tour_kind;
+        }
+    }
+
     $url = http_build_query($_GET);
 
     $search = ittour_search('uk');
@@ -160,6 +172,8 @@ ittour_show_template('form/section-search.php', array(
     'child_amount'  => $child_amount,
     'child_age'     => $child_age,
     'price_limit'   => $price_limit,
+    'tour_type'     => $tour_type,
+    'tour_kind'     => $tour_kind,
 ));
 ?>
 
