@@ -102,15 +102,35 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
     $value = '';
 
     if (!empty($args)) {
+        if (empty($args['hotel']) && !empty($args['hotelRating'])) {
+            $hotel_name = '';
+
+            $hotel_rating_array = explode(':', $args['hotelRating']);
+
+            foreach ($hotel_rating_array as $key => $hotel_rating) {
+                $hotel_rating_array[$key] = ittour_get_hotel_number_rating_by_id($hotel_rating);
+            }
+
+            $hotel_name = implode(', ', $hotel_rating_array);
+
+            $value .= $hotel_name . ', ';
+        }
         if (!empty($args['hotel']) && !empty($country_params["hotels"])) {
             $hotel_name = '';
 
-            foreach ($country_params["hotels"] as $hotel) {
-                if ($hotel['id'] === $args['hotel']) {
-                    $hotel_name = $hotel['name'] . ' ' . ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']);
+            $hotel_array = explode(':', $args['hotel']);
 
-                    continue;
+            if (1 === count($hotel_array)) {
+                foreach ($country_params["hotels"] as $hotel) {
+                    if ($hotel['id'] === $hotel_array[0]) {
+                        $hotel_name = $hotel['name'] . ' ' . ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']);
+
+                        continue;
+                    }
                 }
+
+            } else {
+                $hotel_name = count($hotel_array) . ' ' . __('hotel(s)', 'snthwp');
             }
 
             $value .= $hotel_name . ', ';
@@ -370,6 +390,14 @@ function ittour_get_hotel_field($params, $args = array()) {
                 $show = true;
 
                 if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
+
+                if (!empty($args['hotelRating'])) {
+                    $hotel_ratings_array = explode(':', $args['hotelRating']);
+
+                    if (!in_array($hotel['hotel_rating_id'], $hotel_ratings_array)) {
+                        $show = false;
+                    }
+                }
 
                 if ($show) {
                     $selected = '';
