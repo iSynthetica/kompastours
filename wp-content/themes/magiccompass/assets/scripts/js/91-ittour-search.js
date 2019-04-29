@@ -163,23 +163,6 @@
         });
     });
 
-    $(document.body).on('change', '#price_limit_select input[type=\'radio\']', function() {
-        console.log('Changed price');
-        console.log($('#price_limit_select input[type=\'radio\']:checked').val());
-
-        var priceSelected = $('#price_limit_select input[type=\'radio\']:checked').val();
-
-        if ('custom' === priceSelected) {
-            $('#custom_price_limit_holder').show();
-            $('#price_limit_from').val('1000');
-            $('#price_limit_till').val('500000');
-        } else {
-            $('#custom_price_limit_holder').hide();
-            $('#price_limit_from').val('');
-            $('#price_limit_till').val('');
-        }
-    });
-
     /**
      * Get Destination summary
      */
@@ -387,28 +370,6 @@
         }
     }
 
-    function ittourUpdateHotelRating1() {
-        var hotelSelect = $('#hotel_select'),
-            selectedHotelVal = hotelSelect.find(":selected").val(),
-            selectedHotelRating = hotelSelect.find(":selected").data('hotel-rating');
-
-        var hotelRatingSelect = $('#hotel_rating_select');
-        var hotelRatings = hotelRatingSelect.find('input');
-
-        if ('' === selectedHotelVal) {
-            hotelRatings.each(function() {
-                $(this).prop('disabled', false).prop('checked', false);
-            });
-        } else {
-            hotelRatings.each(function() {
-                $(this).prop('disabled', true).prop('checked', false);
-            });
-
-            hotelRatingSelect.find('#hotel_rating_' + selectedHotelRating).prop('disabled', false).prop('checked', true);
-        }
-
-    }
-
     // ================================
     //  Guests
     // ================================
@@ -562,6 +523,44 @@
 
         datesDurationSummary.val(datesSelected + durationSelected);
     }
+
+    // ================================
+    //  Filter
+    // ================================
+    $(document.body).on('change', '#price_limit_select input[type=\'radio\']', function() {
+        console.log($('#price_limit_select input[type=\'radio\']:checked').val());
+
+        var priceSelected = $('#price_limit_select input[type=\'radio\']:checked').val();
+
+        if ('custom' === priceSelected) {
+            $('#custom_price_limit_holder').show();
+            $('#price_limit_from').val('1000');
+            $('#price_limit_till').val('500000');
+        } else {
+            $('#custom_price_limit_holder').hide();
+            $('#price_limit_from').val('');
+            $('#price_limit_till').val('');
+        }
+    });
+
+    $(document.body).on('change', '#tour_type_select input[type=\'radio\']', function() {
+        console.log('Changed transport');
+        console.log($('#tour_type_select input[type=\'radio\']:checked').val());
+
+        var typeSelected = $('#tour_type_select input[type=\'radio\']:checked').val();
+
+        if ('' === typeSelected) {
+            $('#tour_kind_select').hide();
+
+            $('#tour_kind_select input[type=\'radio\']').each(function () {
+                $(this).prop('checked', false);
+            });
+
+            $('#tour_kind_select input[value=\'\']').prop('checked', true);
+        } else {
+            $('#tour_kind_select').show();
+        }
+    });
 
 
     $(document).ready(function() {});

@@ -561,7 +561,7 @@ function ittour_get_transport_type_field($args = array()) {
     ?>
     <label><?php echo __('Transport', 'snthwp') ?></label>
 
-    <ul class="form-list">
+    <ul id="tour_type_select" class="form-list">
         <li>
             <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo '1' === $type ? ' checked' : ''; ?>>
             <label for="tour_type_included"><?php echo __('Transport included'); ?></label>
@@ -578,7 +578,7 @@ function ittour_get_transport_type_field($args = array()) {
         </li>
     </ul>
 
-    <ul class="form-list"<?php echo !empty($type) ? '' : ' style="display:none;"' ?>>
+    <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) ? '' : ' style="display:none;"' ?>>
         <li>
             <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo '1' === $kind ? ' checked' : ''; ?>>
             <label for="tour_kind_flight"><?php echo __('Flight'); ?></label>
