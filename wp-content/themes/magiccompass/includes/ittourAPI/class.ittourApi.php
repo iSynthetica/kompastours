@@ -8,7 +8,7 @@
 
 class ittourApi {
     protected $url = "https://api.ittour.com.ua/";
-    protected $token = "5fa3c045525ca5e214af37e1f6786766";
+    protected $token = "7aa2df955c46238ae4cdeb2d187f1158";
     protected $lang;
     protected $headers;
     protected $module;

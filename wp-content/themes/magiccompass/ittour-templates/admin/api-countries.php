@@ -17,6 +17,8 @@ if (is_wp_error($params)) {
     ?>
     <h3>ITTour Error</h3>
 
+    <h4><?php echo gethostbyname('kompas.tours'); ?></h4>
+
     <div class="notice notice-error inline">
         <p>
             ITTour Error: <strong><?php echo $params->errors['ittour_error'][0] ?></strong>
