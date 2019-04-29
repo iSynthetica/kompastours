@@ -120,7 +120,7 @@ if (!$country_id) {
         $tour_type = $_GET['tour_type'];
         $args['type'] = $tour_type;
 
-        if (!empty($_GET['tour_kind'])) {
+        if ('2' !== $tour_type && !empty($_GET['tour_kind'])) {
             $tour_kind = $_GET['tour_kind'];
             $args['kind'] = $tour_kind;
         }
@@ -143,6 +143,7 @@ if (!$country_id) {
         return;
     }
 
+    $template = 'no-sidebar';
     $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result, 'url' => $url));
 }
 ?>

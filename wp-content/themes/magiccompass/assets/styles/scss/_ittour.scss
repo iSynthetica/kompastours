@@ -176,6 +176,8 @@
         text-align: center;
         cursor: pointer;
         color: #51bce6;
+        font-size: rem-calc(12);
+
         &:hover {
             color: #333;
         }

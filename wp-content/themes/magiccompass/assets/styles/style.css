@@ -24269,7 +24269,8 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     display: block;
     text-align: center;
     cursor: pointer;
-    color: #51bce6; }
+    color: #51bce6;
+    font-size: 0.75rem; }
     .tour_list_container .more-offers__link:hover {
       color: #333; }
     .tour_list_container .more-offers__link .show-more-offers {

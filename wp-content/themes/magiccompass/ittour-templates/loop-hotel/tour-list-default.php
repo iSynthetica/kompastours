@@ -56,6 +56,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             }
             ?>
 
+            <hr>
+
             <div class="tour_list_details">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
@@ -66,12 +68,22 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <p>
-                            <i class="fas fa-plane-departure"></i>
                             <?php
-                            if (!empty($first_offer['from_city'])) {
-                                echo $first_offer['from_city'];
+                            if (2 === $first_offer['type']) {
+                                ?><i class="fas fa-plane"></i> <?php
+                                echo __('Not included', 'snthwp');
                             } else {
-                                echo __('Ask manager', 'snthwp');
+                                if ('bus' === $first_offer["transport_type"]) {
+                                    ?><i class="fas fa-bus"></i> <?php
+                                } else {
+                                    ?><i class="fas fa-plane"></i> <?php
+                                }
+
+                                if (!empty($first_offer['from_city'])) {
+                                    echo $first_offer['from_city'];
+                                } else {
+                                    echo __('Ask manager', 'snthwp');
+                                }
                             }
                             ?>
                         </p>
@@ -150,7 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <table class="table table-striped">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col"><?php echo __('Flight', 'snthwp'); ?></th>
+                                <th scope="col"><?php echo __('Transport', 'snthwp'); ?></th>
                                 <th scope="col"><?php echo __('Room Type', 'snthwp'); ?></th>
                                 <th scope="col"><?php echo __('Meal Type', 'snthwp'); ?></th>
                                 <th scope="col"><?php echo __('Guests / Nights', 'snthwp'); ?></th>
@@ -165,25 +177,39 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 ?>
                                 <tr>
                                     <td>
+                                        <?php echo $offer['date_from'] ?> <br>
                                         <?php
-                                        if (!empty($offer['from_city'] )) {
-                                            echo $offer['from_city'];
+
+                                        if (2 === $offer['type']) {
+                                            ?><i class="fas fa-plane"></i> <?php
+                                            echo __('Not included', 'snthwp');
                                         } else {
-                                            echo __('Flight city will be available soon', 'snthwp');
+                                            if ('bus' === $offer["transport_type"]) {
+                                                ?><i class="fas fa-bus"></i> <?php
+                                            } else {
+                                                ?><i class="fas fa-plane"></i> <?php
+                                            }
+
+                                            if (!empty($offer['from_city'])) {
+                                                echo $offer['from_city'];
+                                            } else {
+                                                echo __('Ask manager', 'snthwp');
+                                            }
                                         }
-                                        ?> -
-                                        <?php echo $offer['date_from'] ?>
+                                        ?>
                                     </td>
-                                    <td class="">
-                                        <?php echo $offer['room_type']; ?>
-                                    </td>
+
+                                    <td class=""><?php echo $offer['room_type']; ?></td>
+
                                     <td>
                                         <strong><?php echo $offer['meal_type']; ?></strong> (<?php echo $offer['meal_type_full']; ?>)
                                     </td>
+
                                     <td class="tour_list_more_guests">
                                         <?php echo ittour_get_guests_icon($hotel['adult_amount'], $hotel['child_amount']); ?> /
                                         <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
                                     </td>
+
                                     <td class="tour_list_more_price">
                                         <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
 

@@ -578,7 +578,7 @@ function ittour_get_transport_type_field($args = array()) {
         </li>
     </ul>
 
-    <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) ? '' : ' style="display:none;"' ?>>
+    <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) && '2' !== $type ? '' : ' style="display:none;"' ?>>
         <li>
             <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo '1' === $kind ? ' checked' : ''; ?>>
             <label for="tour_kind_flight"><?php echo __('Flight'); ?></label>

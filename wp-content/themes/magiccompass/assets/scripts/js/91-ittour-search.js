@@ -549,7 +549,7 @@
 
         var typeSelected = $('#tour_type_select input[type=\'radio\']:checked').val();
 
-        if ('' === typeSelected) {
+        if ('' === typeSelected || '2' === typeSelected) {
             $('#tour_kind_select').hide();
 
             $('#tour_kind_select input[type=\'radio\']').each(function () {
