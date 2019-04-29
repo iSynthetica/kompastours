@@ -69,7 +69,7 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
 }
 
 function ittour_get_form_fields($args = array()) {
-    $params_obj = ittour_params();
+    $params_obj = ittour_params('uk');
     $params = $params_obj->get();
 
     if (is_wp_error( $params )) {
@@ -95,6 +95,7 @@ function ittour_get_form_fields($args = array()) {
         'hotels' =>  ittour_get_hotel_field($params, $args),
         'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
         'transport_types' =>  ittour_get_transport_type_field($params),
+        'price_limit' =>  ittour_get_price_limit_field($args),
     );
 }
 
@@ -456,6 +457,90 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             <?php
         }
         ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_price_limit_field($args = array()) {
+    ob_start();
+    $selected = '';
+    $disabled = '';
+    $price_limit = !empty($args['priceLimit']) ? $args['priceLimit'] : '';
+    $is_custom = false;
+    $price_from = '';
+    $price_till = '';
+
+    if (!empty($price_limit)) {
+        $price_limit_array = explode(':', $price_limit);
+
+        if ('custom' === $price_limit_array[0]) {
+            $is_custom = true;
+            unset($price_limit_array[0]);
+
+            if (0 === count($price_limit_array)) {
+                $is_custom = false;
+                $price_limit = '';
+            } else {
+                foreach ($price_limit_array as $custom_price_limit) {
+                    $value = explode('-', $custom_price_limit);
+
+                    if ('f' === $value[0]) {
+                        $price_from = $value[1];
+                    }
+
+                    if ('t' === $value[0]) {
+                        $price_till = $value[1];
+                    }
+                }
+            }
+        }
+    }
+    ?>
+
+    <label><?php echo __('Price range', 'snthwp') ?> (<?php echo __('uah.', 'snthwp'); ?>)</label>
+
+    <ul id="price_limit_select" class="form-list">
+        <li>
+            <input id="price_limit_36000" class="styled_1" name="price_limit" type="radio" value="36000:"<?php echo '36000:' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_36000"><?php echo __('from'); ?> 36000 <?php echo __('and more'); ?></label>
+        </li>
+
+        <li>
+            <input id="price_limit_28000_36000" class="styled_1" name="price_limit" type="radio" value="28000:36000"<?php echo '28000:36000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_28000_36000"><?php echo __('from'); ?> 28000 - 36000</label>
+        </li>
+
+        <li>
+            <input id="price_limit_20000_28000" class="styled_1" name="price_limit" type="radio" value="20000:28000"<?php echo '20000:28000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_20000_28000"><?php echo __('from'); ?> 20000 - 28000</label>
+        </li>
+
+        <li>
+            <input id="price_limit_12000" class="styled_1" name="price_limit" type="radio" value=":12000"<?php echo ':12000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_12000"><?php echo __('till'); ?> 12000</label>
+        </li>
+
+        <li>
+            <input id="price_limit_no" class="styled_1" name="price_limit" type="radio" value=""<?php echo '' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_no"><?php echo __('Doesn\'t metter'); ?></label>
+        </li>
+
+        <li>
+            <input id="price_limit_custom" class="styled_1" name="price_limit" type="radio" value="custom"<?php echo $is_custom ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_custom"><?php echo __('Your variant'); ?></label>
+        </li>
+
+        <li id="custom_price_limit_holder" <?php echo $is_custom ? '' : ' style="display:none;"' ?>>
+            <div class="row">
+                <div class="col-md-6">
+                    <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm" type="text" value="<?php echo $price_from; ?>" style="width: 100%" placeholder="<?php echo __('from'); ?>">
+                </div>
+                <div class="col-md-6">
+                    <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm" type="text" value="<?php echo $price_till; ?>" style="width: 100%" placeholder="<?php echo __('till'); ?>">
+                </div>
+            </div>
+        </li>
     </ul>
     <?php
     return ob_get_clean();

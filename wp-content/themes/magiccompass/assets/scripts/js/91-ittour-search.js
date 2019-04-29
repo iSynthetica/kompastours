@@ -163,6 +163,23 @@
         });
     });
 
+    $(document.body).on('change', '#price_limit_select input[type=\'radio\']', function() {
+        console.log('Changed price');
+        console.log($('#price_limit_select input[type=\'radio\']:checked').val());
+
+        var priceSelected = $('#price_limit_select input[type=\'radio\']:checked').val();
+
+        if ('custom' === priceSelected) {
+            $('#custom_price_limit_holder').show();
+            $('#price_limit_from').val('1000');
+            $('#price_limit_till').val('500000');
+        } else {
+            $('#custom_price_limit_holder').hide();
+            $('#price_limit_from').val('');
+            $('#price_limit_till').val('');
+        }
+    });
+
     /**
      * Get Destination summary
      */
@@ -574,6 +591,7 @@
         var adultAmount     = searchFormHolder.data('adult-amount');
         var childAmount     = searchFormHolder.data('child-amount');
         var childAge        = searchFormHolder.data('child-age');
+        var priceLimit        = searchFormHolder.data('price-limit');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -591,7 +609,8 @@
                 nightTill: nightTill,
                 adultAmount: adultAmount,
                 childAmount: childAmount,
-                childAge: childAge
+                childAge: childAge,
+                priceLimit: priceLimit
             },
             success: function (response) {
                 var decoded;

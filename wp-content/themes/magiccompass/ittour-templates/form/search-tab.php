@@ -299,11 +299,11 @@ $search_steps = get_field('timeline_items', 493);
                     </div>
 
                     <div class="col-md-3">
-                        <p><?php echo __('Select adults, and childrens', 'snthwp') ?></p>
+                        <?php echo $form_fields['price_limit']; ?>
                     </div>
 
                     <div class="col-md-3">
-                        <p><?php echo __('Select adults, and childrens', 'snthwp') ?></p>
+
                     </div>
                 </div>
             </div>

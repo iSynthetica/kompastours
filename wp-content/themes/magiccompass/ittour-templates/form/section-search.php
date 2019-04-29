@@ -24,6 +24,7 @@ if (!empty($night_till)) $form_data     .= ' data-night-till="'.$night_till.'"';
 if (!empty($adult_amount)) $form_data   .= ' data-adult-amount="'.$adult_amount.'"';
 if (!empty($child_amount)) $form_data   .= ' data-child-amount="'.$child_amount.'"';
 if (!empty($child_age)) $form_data      .= ' data-child-age="'.$child_age.'"';
+if (!empty($price_limit)) $form_data    .= ' data-price-limit="'.$price_limit.'"';
 ?>
 
 <section id="search-section">

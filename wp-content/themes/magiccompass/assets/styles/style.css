@@ -24072,10 +24072,10 @@ a.social_bt.linkedin:before {
     padding: 5px 8px; } }
 
 /* END MEDIA QUERIES max-width 480px - MOBILE PORTRAIT  */
-input.styled_1[type="checkbox"] {
+input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   position: absolute;
   opacity: 0; }
-  input.styled_1[type="checkbox"] + label {
+  input.styled_1[type="checkbox"] + label, input.styled_1[type="radio"] + label {
     color: #545454;
     font-size: 0.875rem;
     position: relative;
@@ -24083,7 +24083,7 @@ input.styled_1[type="checkbox"] {
     padding: 0;
     margin-left: 0;
     margin-right: 0; }
-  input.styled_1[type="checkbox"] + label:before {
+  input.styled_1[type="checkbox"] + label:before, input.styled_1[type="radio"] + label:before {
     content: '';
     margin-right: 0.375rem;
     display: inline-block;
@@ -24091,7 +24091,7 @@ input.styled_1[type="checkbox"] {
     width: 1.0625rem;
     height: 1.0625rem;
     border: 1px solid #545454; }
-  input.styled_1[type="checkbox"]:hover + label:after {
+  input.styled_1[type="checkbox"]:hover + label:after, input.styled_1[type="radio"]:hover + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;
@@ -24099,7 +24099,7 @@ input.styled_1[type="checkbox"] {
     background: #545454;
     width: 0.8125rem;
     height: 0.8125rem; }
-  input.styled_1[type="checkbox"]:hover:disabled + label:after {
+  input.styled_1[type="checkbox"]:hover:disabled + label:after, input.styled_1[type="radio"]:hover:disabled + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;
@@ -24107,12 +24107,12 @@ input.styled_1[type="checkbox"] {
     background: transparent;
     width: 0.8125rem;
     height: 0.8125rem; }
-  input.styled_1[type="checkbox"]:disabled + label {
+  input.styled_1[type="checkbox"]:disabled + label, input.styled_1[type="radio"]:disabled + label {
     color: #BFBFBF;
     cursor: auto; }
-  input.styled_1[type="checkbox"]:disabled + label:before {
+  input.styled_1[type="checkbox"]:disabled + label:before, input.styled_1[type="radio"]:disabled + label:before {
     border: 1px solid #BFBFBF; }
-  input.styled_1[type="checkbox"]:checked + label:after {
+  input.styled_1[type="checkbox"]:checked + label:after, input.styled_1[type="radio"]:checked + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;

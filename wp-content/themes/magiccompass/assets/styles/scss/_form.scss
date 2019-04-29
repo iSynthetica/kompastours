@@ -1,5 +1,5 @@
 input {
-    &.styled_1[type="checkbox"] {
+    &.styled_1[type="checkbox"], &.styled_1[type="radio"] {
         position: absolute; // take it out of document flow
         opacity: 0; // hide it
 

@@ -26,6 +26,9 @@ $date_from = false;
 $date_till = false;
 $child_amount = false;
 $child_age = false;
+$price_limit = false;
+$price_from = false;
+$price_till = false;
 
 $ittour_content = '';
 
@@ -75,6 +78,36 @@ if (!$country_id) {
         $child_age = implode(':', $_GET['child_amount']);
     }
 
+    if (!empty($_GET['price_limit'])) {
+        if ('custom' === $_GET['price_limit']) {
+            $price_from = !empty($_GET["price_limit_from"]) ? $_GET["price_limit_from"] : false;
+            $price_till = !empty($_GET["price_limit_till"]) ? $_GET["price_limit_till"] : false;
+
+            if ($price_from || $price_till) {
+                $price_limit = 'custom';
+
+                if ($price_from) $price_limit .= ':f-' . $price_from;
+                if ($price_till) $price_limit .= ':t-' . $price_till;
+            }
+
+        } else {
+            $price_limit_array = explode(':', $_GET['price_limit']);
+
+            $price_from = !empty($price_limit_array[0]) ? $price_limit_array[0] : false;
+            $price_till = !empty($price_limit_array[1]) ? $price_limit_array[1] : false;
+
+            $price_limit = $_GET['price_limit'];
+        }
+    }
+
+    if ($price_from) {
+        $args['price_from'] = $price_from;
+    }
+
+    if ($price_till) {
+        $args['price_till'] = $price_till;
+    }
+
     if (!empty($_GET['search_page'])) {
         $page = $_GET['search_page'];
         $args['page'] = $_GET['search_page'];
@@ -83,7 +116,7 @@ if (!$country_id) {
 
     $url = http_build_query($_GET);
 
-    $search = ittour_search('ru');
+    $search = ittour_search('uk');
     $search_result = $search->get($country_id, $args);
 
     if (is_wp_error($search_result)) {
@@ -126,6 +159,7 @@ ittour_show_template('form/section-search.php', array(
     'adult_amount'  => $adult_amount,
     'child_amount'  => $child_amount,
     'child_age'     => $child_age,
+    'price_limit'   => $price_limit,
 ));
 ?>
 
