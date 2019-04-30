@@ -53,6 +53,7 @@
 
     $(document.body).on('click', '.ittour-add-region', function() {
         var button = $(this);
+        var postId = button.data('post-id');
         var parentId = button.data('parent-id');
         var ittourId = button.data('ittour-id');
         var ittourName = button.data('ittour-name');
@@ -65,6 +66,7 @@
             method: 'post',
             data: {
                 action: 'ittour_ajax_admin_add_region',
+                postId: postId,
                 parentId: parentId,
                 ittourId: ittourId,
                 ittourName: ittourName,

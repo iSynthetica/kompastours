@@ -26,10 +26,10 @@ function ittour_search($lang = 'ru') {
     return new ittourSearchApi($lang);
 }
 
-function ittour_tour($lang = 'ru') {
+function ittour_tour($key, $lang = 'ru') {
     ittour_api_init();
 
     include_once ITTOUR_DIR . '/class.ittourTourApi.php';
 
-    return new ittourTourApi($lang);
+    return new ittourTourApi($key, $lang);
 }

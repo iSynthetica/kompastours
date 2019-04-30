@@ -251,6 +251,7 @@ add_action( 'wp_ajax_ittour_ajax_admin_add_country', 'ajax_admin_add_country' );
 function ajax_admin_add_region() {
 
     $ittour_id = !empty($_POST['ittourId']) ? $_POST['ittourId'] : false;
+    $post_id = !empty($_POST['postId']) ? $_POST['postId'] : false;
     $parent_id = !empty($_POST['parentId']) ? $_POST['parentId'] : false;
     $ittour_name = !empty($_POST['ittourName']) ? $_POST['ittourName'] : false;
     $ittour_country_id = !empty($_POST['ittourCountryId']) ? $_POST['ittourCountryId'] : false;
@@ -278,7 +279,11 @@ function ajax_admin_add_region() {
         wp_die();
     }
 
-    $post_id = ittour_create_region($ittour_name, $ittour_slug, $ittour_id, $ittour_type, $ittour_country_id, $parent_id);
+    if ($post_id) {
+        $post_created = ittour_update_region($post_id, $ittour_name, $ittour_slug, $ittour_id, $ittour_type, $ittour_country_id, $parent_id);
+    } else {
+        $post_created = ittour_create_region($ittour_name, $ittour_slug, $ittour_id, $ittour_type, $ittour_country_id, $parent_id);
+    }
 
     $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));
 

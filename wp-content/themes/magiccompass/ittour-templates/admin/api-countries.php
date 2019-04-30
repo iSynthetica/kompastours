@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 $countries_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('country');
 
-$params_obj = ittour_params('ru');
+$params_obj = ittour_params('uk');
 $params = $params_obj->get();
 
 if (is_wp_error($params)) {
@@ -77,7 +77,7 @@ $countries_en = $params_en['countries'];
                 $country_name_en = $country_en['name'];
                 $country_name_en_array = explode(',', $country_name_en);
                 $countries_en_count = count($country_name_en_array) - 1;
-                $country_slug = sanitize_title( $country_name_en_array[$countries_en_count] );
+                $country_slug = snth_get_slug_lat( $country_name_en_array[$countries_en_count] );
 
                 unset($countries_en[$key]);
             }

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $countries_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('country');
 $regions_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('region');
 
-$params_obj = ittour_params('ru');
+$params_obj = ittour_params('uk');
 $params = $params_obj->get();
 $countries = $params['countries'];
 $countries_by_id = array();
@@ -148,7 +148,8 @@ $regions_en = $params_en['regions'];
                         if (!empty($destination_site_modified)) {
                             ?>
                             <button
-                                    class="button-primary button-small ittour-update-region"
+                                    class="button-primary button-small ittour-add-region"
+                                    data-post-id="<?php echo $destination_site_id ?>"
                                     data-parent-id="<?php echo $parent_post_ID ?>"
                                     data-ittour-id="<?php echo $destination_id ?>"
                                     data-ittour-name="<?php echo $destination_name ?>"
