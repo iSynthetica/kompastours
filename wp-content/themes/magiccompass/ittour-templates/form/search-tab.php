@@ -61,7 +61,7 @@ $search_steps = get_field('timeline_items', 493);
                                     <i class="fas fa-sliders-h"></i>
                                 </button>
 
-                                <button id="start_search" class="search-btn btn_1 green" type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
+                                <button id="start_search" class="search-btn btn_1" type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
                             </div>
                         </div>
                     </div>

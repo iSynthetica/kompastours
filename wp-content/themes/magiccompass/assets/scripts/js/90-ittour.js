@@ -64,7 +64,6 @@
                 if( response.status === 'error') {
 
                 } else {
-                    console.log(response.message);
                     container.html(response.message);
                 }
 

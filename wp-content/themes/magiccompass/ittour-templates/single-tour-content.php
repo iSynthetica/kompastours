@@ -30,6 +30,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                     <ul class="tour-details-list">
                         <?php
+                        if (!empty($tour_info["date_from"])) {
+                            ?>
+                            <li>
+                                <i class="far fa-calendar-alt list-item-icon"></i>
+                                <small><?php _e('Start date', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["date_from"] ?></strong>
+                            </li>
+                            <?php
+                        }
+
                         if (!empty($tour_info["duration"])) {
                             ?>
                             <li>
@@ -60,22 +70,31 @@ if ( ! defined( 'ABSPATH' ) ) {
                             <?php
                         }
 
-                        if (!empty($tour_info["from_city"])) {
+                        if (!empty($tour_info["transport_type"])) {
                             ?>
                             <li>
-                                <i class="fas fa-plane-departure list-item-icon"></i>
-                                <small><?php _e('Flight from', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["from_city"] ?></strong>
+                                <?php
+                                if ('flight' === $tour_info["transport_type"]) {
+                                    $transport = __('Plane', 'snthwp');
+                                    ?><i class="fas fa-plane list-item-icon"></i><?php
+                                } else {
+                                    $transport = __('Bus', 'snthwp');
+                                    ?><i class="fas fa-bus list-item-icon"></i><?php
+                                }
+                                ?>
+
+                                <small><?php _e('Transport', 'snthwp'); ?>:</small>
+                                <strong><?php echo $transport; ?></strong>
                             </li>
                             <?php
                         }
 
-                        if (!empty($tour_info["date_from"])) {
+                        if (!empty($tour_info["from_city"])) {
                             ?>
                             <li>
-                                <i class="far fa-calendar-alt list-item-icon"></i>
-                                <small><?php _e('Start date', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["date_from"] ?></strong>
+                                <i class="fas fa-map-pin list-item-icon"></i>
+                                <small><?php _e('Departure from', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["from_city"] ?></strong>
                             </li>
                             <?php
                         }
@@ -167,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="single_tour_tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
+            <a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
@@ -181,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="home-tab">
             <?php
             $template_args = array(
                 'country' => $tour_info["country_id"],

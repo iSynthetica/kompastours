@@ -126,7 +126,6 @@
     });
 
     $(document.body).on('change', '#hotel_rating_select input', function() {
-        console.log('change #hotel_rating_select input');
         var selectedRatingsCount = $( "#hotel_rating_select input:checked" ).length;
 
         if (0 === selectedRatingsCount) {
@@ -182,9 +181,6 @@
         $( "#hotel_rating_select input:checked" ).each(function () {
             selectedHotelRatings.push($(this).val());
         });
-
-        console.log(selectedHotels);
-        console.log(selectedHotelRatings);
 
         var destinationSummary = $('#destination_summary');
 
@@ -356,14 +352,9 @@
         var hotelRatingSelect = $('#hotel_rating_select');
         var hotelRatings = hotelRatingSelect.find('input');
 
-        console.log(selectedHotelRatings);
-
         $.each(selectedHotelRatings, function(index, value) {
             hotelRatingSelect.find('#hotel_rating_' + value).prop('disabled', false).prop('checked', true);
         });
-
-        console.log('Rating changed:');
-        console.log(isRatingChanged);
 
         if (isRatingChanged) {
             $( '#hotel_rating_select input' ).trigger( 'change' );
@@ -528,7 +519,6 @@
     //  Filter
     // ================================
     $(document.body).on('change', '#price_limit_select input[type=\'radio\']', function() {
-        console.log($('#price_limit_select input[type=\'radio\']:checked').val());
 
         var priceSelected = $('#price_limit_select input[type=\'radio\']:checked').val();
 
@@ -544,9 +534,6 @@
     });
 
     $(document.body).on('change', '#tour_type_select input[type=\'radio\']', function() {
-        console.log('Changed transport');
-        console.log($('#tour_type_select input[type=\'radio\']:checked').val());
-
         var typeSelected = $('#tour_type_select input[type=\'radio\']:checked').val();
 
         if ('' === typeSelected || '2' === typeSelected) {
