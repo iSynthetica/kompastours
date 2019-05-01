@@ -203,8 +203,6 @@ function ittour_ajax_load_tours_table() {
         $from_city,
         $hotel,
         $hotel_rating,
-        $night_from,
-        $night_till,
         $date_from,
         $date_till,
         $args

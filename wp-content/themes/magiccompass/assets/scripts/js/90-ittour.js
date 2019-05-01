@@ -86,6 +86,8 @@
             var hotelRating = tourTableContainer.data('hotel-rating');
             var adultAmount = tourTableContainer.data('adult-amount');
             var childAmount = tourTableContainer.data('child-amount');
+            var dateFrom = tourTableContainer.data('date-from');
+            var dateTill = tourTableContainer.data('date-till');
 
             $.ajax({
                 url: snthWpJsObj.ajaxurl,
@@ -100,7 +102,9 @@
                     adultAmount: adultAmount,
                     childAmount: childAmount,
                     type: type,
-                    kind: kind
+                    kind: kind,
+                    dateFrom: dateFrom,
+                    dateTill: dateTill
                 },
                 success: function (response) {
                     var decoded;

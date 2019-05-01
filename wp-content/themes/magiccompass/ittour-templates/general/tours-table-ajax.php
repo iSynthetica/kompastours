@@ -32,6 +32,8 @@ if (!empty($hotel)) $tours_table_data .= ' data-hotel="'.$hotel.'"';
 if (!empty($hotel_rating)) $tours_table_data .= ' data-hotel-rating="'.$hotel_rating.'"';
 if (!empty($type)) $tours_table_data .= ' data-tour-type="'.$type.'"';
 if (!empty($kind)) $tours_table_data .= ' data-tour-kind="'.$kind.'"';
+if (!empty($date_from)) $tours_table_data .= ' data-date-from="'.$date_from.'"';
+if (!empty($date_till)) $tours_table_data .= ' data-date-till="'.$date_till.'"';
 ?>
 
 <div id="tours-table-ajax__container"<?php echo $tours_table_data; ?>>

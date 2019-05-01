@@ -1020,14 +1020,12 @@ function ittour_get_tours_table(
     $from_city,
     $hotel,
     $hotel_rating,
-    $night_from,
-    $night_till,
     $date_from,
     $date_till,
     $args = array()
 ) {
     $args = wp_parse_args( $args, array(
-        'prices_in_group' => 30,
+        'prices_in_group' => 60,
         'currency' => 1,
     ) );
 
@@ -1042,6 +1040,16 @@ function ittour_get_tours_table(
 
         $date_from = date('d.m.y', $timestamp_from);
         $date_till = date('d.m.y', $timestamp_till);
+        $args['date_from'] = $date_from;
+        $args['date_till'] = $date_till;
+    } else {
+        $date_from_obj = date_create_from_format('d.m.y', $date_from);
+        $date_till_obj = date_create_from_format('d.m.y', $date_till);
+
+        $date_range = (int) $date_till_obj->diff($date_from_obj)->format("%a") + 1;
+
+        $timestamp_from = $date_from_obj->getTimestamp();
+
         $args['date_from'] = $date_from;
         $args['date_till'] = $date_till;
     }
@@ -1063,7 +1071,7 @@ function ittour_get_tours_table(
         'ids'   => array()
     );
 
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < $date_range; $i++) {
         $date_item_timestamp = $timestamp_from + ($i * 24 * 60 * 60);
         $date_item = date('Y-m-d', $date_item_timestamp);
         $sort_date_array[$date_item] = array();
@@ -1419,5 +1427,30 @@ function ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, 
 
     return array(
         'table_html' => $table_html
+    );
+}
+
+/**
+ * @param string $date in format 'd.m.y'
+ * @param int $date_range
+ *
+ * @return array
+ */
+function ittour_get_date_range($date, $date_range = 2) {
+    $date_obj = date_create_from_format('d.m.y', $date);
+    $date = $date_obj->getTimestamp();
+    $tomorrow = mktime(0, 0, 0, date('m'), date('d') + 1, date('Y'));
+
+    if ($tomorrow >= ($date - ($date_range * 60 * 60 * 24))) {
+        $date_from = $tomorrow;
+        $date_till = $date_from + ($date_range * 60 * 60 * 24);
+    } else {
+        $date_from = $date - ($date_range * 60 * 60 * 24);
+        $date_till = $date + ($date_range * 60 * 60 * 24);
+    }
+
+    return array(
+        'date_from' => date('d.m.y', $date_from),
+        'date_till' => date('d.m.y', $date_till)
     );
 }

@@ -27,9 +27,10 @@ $search_steps = get_field('timeline_items', 493);
             <div id="select-from-city__holder">
                 <select class="form-control" name="from_city" id="from_city">
                     <?php
+                    $from_city = !empty($args['fromCity']) ? $args['fromCity'] : '2014';
                     foreach ($from_cities_array as $id => $city) {
                         ?>
-                        <option value="<?php echo $id; ?>"<?php echo $id == 2014 ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
+                        <option value="<?php echo $id; ?>"<?php echo $id == $from_city ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
                         <?php
                     }
                     ?>

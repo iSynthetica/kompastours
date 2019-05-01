@@ -209,6 +209,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                 'hotel_rating' => $tour_info["hotel_rating"],
             );
 
+            if (!empty($tour_info['date_from'])) {
+                $date_obj = date_create_from_format('Y-m-d', $tour_info['date_from']);
+                $tour_date = date_format($date_obj, 'd.m.y');
+
+                $date_range = ittour_get_date_range($tour_date, 2);
+
+                $template_args['date_from'] = $date_range["date_from"];
+                $template_args['date_till'] = $date_range["date_till"];
+            }
+
             if (!empty($tour_info["type"])) {
                 $template_args['type'] = $tour_info["type"];
 

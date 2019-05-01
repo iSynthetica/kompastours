@@ -7284,6 +7284,51 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
+/* =====================================
+   1. Theme Color
+   ===================================== */
+.bg-theme-color {
+  background-color: #41A8BF; }
+
+.bg-theme-alt-color {
+  background-color: #A29F15; }
+
+.bg-black-color {
+  background-color: #0a0a0a; }
+
+.bg-dark-gray-color {
+  background-color: #4b4b4b; }
+
+.bg-medium-gray-color {
+  background-color: #818181; }
+
+.bg-light-gray-color {
+  background-color: #cecece; }
+
+.bg-white-color {
+  background-color: #fefefe; }
+
+.txt-theme-color {
+  color: #41A8BF; }
+
+.txt-theme-alt-color {
+  color: #A29F15; }
+
+.txt-black-color {
+  color: #0a0a0a; }
+
+.txt-dark-gray-color {
+  color: #4b4b4b; }
+
+.txt-medium-gray-color {
+  color: #818181; }
+
+.txt-light-gray-color {
+  color: #cecece; }
+
+.txt-white-color {
+  color: #fefefe; }
+
 /* Fontawesome */
 /*!
  * Font Awesome Free 5.8.1 by @fontawesome - https://fontawesome.com
@@ -18460,10 +18505,10 @@ a.btn_1, .btn_1 {
   font-weight: bold; }
 
 a.btn_1.green, .btn_1.green {
-  background: rgba(164, 252, 200, 0.53); }
+  background: #7db594; }
 
 a.btn_1.white, .btn_1.white {
-  background: #FFFFFF;
+  background: #fefefe;
   color: #e04f67; }
 
 a.btn_1.white:hover, .btn_1.white a:hover {
@@ -20609,11 +20654,11 @@ input.qty2 {
     text-align: center;
     border: none;
     font-size: 0.6875rem;
-    color: #FFFFFF;
-    background-color: rgba(164, 252, 200, 0.53);
+    color: #fefefe;
+    background-color: #7db594;
     transition: all 0.5s; }
     .numbers-alt .buttons_inc:hover {
-      background-color: rgba(125, 251, 176, 0.53); }
+      background-color: #63a67f; }
   .numbers-alt.numbers-gor {
     width: 80px; }
     .numbers-alt.numbers-gor input[type="number"] {
@@ -21284,9 +21329,9 @@ ul.plan-features {
     .pricing-table .pricing-table-header .price-value {
       background: #fff; }
   .pricing-table .pricing-table-space {
-    background: #FFFFFF; }
+    background: #fefefe; }
   .pricing-table .pricing-table-features {
-    background: #FFFFFF; }
+    background: #fefefe; }
     .pricing-table .pricing-table-features p {
       padding: 10px 20px;
       text-align: center;
@@ -24076,7 +24121,7 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   position: absolute;
   opacity: 0; }
   input.styled_1[type="checkbox"] + label, input.styled_1[type="radio"] + label {
-    color: #545454;
+    color: #4b4b4b;
     font-size: 0.875rem;
     position: relative;
     cursor: pointer;
@@ -24090,13 +24135,13 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     vertical-align: text-top;
     width: 1.0625rem;
     height: 1.0625rem;
-    border: 1px solid #545454; }
+    border: 1px solid #4b4b4b; }
   input.styled_1[type="checkbox"]:hover + label:after, input.styled_1[type="radio"]:hover + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;
     top: 0.25rem;
-    background: #545454;
+    background: #4b4b4b;
     width: 0.8125rem;
     height: 0.8125rem; }
   input.styled_1[type="checkbox"]:hover:disabled + label:after, input.styled_1[type="radio"]:hover:disabled + label:after {
@@ -24108,16 +24153,16 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     width: 0.8125rem;
     height: 0.8125rem; }
   input.styled_1[type="checkbox"]:disabled + label, input.styled_1[type="radio"]:disabled + label {
-    color: #BFBFBF;
+    color: #cecece;
     cursor: auto; }
   input.styled_1[type="checkbox"]:disabled + label:before, input.styled_1[type="radio"]:disabled + label:before {
-    border: 1px solid #BFBFBF; }
+    border: 1px solid #cecece; }
   input.styled_1[type="checkbox"]:checked + label:after, input.styled_1[type="radio"]:checked + label:after {
     content: '';
     position: absolute;
     left: 0.125rem;
     top: 0.25rem;
-    background: #545454;
+    background: #4b4b4b;
     width: 0.8125rem;
     height: 0.8125rem; }
 
@@ -24496,14 +24541,14 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
       padding-right: 5px;
       padding-left: 5px; }
       #search-form-main__holder .search-summary__row .search-summary__col .form-control[readonly] {
-        background-color: #FFFFFF; }
+        background-color: #fefefe; }
       #search-form-main__holder .search-summary__row .search-summary__col .form-control[disabled] {
         background-color: #e6e6e6;
         color: #b2b2b2; }
       #search-form-main__holder .search-summary__row .search-summary__col .input-group > .input-group-prepend > .btn {
-        background-color: rgba(164, 252, 200, 0.53);
-        color: #FFFFFF;
-        border: 1px solid #FFFFFF;
+        background-color: #7db594;
+        color: #fefefe;
+        border: 1px solid #fefefe;
         width: 2.5rem;
         padding-left: 0.3125rem;
         padding-right: 0.3125rem; }
@@ -24535,9 +24580,9 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     padding: 0;
     top: 0;
     left: 0;
-    background-color: #FFFFFF;
-    color: rgba(164, 252, 200, 0.53);
-    border-color: rgba(164, 252, 200, 0.53); }
+    background-color: #fefefe;
+    color: #7db594;
+    border-color: #7db594; }
     #search-form-main__holder #filter_options:disabled {
       opacity: 1;
       background-color: #cccccc;
@@ -24605,7 +24650,7 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   #search-form-main__holder #filter_options {
     font-size: 1.125rem;
     line-height: 1.5625rem;
-    color: #545454;
+    color: #4b4b4b;
     width: 1.5625rem;
     height: 1.5625rem; } }
 
@@ -24733,9 +24778,9 @@ ul.cbp_tmtimeline {
   background-color: transparent; }
 
 .child_amount_holder .btn-create {
-  background-color: rgba(164, 252, 200, 0.53);
-  border-color: rgba(164, 252, 200, 0.53);
-  color: #FFFFFF; }
+  background-color: #7db594;
+  border-color: #7db594;
+  color: #fefefe; }
 
 .child_amount_holder .btn-delete {
   border-color: #e04f67;
