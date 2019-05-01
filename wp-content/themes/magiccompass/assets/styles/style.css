@@ -24180,6 +24180,27 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   position: relative;
   overflow: hidden; }
 
+#single-tour-main-info__container .table-summary_holder {
+  padding: 0.625rem; }
+
+#single-tour-main-info__container .tour_price {
+  line-height: 1.5rem;
+  text-align: right;
+  font-size: 1.375rem;
+  color: #e74c3c; }
+  #single-tour-main-info__container .tour_price small {
+    font-size: 1.125rem; }
+
+#single-tour-main-info__container .tour_price_currency {
+  line-height: 1.125rem;
+  text-align: right;
+  font-size: 1rem;
+  color: #777; }
+  #single-tour-main-info__container .tour_price_currency sup {
+    font-size: 0.75rem;
+    position: relative;
+    top: -0.25rem; }
+
 /* Tours boxes*/
 .tour_container {
   background-color: #fff;

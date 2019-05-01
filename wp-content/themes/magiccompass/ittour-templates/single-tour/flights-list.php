@@ -1,11 +1,17 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: snth
- * Date: 20.09.18
- * Time: 16:27
+ * Flights List Template.
+ *
+ * @package WordPress
+ * @subpackage Magiccompass/Parts/Destination
+ * @version 0.0.8
+ * @since 0.0.8
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
+
+<hr>
 
 <h3><?php _e('Flights', 'snthwp'); ?></h3>
 

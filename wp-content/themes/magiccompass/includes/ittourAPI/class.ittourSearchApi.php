@@ -23,9 +23,9 @@ class ittourSearchApi extends ittourApi {
         $now = $endDate = time();
 
         $this->date_from = date('d.m.y', strtotime('+1 day', $now));
-        $this->date_till = date('d.m.y', strtotime('+7 days', $now));
+        $this->date_till = date('d.m.y', strtotime('+11 days', $now));
         $this->night_from = 7;
-        $this->night_till = 10;
+        $this->night_till = 9;
         $this->from_city = 2014;
         $this->adult_amount = 2;
         $this->hotel_rating = '78:4';

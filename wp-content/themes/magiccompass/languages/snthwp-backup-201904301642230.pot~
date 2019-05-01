@@ -1,0 +1,842 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Magiccompass\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-30 15:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.2.2; wp-5.1.1"
+
+#: searchform.php:21
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: parts/archive.php:29 includes/content-templates.php:17
+msgid "Blog"
+msgstr ""
+
+#: ittour-templates/search-results.php:136
+msgid "Search Error"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:29
+msgid "Tour price includes"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:37
+msgid "Tour duration"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:38
+#: includes/ittour-template-functions.php:199
+#: includes/ittour-template-functions.php:205 includes/enqueue-scripts.php:53
+#: ittour-templates/form/search-tab.php:181
+#: ittour-templates/loop-hotel/part-offers.php:21
+msgid "nights"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:47
+msgid "Meal type"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:57
+msgid "Room type"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:67
+msgid "Flight from"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:77
+msgid "Flight date"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:143
+msgid "Hotel Description"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:146
+msgid "Location"
+msgstr ""
+
+#: includes/cleanup.php:109
+msgid "Read"
+msgstr ""
+
+#: includes/cleanup.php:109
+msgid "... Read more &raquo;"
+msgstr ""
+
+#: includes/cleanup.php:148
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: includes/theme-support.php:62
+msgid "Theme General Settings"
+msgstr ""
+
+#: includes/theme-support.php:63
+msgid "Theme settings"
+msgstr ""
+
+#: includes/admin.php:14 includes/admin.php:56
+msgid "ITTour Settings"
+msgstr ""
+
+#: includes/admin.php:15
+msgid "ITTour"
+msgstr ""
+
+#: includes/admin.php:25
+msgid "ITTour Countries Settings"
+msgstr ""
+
+#: includes/admin.php:26
+msgid "Countries"
+msgstr ""
+
+#: includes/admin.php:34
+msgid "ITTour Regions Settings"
+msgstr ""
+
+#: includes/admin.php:35
+msgid "Regions"
+msgstr ""
+
+#: includes/admin.php:43
+msgid "ITTour Hotels Settings"
+msgstr ""
+
+#: includes/admin.php:44
+msgid "Hotels"
+msgstr ""
+
+#: includes/admin.php:66
+msgid "ITTour Countries"
+msgstr ""
+
+#: includes/admin.php:76
+msgid "ITTour Regions"
+msgstr ""
+
+#: includes/admin.php:86
+msgid "ITTour Hotels"
+msgstr ""
+
+#: includes/ittour-template-functions.php:134
+msgid "hotel(s)"
+msgstr ""
+
+#: includes/ittour-template-functions.php:178
+msgid "Select Destination *"
+msgstr ""
+
+#: includes/ittour-template-functions.php:222
+msgid "Dates / Duration *"
+msgstr ""
+
+#: includes/ittour-template-functions.php:251
+#: ittour-templates/form/search-select-child-amount.php:28
+msgid "y"
+msgstr ""
+
+#: includes/ittour-template-functions.php:270
+msgid "Guests"
+msgstr ""
+
+#: includes/ittour-template-functions.php:360 includes/enqueue-scripts.php:54
+msgid "Select country first"
+msgstr ""
+
+#: includes/ittour-template-functions.php:501
+msgid "Price range"
+msgstr ""
+
+#: includes/ittour-template-functions.php:501
+#: includes/ittour-template-functions.php:1131
+#: ittour-templates/loop-hotel/tour-list-default.php:113
+#: ittour-templates/loop-hotel/tour-list-default.php:214
+msgid "uah."
+msgstr ""
+
+#: includes/ittour-template-functions.php:562
+#: ittour-templates/loop-hotel/tour-list-default.php:165
+msgid "Transport"
+msgstr ""
+
+#: includes/ittour-template-functions.php:669
+msgid "Free WiFi"
+msgstr ""
+
+#: includes/ittour-template-functions.php:811
+msgid "Meal"
+msgstr ""
+
+#: includes/ittour-template-functions.php:826
+msgid "Pool"
+msgstr ""
+
+#: includes/ittour-template-functions.php:841
+msgid "Beach"
+msgstr ""
+
+#: includes/ittour-template-functions.php:856
+msgid "Sport"
+msgstr ""
+
+#: includes/ittour-template-functions.php:871
+#: ittour-templates/loop-hotel/part-price.php:15
+msgid "Children"
+msgstr ""
+
+#: includes/ittour-template-functions.php:891
+msgid "USD"
+msgstr ""
+
+#: includes/ittour-template-functions.php:894
+msgid "UAH"
+msgstr ""
+
+#: includes/ittour-template-functions.php:897
+msgid "EUR"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1082
+#: ittour-templates/loop-hotel/tour-list-default.php:166
+msgid "Room Type"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1083
+#: ittour-templates/loop-hotel/tour-list-default.php:167
+msgid "Meal Type"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1084
+#: ittour-templates/loop-hotel/tour-list-default.php:168
+msgid "Guests / Nights"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1085
+#: ittour-templates/single-tour/price.php:12
+#: ittour-templates/loop-hotel/tour-list-default.php:169
+msgid "Price"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1125
+#: ittour-templates/loop-hotel/tour-list-default.php:128
+#: ittour-templates/loop-hotel/tour-list-default.php:210
+msgid "Nights"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1136
+#: ittour-templates/loop-hotel/tour-list-default.php:137
+#: ittour-templates/loop-hotel/tour-list-default.php:219
+msgid "Details"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1201
+#: parts/destination/hotel-calendar.php:38
+msgid "Monday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1202
+#: parts/destination/hotel-calendar.php:39
+msgid "Tuesday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1203
+#: parts/destination/hotel-calendar.php:40
+msgid "Wednesday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1204
+#: parts/destination/hotel-calendar.php:41
+msgid "Thursday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1205
+#: parts/destination/hotel-calendar.php:42
+msgid "Friday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1206
+#: parts/destination/hotel-calendar.php:43
+msgid "Saturday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1207
+#: parts/destination/hotel-calendar.php:44
+msgid "Sunday"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1225
+msgid "Today"
+msgstr ""
+
+#: includes/ittour-template-functions.php:1238
+#: parts/destination/hotel-calendar.php:76
+#: ittour-templates/search/ajax-result.php:43
+msgid "from"
+msgstr ""
+
+#: includes/content-templates.php:16
+msgid "Home"
+msgstr ""
+
+#: includes/content-templates.php:19
+#, php-format
+msgid "Posts tagged with \"%s\""
+msgstr ""
+
+#: includes/content-templates.php:20
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: includes/content-templates.php:261
+msgid "<i class=\"fas fa-angle-left\"></i>"
+msgstr ""
+
+#: includes/content-templates.php:262
+msgid "<i class=\"fas fa-angle-right\"></i>"
+msgstr ""
+
+#: includes/enqueue-scripts.php:55
+msgid "Select country"
+msgstr ""
+
+#: includes/enqueue-scripts.php:56
+msgid "Select region"
+msgstr ""
+
+#: includes/enqueue-scripts.php:57
+msgid "Select hotel"
+msgstr ""
+
+#: includes/cpt.php:14
+msgctxt "Post Type General Name"
+msgid "Destinations"
+msgstr ""
+
+#: includes/cpt.php:15
+msgctxt "Post Type Singular Name"
+msgid "Destination"
+msgstr ""
+
+#: includes/cpt.php:16
+msgid "Destinations"
+msgstr ""
+
+#: includes/cpt.php:17 includes/cpt.php:49
+msgid "Destination"
+msgstr ""
+
+#: includes/cpt.php:18
+msgid "Destination Archives"
+msgstr ""
+
+#: includes/cpt.php:19
+msgid "Destination Attributes"
+msgstr ""
+
+#: includes/cpt.php:20
+msgid "Parent Destination:"
+msgstr ""
+
+#: includes/cpt.php:21
+msgid "All Destinations"
+msgstr ""
+
+#: includes/cpt.php:22
+msgid "Add New Destination"
+msgstr ""
+
+#: includes/cpt.php:23
+msgid "Add New"
+msgstr ""
+
+#: includes/cpt.php:24
+msgid "New Destination"
+msgstr ""
+
+#: includes/cpt.php:25
+msgid "Edit Destination"
+msgstr ""
+
+#: includes/cpt.php:26
+msgid "Update Destination"
+msgstr ""
+
+#: includes/cpt.php:27
+msgid "View Destination"
+msgstr ""
+
+#: includes/cpt.php:28
+msgid "View Destinations"
+msgstr ""
+
+#: includes/cpt.php:29
+msgid "Search Destination"
+msgstr ""
+
+#: includes/cpt.php:30
+msgid "Not found"
+msgstr ""
+
+#: includes/cpt.php:31
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/cpt.php:32
+msgid "Featured Image"
+msgstr ""
+
+#: includes/cpt.php:33
+msgid "Set featured image"
+msgstr ""
+
+#: includes/cpt.php:34
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/cpt.php:35
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/cpt.php:36
+msgid "Insert into Destination"
+msgstr ""
+
+#: includes/cpt.php:37
+msgid "Uploaded to this Destination"
+msgstr ""
+
+#: includes/cpt.php:38
+msgid "Destinations list"
+msgstr ""
+
+#: includes/cpt.php:39
+msgid "Destinations list navigation"
+msgstr ""
+
+#: includes/cpt.php:40
+msgid "Filter Destinations list"
+msgstr ""
+
+#: includes/cpt.php:50
+msgid "Destinations post type for countries and regions"
+msgstr ""
+
+#: includes/cpt.php:77
+msgctxt "Taxonomy General Name"
+msgid "Types"
+msgstr ""
+
+#: includes/cpt.php:78
+msgctxt "Taxonomy Singular Name"
+msgid "Type"
+msgstr ""
+
+#: includes/cpt.php:79
+msgid "Type"
+msgstr ""
+
+#: includes/cpt.php:80
+msgid "All Types"
+msgstr ""
+
+#: includes/cpt.php:81
+msgid "Parent Type"
+msgstr ""
+
+#: includes/cpt.php:82
+msgid "Parent Type:"
+msgstr ""
+
+#: includes/cpt.php:83
+msgid "New Type Name"
+msgstr ""
+
+#: includes/cpt.php:84
+msgid "Add New Type"
+msgstr ""
+
+#: includes/cpt.php:85
+msgid "Edit Type"
+msgstr ""
+
+#: includes/cpt.php:86
+msgid "Update Type"
+msgstr ""
+
+#: includes/cpt.php:87
+msgid "View Type"
+msgstr ""
+
+#: includes/cpt.php:88
+msgid "Separate Types with commas"
+msgstr ""
+
+#: includes/cpt.php:89
+msgid "Add or remove Types"
+msgstr ""
+
+#: includes/cpt.php:90
+msgid "Choose from the most used"
+msgstr ""
+
+#: includes/cpt.php:91
+msgid "Popular Types"
+msgstr ""
+
+#: includes/cpt.php:92
+msgid "Search Types"
+msgstr ""
+
+#: includes/cpt.php:93
+msgid "Not Found"
+msgstr ""
+
+#: includes/cpt.php:94
+msgid "No Types"
+msgstr ""
+
+#: includes/cpt.php:95
+msgid "Types list"
+msgstr ""
+
+#: includes/cpt.php:96
+msgid "Types list navigation"
+msgstr ""
+
+#: includes/settings.php:43
+msgid "Archive Photo Template"
+msgstr ""
+
+#: includes/settings.php:53
+msgid "Footer 1"
+msgstr ""
+
+#: includes/settings.php:54
+msgid "The first footer sidebar."
+msgstr ""
+
+#: includes/settings.php:62
+msgid "Footer 2"
+msgstr ""
+
+#: includes/settings.php:63
+msgid "The second footer sidebar."
+msgstr ""
+
+#: includes/settings.php:71
+msgid "Footer 3"
+msgstr ""
+
+#: includes/settings.php:72
+msgid "The third footer sidebar."
+msgstr ""
+
+#: includes/settings.php:80
+msgid "Footer 4"
+msgstr ""
+
+#: includes/settings.php:81
+msgid "The fourth footer sidebar."
+msgstr ""
+
+#: includes/settings.php:89
+msgid "Blog Sidebar"
+msgstr ""
+
+#: includes/settings.php:90
+msgid "Blog sidebar."
+msgstr ""
+
+#. Name of the template
+msgid "Contacts Page"
+msgstr ""
+
+#. Name of the template
+msgid "Search Result Page"
+msgstr ""
+
+#. Name of the template
+msgid "Empty Page"
+msgstr ""
+
+#. Name of the template
+msgid "Tour Result Page"
+msgstr ""
+
+#: parts/header/top-line.php:18
+msgid "Sign in"
+msgstr ""
+
+#: parts/header/top-line.php:19
+msgid "Wishlist"
+msgstr ""
+
+#: parts/content/loop.php:58
+msgid "Read more..."
+msgstr ""
+
+#: parts/content/comments.php:19 parts/content/better_comments.php:53
+msgid "Posted by"
+msgstr ""
+
+#: parts/content/comments-fields-author_field.php:16
+msgid "Enter name *"
+msgstr ""
+
+#: parts/content/comments-fields-url_field.php:16
+msgid "Enter url"
+msgstr ""
+
+#: parts/content/comments-fields-comment_field.php:17
+msgid "Your message *"
+msgstr ""
+
+#: parts/content/comments-fields-email_field.php:16
+msgid "Enter email *"
+msgstr ""
+
+#: ittour-templates/admin/api-hotels.php:182
+#: ittour-templates/admin/api-regions.php:160
+#: ittour-templates/admin/api-countries.php:178
+msgid "Update"
+msgstr ""
+
+#: ittour-templates/admin/api-hotels.php:198
+#: ittour-templates/admin/api-regions.php:174
+#: ittour-templates/admin/api-countries.php:193
+msgid "Add"
+msgstr ""
+
+#: ittour-templates/admin/api-params.php:23
+msgid "Master Token key"
+msgstr ""
+
+#: ittour-templates/admin/api-params.php:28
+msgid "Token key"
+msgstr ""
+
+#: ittour-templates/admin/api-params.php:41
+msgid "REST API settings"
+msgstr ""
+
+#: ittour-templates/admin/api-params.php:46
+msgid "New API user"
+msgstr ""
+
+#: ittour-templates/admin/api-params.php:50
+msgid "Create new API key"
+msgstr ""
+
+#: ittour-templates/form/section-search.php:41
+msgid "Loading search form"
+msgstr ""
+
+#: ittour-templates/form/search.php:21 ittour-templates/form/search-tab.php:102
+msgid "Country"
+msgstr ""
+
+#: ittour-templates/form/search.php:26
+#: ittour-templates/loop-hotel/part-price.php:14
+msgid "Adults"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:64
+msgid "Search"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:93
+#: ittour-templates/form/search-tab.php:286
+msgid "Select destination"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:110
+msgid "Region"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:118
+msgid "Hotel"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:124
+msgid "or Hotel Rating"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:152
+msgid "Select dates of start tour, duration"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:166
+msgid "Dates of start tour"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:181
+#: ittour-templates/single-tour/flights-table.php:15
+#: ittour-templates/single-tour/flights-table.php:59
+msgid "Duration"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:217
+msgid "Select adults, and childrens"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:232
+msgid "Adult amount"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:242
+msgid "Children amount"
+msgstr ""
+
+#: ittour-templates/single-tour/price.php:15
+msgid "Price table"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-table.php:71
+#: ittour-templates/single-tour/hotel-calendar.php:71
+msgid "1 adult"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-table.php:72
+#: ittour-templates/single-tour/hotel-calendar.php:72
+msgid "2 adults"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-table.php:73
+#: ittour-templates/single-tour/hotel-calendar.php:73
+msgid "3 adults"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-table.php:74
+#: ittour-templates/single-tour/hotel-calendar.php:74
+msgid "4 adults"
+msgstr ""
+
+#: ittour-templates/single-tour/flights-table.php:14
+#: ittour-templates/single-tour/flights-table.php:58
+msgid "Departure"
+msgstr ""
+
+#: ittour-templates/single-tour/flights-table.php:16
+#: ittour-templates/single-tour/flights-table.php:60
+msgid "Arrival"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-map.php:26
+msgid "Address"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-map.php:33
+msgid "Phone"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel-map.php:37
+msgid "Schedule"
+msgstr ""
+
+#: ittour-templates/single-tour/hotel.php:10
+msgid "Hotel info"
+msgstr ""
+
+#: ittour-templates/single-tour/flights-list.php:10
+msgid "Flights"
+msgstr ""
+
+#: ittour-templates/single-tour/flights-list.php:12
+msgid "Flight there"
+msgstr ""
+
+#: ittour-templates/single-tour/flights-list.php:32
+#: ittour-templates/single-tour/flights-list.php:58
+msgid "Departure time is specified and will be available within 48 hours."
+msgstr ""
+
+#: ittour-templates/single-tour/flights-list.php:38
+msgid "Flight back"
+msgstr ""
+
+#: ittour-templates/search/pagination.php:13
+msgid "Page"
+msgstr ""
+
+#: ittour-templates/search/pagination.php:13
+#: ittour-templates/loop-hotel/tour-list-default.php:41
+msgid "out of"
+msgstr ""
+
+#: ittour-templates/search/pagination.php:22
+msgid "Previous"
+msgstr ""
+
+#: ittour-templates/search/pagination.php:32
+msgid "Next"
+msgstr ""
+
+#: ittour-templates/search/no-parameters.php:18
+msgid "How to"
+msgstr ""
+
+#: ittour-templates/search/ajax-result.php:19
+msgid "<span>Top</span> Tours"
+msgstr ""
+
+#: ittour-templates/loop-hotel/tour-list-default.php:74
+#: ittour-templates/loop-hotel/tour-list-default.php:185
+msgid "Not included"
+msgstr ""
+
+#: ittour-templates/loop-hotel/tour-list-default.php:85
+#: ittour-templates/loop-hotel/tour-list-default.php:196
+msgid "Ask manager"
+msgstr ""
+
+#: ittour-templates/loop-hotel/tour-list-default.php:144
+msgid "More offers"
+msgstr ""
+
+#: ittour-templates/loop-hotel/tour-list-default.php:145
+msgid "Hide offers"
+msgstr ""
+
+#: ittour-templates/loop-hotel/part-offers.php:10
+msgid "Offers"
+msgstr ""
+
+#: ittour-templates/loop-hotel/part-facilities.php:21
+msgid "Hotel Facilities"
+msgstr ""
+
+#: ittour-templates/loop-hotel/part-price.php:11
+msgid "Price from"
+msgstr ""
+
+#. Name of the theme
+msgid "Magic Compass"
+msgstr ""
+
+#. URI of the theme
+msgid "http://www.synthetica.loc"
+msgstr ""
+
+#. Author of the theme
+msgid "Synthetica"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://www.synthetica.com.ua"
+msgstr ""

@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                             ?>
                             <li>
                                 <i class="far fa-calendar-alt list-item-icon"></i>
-                                <small><?php _e('Flight date', 'snthwp'); ?>:</small>
+                                <small><?php _e('Start date', 'snthwp'); ?>:</small>
                                 <strong><?php echo $tour_info["date_from"] ?></strong>
                             </li>
                             <?php
@@ -82,48 +82,75 @@ if ( ! defined( 'ABSPATH' ) ) {
                         ?>
                     </ul>
 
-                    <hr>
-
                     <?php
-                    $flights = !empty($tour_info['flights']) ? $tour_info['flights'] : array();
-                    ittour_show_template('single-tour/flights-list.php', array('flights_info' => $flights));
+                    if (2 !== $tour_info['type']) {
+                        $flights = !empty($tour_info['flights']) ? $tour_info['flights'] : array();
+                        ittour_show_template('single-tour/flights-list.php', array('flights_info' => $flights));
+                    }
                     ?>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4 col-lg-3">
-            <div class="box_style_1 expose">
-                <table class="table table_summary">
-                    <tbody>
-                    <tr>
-                        <td>
-                            Adults
-                        </td>
-                        <td class="text-right">
-                            2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Children
-                        </td>
-                        <td class="text-right">
-                            0
-                        </td>
-                    </tr>
-                    <tr class="total">
-                        <td>
-                            Total cost
-                        </td>
-                        <td class="text-right">
-                            $154
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="box_style_1 expose table-summary_holder">
+                    <table class="table table_summary">
+                        <tbody>
+                        <?php
+                        if (!empty($tour_info['adult_amount'])) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <strong><?php echo __('Adults', 'snthwp') ?>:</strong>
+                                </td>
+                                <td class="text-right">
+                                    <?php echo $tour_info['adult_amount']; ?>
+                                </td>
+                            </tr>
+                            <?php
 
-                <a class="btn_full" href="cart.html">Book now</a>
+                            if (!empty($tour_info['child_amount'])) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <strong><?php echo __('Children', 'snthwp') ?>:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <?php echo $tour_info['child_amount']; ?>
+                                    </td>
+                                </tr>
+                                <?php
+                            } else {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <strong><?php echo __('Children', 'snthwp') ?>:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        0
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                        <tr>
+                            <td>
+                                <strong><?php echo __('Price', 'snthwp') ?>:</strong>
+                            </td>
+                            <td class="text-right">
+                                <div class="tour_price">
+                                    <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
+                                </div>
+                                <div class="tour_price_currency">
+                                    <sup>$</sup><strong><?php echo $tour_info['prices'][1] ?></strong>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                <a class="btn_full" href="cart.html" style="margin-bottom:0;">Book now</a>
             </div>
             <!--/box_style_1 -->
 
@@ -143,6 +170,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?php _e('Location', 'snthwp'); ?></a>
         </li>
         <li class="nav-item">
@@ -152,6 +182,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <?php
+            ittour_show_template('general/tours-table-ajax.php', array(
+                'country' => $tour_info["country_id"],
+                'region' => $tour_info["region_id"],
+                'hotel' => $tour_info["id"],
+                'hotel_rating' => $tour_info["hotel_rating"],
+            )); ?>
+        </div>
+        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?php
             ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info']));
             ?>

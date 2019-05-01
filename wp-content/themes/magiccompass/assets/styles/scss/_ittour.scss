@@ -41,6 +41,34 @@
     overflow: hidden;
 }
 
+#single-tour-main-info__container {
+    .table-summary_holder {
+        padding: rem-calc(10);
+    }
+    .tour_price {
+        line-height: rem-calc(24);
+        text-align: right;
+        font-size: rem-calc(22);
+        color: #e74c3c;
+
+        small {
+            font-size: rem-calc(18);
+        }
+    }
+
+    .tour_price_currency {
+        line-height: rem-calc(18);
+        text-align: right;
+        font-size: rem-calc(16);
+        color: #777;
+        sup {
+            font-size: rem-calc(12);
+            position: relative;
+            top: rem-calc(-4);
+        }
+    }
+}
+
 /* Tours boxes*/
 .tour_container {
     background-color: #fff;

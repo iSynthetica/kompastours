@@ -1015,8 +1015,147 @@ function ittour_get_transport_type_by_id($id) {
     return $rating;
 }
 
+function ittour_get_tours_table(
+    $country,
+    $from_city,
+    $hotel,
+    $hotel_rating,
+    $night_from,
+    $night_till,
+    $date_from,
+    $date_till,
+    $args = array()
+) {
+    $args = wp_parse_args( $args, array(
+        'prices_in_group' => 30,
+        'currency' => 1,
+    ) );
+
+    if ($hotel) $args['hotel'] = $hotel;
+
+    if (!$date_from || !$date_till) {
+        $date_range = 10;
+        $timestamp = time();
+        $timestamp_from = $timestamp + (24 * 60 * 60);
+        $timestamp_till = $timestamp + ($date_range * 24 * 60 * 60);
+
+        $date_from = date('d.m.y', $timestamp_from);
+        $date_till = date('d.m.y', $timestamp_till);
+        $args['date_from'] = $date_from;
+        $args['date_till'] = $date_till;
+    }
+
+    $search = ittour_search('uk');
+    $search_result = $search->get($country, $args);
+
+    if (is_wp_error($search_result)) {
+        return false;
+    }
+
+    if (empty($search_result["hotels"][0]["offers"])) {
+        return false;
+    }
+
+    $sort_date_array = array();
+
+    for ($i = 0; $i < 10; $i++) {
+        $date_item_timestamp = $timestamp_from + ($i * 24 * 60 * 60);
+        $date_item = date('Y-m-d', $date_item_timestamp);
+        $sort_date_array[$date_item] = array();
+    }
+
+    $offers = $search_result["hotels"][0]["offers"];
+
+    foreach ($offers as $key => $offer) {
+        $sort_date_array[$offer['date_from']][] = $offer;
+    }
+
+    ob_start();
+
+    foreach ($sort_date_array as $date => $offers) {
+        if (!empty($offers)) {
+            ?>
+            <div class="tour_list_container">
+                <div class="tour_list_container-inner" style="padding:10px;">
+                    <h3 style="margin-top:0;"><?php echo $date ?></h3>
+                    <table class="tour_list_more table table-sm table-striped" style="margin-bottom:0;">
+                        <thead>
+                        <tr>
+                            <th><?php echo __('Room Type', 'snthwp'); ?></th>
+                            <th><?php echo __('Meal Type', 'snthwp'); ?></th>
+                            <th><?php echo __('Guests / Nights', 'snthwp'); ?></th>
+                            <th><?php echo __('Price', 'snthwp'); ?></th>
+                            <th><?php echo __('', 'snthwp'); ?></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <?php
+                        foreach ($offers as $offer) {
+                            ?>
+                            <tr>
+                                <td>
+                                    <?php
+                                    if (!empty($offer['room_type'])) {
+                                        ?>
+                                        <?php echo $offer['room_type']; ?>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if (!empty($offer['meal_type']) || !empty($offer['meal_type_full'])) {
+                                        if (!empty($offer['meal_type'])) {
+                                            ?>
+                                            <?php echo $offer['meal_type']; ?>
+                                            <?php
+                                        }
+
+                                        if (!empty($offer['meal_type_full'])) {
+                                            ?>
+                                            (<?php echo $offer['meal_type_full']; ?>)
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php
+                                    if (!empty($offer['duration'])) {
+                                        ?>
+                                        <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
+                                        <?php
+                                    }
+                                    ?>
+                                </td>
+                                <td class="tour_list_more_price">
+                                    <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
+
+                                    <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
+                                </td>
+                                <td>
+                                    <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn_1 small"><?php echo __('Details', 'snthwp'); ?></a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <?php
+        }
+    }
+
+    $table_html = ob_get_clean();
+
+    return array( 'table_html' => $table_html );
+}
+
 function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $args = array()) {
-    $search = ittour_search('ru');
+    $search = ittour_search('uk');
 
     if (is_wp_error($search)) {
         return false;

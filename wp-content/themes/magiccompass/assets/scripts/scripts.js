@@ -33503,6 +33503,8 @@ S2.define('jquery.select2',[
         ittourLoadToursList();
         ittourLoadTourCalendar();
         ittourLoadHotelToursTable();
+        ittourLoadToursTable();
+        ittourLoadSimilarToursTable();
     });
 
     $(window).on('scroll', function() {
@@ -33563,6 +33565,53 @@ S2.define('jquery.select2',[
         );
     }
 
+    function ittourLoadToursTable() {
+        var tourTableContainer = $('#tours-table-ajax__container');
+
+        if (tourTableContainer.length > 0) {
+            var country = tourTableContainer.data('country');
+            var fromCity = tourTableContainer.data('from-city');
+            var region = tourTableContainer.data('region');
+            var hotel = tourTableContainer.data('hotel');
+            var hotelRating = tourTableContainer.data('hotel-rating');
+
+            $.ajax({
+                url: snthWpJsObj.ajaxurl,
+                method: 'post',
+                data: {
+                    action: 'ittour_ajax_load_tours_table',
+                    country: country,
+                    fromCity: fromCity,
+                    region: region,
+                    hotel: hotel,
+                    hotelRating: hotelRating
+                },
+                success: function (response) {
+                    var decoded;
+
+                    try {
+                        decoded = $.parseJSON(response);
+                    } catch(err) {
+                        console.log(err);
+                        decoded = false;
+                    }
+
+                    if (decoded) {
+                        if (decoded.success) {
+                            tourTableContainer.html(decoded.message.table_html);
+                        } else {
+                            alert(decoded.message);
+                        }
+                    } else {
+                        alert('Something went wrong');
+                    }
+
+                }
+            });
+        }
+    }
+
+    // TODO: Remove
     function ittourLoadHotelToursTable() {
         var tourTableSection = $('#hotel-tour-table__section');
 
