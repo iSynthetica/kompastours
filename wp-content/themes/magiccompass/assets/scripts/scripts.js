@@ -33568,6 +33568,8 @@ S2.define('jquery.select2',[
         var tourTableContainer = $('#tours-table-ajax__container');
 
         if (tourTableContainer.length > 0) {
+            var type = tourTableContainer.data('tour-type');
+            var kind = tourTableContainer.data('tour-kind');
             var country = tourTableContainer.data('country');
             var fromCity = tourTableContainer.data('from-city');
             var region = tourTableContainer.data('region');
@@ -33588,6 +33590,8 @@ S2.define('jquery.select2',[
                     hotelRating: hotelRating,
                     adultAmount: adultAmount,
                     childAmount: childAmount,
+                    type: type,
+                    kind: kind
                 },
                 success: function (response) {
                     var decoded;

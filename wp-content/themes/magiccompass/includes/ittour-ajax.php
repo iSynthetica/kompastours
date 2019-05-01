@@ -177,6 +177,8 @@ add_action('wp_ajax_nopriv_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_loa
 add_action('wp_ajax_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel_tours_table');
 
 function ittour_ajax_load_tours_table() {
+    $type           = !empty($_POST['type']) ? $_POST['type'] : false;
+    $kind           = !empty($_POST['kind']) ? $_POST['kind'] : false;
     $country        = !empty($_POST['country']) ? $_POST['country'] : false;
     $from_city      = !empty($_POST['fromCity']) ? $_POST['fromCity'] : false;
     $region         = !empty($_POST['region']) ? $_POST['region'] : false;
@@ -193,6 +195,8 @@ function ittour_ajax_load_tours_table() {
     if ($adult_amount) $args['adult_amount'] = $adult_amount;
     if ($night_from) $args['night_from'] = $night_from;
     if ($night_till) $args['night_till'] = $night_till;
+    if ($type) $args['type'] = $type;
+    if ($kind) $args['kind'] = $kind;
 
     $hotel_table = ittour_get_tours_table(
         $country,
@@ -202,7 +206,8 @@ function ittour_ajax_load_tours_table() {
         $night_from,
         $night_till,
         $date_from,
-        $date_till
+        $date_till,
+        $args
     );
 
     $response = array('success' => 1, 'error' => 0, 'message' => array(

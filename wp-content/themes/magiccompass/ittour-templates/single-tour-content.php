@@ -183,12 +183,28 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?php
-            ittour_show_template('general/tours-table-ajax.php', array(
+            $template_args = array(
                 'country' => $tour_info["country_id"],
                 'region' => $tour_info["region_id"],
                 'hotel' => $tour_info["hotel_id"],
                 'hotel_rating' => $tour_info["hotel_rating"],
-            )); ?>
+            );
+
+            if (!empty($tour_info["type"])) {
+                $template_args['type'] = $tour_info["type"];
+
+                if (1 === $tour_info["type"] && !empty($tour_info["transport_type"])) {
+                    $kind = 1;
+
+                    if ('bus' === $tour_info["transport_type"]) {
+                        $kind = 2;
+                    }
+
+                    $template_args['kind'] = $kind;
+                }
+            }
+
+            ittour_show_template('general/tours-table-ajax.php', $template_args); ?>
         </div>
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
             <?php
