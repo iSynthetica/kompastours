@@ -186,7 +186,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             ittour_show_template('general/tours-table-ajax.php', array(
                 'country' => $tour_info["country_id"],
                 'region' => $tour_info["region_id"],
-                'hotel' => $tour_info["id"],
+                'hotel' => $tour_info["hotel_id"],
                 'hotel_rating' => $tour_info["hotel_rating"],
             )); ?>
         </div>

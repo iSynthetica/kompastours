@@ -14,7 +14,6 @@
         ittourLoadTourCalendar();
         ittourLoadHotelToursTable();
         ittourLoadToursTable();
-        ittourLoadSimilarToursTable();
     });
 
     $(window).on('scroll', function() {
@@ -84,6 +83,8 @@
             var region = tourTableContainer.data('region');
             var hotel = tourTableContainer.data('hotel');
             var hotelRating = tourTableContainer.data('hotel-rating');
+            var adultAmount = tourTableContainer.data('adult-amount');
+            var childAmount = tourTableContainer.data('child-amount');
 
             $.ajax({
                 url: snthWpJsObj.ajaxurl,
@@ -94,7 +95,9 @@
                     fromCity: fromCity,
                     region: region,
                     hotel: hotel,
-                    hotelRating: hotelRating
+                    hotelRating: hotelRating,
+                    adultAmount: adultAmount,
+                    childAmount: childAmount,
                 },
                 success: function (response) {
                     var decoded;

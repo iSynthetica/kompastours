@@ -25,8 +25,11 @@ if (!$country) {
 
 $tours_table_data = '';
 $tours_table_data .= ' data-country="'.$country.'"';
-if (!$from_city) $tours_table_data .= ' data-from-city="'.$from_city.'"';
+
+if (!empty($from_city)) $tours_table_data .= ' data-from-city="'.$from_city.'"';
 if (!empty($region)) $tours_table_data .= ' data-region="'.$region.'"';
+if (!empty($hotel)) $tours_table_data .= ' data-hotel="'.$hotel.'"';
+if (!empty($hotel_rating)) $tours_table_data .= ' data-hotel-rating="'.$hotel_rating.'"';
 ?>
 
 <div id="tours-table-ajax__container"<?php echo $tours_table_data; ?>>

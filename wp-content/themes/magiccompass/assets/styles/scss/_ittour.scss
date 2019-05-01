@@ -226,6 +226,14 @@
         }
     }
     .tour_list_more {
+        tr.best-price-item {
+            background-color: rgba(0, 255, 0, 0.11);
+
+            td {
+                padding-top: rem-calc(7);
+                padding-bottom: rem-calc(7);
+            }
+        }
         .tour_list_more_guests {
             i {
                 &.fa-male {

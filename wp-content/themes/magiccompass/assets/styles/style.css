@@ -18460,7 +18460,7 @@ a.btn_1, .btn_1 {
   font-weight: bold; }
 
 a.btn_1.green, .btn_1.green {
-  background: #83c99f; }
+  background: rgba(164, 252, 200, 0.53); }
 
 a.btn_1.white, .btn_1.white {
   background: #FFFFFF;
@@ -20610,10 +20610,10 @@ input.qty2 {
     border: none;
     font-size: 0.6875rem;
     color: #FFFFFF;
-    background-color: #83c99f;
+    background-color: rgba(164, 252, 200, 0.53);
     transition: all 0.5s; }
     .numbers-alt .buttons_inc:hover {
-      background-color: #67bd89; }
+      background-color: rgba(125, 251, 176, 0.53); }
   .numbers-alt.numbers-gor {
     width: 80px; }
     .numbers-alt.numbers-gor input[type="number"] {
@@ -24302,6 +24302,11 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
       display: none; }
     .tour_list_container .more-offers__link.active .hide-more-offers {
       display: inline-block; }
+  .tour_list_container .tour_list_more tr.best-price-item {
+    background-color: rgba(0, 255, 0, 0.11); }
+    .tour_list_container .tour_list_more tr.best-price-item td {
+      padding-top: 0.4375rem;
+      padding-bottom: 0.4375rem; }
   .tour_list_container .tour_list_more .tour_list_more_guests i.fa-male {
     font-size: 1.125rem; }
   .tour_list_container .tour_list_more .tour_list_more_guests i.fa-child {
@@ -24496,7 +24501,7 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
         background-color: #e6e6e6;
         color: #b2b2b2; }
       #search-form-main__holder .search-summary__row .search-summary__col .input-group > .input-group-prepend > .btn {
-        background-color: #83c99f;
+        background-color: rgba(164, 252, 200, 0.53);
         color: #FFFFFF;
         border: 1px solid #FFFFFF;
         width: 2.5rem;
@@ -24531,8 +24536,8 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     top: 0;
     left: 0;
     background-color: #FFFFFF;
-    color: #83c99f;
-    border-color: #83c99f; }
+    color: rgba(164, 252, 200, 0.53);
+    border-color: rgba(164, 252, 200, 0.53); }
     #search-form-main__holder #filter_options:disabled {
       opacity: 1;
       background-color: #cccccc;
@@ -24728,8 +24733,8 @@ ul.cbp_tmtimeline {
   background-color: transparent; }
 
 .child_amount_holder .btn-create {
-  background-color: #83c99f;
-  border-color: #83c99f;
+  background-color: rgba(164, 252, 200, 0.53);
+  border-color: rgba(164, 252, 200, 0.53);
   color: #FFFFFF; }
 
 .child_amount_holder .btn-delete {

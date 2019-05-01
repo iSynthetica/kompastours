@@ -1032,6 +1032,7 @@ function ittour_get_tours_table(
     ) );
 
     if ($hotel) $args['hotel'] = $hotel;
+    if ($hotel_rating) $args['hotel_rating'] = $hotel_rating;
 
     if (!$date_from || !$date_till) {
         $date_range = 10;
@@ -1057,6 +1058,10 @@ function ittour_get_tours_table(
     }
 
     $sort_date_array = array();
+    $best_price_array = array(
+        'price' => '',
+        'ids'   => array()
+    );
 
     for ($i = 0; $i < 10; $i++) {
         $date_item_timestamp = $timestamp_from + ($i * 24 * 60 * 60);
@@ -1068,6 +1073,19 @@ function ittour_get_tours_table(
 
     foreach ($offers as $key => $offer) {
         $sort_date_array[$offer['date_from']][] = $offer;
+
+        if (empty($best_price_array['price'])) {
+            $best_price_array['price'] = $offer['prices']['2'];
+            $best_price_array['ids'][] = $offer['key'];
+        } else {
+            if ($best_price_array['price'] === $offer['prices']['2']) {
+                $best_price_array['ids'][] = $offer['key'];
+            } elseif($best_price_array['price'] > $offer['prices']['2']) {
+                $best_price_array['price'] = $offer['prices']['2'];
+                $best_price_array['ids'] = array();
+                $best_price_array['ids'][] = $offer['key'];
+            }
+        }
     }
 
     ob_start();
@@ -1092,8 +1110,13 @@ function ittour_get_tours_table(
                         <tbody>
                         <?php
                         foreach ($offers as $offer) {
+                            $is_best_price = '';
+
+                            if (in_array($offer['key'], $best_price_array['ids'])) {
+                                $is_best_price = ' class="best-price-item"';
+                            }
                             ?>
-                            <tr>
+                            <tr<?php echo $is_best_price; ?>>
                                 <td>
                                     <?php
                                     if (!empty($offer['room_type'])) {
