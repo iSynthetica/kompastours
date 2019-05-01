@@ -1025,7 +1025,7 @@ function ittour_get_tours_table(
     $args = array()
 ) {
     $args = wp_parse_args( $args, array(
-        'prices_in_group' => 60,
+        'items_per_page' => 1000,
         'currency' => 1,
     ) );
 
@@ -1055,13 +1055,13 @@ function ittour_get_tours_table(
     }
 
     $search = ittour_search('uk');
-    $search_result = $search->get($country, $args);
+    $search_result = $search->getList($country, $args);
 
     if (is_wp_error($search_result)) {
         return false;
     }
 
-    if (empty($search_result["hotels"][0]["offers"])) {
+    if (empty($search_result["offers"])) {
         return false;
     }
 
@@ -1077,7 +1077,7 @@ function ittour_get_tours_table(
         $sort_date_array[$date_item] = array();
     }
 
-    $offers = $search_result["hotels"][0]["offers"];
+    $offers = $search_result["offers"];
 
     foreach ($offers as $key => $offer) {
         $sort_date_array[$offer['date_from']][] = $offer;

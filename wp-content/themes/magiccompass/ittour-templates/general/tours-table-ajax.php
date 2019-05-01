@@ -37,5 +37,15 @@ if (!empty($date_till)) $tours_table_data .= ' data-date-till="'.$date_till.'"';
 ?>
 
 <div id="tours-table-ajax__container"<?php echo $tours_table_data; ?>>
-
+    <div class="progress-bar__container" style="padding:10px;">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="progress" style="height: 40px;">
+                    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        <span style="font-size:19px;font-weight:700;"><?php echo __('Loading more tours...', 'snthwp'); ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

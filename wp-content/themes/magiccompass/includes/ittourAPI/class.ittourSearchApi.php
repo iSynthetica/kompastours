@@ -53,4 +53,15 @@ class ittourSearchApi extends ittourApi {
 
         return $this->request($params);
     }
+
+    public function getList($country_id, $args = array()) {
+        $default = $this->getDefaults();
+
+        $args = wp_parse_args( $args, $default );
+        $args = wp_parse_args('country=' . $country_id, $args );
+
+        $params = '-list?' . http_build_query($args);
+
+        return $this->request($params);
+    }
 }

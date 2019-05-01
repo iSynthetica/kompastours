@@ -186,16 +186,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="single_tour_tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
+            <a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="home" aria-selected="true">
+                <?php _e('More Tours', 'snthwp'); ?>
+            </a>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Hotel Description', 'snthwp'); ?></a>
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">
+                <?php _e('Hotel Description', 'snthwp'); ?>
+            </a>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?php _e('Location', 'snthwp'); ?></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                <?php _e('Location', 'snthwp'); ?>
+            </a>
         </li>
     </ul>
 
@@ -235,18 +240,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             ittour_show_template('general/tours-table-ajax.php', $template_args); ?>
         </div>
-        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="home-tab">
             <?php
             ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info']));
             ?>
         </div>
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <?php ittour_show_template('single-tour/hotel-map.php', array('hotel_info' => $tour_info['hotel_info'], 'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating']))); ?>
-        </div>
-
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <?php ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info'])); ?>
+            <?php
+            ittour_show_template('single-tour/hotel-map.php', array(
+                'hotel_info' => $tour_info['hotel_info'],
+                'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating'])
+            ));
+            ?>
         </div>
     </div>
 </div>
