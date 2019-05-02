@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('ct-body'); ?>>
 
 <!--    <div id="preloader">-->
 <!--        <div class="sk-spinner sk-spinner-wave">-->

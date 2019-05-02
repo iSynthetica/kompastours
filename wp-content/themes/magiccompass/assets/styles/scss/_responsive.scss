@@ -56,48 +56,6 @@ only screen and (min-device-pixel-ratio: 2) and (max-width: 991px) {
 
 /* MEDIA QUERIES max-width 991px  */
 @media (max-width: 991px) {
-
-    ul#top_tools,
-    .sticky ul#top_tools {
-        margin: 3px 45px 0 0;
-    }
-
-    .sticky nav {
-        margin-top: 3px;
-    }
-
-    nav {
-        margin-top: 10px;
-    }
-
-    header#plain {
-        padding-bottom: 10px;
-    }
-
-    header#plain.sticky {
-        padding-bottom: 0;
-    }
-
-    header #logo img.logo_normal,
-    header #logo img.logo_sticky {
-        width: auto;
-        height: 30px;
-    }
-
-    #logo_home h1 a,
-    header.sticky #logo_home h1 a,
-    header#plain #logo_home h1 a,
-    header#colored #logo_home h1 a {
-        width: 180px;
-        height: 30px;
-        background-size: auto 30px;
-    }
-
-    .main-menu ul li.megamenu .menu-wrapper {
-        width: auto;
-        margin-top: 20px;
-    }
-
     #single_tour_feat ul {
         margin-bottom: 10px;
     }

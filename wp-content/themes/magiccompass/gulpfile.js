@@ -64,6 +64,8 @@ const SOURCE = {
 
         MODULES + '/owl.carousel/dist/owl.carousel.js',
 
+        VENDORS + '/bootsnav/bootsnav.js',
+
         VENDORS + '/icheck/icheck.js',
 
         MODULES + '/select2/dist/js/select2.js',

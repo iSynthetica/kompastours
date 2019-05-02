@@ -1,11 +1,15 @@
 <?php
 /**
- * The Header for our theme
+ * The Header Pofo Simple
  *
- * @package Hooka
+ * @package WordPress
+ * @subpackage Magiccompass
+ * @version 0.0.10
+ * @since 0.0.10
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
 ?><!DOCTYPE html>
 <html class="no-js"  <?php language_attributes(); ?>>
 <head>
@@ -31,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('ct-body'); ?>>
+<body <?php body_class('pf-body'); ?>>
 
 <!--    <div id="preloader">-->
 <!--        <div class="sk-spinner sk-spinner-wave">-->
@@ -45,4 +49,4 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <!---->
 <!--    <div class="layer"></div>-->
 
-    <?php snth_show_template('header/default.php'); ?>
+    <?php snth_show_template('header/pofo-simple.php'); ?>
