@@ -107,6 +107,8 @@ function ittour_ajax_get_tours_list() {
 
     if ('grid' === $template) {
         $result = ittour_get_tours_grid($country, $args);
+    } elseif ('table-sort-by-date' === $template) {
+        $result = ittour_get_tours_table_sort_by_date($country, $args);
     }
 
     echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $result ));
@@ -193,49 +195,6 @@ function ittour_ajax_load_hotel_tours_table() {
 }
 add_action('wp_ajax_nopriv_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel_tours_table');
 add_action('wp_ajax_ittour_ajax_load_hotel_tours_table', 'ittour_ajax_load_hotel_tours_table');
-
-function ittour_ajax_load_tours_table() {
-    $type           = !empty($_POST['type']) ? $_POST['type'] : false;
-    $kind           = !empty($_POST['kind']) ? $_POST['kind'] : false;
-    $country        = !empty($_POST['country']) ? $_POST['country'] : false;
-    $from_city      = !empty($_POST['fromCity']) ? $_POST['fromCity'] : false;
-    $region         = !empty($_POST['region']) ? $_POST['region'] : false;
-    $hotel          = !empty($_POST['hotel']) ? $_POST['hotel'] : false;
-    $hotel_rating   = !empty($_POST['hotelRating']) ? $_POST['hotelRating'] : false;
-    $adult_amount   = !empty($_POST['adultAmount']) ? $_POST['adultAmount'] : false;
-    $night_from     = !empty($_POST['nightFrom']) ? $_POST['nightFrom'] : false;
-    $night_till     = !empty($_POST['nightTill']) ? $_POST['nightTill'] : false;
-    $date_from      = !empty($_POST['dateFrom']) ? $_POST['dateFrom'] : false;
-    $date_till      = !empty($_POST['dateTill']) ? $_POST['dateTill'] : false;
-
-    $args = array();
-
-    if ($adult_amount) $args['adult_amount'] = $adult_amount;
-    if ($night_from) $args['night_from'] = $night_from;
-    if ($night_till) $args['night_till'] = $night_till;
-    if ($type) $args['type'] = $type;
-    if ($kind) $args['kind'] = $kind;
-
-    $hotel_table = ittour_get_tours_table(
-        $country,
-        $from_city,
-        $hotel,
-        $hotel_rating,
-        $date_from,
-        $date_till,
-        $args
-    );
-
-    $response = array('success' => 1, 'error' => 0, 'message' => array(
-        'table_html' => $hotel_table['table_html']
-    ));
-
-    echo json_encode($response);
-
-    wp_die();
-}
-add_action('wp_ajax_nopriv_ittour_ajax_load_tours_table', 'ittour_ajax_load_tours_table');
-add_action('wp_ajax_ittour_ajax_load_tours_table', 'ittour_ajax_load_tours_table');
 
 /**
  * Add Single Ittour country

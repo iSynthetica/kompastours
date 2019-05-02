@@ -1025,53 +1025,11 @@ function ittour_get_tours_grid($country, $args = array()) {
     return ob_get_clean();
 }
 
-function ittour_get_tours_table(
-    $country,
-    $from_city,
-    $hotel,
-    $hotel_rating,
-    $date_from,
-    $date_till,
-    $args = array()
-) {
-    $args = wp_parse_args( $args, array(
-        'items_per_page' => 1000,
-        'currency' => 1,
-    ) );
-
-    if ($hotel) $args['hotel'] = $hotel;
-    if ($hotel_rating) $args['hotel_rating'] = $hotel_rating;
-
-    if (!$date_from || !$date_till) {
-        $date_range = 10;
-        $timestamp = time();
-        $timestamp_from = $timestamp + (24 * 60 * 60);
-        $timestamp_till = $timestamp + ($date_range * 24 * 60 * 60);
-
-        $date_from = date('d.m.y', $timestamp_from);
-        $date_till = date('d.m.y', $timestamp_till);
-        $args['date_from'] = $date_from;
-        $args['date_till'] = $date_till;
-    } else {
-        $date_from_obj = date_create_from_format('d.m.y', $date_from);
-        $date_till_obj = date_create_from_format('d.m.y', $date_till);
-
-        $date_range = (int) $date_till_obj->diff($date_from_obj)->format("%a") + 1;
-
-        $timestamp_from = $date_from_obj->getTimestamp();
-
-        $args['date_from'] = $date_from;
-        $args['date_till'] = $date_till;
-    }
-
+function ittour_get_tours_table_sort_by_date($country, $args = array()) {
     $search = ittour_search('uk');
     $search_result = $search->getList($country, $args);
 
     if (is_wp_error($search_result)) {
-        return false;
-    }
-
-    if (empty($search_result["offers"])) {
         return false;
     }
 
@@ -1080,12 +1038,6 @@ function ittour_get_tours_table(
         'price' => '',
         'ids'   => array()
     );
-
-    for ($i = 0; $i < $date_range; $i++) {
-        $date_item_timestamp = $timestamp_from + ($i * 24 * 60 * 60);
-        $date_item = date('Y-m-d', $date_item_timestamp);
-        $sort_date_array[$date_item] = array();
-    }
 
     $offers = $search_result["offers"];
 
@@ -1190,9 +1142,7 @@ function ittour_get_tours_table(
         }
     }
 
-    $table_html = ob_get_clean();
-
-    return array( 'table_html' => $table_html );
+    return ob_get_clean();
 }
 
 function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $args = array()) {

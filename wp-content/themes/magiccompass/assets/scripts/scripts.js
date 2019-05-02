@@ -33503,7 +33503,6 @@ S2.define('jquery.select2',[
         ittourLoadToursList();
         ittourLoadTourCalendar();
         ittourLoadHotelToursTable();
-        ittourLoadToursTable();
     });
 
     $(window).on('scroll', function() {
@@ -33612,64 +33611,6 @@ S2.define('jquery.select2',[
 
             }
         });
-    }
-
-    function ittourLoadToursTable() {
-        var tourTableContainer = $('#tours-table-ajax__container');
-
-        if (tourTableContainer.length > 0) {
-            var type = tourTableContainer.data('tour-type');
-            var kind = tourTableContainer.data('tour-kind');
-            var country = tourTableContainer.data('country');
-            var fromCity = tourTableContainer.data('from-city');
-            var region = tourTableContainer.data('region');
-            var hotel = tourTableContainer.data('hotel');
-            var hotelRating = tourTableContainer.data('hotel-rating');
-            var adultAmount = tourTableContainer.data('adult-amount');
-            var childAmount = tourTableContainer.data('child-amount');
-            var dateFrom = tourTableContainer.data('date-from');
-            var dateTill = tourTableContainer.data('date-till');
-
-            $.ajax({
-                url: snthWpJsObj.ajaxurl,
-                method: 'post',
-                data: {
-                    action: 'ittour_ajax_load_tours_table',
-                    country: country,
-                    fromCity: fromCity,
-                    region: region,
-                    hotel: hotel,
-                    hotelRating: hotelRating,
-                    adultAmount: adultAmount,
-                    childAmount: childAmount,
-                    type: type,
-                    kind: kind,
-                    dateFrom: dateFrom,
-                    dateTill: dateTill
-                },
-                success: function (response) {
-                    var decoded;
-
-                    try {
-                        decoded = $.parseJSON(response);
-                    } catch(err) {
-                        console.log(err);
-                        decoded = false;
-                    }
-
-                    if (decoded) {
-                        if (decoded.success) {
-                            tourTableContainer.html(decoded.message.table_html);
-                        } else {
-                            alert(decoded.message);
-                        }
-                    } else {
-                        alert('Something went wrong');
-                    }
-
-                }
-            });
-        }
     }
 
     // TODO: Remove

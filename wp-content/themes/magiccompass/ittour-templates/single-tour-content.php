@@ -238,7 +238,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                 }
             }
 
-            ittour_show_template('general/tours-table-ajax.php', $template_args); ?>
+            $template_args['template'] = 'table-sort-by-date';
+
+            ittour_show_template('general/tours-list-ajax.php', $template_args); ?>
         </div>
 
         <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="home-tab">
