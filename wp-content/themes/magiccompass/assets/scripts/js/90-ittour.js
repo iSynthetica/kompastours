@@ -39,7 +39,7 @@
     });
 
     function ittourLoadToursList() {
-        var toursListContainer = $('.tours-list-ajax');
+        var toursListContainer = $('.tours-list-ajax__container');
 
         if (toursListContainer.length > 0) {
             toursListContainer.each(function() {
@@ -51,26 +51,77 @@
     }
 
     function ittourGetToursList(container) {
-        var country_id = container.data('country');
-        var region_id = container.data('region');
+        var type = container.data('tour-type');
+        var kind = container.data('tour-kind');
+        var country = container.data('country');
+        var fromCity = container.data('from-city');
+        var region = container.data('region');
+        var hotel = container.data('hotel');
+        var hotelRating = container.data('hotel-rating');
+        var adultAmount = container.data('adult-amount');
+        var childAmount = container.data('child-amount');
+        var childAge = container.data('child-age');
+        var nightFrom = container.data('night-from');
+        var nightTill = container.data('night-till');
+        var dateFrom = container.data('date-from');
+        var dateTill = container.data('date-till');
+        var mealType = container.data('meal-type');
+        var priceFrom = container.data('price-from');
+        var priceTill = container.data('price-till');
+        var page = container.data('page');
+        var itemsPerPage = container.data('items-per-page');
+        var pricesInGroup = container.data('prices-in-group');
+        var template = container.data('template');
 
-        $.post(
-            snthWpJsObj.ajaxurl,
-            {
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            data: {
                 action: 'ittour_ajax_get_tours_list',
-                countryId: country_id,
-                regionId: region_id
-            }, function(response) {
-                if( response.status === 'error') {
+                type: type,
+                kind: kind,
+                country: country,
+                fromCity: fromCity,
+                region: region,
+                hotel: hotel,
+                hotelRating: hotelRating,
+                adultAmount: adultAmount,
+                childAmount: childAmount,
+                childAge: childAge,
+                nightFrom: nightFrom,
+                nightTill: nightTill,
+                dateFrom: dateFrom,
+                dateTill: dateTill,
+                mealType: mealType,
+                priceFrom: priceFrom,
+                priceTill: priceTill,
+                page: page,
+                itemsPerPage: itemsPerPage,
+                pricesInGroup: pricesInGroup,
+                template: template,
+            },
+            success: function (response) {
+                var decoded;
 
-                } else {
-                    container.html(response.message);
+                try {
+                    decoded = $.parseJSON(response);
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
                 }
 
-                $( document.body ).trigger( 'search_form_loaded' );
-            },
-            'json'
-        );
+                if (decoded) {
+                    if (decoded.success) {
+                        container.html(decoded.message);
+                    } else {
+                        alert(decoded.message);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+
+            }
+        });
     }
 
     function ittourLoadToursTable() {

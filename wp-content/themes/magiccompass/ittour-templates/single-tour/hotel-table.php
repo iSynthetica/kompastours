@@ -79,7 +79,7 @@ $params = $params_obj->getCountry($country_id);
 </div>
 
 <section
-        id="hotel-tour-table__section"
+        id="hotel-tour-table__section_010101"
         data-month="<?php echo 7; ?>"
         data-year="<?php echo $year; ?>"
         data-country="<?php echo $country_id; ?>"

@@ -58,40 +58,58 @@ add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_sear
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 
 function ittour_ajax_get_tours_list() {
-    $country_id = !empty($_POST['countryId']) ? (int)$_POST['countryId']  : 338;
-    $region_id = !empty($_POST['regionId']) ? (int)$_POST['regionId']  : false;
-    $search = ittour_search('ru');
+    $country            = !empty($_POST['country']) ? (int) sanitize_text_field($_POST['country'])  : false;
 
-    $args = array(
-        'from_city' => '2014',
-        'hotel_rating' => '4:78',
-        'adult_amount' => 2,
-        'night_from' => 7,
-        'night_till' => 9,
-        'date_from' => '25.04.19',
-        'date_till' => '30.04.19',
-        'items_per_page' => 12,
-        'prices_in_group' => 1,
-        'currency' => 1,
-    );
+    $type               = !empty($_POST['type']) ? (int) sanitize_text_field($_POST['type']) : false;
+    $kind               = !empty($_POST['kind']) ? (int) sanitize_text_field($_POST['kind']) : false;
+    $from_city          = !empty($_POST['fromCity']) ? (int) sanitize_text_field($_POST['fromCity']) : false;
+    $region             = !empty($_POST['region']) ? sanitize_text_field($_POST['region'])  : false;
+    $hotel              = !empty($_POST['hotel']) ? sanitize_text_field($_POST['hotel']) : false;
+    $hotel_rating       = !empty($_POST['hotelRating']) ? sanitize_text_field($_POST['hotelRating']) : false;
+    $adult_amount       = !empty($_POST['adultAmount']) ? (int) sanitize_text_field($_POST['adultAmount']) : false;
+    $child_amount       = !empty($_POST['childAmount']) ? (int) sanitize_text_field($_POST['childAmount']) : false;
+    $child_age          = !empty($_POST['childAge']) ? sanitize_text_field($_POST['childAge']) : false;
+    $night_from         = !empty($_POST['nightFrom']) ? (int) sanitize_text_field($_POST['nightFrom']) : false;
+    $night_till         = !empty($_POST['nightTill']) ? (int) sanitize_text_field($_POST['nightTill']) : false;
+    $date_from          = !empty($_POST['dateFrom']) ? sanitize_text_field($_POST['dateFrom']) : false;
+    $date_till          = !empty($_POST['dateTill']) ? sanitize_text_field($_POST['dateTill']) : false;
+    $meal_type          = !empty($_POST['mealType']) ? sanitize_text_field($_POST['mealType']) : false;
+    $price_from         = !empty($_POST['priceFrom']) ? (int) sanitize_text_field($_POST['priceFrom']) : false;
+    $price_till         = !empty($_POST['priceTill']) ? (int) sanitize_text_field($_POST['priceTill']) : false;
+    $page               = !empty($_POST['page']) ? (int) sanitize_text_field($_POST['page']) : false;
+    $items_per_page     = !empty($_POST['itemsPerPage']) ? (int) sanitize_text_field($_POST['itemsPerPage']) : false;
+    $prices_in_group    = !empty($_POST['pricesInGroup']) ? (int) sanitize_text_field($_POST['pricesInGroup']) : false;
 
-    if (!empty($region_id)) {
-        $args['region'] = $region_id;
+    $template           = !empty($_POST['template']) ? sanitize_text_field($_POST['template']) : 'grid';
+
+    $args = array();
+
+    if ($type)              $args['type']               = $type;
+    if ($kind)              $args['kind']               = $kind;
+    if ($from_city)         $args['from_city']          = $from_city;
+    if ($region)            $args['region']             = $region;
+    if ($hotel)             $args['hotel']              = $hotel;
+    if ($hotel_rating)      $args['hotel_rating']       = $hotel_rating;
+    if ($adult_amount)      $args['adult_amount']       = $adult_amount;
+    if ($child_amount)      $args['child_amount']       = $child_amount;
+    if ($child_age)         $args['child_age']          = $child_age;
+    if ($night_from)        $args['night_from']         = $night_from;
+    if ($night_till)        $args['night_till']         = $night_till;
+    if ($date_from)         $args['date_from']          = $date_from;
+    if ($date_till)         $args['date_till']          = $date_till;
+    if ($meal_type)         $args['meal_type']          = $meal_type;
+    if ($price_from)        $args['price_from']         = $price_from;
+    if ($price_till)        $args['price_till']         = $price_till;
+    if ($page)              $args['page']               = $page;
+    if ($items_per_page)    $args['items_per_page']     = $items_per_page;
+    if ($prices_in_group)   $args['prices_in_group']    = $prices_in_group;
+    if ($template)          $args['template']           = $template;
+
+    if ('grid' === $template) {
+        $result = ittour_get_tours_grid($country, $args);
     }
 
-    $search_result = $search->get($country_id, $args);
-
-    ob_start();
-    ittour_show_template('search/ajax-result.php', array('result' => $search_result));
-    $result = ob_get_clean();
-
-    $message = array(
-        'fragments' => array(
-            '.search-form__holder' => $result,
-        ),
-    );
-
-    echo json_encode(array( "status" => 'success', 'message' => $result ));
+    echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $result ));
 
     die;
 }

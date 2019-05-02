@@ -12,9 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <?php
-ittour_show_template('single-tour/hotel-table.php', array(
-    'country_id' => $country_id,
-    'region_id' => $region_id,
-    'hotel_id' => $hotel_id,
+$template_args = array(
+    'country' => $country_id,
+    'region' => $region_id,
+    'hotel' => $hotel_id,
     'hotel_rating' => $hotel_rating,
-)); ?>
+);
+
+ittour_show_template('general/tours-table-ajax.php', $template_args);
+?>
