@@ -46,19 +46,28 @@ if ('country' === $destination_type_template) {
 
 ?>
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url('full') ?>" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <?php
-            if (!empty($subtitle)) {
-                ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
-            }
-            ?>
+<!-- start page title section -->
+<section class="cover-background ptb-40 ptb-md-80 ptb-lg-140 bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php the_post_thumbnail_url('full') ?>');">
+    <div class="bg-overlay bg-black-color bg-opacity-40"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 extra-small-screen text-center page-title-extra-small d-flex flex-column justify-content-center">
+                <!-- start page title -->
+                <h1 class="txt-white-color mt-10 entry-title title-style1"><?php the_title(); ?></h1>
+                <!-- end page title -->
+                <!-- start sub title -->
+
+                <?php
+                if (!empty($subtitle)) {
+                    ?><h2 class="txt-white-color"><?php echo $subtitle; ?></h2><?php
+                }
+                ?>
+                <!-- end sub title -->
+            </div>
         </div>
     </div>
 </section>
+<!-- end page title section -->
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 
@@ -74,7 +83,7 @@ if ('country' === $destination_type_template) {
         <?php
     } else {
         ?>
-        <div class="container margin_60">
+        <div class="container ptb-20 ptb-md-40 ptb-lg-60">
             <div class="row">
                 <?php
                 if ( 'right-sidebar' === $template ) {

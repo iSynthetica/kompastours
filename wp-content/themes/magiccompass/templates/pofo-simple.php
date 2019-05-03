@@ -11,7 +11,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header('transparent'); ?>
+<?php get_header('white'); ?>
 
 <?php snth_show_template('pofo-simple.php', array(
     'template' => 'full-width',

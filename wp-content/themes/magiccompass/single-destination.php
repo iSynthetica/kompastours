@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header('pofo-transparent'); ?>
+<?php get_header('transparent'); ?>
 
 <?php snth_show_template('destination.php', array(
     'template'  =>  'no-sidebar'

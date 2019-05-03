@@ -13,6 +13,24 @@
     background-repeat: no-repeat !important;
 }
 
+.bg-overlay-holder {
+    position: relative;
+}
+
+.bg-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+}
+
+.bg-opacity-20 {opacity:0.2}
+.bg-opacity-40 {opacity:0.4}
+.bg-opacity-60 {opacity:0.6}
+.bg-opacity-80 {opacity:0.8}
+
+
 /* Magnific popup */
 .mfp-bottom-bar {
     padding: 0 10px!important;
@@ -299,32 +317,6 @@ label.error:after {
     transform: translateY(-55%);
 }
 
-/*Background colors*/
-.white_bg {
-    background-color: #fff
-}
-
-/*Spacing*/
-.add_bottom_15 {
-    margin-bottom: 15px;
-}
-
-.add_bottom_30 {
-    margin-bottom: 30px;
-}
-
-.add_bottom_45 {
-    margin-bottom: 45px;
-}
-
-.add_bottom_60 {
-    margin-bottom: 60px;
-}
-
-.nomargin_top {
-    margin-top: 0;
-}
-
 /*List*/
 ul.list_ok {
     list-style: none;
@@ -468,17 +460,6 @@ ul.list_order li span {
 
 .styled-select-filters select:focus {
     outline: none;
-}
-
-/* Margin tools */
-.margin_60 {
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-.margin_30 {
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 /* Parallax bg */
