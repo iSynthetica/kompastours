@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header(); ?>
+<?php get_header('pofo-simple'); ?>
 
 <?php snth_show_template('page.php') ?>
 

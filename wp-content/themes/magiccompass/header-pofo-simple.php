@@ -37,16 +37,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <body <?php body_class('pf-body'); ?>>
 
-<!--    <div id="preloader">-->
-<!--        <div class="sk-spinner sk-spinner-wave">-->
-<!--            <div class="sk-rect1"></div>-->
-<!--            <div class="sk-rect2"></div>-->
-<!--            <div class="sk-rect3"></div>-->
-<!--            <div class="sk-rect4"></div>-->
-<!--            <div class="sk-rect5"></div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--    <div class="layer"></div>-->
-
-    <?php snth_show_template('header/pofo-simple.php'); ?>
+    <?php // snth_show_template('header/pofo-transparent.php'); ?>
+    <?php snth_show_template('header/pofo-white.php'); ?>
+    <?php // snth_show_template('header/pofo-black.php'); ?>

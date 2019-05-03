@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php get_header(); ?>
+<?php get_header('pofo-simple'); ?>
 
 <?php snth_show_template('contacts.php', array(
     'template' => 'no-sidebar',

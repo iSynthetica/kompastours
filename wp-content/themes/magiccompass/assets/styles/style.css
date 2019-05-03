@@ -7308,6 +7308,21 @@ a.text-dark:hover, a.text-dark:focus {
 .bg-white-color {
   background-color: #fefefe; }
 
+.bg-red-color {
+  background-color: #e04f67; }
+
+.bg-aqua-color {
+  background-color: #1cbbb4; }
+
+.bg-green-color {
+  background-color: #82ca9c; }
+
+.bg-orange-color {
+  background-color: #f7941d; }
+
+.bg-blue-color {
+  background-color: #0072bc; }
+
 .txt-theme-color {
   color: #41A8BF; }
 
@@ -7328,6 +7343,21 @@ a.text-dark:hover, a.text-dark:focus {
 
 .txt-white-color {
   color: #fefefe; }
+
+.txt-red-color {
+  color: #e04f67; }
+
+.txt-aqua-color {
+  color: #1cbbb4; }
+
+.txt-green-color {
+  color: #82ca9c; }
+
+.txt-orange-color {
+  color: #f7941d; }
+
+.txt-blue-color {
+  color: #0072bc; }
 
 /* Fontawesome */
 /*!
@@ -19633,7 +19663,7 @@ a.btn_login:hover, .btn_login:hover {
     margin-top: 4px; }
   .pf-body .white-link .header-searchbar, .pf-body .white-link .header-social-icon {
     border-left: 1px solid rgba(255, 255, 255, 0.15); }
-  .pf-body .header-social-icon a {
+  .pf-body .header-social-icon a, .pf-body .header-searchbar a {
     color: #232323; }
   .pf-body .header-social-icon a i, .pf-body .header-searchbar a i {
     margin: 0 11px; }
@@ -19664,10 +19694,14 @@ a.btn_login:hover, .btn_login:hover {
   .pf-body .site-header nav.navbar .navbar-nav > li > a, .pf-body nav.navbar.bootsnav ul.nav > li > a {
     color: #232323;
     cursor: pointer; }
-  .pf-body .site-header nav.navbar.white-link .navbar-nav > li > a, .pf-body nav.navbar.bootsnav.white-link ul.nav > li > a,
-  .pf-body .site-header nav.navbar.white-link .header-social-icon a, .pf-body nav.navbar.bootsnav.white-link .header-social-icon a,
-  .pf-body .site-header nav.navbar.white-link .header-searchbar a, .pf-body nav.navbar.bootsnav.white-link .header-searchbar a,
-  .pf-body .site-header nav.navbar.bootsnav ul.nav.white-link > li > a, .pf-body nav.navbar.white-link .heder-menu-button a {
+  .pf-body .site-header nav.navbar.white-link .navbar-nav > li > a,
+  .pf-body nav.navbar.bootsnav.white-link ul.nav > li > a,
+  .pf-body .site-header nav.navbar.white-link .header-social-icon a,
+  .pf-body nav.navbar.bootsnav.white-link .header-social-icon a,
+  .pf-body .site-header nav.navbar.white-link .header-searchbar a,
+  .pf-body nav.navbar.bootsnav.white-link .header-searchbar a,
+  .pf-body .site-header nav.navbar.bootsnav ul.nav.white-link > li > a,
+  .pf-body nav.navbar.white-link .heder-menu-button a {
     color: #fff; }
   .pf-body .site-header.sticky nav.navbar-fixed-top.header-light-transparent.white-link .navbar-nav > li > a,
   .pf-body .site-header.sticky nav.navbar-fixed-top.header-light-transparent.white-link .header-searchbar a,
@@ -19826,7 +19860,8 @@ a.btn_login:hover, .btn_login:hover {
   .pf-body .site-header.header-appear nav.header-light-transparent .header-searchbar a:hover,
   .pf-body .site-header.header-appear nav.header-light .header-searchbar a:hover,
   .pf-body .site-header.header-appear nav.header-light.white-link .header-searchbar a:hover,
-  .pf-body .site-header.header-appear nav.header-light-transparent.white-link .header-searchbar a:hover,
+  .pf-body .site-header.header-appear nav.header-light-transparent.white-link .header-searchbar a:hover {
+    color: rgba(0, 0, 0, 0.6); }
   .pf-body .site-header nav.navbar .navbar-nav > li > a:hover,
   .pf-body nav.navbar.bootsnav ul.nav > li > a:hover,
   .pf-body .header-search-form:hover, .pf-body .header-social-icon a:hover {
@@ -20273,8 +20308,8 @@ a.btn_login:hover, .btn_login:hover {
   .pf-body nav.navbar.bootsnav.navbar-default li.dropdown.simple-dropdown > ul.dropdown-menu > li.active > a {
     color: #fff; }
   .pf-body .site-header.header-appear nav.header-light-transparent,
-  .pf-body .site-header.sticky nav.navbar-fixed-top.header-light-transparent,
-  .pf-body .site-header.sticky nav.navbar-scroll-fixed-top.header-light-transparent {
+  .pf-body .site-header.site-header.sticky nav.navbar-fixed-top.header-light-transparent,
+  .pf-body .site-header.site-header.sticky nav.navbar-scroll-fixed-top.header-light-transparent {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 5px 10px -10px rgba(0, 0, 0, 0.6); }
   .pf-body .site-header.header-appear nav.header-light-transparent .separator-line-verticle-small,
@@ -26606,21 +26641,6 @@ a.social_bt.linkedin:before {
   width: 17px;
   height: 17px;
   cursor: pointer; }
-
-.default {
-  background: #e04f67; }
-
-.aqua {
-  background: #1cbbb4; }
-
-.green_switcher {
-  background: #82ca9c; }
-
-.orange {
-  background: #f7941d; }
-
-.blue {
-  background: #0072bc; }
 
 .colors li a.active {
   box-shadow: 0 0 0 2px #fff inset; }

@@ -58,7 +58,7 @@
     .white-link .header-searchbar, .white-link .header-social-icon {
         border-left: 1px solid rgba(255, 255, 255, .15);
     }
-    .header-social-icon a {
+    .header-social-icon a, .header-searchbar a {
         color: #232323
     }
     .header-social-icon a i, .header-searchbar a i {
@@ -107,10 +107,14 @@
         color: #232323;
         cursor: pointer;
     }
-    .site-header nav.navbar.white-link .navbar-nav > li > a, nav.navbar.bootsnav.white-link ul.nav > li > a,
-    .site-header nav.navbar.white-link .header-social-icon a, nav.navbar.bootsnav.white-link .header-social-icon a,
-    .site-header nav.navbar.white-link .header-searchbar a, nav.navbar.bootsnav.white-link .header-searchbar a,
-    .site-header nav.navbar.bootsnav ul.nav.white-link > li > a, nav.navbar.white-link .heder-menu-button a {
+    .site-header nav.navbar.white-link .navbar-nav > li > a,
+    nav.navbar.bootsnav.white-link ul.nav > li > a,
+    .site-header nav.navbar.white-link .header-social-icon a,
+    nav.navbar.bootsnav.white-link .header-social-icon a,
+    .site-header nav.navbar.white-link .header-searchbar a,
+    nav.navbar.bootsnav.white-link .header-searchbar a,
+    .site-header nav.navbar.bootsnav ul.nav.white-link > li > a,
+    nav.navbar.white-link .heder-menu-button a {
         color: #fff
     }
 
@@ -297,17 +301,27 @@
     }
 
     /* navigation */
-    .site-header.header-appear nav.bootsnav.header-light-transparent .navbar-nav > li > a:hover,
-    .site-header.header-appear nav.bootsnav.header-light .navbar-nav > li > a:hover,
-    .site-header.header-appear nav.header-light-transparent .header-social-icon a:hover,
-    .site-header.header-appear nav.header-light .header-social-icon a:hover,
-    .site-header.header-appear nav.header-light.white-link .header-social-icon a:hover,
-    .site-header.header-appear nav.header-light-transparent.white-link .header-social-icon a:hover,
-    .site-header.header-appear nav.header-light-transparent.white-link .heder-menu-button a:hover,
-    .site-header.header-appear nav.header-light-transparent .header-searchbar a:hover,
-    .site-header.header-appear nav.header-light .header-searchbar a:hover,
-    .site-header.header-appear nav.header-light.white-link .header-searchbar a:hover,
-    .site-header.header-appear nav.header-light-transparent.white-link .header-searchbar a:hover,
+
+    .site-header {
+        &.header-appear {
+            nav {
+                &.bootsnav.header-light-transparent .navbar-nav > li > a:hover,
+                &.bootsnav.header-light .navbar-nav > li > a:hover,
+                &.header-light-transparent .header-social-icon a:hover,
+                &.header-light .header-social-icon a:hover,
+                &.header-light.white-link .header-social-icon a:hover,
+                &.header-light-transparent.white-link .header-social-icon a:hover,
+                &.header-light-transparent.white-link .heder-menu-button a:hover,
+                &.header-light-transparent .header-searchbar a:hover,
+                &.header-light .header-searchbar a:hover,
+                &.header-light.white-link .header-searchbar a:hover,
+                &.header-light-transparent.white-link .header-searchbar a:hover {
+                    color: rgba(0, 0, 0, 0.6)
+                }
+            }
+        }
+    }
+
     .site-header nav.navbar .navbar-nav > li > a:hover,
     nav.navbar.bootsnav ul.nav > li > a:hover,
     .header-search-form:hover, .header-social-icon a:hover {
@@ -907,16 +921,22 @@
     }
 
     /* light transparent navigation */
-    .site-header.header-appear nav.header-light-transparent,
-    .site-header.sticky nav.navbar-fixed-top.header-light-transparent,
-    .site-header.sticky nav.navbar-scroll-fixed-top.header-light-transparent {
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 5px 10px -10px rgba(0, 0, 0, 0.6)
+
+    .site-header {
+        &.header-appear nav.header-light-transparent,
+        &.site-header.sticky nav.navbar-fixed-top.header-light-transparent,
+        &.site-header.sticky nav.navbar-scroll-fixed-top.header-light-transparent {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 10px -10px rgba(0, 0, 0, 0.6)
+        }
     }
+
+
     .site-header.header-appear nav.header-light-transparent .separator-line-verticle-small,
     .site-header.header-appear nav.header-light .separator-line-verticle-small {
         background: rgba(0, 0, 0, 0.4)
     }
+
     .site-header.header-appear nav.header-light-transparent .header-social-icon a,
     .site-header.header-appear nav.header-light .header-social-icon a,
     .site-header.header-appear nav.header-light.white-link .header-social-icon a,
