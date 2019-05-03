@@ -10,10 +10,18 @@
 
     &:before, &:after {
         display: inline-block;
-        width: 50px;
+        width: rem-calc(30);
         height: 1px;
         content: '';
         vertical-align: middle;
         background-color: $white;
+    }
+
+    &:before {
+        margin-right: rem-calc(25);
+    }
+
+    &:after {
+        margin-left: rem-calc(25);
     }
 }

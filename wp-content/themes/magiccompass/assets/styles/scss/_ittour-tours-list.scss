@@ -1,0 +1,43 @@
+.tour_review_rate {
+    margin-bottom: rem-calc(10);
+
+    i {
+        font-size: 18px;
+
+        &.fa-sad-tear {
+            color: #a60005;
+        }
+        &.fa-frown {
+            color: rgba(177, 69, 0, 0.85);
+        }
+        &.fa-meh {
+            color: #a47300;
+        }
+        &.fa-smile {
+            color: #809116;
+        }
+        &.fa-grin-hearts {
+            color: #4c803d;
+        }
+    }
+
+    span {
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.hotel_title {
+    font-size: rem-calc(16);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.hotel_location {
+    color: #999;
+    text-transform: uppercase;
+    font-size: rem-calc(11);
+}
+
+.tour-grid__container {
+
+}

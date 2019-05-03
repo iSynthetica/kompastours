@@ -16,12 +16,38 @@ $template_args = array(
     'items_per_page' => 12,
 );
 
-ittour_show_template('general/tours-list-ajax.php', $template_args);
+
 
 ?>
+<section id="recomended-tours__section" class="ptb-40">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="main_title">
+                    <h2 class="mt-0 mb-20"><?php the_title(); ?> <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
+                    <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<section id="tour_section">
-    <div class="tours-list-ajax" data-country="<?php echo $country_id ?>">
+    <?php ittour_show_template('general/tours-list-ajax.php', $template_args); ?>
+</section>
 
+<section id="search-form__section" class="pt-20 pb-20 bg-gray-10-color">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="main_title">
+                    <h2 class="mt-0 mb-40"><?php the_title(); ?> <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
+                </div>
+            </div>
+        </div>
+
+        <?php
+        ittour_show_template('form/section-search.php', array(
+            'country'       => $country_id
+        ));
+        ?>
     </div>
 </section>

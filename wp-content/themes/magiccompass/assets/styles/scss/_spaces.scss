@@ -1,44 +1,68 @@
-$spaces: 20, 40, 60, 80, 100, 120, 140;
+$spaces: 10, 20, 40, 60, 80, 100, 120, 140;
 
+.m-0 {
+    margin: 0 !important;
+}
 .mt-0 {
     margin-top: 0 !important;
 }
-
 .mb-0 {
     margin-bottom: 0 !important;
 }
-
 .mtb-0 {
     margin-top: 0;
     margin-bottom: 0 !important;
 }
+.mr-0 {
+    margin-right: 0 !important;
+}
+.ml-0 {
+    margin-left: 0 !important;
+}
+.mrl-0 {
+    margin-right: 0  !important;
+    margin-left: 0 !important;
+}
 
+.p-0 {
+    padding: 0 !important;
+}
 .pt-0 {
     padding-top: 0 !important;
 }
-
 .pb-0 {
     padding-bottom: 0 !important;
 }
-
 .ptb-0 {
     padding-top: 0;
     padding-bottom: 0 !important;
+}
+.pr-0 {
+    padding-right: 0 !important;
+}
+.pl-0 {
+    padding-left: 0 !important;
+}
+.prl-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
 }
 
 @each $space in $spaces {
     .mt-#{$space} {
         margin-top: #{$space}px;
     }
-
     .mb-#{$space} {
         margin-bottom: #{$space}px;
     }
-
     .mtb-#{$space} {
         margin-top: #{$space}px;
         margin-bottom: #{$space}px;
     }
+    .p-#{$space} {
+        padding: #{$space}px;
+    }
+
     .pt-#{$space} {
         padding-top: #{$space}px;
     }
@@ -50,6 +74,19 @@ $spaces: 20, 40, 60, 80, 100, 120, 140;
     .ptb-#{$space} {
         padding-top: #{$space}px;
         padding-bottom: #{$space}px;
+    }
+
+    .pr-#{$space} {
+        padding-right: #{$space}px;
+    }
+
+    .pl-#{$space} {
+        padding-left: #{$space}px;
+    }
+
+    .prl-#{$space} {
+        padding-right: #{$space}px;
+        padding-left: #{$space}px;
     }
 }
 

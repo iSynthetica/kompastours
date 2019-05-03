@@ -17,62 +17,69 @@ if (empty($content)) {
 }
 
 $subtitle = get_field('subtitle', get_the_ID());
-?>
+$content_template = snth_get_template('content/'.$content.'.php');
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url('full') ?>" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1><?php the_title(); ?></h1>
-            <?php
-            if (!empty($subtitle)) {
-                ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
-            }
-            ?>
-        </div>
-    </div>
-</section>
+snth_show_template('titles/minimal-center-alignment.php', array (
+        'title' => get_the_title()
+    )
+);
+?>
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 
+
 <div class="wrap">
-    <div class="container margin_60">
-        <div class="row">
-            <?php
-            if ( 'right-sidebar' === $template ) {
-                ?>
-                <div id="primary" class="content-area col-lg-9">
-                    <main id="main" class="site-main" role="main">
-                        <?php snth_show_template('content/'.$content.'.php'); ?>
-                    </main>
-                </div>
-
-                <aside class="col-lg-3">
-                    <?php get_sidebar('blog'); ?>
-                </aside>
-                <?php
-            } elseif ( 'left-sidebar' === $template ) {
-                ?>
-                <aside class="col-lg-3">
-                    <?php get_sidebar('blog'); ?>
-                </aside>
-
-                <div id="primary" class="content-area col-lg-9">
-                    <main id="main" class="site-main" role="main">
-                        <?php snth_show_template('content/'.$content.'.php'); ?>
-                    </main>
-                </div>
-                <?php
-            } else {
-                ?>
-                <div id="primary" class="content-area col-12">
-                    <main id="main" class="site-main" role="main">
-                        <?php snth_show_template('content/'.$content.'.php'); ?>
-                    </main>
-                </div>
-                <?php
-            }
-            ?>
+    <?php
+    if ( 'full-width' === $template ) {
+        ?>
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                <?php echo $content_template; ?>
+            </main>
         </div>
-    </div>
+        <?php
+    } else {
+        ?>
+        <div class="container ptb-20 ptb-md-40 ptb-lg-60">
+            <div class="row">
+                <?php
+                if ( 'right-sidebar' === $template ) {
+                    ?>
+                    <div id="primary" class="content-area col-lg-9">
+                        <main id="main" class="site-main" role="main">
+                            <?php echo $content_template; ?>
+                        </main>
+                    </div>
+
+                    <aside class="col-lg-3">
+                        <?php get_sidebar('blog'); ?>
+                    </aside>
+                    <?php
+                } elseif ( 'left-sidebar' === $template ) {
+                    ?>
+                    <aside class="col-lg-3">
+                        <?php get_sidebar('blog'); ?>
+                    </aside>
+
+                    <div id="primary" class="content-area col-lg-9">
+                        <main id="main" class="site-main" role="main">
+                            <?php echo $content_template; ?>
+                        </main>
+                    </div>
+                    <?php
+                } else {
+                    ?>
+                    <div id="primary" class="content-area col-12">
+                        <main id="main" class="site-main" role="main">
+                            <?php echo $content_template; ?>
+                        </main>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+        <?php
+    }
+    ?>
 </div>

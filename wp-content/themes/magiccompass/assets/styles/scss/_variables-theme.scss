@@ -8,6 +8,7 @@ $color-gray-40: #999999;
 $color-gray-30: #b2b2b2;
 $color-gray-20: #cccccc;
 $color-gray-10: #e6e6e6;
+$color-gray-5: #f3f3f3;
 
 $color-black: #0a0a0a;
 $color-dark-gray: #4b4b4b;
@@ -23,19 +24,32 @@ $color-theme: #41A8BF;
 $color-theme-alt: #A29F15;
 
 
+$custom-grays-colors: (
+    gray-90: $color-gray-90,
+    gray-80: $color-gray-80,
+    gray-70: $color-gray-70,
+    gray-60: $color-gray-60,
+    gray-50: $color-gray-50,
+    gray-40: $color-gray-40,
+    gray-30: $color-gray-30,
+    gray-20: $color-gray-20,
+    gray-10: $color-gray-10,
+    gray-5: $color-gray-5
+);
+
 $custom-theme-colors: (
-        danger: $color-theme,
-        theme: $color-theme,
-        theme-alt: $color-theme-alt,
-        black: $color-black,
-        dark-gray: $color-dark-gray,
-        medium-gray: $color-medium-gray,
-        light-gray: $color-light-gray,
-        white: $color-white,
-        red: $color-red,
-        aqua: #1cbbb4,
-        green: #82ca9c,
-        orange: #f7941d
+    theme: $color-theme,
+    theme-alt: $color-theme-alt,
+    black: $color-black,
+    dark-gray: $color-dark-gray,
+    medium-gray: $color-medium-gray,
+    light-gray: $color-light-gray,
+    white: $color-white,
+    red: $color-red,
+    aqua: #1cbbb4,
+    green: #82ca9c,
+    orange: #f7941d
 );
 
 $merged-theme-colors: map-merge($theme-colors, $custom-theme-colors);
+$merged-theme-colors: map-merge($merged-theme-colors, $custom-grays-colors);

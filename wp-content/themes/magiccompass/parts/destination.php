@@ -24,6 +24,7 @@ $destination_type = wp_get_post_terms( $post_id, 'destination_type' );
 $destination_type_template = $destination_type[0]->slug;
 
 if ('country' === $destination_type_template) {
+    $template = 'full-width';
     $country_id = get_field('ittour_id', $post_id);
     $destination_content = snth_get_template('destination/country.php', array('country_id' => $country_id));
 } elseif('region' === $destination_type_template) {
@@ -43,31 +44,11 @@ if ('country' === $destination_type_template) {
     ));
 }
 
-
+snth_show_template('titles/static-image-bg.php', array(
+        'title' => get_the_title()
+    )
+);
 ?>
-
-<!-- start page title section -->
-<section class="cover-background ptb-40 ptb-md-80 ptb-lg-140 bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php the_post_thumbnail_url('full') ?>');">
-    <div class="bg-overlay bg-black-color bg-opacity-40"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 extra-small-screen text-center page-title-extra-small d-flex flex-column justify-content-center">
-                <!-- start page title -->
-                <h1 class="txt-white-color mt-10 entry-title title-style1"><?php the_title(); ?></h1>
-                <!-- end page title -->
-                <!-- start sub title -->
-
-                <?php
-                if (!empty($subtitle)) {
-                    ?><h2 class="txt-white-color"><?php echo $subtitle; ?></h2><?php
-                }
-                ?>
-                <!-- end sub title -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end page title section -->
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 

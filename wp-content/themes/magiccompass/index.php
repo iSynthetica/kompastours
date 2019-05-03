@@ -8,7 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header('pofo-transparent'); ?>
+<?php get_header('transparent'); ?>
 
 <?php snth_show_template('archive.php', array(
     'template' => 'no-sidebar',

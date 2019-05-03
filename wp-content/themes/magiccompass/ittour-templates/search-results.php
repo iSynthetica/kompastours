@@ -36,10 +36,12 @@ $ittour_content = '';
 
 if (!$country_id) {
     $template = 'no-sidebar';
+    $page_title_template = snth_get_template('titles/static-image-bg.php', array(
+            'title' => __('Search tours', 'snthwp')
+        )
+    );
     $ittour_content = ittour_get_template('search/no-parameters.php');
 } else {
-
-
     $args = array();
 
     $args['from_city'] = $from_city ? $from_city : '2014';
@@ -132,9 +134,10 @@ if (!$country_id) {
     $search_result = $search->get($country_id, $args);
 
     if (is_wp_error($search_result)) {
-        snth_show_template('content/hero-section-parallax.php', array(
-            'title' => __('Search Error', 'snthwp'),
-        ));
+        $page_title_template = snth_get_template('titles/static-image-bg.php', array(
+                'title' => __('Search error', 'snthwp')
+            )
+        );
 
         $ittour_content = ittour_get_template('search/result-error.php', array('error' => $search_result->errors['ittour_error'][0]));
     }
@@ -144,39 +147,46 @@ if (!$country_id) {
     }
 
     $template = 'no-sidebar';
+
+    $page_title_template = snth_get_template('titles/static-image-bg.php', array(
+            'title' => __('Search results', 'snthwp')
+        )
+    );
+
     $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result, 'url' => $url));
 }
 ?>
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1>Search</h1>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
-        </div>
+
+<!-- start page title section -->
+<?php
+echo $page_title_template;
+?>
+<!-- end page title section -->
+
+
+<section id="search-section">
+    <div class="container">
+        <?php
+        ittour_show_template('form/section-search.php', array(
+            'country'       => $country_id,
+            'region'        => $region,
+            'hotel'         => $hotel,
+            'hotel_rating'  => $hotel_rating,
+            'from_city'     => $from_city,
+            'date_from'     => $date_from,
+            'date_till'     => $date_till,
+            'night_from'    => $night_from,
+            'night_till'    => $night_till,
+            'adult_amount'  => $adult_amount,
+            'child_amount'  => $child_amount,
+            'child_age'     => $child_age,
+            'price_limit'   => $price_limit,
+            'tour_type'     => $tour_type,
+            'tour_kind'     => $tour_kind,
+        ));
+        ?>
     </div>
 </section>
-<!-- End Section -->
-
-<?php
-ittour_show_template('form/section-search.php', array(
-    'country'       => $country_id,
-    'region'        => $region,
-    'hotel'         => $hotel,
-    'hotel_rating'  => $hotel_rating,
-    'from_city'     => $from_city,
-    'date_from'     => $date_from,
-    'date_till'     => $date_till,
-    'night_from'    => $night_from,
-    'night_till'    => $night_till,
-    'adult_amount'  => $adult_amount,
-    'child_amount'  => $child_amount,
-    'child_age'     => $child_age,
-    'price_limit'   => $price_limit,
-    'tour_type'     => $tour_type,
-    'tour_kind'     => $tour_kind,
-));
-?>
 
 <div class="wrap">
     <div class="container margin_60">

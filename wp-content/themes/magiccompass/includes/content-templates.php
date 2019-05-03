@@ -8,6 +8,12 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+function snth_get_post_thumbnail_url($size = 'full') {
+    global $post;
+
+    return '';
+}
+
 /**
  * Custom Breadcrumbs
  */

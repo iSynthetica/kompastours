@@ -1020,7 +1020,7 @@ function ittour_get_tours_grid($country, $args = array()) {
     $search_result = $search->get($country, $args);
 
     ob_start();
-    ittour_show_template('search/ajax-result.php', array('result' => $search_result));
+    ittour_show_template('search/tour-grid-default.php', array('result' => $search_result));
 
     return ob_get_clean();
 }

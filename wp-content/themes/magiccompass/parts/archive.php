@@ -17,32 +17,27 @@ if (empty($content)) {
 
 $thumbnail = get_field('blog_page_thumbnail', 'options');
 $home_page_for_posts = 1;
-?>
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php echo wp_get_attachment_image_url($thumbnail, 'full') ?>" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <?php
-            if ((is_home() && $home_page_for_posts)) {
-                ?>
-                <h1 class="page-title"><?php _e('Blog', 'snthwp'); ?></h1>
-                <h3 class="entry-subtitle">Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</h3>
-                <?php
-            } else {
-                ?>
-                <?php
-                the_archive_title( '<h1 class="page-title">', '</h1>' );
-                the_archive_description( '<h3 class="entry-subtitle">', '</h3>' );
-                ?>
-                <?php
-            }
-            ?>
-        </div>
-    </div>
-</section>
+$title = '';
+$subtitle = '';
 
-<?php
+if ((is_home() && $home_page_for_posts)) {
+    $title = __('Blog', 'snthwp');
+} else {
+    ?>
+    <?php
+    the_archive_title( '<h1 class="page-title">', '</h1>' );
+    the_archive_description( '<h3 class="entry-subtitle">', '</h3>' );
+    ?>
+    <?php
+}
+
+snth_show_template('titles/static-image-bg.php', array (
+        'title' => $title,
+        'thumbnail_url' => wp_get_attachment_image_url($thumbnail, 'full')
+    )
+);
+
 snth_show_template('breadcrumbs.php');
 ?>
 

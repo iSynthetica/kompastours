@@ -44,7 +44,7 @@ if (empty($_GET['key'])) {
         $region_title = $tour_info['region'];
     }
     ?>
-    <section class="simple-page-title__section bg-gray pb-20 pt-60 mt-60">
+    <section class="bg-gray-5-color ptb-lg-40 ptb-20 top-space">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-9">
@@ -75,7 +75,7 @@ if (empty($_GET['key'])) {
         <?php
     } else {
         ?>
-        <div class="container margin_60">
+        <div class="container ptb-60">
             <div class="row">
                 <?php
                 if ( 'right-sidebar' === $template ) {
