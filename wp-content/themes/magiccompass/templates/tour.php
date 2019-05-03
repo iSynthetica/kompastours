@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<?php get_header('pofo-simple'); ?>
+<?php get_header('white'); ?>
 
 <?php ittour_show_template('single-tour.php') ?>
 

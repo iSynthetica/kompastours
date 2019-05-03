@@ -877,7 +877,9 @@
         background-color: #000;
         color: #fff;
     }
-    .simple-dropdown .dropdown-menu > li > a.dropdown-toggle .fas, nav.navbar.bootsnav.sidebar-nav .nav.navbar-left-sidebar li.dropdown > a > .fas {
+
+    .simple-dropdown .dropdown-menu > li > a.dropdown-toggle .fas,
+    nav.navbar.bootsnav.sidebar-nav .nav.navbar-left-sidebar li.dropdown > a > .fas {
         position: absolute;
         right: 0;
         font-size: 12px;

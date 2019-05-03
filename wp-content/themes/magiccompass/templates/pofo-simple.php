@@ -11,11 +11,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header('pofo-simple'); ?>
+<?php get_header('transparent'); ?>
 
-<?php snth_show_template('contacts.php', array(
-    'template' => 'no-sidebar',
-    'content' => 'contacts',
+<?php snth_show_template('pofo-simple.php', array(
+    'template' => 'full-width',
+    'content' => 'shortcodes',
 )) ?>
 
 <?php get_footer('pofo-simple'); ?>

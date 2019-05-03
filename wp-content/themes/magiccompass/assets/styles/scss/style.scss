@@ -11,8 +11,8 @@ CSS file.
 /* Bootstrap */
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
-@import "settings";
 @import "variables";
+@import "settings";
 
 /* Fontawesome */
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
@@ -51,10 +51,10 @@ CSS file.
 @import "theme-mixins";
 
 // @import "vertical";
-@import "vertical";
+@import "spaces";
+@import "typography";
 @import "site";
 @import "pofo-header";
-@import "ct-header";
 @import "header";
 @import "footer";
 @import "navigation";

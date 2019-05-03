@@ -37,6 +37,4 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <body <?php body_class('pf-body'); ?>>
 
-    <?php // snth_show_template('header/pofo-transparent.php'); ?>
-    <?php snth_show_template('header/pofo-white.php'); ?>
-    <?php // snth_show_template('header/pofo-black.php'); ?>
+    <?php snth_show_template('header/pofo-black.php'); ?>

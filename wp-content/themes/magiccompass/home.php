@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header('pofo-simple'); ?>
+<?php get_header('pofo-transparent'); ?>
 
 <?php snth_show_template('archive.php', array(
     'template' => 'right-sidebar',

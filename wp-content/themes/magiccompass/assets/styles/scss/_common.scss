@@ -2,6 +2,17 @@
 /* 3.  COMMON  */
 /*============================================================================================*/
 
+/* ===================================
+    Background image
+   =================================== */
+.cover-background {
+    position: relative !important;
+    background-size: cover !important;
+    overflow: hidden !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
 /* Magnific popup */
 .mfp-bottom-bar {
     padding: 0 10px!important;

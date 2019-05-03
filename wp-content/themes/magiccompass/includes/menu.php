@@ -105,21 +105,22 @@ class Main_Nav_Walker extends Walker_Nav_Menu {
         $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
         $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
+        $local_before = '';
+        $local_after = '';
         $local_link_after = '';
         $local_link_class = '';
 
         if (in_array('menu-item-has-children', $classes)) {
             if (0 === $depth) {
                 $class_names = ' class="dropdown simple-dropdown"';
-                $local_link_after .= ' <i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>';
+                $local_after .= ' <i class="fas fa-angle-down dropdown-toggle" data-toggle="dropdown" aria-hidden="true"></i>';
             }
 
             if (1 === $depth) {
                 $class_names = ' class="dropdown"';
-                $local_link_after .= ' <i class="fa fa-angle-right right"></i>';
+                $local_link_after .= ' <i class="fas fa-angle-right"></i>';
+                $local_link_class .= 'dropdown-toggle';
             }
-
-            $local_link_class .= 'mn-has-sub';
         }
 
         $output .= $indent . '<li' . $id . $class_names .'>';
@@ -144,11 +145,11 @@ class Main_Nav_Walker extends Walker_Nav_Menu {
         $title = apply_filters( 'the_title', $item->title, $item->ID );
         $title = apply_filters( 'nav_menu_item_title', $title, $item, $args, $depth );
 
-        $item_output = $args->before;
+        $item_output = $local_before . $args->before;
         $item_output .= '<a'. $attributes .'>';
         $item_output .= $args->link_before . $title . $local_link_after . $args->link_after;
         $item_output .= '</a>';
-        $item_output .= $args->after;
+        $item_output .= $args->after . $local_after;
 
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
