@@ -1146,25 +1146,60 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
 }
 
 function ittour_get_min_prices_by_region($country, $args = array()) {
-    $args['items_per_page'] = 1;
-    $search = ittour_search('uk');
 
-    $hotel_ratings = array('78', '4', '3');
+    $saved_prices_by_rating = get_option('ittour_prices_by_rating');
+    $time = time();
+    $expiration_period = 60 * 60 * 4;
+    $expiration_period = 60 * 10;
 
-    $prices_by_rating = array();
+    if (!empty($saved_prices_by_rating)) {
+        if (!empty($saved_prices_by_rating[$args['region']]['prices'])) {
+            $old_prices_by_rating = $saved_prices_by_rating[$args['region']]['prices'];
+            $prices_expired = $saved_prices_by_rating[$args['region']]['expired'];
 
-    foreach ($hotel_ratings as $rating) {
-        $args['hotel_rating'] = $rating;
-
-        $search_result = $search->getList($country, $args);
-
-        if (!empty($search_result['offers'][0]['prices']['2'])) {
-            $prices_by_rating[$rating] = $search_result['offers'][0]['prices']['2'];
+            if ($prices_expired > $time) {
+                $need_update = false;
+            } else {
+                $need_update = true;
+            }
+        } else {
+            $need_update = true;
         }
+    } else {
+        $saved_prices_by_rating = array();
+        $need_update = true;
     }
 
-    if (is_wp_error($search_result)) {
-        return false;
+    if ($need_update) {
+        $args['items_per_page'] = 1;
+        $search = ittour_search('uk');
+
+        $hotel_ratings = array('78', '4', '3');
+
+        $prices_by_rating = array();
+
+        foreach ($hotel_ratings as $rating) {
+            $args['hotel_rating'] = $rating;
+
+            $search_result = $search->getList($country, $args);
+
+            if (!is_wp_error($search_result) && !empty($search_result['offers'][0]['prices']['2'])) {
+                $prices_by_rating[$rating] = $search_result['offers'][0]['prices']['2'];
+            } else {
+                if (!empty($old_prices_by_rating[$rating])) {
+                   $prices_by_rating[$rating] = $old_prices_by_rating[$rating];
+                }
+            }
+        }
+
+        $saved_prices_by_rating[$args['region']] = array(
+            'prices' => $prices_by_rating,
+            'expired'   => $time + $expiration_period
+        );
+
+        $updated_prices_by_rating = update_option('ittour_prices_by_rating', $saved_prices_by_rating);
+    } else {
+        $prices_by_rating = $old_prices_by_rating;
     }
 
     ob_start();

@@ -46,7 +46,7 @@ $template_args = array(
 
         <div class="ptb-20">
             <?php
-            ittour_show_template('general/tours-list-ajax.php', $template_args);
+            ittour_show_template('general/tours-min-prices.php', $template_args);
             ?>
         </div>
     </div>
