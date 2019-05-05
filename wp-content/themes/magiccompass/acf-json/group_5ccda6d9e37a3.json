@@ -1,0 +1,56 @@
+{
+    "key": "group_5ccda6d9e37a3",
+    "title": "Destinations - Countries - Popular regions",
+    "fields": [
+        {
+            "key": "field_5ccda743fe93c",
+            "label": "Популярные регионы",
+            "name": "popular_country_regions",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "destination"
+            ],
+            "taxonomy": [
+                "destination_type:region"
+            ],
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "destination"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "destination_type:country"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1556982462
+}

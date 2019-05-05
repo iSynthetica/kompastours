@@ -1145,6 +1145,48 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
     return ob_get_clean();
 }
 
+function ittour_get_min_prices_by_region($country, $args = array()) {
+    $args['items_per_page'] = 1;
+    $search = ittour_search('uk');
+
+    $hotel_ratings = array('78', '4', '3');
+
+    $prices_by_rating = array();
+
+    foreach ($hotel_ratings as $rating) {
+        $args['hotel_rating'] = $rating;
+
+        $search_result = $search->getList($country, $args);
+
+        if (!empty($search_result['offers'][0]['prices']['2'])) {
+            $prices_by_rating[$rating] = $search_result['offers'][0]['prices']['2'];
+        }
+    }
+
+    if (is_wp_error($search_result)) {
+        return false;
+    }
+
+    ob_start();
+
+    if (!empty($prices_by_rating)) {
+        foreach ($prices_by_rating as $rating => $price) {
+            ?>
+            <div class="row">
+                <div class="col-6">
+                    <?php echo __('Hotels', 'snthwp') ?> <?php echo ittour_get_hotel_number_rating_by_id($rating) ?>
+                </div>
+                <div class="col-6">
+                    <?php echo __('from', 'snthwp') ?> <?php echo $price ?> <?php echo __('uah.', 'snthwp') ?>
+                </div>
+            </div>
+            <?php
+        }
+    }
+
+    return ob_get_clean();
+}
+
 function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $args = array()) {
     $search = ittour_search('uk');
 

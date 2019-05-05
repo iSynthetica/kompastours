@@ -16,15 +16,14 @@ $template_args = array(
     'items_per_page' => 12,
 );
 
-
-
+$popular_regions = get_field('popular_country_regions', get_the_ID());
 ?>
 <section id="recomended-tours__section" class="ptb-40">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="main_title">
-                    <h2 class="mt-0 mb-20"><?php the_title(); ?> <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
+                    <h2 class="mt-0 mb-20"><?php the_title(); ?> - <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
                     <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
                 </div>
             </div>
@@ -34,7 +33,38 @@ $template_args = array(
     <?php ittour_show_template('general/tours-list-ajax.php', $template_args); ?>
 </section>
 
-<section id="search-form__section" class="pt-20 pb-20 bg-gray-10-color">
+<?php
+if (!empty($popular_regions)) {
+    ?>
+    <section id="popular-regions__section" class="ptb-40 bg-gray-10-color">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="main_title">
+                        <h2 class="mt-0 mb-40"><?php the_title(); ?> - <small><?php echo __('<span>Popular</span> Regions', 'snthwp'); ?></small></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php
+                foreach ($popular_regions as $region) {
+                    ?>
+                    <div class="col-lg-4 col-md-6">
+                        <?php ittour_show_template('country/popular-region.php', array(
+                                'post_id' => $region
+                        )); ?>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
+    </section>
+    <?php
+}
+?>
+
+<section id="search-form__section" class="pt-20 pb-20">
     <div class="container">
         <div class="row">
             <div class="col-12">

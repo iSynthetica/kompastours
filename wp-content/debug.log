@@ -1,0 +1,111 @@
+[04-May-2019 15:29:56 UTC] PHP Parse error:  syntax error, unexpected 'SNTH_IMAGES_URL' (T_STRING) in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 20
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 19
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 20
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 19
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 20
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 19
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 20
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 19
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:17:56 UTC] PHP Notice:  Undefined variable: country_id in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/country/popular-region.php on line 20
+[04-May-2019 16:17:56 UTC] PHP Stack trace:
+[04-May-2019 16:17:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[04-May-2019 16:17:56 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[04-May-2019 16:17:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[04-May-2019 16:17:56 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[04-May-2019 16:17:56 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/single-destination.php:16
+[04-May-2019 16:17:56 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP   7. snth_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination.php:29
+[04-May-2019 16:17:56 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:66
+[04-May-2019 16:17:56 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[04-May-2019 16:17:56 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/destination/country.php:54
+[04-May-2019 16:17:56 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[04-May-2019 16:36:25 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
+[04-May-2019 16:36:25 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
+[04-May-2019 16:36:26 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
+[04-May-2019 16:36:26 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
+[04-May-2019 16:36:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
+[04-May-2019 16:36:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1155
