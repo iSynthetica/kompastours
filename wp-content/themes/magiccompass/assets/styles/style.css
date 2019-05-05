@@ -26311,8 +26311,6 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   margin-bottom: 30px; }
 
 .tour_list_container {
-  margin-bottom: 30px;
-  background-color: #fff;
   display: block;
   color: #777;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }

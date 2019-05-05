@@ -42,8 +42,6 @@
 }
 
 .tour_list_container {
-    margin-bottom: 30px;
-    background-color: #fff;
     display: block;
     color: #777;
     -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
@@ -57,6 +55,7 @@
     .tour_list_details {
         margin-top: rem-calc(15);
         font-size: rem-calc(14);
+
         p {
             margin-bottom: rem-calc(10);
         }
@@ -134,6 +133,7 @@
             }
         }
     }
+
     .more-offers__link {
         display: block;
         text-align: center;

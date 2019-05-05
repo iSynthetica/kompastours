@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-30 15:29+0000\n"
+"POT-Creation-Date: 2019-04-30 16:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -57,14 +57,41 @@ msgid "Flight from"
 msgstr ""
 
 #: ittour-templates/single-tour-content.php:77
-msgid "Flight date"
+msgid "Start date"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:143
+#: ittour-templates/single-tour-content.php:104
+#: ittour-templates/form/search.php:26
+#: ittour-templates/loop-hotel/part-price.php:14
+msgid "Adults"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:116
+#: includes/ittour-template-functions.php:871
+#: ittour-templates/loop-hotel/part-price.php:15
+msgid "Children"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:128
+#: includes/ittour-template-functions.php:1085
+#: ittour-templates/single-tour/price.php:12
+#: ittour-templates/loop-hotel/tour-list-default.php:169
+msgid "Price"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:132
+#: includes/ittour-template-functions.php:501
+#: includes/ittour-template-functions.php:1131
+#: ittour-templates/loop-hotel/tour-list-default.php:113
+#: ittour-templates/loop-hotel/tour-list-default.php:214
+msgid "uah."
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:165
 msgid "Hotel Description"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:146
+#: ittour-templates/single-tour-content.php:168
 msgid "Location"
 msgstr ""
 
@@ -162,13 +189,6 @@ msgstr ""
 msgid "Price range"
 msgstr ""
 
-#: includes/ittour-template-functions.php:501
-#: includes/ittour-template-functions.php:1131
-#: ittour-templates/loop-hotel/tour-list-default.php:113
-#: ittour-templates/loop-hotel/tour-list-default.php:214
-msgid "uah."
-msgstr ""
-
 #: includes/ittour-template-functions.php:562
 #: ittour-templates/loop-hotel/tour-list-default.php:165
 msgid "Transport"
@@ -192,11 +212,6 @@ msgstr ""
 
 #: includes/ittour-template-functions.php:856
 msgid "Sport"
-msgstr ""
-
-#: includes/ittour-template-functions.php:871
-#: ittour-templates/loop-hotel/part-price.php:15
-msgid "Children"
 msgstr ""
 
 #: includes/ittour-template-functions.php:891
@@ -224,12 +239,6 @@ msgstr ""
 #: includes/ittour-template-functions.php:1084
 #: ittour-templates/loop-hotel/tour-list-default.php:168
 msgid "Guests / Nights"
-msgstr ""
-
-#: includes/ittour-template-functions.php:1085
-#: ittour-templates/single-tour/price.php:12
-#: ittour-templates/loop-hotel/tour-list-default.php:169
-msgid "Price"
 msgstr ""
 
 #: includes/ittour-template-functions.php:1125
@@ -651,11 +660,6 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: ittour-templates/form/search.php:26
-#: ittour-templates/loop-hotel/part-price.php:14
-msgid "Adults"
-msgstr ""
-
 #: ittour-templates/form/search-tab.php:64
 msgid "Search"
 msgstr ""
@@ -753,20 +757,20 @@ msgstr ""
 msgid "Hotel info"
 msgstr ""
 
-#: ittour-templates/single-tour/flights-list.php:10
+#: ittour-templates/single-tour/flights-list.php:16
 msgid "Flights"
 msgstr ""
 
-#: ittour-templates/single-tour/flights-list.php:12
+#: ittour-templates/single-tour/flights-list.php:18
 msgid "Flight there"
 msgstr ""
 
-#: ittour-templates/single-tour/flights-list.php:32
-#: ittour-templates/single-tour/flights-list.php:58
+#: ittour-templates/single-tour/flights-list.php:38
+#: ittour-templates/single-tour/flights-list.php:64
 msgid "Departure time is specified and will be available within 48 hours."
 msgstr ""
 
-#: ittour-templates/single-tour/flights-list.php:38
+#: ittour-templates/single-tour/flights-list.php:44
 msgid "Flight back"
 msgstr ""
 

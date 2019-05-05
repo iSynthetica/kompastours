@@ -25,38 +25,36 @@ $country = $result['hotels'][0]['country'];
                 <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="<?php echo $seconds ?>s">
                     <div class="tour_container tour-grid__container">
                         <div class="img_container">
-                            <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>">
-                                <img src="<?php echo SNTH_IMAGES_URL; ?>/tours/tour_box_1.jpg" width="800" height="533" class="img-fluid" alt="Image">
+                            <img src="<?php echo SNTH_IMAGES_URL; ?>/tours/tour_box_1.jpg" width="800" height="533" class="img-fluid" alt="Image">
 
-                                <?php
-                                if (!empty($hotel['images'][0]['full'])) {
-                                    ?>
-                                    <div class="img-overlay" style="background-image: url('<?php echo $hotel['images'][0]['full'] ?>')"></div>
-                                    <?php
-                                }
+                            <?php
+                            if (!empty($hotel['images'][0]['full'])) {
                                 ?>
+                                <div class="img-overlay" style="background-image: url('<?php echo $hotel['images'][0]['full'] ?>')"></div>
+                                <?php
+                            }
+                            ?>
 
-                                <div class="short_info">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="pl-10">
-                                                <?php
-                                                echo ittour_get_guests_icon($hotel['adult_amount'], $hotel['child_amount']);
-                                                ?> /
-                                                <?php echo $first_offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
-                                            </div>
+                            <div class="short_info">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="pl-10">
+                                            <?php
+                                            echo ittour_get_guests_icon($hotel['adult_amount'], $hotel['child_amount']);
+                                            ?> /
+                                            <?php echo $first_offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
                                         </div>
+                                    </div>
 
-                                        <div class="col-6">
-                                            <div class="price">
-                                                <small style="font-size:11px;"><?php echo __('from', 'snthwp') ?></small>
-                                                <?php echo $hotel['min_price']; ?>
-                                                <sup><?php echo __('uah.', 'snthwp'); ?></sup>
-                                            </div>
+                                    <div class="col-6">
+                                        <div class="price">
+                                            <small style="font-size:11px;"><?php echo __('from', 'snthwp') ?></small>
+                                            <?php echo $hotel['min_price']; ?>
+                                            <sup><?php echo __('uah.', 'snthwp'); ?></sup>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
 
                         <div class="content__container p-10">
@@ -78,6 +76,14 @@ $country = $result['hotels'][0]['country'];
 
                             <div class="hotel_location">
                                 <?php echo $hotel['region']; ?>, <?php echo $country; ?>
+                            </div>
+
+                            <div class="row mt-20">
+                                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                                    <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended">
+                                        <?php echo __('Want to this hotel', 'snthwp'); ?>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
