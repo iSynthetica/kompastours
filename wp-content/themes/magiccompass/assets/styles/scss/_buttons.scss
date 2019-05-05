@@ -1,0 +1,127 @@
+/********************
+ 1.GENERAL
+ ********************/
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    outline: none;
+    transition: all 0.3s;
+
+    padding: rem-calc(0 25);
+    margin: rem-calc(0 0 5 0);
+    height: rem_calc($btn-size);
+
+    border-width: rem_calc($btn-border-width);
+    border-style: solid;
+
+    text-align: center;
+    font-size: rem_calc($btn-font-size);
+    line-height: rem_calc($btn-size - 2*$btn-border-width);
+
+    @include btn-color-scheme($btn-default-color);
+
+    &.shape-rnd {
+        border-radius: rem_calc($btn-size);
+    }
+
+    &.shape-crnr {
+        border-radius: rem_calc($shape-crnr);
+    }
+}
+
+a, button, div {
+    &.btn {
+        cursor: pointer;
+    }
+}
+
+a {
+    &.btn {
+
+    }
+}
+
+button {
+    &.btn {
+
+    }
+}
+
+div {
+    &.btn {
+
+    }
+}
+
+/********************
+ 2.SIZES
+ ********************/
+.btn {
+    &.size-xs {
+        height: rem_calc($btn-size-xs);
+        border-width: rem_calc($btn-border-width-xs);
+        font-size: rem_calc($btn-font-size-xs);
+        line-height: rem_calc($btn-size-xs - 2*$btn-border-width-xs);
+
+        &.shape-crnr {
+            border-radius: rem_calc($shape-crnr-xs);
+        }
+    }
+    &.size-sm {
+        height: rem_calc($btn-size-sm);
+        border-width: rem_calc($btn-border-width-sm);
+        font-size: rem_calc($btn-font-size-sm);
+        line-height: rem_calc($btn-size-sm - 2*$btn-border-width-sm);
+
+        &.shape-crnr {
+            border-radius: rem_calc($shape-crnr-sm);
+        }
+    }
+    &.size-lg {
+        height: rem_calc($btn-size-lg);
+        border-width: rem_calc($btn-border-width-lg);
+        font-size: rem_calc($btn-font-size-lg);
+        line-height: rem_calc($btn-size-lg - 2*$btn-border-width-lg);
+
+        &.shape-crnr {
+            border-radius: rem_calc($shape-crnr-lg);
+        }
+    }
+    &.size-xl {
+        height: rem_calc($btn-size-xl);
+        border-width: rem_calc($btn-border-width-xl);
+        font-size: rem_calc($btn-font-size-xl);
+        line-height: rem_calc($btn-size-xl - 2*$btn-border-width-xl);
+
+        &.shape-crnr {
+            border-radius: rem_calc($shape-crnr-xl);
+        }
+    }
+    &.size-extended, &.size-expanded {
+        display: block;
+        width: 100%;
+    }
+}
+
+/********************
+ 5.BG COLORS
+ ********************/
+@each $color-title, $color-value in $merged-theme-colors {
+    .btn {
+        &.bg-#{$color-title}-color {
+            @include btn-color-scheme($color-value);
+        }
+    }
+}
+
+/********************
+ 6.BG COLORS HOVER
+ ********************/
+@each $color-title, $color-value in $merged-theme-colors {
+    .btn {
+        &.bg-#{$color-title}-color-hvr  {
+            @include btn-color-scheme-hvr($color-value);
+        }
+    }
+}

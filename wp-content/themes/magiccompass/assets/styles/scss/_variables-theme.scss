@@ -1,4 +1,6 @@
-
+/********************
+ 1. COLORS
+ ********************/
 $color-gray-90: #1a1a1a;
 $color-gray-80: #333333;
 $color-gray-70: #4c4c4c;
@@ -20,7 +22,7 @@ $color-aqua: #1cbbb4;
 $color-green: #82ca9c;
 $color-orange: #f7941d;
 $color-blue: #0072bc;
-$color-theme: #41A8BF;
+$color-theme: $color-red;
 $color-theme-alt: #A29F15;
 
 
@@ -53,3 +55,33 @@ $custom-theme-colors: (
 
 $merged-theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $merged-theme-colors: map-merge($merged-theme-colors, $custom-grays-colors);
+
+/********************
+ 2.BUTTONS
+ ********************/
+$btn-default-color: $color-theme;
+
+$btn-border-width: 1;
+$btn-size: 40;
+$btn-font-size: 20;
+$shape-crnr: 3;
+
+$btn-border-width-xs: 1;
+$btn-size-xs: 32;
+$btn-font-size-xs: 14;
+$shape-crnr-xs: 3;
+
+$btn-border-width-sm: 1;
+$btn-size-sm: 36;
+$btn-font-size-sm: 16;
+$shape-crnr-sm: 5;
+
+$btn-border-width-lg: 2;
+$btn-size-lg: 48;
+$btn-font-size-lg: 23;
+$shape-crnr-lg: 7;
+
+$btn-border-width-xl: 3;
+$btn-size-xl: 56;
+$btn-font-size-xl: 26;
+$shape-crnr-xl: 10;

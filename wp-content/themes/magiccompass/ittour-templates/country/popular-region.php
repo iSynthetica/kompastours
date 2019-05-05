@@ -49,5 +49,13 @@ $template_args = array(
             ittour_show_template('general/tours-min-prices.php', $template_args);
             ?>
         </div>
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                <a href="" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended">
+                    <?php echo __('Find tour', 'snthwp'); ?>
+                </a>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,0 +1,85 @@
+/********************
+ 1.BUTTONS
+ ********************/
+@mixin btn-color ($border-color, $background-color, $color) {
+    border-color: $border-color;
+    background-color: $background-color;
+    color: $color;
+}
+
+@mixin btn-color-scheme ($color) {
+    $hover-color: null;
+    $txt-color: null;
+
+    @if (lightness($color) < 10) {
+        $hover-color: lighten($color, 5%);
+    } @else {
+        $hover-color: darken($color, 10%);
+    }
+
+    @if (lightness($color) > 60) {
+        $txt-color: $black;
+    } @else {
+        $txt-color: $white;
+    }
+
+    @include btn-color($color, $color, $txt-color);
+
+    &:hover {
+        @include btn-color($hover-color, $hover-color, $txt-color);
+    }
+    &.hvr-invert {
+        &:hover {
+            @include btn-color($color, transparent, $color);
+        }
+    }
+
+    &.type-hollow {
+        @include btn-color($color, transparent, $color);
+        &:hover {
+            @include btn-color($hover-color, transparent, $hover-color);
+        }
+        &.hvr-invert {
+            &:hover {
+                @include btn-color($color, $color, $txt-color);
+            }
+        }
+    }
+}
+
+@mixin btn-color-scheme-hvr ($color) {
+    $hover-color: null;
+    $txt-color: null;
+
+    @if (lightness($color) < 10) {
+        $hover-color: lighten($color, 5%);
+    } @else {
+        $hover-color: darken($color, 10%);
+    }
+
+    @if (lightness($color) > 60) {
+        $txt-color: $black;
+    } @else {
+        $txt-color: $white;
+    }
+
+    &:hover {
+        @include btn-color($color, $color, $txt-color);
+    }
+    &.hvr-invert {
+        &:hover {
+            @include btn-color($color, transparent, $color);
+        }
+    }
+
+    &.type-hollow {
+        &:hover {
+            @include btn-color($color, transparent, $color);
+        }
+        &.hvr-invert {
+            &:hover {
+                @include btn-color($color, $color, $txt-color);
+            }
+        }
+    }
+}
