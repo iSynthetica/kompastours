@@ -235,3 +235,12 @@
         font-size: rem-calc(17);
     }
 }
+
+
+.responsive-table__container {
+    @media (max-width: 767px) {
+        max-height: rem-calc(500);
+        overflow: scroll;
+    }
+
+}

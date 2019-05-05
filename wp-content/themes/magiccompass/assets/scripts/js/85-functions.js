@@ -251,16 +251,6 @@
             (a.target == this || "search-overlay-close" == a.target.className || 27 == a.keyCode) && $(this).removeClass("open");
         });
 
-    /* Date and time picker v2 */
-    $('.booking_date').dateDropper();
-    $('.booking_time').timeDropper({
-        setCurrentTime: false,
-        meridians: true,
-        primaryColor: "#e74e84",
-        borderColor: "#e74e84",
-        minutesInterval: '15'
-    });
-
     /* Show Password */
     $('#password').hidePassword('focus', {
         toggle: {

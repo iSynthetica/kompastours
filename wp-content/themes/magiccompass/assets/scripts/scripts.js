@@ -26211,16 +26211,6 @@ S2.define('jquery.select2',[
             (a.target == this || "search-overlay-close" == a.target.className || 27 == a.keyCode) && $(this).removeClass("open");
         });
 
-    /* Date and time picker v2 */
-    $('.booking_date').dateDropper();
-    $('.booking_time').timeDropper({
-        setCurrentTime: false,
-        meridians: true,
-        primaryColor: "#e74e84",
-        borderColor: "#e74e84",
-        minutesInterval: '15'
-    });
-
     /* Show Password */
     $('#password').hidePassword('focus', {
         toggle: {
@@ -26566,9 +26556,9 @@ S2.define('jquery.select2',[
 
         $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
 
-        $('.repeater').repeater({
-            initEmpty: true
-        });
+        // $('.repeater').repeater({
+        //     initEmpty: true
+        // });
 
         var dateFrom = $('input.date-pick').data('date-from');
         var dateTill = $('input.date-pick').data('date-till');

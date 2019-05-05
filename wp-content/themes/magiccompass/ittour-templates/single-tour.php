@@ -74,7 +74,7 @@ if (empty($_GET['key'])) {
         <?php
     } else {
         ?>
-        <div class="container ptb-60">
+        <div class="container ptb-15 ptb-md-40">
             <div class="row">
                 <?php
                 if ( 'right-sidebar' === $template ) {

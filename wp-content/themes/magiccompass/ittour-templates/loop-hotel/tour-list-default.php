@@ -68,7 +68,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                 <?php
                 if (!empty($hotel['hotel_facilities'])) {
-                    echo ittour_get_hotel_facilities($hotel['hotel_facilities']);
+                    $hotel_facilities_html = ittour_get_hotel_facilities($hotel['hotel_facilities']);
+
+                    if (!empty($hotel_facilities_html)) {
+                        ?>
+                        <div class="hotel_facilities">
+                            <?php echo $hotel_facilities_html; ?>
+                        </div>
+                        <?php
+                    }
                 }
                 ?>
 

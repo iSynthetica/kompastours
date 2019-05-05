@@ -15,40 +15,54 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <div class="row">
         <div class="col-md-8 col-lg-9">
             <div class="row">
-                <div class="col-md-6 col-lg-7">
+                <div class="col-md-12 col-lg-7">
                     <?php
                     if (!empty($tour_info["hotel_info"]["images"][0]['full'])) {
                         ?>
-                        <div id="single-tour-gallery__container" class="mb-40">
+                        <div id="single-tour-gallery__container" class="mb-20">
                             <div class="single-tour-thumbnail__container">
                                 <img style="max-width: 100%" src="<?php echo $tour_info["hotel_info"]["images"][0]['full'] ?>" alt="">
                             </div>
 
-                            <div class="single-tour-gallery__container">
-                                <div class="row">
-                                    <?php
-                                    foreach ($tour_info["hotel_info"]["images"] as $image) {
-                                        ?>
-                                        <div class="col-3">
-                                            <img src="<?php echo $image['thumb']; ?>" alt="" style="max-width: 100%">
-                                        </div>
+                            <?php
+                            if (false) {
+                                ?>
+                                <div class="single-tour-slider__container">
+                                    <div class="row">
                                         <?php
-                                    }
-                                    ?>
+                                        foreach ($tour_info["hotel_info"]["images"] as $image) {
+                                            ?>
+                                            <div class="col-3">
+                                                <img src="<?php echo $image['thumb']; ?>" alt="" style="max-width: 100%">
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                            </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <?php
                     }
                     
                     
                     if (!empty($tour_info['hotel_info']['hotel_facilities'])) {
-                        echo ittour_get_hotel_facilities($tour_info['hotel_info']['hotel_facilities']);
+                        $hotel_facilities_html = ittour_get_hotel_facilities($tour_info['hotel_info']['hotel_facilities']);
+
+                        if (!empty($hotel_facilities_html)) {
+                            ?>
+                            <div class="hotel_facilities text-center mb-20">
+                                <?php echo $hotel_facilities_html; ?>
+                            </div>
+                            <?php
+                        }
                     }
                     ?>
                 </div>
 
-                <div class="col-md-6 col-lg-5">
+                <div class="col-md-12 col-lg-5">
                     <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
 
                     <ul class="tour-details-list">
@@ -69,6 +83,26 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <i class="far fa-clock list-item-icon"></i>
                                 <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
                                 <strong><?php echo $tour_info["duration"] ?></strong> <?php _e('nights', 'snthwp'); ?>
+                            </li>
+                            <?php
+                        }
+
+                        if (!empty($tour_info["adult_amount"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-male"></i>
+                                <small><?php echo __('Adults', 'snthwp') ?>:</small>
+                                <strong><?php echo $tour_info["adult_amount"] ?></strong>
+                            </li>
+                            <?php
+                        }
+
+                        if (!empty($tour_info["child_amount"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-baby"></i>
+                                <small><?php echo __('Children', 'snthwp') ?>:</small>
+                                <strong><?php echo $tour_info["child_amount"] ?></strong>
                             </li>
                             <?php
                         }
@@ -136,63 +170,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
         <div class="col-md-4 col-lg-3">
             <div class="box_style_1 expose table-summary_holder">
-                    <table class="table table_summary">
-                        <tbody>
-                        <?php
-                        if (!empty($tour_info['adult_amount'])) {
-                            ?>
-                            <tr>
-                                <td>
-                                    <strong><?php echo __('Adults', 'snthwp') ?>:</strong>
-                                </td>
-                                <td class="text-right">
-                                    <?php echo $tour_info['adult_amount']; ?>
-                                </td>
-                            </tr>
-                            <?php
+                <div class="text-center mb-10 mb-md-20">
+                    <div class="tour_price">
+                        <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
+                    </div>
+                    <div class="tour_price_currency">
+                        <sup>$</sup><strong><?php echo $tour_info['prices'][1] ?></strong>
+                    </div>
+                </div>
 
-                            if (!empty($tour_info['child_amount'])) {
-                                ?>
-                                <tr>
-                                    <td>
-                                        <strong><?php echo __('Children', 'snthwp') ?>:</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <?php echo $tour_info['child_amount']; ?>
-                                    </td>
-                                </tr>
-                                <?php
-                            } else {
-                                ?>
-                                <tr>
-                                    <td>
-                                        <strong><?php echo __('Children', 'snthwp') ?>:</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        0
-                                    </td>
-                                </tr>
-                                <?php
-                            }
-                        }
-                        ?>
-                        <tr>
-                            <td>
-                                <strong><?php echo __('Price', 'snthwp') ?>:</strong>
-                            </td>
-                            <td class="text-right">
-                                <div class="tour_price">
-                                    <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
-                                </div>
-                                <div class="tour_price_currency">
-                                    <sup>$</sup><strong><?php echo $tour_info['prices'][1] ?></strong>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                <a class="btn_full" href="cart.html" style="margin-bottom:0;">Book now</a>
+                <a class="btn bg-success-color size-lg shape-rnd type-hollow hvr-invert size-extended" href="cart.html" style="margin-bottom:0;">Book now</a>
             </div>
             <!--/box_style_1 -->
 

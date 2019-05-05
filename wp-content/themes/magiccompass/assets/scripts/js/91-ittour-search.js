@@ -4,9 +4,9 @@
 
         $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
 
-        $('.repeater').repeater({
-            initEmpty: true
-        });
+        // $('.repeater').repeater({
+        //     initEmpty: true
+        // });
 
         var dateFrom = $('input.date-pick').data('date-from');
         var dateTill = $('input.date-pick').data('date-till');

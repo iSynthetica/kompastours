@@ -784,100 +784,98 @@ function ittour_get_hotel_facilities($facilities) {
         ob_start();
 
         ?>
-        <div class="hotel_facilities">
-            <ul class="add_info">
-                <?php
-                if (!empty($wifi)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-wifi"></i></span>
-
-                            <div class="tooltip-content">
-                                <?php echo $wifi[0] ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-
-                if (!empty($food)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-utensils"></i></span>
-
-                            <div class="tooltip-content">
-                                <h4><?php echo __('Meal', 'snthwp'); ?></h4>
-                                <?php echo implode('<br>', $food); ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-
-                if (!empty($pool)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-swimming-pool"></i></span>
-
-                            <div class="tooltip-content">
-                                <h4><?php echo __('Pool', 'snthwp'); ?></h4>
-                                <?php echo implode('<br>', $pool); ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-
-                if (!empty($beach)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-umbrella-beach"></i></span>
-
-                            <div class="tooltip-content">
-                                <h4><?php echo __('Beach', 'snthwp'); ?></h4>
-                                <?php echo implode('<br>', $beach); ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-
-                if (!empty($sport)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-dumbbell"></i></span>
-
-                            <div class="tooltip-content">
-                                <h4><?php echo __('Sport', 'snthwp'); ?></h4>
-                                <?php echo implode('<br>', $sport); ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
-
-                if (!empty($children)) {
-                    ?>
-                    <li>
-                        <div class="tooltip_styled tooltip-effect-4">
-                            <span class="tooltip-item"><i class="fas fa-baby"></i></span>
-
-                            <div class="tooltip-content">
-                                <h4><?php echo __('Children', 'snthwp'); ?></h4>
-                                <?php echo implode('<br>', $children); ?>
-                            </div>
-                        </div>
-                    </li>
-                    <?php
-                }
+        <ul class="add_info">
+            <?php
+            if (!empty($wifi)) {
                 ?>
-            </ul>
-        </div>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-wifi"></i></span>
+
+                        <div class="tooltip-content">
+                            <?php echo $wifi[0] ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+
+            if (!empty($food)) {
+                ?>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-utensils"></i></span>
+
+                        <div class="tooltip-content">
+                            <h4><?php echo __('Meal', 'snthwp'); ?></h4>
+                            <?php echo implode('<br>', $food); ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+
+            if (!empty($pool)) {
+                ?>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-swimming-pool"></i></span>
+
+                        <div class="tooltip-content">
+                            <h4><?php echo __('Pool', 'snthwp'); ?></h4>
+                            <?php echo implode('<br>', $pool); ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+
+            if (!empty($beach)) {
+                ?>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-umbrella-beach"></i></span>
+
+                        <div class="tooltip-content">
+                            <h4><?php echo __('Beach', 'snthwp'); ?></h4>
+                            <?php echo implode('<br>', $beach); ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+
+            if (!empty($sport)) {
+                ?>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-dumbbell"></i></span>
+
+                        <div class="tooltip-content">
+                            <h4><?php echo __('Sport', 'snthwp'); ?></h4>
+                            <?php echo implode('<br>', $sport); ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+
+            if (!empty($children)) {
+                ?>
+                <li>
+                    <div class="tooltip_styled tooltip-effect-4">
+                        <span class="tooltip-item"><i class="fas fa-baby"></i></span>
+
+                        <div class="tooltip-content">
+                            <h4><?php echo __('Children', 'snthwp'); ?></h4>
+                            <?php echo implode('<br>', $children); ?>
+                        </div>
+                    </div>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
         <?php
         $html = ob_get_clean();
     }
@@ -1060,85 +1058,100 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
 
     ob_start();
 
+    $i = 1;
+
     foreach ($sort_date_array as $date => $offers) {
         if (!empty($offers)) {
             ?>
             <div class="tour_list_container">
-                <div class="tour_list_container-inner" style="padding:10px;">
-                    <h3 style="margin-top:0;"><?php echo $date ?></h3>
-                    <table class="tour_list_more table table-sm table-striped" style="margin-bottom:0;">
-                        <thead>
-                        <tr>
-                            <th><?php echo __('Room Type', 'snthwp'); ?></th>
-                            <th><?php echo __('Meal Type', 'snthwp'); ?></th>
-                            <th><?php echo __('Guests / Nights', 'snthwp'); ?></th>
-                            <th><?php echo __('Price', 'snthwp'); ?></th>
-                            <th><?php echo __('', 'snthwp'); ?></th>
-                        </tr>
-                        </thead>
+                <div id="tour_list_container-<?php echo $i; ?>" class="tour_list_container-inner card accordion_styled" style="padding:10px;">
+                    <div class="card-header">
+                        <h3 class="mtb-0">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#tour_list_container-<?php echo $i; ?>" href="#collapse_<?php echo $i; ?>_date">
+                                <?php echo $date ?>
+                                <i class="fas fa-plus float-right indicator"></i>
+                            </a>
+                        </h3>
+                    </div>
 
-                        <tbody>
-                        <?php
-                        foreach ($offers as $offer) {
-                            $is_best_price = '';
+                    <div id="collapse_<?php echo $i; ?>_date" class="collapse<?php echo 1 === $i ? ' show' : ''; ?>" data-parent="#tour_list_container-<?php echo $i; ?>">
+                        <div class="responsive-table__container">
+                            <table class="tour_list_more table table-sm table-striped" style="margin-bottom:0;">
+                                <thead>
+                                <tr>
+                                    <th><?php echo __('Room Type', 'snthwp'); ?></th>
+                                    <th><?php echo __('Meal Type', 'snthwp'); ?></th>
+                                    <th><?php echo __('Guests / Nights', 'snthwp'); ?></th>
+                                    <th><?php echo __('Price', 'snthwp'); ?></th>
+                                    <th><?php echo __('', 'snthwp'); ?></th>
+                                </tr>
+                                </thead>
 
-                            if (in_array($offer['key'], $best_price_array['ids'])) {
-                                $is_best_price = ' class="best-price-item"';
-                            }
-                            ?>
-                            <tr<?php echo $is_best_price; ?>>
-                                <td>
-                                    <?php
-                                    if (!empty($offer['room_type'])) {
-                                        ?>
-                                        <?php echo $offer['room_type']; ?>
-                                        <?php
+                                <tbody>
+                                <?php
+                                foreach ($offers as $offer) {
+                                    $is_best_price = '';
+
+                                    if (in_array($offer['key'], $best_price_array['ids'])) {
+                                        $is_best_price = ' class="best-price-item"';
                                     }
                                     ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    if (!empty($offer['meal_type']) || !empty($offer['meal_type_full'])) {
-                                        if (!empty($offer['meal_type'])) {
-                                            ?>
-                                            <?php echo $offer['meal_type']; ?>
+                                    <tr<?php echo $is_best_price; ?>>
+                                        <td>
                                             <?php
-                                        }
-
-                                        if (!empty($offer['meal_type_full'])) {
+                                            if (!empty($offer['room_type'])) {
+                                                ?>
+                                                <?php echo $offer['room_type']; ?>
+                                                <?php
+                                            }
                                             ?>
-                                            (<?php echo $offer['meal_type_full']; ?>)
+                                        </td>
+                                        <td>
                                             <?php
-                                        }
-                                    }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    if (!empty($offer['duration'])) {
-                                        ?>
-                                        <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
-                                        <?php
-                                    }
-                                    ?>
-                                </td>
-                                <td class="tour_list_more_price">
-                                    <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
+                                            if (!empty($offer['meal_type']) || !empty($offer['meal_type_full'])) {
+                                                if (!empty($offer['meal_type'])) {
+                                                    ?>
+                                                    <?php echo $offer['meal_type']; ?>
+                                                    <?php
+                                                }
 
-                                    <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
-                                </td>
-                                <td>
-                                    <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-xs"><?php echo __('Details', 'snthwp'); ?></a>
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
+                                                if (!empty($offer['meal_type_full'])) {
+                                                    ?>
+                                                    (<?php echo $offer['meal_type_full']; ?>)
+                                                    <?php
+                                                }
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            if (!empty($offer['duration'])) {
+                                                ?>
+                                                <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
+                                                <?php
+                                            }
+                                            ?>
+                                        </td>
+                                        <td class="tour_list_more_price">
+                                            <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
+
+                                            <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
+                                        </td>
+                                        <td>
+                                            <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-xs"><?php echo __('Details', 'snthwp'); ?></a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <?php
+            $i++;
         }
     }
 
