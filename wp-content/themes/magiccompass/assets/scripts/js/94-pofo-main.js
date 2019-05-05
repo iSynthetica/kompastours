@@ -1,8 +1,73 @@
 (function ($) {
     var lastScroll = 0;
+    var isMobile = false;
+    var isiPhoneiPad = false;
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        isMobile = true;
+    }
+
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        isiPhoneiPad = true;
+    }
+
+    /*==============================================================*/
+//Search - START CODE
+    /*==============================================================*/
+    function ScrollStop() {
+        return false;
+    }
+    function ScrollStart() {
+        return true;
+    }
 
     $(document).ready(function() {
 
+        /*==============================================================*/
+        //magnificPopup Start
+        /*==============================================================*/
+        $('.header-search-form').magnificPopup({
+            mainClass: 'mfp-fade',
+            closeOnBgClick: true,
+            preloader: false,
+            // for white backgriund
+            fixedContentPos: false,
+            closeBtnInside: false,
+            callbacks: {
+                open: function () {
+                    setTimeout(function () {
+                        $('.search-input').focus();
+                    }, 500);
+                    $('#search-header').parent().addClass('search-popup');
+                    if (!isMobile) {
+                        $('body').addClass('overflow-hidden');
+                        //$('body').addClass('position-fixed');
+                        $('body').addClass('width-100');
+                        document.onmousewheel = ScrollStop;
+                    } else {
+                        $('body, html').on('touchmove', function (e) {
+                            e.preventDefault();
+                        });
+                    }
+                },
+                close: function () {
+                    if (!isMobile) {
+                        $('body').removeClass('overflow-hidden');
+                        //$('body').removeClass('position-fixed');
+                        $('body').removeClass('width-100');
+                        $('#search-header input[type=text]').each(function (index) {
+                            if (index == 0) {
+                                $(this).val('');
+                                $("#search-header").find("input:eq(" + index + ")").css({"border": "none", "border-bottom": "2px solid rgba(255,255,255,0.5)"});
+                            }
+                        });
+                        document.onmousewheel = ScrollStart;
+                    } else {
+                        $('body, html').unbind('touchmove');
+                    }
+                }
+            }
+        });
     });
 
     $(window).on('load', function () {

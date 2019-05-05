@@ -15312,276 +15312,6 @@ img.mfp-img {
   border-color: #5897fb; }
 
 /* Owl Carousel */
-/**
- * Owl Carousel v2.3.4
- * Copyright 2013-2018 David Deutsch
- * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
- */
-/*
- *  Owl Carousel - Core
- */
-.owl-carousel {
-  display: none;
-  width: 100%;
-  -webkit-tap-highlight-color: transparent;
-  /* position relative and z-index fix webkit rendering fonts issue */
-  position: relative;
-  z-index: 1; }
-
-.owl-carousel .owl-stage {
-  position: relative;
-  -ms-touch-action: pan-Y;
-  touch-action: manipulation;
-  -moz-backface-visibility: hidden;
-  /* fix firefox animation glitch */ }
-
-.owl-carousel .owl-stage:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0; }
-
-.owl-carousel .owl-stage-outer {
-  position: relative;
-  overflow: hidden;
-  /* fix for flashing background */
-  -webkit-transform: translate3d(0px, 0px, 0px); }
-
-.owl-carousel .owl-wrapper,
-.owl-carousel .owl-item {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0); }
-
-.owl-carousel .owl-item {
-  position: relative;
-  min-height: 1px;
-  float: left;
-  -webkit-backface-visibility: hidden;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none; }
-
-.owl-carousel .owl-item img {
-  display: block;
-  width: 100%; }
-
-.owl-carousel .owl-nav.disabled,
-.owl-carousel .owl-dots.disabled {
-  display: none; }
-
-.owl-carousel .owl-nav .owl-prev,
-.owl-carousel .owl-nav .owl-next,
-.owl-carousel .owl-dot {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
-.owl-carousel .owl-nav button.owl-prev,
-.owl-carousel .owl-nav button.owl-next,
-.owl-carousel button.owl-dot {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0 !important;
-  font: inherit; }
-
-.owl-carousel.owl-loaded {
-  display: block; }
-
-.owl-carousel.owl-loading {
-  opacity: 0;
-  display: block; }
-
-.owl-carousel.owl-hidden {
-  opacity: 0; }
-
-.owl-carousel.owl-refresh .owl-item {
-  visibility: hidden; }
-
-.owl-carousel.owl-drag .owl-item {
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
-.owl-carousel.owl-grab {
-  cursor: move;
-  cursor: grab; }
-
-.owl-carousel.owl-rtl {
-  direction: rtl; }
-
-.owl-carousel.owl-rtl .owl-item {
-  float: right; }
-
-/* No Js */
-.no-js .owl-carousel {
-  display: block; }
-
-/*
- *  Owl Carousel - Animate Plugin
- */
-.owl-carousel .animated {
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-.owl-carousel .owl-animated-in {
-  z-index: 0; }
-
-.owl-carousel .owl-animated-out {
-  z-index: 1; }
-
-.owl-carousel .fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut; }
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-/*
- * 	Owl Carousel - Auto Height Plugin
- */
-.owl-height {
-  transition: height 500ms ease-in-out; }
-
-/*
- * 	Owl Carousel - Lazy Load Plugin
- */
-.owl-carousel .owl-item {
-  /**
-			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
-			calculation of the height of the owl-item that breaks page layouts
-		 */ }
-
-.owl-carousel .owl-item .owl-lazy {
-  opacity: 0;
-  transition: opacity 400ms ease; }
-
-.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
-  max-height: 0; }
-
-.owl-carousel .owl-item img.owl-lazy {
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d; }
-
-/*
- * 	Owl Carousel - Video Plugin
- */
-.owl-carousel .owl-video-wrapper {
-  position: relative;
-  height: 100%;
-  background: #000; }
-
-.owl-carousel .owl-video-play-icon {
-  position: absolute;
-  height: 80px;
-  width: 80px;
-  left: 50%;
-  top: 50%;
-  margin-left: -40px;
-  margin-top: -40px;
-  background: url("owl.video.play.png") no-repeat;
-  cursor: pointer;
-  z-index: 1;
-  -webkit-backface-visibility: hidden;
-  transition: -webkit-transform 100ms ease;
-  transition: transform 100ms ease; }
-
-.owl-carousel .owl-video-play-icon:hover {
-  -ms-transform: scale(1.3, 1.3);
-  -webkit-transform: scale(1.3, 1.3);
-  transform: scale(1.3, 1.3); }
-
-.owl-carousel .owl-video-playing .owl-video-tn,
-.owl-carousel .owl-video-playing .owl-video-play-icon {
-  display: none; }
-
-.owl-carousel .owl-video-tn {
-  opacity: 0;
-  height: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition: opacity 400ms ease; }
-
-.owl-carousel .owl-video-frame {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  width: 100%; }
-
-/**
- * Owl Carousel v2.3.4
- * Copyright 2013-2018 David Deutsch
- * Licensed under: SEE LICENSE IN https://github.com/OwlCarousel2/OwlCarousel2/blob/master/LICENSE
- */
-/*
- * 	Default theme - Owl Carousel CSS File
- */
-.owl-theme .owl-nav {
-  margin-top: 10px;
-  text-align: center;
-  -webkit-tap-highlight-color: transparent; }
-
-.owl-theme .owl-nav [class*='owl-'] {
-  color: #FFF;
-  font-size: 14px;
-  margin: 5px;
-  padding: 4px 7px;
-  background: #D6D6D6;
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 3px; }
-
-.owl-theme .owl-nav [class*='owl-']:hover {
-  background: #869791;
-  color: #FFF;
-  text-decoration: none; }
-
-.owl-theme .owl-nav .disabled {
-  opacity: 0.5;
-  cursor: default; }
-
-.owl-theme .owl-nav.disabled + .owl-dots {
-  margin-top: 10px; }
-
-.owl-theme .owl-dots {
-  text-align: center;
-  -webkit-tap-highlight-color: transparent; }
-
-.owl-theme .owl-dots .owl-dot {
-  display: inline-block;
-  zoom: 1;
-  *display: inline; }
-
-.owl-theme .owl-dots .owl-dot span {
-  width: 10px;
-  height: 10px;
-  margin: 5px 7px;
-  background: #D6D6D6;
-  display: block;
-  -webkit-backface-visibility: visible;
-  transition: opacity 200ms ease;
-  border-radius: 30px; }
-
-.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
-  background: #869791; }
-
 /* Bootstrap Date Time Picker */
 .daterangepicker {
   position: absolute;
@@ -15922,1320 +15652,6 @@ img.mfp-img {
     clear: none !important; } }
 
 /* Time Date Droppers */
-@font-face {
-  font-family: "datedropper";
-  src: url("../fonts/datedropper.eot");
-  src: url("../fonts/datedropper.eot?#iefix") format("embedded-opentype"), url("../fonts/datedropper.woff") format("woff"), url("../fonts/datedropper.ttf") format("truetype"), url("../fonts/datedropper.svg#datedropper") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-[class^="pick-i-"]:before,
-[class*=" pick-i-"]:before {
-  font-family: "datedropper" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.pick-i-lng:before {
-  content: "\6a"; }
-
-.pick-i-lkd:before {
-  content: "\62"; }
-
-.pick-i-ckd:before {
-  content: "\65"; }
-
-.pick-i-r:before {
-  content: "\66"; }
-
-.pick-i-l:before {
-  content: "\68"; }
-
-.pick-i-min:before {
-  content: "\61"; }
-
-.pick-i-exp:before {
-  content: "\63"; }
-
-.picker-input {
-  cursor: text; }
-
-.picker-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 9998;
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease;
-  -moz-transition: opacity 0.4s ease, visibility 0.4s ease;
-  -ms-transition: opacity 0.4s ease, visibility 0.4s ease;
-  -o-transition: opacity 0.4s ease, visibility 0.4s ease; }
-
-.picker-modal-overlay.tohide {
-  opacity: 0;
-  visibility: hidden; }
-
-div.datedropper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  line-height: 1;
-  font-family: sans-serif;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  opacity: 0;
-  visibility: hidden;
-  margin-top: -8px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-perspective: 1000;
-  -ms-perspective: 1000;
-  perspective: 1000;
-  -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden; }
-
-div.datedropper:before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: -8px;
-  left: 50%;
-  -webkit-transform: translateX(-50%) rotate(45deg);
-  -moz-transform: translateX(-50%) rotate(45deg);
-  -ms-transform: translateX(-50%) rotate(45deg);
-  -o-transform: translateX(-50%) rotate(45deg);
-  border-top-left-radius: 4px; }
-
-div.datedropper.picker-focus {
-  opacity: 1;
-  visibility: visible;
-  margin-top: 8px; }
-
-div.datedropper.picker-modal {
-  top: 50% !important;
-  left: 50% !important;
-  -webkit-transform: translate(-50%, -50%) !important;
-  -moz-transform: translate(-50%, -50%) !important;
-  -ms-transform: translate(-50%, -50%) !important;
-  -o-transform: translate(-50%, -50%) !important;
-  position: fixed !important;
-  margin: 0 !important; }
-
-div.datedropper.picker-modal:before {
-  display: none; }
-
-div.datedropper .picker {
-  overflow: hidden; }
-
-div.datedropper .picker ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  cursor: pointer; }
-
-div.datedropper .picker ul.pick {
-  position: relative;
-  overflow: hidden;
-  max-height: 100px; }
-
-div.datedropper .picker ul.pick:nth-of-type(2) {
-  box-shadow: 0 1px rgba(0, 0, 0, 0.06); }
-
-div.datedropper .picker ul.pick li {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  opacity: .5;
-  display: block; }
-
-div.datedropper .picker ul.pick li.pick-afr {
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%); }
-
-div.datedropper .picker ul.pick li.pick-bfr {
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%); }
-
-div.datedropper .picker ul.pick li.pick-sl {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  z-index: 1; }
-
-div.datedropper .picker ul.pick li span {
-  font-size: 16px;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  line-height: 0;
-  bottom: 24px; }
-
-div.datedropper .picker ul.pick .pick-arw {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 25%;
-  font-size: 10px;
-  text-align: center;
-  display: block;
-  z-index: 10;
-  cursor: pointer;
-  background-size: 24px 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  opacity: 0;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0); }
-
-div.datedropper .picker ul.pick .pick-arw i {
-  line-height: 0;
-  top: 50%;
-  position: relative;
-  display: block;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%); }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-s1:hover {
-  opacity: 1;
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2); }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-r {
-  right: 0; }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-r i {
-  right: 0; }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-l {
-  left: 0; }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-l i {
-  left: 0; }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-s2.pick-arw-r {
-  -webkit-transform: translateX(100%);
-  -moz-transform: translateX(100%);
-  -ms-transform: translateX(100%);
-  -o-transform: translateX(100%); }
-
-div.datedropper .picker ul.pick .pick-arw.pick-arw-s2.pick-arw-l {
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%); }
-
-@media only screen and (max-width: 480px) {
-  div.datedropper .picker ul.pick .pick-arw {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    opacity: 0.4; } }
-
-div.datedropper .picker ul.pick.pick-m,
-div.datedropper .picker ul.pick.pick-y,
-div.datedropper .picker ul.pick.pick-l {
-  height: 60px;
-  line-height: 60px; }
-
-div.datedropper .picker ul.pick.pick-m {
-  font-size: 32px; }
-
-div.datedropper .picker ul.pick.pick-y {
-  font-size: 24px; }
-
-div.datedropper .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s1.pick-arw-r i {
-  right: 16px; }
-
-div.datedropper .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s1.pick-arw-l i {
-  left: 16px; }
-
-div.datedropper .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s2.pick-arw-r,
-div.datedropper .picker ul.pick.pick-y.pick-jump .pick-arw.pick-arw-s2.pick-arw-l {
-  -webkit-transform: translateX(0);
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -o-transform: translateX(0); }
-
-div.datedropper .picker ul.pick.pick-y.pick-jump .pick-arw:hover {
-  -webkit-transform: scale(1.6);
-  -moz-transform: scale(1.6);
-  -ms-transform: scale(1.6);
-  -o-transform: scale(1.6); }
-
-div.datedropper .picker ul.pick.pick-d {
-  height: 100px;
-  line-height: 80px;
-  font-size: 64px;
-  font-weight: bold; }
-
-div.datedropper .picker ul.pick.pick-l {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  font-size: 18px;
-  font-weight: bold;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translateY(32px);
-  -moz-transform: translateY(32px);
-  -ms-transform: translateY(32px);
-  -o-transform: translateY(32px);
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -ms-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease; }
-
-div.datedropper .picker ul.pick.pick-l.visible {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: translateY(0);
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0); }
-
-div.datedropper .picker ul.pick:hover .pick-arw {
-  opacity: 0.6;
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -ms-transform: scale(1);
-  -o-transform: scale(1); }
-
-div.datedropper .picker ul.pick.pick-d:hover,
-div.datedropper .picker ul.pick.pick-y:hover {
-  background-color: rgba(0, 0, 0, 0.02); }
-
-div.datedropper .picker .pick-lg {
-  z-index: 1;
-  margin: 0 auto;
-  max-height: 0;
-  overflow: hidden; }
-
-div.datedropper .picker .pick-lg.down {
-  -webkit-animation: down .8s ease;
-  animation: down .8s ease; }
-
-div.datedropper .picker .pick-lg .pick-h {
-  opacity: 0.4; }
-
-div.datedropper .picker .pick-lg ul:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-div.datedropper .picker .pick-lg ul li {
-  float: left;
-  text-align: center;
-  width: 14.285714286%;
-  line-height: 36px;
-  height: 36px;
-  font-size: 14px; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-h {
-  padding: 0 16px; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b {
-  padding: 16px; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li {
-  cursor: pointer;
-  position: relative;
-  z-index: 1; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 48px;
-  height: 48px;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
-  border-radius: 32px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-  -moz-transform: translate(-50%, -50%) scale(0);
-  -ms-transform: translate(-50%, -50%) scale(0);
-  -o-transform: translate(-50%, -50%) scale(0); }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li.pick-v:hover {
-  text-decoration: underline; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li.pick-lk:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 4px;
-  right: 4px;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.2);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg); }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li.pick-sl {
-  font-size: 24px; }
-
-div.datedropper .picker .pick-lg ul.pick-lg-b li.pick-sl:before {
-  -webkit-transform: translate(-50%, -50%) scale(1);
-  -moz-transform: translate(-50%, -50%) scale(1);
-  -ms-transform: translate(-50%, -50%) scale(1);
-  -o-transform: translate(-50%, -50%) scale(1); }
-
-div.datedropper .picker .pick-btns {
-  margin: -1px;
-  position: relative;
-  z-index: 2;
-  height: 56px; }
-
-div.datedropper .picker .pick-btns div {
-  cursor: pointer;
-  line-height: 0; }
-
-div.datedropper .picker .pick-btns .pick-submit {
-  margin: 0 auto;
-  width: 56px;
-  height: 56px;
-  line-height: 64px;
-  border-radius: 56px;
-  font-size: 24px;
-  cursor: pointer;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  text-align: center;
-  position: relative;
-  top: 0; }
-
-div.datedropper .picker .pick-btns .pick-submit:after {
-  font-family: "datedropper" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 60px;
-  content: "\65"; }
-
-div.datedropper .picker .pick-btns .pick-submit:hover {
-  top: 4px;
-  box-shadow: 0 0 0 16px rgba(0, 0, 0, 0.04), 0 0 0 8px rgba(0, 0, 0, 0.04); }
-
-div.datedropper .picker .pick-btns .pick-btn {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  bottom: 0;
-  text-align: center;
-  line-height: 38px;
-  font-size: 16px;
-  margin: 8px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.03); }
-
-div.datedropper .picker .pick-btns .pick-btn:hover {
-  background: #FFF;
-  box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2); }
-
-div.datedropper .picker .pick-btns .pick-btn:after {
-  font-family: "datedropper" !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  speak: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-div.datedropper .picker .pick-btns .pick-btn.pick-btn-sz {
-  right: 0;
-  -webkit-transform-origin: right bottom;
-  -ms-transform-origin: right bottom;
-  transform-origin: right bottom; }
-
-div.datedropper .picker .pick-btns .pick-btn.pick-btn-sz:after {
-  content: "\63"; }
-
-div.datedropper .picker .pick-btns .pick-btn.pick-btn-lng {
-  left: 0;
-  -webkit-transform-origin: left bottom;
-  -ms-transform-origin: left bottom;
-  transform-origin: left bottom; }
-
-div.datedropper .picker .pick-btns .pick-btn.pick-btn-lng:after {
-  content: "\6a"; }
-
-div.datedropper.picker-lg {
-  width: 300px !important; }
-
-div.datedropper.picker-lg ul.pick.pick-d {
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  max-height: 0 !important; }
-
-div.datedropper.picker-lg .pick-lg {
-  max-height: 320px; }
-
-div.datedropper.picker-lg .pick-btns .pick-btn.pick-btn-sz:after {
-  content: "\61"; }
-
-@media only screen and (max-width: 480px) {
-  div.datedropper.picker-lg {
-    position: fixed;
-    top: 50% !important;
-    left: 50% !important;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    margin: 0; }
-  div.datedropper.picker-lg:before {
-    display: none; } }
-
-@-webkit-keyframes picker_locked {
-  0%,
-  100% {
-    -webkit-transform: translateX(-50%) translate3d(0, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(0, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(0, 0, 0);
-    -o-transform: translateX(-50%) translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -o-transform: translateX(-50%) translate3d(-2px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -o-transform: translateX(-50%) translate3d(2px, 0, 0); } }
-
-@keyframes picker_locked {
-  0%,
-  100% {
-    -webkit-transform: translateX(-50%) translate3d(0, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(0, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(0, 0, 0);
-    -o-transform: translateX(-50%) translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(-2px, 0, 0);
-    -o-transform: translateX(-50%) translate3d(-2px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -moz-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -ms-transform: translateX(-50%) translate3d(2px, 0, 0);
-    -o-transform: translateX(-50%) translate3d(2px, 0, 0); } }
-
-@-webkit-keyframes picker_locked_large_mobile {
-  0%,
-  100% {
-    -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(-2px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(2px, 0, 0); } }
-
-@keyframes picker_locked_large_mobile {
-  0%,
-  100% {
-    -webkit-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(0, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(-2px, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(-2px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -moz-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -ms-transform: translate(-50%, -50%) translate3d(2px, 0, 0);
-    -o-transform: translate(-50%, -50%) translate3d(2px, 0, 0); } }
-
-div.datedropper.picker-rmbl {
-  -webkit-animation: picker_locked 0.4s ease;
-  animation: picker_locked 0.4s ease; }
-
-@media only screen and (max-width: 480px) {
-  div.datedropper.picker-rmbl.picker-lg {
-    -webkit-animation: picker_locked_large_mobile 0.4s ease;
-    animation: picker_locked_large_mobile 0.4s ease; } }
-
-div.datedropper.picker-lkd .pick-submit {
-  background-color: rgba(0, 0, 0, 0.04) !important;
-  color: rgba(0, 0, 0, 0.2) !important; }
-
-div.datedropper.picker-lkd .pick-submit:hover {
-  box-shadow: none !important; }
-
-div.datedropper.picker-lkd .pick-submit:after {
-  content: "\62" !important; }
-
-div.datedropper.picker-fxs {
-  -webkit-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-  -moz-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-  -ms-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-  -o-transition: width 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease; }
-
-div.datedropper.picker-fxs ul.pick.pick-d {
-  -webkit-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), -webkit-transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
-  -moz-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
-  -ms-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease;
-  -o-transition: top 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), transform 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37), background-color 0.4s ease; }
-
-div.datedropper.picker-fxs ul.pick.pick-y {
-  -webkit-transition: background-color 0.4s ease;
-  -moz-transition: background-color 0.4s ease;
-  -ms-transition: background-color 0.4s ease;
-  -o-transition: background-color 0.4s ease; }
-
-div.datedropper.picker-fxs ul.pick li {
-  -webkit-transition: -webkit-transform 0.4s ease, opacity 0.4s ease;
-  -moz-transition: transform 0.4s ease, opacity 0.4s ease;
-  -ms-transition: transform 0.4s ease, opacity 0.4s ease;
-  -o-transition: transform 0.4s ease, opacity 0.4s ease; }
-
-div.datedropper.picker-fxs ul.pick .pick-arw {
-  -webkit-transition: -webkit-transform 0.2s ease, opacity 0.2s ease;
-  -moz-transition: transform 0.2s ease, opacity 0.2s ease;
-  -ms-transition: transform 0.2s ease, opacity 0.2s ease;
-  -o-transition: transform 0.2s ease, opacity 0.2s ease; }
-
-div.datedropper.picker-fxs ul.pick .pick-arw i {
-  -webkit-transition: right 0.2s ease, left 0.2s ease;
-  -moz-transition: right 0.2s ease, left 0.2s ease;
-  -ms-transition: right 0.2s ease, left 0.2s ease;
-  -o-transition: right 0.2s ease, left 0.2s ease; }
-
-div.datedropper.picker-fxs .pick-lg {
-  -webkit-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
-  -moz-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
-  -ms-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37);
-  -o-transition: max-height 0.8s cubic-bezier(1, -0.55, 0.2, 1.37); }
-
-div.datedropper.picker-fxs .pick-lg .pick-lg-b li:before {
-  -webkit-transition: -webkit-transform 0.2s ease;
-  -moz-transition: transform 0.2s ease;
-  -ms-transition: transform 0.2s ease;
-  -o-transition: transform 0.2s ease; }
-
-div.datedropper.picker-fxs .pick-btns .pick-submit {
-  -webkit-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-  -moz-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-  -ms-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease;
-  -o-transition: top 0.2s ease, box-shadow 0.4s ease, background-color 0.4s ease; }
-
-div.datedropper.picker-fxs .pick-btns .pick-btn {
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease; }
-
-@media only screen and (max-width: 480px) {
-  div.datedropper.picker-fxs {
-    -webkit-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-    -moz-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-    -ms-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease;
-    -o-transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease; }
-  div.datedropper.picker-fxs ul.pick.pick-d,
-  div.datedropper.picker-fxs .pick-lg {
-    -webkit-transition: none;
-    -moz-transition: none;
-    -ms-transition: none;
-    -o-transition: none; } }
-
-div.datedropper.vanilla {
-  border-radius: 6px;
-  width: 180px; }
-
-div.datedropper.vanilla .picker {
-  border-radius: 6px;
-  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1); }
-
-div.datedropper.vanilla .pick-l {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px; }
-
-div.datedropper.vanilla:before,
-div.datedropper.vanilla .pick-submit,
-div.datedropper.vanilla .pick-lg-b .pick-sl:before,
-div.datedropper.vanilla .pick-m,
-div.datedropper.vanilla .pick-lg-h {
-  background-color: #feac92; }
-
-div.datedropper.vanilla .pick-y.pick-jump,
-div.datedropper.vanilla .pick li span,
-div.datedropper.vanilla .pick-lg-b .pick-wke,
-div.datedropper.vanilla .pick-btn {
-  color: #feac92; }
-
-div.datedropper.vanilla .picker,
-div.datedropper.vanilla .pick-l {
-  background-color: #ffffff; }
-
-div.datedropper.vanilla .picker,
-div.datedropper.vanilla .pick-arw,
-div.datedropper.vanilla .pick-l {
-  color: #9ed7db; }
-
-div.datedropper.vanilla .pick-m,
-div.datedropper.vanilla .pick-m .pick-arw,
-div.datedropper.vanilla .pick-lg-h,
-div.datedropper.vanilla .pick-lg-b .pick-sl,
-div.datedropper.vanilla .pick-submit {
-  color: #faf7f4; }
-
-div.datedropper.vanilla.picker-tiny:before,
-div.datedropper.vanilla.picker-tiny .pick-m {
-  background-color: #ffffff; }
-
-div.datedropper.vanilla.picker-tiny .pick-m,
-div.datedropper.vanilla.picker-tiny .pick-m .pick-arw {
-  color: #9ed7db; }
-
-div.datedropper.leaf {
-  border-radius: 6px;
-  width: 180px; }
-
-div.datedropper.leaf .picker {
-  border-radius: 6px;
-  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1); }
-
-div.datedropper.leaf .pick-l {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px; }
-
-div.datedropper.leaf:before,
-div.datedropper.leaf .pick-submit,
-div.datedropper.leaf .pick-lg-b .pick-sl:before,
-div.datedropper.leaf .pick-m,
-div.datedropper.leaf .pick-lg-h {
-  background-color: #1ecd80; }
-
-div.datedropper.leaf .pick-y.pick-jump,
-div.datedropper.leaf .pick li span,
-div.datedropper.leaf .pick-lg-b .pick-wke,
-div.datedropper.leaf .pick-btn {
-  color: #1ecd80; }
-
-div.datedropper.leaf .picker,
-div.datedropper.leaf .pick-l {
-  background-color: #fefff2; }
-
-div.datedropper.leaf .picker,
-div.datedropper.leaf .pick-arw,
-div.datedropper.leaf .pick-l {
-  color: #528971; }
-
-div.datedropper.leaf .pick-m,
-div.datedropper.leaf .pick-m .pick-arw,
-div.datedropper.leaf .pick-lg-h,
-div.datedropper.leaf .pick-lg-b .pick-sl,
-div.datedropper.leaf .pick-submit {
-  color: #fefff2; }
-
-div.datedropper.leaf.picker-tiny:before,
-div.datedropper.leaf.picker-tiny .pick-m {
-  background-color: #fefff2; }
-
-div.datedropper.leaf.picker-tiny .pick-m,
-div.datedropper.leaf.picker-tiny .pick-m .pick-arw {
-  color: #528971; }
-
-div.datedropper.primary {
-  border-radius: 6px;
-  width: 180px; }
-
-div.datedropper.primary .picker {
-  border-radius: 6px;
-  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1); }
-
-div.datedropper.primary .pick-l {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px; }
-
-div.datedropper.primary:before,
-div.datedropper.primary .pick-submit,
-div.datedropper.primary .pick-lg-b .pick-sl:before,
-div.datedropper.primary .pick-m,
-div.datedropper.primary .pick-lg-h {
-  background-color: #fd4741; }
-
-div.datedropper.primary .pick-y.pick-jump,
-div.datedropper.primary .pick li span,
-div.datedropper.primary .pick-lg-b .pick-wke,
-div.datedropper.primary .pick-btn {
-  color: #fd4741; }
-
-div.datedropper.primary .picker,
-div.datedropper.primary .pick-l {
-  background-color: #ffffff; }
-
-div.datedropper.primary .picker,
-div.datedropper.primary .pick-arw,
-div.datedropper.primary .pick-l {
-  color: #4d4d4d; }
-
-div.datedropper.primary .pick-m,
-div.datedropper.primary .pick-m .pick-arw,
-div.datedropper.primary .pick-lg-h,
-div.datedropper.primary .pick-lg-b .pick-sl,
-div.datedropper.primary .pick-submit {
-  color: #ffffff; }
-
-div.datedropper.primary.picker-tiny:before,
-div.datedropper.primary.picker-tiny .pick-m {
-  background-color: #ffffff; }
-
-div.datedropper.primary.picker-tiny .pick-m,
-div.datedropper.primary.picker-tiny .pick-m .pick-arw {
-  color: #4d4d4d; }
-
-div.datedropper .null {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -ms-transition: none;
-  -o-transition: none; }
-
-.td-wrap,
-.td-wrap * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: initial !important;
-  -webkit-tap-highlight-color: transparent; }
-
-.td-wrap svg {
-  width: 100%; }
-
-.td-input {
-  cursor: pointer; }
-
-.td-wrap {
-  display: none;
-  font-family: sans-serif;
-  position: absolute;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  color: #4d4d4d; }
-
-.td-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-
-.td-clock {
-  width: 156px;
-  height: 156px;
-  border-radius: 156px;
-  box-shadow: 0 0 0 1px #1977CC, 0 0 0 8px rgba(0, 0, 0, 0.05);
-  position: relative;
-  background: #FFF;
-  margin: 0 auto;
-  text-align: center;
-  line-height: 156px;
-  position: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-
-.td-clock:before {
-  position: absolute;
-  content: "";
-  top: -10px;
-  margin-left: -10px;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  background: #FFF;
-  border-left: 1px solid #1977CC;
-  border-top: 1px solid #1977CC;
-  border-top-left-radius: 4px; }
-
-.td-init .td-deg {
-  -webkit-animation: slide 1s cubic-bezier(0.7, 0, 0.175, 1) 1.2s infinite; }
-
-.td-svg {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
-.td-svg-2 {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  bottom: 18px;
-  right: 18px; }
-
-.td-wrap.td-show {
-  display: block; }
-
-.td-deg {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  position: absolute;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
-.td-medirian {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
-.td-medirian span {
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  line-height: 40px;
-  text-align: center;
-  margin: 0;
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  margin-left: -20px;
-  font-size: .8em;
-  opacity: 0;
-  font-weight: bold; }
-
-.td-medirian .td-icon-am {
-  top: 40px; }
-
-.td-medirian .td-icon-pm {
-  bottom: 40px; }
-
-.td-medirian .td-icon-am.td-on {
-  top: 26px;
-  opacity: 1; }
-
-.td-medirian .td-icon-pm.td-on {
-  bottom: 26px;
-  opacity: 1; }
-
-.td-select {
-  position: absolute;
-  top: 4px;
-  left: 32px;
-  right: 32px;
-  bottom: 22px; }
-
-.td-select svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0; }
-
-.td-select:after {
-  position: absolute;
-  background: #FFF;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0 0 0 1px #1977CC;
-  border-radius: 60px;
-  top: -16px;
-  left: 50%;
-  margin-left: -18px;
-  border-bottom-left-radius: 0;
-  content: "";
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  cursor: pointer; }
-
-.td-clock .td-time {
-  font-weight: bold;
-  position: relative; }
-
-.td-clock .td-time span {
-  width: 42px;
-  height: 42px;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 42px;
-  text-align: center;
-  margin: 6px;
-  position: relative;
-  z-index: 2;
-  cursor: pointer;
-  font-size: 2em;
-  border-radius: 6px; }
-
-.td-clock .td-time span.on {
-  color: #1977CC; }
-
-.td-n {
-  transition: all 0.4s cubic-bezier(0.7, 0, 0.175, 1) 0s; }
-
-.td-n2 {
-  transition: all 0.2s linear 0s; }
-
-/*
-
-@-webkit-keyframes td-rubber {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-            transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-            transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-            transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    -webkit-transform: scale3d(.95, 1.05, 1);
-            transform: scale3d(.95, 1.05, 1);
-  }
-
-  75% {
-    -webkit-transform: scale3d(1.05, .95, 1);
-            transform: scale3d(1.05, .95, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-            transform: scale3d(1, 1, 1);
-  }
-}
-
-
-
-.td-rubber {
-	-webkit-animation-name: td-rubber;
-	animation-name: td-rubber;
-	-webkit-animation-duration: .8s;
-	animation-duration: .8s;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-}
-
-*/
-@-webkit-keyframes td-alert {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  10%,
-  20% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); }
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
-  40%,
-  60%,
-  80% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-@keyframes td-alert {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  10%,
-  20% {
-    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg); }
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg); }
-  40%,
-  60%,
-  80% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-.td-alert {
-  -webkit-animation-name: td-alert;
-  animation-name: td-alert;
-  -webkit-animation-duration: .8s;
-  animation-duration: .8s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-/* effects */
-@-webkit-keyframes td-bounce {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  20% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1); }
-  30% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1); }
-  60% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1); }
-  70% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1); }
-  80% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-@keyframes td-bounce {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); }
-  20% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1); }
-  30% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1); }
-  60% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1); }
-  70% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1); }
-  80% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1); }
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); } }
-
-.td-bounce {
-  -webkit-animation-name: td-bounce;
-  animation-name: td-bounce;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s; }
-
-@-webkit-keyframes td-fadein {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes td-fadein {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.td-fadein {
-  -webkit-animation-name: td-fadein;
-  animation-name: td-fadein;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s; }
-
-@-webkit-keyframes td-fadeout {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-@keyframes td-fadeout {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
-
-.td-fadeout {
-  -webkit-animation: td-fadeout .3s forwards;
-  animation: td-fadeout .3s forwards; }
-
-@-webkit-keyframes td-dropdown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100px, 0);
-    transform: translate3d(0, -100px, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes td-dropdown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100px, 0);
-    transform: translate3d(0, -100px, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.td-dropdown {
-  -webkit-animation-name: td-dropdown;
-  animation-name: td-dropdown;
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s; }
-
-.td-bulletpoint,
-.td-bulletpoint div,
-.td-lancette,
-.td-lancette div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0; }
-
-.td-bulletpoint div:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  left: 50%;
-  margin-left: -2px;
-  width: 4px;
-  height: 4px;
-  border-radius: 10px; }
-
-.td-lancette {
-  border: 2px solid #DFF3FA;
-  border-radius: 100%;
-  margin: 6px; }
-
-.td-lancette div:after {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  margin-left: -1px;
-  width: 2px;
-  bottom: 50%;
-  border-radius: 10px;
-  background: #DFF3FA;
-  content: ""; }
-
-.td-lancette div:last-child:after {
-  top: 36px; }
-
 @font-face {
   font-family: 'icon_set_1';
   src: url("../fonts/icon_set_1.eot?55361665");
@@ -26310,105 +24726,6 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   margin: 0;
   margin-bottom: 30px; }
 
-.tour_list_container {
-  display: block;
-  color: #777;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
-  .tour_list_container .hotel_facilities {
-    margin-top: 0.9375rem; }
-  .tour_list_container .tour_list_details {
-    margin-top: 0.9375rem;
-    font-size: 0.875rem; }
-    .tour_list_container .tour_list_details p {
-      margin-bottom: 0.625rem; }
-    .tour_list_container .tour_list_details i {
-      font-size: 1rem; }
-  .tour_list_container .img_container__wrapper {
-    padding: 0.625rem; }
-  .tour_list_container .tour_list_description {
-    padding: 10px 20px 0 0;
-    line-height: 17px; }
-  .tour_list_container .tour_list_price {
-    margin-left: -0.9375rem;
-    width: 100%;
-    display: table;
-    height: 100%; }
-    .tour_list_container .tour_list_price > div {
-      display: table-cell;
-      vertical-align: middle; }
-    .tour_list_container .tour_list_price .tour_price {
-      line-height: 1.625rem;
-      text-align: center;
-      font-size: 1.5rem;
-      color: #e74c3c; }
-      .tour_list_container .tour_list_price .tour_price small {
-        font-size: 0.875rem; }
-    .tour_list_container .tour_list_price .tour_price_currency {
-      line-height: 1.1875rem;
-      text-align: center;
-      font-size: 1.0625rem;
-      color: #777; }
-      .tour_list_container .tour_list_price .tour_price_currency sup {
-        font-size: 0.75rem;
-        position: relative;
-        top: -0.25rem; }
-    .tour_list_container .tour_list_price .tour-meta p {
-      margin-top: 0.1875rem;
-      margin-bottom: 0.1875rem;
-      text-align: center;
-      font-size: 0.8125rem; }
-      .tour_list_container .tour_list_price .tour-meta p i {
-        font-size: 14px;
-        color: #999; }
-        .tour_list_container .tour_list_price .tour-meta p i.fa-male {
-          font-size: 1.125rem; }
-        .tour_list_container .tour_list_price .tour-meta p i.fa-child {
-          font-size: 0.8125rem; }
-    .tour_list_container .tour_list_price .tour-aside__footer {
-      margin-top: 0.9375rem; }
-      .tour_list_container .tour_list_price .tour-aside__footer a.btn_1 {
-        width: 100%;
-        text-align: center; }
-  .tour_list_container .more-offers__link {
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    color: #51bce6;
-    font-size: 0.75rem; }
-    .tour_list_container .more-offers__link:hover {
-      color: #333; }
-    .tour_list_container .more-offers__link .show-more-offers {
-      display: inline-block; }
-    .tour_list_container .more-offers__link .hide-more-offers {
-      display: none; }
-    .tour_list_container .more-offers__link.active .show-more-offers {
-      display: none; }
-    .tour_list_container .more-offers__link.active .hide-more-offers {
-      display: inline-block; }
-  .tour_list_container .tour_list_more tr.best-price-item {
-    background-color: rgba(0, 255, 0, 0.11); }
-    .tour_list_container .tour_list_more tr.best-price-item td {
-      padding-top: 0.4375rem;
-      padding-bottom: 0.4375rem; }
-  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-male {
-    font-size: 1.125rem; }
-  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-child {
-    font-size: 0.8125rem; }
-  .tour_list_container .tour_list_more .tour_list_more_price {
-    line-height: 1.25rem;
-    font-size: 1.25rem;
-    color: #e74c3c; }
-    .tour_list_container .tour_list_more .tour_list_more_price small {
-      font-size: 0.875rem; }
-    .tour_list_container .tour_list_more .tour_list_more_price span {
-      color: #777;
-      line-height: 18px;
-      font-size: 16px; }
-      .tour_list_container .tour_list_more .tour_list_more_price span sup {
-        font-size: 11px;
-        position: relative;
-        top: -3px; }
-
 .simple-page-title__section .hotel_title {
   font-weight: bold;
   font-size: 2rem;
@@ -26711,6 +25028,122 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   color: #999;
   text-transform: uppercase;
   font-size: 0.6875rem; }
+
+.tour_list_container {
+  display: block;
+  color: #777;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1); }
+  .tour_list_container .hotel_facilities {
+    text-align: center; }
+  .tour_list_container .tour_list_details {
+    font-size: 0.875rem; }
+    .tour_list_container .tour_list_details p {
+      margin-bottom: 0.625rem; }
+    .tour_list_container .tour_list_details i {
+      font-size: 1rem; }
+  .tour_list_container .hotel_title {
+    font-size: 1.125rem; }
+  .tour_list_container .hotel_location {
+    font-size: 0.75rem; }
+  .tour_list_container .short_info .hotel_title {
+    color: #fff; }
+  .tour_list_container .short_info .hotel_location {
+    color: #fff; }
+  .tour_list_container .img_container__wrapper {
+    padding: 0.625rem; }
+  .tour_list_container .tour_list_description {
+    line-height: 17px; }
+  .tour_list_container .tour_list_price {
+    width: 100%;
+    display: table;
+    height: 100%; }
+    @media (min-width: 992px) {
+      .tour_list_container .tour_list_price {
+        margin-left: -0.9375rem; } }
+    .tour_list_container .tour_list_price > div {
+      display: table-cell;
+      vertical-align: middle; }
+    .tour_list_container .tour_list_price .tour_price {
+      line-height: 1.625rem;
+      text-align: center;
+      font-size: 1.5rem;
+      color: #e74c3c; }
+      .tour_list_container .tour_list_price .tour_price small {
+        font-size: 0.875rem; }
+    .tour_list_container .tour_list_price .tour_price_currency {
+      line-height: 1.1875rem;
+      text-align: center;
+      font-size: 1.0625rem;
+      color: #777; }
+      .tour_list_container .tour_list_price .tour_price_currency sup {
+        font-size: 0.75rem;
+        position: relative;
+        top: -0.25rem; }
+    .tour_list_container .tour_list_price .tour-meta p {
+      margin-top: 0.1875rem;
+      margin-bottom: 0.1875rem;
+      text-align: center;
+      font-size: 0.8125rem; }
+      .tour_list_container .tour_list_price .tour-meta p i {
+        font-size: 14px;
+        color: #999; }
+        .tour_list_container .tour_list_price .tour-meta p i.fa-male {
+          font-size: 1.125rem; }
+        .tour_list_container .tour_list_price .tour-meta p i.fa-child {
+          font-size: 0.8125rem; }
+    .tour_list_container .tour_list_price .tour-aside__footer {
+      margin-top: 0.9375rem; }
+      .tour_list_container .tour_list_price .tour-aside__footer p {
+        margin-bottom: 0.625rem; }
+  .tour_list_container .more-offers__link {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #51bce6;
+    font-size: 0.75rem; }
+    .tour_list_container .more-offers__link:hover {
+      color: #333; }
+    .tour_list_container .more-offers__link .show-more-offers {
+      display: inline-block; }
+    .tour_list_container .more-offers__link .hide-more-offers {
+      display: none; }
+    .tour_list_container .more-offers__link.active .show-more-offers {
+      display: none; }
+    .tour_list_container .more-offers__link.active .hide-more-offers {
+      display: inline-block; }
+  .tour_list_container .tour_list_more tr.best-price-item {
+    background-color: rgba(0, 255, 0, 0.11); }
+    .tour_list_container .tour_list_more tr.best-price-item td {
+      padding-top: 0.4375rem;
+      padding-bottom: 0.4375rem; }
+  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-male {
+    font-size: 1.125rem; }
+  .tour_list_container .tour_list_more .tour_list_more_guests i.fa-child {
+    font-size: 0.8125rem; }
+  .tour_list_container .tour_list_more .tour_list_more_price {
+    line-height: 1.25rem;
+    font-size: 1.25rem;
+    color: #e74c3c; }
+    .tour_list_container .tour_list_more .tour_list_more_price small {
+      font-size: 0.875rem; }
+    .tour_list_container .tour_list_more .tour_list_more_price span {
+      color: #777;
+      line-height: 18px;
+      font-size: 16px; }
+      .tour_list_container .tour_list_more .tour_list_more_price span sup {
+        font-size: 11px;
+        position: relative;
+        top: -3px; }
+  @media (max-width: 767px) {
+    .tour_list_container .tour_list_more {
+      max-height: 31.25rem;
+      overflow: scroll; } }
+
+#single_tour__heading .hotel_title {
+  font-size: 2rem; }
+
+#single_tour__heading .hotel_location {
+  font-size: 1.0625rem; }
 
 /* TIMELINE */
 ul.cbp_tmtimeline {
@@ -27257,15 +25690,24 @@ ul.cbp_tmtimeline {
   .mb-md-0 {
     margin-bottom: 0 !important; }
   .mtb-md-0 {
-    margin-top: 0;
+    margin-top: 0 !important;
     margin-bottom: 0 !important; }
+  .p-md-0 {
+    padding: 0 !important; }
   .pt-md-0 {
     padding-top: 0 !important; }
   .pb-md-0 {
     padding-bottom: 0 !important; }
   .ptb-md-0 {
-    padding-top: 0;
+    padding-top: 0 !important;
     padding-bottom: 0 !important; }
+  .pr-md-0 {
+    padding-right: 0 !important; }
+  .pl-md-0 {
+    padding-left: 0 !important; }
+  .prl-md-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important; }
   .mt-md-10 {
     margin-top: 10px; }
   .mb-md-10 {
@@ -27273,6 +25715,8 @@ ul.cbp_tmtimeline {
   .mtb-md-10 {
     margin-top: 10px;
     margin-bottom: 10px; }
+  .p-md-10 {
+    padding: 10px; }
   .pt-md-10 {
     padding-top: 10px; }
   .pb-md-10 {
@@ -27280,6 +25724,13 @@ ul.cbp_tmtimeline {
   .ptb-md-10 {
     padding-top: 10px;
     padding-bottom: 10px; }
+  .pr-md-10 {
+    padding-right: 10px; }
+  .pl-md-10 {
+    padding-left: 10px; }
+  .prl-md-10 {
+    padding-right: 10px;
+    padding-left: 10px; }
   .mt-md-20 {
     margin-top: 20px; }
   .mb-md-20 {
@@ -27287,6 +25738,8 @@ ul.cbp_tmtimeline {
   .mtb-md-20 {
     margin-top: 20px;
     margin-bottom: 20px; }
+  .p-md-20 {
+    padding: 20px; }
   .pt-md-20 {
     padding-top: 20px; }
   .pb-md-20 {
@@ -27294,6 +25747,13 @@ ul.cbp_tmtimeline {
   .ptb-md-20 {
     padding-top: 20px;
     padding-bottom: 20px; }
+  .pr-md-20 {
+    padding-right: 20px; }
+  .pl-md-20 {
+    padding-left: 20px; }
+  .prl-md-20 {
+    padding-right: 20px;
+    padding-left: 20px; }
   .mt-md-40 {
     margin-top: 40px; }
   .mb-md-40 {
@@ -27301,6 +25761,8 @@ ul.cbp_tmtimeline {
   .mtb-md-40 {
     margin-top: 40px;
     margin-bottom: 40px; }
+  .p-md-40 {
+    padding: 40px; }
   .pt-md-40 {
     padding-top: 40px; }
   .pb-md-40 {
@@ -27308,6 +25770,13 @@ ul.cbp_tmtimeline {
   .ptb-md-40 {
     padding-top: 40px;
     padding-bottom: 40px; }
+  .pr-md-40 {
+    padding-right: 40px; }
+  .pl-md-40 {
+    padding-left: 40px; }
+  .prl-md-40 {
+    padding-right: 40px;
+    padding-left: 40px; }
   .mt-md-60 {
     margin-top: 60px; }
   .mb-md-60 {
@@ -27315,6 +25784,8 @@ ul.cbp_tmtimeline {
   .mtb-md-60 {
     margin-top: 60px;
     margin-bottom: 60px; }
+  .p-md-60 {
+    padding: 60px; }
   .pt-md-60 {
     padding-top: 60px; }
   .pb-md-60 {
@@ -27322,6 +25793,13 @@ ul.cbp_tmtimeline {
   .ptb-md-60 {
     padding-top: 60px;
     padding-bottom: 60px; }
+  .pr-md-60 {
+    padding-right: 60px; }
+  .pl-md-60 {
+    padding-left: 60px; }
+  .prl-md-60 {
+    padding-right: 60px;
+    padding-left: 60px; }
   .mt-md-80 {
     margin-top: 80px; }
   .mb-md-80 {
@@ -27329,6 +25807,8 @@ ul.cbp_tmtimeline {
   .mtb-md-80 {
     margin-top: 80px;
     margin-bottom: 80px; }
+  .p-md-80 {
+    padding: 80px; }
   .pt-md-80 {
     padding-top: 80px; }
   .pb-md-80 {
@@ -27336,6 +25816,13 @@ ul.cbp_tmtimeline {
   .ptb-md-80 {
     padding-top: 80px;
     padding-bottom: 80px; }
+  .pr-md-80 {
+    padding-right: 80px; }
+  .pl-md-80 {
+    padding-left: 80px; }
+  .prl-md-80 {
+    padding-right: 80px;
+    padding-left: 80px; }
   .mt-md-100 {
     margin-top: 100px; }
   .mb-md-100 {
@@ -27343,6 +25830,8 @@ ul.cbp_tmtimeline {
   .mtb-md-100 {
     margin-top: 100px;
     margin-bottom: 100px; }
+  .p-md-100 {
+    padding: 100px; }
   .pt-md-100 {
     padding-top: 100px; }
   .pb-md-100 {
@@ -27350,6 +25839,13 @@ ul.cbp_tmtimeline {
   .ptb-md-100 {
     padding-top: 100px;
     padding-bottom: 100px; }
+  .pr-md-100 {
+    padding-right: 100px; }
+  .pl-md-100 {
+    padding-left: 100px; }
+  .prl-md-100 {
+    padding-right: 100px;
+    padding-left: 100px; }
   .mt-md-120 {
     margin-top: 120px; }
   .mb-md-120 {
@@ -27357,6 +25853,8 @@ ul.cbp_tmtimeline {
   .mtb-md-120 {
     margin-top: 120px;
     margin-bottom: 120px; }
+  .p-md-120 {
+    padding: 120px; }
   .pt-md-120 {
     padding-top: 120px; }
   .pb-md-120 {
@@ -27364,6 +25862,13 @@ ul.cbp_tmtimeline {
   .ptb-md-120 {
     padding-top: 120px;
     padding-bottom: 120px; }
+  .pr-md-120 {
+    padding-right: 120px; }
+  .pl-md-120 {
+    padding-left: 120px; }
+  .prl-md-120 {
+    padding-right: 120px;
+    padding-left: 120px; }
   .mt-md-140 {
     margin-top: 140px; }
   .mb-md-140 {
@@ -27371,13 +25876,22 @@ ul.cbp_tmtimeline {
   .mtb-md-140 {
     margin-top: 140px;
     margin-bottom: 140px; }
+  .p-md-140 {
+    padding: 140px; }
   .pt-md-140 {
     padding-top: 140px; }
   .pb-md-140 {
     padding-bottom: 140px; }
   .ptb-md-140 {
     padding-top: 140px;
-    padding-bottom: 140px; } }
+    padding-bottom: 140px; }
+  .pr-md-140 {
+    padding-right: 140px; }
+  .pl-md-140 {
+    padding-left: 140px; }
+  .prl-md-140 {
+    padding-right: 140px;
+    padding-left: 140px; } }
 
 @media (min-width: 992px) {
   .mt-lg-0 {
@@ -27387,6 +25901,8 @@ ul.cbp_tmtimeline {
   .mtb-lg-0 {
     margin-top: 0;
     margin-bottom: 0 !important; }
+  .p-lg-0 {
+    padding: 0 !important; }
   .pt-lg-0 {
     padding-top: 0 !important; }
   .pb-lg-0 {
@@ -27394,6 +25910,13 @@ ul.cbp_tmtimeline {
   .ptb-lg-0 {
     padding-top: 0;
     padding-bottom: 0 !important; }
+  .pr-lg-0 {
+    padding-right: 0 !important; }
+  .pl-lg-0 {
+    padding-left: 0 !important; }
+  .prl-lg-0 {
+    padding-right: 0;
+    padding-left: 0 !important; }
   .mt-lg-10 {
     margin-top: 10px; }
   .mb-lg-10 {
@@ -29896,61 +28419,6 @@ h3#pop_msg strong {
 
 .irs-grid-text {
   color: #999; }
-
-/*============================================================================================*/
-/* 7.  iCheck plugin Square skin, grey */
-/*============================================================================================*/
-.icheckbox_square-grey,
-.iradio_square-grey {
-  display: inline-block;
-  *display: inline;
-  vertical-align: middle;
-  margin: 0 10px 0 0;
-  padding: 0;
-  width: 22px;
-  height: 22px;
-  background: url(../images/grey.png) no-repeat;
-  border: none;
-  cursor: pointer; }
-
-.icheckbox_square-grey {
-  background-position: 0 0; }
-
-.icheckbox_square-grey.hover {
-  background-position: -24px 0; }
-
-.icheckbox_square-grey.checked {
-  background-position: -48px 0; }
-
-.icheckbox_square-grey.disabled {
-  background-position: -72px 0;
-  cursor: default; }
-
-.icheckbox_square-grey.checked.disabled {
-  background-position: -96px 0; }
-
-.iradio_square-grey {
-  background-position: -120px 0; }
-
-.iradio_square-grey.hover {
-  background-position: -144px 0; }
-
-.iradio_square-grey.checked {
-  background-position: -168px 0; }
-
-.iradio_square-grey.disabled {
-  background-position: -192px 0;
-  cursor: default; }
-
-.iradio_square-grey.checked.disabled {
-  background-position: -216px 0; }
-
-/* HiDPI support */
-@media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
-  .icheckbox_square-grey,
-  .iradio_square-grey {
-    background-image: url(../img/grey@2x.png);
-    background-size: 240px 24px; } }
 
 /*============================================================================================*/
 /* 9.  Slider pro */

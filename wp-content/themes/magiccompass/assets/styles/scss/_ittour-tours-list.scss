@@ -41,3 +41,197 @@
 .tour-grid__container {
 
 }
+
+.tour_list_container {
+    display: block;
+    color: #777;
+    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+
+    .hotel_facilities {
+        text-align: center;
+    }
+
+    .tour_list_details {
+        font-size: rem-calc(14);
+
+        p {
+            margin-bottom: rem-calc(10);
+        }
+
+        i {
+            font-size: rem-calc(16);
+        }
+    }
+
+    .hotel_title {
+        font-size: rem-calc(18);
+    }
+    .hotel_location {
+        font-size: rem-calc(12);
+    }
+
+    .short_info {
+        .hotel_title {
+            color: $white;
+        }
+        .hotel_location {
+            color: $white;
+        }
+    }
+
+    .img_container__wrapper {
+        padding: rem-calc(10);
+    }
+
+    .tour_list_description {
+        line-height: 17px;
+    }
+
+    .tour_list_price {
+        width: 100%;
+        display: table;
+        height: 100%;
+
+        @media (min-width: 992px) {
+            margin-left: rem-calc(-15);
+        }
+
+        & > div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .tour_price {
+            line-height: rem-calc(26);
+            text-align: center;
+            font-size: rem-calc(24);
+            color: #e74c3c;
+
+            small {
+                font-size: rem-calc(14);
+            }
+        }
+
+        .tour_price_currency {
+            line-height: rem-calc(19);
+            text-align: center;
+            font-size: rem-calc(17);
+            color: #777;
+            sup {
+                font-size: rem-calc(12);
+                position: relative;
+                top: rem-calc(-4);
+            }
+        }
+        .tour-meta {
+            p {
+                margin-top: rem-calc(3);
+                margin-bottom: rem-calc(3);
+                text-align: center;
+                font-size: rem-calc(13);
+                i {
+                    font-size: 14px;
+                    color: #999;
+                    &.fa-male {
+                        font-size: rem-calc(18);
+                    }
+                    &.fa-child {
+                        font-size: rem-calc(13);
+                    }
+                }
+            }
+        }
+        .tour-aside__footer {
+            margin-top: rem-calc(15);
+            p {
+                margin-bottom: rem-calc(10);
+            }
+        }
+    }
+
+    .more-offers__link {
+        display: block;
+        text-align: center;
+        cursor: pointer;
+        color: #51bce6;
+        font-size: rem-calc(12);
+
+        &:hover {
+            color: #333;
+        }
+        .show-more-offers {
+            display: inline-block;
+        }
+        .hide-more-offers {
+            display: none;
+        }
+
+        &.active {
+            .show-more-offers {
+                display: none;
+            }
+            .hide-more-offers {
+                display: inline-block;
+            }
+        }
+    }
+
+    .tour_list_more {
+
+        tr.best-price-item {
+            background-color: rgba(0, 255, 0, 0.11);
+
+            td {
+                padding-top: rem-calc(7);
+                padding-bottom: rem-calc(7);
+            }
+        }
+        .tour_list_more_guests {
+            i {
+                &.fa-male {
+                    font-size: rem-calc(18);
+                }
+                &.fa-child {
+                    font-size: rem-calc(13);
+                }
+            }
+        }
+        .tour_list_more_price {
+            line-height: rem-calc(20);
+            font-size: rem-calc(20);
+            color: #e74c3c;
+
+            small {
+                font-size: rem-calc(14);
+            }
+
+            span {
+                color: #777;
+                line-height: 18px;
+                font-size: 16px;
+
+                sup {
+                    font-size: 11px;
+                    position: relative;
+                    top: -3px;
+                }
+            }
+        }
+
+        @media (max-width: 767px) {
+            max-height: rem-calc(500);
+            overflow: scroll;
+        }
+    }
+}
+
+#single_tour__heading {
+    .hotel_title {
+        font-size: rem-calc(32);
+    }
+    .hotel_location {
+        font-size: rem-calc(17);
+    }
+}

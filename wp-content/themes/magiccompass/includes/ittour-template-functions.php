@@ -1128,7 +1128,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                                     <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
                                 </td>
                                 <td>
-                                    <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn_1 small"><?php echo __('Details', 'snthwp'); ?></a>
+                                    <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-xs"><?php echo __('Details', 'snthwp'); ?></a>
                                 </td>
                             </tr>
                             <?php

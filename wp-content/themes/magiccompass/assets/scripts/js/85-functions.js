@@ -95,33 +95,6 @@
         'use strict';
         $('.parallax-window').parallax({zIndex:1}); /* Parallax modal*/
 
-        $('.video').magnificPopup({
-            type: 'iframe',
-            closeMarkup: '<button title="%title%" type="button" class="mfp-close" style="font-size:21px">&#215;</button>'
-        }); /* video modal*/
-
-        /*  Image popups */
-        $('.magnific-gallery').each(function () {
-            $(this).magnificPopup({
-                delegate: 'a',
-                type: 'image',
-                preloader: true,
-                gallery: {
-                    enabled: true
-                },
-                removalDelay: 500, //delay removal by X to allow out-animation
-                callbacks: {
-                    beforeOpen: function () {
-                        // just a hack that adds mfp-anim class to markup
-                        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-                        this.st.mainClass = this.st.el.attr('data-effect');
-                    }
-                },
-                closeOnContentClick: true,
-                midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-            });
-        });
-
         /* Cart header drop down */
         $('.dropdown-menu').on("click", function (e) {
             e.stopPropagation();
@@ -288,19 +261,6 @@
         minutesInterval: '15'
     });
 
-    /* Modal Sign In */
-    $('#access_link').magnificPopup({
-        type: 'inline',
-        fixedContentPos: false,
-        fixedBgPos: true,
-        overflowY: 'auto',
-        closeBtnInside: true,
-        preloader: false,
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-zoom-in'
-    });
-
     /* Show Password */
     $('#password').hidePassword('focus', {
         toggle: {
@@ -311,12 +271,6 @@
     /* Forgot Password */
     $("#forgot").click(function () {
         $("#forgot_pw").fadeToggle("fast");
-    });
-
-    /* Check box modal */
-    $('#remember-me').iCheck({
-        checkboxClass: 'icheckbox_square-grey',
-        radioClass: 'iradio_square-grey'
     });
 
 

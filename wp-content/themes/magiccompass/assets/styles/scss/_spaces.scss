@@ -155,21 +155,32 @@ $spaces: 10, 20, 40, 60, 80, 100, 120, 140;
     }
 
     .mtb-md-0 {
-        margin-top: 0;
+        margin-top: 0 !important;
         margin-bottom: 0 !important;
     }
 
+    .p-md-0 {
+        padding: 0 !important;
+    }
     .pt-md-0 {
         padding-top: 0 !important;
     }
-
     .pb-md-0 {
         padding-bottom: 0 !important;
     }
-
     .ptb-md-0 {
-        padding-top: 0;
+        padding-top: 0 !important;
         padding-bottom: 0 !important;
+    }
+    .pr-md-0 {
+        padding-right: 0 !important;
+    }
+    .pl-md-0 {
+        padding-left: 0 !important;
+    }
+    .prl-md-0 {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
     }
 
     @each $space in $spaces {
@@ -185,6 +196,11 @@ $spaces: 10, 20, 40, 60, 80, 100, 120, 140;
             margin-top: #{$space}px;
             margin-bottom: #{$space}px;
         }
+
+        .p-md-#{$space} {
+            padding: #{$space}px;
+        }
+
         .pt-md-#{$space} {
             padding-top: #{$space}px;
         }
@@ -196,6 +212,18 @@ $spaces: 10, 20, 40, 60, 80, 100, 120, 140;
         .ptb-md-#{$space} {
             padding-top: #{$space}px;
             padding-bottom: #{$space}px;
+        }
+        .pr-md-#{$space} {
+            padding-right: #{$space}px;
+        }
+
+        .pl-md-#{$space} {
+            padding-left: #{$space}px;
+        }
+
+        .prl-md-#{$space} {
+            padding-right: #{$space}px;
+            padding-left: #{$space}px;
         }
     }
 }
@@ -214,6 +242,10 @@ $spaces: 10, 20, 40, 60, 80, 100, 120, 140;
         margin-bottom: 0 !important;
     }
 
+    .p-lg-0 {
+        padding: 0 !important;
+    }
+
     .pt-lg-0 {
         padding-top: 0 !important;
     }
@@ -225,6 +257,19 @@ $spaces: 10, 20, 40, 60, 80, 100, 120, 140;
     .ptb-lg-0 {
         padding-top: 0;
         padding-bottom: 0 !important;
+    }
+
+    .pr-lg-0 {
+        padding-right: 0 !important;
+    }
+
+    .pl-lg-0 {
+        padding-left: 0 !important;
+    }
+
+    .prl-lg-0 {
+        padding-right: 0;
+        padding-left: 0 !important;
     }
 
     @each $space in $spaces {

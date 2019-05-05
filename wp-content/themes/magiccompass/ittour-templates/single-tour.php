@@ -44,12 +44,11 @@ if (empty($_GET['key'])) {
         $region_title = $tour_info['region'];
     }
     ?>
-    <section class="bg-gray-5-color ptb-lg-40 ptb-20 top-space">
+    <section id="single_tour__heading" class="bg-gray-5-color ptb-lg-40 ptb-20 top-space">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-9">
-                    <div style="font-size:16px"><strong><?php echo __('Tour description to'); ?>:</strong></div>
-                    <h1 class="hotel_title"><?php echo $tour_info['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating']); ?></h1>
+                    <h1 class="hotel_title mt-0"><?php echo $tour_info['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating']); ?></h1>
                     <div class="hotel_location"><i class="fas fa-map-marker-alt"></i> <?php echo $country_title . ', ' .$region_title; ?></div>
                 </div>
 

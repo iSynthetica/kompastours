@@ -50,23 +50,21 @@ const SOURCE = {
 
         VENDORS + '/bootstrap-notify/bootstrap-notify.js',
 
-        VENDORS + '/Datedropper3/datedropper.js',
+        // VENDORS + '/Datedropper3/datedropper.js',
 
-        VENDORS + '/timedropper/timedropper.js',
+        // VENDORS + '/timedropper/timedropper.js',
 
-        MODULES + '/owl.carousel/dist/owl.carousel.js',
+        // MODULES + '/owl.carousel/dist/owl.carousel.js',
 
         MODULES + '/handlebars/dist/handlebars.js',
 
-        MODULES + '/jquery.repeater/jquery.repeater.js',
+        // MODULES + '/jquery.repeater/jquery.repeater.js',
 
         VENDORS + '/showpassword.js',
 
-        MODULES + '/owl.carousel/dist/owl.carousel.js',
-
         VENDORS + '/bootsnav/bootsnav.js',
 
-        VENDORS + '/icheck/icheck.js',
+        // VENDORS + '/icheck/icheck.js',
 
         MODULES + '/select2/dist/js/select2.js',
 
@@ -74,7 +72,7 @@ const SOURCE = {
 
         MODULES + '/daterangepicker/daterangepicker.js',
 
-        VENDORS + '/ddslick/jquery.ddslick.js',
+        // VENDORS + '/ddslick/jquery.ddslick.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production
         'assets/scripts/js/**/*.js',

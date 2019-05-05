@@ -7,9 +7,7 @@
  * @since 1.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
 
@@ -19,6 +17,31 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="row">
                 <div class="col-md-6 col-lg-7">
                     <?php
+                    if (!empty($tour_info["hotel_info"]["images"][0]['full'])) {
+                        ?>
+                        <div id="single-tour-gallery__container" class="mb-40">
+                            <div class="single-tour-thumbnail__container">
+                                <img style="max-width: 100%" src="<?php echo $tour_info["hotel_info"]["images"][0]['full'] ?>" alt="">
+                            </div>
+
+                            <div class="single-tour-gallery__container">
+                                <div class="row">
+                                    <?php
+                                    foreach ($tour_info["hotel_info"]["images"] as $image) {
+                                        ?>
+                                        <div class="col-3">
+                                            <img src="<?php echo $image['thumb']; ?>" alt="" style="max-width: 100%">
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    
+                    
                     if (!empty($tour_info['hotel_info']['hotel_facilities'])) {
                         echo ittour_get_hotel_facilities($tour_info['hotel_info']['hotel_facilities']);
                     }
