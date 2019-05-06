@@ -26,10 +26,10 @@ function snth_enqueue_scripts() {
     }
 
     // Adding scripts file in the footer
-    wp_enqueue_script( 'site-js', SNTH_SCRIPTS_URL.'/'.$site_js, array( 'jquery' ), SNTH_VERSION, true );
+    wp_enqueue_script( 'site-js', SNTH_SCRIPTS_URL.'/'.$site_js, array( 'jquery' ), SNTH_VERSION . time(), true );
 
     // Register main stylesheet
-    wp_enqueue_style( 'site-css', SNTH_STYLES_URL.'/'.$site_css, array(), SNTH_VERSION, 'all' );
+    wp_enqueue_style( 'site-css', SNTH_STYLES_URL.'/'.$site_css, array(), SNTH_VERSION . time(), 'all' );
 
     // Google Map
     $api_key = apply_filters( 'snth_gmap_api_key', '' );

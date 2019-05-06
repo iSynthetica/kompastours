@@ -129,51 +129,58 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
 
             <div class="col-lg-2 col-md-12">
-                <div class="tour_list_price ptb-20 prl-40 prl-md-120 prl-lg-0">
+                <div class="tour_list_price">
                     <div>
-                        <div class="row">
-                            <div class="col-lg-12 col-4">
-                                <div class="tour_price">
-                                    <strong><?php echo $first_offer['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
+                        <div class="mrl-sm-40">
+                            <div class="row">
+                                <div class="col-lg-12 col-4">
+                                    <div class="tour_price">
+                                        <strong><?php echo $first_offer['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 col-4">
-                                <div class="tour_price_currency">
-                                    <sup>$</sup><strong><?php echo $first_offer['prices'][1] ?></strong>
+                                <div class="col-lg-12 col-4">
+                                    <div class="tour_price_currency">
+                                        <sup>$</sup><strong><?php echo $first_offer['prices'][1] ?></strong>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 col-4">
-                                <div class="tour-meta">
-                                    <?php
-                                    if (!empty($hotel['adult_amount'])) {
-                                        ?>
-                                        <p>
+                                <div class="col-lg-12 col-4">
+                                    <div class="tour-meta">
+                                        <?php
+                                        if (!empty($hotel['adult_amount'])) {
+                                            ?>
+                                            <p>
+                                                <?php
+                                                echo ittour_get_guests_icon($hotel['adult_amount'], $hotel['child_amount']);
+                                                ?> /
+                                                <?php echo $first_offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
+                                            </p>
                                             <?php
-                                            echo ittour_get_guests_icon($hotel['adult_amount'], $hotel['child_amount']);
-                                            ?> /
-                                            <?php echo $first_offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-20 mb-lg-0 mrl-80 mrl-md-120 mrl-lg-0">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="tour-aside__footer">
+                                        <p>
+                                            <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"><?php echo __('Details', 'snthwp'); ?></a>
                                         </p>
                                         <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="tour-aside__footer">
-                                    <p>
-                                        <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"><?php echo __('Details', 'snthwp'); ?></a>
-                                    </p>
-                                    <?php
-                                    if (!empty($hotel['offers']) && 1 !== $total) {
-                                        $count_offers = count($hotel['offers']);
-                                        ?>
-                                        <span class="more-offers__link">
+                                        if (!empty($hotel['offers']) && 1 !== $total) {
+                                            $count_offers = count($hotel['offers']);
+                                            ?>
+                                            <span class="more-offers__link">
                                 <span class="show-more-offers"><?php echo __('More offers', 'snthwp'); ?> (<?php echo $count_offers; ?>) <i class="fas fa-chevron-down"></i></span>
                                 <span class="hide-more-offers"><?php echo __('Hide offers', 'snthwp'); ?> <i class="fas fa-chevron-up"></i></span>
                             </span>
-                                        <?php
-                                    }
-                                    ?>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -189,7 +189,7 @@ echo $page_title_template;
 </section>
 
 <div class="wrap">
-    <div class="container margin_60">
+    <div class="container mt-0 mb-20 mt-md-20 mb-md-40 mt-lg-40 mb-lg-60 ">
         <div class="row">
             <?php
             if ( 'right-sidebar' === $template ) {

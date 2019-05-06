@@ -116,21 +116,55 @@
 
 .search-form-step__section {
     .search-form-step__header {
-        text-align: center;
+        position: relative;
+        padding-right: rem-calc(55);
+        margin-bottom: rem-calc(20);
+        min-height: rem-calc(55);
+
         .cbp_tmicon {
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
-            line-height: 48px;
+            position: absolute;
+            right: rem-calc(5);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            font-size: 20px;
+            line-height: 32px;
             -webkit-font-smoothing: antialiased;
             color: #e04f67;
             background:#f9f9f9;
             border-radius: 50%;
             box-shadow: 0 0 0 3px #e04f67;
             text-align: center;
-            margin-bottom: rem-calc(15);
-            margin-top: rem-calc(15);
         }
+    }
+
+    @media (min-width: 576px) {
+    }
+
+    @media (min-width: 768px) {
+    }
+
+    @media (min-width: 992px) {
+        .search-form-step__header {
+            position: static;
+            text-align: center;
+            margin-bottom: 0;
+
+            .cbp_tmicon {
+                transform: none;
+                position: static;
+                width: 48px;
+                height: 48px;
+                font-size: 24px;
+                line-height: 48px;
+                margin-bottom: rem-calc(15);
+                margin-top: rem-calc(15);
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
     }
 }
 
@@ -142,46 +176,6 @@
         border: 1px solid #ccc;
         h3 {
             margin-top: 0;
-        }
-    }
-}
-
-@media (max-width: 991px) {
-    #search-form-main__holder {
-        #destination_summary, #dates-duration_summary, #guests_summary {
-            margin-bottom: rem-calc(10);
-            height: rem-calc(30);
-        }
-
-        .input-group {
-            .input-group-prepend {
-                margin-bottom: rem-calc(10);
-
-                .btn {
-                    padding-top: rem-calc(2);
-                    padding-bottom: rem-calc(2);
-                    line-height: rem-calc(24);
-                }
-            }
-        }
-
-        .search-btn__holder {
-            position: relative;
-            padding-left: rem-calc(35);
-
-            .search-btn {
-                width: 100%;
-                padding-top: rem-calc(2);
-                padding-bottom: rem-calc(2);
-            }
-        }
-
-        #filter_options {
-            font-size: rem-calc(18);
-            line-height: rem-calc(25);
-            color: $color-dark-gray;
-            width: rem-calc(25);
-            height: rem-calc(25);
         }
     }
 }

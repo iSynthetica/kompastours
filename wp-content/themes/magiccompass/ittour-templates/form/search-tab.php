@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: snth
- * Date: 20.09.18
- * Time: 18:52
+ * This file handles the admin area and functions
+ *
+ * @package Magiccompass/Includes
+ * @version 0.0.1
+ * @since 0.0.1
  */
 
 // var_dump(ittour_get_countries_list());

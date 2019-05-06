@@ -7,7 +7,7 @@
  */
 
 class ittourApi {
-    protected $url = "https://api.ittour.com.ua/";
+    protected $url = "https://kompas.tours/wp-json/ittour/v1/";
     protected $token = "7aa2df955c46238ae4cdeb2d187f1158";
     protected $lang;
     protected $headers;

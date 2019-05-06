@@ -207,24 +207,6 @@
         $(this).addClass('active');
     });
 
-    /* Input range slider */
-    $(function () {
-        'use strict';
-        $("#range").ionRangeSlider({
-            hide_min_max: true,
-            keyboard: true,
-            min: 0,
-            max: 150,
-            from: 30,
-            to: 100,
-            type: 'double',
-            step: 1,
-            prefix: "$",
-            grid: true
-        });
-
-    });
-
     /* Footer reveal */
     if ($(window).width() >= 768) {
         var $footerRevealed = $('footer.revealed');

@@ -15,7 +15,7 @@ $subtitle = !empty($subtitle) ? $subtitle : '';
 $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnail_url(null, 'full');
 ?>
 
-<section class="cover-background ptb-40 ptb-md-80 ptb-lg-140 bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo $thumbnail_url ?>');">
+<section class="cover-background pt-80 ptb-60 ptb-md-80 ptb-lg-140 bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo $thumbnail_url ?>');">
     <div class="bg-overlay bg-black-color bg-opacity-40"></div>
     <div class="container">
         <div class="row">

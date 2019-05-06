@@ -44,10 +44,10 @@ require_once(SNTH_INCLUDES.'/theme-support.php');
 
 // Helpers library
 require_once(SNTH_INCLUDES.'/helpers.php');
-//
-//// Remove useless WP outputs
-//require_once(SNTH_INCLUDES.'/cleanup.php');
-//
+
+// Remove useless WP outputs
+require_once(SNTH_INCLUDES.'/cleanup.php');
+
 //// Helpers library
 //require_once(SNTH_INCLUDES.'/customizer.php');
 

@@ -7,7 +7,11 @@
  */
 
 function ittour_api_init() {
-    include_once ITTOUR_DIR . '/class.ittourApi.php';
+    if (defined('ITTOUR_SLAVE')) {
+        include_once ITTOUR_DIR . '/class.ittourMCApi.php';
+    } else {
+        include_once ITTOUR_DIR . '/class.ittourApi.php';
+    }
 }
 
 function ittour_params($lang = 'ru') {

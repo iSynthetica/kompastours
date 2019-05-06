@@ -229,8 +229,8 @@
         } else {
             $('#filter_options').prop('disabled', false);
             $('#start_search').prop('disabled', false);
-            $('#dates-duration_summary').prop('disabled', false);
-            $('#guests_summary').prop('disabled', false);
+            $('#dates-duration_summary').prop('disabled', false).prop('readonly', true);
+            $('#guests_summary').prop('disabled', false).prop('readonly', true);
             $('#dates-duration_summary__container').removeClass('disabled-item');
             $('#guests_summary__container').removeClass('disabled-item');
         }

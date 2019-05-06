@@ -42,7 +42,7 @@ const SOURCE = {
 
         MODULES + '/wowjs/dist/wow.js',
 
-        MODULES + '/ion-rangeslider/js/ion.rangeSlider.js',
+        // MODULES + '/ion-rangeslider/js/ion.rangeSlider.js',
 
         VENDORS + '/rAF.js',
 
@@ -56,7 +56,7 @@ const SOURCE = {
 
         // MODULES + '/owl.carousel/dist/owl.carousel.js',
 
-        MODULES + '/handlebars/dist/handlebars.js',
+        // MODULES + '/handlebars/dist/handlebars.js',
 
         // MODULES + '/jquery.repeater/jquery.repeater.js',
 
