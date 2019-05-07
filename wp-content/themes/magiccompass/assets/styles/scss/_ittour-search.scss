@@ -11,6 +11,7 @@
     .search-summary__row {
         margin-right: -5px;
         margin-left: -5px;
+        padding-right: rem-calc(60);
 
         .search-summary__col {
             padding-right: 5px;
@@ -45,9 +46,6 @@
     }
 
     .search-btn__holder {
-        position: relative;
-        padding-left: rem-calc(50);
-
         .search-btn {
             width: 100%;
             padding-top: rem-calc(10);
@@ -68,22 +66,24 @@
 
     #filter_options {
         text-align: center;
-        font-size: rem-calc(26);
+        font-size: rem-calc(22);
         line-height: rem-calc(40);
         position: absolute;
-        width: rem-calc(40);
+        width: rem-calc(60);
         height: rem-calc(40);
         padding: 0;
         top: 0;
-        left: 0;
+        right: rem-calc(10);
         background-color: $color-white;
-        color: $color-green;
-        border-color: $color-green;
+        color: $color-red;
+        border-color: $color-white;
+        border-radius: rem-calc(40);
+        box-shadow: none;
 
         &:disabled {
             opacity: 1;
-            background-color: $color-gray-20;
-            border-color: $color-gray-20;
+            background-color: $color-gray-10;
+            border-color: $color-gray-10;
             color: $color-gray-40;
             cursor: default;
         }
@@ -169,7 +169,12 @@
 }
 
 #search-form-toggle__holder {
+    position: relative;
     .form-data-toggle-target {
+        position: absolute;
+        top: 0;
+        left: 0;
+        // max-width: rem-calc(480);
         background-color: #fff;
         margin-top: rem-calc(10);
         padding: rem-calc(10);
@@ -195,7 +200,7 @@
             }
 
             .form-control {
-                padding-left: 0;
+                padding-left: rem-calc(2);
                 border-top-right-radius: rem-calc(40);
                 border-bottom-right-radius: rem-calc(40);
             }

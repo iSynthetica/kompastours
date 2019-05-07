@@ -52,6 +52,12 @@ $search_steps = get_field('timeline_items', 493);
                         <div id="guests_summary__col" class="col-6 col-md-4 search-summary__col">
                             <?php echo $form_fields['guests_summary']; ?>
                         </div>
+
+                        <div id="filter_options__holder">
+                            <button id="filter_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section"<?php echo empty($args['country']) ? ' disabled' : ''; ?>>
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -59,10 +65,6 @@ $search_steps = get_field('timeline_items', 493);
                     <div class="row">
                         <div class="col-12">
                             <div class="search-btn__holder">
-                                <button id="filter_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section"<?php echo empty($args['country']) ? ' disabled' : ''; ?>>
-                                    <i class="fas fa-sliders-h"></i>
-                                </button>
-
                                 <button id="start_search" class="search-btn btn_1" type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
                             </div>
                         </div>
@@ -167,6 +169,8 @@ $search_steps = get_field('timeline_items', 493);
                         <div class="form-group">
                             <label><?php echo __('Dates of start tour', 'snthwp') ?></label>
                             <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value=""<?php echo $dates_data; ?>>
+
+                            <div class="date-pick__select__container"></div>
                         </div>
                     </div>
                     <div class="col-md-3">

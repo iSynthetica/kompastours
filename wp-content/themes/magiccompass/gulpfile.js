@@ -63,6 +63,7 @@ const SOURCE = {
         VENDORS + '/showpassword.js',
 
         VENDORS + '/bootsnav/bootsnav.js',
+        VENDORS + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
 
         // VENDORS + '/icheck/icheck.js',
 
@@ -70,7 +71,7 @@ const SOURCE = {
 
         MODULES + '/daterangepicker/moment.min.js',
 
-        MODULES + '/daterangepicker/daterangepicker.js',
+        VENDORS + '/daterange-custom/daterangepicker.js',
 
         // VENDORS + '/ddslick/jquery.ddslick.js',
 

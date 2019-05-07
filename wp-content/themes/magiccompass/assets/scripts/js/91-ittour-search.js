@@ -49,6 +49,8 @@
             startDate: startDate,
             endDate: endDate,
             minDate: moment().startOf('hour').add(12, 'hour'),
+            alwaysShowCalendars: true,
+            parentEl: '.date-pick__select__container',
             maxSpan: {
                 "days": 12
             },
