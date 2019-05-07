@@ -26,12 +26,12 @@
             }
 
             .input-group > .input-group-prepend > .btn {
-                background-color: $color-green;
-                color: $color-white;
+                color: $color-red;
                 border: 1px solid $color-white;
                 width: rem-calc(40);
                 padding-left: rem-calc(5);
                 padding-right: rem-calc(5);
+                margin-bottom: 0;
             }
 
             .disabled-item {
@@ -176,6 +176,42 @@
         border: 1px solid #ccc;
         h3 {
             margin-top: 0;
+        }
+    }
+}
+
+#search-form-main__holder .search-summary__row .search-summary__col {
+    .input-group {
+        &.input-group__style-1 {
+            .input-group-prepend {
+                background-color: $color-white;
+                border-top-left-radius: rem-calc(40);
+                border-bottom-left-radius: rem-calc(40);
+                .btn {
+                    color: $color-red;
+                    border-radius: rem-calc(40);
+                    background-color: $color-white;
+                }
+            }
+
+            .form-control {
+                padding-left: 0;
+                border-top-right-radius: rem-calc(40);
+                border-bottom-right-radius: rem-calc(40);
+            }
+        }
+    }
+
+    .disabled-item {
+        .input-group.input-group__style-1 > .input-group-prepend {
+            background-color: $color-gray-10;
+
+            &  > .btn {
+                cursor: default;
+                background-color: $color-gray-10;
+                color: $color-gray-40;
+                border: 1px solid $color-gray-10;
+            }
         }
     }
 }

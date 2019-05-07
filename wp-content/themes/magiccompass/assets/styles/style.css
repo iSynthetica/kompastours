@@ -23491,12 +23491,12 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
         background-color: #e6e6e6;
         color: #b2b2b2; }
       #search-form-main__holder .search-summary__row .search-summary__col .input-group > .input-group-prepend > .btn {
-        background-color: #7db594;
-        color: #fefefe;
+        color: #e04f67;
         border: 1px solid #fefefe;
         width: 2.5rem;
         padding-left: 0.3125rem;
-        padding-right: 0.3125rem; }
+        padding-right: 0.3125rem;
+        margin-bottom: 0; }
       #search-form-main__holder .search-summary__row .search-summary__col .disabled-item .input-group > .input-group-prepend > .btn {
         background-color: #cccccc;
         color: #999999;
@@ -23598,6 +23598,28 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   border: 1px solid #ccc; }
   #search-form-toggle__holder .form-data-toggle-target h3 {
     margin-top: 0; }
+
+#search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .input-group-prepend {
+  background-color: #fefefe;
+  border-top-left-radius: 2.5rem;
+  border-bottom-left-radius: 2.5rem; }
+  #search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .input-group-prepend .btn {
+    color: #e04f67;
+    border-radius: 2.5rem;
+    background-color: #fefefe; }
+
+#search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .form-control {
+  padding-left: 0;
+  border-top-right-radius: 2.5rem;
+  border-bottom-right-radius: 2.5rem; }
+
+#search-form-main__holder .search-summary__row .search-summary__col .disabled-item .input-group.input-group__style-1 > .input-group-prepend {
+  background-color: #e6e6e6; }
+  #search-form-main__holder .search-summary__row .search-summary__col .disabled-item .input-group.input-group__style-1 > .input-group-prepend > .btn {
+    cursor: default;
+    background-color: #e6e6e6;
+    color: #999999;
+    border: 1px solid #e6e6e6; }
 
 .tour_review_rate {
   margin-bottom: 0.625rem; }

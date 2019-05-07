@@ -166,7 +166,7 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
     ob_start();
     ?>
     <div id="destination_summary__container" class="search-summary__container">
-        <div class="input-group">
+        <div class="input-group input-group__style-1">
             <div class="input-group-prepend">
                 <span class="btn"><i class="fas fa-map-marker-alt"></i></span>
             </div>
@@ -208,7 +208,7 @@ function ittour_get_dates_summary_field($args) {
     ob_start();
     ?>
     <div id="dates-duration_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
-        <div class="input-group">
+        <div class="input-group input-group__style-1">
             <div class="input-group-prepend">
             <span class="btn btn-light">
                 <i class="far fa-calendar-alt"></i>
@@ -258,7 +258,7 @@ function ittour_get_guests_summary_field($args) {
     ob_start();
     ?>
     <div id="guests_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
-        <div class="input-group">
+        <div class="input-group input-group__style-1">
             <div class="input-group-prepend">
                 <span class="btn btn-light"><i class="fas fa-users"></i></span>
             </div>
