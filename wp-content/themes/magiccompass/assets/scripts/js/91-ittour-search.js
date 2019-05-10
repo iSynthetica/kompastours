@@ -68,10 +68,13 @@
         var toggleTargets = form.find('.form-data-toggle-target');
 
         if (toggleTarget.hasClass('active')) {
-            toggleTarget.removeClass('active').slideUp();
+            toggleTarget.removeClass('active').hide('400', function() {
+                $('body').removeClass('toggle-is-active');
+            });
         } else {
+            $('body').addClass('toggle-is-active');
             toggleTargets.removeClass('active').hide();
-            toggleTarget.addClass('active').slideDown();
+            toggleTarget.addClass('active').show();
         }
     });
 
@@ -226,15 +229,19 @@
             $('#start_search').prop('disabled', true);
             $('#dates-duration_summary').prop('disabled', true);
             $('#guests_summary').prop('disabled', true);
+            $('#filter_summary').prop('disabled', true);
             $('#dates-duration_summary__container').addClass('disabled-item');
             $('#guests_summary__container').addClass('disabled-item');
+            $('#filter_summary__container').addClass('disabled-item');
         } else {
             $('#filter_options').prop('disabled', false);
             $('#start_search').prop('disabled', false);
             $('#dates-duration_summary').prop('disabled', false).prop('readonly', true);
             $('#guests_summary').prop('disabled', false).prop('readonly', true);
+            $('#filter_summary').prop('disabled', false).prop('readonly', true);
             $('#dates-duration_summary__container').removeClass('disabled-item');
             $('#guests_summary__container').removeClass('disabled-item');
+            $('#filter_summary__container').removeClass('disabled-item');
         }
 
         destinationSummary.val(selectedHotel + selectedRegion + selectedCountry);

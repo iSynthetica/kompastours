@@ -90,6 +90,7 @@ function ittour_get_form_fields($args = array()) {
         'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
         'dates_summary' => ittour_get_dates_summary_field($args),
         'guests_summary' => ittour_get_guests_summary_field($args),
+        'filter_summary' => ittour_get_filter_summary_field($args),
         'countries' =>  ittour_get_country_field($params, $args),
         'regions' =>  ittour_get_region_field($params, $args),
         'hotels' =>  ittour_get_hotel_field($params, $args),
@@ -276,6 +277,53 @@ function ittour_get_guests_summary_field($args) {
     return ob_get_clean();
 }
 
+function ittour_get_filter_summary_field($args) {
+    $disabled_class = '';
+    $field_status = ' readonly';
+
+    if (empty($args['country'])) {
+        $disabled_class = ' disabled-item';
+        $field_status = ' disabled';
+    }
+
+    if (empty($args['adultAmount'])) {
+        $guests_value = '2';
+    } else {
+        $adults_amount = $args['adultAmount'];
+        $guests_value = $adults_amount;
+
+        if (!empty($args['childAmount']) && !empty($args['childAge'])) {
+            $child_ages = explode(':', $args['childAge']);
+
+            foreach ($child_ages as $key => $child_age) {
+                $child_ages[$key] = $child_age . __('y', 'snthwp');
+            }
+
+            $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
+        }
+    }
+
+    ob_start();
+    ?>
+    <div id="filter_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+                <span class="btn btn-light"><i class="fas fa-sliders-h"></i></span>
+            </div>
+
+            <input id="filter_summary"
+                type="text"
+                class="form-control form-data-toggle-control"
+                data-form_toggle_target="filter-select__section"
+                placeholder="<?php echo __('Additional filter', 'snthwp') ?>"
+                value=""<?php echo $field_status; ?>
+            >
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
 /**
  * @param $params
  * @param array $args
@@ -449,7 +497,7 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
                 }
             }
             ?>
-            <li>
+            <li style="display: inline-block">
 
                 <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray styled_1" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?><?php echo $disabled ?>>
                 <label for="hotel_rating_<?php echo $hotel_rating['id'] ?>"><?php echo $hotel_rating['name'] ?>*</label>
