@@ -31,6 +31,7 @@ $price_from = false;
 $price_till = false;
 $tour_type = false;
 $tour_kind = false;
+$meal_type = false;
 
 $ittour_content = '';
 
@@ -128,6 +129,11 @@ if (!$country_id) {
         }
     }
 
+    if (!empty($_GET['meal_type'])) {
+        $args['meal_type'] = implode(':', $_GET['meal_type']);
+        $meal_type = implode(':', $_GET['meal_type']);
+    }
+
     $url = http_build_query($_GET);
 
     $search = ittour_search('uk');
@@ -183,6 +189,7 @@ echo $page_title_template;
             'price_limit'   => $price_limit,
             'tour_type'     => $tour_type,
             'tour_kind'     => $tour_kind,
+            'meal_type'     => $meal_type,
         ));
         ?>
     </div>

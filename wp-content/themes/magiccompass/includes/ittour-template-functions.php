@@ -96,6 +96,7 @@ function ittour_get_form_fields($args = array()) {
         'hotels' =>  ittour_get_hotel_field($params, $args),
         'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
         'transport_types' =>  ittour_get_transport_type_field($args),
+        'meal_types' =>  itour_get_meal_type_field($args),
         'price_limit' =>  ittour_get_price_limit_field($args),
     );
 }
@@ -659,27 +660,67 @@ function ittour_get_transport_type_field($args = array()) {
     return ob_get_clean();
 }
 
-function itour_get_meal_type_field() {
-//    $meal_types = array(
-//        560 => ''
-//    );
-//    ob_start();
-//    ?>
-<!--    <ul class="form-list">-->
-<!--        --><?php
-//        foreach ($params['transport_types'] as $transport_type) {
-//            ?>
-<!--            <li>-->
-<!--                <label>-->
-<!--                    <input class="iCheckGray" type="checkbox" value="--><?php //echo $transport_type['id'] ?><!--"> --><?php //echo $transport_type['name'] ?><!--*-->
-<!--                </label>-->
-<!--            </li>-->
-<!--            --><?php
-//        }
-//        ?>
-<!--    </ul>-->
-<!--    --><?php
-//    return ob_get_clean();
+function itour_get_meal_type_field($args = array()) {
+    $meal_types = array(
+        '560' => array(
+            'title' => __('Ultra all inclusive', 'snthwp'),
+            'short' => 'UAI'
+        ),
+        '512' => array(
+            'title' => __('All inclusive', 'snthwp'),
+            'short' => 'UAI'
+        ),
+        '498' => array(
+            'title' => __('Full board', 'snthwp'),
+            'short' => 'FB'
+        ),
+        '496' => array(
+            'title' => __('Breakfast and dinner', 'snthwp'),
+            'short' => 'HB'
+        ),
+        '388' => array(
+            'title' => __('Bed and breakfast', 'snthwp'),
+            'short' => 'BB'
+        ),
+        '1956' => array(
+            'title' => __('Room only', 'snthwp'),
+            'short' => 'RO'
+        ),
+    );
+
+    if (empty($args)) {
+        $selected_values = array('560', '512', '498');
+    } else {
+        if (!empty($args['mealType'])) {
+            $selected_values = explode(':', $args['mealType']);
+        } else {
+            $selected_values = array('');
+        }
+    }
+
+    ob_start();
+    ?>
+    <label><?php echo __('Meal type', 'snthwp') ?></label>
+
+    <ul id="meal_type_select" class="form-list">
+        <?php
+        foreach ($meal_types as $id => $meal_type) {
+            $selected = '';
+
+            if (in_array($id, $selected_values)) {
+                $selected = ' checked';
+            }
+            ?>
+            <li>
+                <input id="meal_type_<?php echo $id ?>" class="iCheckGray styled_1" name="meal_type[]" type="checkbox" value="<?php echo $id ?>"<?php echo $selected ?>>
+                <label for="meal_type_<?php echo $id ?>"><?php echo $meal_type['short'] ?> (<?php echo $meal_type['title'] ?>)</label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
 }
 
 function itour_get_adult_amount_field() {

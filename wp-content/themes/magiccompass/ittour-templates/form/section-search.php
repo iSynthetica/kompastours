@@ -27,6 +27,7 @@ if (!empty($child_age)) $form_data      .= ' data-child-age="'.$child_age.'"';
 if (!empty($price_limit)) $form_data    .= ' data-price-limit="'.$price_limit.'"';
 if (!empty($tour_type)) $form_data      .= ' data-tour-type="'.$tour_type.'"';
 if (!empty($tour_kind)) $form_data      .= ' data-tour-kind="'.$tour_kind.'"';
+if (!empty($meal_type)) $form_data      .= ' data-meal-type="'.$meal_type.'"';
 ?>
 
 

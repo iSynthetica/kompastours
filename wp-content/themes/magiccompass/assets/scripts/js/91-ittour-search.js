@@ -589,6 +589,7 @@
         var priceLimit      = searchFormHolder.data('price-limit');
         var tourType        = searchFormHolder.data('tour-type');
         var tourKind        = searchFormHolder.data('tour-kind');
+        var mealType        = searchFormHolder.data('meal-type');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -609,7 +610,8 @@
                 childAge: childAge,
                 priceLimit: priceLimit,
                 tourType: tourType,
-                tourKind: tourKind
+                tourKind: tourKind,
+                mealType: mealType
             },
             success: function (response) {
                 var decoded;

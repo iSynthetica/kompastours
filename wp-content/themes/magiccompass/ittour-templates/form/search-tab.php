@@ -397,6 +397,10 @@ $search_steps = get_field('timeline_items', 493);
                                         <?php echo $form_fields['transport_types']; ?>
                                     </div>
 
+                                    <div class="form-group">
+                                        <?php echo $form_fields['meal_types']; ?>
+                                    </div>
+
                                     <?php echo $form_fields['price_limit']; ?>
                                 </div>
                             </div>
