@@ -427,15 +427,11 @@ $search_steps = get_field('timeline_items', 493);
                             <div class="form-data-toggle-footer">
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-4 text-left">
-
-                                        </div>
+                                        <div class="col-4 text-left"></div>
                                         <div class="col-4 text-center">
                                             <button type="submit" class="btn shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
                                         </div>
-                                        <div class="col-4 text-right">
-
-                                        </div>
+                                        <div class="col-4 text-right"></div>
                                     </div>
                                 </div>
                             </div>

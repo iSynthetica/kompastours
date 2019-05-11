@@ -286,20 +286,27 @@ function ittour_get_filter_summary_field($args) {
         $field_status = ' disabled';
     }
 
-    if (empty($args['adultAmount'])) {
-        $guests_value = '2';
+    if (empty($args)) {
+        $field_value = __('Transit included', 'snthwp') . ': ' . __('Plane', 'snthwp');
     } else {
-        $adults_amount = $args['adultAmount'];
-        $guests_value = $adults_amount;
+        if (!empty($args['tourType'])) {
+            if ('1' === $args['tourType']) {
+                $field_value = __('Transit included', 'snthwp');
 
-        if (!empty($args['childAmount']) && !empty($args['childAge'])) {
-            $child_ages = explode(':', $args['childAge']);
+                if (!empty($args['tourKind'])) {
+                    $field_value .= ': ';
 
-            foreach ($child_ages as $key => $child_age) {
-                $child_ages[$key] = $child_age . __('y', 'snthwp');
+                    if ('1' === $args['tourKind']) {
+                        $field_value .= __('Plane', 'snthwp');
+                    } else {
+                        $field_value .= __('Bus', 'snthwp');
+                    }
+                }
+            } elseif ('2' === $args['tourType']) {
+                $field_value = __('Transit not included', 'snthwp');
             }
-
-            $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
+        } else {
+            $field_value = '';
         }
     }
 
@@ -316,7 +323,7 @@ function ittour_get_filter_summary_field($args) {
                 class="form-control form-data-toggle-control"
                 data-form_toggle_target="filter-select__section"
                 placeholder="<?php echo __('Additional filter', 'snthwp') ?>"
-                value=""<?php echo $field_status; ?>
+                value="<?php echo $field_value; ?>"<?php echo $field_status; ?>
             >
         </div>
     </div>
@@ -599,13 +606,19 @@ function ittour_get_transport_type_field($args = array()) {
     $type = '';
     $kind = '';
 
-    if (!empty($args['tourType'])) {
-        $type = $args['tourType'];
+    if (empty($args)) {
+        $type = '1';
+        $kind = '1';
+    } else {
+        if (!empty($args['tourType'])) {
+            $type = $args['tourType'];
 
-        if (!empty($args['tourKind'])) {
-            $kind = $args['tourKind'];
+            if (!empty($args['tourKind'])) {
+                $kind = $args['tourKind'];
+            }
         }
     }
+
     ?>
     <label><?php echo __('Transport', 'snthwp') ?></label>
 
