@@ -668,7 +668,7 @@ function itour_get_meal_type_field($args = array()) {
         ),
         '512' => array(
             'title' => __('All inclusive', 'snthwp'),
-            'short' => 'UAI'
+            'short' => 'AI'
         ),
         '498' => array(
             'title' => __('Full board', 'snthwp'),
@@ -712,7 +712,7 @@ function itour_get_meal_type_field($args = array()) {
             }
             ?>
             <li>
-                <input id="meal_type_<?php echo $id ?>" class="iCheckGray styled_1" name="meal_type[]" type="checkbox" value="<?php echo $id ?>"<?php echo $selected ?>>
+                <input id="meal_type_<?php echo $id ?>" class="iCheckGray styled_1" name="meal_type[]" data-short="<?php echo $meal_type['short'] ?>" type="checkbox" value="<?php echo $id ?>"<?php echo $selected ?>>
                 <label for="meal_type_<?php echo $id ?>"><?php echo $meal_type['short'] ?> (<?php echo $meal_type['title'] ?>)</label>
             </li>
             <?php

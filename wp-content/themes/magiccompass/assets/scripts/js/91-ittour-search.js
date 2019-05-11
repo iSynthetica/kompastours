@@ -540,6 +540,8 @@
             $('#price_limit_from').val('');
             $('#price_limit_till').val('');
         }
+
+        ittourShowFilterSummary();
     });
 
     $(document.body).on('change', '#tour_type_select input[type=\'radio\']', function() {
@@ -556,7 +558,76 @@
         } else {
             $('#tour_kind_select').show();
         }
+
+        ittourShowFilterSummary();
     });
+
+    $(document.body).on('change', '#tour_kind_select input[type=\'radio\']', function() {
+        ittourShowFilterSummary();
+    });
+
+    $(document.body).on('change', '#meal_type_select input[type=\'checkbox\']', function() {
+        ittourShowFilterSummary();
+    });
+
+    function ittourShowFilterSummary() {
+        var filterSummary = $('#filter_summary');
+
+        var typeSelected = $('#tour_type_select input[type=\'radio\']:checked').val();
+        var kindSelected = $('#tour_kind_select input[type=\'radio\']:checked').val();
+        var priceSelected = $('#price_limit_select input[type=\'radio\']:checked').val();
+
+        var mealSelected = $('#meal_type_select input[type=\'checkbox\']:checked');
+
+        var filterSummaryText = '';
+
+        if ('2' === typeSelected) {
+            filterSummaryText += 'Transit not included';
+        } else if ('1' === typeSelected) {
+            filterSummaryText += 'Transit included';
+
+            if ('1' === kindSelected) {
+                filterSummaryText += ': ' + 'Plane';
+            }
+
+            if ('2' === kindSelected) {
+                filterSummaryText += ': ' + 'Bus';
+            }
+        }
+
+        if ('' !== priceSelected && 'custom' !== priceSelected) {
+            if ('' !== filterSummaryText) {
+                filterSummaryText += ', ';
+            }
+
+            filterSummaryText += $('#price_limit_select input[type=\'radio\']:checked + label').text() + ' uah';
+        } else if ('custom' === priceSelected) {
+
+        }
+
+        var mealSelectedArray = [];
+
+        if (mealSelected.length > 0) {
+            mealSelected.each(function() {
+                mealSelectedArray.push($(this).data('short'));
+            });
+
+            if (mealSelectedArray.length > 0) {
+                if ('' !== filterSummaryText) {
+                    filterSummaryText += ', ';
+                }
+
+                filterSummaryText += mealSelectedArray.join(', ');
+            }
+        }
+
+        console.log(typeSelected);
+        console.log(kindSelected);
+        console.log(mealSelectedArray);
+        console.log(priceSelected);
+
+        filterSummary.val(filterSummaryText);
+    }
 
 
     $(document).ready(function() {});
