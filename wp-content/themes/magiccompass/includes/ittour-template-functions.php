@@ -287,27 +287,62 @@ function ittour_get_filter_summary_field($args) {
         $field_status = ' disabled';
     }
 
+    $field_value = '';
+
     if (empty($args)) {
-        $field_value = __('Transit included', 'snthwp') . ': ' . __('Plane', 'snthwp');
+        $field_value .= __('Plane', 'snthwp');
+        $field_value .= ', UAI, AI, FB';
     } else {
         if (!empty($args['tourType'])) {
             if ('1' === $args['tourType']) {
-                $field_value = __('Transit included', 'snthwp');
-
                 if (!empty($args['tourKind'])) {
-                    $field_value .= ': ';
-
                     if ('1' === $args['tourKind']) {
                         $field_value .= __('Plane', 'snthwp');
                     } else {
                         $field_value .= __('Bus', 'snthwp');
                     }
+                } else {
+                    $field_value .= __('Transit included', 'snthwp');
                 }
             } elseif ('2' === $args['tourType']) {
                 $field_value = __('Transit not included', 'snthwp');
             }
-        } else {
-            $field_value = '';
+        }
+
+        if (!empty($args['mealType'])) {
+            $meal_types_array = explode(':', $args['mealType']);
+
+            foreach ($meal_types_array as $index => $id) {
+                $short = ittour_get_meal_types_array($id);
+
+                if ($short) {
+                    $meal_types_array[$index] = $short['short'];
+                } else {
+                    unset($meal_types_array[$index]);
+                }
+            }
+
+            if (!empty($field_value)) {
+                $field_value .= ', ';
+            }
+
+            $field_value .= implode(', ', $meal_types_array);
+        }
+
+        if (!empty($args['priceLimit'])) {
+            $price_limit_array = explode(':', $args['priceLimit']);
+
+            if (!empty($field_value)) {
+                $field_value .= ', ';
+            }
+
+            if (!empty($price_limit_array[0]) && !empty($price_limit_array[1])) {
+                    $field_value .= number_format($price_limit_array[0], 0, ',', ' ') . ' - ' . number_format($price_limit_array[1], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+            } elseif (!empty($price_limit_array[0])) {
+                $field_value .= __('more than', 'snthwp') . ' ' . number_format($price_limit_array[0], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+            } elseif (!empty($price_limit_array[1])) {
+                $field_value .= __('till', 'snthwp') . ' ' . number_format($price_limit_array[1], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+            }
         }
     }
 
@@ -559,41 +594,46 @@ function ittour_get_price_limit_field($args = array()) {
     <ul id="price_limit_select" class="form-list">
         <li>
             <input id="price_limit_36000" class="styled_1" name="price_limit" type="radio" value="36000:"<?php echo '36000:' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_36000"><?php echo __('from'); ?> 36000 <?php echo __('and more'); ?></label>
+            <label for="price_limit_36000"><?php echo __('more than', 'snthwp'); ?> 36 000 <?php echo __('uah.', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="price_limit_28000_36000" class="styled_1" name="price_limit" type="radio" value="28000:36000"<?php echo '28000:36000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_28000_36000"><?php echo __('from'); ?> 28000 - 36000</label>
+            <label for="price_limit_28000_36000">28 000 - 36 000 <?php echo __('uah.', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="price_limit_20000_28000" class="styled_1" name="price_limit" type="radio" value="20000:28000"<?php echo '20000:28000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_20000_28000"><?php echo __('from'); ?> 20000 - 28000</label>
+            <label for="price_limit_20000_28000">20 000 - 28 000 <?php echo __('uah.', 'snthwp'); ?></label>
+        </li>
+
+        <li>
+            <input id="price_limit_12000_20000" class="styled_1" name="price_limit" type="radio" value="12000:20000"<?php echo '12000:20000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
+            <label for="price_limit_12000_20000">20 000 - 28 000 <?php echo __('uah.', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="price_limit_12000" class="styled_1" name="price_limit" type="radio" value=":12000"<?php echo ':12000' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_12000"><?php echo __('till'); ?> 12000</label>
+            <label for="price_limit_12000"><?php echo __('till', 'snthwp'); ?> 12 000 <?php echo __('uah.', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="price_limit_no" class="styled_1" name="price_limit" type="radio" value=""<?php echo '' === $price_limit ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_no"><?php echo __('Doesn\'t metter'); ?></label>
+            <label for="price_limit_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="price_limit_custom" class="styled_1" name="price_limit" type="radio" value="custom"<?php echo $is_custom ? ' checked' : ''; ?><?php echo $disabled ?>>
-            <label for="price_limit_custom"><?php echo __('Your variant'); ?></label>
+            <label for="price_limit_custom"><?php echo __('Your variant', 'snthwp'); ?></label>
         </li>
 
         <li id="custom_price_limit_holder"<?php echo $is_custom ? '' : ' style="display:none;"' ?>>
             <div class="row">
                 <div class="col-md-6">
-                    <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm" type="text" value="<?php echo $price_from; ?>" style="width: 100%" placeholder="<?php echo __('from'); ?>">
+                    <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm" data-label="<?php echo __('more than', 'snthwp'); ?>" type="text" value="<?php echo $price_from; ?>" style="width: 100%" placeholder="<?php echo __('from'); ?>">
                 </div>
                 <div class="col-md-6">
-                    <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm" type="text" value="<?php echo $price_till; ?>" style="width: 100%" placeholder="<?php echo __('till'); ?>">
+                    <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm" data-label="<?php echo __('till', 'snthwp'); ?>" type="text" value="<?php echo $price_till; ?>" style="width: 100%" placeholder="<?php echo __('till'); ?>">
                 </div>
             </div>
         </li>
@@ -626,41 +666,41 @@ function ittour_get_transport_type_field($args = array()) {
     <ul id="tour_type_select" class="form-list">
         <li>
             <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo '1' === $type ? ' checked' : ''; ?>>
-            <label for="tour_type_included"><?php echo __('Transport included'); ?></label>
+            <label for="tour_type_included"><?php echo __('Transit included', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo '2' === $type ? ' checked' : ''; ?>>
-            <label for="tour_type_excluded"><?php echo __('No transport'); ?></label>
+            <label for="tour_type_excluded"><?php echo __('Transit not included', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="tour_type_no" class="styled_1" name="tour_type" type="radio" value="" <?php echo '' === $type ? ' checked' : ''; ?>>
-            <label for="tour_type_no"><?php echo __('Doesn\'t metter'); ?></label>
+            <label for="tour_type_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
         </li>
     </ul>
 
     <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) && '2' !== $type ? '' : ' style="display:none;"' ?>>
         <li>
             <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo '1' === $kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_flight"><?php echo __('Flight'); ?></label>
+            <label for="tour_kind_flight"><?php echo __('Plane', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo '2' === $kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_bus"><?php echo __('Bus'); ?></label>
+            <label for="tour_kind_bus"><?php echo __('Bus', 'snthwp'); ?></label>
         </li>
 
         <li>
             <input id="tour_kind_no" class="styled_1" name="tour_kind" type="radio" value=""<?php echo '' === $kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_no"><?php echo __('Doesn\'t metter'); ?></label>
+            <label for="tour_kind_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
         </li>
     </ul>
     <?php
     return ob_get_clean();
 }
 
-function itour_get_meal_type_field($args = array()) {
+function ittour_get_meal_types_array($id = '') {
     $meal_types = array(
         '560' => array(
             'title' => __('Ultra all inclusive', 'snthwp'),
@@ -687,6 +727,20 @@ function itour_get_meal_type_field($args = array()) {
             'short' => 'RO'
         ),
     );
+
+    if (empty($id)) {
+        return $meal_types;
+    }
+
+    if (!empty($meal_types[$id])) {
+        return $meal_types[$id];
+    }
+
+    return false;
+}
+
+function itour_get_meal_type_field($args = array()) {
+    $meal_types = ittour_get_meal_types_array();
 
     if (empty($args)) {
         $selected_values = array('560', '512', '498');

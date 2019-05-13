@@ -44,6 +44,8 @@ class ittourApi {
 
         if (!empty($result['error'])) {
             return new WP_Error( 'ittour_error', $result['error'], 404 );
+        } elseif (!empty($result["code"]) && 'ittour_error' === $result["code"]) {
+            return new WP_Error( 'ittour_error', $result["message"], 404 );
         }
 
         return $result;

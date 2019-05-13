@@ -21863,27 +21863,13 @@ S2.define('jquery.select2',[
         var filterSummaryText = '';
 
         if ('2' === typeSelected) {
-            filterSummaryText += 'Transit not included';
+            filterSummaryText += $('#tour_type_select input[type=\'radio\']:checked + label').text();
         } else if ('1' === typeSelected) {
-            filterSummaryText += 'Transit included';
-
-            if ('1' === kindSelected) {
-                filterSummaryText += ': ' + 'Plane';
+            if ('' === kindSelected) {
+                filterSummaryText += $('#tour_type_select input[type=\'radio\']:checked + label').text();
+            } else {
+                filterSummaryText += $('#tour_kind_select input[type=\'radio\']:checked + label').text();
             }
-
-            if ('2' === kindSelected) {
-                filterSummaryText += ': ' + 'Bus';
-            }
-        }
-
-        if ('' !== priceSelected && 'custom' !== priceSelected) {
-            if ('' !== filterSummaryText) {
-                filterSummaryText += ', ';
-            }
-
-            filterSummaryText += $('#price_limit_select input[type=\'radio\']:checked + label').text() + ' uah';
-        } else if ('custom' === priceSelected) {
-
         }
 
         var mealSelectedArray = [];
@@ -21902,10 +21888,15 @@ S2.define('jquery.select2',[
             }
         }
 
-        console.log(typeSelected);
-        console.log(kindSelected);
-        console.log(mealSelectedArray);
-        console.log(priceSelected);
+        if ('' !== priceSelected && 'custom' !== priceSelected) {
+            if ('' !== filterSummaryText) {
+                filterSummaryText += ', ';
+            }
+
+            filterSummaryText += $('#price_limit_select input[type=\'radio\']:checked + label').text();
+        } else if ('custom' === priceSelected) {
+
+        }
 
         filterSummary.val(filterSummaryText);
     }
@@ -21993,25 +21984,6 @@ S2.define('jquery.select2',[
 
             }
         });
-
-        // $.post(snthWpJsObj.ajaxurl,
-        //     {
-        //         'action': 'ittour_ajax_load_search_form',
-        //     }, function(response) {
-        //         if( response.status === 'error') {
-        //
-        //         } else {
-        //             var fragments = response.message.fragments;
-        //
-        //             setTimeout(function () {
-        //                 updateFragments(fragments);
-        //
-        //                 $( document.body ).trigger( 'search_form_loaded' );
-        //             }, 1000);
-        //         }
-        //     },
-        //     'json'
-        // );
     }
 
     /**

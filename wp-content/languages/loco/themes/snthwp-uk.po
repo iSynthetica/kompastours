@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 11:27+0000\n"
-"PO-Revision-Date: 2019-05-05 11:34+0000\n"
+"POT-Creation-Date: 2019-05-13 16:36+0000\n"
+"PO-Revision-Date: 2019-05-13 16:41+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Українська\n"
 "Language: uk\n"
@@ -24,105 +24,110 @@ msgstr ""
 msgid "Blog"
 msgstr "Блог"
 
-#: ittour-templates/search-results.php:40
+#: ittour-templates/search-results.php:41
 msgid "Search tours"
 msgstr "Пошук турів"
 
-#: ittour-templates/search-results.php:138
+#: ittour-templates/search-results.php:144
 msgid "Search error"
 msgstr "Помилка пошуку"
 
-#: ittour-templates/search-results.php:152
+#: ittour-templates/search-results.php:158
 msgid "Search results"
 msgstr "Результати пошуку"
 
-#: ittour-templates/single-tour-content.php:29
+#: ittour-templates/single-tour-content.php:66
 msgid "Tour price includes"
 msgstr "У вартість туру входить"
 
-#: ittour-templates/single-tour-content.php:37
+#: ittour-templates/single-tour-content.php:74
 msgid "Start date"
 msgstr "Початок туру"
 
-#: ittour-templates/single-tour-content.php:47
+#: ittour-templates/single-tour-content.php:84
 msgid "Tour duration"
 msgstr "Тривалість туру"
 
-#: ittour-templates/single-tour-content.php:48
-#: includes/ittour-template-functions.php:199
-#: includes/ittour-template-functions.php:205 includes/enqueue-scripts.php:53
-#: ittour-templates/form/search-tab.php:182
+#: ittour-templates/single-tour-content.php:85
+#: includes/ittour-template-functions.php:201
+#: includes/ittour-template-functions.php:207 includes/enqueue-scripts.php:53
+#: ittour-templates/form/search-tab.php:213
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
 msgstr "ночей"
 
-#: ittour-templates/single-tour-content.php:57
-msgid "Meal type"
-msgstr "Тип харчування"
-
-#: ittour-templates/single-tour-content.php:67
-msgid "Room type"
-msgstr "Тип номеру"
-
-#: ittour-templates/single-tour-content.php:78
-msgid "Plane"
-msgstr "Літак"
-
-#: ittour-templates/single-tour-content.php:81
-msgid "Bus"
-msgstr "Автобус"
-
-#: ittour-templates/single-tour-content.php:86
-#: includes/ittour-template-functions.php:562
-#: ittour-templates/loop-hotel/tour-list-default.php:165
-msgid "Transport"
-msgstr "Транспорт"
-
-#: ittour-templates/single-tour-content.php:96
-msgid "Departure from"
-msgstr "Відправленні з"
-
-#: ittour-templates/single-tour-content.php:123
+#: ittour-templates/single-tour-content.php:94
 #: ittour-templates/form/search.php:26
 #: ittour-templates/loop-hotel/part-price.php:14
 msgid "Adults"
 msgstr "Дорослі"
 
-#: ittour-templates/single-tour-content.php:135
-#: ittour-templates/single-tour-content.php:146
-#: includes/ittour-template-functions.php:871
+#: ittour-templates/single-tour-content.php:104
+#: includes/ittour-template-functions.php:1026
 #: ittour-templates/loop-hotel/part-price.php:15
 msgid "Children"
 msgstr "Діти"
 
-#: ittour-templates/single-tour-content.php:158
-#: includes/ittour-template-functions.php:1075
-#: includes/ittour-template-functions.php:1292
-#: ittour-templates/single-tour/price.php:12
-#: ittour-templates/loop-hotel/tour-list-default.php:169
-msgid "Price"
-msgstr "Ціна"
+#: ittour-templates/single-tour-content.php:114
+#: includes/ittour-template-functions.php:757
+msgid "Meal type"
+msgstr "Тип харчування"
 
-#: ittour-templates/single-tour-content.php:162
-#: includes/ittour-template-functions.php:501
-#: includes/ittour-template-functions.php:1126
-#: includes/ittour-template-functions.php:1215
-#: includes/ittour-template-functions.php:1338
+#: ittour-templates/single-tour-content.php:124
+msgid "Room type"
+msgstr "Тип номеру"
+
+#: ittour-templates/single-tour-content.php:135
+#: includes/ittour-template-functions.php:293
+#: includes/ittour-template-functions.php:300
+#: includes/ittour-template-functions.php:686
+msgid "Plane"
+msgstr "Літак"
+
+#: ittour-templates/single-tour-content.php:138
+#: includes/ittour-template-functions.php:302
+#: includes/ittour-template-functions.php:691
+msgid "Bus"
+msgstr "Автобус"
+
+#: ittour-templates/single-tour-content.php:143
+#: includes/ittour-template-functions.php:664
+#: ittour-templates/loop-hotel/tour-list-default.php:202
+msgid "Transport"
+msgstr "Транспорт"
+
+#: ittour-templates/single-tour-content.php:153
+msgid "Departure from"
+msgstr "Відправленні з"
+
+#: ittour-templates/single-tour-content.php:175
+#: includes/ittour-template-functions.php:340
+#: includes/ittour-template-functions.php:342
+#: includes/ittour-template-functions.php:344
+#: includes/ittour-template-functions.php:592
+#: includes/ittour-template-functions.php:597
+#: includes/ittour-template-functions.php:602
+#: includes/ittour-template-functions.php:607
+#: includes/ittour-template-functions.php:612
+#: includes/ittour-template-functions.php:617
+#: includes/ittour-template-functions.php:1292
+#: includes/ittour-template-functions.php:1384
+#: includes/ittour-template-functions.php:1507
 #: ittour-templates/search/tour-grid-default.php:53
-#: ittour-templates/loop-hotel/tour-list-default.php:113
-#: ittour-templates/loop-hotel/tour-list-default.php:214
+#: ittour-templates/loop-hotel/tour-list-default.php:138
+#: ittour-templates/loop-hotel/tour-list-default.php:251
 msgid "uah."
 msgstr "грн."
 
-#: ittour-templates/single-tour-content.php:190
+#: ittour-templates/single-tour-content.php:200
 msgid "More Tours"
 msgstr "Більше турів"
 
-#: ittour-templates/single-tour-content.php:196
+#: ittour-templates/single-tour-content.php:206
 msgid "Hotel Description"
 msgstr "Опис готелю"
 
-#: ittour-templates/single-tour-content.php:202
+#: ittour-templates/single-tour-content.php:212
 msgid "Location"
 msgstr "Розташування"
 
@@ -175,7 +180,7 @@ msgstr "Регіони"
 msgid "ITTour Hotels Settings"
 msgstr ""
 
-#: includes/admin.php:44 includes/ittour-template-functions.php:1212
+#: includes/admin.php:44 includes/ittour-template-functions.php:1381
 msgid "Hotels"
 msgstr "Готелі"
 
@@ -191,143 +196,212 @@ msgstr ""
 msgid "ITTour Hotels"
 msgstr ""
 
-#: includes/ittour-template-functions.php:134
+#: includes/ittour-template-functions.php:136
 msgid "hotel(s)"
 msgstr "готель(і)"
 
-#: includes/ittour-template-functions.php:178
+#: includes/ittour-template-functions.php:180
 msgid "Select Destination *"
 msgstr "Виберіть напрямок *"
 
-#: includes/ittour-template-functions.php:222
+#: includes/ittour-template-functions.php:224
 msgid "Dates / Duration *"
 msgstr "Дати / Тривалість *"
 
-#: includes/ittour-template-functions.php:251
+#: includes/ittour-template-functions.php:253
 #: ittour-templates/form/search-select-child-amount.php:28
 msgid "y"
 msgstr "р"
 
-#: includes/ittour-template-functions.php:270
+#: includes/ittour-template-functions.php:272
+#: ittour-templates/form/search-tab.php:245
+#: ittour-templates/form/search-tab.php:414
 msgid "Guests"
 msgstr "Туристи"
 
-#: includes/ittour-template-functions.php:360 includes/enqueue-scripts.php:54
+#: includes/ittour-template-functions.php:305
+#: includes/ittour-template-functions.php:669
+msgid "Transit included"
+msgstr "Проїзд включено"
+
+#: includes/ittour-template-functions.php:308
+#: includes/ittour-template-functions.php:674
+msgid "Transit not included"
+msgstr "Без проїзду"
+
+#: includes/ittour-template-functions.php:342
+#: includes/ittour-template-functions.php:597
+#: includes/ittour-template-functions.php:633
+msgid "more than"
+msgstr "більше ніж"
+
+#: includes/ittour-template-functions.php:344
+#: includes/ittour-template-functions.php:617
+#: includes/ittour-template-functions.php:636
+msgid "till"
+msgstr "до"
+
+#: includes/ittour-template-functions.php:361
+msgid "Additional filter"
+msgstr "Додадкові параметри"
+
+#: includes/ittour-template-functions.php:451 includes/enqueue-scripts.php:54
 msgid "Select country first"
 msgstr "Спочатку виберіть країну"
 
-#: includes/ittour-template-functions.php:501
+#: includes/ittour-template-functions.php:592
 msgid "Price range"
 msgstr "Бюджет"
 
-#: includes/ittour-template-functions.php:669
+#: includes/ittour-template-functions.php:622
+#: includes/ittour-template-functions.php:679
+#: includes/ittour-template-functions.php:696
+msgid "Doesn't metter"
+msgstr "Не має значення"
+
+#: includes/ittour-template-functions.php:627
+msgid "Your variant"
+msgstr "Ваш варіант"
+
+#: includes/ittour-template-functions.php:706
+msgid "Ultra all inclusive"
+msgstr "Ультра все включено"
+
+#: includes/ittour-template-functions.php:710
+msgid "All inclusive"
+msgstr "Все включено"
+
+#: includes/ittour-template-functions.php:714
+msgid "Full board"
+msgstr "Повний пансіон"
+
+#: includes/ittour-template-functions.php:718
+msgid "Breakfast and dinner"
+msgstr "Сніданок і вечеря"
+
+#: includes/ittour-template-functions.php:722
+msgid "Bed and breakfast"
+msgstr "Сніданок"
+
+#: includes/ittour-template-functions.php:726
+msgid "Room only"
+msgstr "Без харчування"
+
+#: includes/ittour-template-functions.php:825
 msgid "Free WiFi"
 msgstr "Безкоштовний WiFi"
 
-#: includes/ittour-template-functions.php:811
+#: includes/ittour-template-functions.php:966
 msgid "Meal"
 msgstr "Харчування"
 
-#: includes/ittour-template-functions.php:826
+#: includes/ittour-template-functions.php:981
 msgid "Pool"
 msgstr "Басейн"
 
-#: includes/ittour-template-functions.php:841
+#: includes/ittour-template-functions.php:996
 msgid "Beach"
 msgstr "Пляж"
 
-#: includes/ittour-template-functions.php:856
+#: includes/ittour-template-functions.php:1011
 msgid "Sport"
 msgstr "Спорт"
 
-#: includes/ittour-template-functions.php:891
+#: includes/ittour-template-functions.php:1045
 msgid "USD"
 msgstr "USD"
 
-#: includes/ittour-template-functions.php:894
+#: includes/ittour-template-functions.php:1048
 msgid "UAH"
 msgstr "ГРН"
 
-#: includes/ittour-template-functions.php:897
+#: includes/ittour-template-functions.php:1051
 msgid "EUR"
 msgstr "EUR"
 
-#: includes/ittour-template-functions.php:1072
-#: includes/ittour-template-functions.php:1289
-#: ittour-templates/loop-hotel/tour-list-default.php:166
+#: includes/ittour-template-functions.php:1238
+#: includes/ittour-template-functions.php:1458
+#: ittour-templates/loop-hotel/tour-list-default.php:203
 msgid "Room Type"
 msgstr "Тип номеру"
 
-#: includes/ittour-template-functions.php:1073
-#: includes/ittour-template-functions.php:1290
-#: ittour-templates/loop-hotel/tour-list-default.php:167
+#: includes/ittour-template-functions.php:1239
+#: includes/ittour-template-functions.php:1459
+#: ittour-templates/loop-hotel/tour-list-default.php:204
 msgid "Meal Type"
 msgstr "Тип харчування"
 
-#: includes/ittour-template-functions.php:1074
-#: includes/ittour-template-functions.php:1291
-#: ittour-templates/loop-hotel/tour-list-default.php:168
+#: includes/ittour-template-functions.php:1240
+#: includes/ittour-template-functions.php:1460
+#: ittour-templates/loop-hotel/tour-list-default.php:205
 msgid "Guests / Nights"
 msgstr "Туристів / Ночей"
 
-#: includes/ittour-template-functions.php:1120
-#: includes/ittour-template-functions.php:1332
+#: includes/ittour-template-functions.php:1241
+#: includes/ittour-template-functions.php:1461
+#: ittour-templates/single-tour/price.php:12
+#: ittour-templates/loop-hotel/tour-list-default.php:206
+msgid "Price"
+msgstr "Ціна"
+
+#: includes/ittour-template-functions.php:1286
+#: includes/ittour-template-functions.php:1501
 #: ittour-templates/search/tour-grid-default.php:45
-#: ittour-templates/loop-hotel/tour-list-default.php:128
-#: ittour-templates/loop-hotel/tour-list-default.php:210
+#: ittour-templates/loop-hotel/tour-list-default.php:155
+#: ittour-templates/loop-hotel/tour-list-default.php:247
 msgid "Nights"
 msgstr "Ночей"
 
-#: includes/ittour-template-functions.php:1131
-#: includes/ittour-template-functions.php:1343
-#: ittour-templates/loop-hotel/tour-list-default.php:137
-#: ittour-templates/loop-hotel/tour-list-default.php:219
+#: includes/ittour-template-functions.php:1297
+#: includes/ittour-template-functions.php:1512
+#: ittour-templates/loop-hotel/tour-list-default.php:170
+#: ittour-templates/loop-hotel/tour-list-default.php:256
 msgid "Details"
 msgstr "Деталі"
 
-#: includes/ittour-template-functions.php:1215
-#: includes/ittour-template-functions.php:1445
+#: includes/ittour-template-functions.php:1384
+#: includes/ittour-template-functions.php:1614
 #: parts/destination/hotel-calendar.php:76
 #: ittour-templates/search/tour-grid-default.php:51
 msgid "from"
 msgstr "від"
 
-#: includes/ittour-template-functions.php:1408
+#: includes/ittour-template-functions.php:1577
 #: parts/destination/hotel-calendar.php:38
 msgid "Monday"
 msgstr "Понедылок"
 
-#: includes/ittour-template-functions.php:1409
+#: includes/ittour-template-functions.php:1578
 #: parts/destination/hotel-calendar.php:39
 msgid "Tuesday"
 msgstr "Вывторок"
 
-#: includes/ittour-template-functions.php:1410
+#: includes/ittour-template-functions.php:1579
 #: parts/destination/hotel-calendar.php:40
 msgid "Wednesday"
 msgstr "Середа"
 
-#: includes/ittour-template-functions.php:1411
+#: includes/ittour-template-functions.php:1580
 #: parts/destination/hotel-calendar.php:41
 msgid "Thursday"
 msgstr "Четвер"
 
-#: includes/ittour-template-functions.php:1412
+#: includes/ittour-template-functions.php:1581
 #: parts/destination/hotel-calendar.php:42
 msgid "Friday"
 msgstr "П'ятниця"
 
-#: includes/ittour-template-functions.php:1413
+#: includes/ittour-template-functions.php:1582
 #: parts/destination/hotel-calendar.php:43
 msgid "Saturday"
 msgstr "Субота"
 
-#: includes/ittour-template-functions.php:1414
+#: includes/ittour-template-functions.php:1583
 #: parts/destination/hotel-calendar.php:44
 msgid "Sunday"
 msgstr "Неділя"
 
-#: includes/ittour-template-functions.php:1432
+#: includes/ittour-template-functions.php:1601
 msgid "Today"
 msgstr "Сьогодні"
 
@@ -380,6 +454,7 @@ msgid "Destinations"
 msgstr "Напрямки"
 
 #: includes/cpt.php:17 includes/cpt.php:49
+#: ittour-templates/form/search-tab.php:233
 msgid "Destination"
 msgstr "Напрямок"
 
@@ -674,7 +749,7 @@ msgstr ""
 #: ittour-templates/general/tours-table-ajax.php:45
 #: ittour-templates/general/tours-list-ajax.php:58
 msgid "Loading more tours..."
-msgstr ""
+msgstr "Завантажуємо більше турів..."
 
 #: ittour-templates/country/popular-region.php:56
 msgid "Find tour"
@@ -712,7 +787,7 @@ msgstr ""
 msgid "Create new API key"
 msgstr ""
 
-#: ittour-templates/form/section-search.php:40
+#: ittour-templates/form/section-search.php:41
 msgid "Loading search form"
 msgstr ""
 
@@ -720,51 +795,64 @@ msgstr ""
 msgid "Country"
 msgstr "Країна"
 
-#: ittour-templates/form/search-tab.php:65
+#: ittour-templates/form/search-tab.php:72
+#: ittour-templates/form/search-tab.php:158
+#: ittour-templates/form/search-tab.php:260
+#: ittour-templates/form/search-tab.php:364
+#: ittour-templates/form/search-tab.php:436
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
-#: ittour-templates/form/search-tab.php:94
-#: ittour-templates/form/search-tab.php:287
+#: ittour-templates/form/search-tab.php:96
+#: ittour-templates/form/search-tab.php:390
 msgid "Select destination"
-msgstr ""
+msgstr "Виберіть напрямок"
 
-#: ittour-templates/form/search-tab.php:111
+#: ittour-templates/form/search-tab.php:109
 msgid "Region"
-msgstr ""
+msgstr "Регіон"
 
-#: ittour-templates/form/search-tab.php:119
+#: ittour-templates/form/search-tab.php:115
 msgid "Hotel"
-msgstr ""
+msgstr "Готель"
 
-#: ittour-templates/form/search-tab.php:125
+#: ittour-templates/form/search-tab.php:121
 msgid "or Hotel Rating"
-msgstr ""
+msgstr "або кількість зірок готелю"
 
-#: ittour-templates/form/search-tab.php:153
+#: ittour-templates/form/search-tab.php:143
+#: ittour-templates/form/search-tab.php:337
+msgid "Dates"
+msgstr "Дати"
+
+#: ittour-templates/form/search-tab.php:184
 msgid "Select dates of start tour, duration"
 msgstr ""
 
-#: ittour-templates/form/search-tab.php:167
+#: ittour-templates/form/search-tab.php:197
 msgid "Dates of start tour"
 msgstr ""
 
-#: ittour-templates/form/search-tab.php:182
+#: ittour-templates/form/search-tab.php:213
 #: ittour-templates/single-tour/flights-table.php:15
 #: ittour-templates/single-tour/flights-table.php:59
 msgid "Duration"
 msgstr ""
 
-#: ittour-templates/form/search-tab.php:218
+#: ittour-templates/form/search-tab.php:286
 msgid "Select adults, and childrens"
 msgstr ""
 
-#: ittour-templates/form/search-tab.php:233
+#: ittour-templates/form/search-tab.php:300
 msgid "Adult amount"
 msgstr ""
 
-#: ittour-templates/form/search-tab.php:243
+#: ittour-templates/form/search-tab.php:308
 msgid "Children amount"
+msgstr ""
+
+#: ittour-templates/form/search-tab.php:349
+msgid "Filter"
 msgstr ""
 
 #: ittour-templates/single-tour/price.php:15
@@ -836,21 +924,22 @@ msgstr ""
 
 #: ittour-templates/search/pagination.php:13
 msgid "Page"
-msgstr ""
+msgstr "Сторінка"
 
 #: ittour-templates/search/pagination.php:13
 #: ittour-templates/search/tour-grid-default.php:66
-#: ittour-templates/loop-hotel/tour-list-default.php:41
+#: ittour-templates/loop-hotel/tour-list-default.php:35
+#: ittour-templates/loop-hotel/tour-list-default.php:57
 msgid "out of"
-msgstr ""
+msgstr "з"
 
 #: ittour-templates/search/pagination.php:22
 msgid "Previous"
-msgstr ""
+msgstr "Попередній"
 
 #: ittour-templates/search/pagination.php:32
 msgid "Next"
-msgstr ""
+msgstr "Наступний"
 
 #: ittour-templates/search/no-parameters.php:18
 msgid "How to"
@@ -858,25 +947,25 @@ msgstr ""
 
 #: ittour-templates/search/tour-grid-default.php:84
 msgid "Want to this hotel"
-msgstr ""
+msgstr "Хочу в цей готель"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:74
-#: ittour-templates/loop-hotel/tour-list-default.php:185
+#: ittour-templates/loop-hotel/tour-list-default.php:96
+#: ittour-templates/loop-hotel/tour-list-default.php:222
 msgid "Not included"
 msgstr ""
 
-#: ittour-templates/loop-hotel/tour-list-default.php:85
-#: ittour-templates/loop-hotel/tour-list-default.php:196
+#: ittour-templates/loop-hotel/tour-list-default.php:107
+#: ittour-templates/loop-hotel/tour-list-default.php:233
 msgid "Ask manager"
 msgstr ""
 
-#: ittour-templates/loop-hotel/tour-list-default.php:144
+#: ittour-templates/loop-hotel/tour-list-default.php:177
 msgid "More offers"
-msgstr ""
+msgstr "Більше варіантів"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:145
+#: ittour-templates/loop-hotel/tour-list-default.php:178
 msgid "Hide offers"
-msgstr ""
+msgstr "Заховати варіанти"
 
 #: ittour-templates/loop-hotel/part-offers.php:10
 msgid "Offers"
@@ -888,7 +977,7 @@ msgstr ""
 
 #: ittour-templates/loop-hotel/part-price.php:11
 msgid "Price from"
-msgstr ""
+msgstr "Ціна від"
 
 #. Name of the theme
 msgid "Magic Compass"

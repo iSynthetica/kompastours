@@ -1,12 +1,347 @@
-[11-May-2019 12:58:53 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
-[11-May-2019 12:58:56 UTC] 
-[11-May-2019 12:58:57 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
-[11-May-2019 12:58:57 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
-[11-May-2019 13:00:34 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
-[11-May-2019 13:00:36 UTC] 
-[11-May-2019 13:00:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
-[11-May-2019 13:00:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
-[11-May-2019 13:02:11 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
-[11-May-2019 13:02:15 UTC] 
-[11-May-2019 13:02:15 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
-[11-May-2019 13:02:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:36:44 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:36:45 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 13
+[13-May-2019 13:36:45 UTC] PHP Stack trace:
+[13-May-2019 13:36:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:36:45 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:36:45 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:36:45 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:36:45 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:36:45 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:36:45 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:36:45 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:36:45 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:36:45 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:36:45 UTC] PHP Stack trace:
+[13-May-2019 13:36:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:36:45 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:36:45 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:36:45 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:36:45 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:36:45 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:36:45 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:36:45 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:36:45 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:36:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:36:45 UTC] PHP Stack trace:
+[13-May-2019 13:36:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:36:45 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:36:45 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:36:45 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:36:45 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:36:45 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:36:45 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:36:45 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:36:45 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:36:45 UTC] PHP Notice:  Undefined index: has_more_pages in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/pagination.php on line 2
+[13-May-2019 13:36:45 UTC] PHP Stack trace:
+[13-May-2019 13:36:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:36:45 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:36:45 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:36:45 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:36:45 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:36:45 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:36:45 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:36:45 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:36:45 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:36:45 UTC] PHP  10. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php:36
+[13-May-2019 13:36:45 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:36:46 UTC] 
+[13-May-2019 13:36:47 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:36:47 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:37:10 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:37:41 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 13
+[13-May-2019 13:37:41 UTC] PHP Stack trace:
+[13-May-2019 13:37:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:37:41 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:37:41 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:37:41 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:37:41 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:37:41 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:37:41 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:37:41 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:37:41 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:37:41 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:37:41 UTC] PHP Stack trace:
+[13-May-2019 13:37:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:37:41 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:37:41 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:37:41 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:37:41 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:37:41 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:37:41 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:37:41 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:37:41 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:37:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:37:41 UTC] PHP Stack trace:
+[13-May-2019 13:37:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:37:41 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:37:41 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:37:41 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:37:41 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:37:41 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:37:41 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:37:41 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:37:41 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:37:41 UTC] PHP Notice:  Undefined index: has_more_pages in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/pagination.php on line 2
+[13-May-2019 13:37:41 UTC] PHP Stack trace:
+[13-May-2019 13:37:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:37:41 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:37:41 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:37:41 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:37:41 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:37:41 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:37:41 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:37:41 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:37:41 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:37:41 UTC] PHP  10. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php:36
+[13-May-2019 13:37:41 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:37:46 UTC] 
+[13-May-2019 13:37:47 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:37:48 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:38:29 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:41:08 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 13
+[13-May-2019 13:41:08 UTC] PHP Stack trace:
+[13-May-2019 13:41:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:08 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:08 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:41:08 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:08 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:08 UTC] PHP Notice:  Undefined index: hotels in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:41:08 UTC] PHP Stack trace:
+[13-May-2019 13:41:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:08 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:08 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:41:08 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:08 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php on line 15
+[13-May-2019 13:41:08 UTC] PHP Stack trace:
+[13-May-2019 13:41:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:08 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:08 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:41:08 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:08 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:08 UTC] PHP Notice:  Undefined index: has_more_pages in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/pagination.php on line 2
+[13-May-2019 13:41:08 UTC] PHP Stack trace:
+[13-May-2019 13:41:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:08 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:08 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:08 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:08 UTC] PHP   5. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:08 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:08 UTC] PHP   7. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:162
+[13-May-2019 13:41:08 UTC] PHP   8. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:08 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:08 UTC] PHP  10. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result.php:36
+[13-May-2019 13:41:08 UTC] PHP  11. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:14 UTC] 
+[13-May-2019 13:41:14 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:41:15 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:41:20 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:41:21 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[13-May-2019 13:41:21 UTC] PHP Stack trace:
+[13-May-2019 13:41:21 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:21 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:21 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:21 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:21 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:21 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:21 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:148
+[13-May-2019 13:41:21 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:21 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:24 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:41:25 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[13-May-2019 13:41:25 UTC] PHP Stack trace:
+[13-May-2019 13:41:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:25 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:25 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:25 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:25 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:25 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:25 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:148
+[13-May-2019 13:41:25 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:25 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:28 UTC] ?date_from=12.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:41:29 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[13-May-2019 13:41:29 UTC] PHP Stack trace:
+[13-May-2019 13:41:29 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[13-May-2019 13:41:29 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[13-May-2019 13:41:29 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[13-May-2019 13:41:29 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[13-May-2019 13:41:29 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[13-May-2019 13:41:29 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 13:41:29 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:148
+[13-May-2019 13:41:29 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[13-May-2019 13:41:29 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[13-May-2019 13:41:37 UTC] ?date_from=15.05.19&date_till=17.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 13:41:39 UTC] 
+[13-May-2019 13:41:39 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:41:40 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:45:39 UTC] 
+[13-May-2019 13:46:52 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:49:40 UTC] 
+[13-May-2019 13:50:14 UTC] 
+[13-May-2019 13:50:24 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:52:48 UTC] 
+[13-May-2019 13:52:55 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:53:33 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
+[13-May-2019 13:55:38 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=1956&country=338
+[13-May-2019 13:55:40 UTC] 
+[13-May-2019 13:55:40 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:55:41 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:55:50 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:55:52 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=1956&country=16
+[13-May-2019 13:55:54 UTC] 
+[13-May-2019 13:55:55 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:55:55 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:56:12 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=388&country=16
+[13-May-2019 13:56:15 UTC] 
+[13-May-2019 13:56:16 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:56:16 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:01 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=496&country=16
+[13-May-2019 13:57:04 UTC] 
+[13-May-2019 13:57:04 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:05 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:31 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=496&country=16
+[13-May-2019 13:57:33 UTC] 
+[13-May-2019 13:57:33 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:34 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:43 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=2&meal_type=498&country=16
+[13-May-2019 13:57:45 UTC] 
+[13-May-2019 13:57:46 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:57:46 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:58:23 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=512%3A498&country=16
+[13-May-2019 13:58:26 UTC] 
+[13-May-2019 13:58:26 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:58:27 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 13:58:44 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=512%3A498&country=16
+[13-May-2019 13:59:09 UTC] 
+[13-May-2019 13:59:10 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:03:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:03:46 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=512%3A498&country=16
+[13-May-2019 14:03:49 UTC] 
+[13-May-2019 14:03:49 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:03:50 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:10:26 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=512%3A498&country=16
+[13-May-2019 14:10:29 UTC] 
+[13-May-2019 14:10:30 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:10:30 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:10:40 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:10:43 UTC] 
+[13-May-2019 14:10:44 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:10:44 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:13:41 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:13:44 UTC] 
+[13-May-2019 14:13:44 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:13:45 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:17:14 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:17:17 UTC] 
+[13-May-2019 14:17:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:17:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:25:12 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:25:14 UTC] 
+[13-May-2019 14:25:15 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:25:16 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:26:37 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:26:40 UTC] 
+[13-May-2019 14:26:40 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:26:41 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:31:14 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 14:31:17 UTC] 
+[13-May-2019 14:31:17 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 14:31:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:18:26 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:18:39 UTC] 
+[13-May-2019 16:18:39 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:23:20 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:23:24 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:23:34 UTC] 
+[13-May-2019 16:23:35 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:23:41 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:24:50 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:24:53 UTC] 
+[13-May-2019 16:24:54 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:24:55 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:25:32 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:25:35 UTC] 
+[13-May-2019 16:25:36 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:25:37 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:26:00 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=28000&price_till=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:26:03 UTC] 
+[13-May-2019 16:26:03 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:26:04 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:26:30 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=12000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:26:44 UTC] 
+[13-May-2019 16:26:45 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:29:27 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:29:32 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=12000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:29:34 UTC] 
+[13-May-2019 16:29:35 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:29:35 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:30:05 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=12000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:30:21 UTC] 
+[13-May-2019 16:30:22 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:31:48 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:31:57 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=12000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:31:59 UTC] 
+[13-May-2019 16:31:59 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:32:00 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:32:19 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=12000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:32:21 UTC] 
+[13-May-2019 16:32:21 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:32:22 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:32:33 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:32:36 UTC] 
+[13-May-2019 16:32:37 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:32:37 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:33:21 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:33:23 UTC] 
+[13-May-2019 16:33:24 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:33:25 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:39:05 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:39:08 UTC] 
+[13-May-2019 16:39:09 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:39:10 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:40:50 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=36000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:40:53 UTC] 
+[13-May-2019 16:40:54 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:40:55 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:43:01 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:43:04 UTC] 
+[13-May-2019 16:43:05 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:43:05 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:43:05 UTC] PHP Stack trace:
+[13-May-2019 16:43:05 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:43:05 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:43:05 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:43:05 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:43:05 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:43:05 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:43:05 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:43:05 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:43:05 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:43:05 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:43:05 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:43:05 UTC] PHP Stack trace:
+[13-May-2019 16:43:05 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:43:05 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:43:05 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:43:05 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:43:05 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:43:05 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:43:05 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:43:05 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:43:05 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:43:05 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:43:05 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
