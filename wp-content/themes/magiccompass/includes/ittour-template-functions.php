@@ -332,16 +332,61 @@ function ittour_get_filter_summary_field($args) {
         if (!empty($args['priceLimit'])) {
             $price_limit_array = explode(':', $args['priceLimit']);
 
-            if (!empty($field_value)) {
-                $field_value .= ', ';
-            }
+            if ('custom' === $price_limit_array[0]) {
+                $price_from = '';
+                $price_till = '';
 
-            if (!empty($price_limit_array[0]) && !empty($price_limit_array[1])) {
+                unset($price_limit_array[0]);
+
+                foreach ($price_limit_array as $price_limit) {
+                    $price_array = explode('-', $price_limit);
+
+                    if ('f' === $price_array[0]) {
+                        $price_from = $price_array[1];
+                    }  elseif ('t' === $price_array[0]) {
+                        $price_till = $price_array[1];
+                    }
+                }
+
+                if (!empty($price_from) && !empty($price_till)) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
+                    $field_value .= number_format($price_from, 0, ',', ' ') . ' - ' . number_format($price_till, 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                } elseif (!empty($price_from)) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
+                    $field_value .= __('more than', 'snthwp') . ' ' . number_format($price_from, 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                } elseif (!empty($price_till)) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
+                    $field_value .= __('till', 'snthwp') . ' ' . number_format($price_till, 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                }
+            } else {
+                if (!empty($price_limit_array[0]) && !empty($price_limit_array[1])) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
                     $field_value .= number_format($price_limit_array[0], 0, ',', ' ') . ' - ' . number_format($price_limit_array[1], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
-            } elseif (!empty($price_limit_array[0])) {
-                $field_value .= __('more than', 'snthwp') . ' ' . number_format($price_limit_array[0], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
-            } elseif (!empty($price_limit_array[1])) {
-                $field_value .= __('till', 'snthwp') . ' ' . number_format($price_limit_array[1], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                } elseif (!empty($price_limit_array[0])) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
+                    $field_value .= __('more than', 'snthwp') . ' ' . number_format($price_limit_array[0], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                } elseif (!empty($price_limit_array[1])) {
+                    if (!empty($field_value)) {
+                        $field_value .= ', ';
+                    }
+
+                    $field_value .= __('till', 'snthwp') . ' ' . number_format($price_limit_array[1], 0, ',', ' ') . ' ' . __('uah.', 'snthwp');
+                }
             }
         }
     }
@@ -629,11 +674,12 @@ function ittour_get_price_limit_field($args = array()) {
 
         <li id="custom_price_limit_holder"<?php echo $is_custom ? '' : ' style="display:none;"' ?>>
             <div class="row">
-                <div class="col-md-6">
-                    <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm" data-label="<?php echo __('more than', 'snthwp'); ?>" type="text" value="<?php echo $price_from; ?>" style="width: 100%" placeholder="<?php echo __('from'); ?>">
-                </div>
-                <div class="col-md-6">
-                    <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm" data-label="<?php echo __('till', 'snthwp'); ?>" type="text" value="<?php echo $price_till; ?>" style="width: 100%" placeholder="<?php echo __('till'); ?>">
+                <div class="col-12">
+                    <div class="numbers-alt numbers-gor" style="display:inline-block;width:120px;">
+                        <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('more than', 'snthwp'); ?>" type="number" value="<?php echo $price_from; ?>" placeholder="<?php echo __('from'); ?>" style="width:80px;">
+                    </div> - <div class="numbers-alt numbers-gor" style="display:inline-block;width:120px;">
+                        <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('till', 'snthwp'); ?>" type="number" value="<?php echo $price_till; ?>" placeholder="<?php echo __('till'); ?>" style="width:80px;">
+                    </div>
                 </div>
             </div>
         </li>

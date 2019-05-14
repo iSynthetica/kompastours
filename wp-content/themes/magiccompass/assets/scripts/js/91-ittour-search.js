@@ -581,6 +581,7 @@
 
         var filterSummaryText = '';
 
+        // Transport
         if ('2' === typeSelected) {
             filterSummaryText += $('#tour_type_select input[type=\'radio\']:checked + label').text();
         } else if ('1' === typeSelected) {
@@ -591,6 +592,7 @@
             }
         }
 
+        // Meal type
         var mealSelectedArray = [];
 
         if (mealSelected.length > 0) {
@@ -607,6 +609,7 @@
             }
         }
 
+        // Price limit
         if ('' !== priceSelected && 'custom' !== priceSelected) {
             if ('' !== filterSummaryText) {
                 filterSummaryText += ', ';
@@ -614,7 +617,28 @@
 
             filterSummaryText += $('#price_limit_select input[type=\'radio\']:checked + label').text();
         } else if ('custom' === priceSelected) {
+            var price_from = $('input#price_limit_from').val();
+            var price_till = $('input#price_limit_till').val();
 
+            if ('' !== price_from && '' !== price_till) {
+                if ('' !== filterSummaryText) {
+                    filterSummaryText += ', ';
+                }
+
+                filterSummaryText += price_from + ' - ' + price_till + ' ' + $('input#price_limit_from').data('currency');
+            } else if ('' !== price_from) {
+                if ('' !== filterSummaryText) {
+                    filterSummaryText += ', ';
+                }
+
+                filterSummaryText += $('input#price_limit_from').data('label') + ' ' + price_from + ' ' + $('input#price_limit_from').data('currency');
+            } else if ('' !== price_till) {
+                if ('' !== filterSummaryText) {
+                    filterSummaryText += ', ';
+                }
+
+                filterSummaryText += $('input#price_limit_till').data('label') + ' ' + price_till + ' ' + $('input#price_limit_from').data('currency');
+            }
         }
 
         filterSummary.val(filterSummaryText);

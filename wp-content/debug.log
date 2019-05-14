@@ -345,3 +345,396 @@
 [13-May-2019 16:43:05 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
 [13-May-2019 16:43:05 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
 [13-May-2019 16:43:05 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:53:36 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:53:39 UTC] 
+[13-May-2019 16:53:40 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:53:41 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:53:41 UTC] PHP Stack trace:
+[13-May-2019 16:53:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:53:41 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:53:41 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:53:41 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:53:41 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:53:41 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:53:41 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:53:41 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:53:41 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:53:41 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:53:41 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:53:41 UTC] PHP Stack trace:
+[13-May-2019 16:53:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:53:41 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:53:41 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:53:41 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:53:41 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:53:41 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:53:41 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:53:41 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:53:41 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:53:41 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:53:41 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:55:48 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:55:51 UTC] 
+[13-May-2019 16:55:52 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:55:53 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:55:53 UTC] PHP Stack trace:
+[13-May-2019 16:55:53 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:55:53 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:55:53 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:55:53 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:55:53 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:55:53 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:55:53 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:55:53 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:55:53 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:55:53 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:55:53 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:55:53 UTC] PHP Stack trace:
+[13-May-2019 16:55:53 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:55:53 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:55:53 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:55:53 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:55:53 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:55:53 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:55:53 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:55:53 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:55:53 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:55:53 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:55:53 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:56:29 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:56:32 UTC] 
+[13-May-2019 16:56:32 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:56:33 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:56:33 UTC] PHP Stack trace:
+[13-May-2019 16:56:33 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:56:33 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:56:33 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:56:33 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:56:33 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:56:33 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:56:33 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:56:33 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:56:33 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:56:33 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:56:33 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:56:33 UTC] PHP Stack trace:
+[13-May-2019 16:56:33 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:56:33 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:56:33 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:56:33 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:56:33 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:56:33 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:56:33 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:56:33 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:56:33 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:56:33 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:56:33 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:57:16 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:57:19 UTC] 
+[13-May-2019 16:57:19 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:57:20 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:57:20 UTC] PHP Stack trace:
+[13-May-2019 16:57:20 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:57:20 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:57:20 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:57:20 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:57:20 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:57:20 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:57:20 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:57:20 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:57:20 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:57:20 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:57:20 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:57:20 UTC] PHP Stack trace:
+[13-May-2019 16:57:20 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:57:20 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:57:20 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:57:20 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:57:20 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:57:20 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:57:20 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:57:20 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:57:20 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:57:20 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:57:20 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:57:58 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:58:00 UTC] 
+[13-May-2019 16:58:01 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:58:02 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:58:02 UTC] PHP Stack trace:
+[13-May-2019 16:58:02 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:58:02 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:58:02 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:58:02 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:58:02 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:58:02 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:58:02 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:58:02 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:58:02 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:58:02 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:58:02 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:58:02 UTC] PHP Stack trace:
+[13-May-2019 16:58:02 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:58:02 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:58:02 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:58:02 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:58:02 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:58:02 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:58:02 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:58:02 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:58:02 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:58:02 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:58:02 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:59:42 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 16:59:45 UTC] 
+[13-May-2019 16:59:45 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 16:59:46 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:59:46 UTC] PHP Stack trace:
+[13-May-2019 16:59:46 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:59:46 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:59:46 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:59:46 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:59:46 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:59:46 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:59:46 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:59:46 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:59:46 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:59:46 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:59:46 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 16:59:46 UTC] PHP Stack trace:
+[13-May-2019 16:59:46 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 16:59:46 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 16:59:46 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 16:59:46 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 16:59:46 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 16:59:46 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 16:59:46 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 16:59:46 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 16:59:46 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 16:59:46 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 16:59:46 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:00:46 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:00:49 UTC] 
+[13-May-2019 17:00:50 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:00:51 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:00:51 UTC] PHP Stack trace:
+[13-May-2019 17:00:51 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:00:51 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:00:51 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:00:51 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:00:51 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:00:51 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:00:51 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:00:51 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:00:51 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:00:51 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:00:51 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:00:51 UTC] PHP Stack trace:
+[13-May-2019 17:00:51 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:00:51 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:00:51 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:00:51 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:00:51 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:00:51 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:00:51 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:00:51 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:00:51 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:00:51 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:00:51 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:01:39 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:01:41 UTC] 
+[13-May-2019 17:01:42 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:01:43 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:01:43 UTC] PHP Stack trace:
+[13-May-2019 17:01:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:01:43 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:01:43 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:01:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:01:43 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:01:43 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:01:43 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:01:43 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:01:43 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:01:43 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:01:43 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:01:43 UTC] PHP Stack trace:
+[13-May-2019 17:01:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:01:43 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:01:43 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:01:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:01:43 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:01:43 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:01:43 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:01:43 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:01:43 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:01:43 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:01:43 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:03:14 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:03:17 UTC] 
+[13-May-2019 17:03:17 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:03:18 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:03:18 UTC] PHP Stack trace:
+[13-May-2019 17:03:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:03:18 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:03:18 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:03:18 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:03:18 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:03:18 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:03:18 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:03:18 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:03:18 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:03:18 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:03:18 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:03:18 UTC] PHP Stack trace:
+[13-May-2019 17:03:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:03:18 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:03:18 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:03:18 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:03:18 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:03:18 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:03:18 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:03:18 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:03:18 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:03:18 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:03:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:03:44 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=1000&price_till=500000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:03:46 UTC] 
+[13-May-2019 17:03:47 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:03:48 UTC] PHP Stack trace:
+[13-May-2019 17:03:48 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:03:48 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:03:48 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:03:48 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:03:48 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:03:48 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:03:48 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:03:48 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:03:48 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:03:48 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:03:48 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:03:48 UTC] PHP Stack trace:
+[13-May-2019 17:03:48 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:03:48 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:03:48 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:03:48 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:03:48 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:03:48 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:03:48 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:03:48 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:03:48 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:03:48 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:03:48 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:05:11 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=25000&price_till=60000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:05:14 UTC] 
+[13-May-2019 17:05:15 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:05:16 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:05:16 UTC] PHP Stack trace:
+[13-May-2019 17:05:16 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:05:16 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:05:16 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:05:16 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:05:16 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:05:16 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:05:16 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:05:16 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:05:16 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:05:16 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:05:16 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:05:16 UTC] PHP Stack trace:
+[13-May-2019 17:05:16 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:05:16 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:05:16 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:05:16 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:05:16 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:05:16 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:05:16 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:05:16 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:05:16 UTC] PHP   9. ittour_get_filter_summary_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:05:16 UTC] PHP  10. number_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:05:16 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:05:28 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=25000&price_till=60000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:05:36 UTC] 
+[13-May-2019 17:05:36 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:11:17 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:11:17 UTC] PHP Stack trace:
+[13-May-2019 17:11:17 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:11:17 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:11:17 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:11:17 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:11:17 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:11:17 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:11:17 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:11:17 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:11:17 UTC] PHP   9. ittour_get_filter_summary_field($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:11:17 UTC] PHP  10. number_format(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:11:17 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 340
+[13-May-2019 17:11:17 UTC] PHP Stack trace:
+[13-May-2019 17:11:17 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[13-May-2019 17:11:17 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[13-May-2019 17:11:17 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[13-May-2019 17:11:17 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[13-May-2019 17:11:17 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[13-May-2019 17:11:17 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[13-May-2019 17:11:17 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[13-May-2019 17:11:17 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[13-May-2019 17:11:17 UTC] PHP   9. ittour_get_filter_summary_field($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:93
+[13-May-2019 17:11:17 UTC] PHP  10. number_format(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:340
+[13-May-2019 17:11:17 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:12:13 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=25000&price_till=60000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:12:17 UTC] 
+[13-May-2019 17:12:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:12:18 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:12:30 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=60000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:12:33 UTC] 
+[13-May-2019 17:12:34 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:12:34 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:12:46 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_till=60000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:12:55 UTC] 
+[13-May-2019 17:12:55 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:13:48 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:15:13 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&price_till=22000&type=1&kind=1&meal_type=560%3A512%3A498&country=16
+[13-May-2019 17:15:21 UTC] 
+[13-May-2019 17:15:22 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:15:28 UTC] /16?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:15:43 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:15:54 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&price_till=22000&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[13-May-2019 17:15:57 UTC] 
+[13-May-2019 17:15:58 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[13-May-2019 17:15:58 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:47:26 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&price_till=22000&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 09:47:34 UTC] 
+[14-May-2019 09:47:35 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:58:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:58:43 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&price_till=22000&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 09:58:46 UTC] 
+[14-May-2019 09:58:46 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:58:47 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:59:21 UTC] ?date_from=14.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&price_till=22000&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 09:59:24 UTC] 
+[14-May-2019 09:59:25 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:59:25 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:59:41 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&price_from=20000&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 09:59:44 UTC] 
+[14-May-2019 09:59:44 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 09:59:45 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:00:00 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 10:00:03 UTC] 
+[14-May-2019 10:00:04 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:00:05 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:04:06 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 10:04:09 UTC] 
+[14-May-2019 10:04:10 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:04:11 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:07:12 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 10:07:15 UTC] 
+[14-May-2019 10:07:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:07:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:09:36 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 10:09:38 UTC] 
+[14-May-2019 10:09:39 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:09:40 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:10:52 UTC] ?date_from=15.05.19&date_till=19.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[14-May-2019 10:10:55 UTC] 
+[14-May-2019 10:10:55 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[14-May-2019 10:10:56 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
