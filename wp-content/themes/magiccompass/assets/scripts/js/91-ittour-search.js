@@ -1,8 +1,8 @@
 (function ($) {
     $(document.body).on('search_form_loaded', function() {
-        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
-        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
         // $('.repeater').repeater({
         //     initEmpty: true
@@ -200,7 +200,7 @@
                         value = '2';
                     }
 
-                    selectedHotel += value + '*, '
+                    selectedHotel += value + '*, ';
                 });
             }
         } else {
@@ -373,7 +373,7 @@
     // ================================
     //  Guests
     // ================================
-    $(document.body).on('input', '#adult_amount', function() {
+    $(document.body).on('blur', '#adult_amount', function() {
         var adults = $(this).val();
 
         ittourShowGuestsSummary();
@@ -567,6 +567,10 @@
     });
 
     $(document.body).on('change', '#meal_type_select input[type=\'checkbox\']', function() {
+        ittourShowFilterSummary();
+    });
+
+    $(document.body).on('blur', '#price_limit_from, #price_limit_till', function() {
         ittourShowFilterSummary();
     });
 

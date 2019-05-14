@@ -20846,7 +20846,6 @@ S2.define('jquery.select2',[
         $(".numbers-row").append('<div class="inc button_inc"><i class="fas fa-plus"></i></div><div class="dec button_inc"><i class="fas fa-minus"></i></div>');
 
         $( document.body ).on('click', ".button_inc", function () {
-
             var $button = $(this);
             var oldValue = $button.parent().find("input").val();
             var max = $button.parent().find("input").data('max');
@@ -20873,32 +20872,62 @@ S2.define('jquery.select2',[
             $button.parent().find("input").val(newVal);
         });
 
-        $( document.body ).on('click', ".buttons_inc", function () {
+        $( document.body ).on('input', 'input[type="number"]', function () {
+            var max = parseFloat($(this).data('max'));
+            var min = parseFloat($(this).data('min'));
+            var value = parseFloat($(this).val());
 
+            if (max && value > max) {
+                $(this).val(max);
+            }
+
+            if (min && value < min) {
+                $(this).val(min);
+            }
+        });
+
+        $( document.body ).on('click', ".buttons_inc", function () {
             var $button = $(this);
-            var oldValue = $button.parent().find("input").val();
-            var max = $button.parent().find("input").data('max');
-            var min = $button.parent().find("input").data('min');
+            var oldValue = parseFloat($button.parent().find("input").val());
+            var max = parseFloat($button.parent().find("input").data('max'));
+            var min = parseFloat($button.parent().find("input").data('min'));
+            var isPrice = $button.parent().find("input").hasClass('money-format-input');
+            var newVal = 0;
 
             if ($button.hasClass('incr')) {
-                if ( max && parseFloat(oldValue) === parseFloat(max) ) {
-                    var newVal = parseFloat(oldValue);
+                if ( max && oldValue === max ) {
+                    newVal = oldValue;
                 } else {
-                    var newVal = parseFloat(oldValue) + 1;
+                    if (isPrice) {
+                        newVal = oldValue + 1000;
+                    } else {
+                        newVal = oldValue + 1;
+                    }
                 }
             } else {
                 // Don't allow decrementing below zero
-
-                if ( min && parseFloat(oldValue) === parseFloat(min) ) {
-                    var newVal = parseFloat(oldValue);
-                } else if ( oldValue > 1) {
-                    var newVal = parseFloat(oldValue) - 1;
+                if (isPrice) {
+                    if (min && oldValue === min) {
+                        newVal = oldValue;
+                    } else if (min && min > oldValue - 1000) {
+                        newVal = min;
+                    } else if (oldValue > 1000) {
+                        newVal = oldValue - 1000;
+                    } else {
+                        newVal = 0;
+                    }
                 } else {
-                    newVal = 0;
+                    if ( min && oldValue === min ) {
+                        newVal = oldValue;
+                    } else if ( oldValue > 1) {
+                        newVal = oldValue - 1;
+                    } else {
+                        newVal = 0;
+                    }
                 }
             }
 
-            $button.parent().find("input").val(newVal).trigger('input');
+            $button.parent().find("input").val(newVal).trigger('blur');
         });
     });
 
@@ -21281,9 +21310,9 @@ S2.define('jquery.select2',[
 }(jQuery));
 (function ($) {
     $(document.body).on('search_form_loaded', function() {
-        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-chevron-right"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-left"></i></div>');
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
-        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-chevron-up"></i></div><div class="decr buttons_inc"><i class="fas fa-chevron-down"></i></div>');
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
         // $('.repeater').repeater({
         //     initEmpty: true
@@ -21481,7 +21510,7 @@ S2.define('jquery.select2',[
                         value = '2';
                     }
 
-                    selectedHotel += value + '*, '
+                    selectedHotel += value + '*, ';
                 });
             }
         } else {
@@ -21654,7 +21683,7 @@ S2.define('jquery.select2',[
     // ================================
     //  Guests
     // ================================
-    $(document.body).on('input', '#adult_amount', function() {
+    $(document.body).on('blur', '#adult_amount', function() {
         var adults = $(this).val();
 
         ittourShowGuestsSummary();
@@ -21848,6 +21877,10 @@ S2.define('jquery.select2',[
     });
 
     $(document.body).on('change', '#meal_type_select input[type=\'checkbox\']', function() {
+        ittourShowFilterSummary();
+    });
+
+    $(document.body).on('blur', '#price_limit_from, #price_limit_till', function() {
         ittourShowFilterSummary();
     });
 

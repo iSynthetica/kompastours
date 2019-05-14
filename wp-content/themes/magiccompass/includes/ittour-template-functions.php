@@ -676,9 +676,9 @@ function ittour_get_price_limit_field($args = array()) {
             <div class="row">
                 <div class="col-12">
                     <div class="numbers-alt numbers-gor" style="display:inline-block;width:120px;">
-                        <input id="price_limit_from" name="price_limit_from" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('more than', 'snthwp'); ?>" type="number" value="<?php echo $price_from; ?>" placeholder="<?php echo __('from'); ?>" style="width:80px;">
+                        <input id="price_limit_from" name="price_limit_from" data-min="1000" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('more than', 'snthwp'); ?>" type="number" value="<?php echo $price_from; ?>" placeholder="<?php echo __('from'); ?>" style="width:80px;">
                     </div> - <div class="numbers-alt numbers-gor" style="display:inline-block;width:120px;">
-                        <input id="price_limit_till" name="price_limit_till" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('till', 'snthwp'); ?>" type="number" value="<?php echo $price_till; ?>" placeholder="<?php echo __('till'); ?>" style="width:80px;">
+                        <input id="price_limit_till" name="price_limit_till" data-min="1000" class="form-control form-control-sm qty2 money-format-input" data-currency="<?php echo __('uah.', 'snthwp'); ?>" data-label="<?php echo __('till', 'snthwp'); ?>" type="number" value="<?php echo $price_till; ?>" placeholder="<?php echo __('till'); ?>" style="width:80px;">
                     </div>
                 </div>
             </div>
