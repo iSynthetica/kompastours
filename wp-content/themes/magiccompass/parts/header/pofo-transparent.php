@@ -18,7 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div class="container-fluid nav-header-container">
             <!-- start logo -->
             <div class="col-auto pl-0">
-                <a href="index.html" title="Pofo" class="logo"><img src="<?php echo SNTH_IMAGES_URL ?>/samples/logo.png" data-rjs="images/logo@2x.png" class="logo-dark" alt="Pofo"><img src="<?php echo SNTH_IMAGES_URL ?>/samples/logo.png" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light default"></a>
+                <a href="index.html" title="Pofo" class="logo">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" class="logo-dark default">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" class="logo-light">
+                </a>
             </div>
             <!-- end logo -->
             <div class="col accordion-menu pr-0 pr-md-3">

@@ -45,19 +45,12 @@
 .tour_list_container {
     display: block;
     color: #777;
-    -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
-
-    .hotel_facilities {
-        text-align: center;
-    }
 
     .tour_list_details {
         font-size: rem-calc(14);
 
         p {
-            margin-bottom: rem-calc(10);
+            margin-bottom: rem-calc(5);
         }
 
         i {
@@ -82,7 +75,37 @@
     }
 
     .img_container__wrapper {
-        padding: rem-calc(10);
+        .img_container {
+            padding: rem-calc(3);
+            background-color: $color-white;
+            border-radius: rem-calc(17);
+            -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: rem-calc(15);
+            }
+
+            .img-overlay {
+                border-radius: rem-calc(17);
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border: 3px solid $color-white;
+            }
+        }
+    }
+
+    .short_info {
+        left: 3px;
+        bottom: 3px;
+        right: 3px;
+        border-bottom-right-radius: rem-calc(15);
+        border-bottom-left-radius: rem-calc(15);
     }
 
     .tour_list_description {
@@ -103,28 +126,32 @@
             vertical-align: middle;
         }
 
-        .tour_price {
-            line-height: rem-calc(26);
-            text-align: center;
-            font-size: rem-calc(24);
-            color: #e74c3c;
+        .tour_price, .tour_price_currency {
 
+            text-align: center;
+            font-size: rem-calc(20);
+
+            @media (max-width: 991px) {
+                line-height: rem-calc(38);
+            }
+        }
+
+        .tour_price {
+            color: #e74c3c;
             small {
                 font-size: rem-calc(14);
             }
         }
 
         .tour_price_currency {
-            line-height: rem-calc(19);
-            text-align: center;
-            font-size: rem-calc(17);
             color: #777;
             sup {
-                font-size: rem-calc(12);
+                font-size: rem-calc(14);
                 position: relative;
                 top: rem-calc(-4);
             }
         }
+
         .tour-meta {
             p {
                 margin-top: rem-calc(3);
@@ -141,12 +168,6 @@
                         font-size: rem-calc(13);
                     }
                 }
-            }
-        }
-        .tour-aside__footer {
-            margin-top: rem-calc(15);
-            p {
-                margin-bottom: rem-calc(10);
             }
         }
     }
@@ -179,15 +200,28 @@
     }
 
     .tour_list_more {
+        padding: rem-calc(10);
+        background-color: $color-gray-3;
+        border: 1px solid $color-gray-5;
+        max-height: rem-calc(450);
 
-        tr.best-price-item {
-            background-color: rgba(0, 255, 0, 0.11);
+        .tour_list_more-item {
+            padding: rem-calc(20);
+            margin-bottom: rem-calc(10);
+            border: 1px solid $color-gray-5;
+            background-color: $color-white;
 
-            td {
-                padding-top: rem-calc(7);
-                padding-bottom: rem-calc(7);
+            @media (max-width: 767px) {
+                padding: rem-calc(10);
+                margin-bottom: rem-calc(10);
+            }
+
+            &.best-price-item {
+                background-color: rgba(130, 202, 136, 0.1);
+                border: 1px solid rgba(130, 202, 136, 0.20);
             }
         }
+
         .tour_list_more_guests {
             i {
                 &.fa-male {
@@ -198,22 +232,26 @@
                 }
             }
         }
+        .tour_list_more_button {
+            text-align: right;
+
+            .btn {
+                margin-bottom: 0;
+            }
+        }
+
         .tour_list_more_price {
             line-height: rem-calc(20);
             font-size: rem-calc(20);
             color: #e74c3c;
-
+            text-align: center;
             small {
                 font-size: rem-calc(14);
             }
 
             span {
                 color: #777;
-                line-height: 18px;
-                font-size: 16px;
-
                 sup {
-                    font-size: 11px;
                     position: relative;
                     top: -3px;
                 }
@@ -221,8 +259,39 @@
         }
 
         @media (max-width: 767px) {
-            max-height: rem-calc(500);
-            overflow: scroll;
+            .tour_list_more_room, .tour_list_more_meal, .tour_list_more_duration {
+                margin-bottom: rem-calc(20);
+            }
+            .tour_list_more_button {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .tour_list_more_room, .tour_list_more_meal, .tour_list_more_duration {
+                margin-bottom: rem-calc(5);
+                text-align: center;
+            }
+            .tour_list_more_duration, .tour_list_more_price {
+                margin-bottom: rem-calc(20);
+            }
+            .tour_list_more_button {
+                .btn  {
+                    width: rem-calc(200);
+                }
+            }
+        }
+    }
+}
+
+.tab-content {
+    .tour_list_container {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        .card {
+            border: none;
+
         }
     }
 }

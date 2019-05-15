@@ -66,13 +66,14 @@
         li {
             font-size: rem-calc(16);
             margin-bottom: rem-calc(10);
-            i.list-item-icon {
-                width: rem-calc(25);
-                text-align: left;
-                color: #e04f67;
-            }
         }
     }
+}
+
+i.list-item-icon {
+    width: rem-calc(25);
+    text-align: left;
+    color: #e04f67;
 }
 
 .wishlist {
@@ -138,31 +139,32 @@
 }
 
 .img_container a:hover img {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    //-webkit-transform: scale(1);
+    //transform: scale(1);
 }
 
 .img_container img {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    -webkit-backface-visibility: hidden;
+    //-webkit-transform: scale(1.2);
+    //transform: scale(1.2);
+    //-webkit-transition: all 0.5s ease;
+    //transition: all 0.5s ease;
+    //-webkit-backface-visibility: hidden;
 }
 
 .short_info {
     position: absolute;
     left: 0;
     bottom: 0;
+    right: 0;
     background: -webkit-linear-gradient(top,transparent,#000);
     background: linear-gradient(to bottom,transparent,#000);
-    width: 100%;
     padding: 45px 10px 8px 5px;
     color: #fff;
 }
 
 .img-overlay {
     position: absolute;
+    right: 0;
     left: 0;
     top: 0;
     bottom: 0;

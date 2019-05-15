@@ -76,6 +76,8 @@ const SOURCE = {
 
         VENDORS + '/daterange-custom/daterangepicker.js',
 
+        MODULES + '/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
+
         // VENDORS + '/ddslick/jquery.ddslick.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production

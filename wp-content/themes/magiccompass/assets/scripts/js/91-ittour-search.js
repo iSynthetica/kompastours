@@ -74,7 +74,13 @@
         } else {
             $('body').addClass('toggle-is-active');
             toggleTargets.removeClass('active').hide();
-            toggleTarget.addClass('active').show();
+
+            toggleTarget.addClass('active').show('400', function () {
+                $('.scroll-on-show').mCustomScrollbar({
+                    axis: "y",
+                    theme: 'rounded-dark'
+                });
+            });
         }
     });
 

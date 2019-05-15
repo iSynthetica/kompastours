@@ -1266,7 +1266,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
         if (!empty($offers)) {
             ?>
             <div class="tour_list_container">
-                <div id="tour_list_container-<?php echo $i; ?>" class="tour_list_container-inner card accordion_styled" style="padding:10px;">
+                <div id="tour_list_container-<?php echo $i; ?>" class="tour_list_container-inner card accordion_styled">
                     <div class="card-header">
                         <h3 class="mtb-0">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#tour_list_container-<?php echo $i; ?>" href="#collapse_<?php echo $i; ?>_date">
@@ -1277,77 +1277,91 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                     </div>
 
                     <div id="collapse_<?php echo $i; ?>_date" class="collapse<?php echo 1 === $i ? ' show' : ''; ?>" data-parent="#tour_list_container-<?php echo $i; ?>">
-                        <div class="responsive-table__container">
-                            <table class="tour_list_more table table-sm table-striped" style="margin-bottom:0;">
-                                <thead>
-                                <tr>
-                                    <th><?php echo __('Room Type', 'snthwp'); ?></th>
-                                    <th><?php echo __('Meal Type', 'snthwp'); ?></th>
-                                    <th><?php echo __('Guests / Nights', 'snthwp'); ?></th>
-                                    <th><?php echo __('Price', 'snthwp'); ?></th>
-                                    <th><?php echo __('', 'snthwp'); ?></th>
-                                </tr>
-                                </thead>
+                        <div class="tour_list_more scroll-content">
+                            <?php
+                            foreach ($offers as $offer) {
+                                $is_best_price = '';
 
-                                <tbody>
-                                <?php
-                                foreach ($offers as $offer) {
-                                    $is_best_price = '';
-
-                                    if (in_array($offer['key'], $best_price_array['ids'])) {
-                                        $is_best_price = ' class="best-price-item"';
-                                    }
-                                    ?>
-                                    <tr<?php echo $is_best_price; ?>>
-                                        <td>
-                                            <?php
-                                            if (!empty($offer['room_type'])) {
-                                                ?>
-                                                <?php echo $offer['room_type']; ?>
-                                                <?php
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if (!empty($offer['meal_type']) || !empty($offer['meal_type_full'])) {
-                                                if (!empty($offer['meal_type'])) {
-                                                    ?>
-                                                    <?php echo $offer['meal_type']; ?>
-                                                    <?php
-                                                }
-
-                                                if (!empty($offer['meal_type_full'])) {
-                                                    ?>
-                                                    (<?php echo $offer['meal_type_full']; ?>)
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if (!empty($offer['duration'])) {
-                                                ?>
-                                                <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
-                                                <?php
-                                            }
-                                            ?>
-                                        </td>
-                                        <td class="tour_list_more_price">
-                                            <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
-
-                                            <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
-                                        </td>
-                                        <td>
-                                            <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-xs"><?php echo __('Details', 'snthwp'); ?></a>
-                                        </td>
-                                    </tr>
-                                    <?php
+                                if (in_array($offer['key'], $best_price_array['ids'])) {
+                                    $is_best_price = ' best-price-item';
                                 }
                                 ?>
-                                </tbody>
-                            </table>
+                                <div class="<?php echo $is_best_price ?> tour_list_more-item">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-7 col-xl-8">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-5 col-md-4">
+                                                    <div class="tour_list_more_room">
+                                                        <?php
+                                                        if (!empty($offer['room_type'])) {
+                                                            ?>
+                                                            <?php echo $offer['room_type']; ?>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-sm-4 col-md-4">
+                                                    <div class="tour_list_more_meal">
+                                                        <?php
+                                                        if (!empty($offer['meal_type']) || !empty($offer['meal_type_full'])) {
+                                                            if (!empty($offer['meal_type'])) {
+                                                                ?>
+                                                                <?php echo $offer['meal_type']; ?>
+                                                                <?php
+                                                            }
+
+                                                            if (!empty($offer['meal_type_full'])) {
+                                                                ?>
+                                                                (<?php echo $offer['meal_type_full']; ?>)
+                                                                <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 col-sm-3 col-md-4">
+                                                    <div class="tour_list_more_duration">
+                                                        <?php
+                                                        if (!empty($offer['duration'])) {
+                                                            ?>
+                                                            <?php echo $offer['duration']; ?> <?php echo __('Nights', 'snthwp'); ?>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="tour_list_more_price">
+                                                        <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
+
+                                                        <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-6">
+                                                    <div class="tour_list_more_button">
+                                                        <a
+                                                                href="/tour-result/?key=<?php echo $offer['key'] ?>"
+                                                                class="btn shape-rnd type-hollow hvr-invert size-xs"
+                                                        >
+                                                            <?php echo __('Details', 'snthwp'); ?>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>

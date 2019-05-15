@@ -11,6 +11,18 @@
         $('body').delay(350).css({
             'overflow': 'visible'
         });
+
+        var scrollContent = $(".scroll-content");
+
+        if (scrollContent.length > 0) {
+            scrollContent.each(function() {
+                $(this).mCustomScrollbar({
+                    axis: "y",
+                    theme: 'rounded-dark'
+                });
+            });
+        }
+
         $(window).scroll();
     });
 

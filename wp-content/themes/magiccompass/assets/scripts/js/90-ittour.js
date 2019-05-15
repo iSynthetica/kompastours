@@ -112,6 +112,11 @@
                 if (decoded) {
                     if (decoded.success) {
                         container.html(decoded.message);
+
+                        $(".scroll-content").mCustomScrollbar({
+                            axis: "y",
+                            theme: 'rounded-dark'
+                        });
                     } else {
                         alert(decoded.message);
                     }

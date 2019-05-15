@@ -869,7 +869,7 @@ blockquote.styled {
 
 /** tabs **/
 .tab-content {
-    padding: 30px;
+    padding: rem-calc(30);
     background-color: #fff;
     border: 1px solid #ddd;
     border-top: none;
@@ -880,6 +880,14 @@ blockquote.styled {
     -moz-border-radius-bottomleft: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+
+    @media (max-width: 767px) {
+        padding: rem-calc(20);
+    }
+
+    @media (max-width: 480px) {
+        padding: rem-calc(10);
+    }
 }
 
 /** Img frame in general page **/

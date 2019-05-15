@@ -82,7 +82,7 @@ $search_steps = get_field('timeline_items', 493);
                 <div style="padding-left:10px;padding-right:10px;" class="col-12 col-md-3">
                     <div id="destination-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body">
+                            <div class="form-data-toggle-body scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -170,7 +170,7 @@ $search_steps = get_field('timeline_items', 493);
                 <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
                     <div id="dates-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body">
+                            <div class="form-data-toggle-body scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -272,7 +272,7 @@ $search_steps = get_field('timeline_items', 493);
                 <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
                     <div id="guests-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body">
+                            <div class="form-data-toggle-body scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -376,7 +376,7 @@ $search_steps = get_field('timeline_items', 493);
                 <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
                     <div id="filter-select__section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body">
+                            <div class="form-data-toggle-body scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">

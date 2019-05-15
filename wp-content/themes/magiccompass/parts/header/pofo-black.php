@@ -18,7 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         <div class="container nav-header-container">
             <!-- start logo -->
             <div class="col-auto pl-lg-0">
-                <a href="index.html" title="Pofo" class="logo"><img src="<?php echo SNTH_IMAGES_URL ?>/samples/logo.png" data-rjs="images/logo@2x.png" class="logo-dark" alt="Pofo"><img src="<?php echo SNTH_IMAGES_URL ?>/samples/logo.png" data-rjs="images/logo-white@2x.png" alt="Pofo" class="logo-light default"></a>
+                <a href="index.html" class="logo">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" class="logo-dark default">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" class="logo-light">
+                </a>
             </div>
             <!-- end logo -->
             <div class="col accordion-menu pr-0 pr-md-3">
@@ -28,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
                 <div class="navbar-collapse collapse justify-content-end" id="navbar-collapse-toggle-1">
                     <?php snth_show_template('nav/pofo-main.php'); ?>
                 </div>
@@ -43,6 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         </div>
                     </form>
                 </div>
+
                 <div class="header-social-icon d-none d-md-inline-block">
                     <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
                     <a href="https://twitter.com/" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
