@@ -5900,7 +5900,7 @@ a.text-dark:hover, a.text-dark:focus {
   background-color: #343a40; }
 
 .bg-theme-color {
-  background-color: #e04f67; }
+  background-color: #e87542; }
 
 .bg-theme-alt-color {
   background-color: #A29F15; }
@@ -5987,7 +5987,7 @@ a.text-dark:hover, a.text-dark:focus {
   color: #343a40; }
 
 .txt-theme-color {
-  color: #e04f67; }
+  color: #e87542; }
 
 .txt-theme-alt-color {
   color: #A29F15; }
@@ -17865,11 +17865,17 @@ a.btn_login:hover, .btn_login:hover {
     display: inline-block;
     vertical-align: middle; }
   .pf-body .site-header a.logo img {
-    max-height: 26px; }
+    max-height: 2.8125rem; }
+    @media (max-width: 480px) {
+      .pf-body .site-header a.logo img {
+        max-height: 2.0625rem; } }
   .pf-body .site-header .left-nav .sidebar-part1 a.logo img {
     max-height: inherit; }
   .pf-body .logo-holder img {
-    max-height: 26px; }
+    max-height: 2.8125rem; }
+    @media (max-width: 480px) {
+      .pf-body .logo-holder img {
+        max-height: 2.0625rem; } }
   .pf-body .navbar-top {
     position: fixed;
     top: 0;
@@ -26816,28 +26822,28 @@ ul.cbp_tmtimeline {
   text-align: center;
   font-size: 1.25rem;
   line-height: 2.375rem;
-  border-color: #e04f67;
-  background-color: #e04f67;
+  border-color: #e87542;
+  background-color: #e87542;
   color: #fff; }
   .btn:hover {
-    border-color: #d62643;
-    background-color: #d62643;
+    border-color: #dc561b;
+    background-color: #dc561b;
     color: #fff; }
   .btn.hvr-invert:hover {
-    border-color: #e04f67;
+    border-color: #e87542;
     background-color: transparent;
-    color: #e04f67; }
+    color: #e87542; }
   .btn.type-hollow {
-    border-color: #e04f67;
+    border-color: #e87542;
     background-color: transparent;
-    color: #e04f67; }
+    color: #e87542; }
     .btn.type-hollow:hover {
-      border-color: #d62643;
+      border-color: #dc561b;
       background-color: transparent;
-      color: #d62643; }
+      color: #dc561b; }
     .btn.type-hollow.hvr-invert:hover {
-      border-color: #e04f67;
-      background-color: #e04f67;
+      border-color: #e87542;
+      background-color: #e87542;
       color: #fff; }
   .btn.shape-rnd {
     border-radius: 2.5rem; }
@@ -27090,28 +27096,28 @@ a.btn, button.btn, div.btn {
       color: #fff; }
 
 .btn.bg-theme-color {
-  border-color: #e04f67;
-  background-color: #e04f67;
+  border-color: #e87542;
+  background-color: #e87542;
   color: #fff; }
   .btn.bg-theme-color:hover {
-    border-color: #d62643;
-    background-color: #d62643;
+    border-color: #dc561b;
+    background-color: #dc561b;
     color: #fff; }
   .btn.bg-theme-color.hvr-invert:hover {
-    border-color: #e04f67;
+    border-color: #e87542;
     background-color: transparent;
-    color: #e04f67; }
+    color: #e87542; }
   .btn.bg-theme-color.type-hollow {
-    border-color: #e04f67;
+    border-color: #e87542;
     background-color: transparent;
-    color: #e04f67; }
+    color: #e87542; }
     .btn.bg-theme-color.type-hollow:hover {
-      border-color: #d62643;
+      border-color: #dc561b;
       background-color: transparent;
-      color: #d62643; }
+      color: #dc561b; }
     .btn.bg-theme-color.type-hollow.hvr-invert:hover {
-      border-color: #e04f67;
-      background-color: #e04f67;
+      border-color: #e87542;
+      background-color: #e87542;
       color: #fff; }
 
 .btn.bg-theme-alt-color {
@@ -27778,23 +27784,23 @@ a.btn, button.btn, div.btn {
   color: #fff; }
 
 .btn.bg-theme-color-hvr:hover {
-  border-color: #e04f67;
-  background-color: #e04f67;
+  border-color: #e87542;
+  background-color: #e87542;
   color: #fff; }
 
 .btn.bg-theme-color-hvr.hvr-invert:hover {
-  border-color: #e04f67;
+  border-color: #e87542;
   background-color: transparent;
-  color: #e04f67; }
+  color: #e87542; }
 
 .btn.bg-theme-color-hvr.type-hollow:hover {
-  border-color: #e04f67;
+  border-color: #e87542;
   background-color: transparent;
-  color: #e04f67; }
+  color: #e87542; }
 
 .btn.bg-theme-color-hvr.type-hollow.hvr-invert:hover {
-  border-color: #e04f67;
-  background-color: #e04f67;
+  border-color: #e87542;
+  background-color: #e87542;
   color: #fff; }
 
 .btn.bg-theme-alt-color-hvr:hover {

@@ -203,13 +203,21 @@
         vertical-align: middle;
     }
     .site-header a.logo img {
-        max-height: 26px;
+        max-height: rem-calc(45);
+
+        @media (max-width: 480px) {
+            max-height: rem-calc(33);
+        }
     }
     .site-header .left-nav .sidebar-part1 a.logo img {
         max-height: inherit;
     }
     .logo-holder img {
-        max-height: 26px;
+        max-height: rem-calc(45);
+
+        @media (max-width: 480px) {
+            max-height: rem-calc(33);
+        }
     }
 
     /* header animation */
