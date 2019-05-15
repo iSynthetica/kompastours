@@ -90,26 +90,32 @@
     }
 
     #select-from-city__holder {
-        position: absolute;
-        top: rem-calc(-30);
-        padding: rem-calc(5);
-        background-color: $main-site-color;
+        @media (min-width: 768px) {
+            position: absolute;
+            top: rem-calc(-30);
+            padding: rem-calc(5);
+            background-color: $main-site-color;
 
-        .form-control {
-            height: rem-calc(25);
-            border: none;
-            background-color: transparent;
-            color: #fff;
-            padding-top: rem-calc(3);
-            padding-bottom: rem-calc(3);
+            .form-control {
+                height: rem-calc(25);
+                border: none;
+                background-color: transparent;
+                color: #fff;
+                padding-top: rem-calc(3);
+                padding-bottom: rem-calc(3);
 
-            option {
-                color: #000;
+                option {
+                    color: #000;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
             }
+        }
 
-            &:focus {
-                box-shadow: none;
-            }
+        @media (max-width: 767px) {
+            margin-bottom: rem-calc(5);
         }
     }
 }

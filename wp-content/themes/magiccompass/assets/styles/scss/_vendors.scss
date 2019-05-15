@@ -1589,3 +1589,28 @@ a.sp-video:after {
 .slider-pro img.sp-layer {
     border: none;
 }
+
+.lg-icon {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.lg-toolbar .lg-close:after {
+    content: "\f00d";
+}
+
+.lg-actions .lg-prev:after {
+    content: "\f053";
+}
+
+.lg-actions .lg-next:before {
+    content: "\f054";
+}
+
+.lg-outer .lg-toggle-thumb:after {
+    content: "\f00a";
+}
+
+.lg-toolbar .lg-download:after {
+    content: "\f019";
+}

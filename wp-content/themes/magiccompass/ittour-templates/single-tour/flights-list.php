@@ -13,8 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <hr>
 
-<h3><?php _e('Flights', 'snthwp'); ?></h3>
-
 <h4><?php _e('Flight there', 'snthwp'); ?></h4>
 
 <ul class="tour-details-list" style="line-height: 1.1">

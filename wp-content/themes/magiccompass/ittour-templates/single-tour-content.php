@@ -18,10 +18,31 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <div class="col-md-12 col-lg-7">
                     <?php
                     if (!empty($tour_info["hotel_info"]["images"][0]['full'])) {
+                        $images_count = count($tour_info["hotel_info"]["images"]);
                         ?>
                         <div id="single-tour-gallery__container" class="mb-20">
                             <div class="single-tour-thumbnail__container">
-                                <img style="max-width: 100%" src="<?php echo $tour_info["hotel_info"]["images"][0]['full'] ?>" alt="">
+                                <img id="dynamicGallery" style="max-width: 100%" src="<?php echo $tour_info["hotel_info"]["images"][0]['full'] ?>" alt="">
+                            </div>
+
+                            <div class="single-tour-slider__container text-center">
+                                <?php
+                                $i = 0;
+                                foreach ($tour_info["hotel_info"]["images"] as $image) {
+                                    if (0 !== $i) {
+                                        ?><div class="single-tour-slider__item">
+                                        <div class="single-tour-slider__item-inner" style="background-image: url('<?php echo $image['thumb']; ?>')">
+
+                                        </div>
+                                        </div><?php
+                                    }
+                                    $i++;
+
+                                    if ($i > 3) {
+                                        break;
+                                    }
+                                }
+                                ?>
                             </div>
 
                             <?php
@@ -44,6 +65,29 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             }
                             ?>
                         </div>
+
+                        <script>
+                            var dynamicImages = {
+                                dynamic: true,
+                                download: false,
+                                dynamicEl: [
+                                    <?php
+                                        foreach ($tour_info["hotel_info"]["images"] as $image) {
+                                            ?>
+                                            {
+                                                "src": '<?php echo $image["full"]; ?>',
+                                                'thumb': '<?php echo $image["thumb"]; ?>'
+                                            },
+                                            <?php
+                                        }
+                                    ?>
+                                ]
+                            };
+
+                            document.getElementById('dynamicGallery').addEventListener('click', function() {
+                                lightGallery(document.getElementById('dynamicGallery'), dynamicImages)
+                            });
+                        </script>
                         <?php
                     }
                     
@@ -90,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         if (!empty($tour_info["adult_amount"])) {
                             ?>
                             <li>
-                                <i class="fas fa-male"></i>
+                                <i class="fas fa-male list-item-icon"></i>
                                 <small><?php echo __('Adults', 'snthwp') ?>:</small>
                                 <strong><?php echo $tour_info["adult_amount"] ?></strong>
                             </li>
@@ -100,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         if (!empty($tour_info["child_amount"])) {
                             ?>
                             <li>
-                                <i class="fas fa-baby"></i>
+                                <i class="fas fa-baby list-item-icon"></i>
                                 <small><?php echo __('Children', 'snthwp') ?>:</small>
                                 <strong><?php echo $tour_info["child_amount"] ?></strong>
                             </li>
@@ -179,7 +223,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     </div>
                 </div>
 
-                <a class="btn bg-success-color size-lg shape-rnd type-hollow hvr-invert size-extended" href="cart.html" style="margin-bottom:0;">Book now</a>
+                <?php
+                if (0 === $tour_info['stop_flight']) {
+                    ?>
+                    <a class="btn bg-success-color size-lg shape-rnd type-hollow hvr-invert size-extended" href="cart.html" style="margin-bottom:0;">Book now</a>
+                    <?php
+                } else if (1 === $tour_info['stop_flight']) {
+                    ?>
+                    <?php echo __('Tour is not actual', 'snthwp'); ?>
+                    <?php
+                }
+                ?>
+
+
             </div>
             <!--/box_style_1 -->
 
