@@ -26,21 +26,16 @@ $search_steps = get_field('timeline_items', 493);
     <form id="search-form" action="/search/" method="get" class="search-form repeater">
         <div id="search-form-main__holder">
             <div id="select-from-city__holder">
-                <select class="form-control" name="from_city" id="from_city">
-                    <?php
-                    $from_city = !empty($args['fromCity']) ? $args['fromCity'] : '2014';
-                    foreach ($from_cities_array as $id => $city) {
-                        ?>
-                        <option value="<?php echo $id; ?>"<?php echo $id == $from_city ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
-                        <?php
-                    }
-                    ?>
-                </select>
+                <?php echo $form_fields['select_from_city']; ?>
             </div>
 
             <div class="row">
                 <div class="col-md-12 col-lg-9">
                     <div class="row search-summary__row">
+                        <div id="from_city_summary__col" class="col search-summary__col d-block d-md-none">
+                            <?php echo $form_fields['from_city_summary']; ?>
+                        </div>
+
                         <div id="destination_summary__col" class="col-md-4 search-summary__col">
                             <?php echo $form_fields['destination_summary']; ?>
                         </div>
@@ -69,7 +64,13 @@ $search_steps = get_field('timeline_items', 493);
                     <div class="row">
                         <div class="col-12">
                             <div class="search-btn__holder">
-                                <button id="start_search" class="search-btn btn_1" type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>><i class="fas fa-search-location"></i><?php echo __('Search', 'snthwp') ?></button>
+                                <button
+                                    id="start_search"
+                                    class="btn shape-rnd bg-primary-color search-btn"
+                                    type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>
+                                >
+                                    <?php echo __('Search', 'snthwp') ?>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -79,10 +80,10 @@ $search_steps = get_field('timeline_items', 493);
 
         <div id="search-form-toggle__holder">
             <div class="row">
-                <div style="padding-left:10px;padding-right:10px;" class="col-12 col-md-3">
+                <div class="col-12 col-md-3">
                     <div id="destination-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body scroll-on-show">
+                            <div class="form-data-toggle-body bg-gray-5-color scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -125,52 +126,21 @@ $search_steps = get_field('timeline_items', 493);
                                 </div>
                             </div>
 
-                            <div class="form-data-toggle-header">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <button type="button" class="btn size-xs shape-rnd type-hollow form-data-toggle-control close-current" data-form_toggle_target="destination-select_section">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-right">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="dates-select_section">
-                                                <?php echo __('Dates', 'snthwp') ?>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-data-toggle-footer">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-
-                                        </div>
-                                        <div class="col-4 text-center">
-                                            <button type="submit" class="btn shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
-                                        </div>
-                                        <div class="col-4 text-right">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            ittour_show_toggle_mobile_header_footer(
+                                'destination-select_section',
+                                array('label' => __('Departure from', 'snthwp'), 'container' => 'from-city-select_section'),
+                                array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section')
+                            )
+                            ?>
                         </div>
                     </div>
                 </div>
 
-                <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
+                <div class="col-12 col-md-3">
                     <div id="dates-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body scroll-on-show">
+                            <div class="form-data-toggle-body bg-gray-5-color scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -224,55 +194,21 @@ $search_steps = get_field('timeline_items', 493);
                                 </div>
                             </div>
 
-                            <div class="form-data-toggle-header">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="destination-select_section">
-                                                <i class="fas fa-chevron-left"></i>
-                                                <?php echo __('Destination', 'snthwp') ?>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <button type="button" class="btn size-xs shape-rnd type-hollow form-data-toggle-control close-current" data-form_toggle_target="dates-select_section">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-right">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="guests-select_section">
-                                                <?php echo __('Guests', 'snthwp') ?>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-data-toggle-footer">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-
-                                        </div>
-                                        <div class="col-4 text-center">
-                                            <button type="submit" class="btn shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
-                                        </div>
-                                        <div class="col-4 text-right">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            ittour_show_toggle_mobile_header_footer(
+                                'dates-select_section',
+                                array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section'),
+                                array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section')
+                            )
+                            ?>
                         </div>
                     </div>
                 </div>
 
-                <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
+                <div class="col-12 col-md-3">
                     <div id="guests-select_section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body scroll-on-show">
+                            <div class="form-data-toggle-body bg-gray-5-color scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -328,55 +264,21 @@ $search_steps = get_field('timeline_items', 493);
                                 </div>
                             </div>
 
-                            <div class="form-data-toggle-header">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="dates-select_section">
-                                                <i class="fas fa-chevron-left"></i>
-                                                <?php echo __('Dates', 'snthwp') ?>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <button type="button" class="btn size-xs shape-rnd type-hollow form-data-toggle-control close-current" data-form_toggle_target="guests-select_section">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-right">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="filter-select__section">
-                                                <?php echo __('Filter', 'snthwp') ?>
-                                                <i class="fas fa-chevron-right"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-data-toggle-footer">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-
-                                        </div>
-                                        <div class="col-4 text-center">
-                                            <button type="submit" class="btn shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
-                                        </div>
-                                        <div class="col-4 text-right">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            ittour_show_toggle_mobile_header_footer(
+                                'guests-select_section',
+                                array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section'),
+                                array('label' => __('Filter', 'snthwp'), 'container' => 'filter-select__section')
+                            )
+                            ?>
                         </div>
                     </div>
                 </div>
 
-                <div style="padding-left:10px;padding-right:10px;"  class="col-12 col-md-3">
+                <div class="col-12 col-md-3">
                     <div id="filter-select__section" class="form-data-toggle-target">
                         <div class="row">
-                            <div class="form-data-toggle-body scroll-on-show">
+                            <div class="form-data-toggle-body bg-gray-5-color scroll-on-show">
                                 <div class="col-12">
                                     <div class="search-form-step__section">
                                         <div class="search-form-step__header">
@@ -405,40 +307,48 @@ $search_steps = get_field('timeline_items', 493);
                                 </div>
                             </div>
 
-                            <div class="form-data-toggle-header">
+                            <?php
+                            ittour_show_toggle_mobile_header_footer(
+                                'filter-select__section',
+                                array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section'),
+                                false
+                            )
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <div id="from-city-select_section" class="form-data-toggle-target">
+                        <div class="row">
+                            <div class="form-data-toggle-body bg-gray-5-color scroll-on-show">
                                 <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left">
-                                            <button type="button" class="btn size-xs shape-crnr form-data-toggle-control" data-form_toggle_target="guests-select_section">
-                                                <i class="fas fa-chevron-left"></i>
-                                                <?php echo __('Guests', 'snthwp') ?>
-                                            </button>
+                                    <div class="search-form-step__section">
+                                        <div class="search-form-step__header">
+                                            <?php
+                                            $step_index = 0;
+                                            if (!empty($search_steps[$step_index])) {
+                                                if (!empty($search_steps[$step_index]["content"]["title"])) {
+                                                    ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                                }
+                                            } else {
+                                                ?><h4><?php echo __('Select destination', 'snthwp') ?></h4><?php
+                                            }
+                                            ?>
                                         </div>
 
-                                        <div class="col-4 text-center">
-                                            <button type="button" class="btn size-xs shape-rnd type-hollow form-data-toggle-control close-current" data-form_toggle_target="filter-select__section">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-
-                                        <div class="col-4 text-right">
-
-                                        </div>
+                                        <?php echo $form_fields['list_from_city']; ?>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="form-data-toggle-footer">
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4 text-left"></div>
-                                        <div class="col-4 text-center">
-                                            <button type="submit" class="btn shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
-                                        </div>
-                                        <div class="col-4 text-right"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            ittour_show_toggle_mobile_header_footer(
+                                'from-city-select_section',
+                                false,
+                                array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section')
+                            )
+                            ?>
                         </div>
                     </div>
                 </div>

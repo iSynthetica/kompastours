@@ -86,7 +86,12 @@ function ittour_get_form_fields($args = array()) {
         }
     }
 
+    $from_cities_array = get_option('ittour_from_cities');
+
     return array(
+        'from_city_summary' => ittour_get_from_city_summary_field($args),
+        'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
+        'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
         'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
         'dates_summary' => ittour_get_dates_summary_field($args),
         'guests_summary' => ittour_get_guests_summary_field($args),
@@ -99,6 +104,40 @@ function ittour_get_form_fields($args = array()) {
         'meal_types' =>  itour_get_meal_type_field($args),
         'price_limit' =>  ittour_get_price_limit_field($args),
     );
+}
+
+function ittour_get_from_city_summary_field($args = array()) {
+    $default_city = '2014'; // Kiev is default city
+    $from_cities_array = get_option('ittour_from_cities');
+
+    if (empty($args) || empty($args['fromCity'])) {
+        $selected_city = $default_city;
+    } else {
+        $selected_city = $args['fromCity'];
+    }
+
+    ob_start();
+    ?>
+    <div id="from-city_summary__container" class="search-summary__container">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+            <span class="btn btn-light">
+                <i class="fas fa-map-signs"></i>
+            </span>
+            </div>
+
+            <input id="from-city_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="from-city-select_section"
+                   placeholder="" readonly
+                   value="<?php echo __('departure from', 'snthwp') . ' ' . $from_cities_array[$selected_city]['genitive_case'] ?>"
+            >
+        </div>
+    </div>
+    <?php
+
+    return ob_get_clean();
 }
 
 function ittour_get_destination_summary_field($params, $country_params, $args = array()) {
@@ -409,6 +448,54 @@ function ittour_get_filter_summary_field($args) {
         </div>
     </div>
     <?php
+    return ob_get_clean();
+}
+
+function ittour_get_from_city_field($args, $from_cities_array, $template = 'select') {
+    $from_city = !empty($args['fromCity']) ? $args['fromCity'] : '2014';
+
+    ob_start();
+    if ('select' === $template) {
+        ?>
+        <select class="form-control" name="from_city" id="from_city">
+            <?php
+            foreach ($from_cities_array as $id => $city) {
+                ?>
+                <option value="<?php echo $id; ?>"<?php echo $id == $from_city ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <ul id="city_from_select_mobile" class="form-list">
+            <?php
+            foreach ($from_cities_array as $city_id => $city_array) {
+                ?>
+                <li>
+                    <input
+                        id="from_city_<?php echo $city_id ?>"
+                        class="iCheckGray styled_1"
+                        type="checkbox"
+                        value="<?php echo $city_id ?>"
+                        data-summary="<?php echo __('departure from', 'snthwp') . ' ' . $city_array['genitive_case'] ?>"
+                        <?php echo $city_id == $from_city ? ' checked' : ''; ?>
+                    >
+                    <label for="from_city_<?php echo $city_id ?>">
+                        <?php echo $city_array['name'] ?>
+                    </label>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+        <?php
+    }
+    ?>
+
+    <?php
+
     return ob_get_clean();
 }
 
@@ -1372,6 +1459,52 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
     }
 
     return ob_get_clean();
+}
+
+function ittour_show_toggle_mobile_header_footer($container, $prev = false, $next = false) {
+    ?>
+    <div class="form-data-toggle-header">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6 text-left">
+                    <?php
+                    if (!empty($prev)) {
+                        ?>
+                        <button type="button" class="btn size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control" data-form_toggle_target="<?php echo $prev['container']; ?>">
+                            <i class="fas fa-chevron-left"></i>
+                            <?php echo $prev['label']; ?>
+                        </button>
+                        <?php
+                    }
+                    ?>
+                </div>
+
+                <div class="col-6 text-right">
+                    <?php
+                    if (!empty($next)) {
+                        ?>
+                        <button type="button" class="btn size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control" data-form_toggle_target="<?php echo $next['container']; ?>">
+                            <?php echo $next['label']; ?>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-data-toggle-footer">
+        <div class="col-12 text-center">
+                <button type="button" class="btn bg-danger-color shape-rnd type-hollow form-data-toggle-control close-current" data-form_toggle_target="<?php echo $container ?>">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <button type="submit" class="btn bg-primary-color shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
+        </div>
+    </div>
+    <?php
 }
 
 function ittour_get_min_prices_by_region($country, $args = array()) {

@@ -68,14 +68,14 @@
         var toggleTargets = form.find('.form-data-toggle-target');
 
         if (toggleTarget.hasClass('active')) {
-            toggleTarget.removeClass('active').hide('400', function() {
+            toggleTarget.removeClass('active').hide('0', function() {
                 $('body').removeClass('toggle-is-active');
             });
         } else {
             $('body').addClass('toggle-is-active');
             toggleTargets.removeClass('active').hide();
 
-            toggleTarget.addClass('active').show('400', function () {
+            toggleTarget.addClass('active').show('0', function () {
                 $('.scroll-on-show').mCustomScrollbar({
                     axis: "y",
                     theme: 'rounded-dark'
@@ -87,6 +87,40 @@
     // ================================
     //  Destination
     // ================================
+    $(document.body).on('click', '#city_from_select_mobile li label', function() {
+        var selectedCity = $(this).parent('li').find('input').val();
+        var selectedCitySummary = $(this).parent('li').find('input').data('summary');
+
+        console.log(selectedCity);
+
+        var fromCityList = $('#city_from_select_mobile');
+
+        fromCityList.find('li input').each(function() {
+            var checkbox = $(this);
+
+            if (checkbox.val() !== selectedCity) {
+                checkbox.attr('checked', false);
+            }
+        });
+
+        $('#from_city').val(selectedCity);
+        $('#from-city_summary').val(selectedCitySummary);
+    });
+
+    $(document.body).on('change', '#from_city', function() {
+        var selectedCity = $(this).val();
+        var fromCityList = $('#city_from_select_mobile');
+        var selectedCityListItem = $('#from_city_' + selectedCity);
+
+        fromCityList.find('li input').each(function() {
+            $(this).attr('checked', false);
+        });
+
+        selectedCityListItem.attr('checked', true);
+
+        console.log(selectedCity);
+    });
+
     $(document.body).on('change', '#country_select', function() {
         var selectedCountry = $('#country_select').find(":selected").val();
         var regionsByCountries = $.parseJSON($('#regions_by_countries').val());

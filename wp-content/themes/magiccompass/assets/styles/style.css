@@ -7227,7 +7227,7 @@ yx-axis
    1. Theme Color
    ===================================== */
 .bg-primary-color {
-  background-color: #007bff; }
+  background-color: #51bce6; }
 
 .bg-secondary-color {
   background-color: #6c757d; }
@@ -7314,7 +7314,7 @@ yx-axis
   background-color: #f3f3f3; }
 
 .txt-primary-color {
-  color: #007bff; }
+  color: #51bce6; }
 
 .txt-secondary-color {
   color: #6c757d; }
@@ -26359,17 +26359,24 @@ i.list-item-icon {
         background-color: #cccccc;
         color: #999999;
         border: 1px solid #e6e6e6; }
-  #search-form-main__holder .search-btn__holder .search-btn {
-    width: 100%;
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem; }
-    #search-form-main__holder .search-btn__holder .search-btn[disabled] {
-      cursor: default;
-      background-color: #cccccc;
-      color: #999999; }
-      #search-form-main__holder .search-btn__holder .search-btn[disabled]:hover {
+  #search-form-main__holder .search-btn__holder {
+    text-align: center; }
+    #search-form-main__holder .search-btn__holder .search-btn {
+      padding-left: 2.8125rem;
+      width: 100%;
+      max-width: 31.25rem;
+      text-transform: uppercase;
+      font-size: 1.0625rem; }
+      #search-form-main__holder .search-btn__holder .search-btn i {
+        margin-right: 0.9375rem;
+        font-size: 1.25rem; }
+      #search-form-main__holder .search-btn__holder .search-btn[disabled] {
+        cursor: default;
         background-color: #cccccc;
         color: #999999; }
+        #search-form-main__holder .search-btn__holder .search-btn[disabled]:hover {
+          background-color: #cccccc;
+          color: #999999; }
   #search-form-main__holder #filter_options {
     text-align: center;
     font-size: 1.375rem;
@@ -26410,7 +26417,7 @@ i.list-item-icon {
           box-shadow: none; } }
   @media (max-width: 767px) {
     #search-form-main__holder #select-from-city__holder {
-      margin-bottom: 0.3125rem; } }
+      display: none; } }
 
 .search-form-step__section .search-form-step__header {
   text-align: center;
@@ -26468,18 +26475,28 @@ i.list-item-icon {
     left: 0;
     width: 100%; }
     #search-form-toggle__holder .form-data-toggle-header .btn {
-      padding-right: 5px;
-      padding-left: 5px; }
-      #search-form-toggle__holder .form-data-toggle-header .btn.close-current {
-        width: 2.0625rem;
-        text-align: center; }
+      width: 100%;
+      padding-right: 10px;
+      padding-left: 10px;
+      margin-bottom: 0;
+      max-width: 15rem; }
+    #search-form-toggle__holder .form-data-toggle-header > .col-12 {
+      padding-right: 0;
+      padding-left: 0; }
   #search-form-toggle__holder .form-data-toggle-footer {
     background-color: #fefefe;
     padding: 0.625rem;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%; } }
+    width: 100%; }
+    #search-form-toggle__holder .form-data-toggle-footer .btn {
+      margin-bottom: 0; }
+      #search-form-toggle__holder .form-data-toggle-footer .btn.close-current {
+        padding-right: 1px;
+        padding-left: 1px;
+        width: 2.5rem;
+        text-align: center; } }
 
 #search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .input-group-prepend {
   background-color: #fefefe;
@@ -26492,7 +26509,11 @@ i.list-item-icon {
     height: 2.375rem;
     color: #e04f67;
     border-radius: 2.375rem;
-    background-color: #fefefe; }
+    background-color: #fefefe;
+    border: 1px solid #fefefe;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    width: 2.5rem; }
 
 #search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .form-control {
   padding-left: 0.125rem;
@@ -28637,28 +28658,28 @@ a.btn, button.btn, div.btn {
  5.BG COLORS
  ********************/
 .btn.bg-primary-color {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #51bce6;
+  background-color: #51bce6;
   color: #fff; }
   .btn.bg-primary-color:hover {
-    border-color: #0062cc;
-    background-color: #0062cc;
+    border-color: #24abe0;
+    background-color: #24abe0;
     color: #fff; }
   .btn.bg-primary-color.hvr-invert:hover {
-    border-color: #007bff;
+    border-color: #51bce6;
     background-color: transparent;
-    color: #007bff; }
+    color: #51bce6; }
   .btn.bg-primary-color.type-hollow {
-    border-color: #007bff;
+    border-color: #51bce6;
     background-color: transparent;
-    color: #007bff; }
+    color: #51bce6; }
     .btn.bg-primary-color.type-hollow:hover {
-      border-color: #0062cc;
+      border-color: #24abe0;
       background-color: transparent;
-      color: #0062cc; }
+      color: #24abe0; }
     .btn.bg-primary-color.type-hollow.hvr-invert:hover {
-      border-color: #007bff;
-      background-color: #007bff;
+      border-color: #51bce6;
+      background-color: #51bce6;
       color: #fff; }
 
 .btn.bg-secondary-color {
@@ -29064,11 +29085,11 @@ a.btn, button.btn, div.btn {
 .btn.bg-green-color {
   border-color: #82ca9c;
   background-color: #82ca9c;
-  color: #000; }
+  color: #fff; }
   .btn.bg-green-color:hover {
     border-color: #5ebb80;
     background-color: #5ebb80;
-    color: #000; }
+    color: #fff; }
   .btn.bg-green-color.hvr-invert:hover {
     border-color: #82ca9c;
     background-color: transparent;
@@ -29084,7 +29105,7 @@ a.btn, button.btn, div.btn {
     .btn.bg-green-color.type-hollow.hvr-invert:hover {
       border-color: #82ca9c;
       background-color: #82ca9c;
-      color: #000; }
+      color: #fff; }
 
 .btn.bg-orange-color {
   border-color: #f7941d;
@@ -29264,11 +29285,11 @@ a.btn, button.btn, div.btn {
 .btn.bg-gray-30-color {
   border-color: #b2b2b2;
   background-color: #b2b2b2;
-  color: #000; }
+  color: #fff; }
   .btn.bg-gray-30-color:hover {
     border-color: #999999;
     background-color: #999999;
-    color: #000; }
+    color: #fff; }
   .btn.bg-gray-30-color.hvr-invert:hover {
     border-color: #b2b2b2;
     background-color: transparent;
@@ -29284,7 +29305,7 @@ a.btn, button.btn, div.btn {
     .btn.bg-gray-30-color.type-hollow.hvr-invert:hover {
       border-color: #b2b2b2;
       background-color: #b2b2b2;
-      color: #000; }
+      color: #fff; }
 
 .btn.bg-gray-20-color {
   border-color: #cccccc;
@@ -29365,23 +29386,23 @@ a.btn, button.btn, div.btn {
  6.BG COLORS HOVER
  ********************/
 .btn.bg-primary-color-hvr:hover {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #51bce6;
+  background-color: #51bce6;
   color: #fff; }
 
 .btn.bg-primary-color-hvr.hvr-invert:hover {
-  border-color: #007bff;
+  border-color: #51bce6;
   background-color: transparent;
-  color: #007bff; }
+  color: #51bce6; }
 
 .btn.bg-primary-color-hvr.type-hollow:hover {
-  border-color: #007bff;
+  border-color: #51bce6;
   background-color: transparent;
-  color: #007bff; }
+  color: #51bce6; }
 
 .btn.bg-primary-color-hvr.type-hollow.hvr-invert:hover {
-  border-color: #007bff;
-  background-color: #007bff;
+  border-color: #51bce6;
+  background-color: #51bce6;
   color: #fff; }
 
 .btn.bg-secondary-color-hvr:hover {
@@ -29707,7 +29728,7 @@ a.btn, button.btn, div.btn {
 .btn.bg-green-color-hvr:hover {
   border-color: #82ca9c;
   background-color: #82ca9c;
-  color: #000; }
+  color: #fff; }
 
 .btn.bg-green-color-hvr.hvr-invert:hover {
   border-color: #82ca9c;
@@ -29722,7 +29743,7 @@ a.btn, button.btn, div.btn {
 .btn.bg-green-color-hvr.type-hollow.hvr-invert:hover {
   border-color: #82ca9c;
   background-color: #82ca9c;
-  color: #000; }
+  color: #fff; }
 
 .btn.bg-orange-color-hvr:hover {
   border-color: #f7941d;
@@ -29867,7 +29888,7 @@ a.btn, button.btn, div.btn {
 .btn.bg-gray-30-color-hvr:hover {
   border-color: #b2b2b2;
   background-color: #b2b2b2;
-  color: #000; }
+  color: #fff; }
 
 .btn.bg-gray-30-color-hvr.hvr-invert:hover {
   border-color: #b2b2b2;
@@ -29882,7 +29903,7 @@ a.btn, button.btn, div.btn {
 .btn.bg-gray-30-color-hvr.type-hollow.hvr-invert:hover {
   border-color: #b2b2b2;
   background-color: #b2b2b2;
-  color: #000; }
+  color: #fff; }
 
 .btn.bg-gray-20-color-hvr:hover {
   border-color: #cccccc;
