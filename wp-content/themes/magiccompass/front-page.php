@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<?php get_header(); ?>
+<?php get_header('transparent'); ?>
 
 <?php snth_show_template('front.php') ?>
 

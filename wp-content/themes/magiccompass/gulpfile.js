@@ -50,6 +50,8 @@ const SOURCE = {
 
         VENDORS + '/bootstrap-notify/bootstrap-notify.js',
 
+        VENDORS + '/jquery-countTo/jquery.countTo.js',
+
         // VENDORS + '/Datedropper3/datedropper.js',
 
         // VENDORS + '/timedropper/timedropper.js',

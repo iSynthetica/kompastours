@@ -1,0 +1,15 @@
+/* counter box style 1 */
+.counter-box {
+    h6 {
+        font-size: rem-calc(32);
+    }
+}
+
+.counter-feature-box-1 {
+    height:199px;
+
+    &:hover {
+        background:#ff214f;
+        border-color: #ff214f;
+    }
+}

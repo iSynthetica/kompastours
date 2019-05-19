@@ -32,6 +32,8 @@ if (empty($content)) {
     </div>
 </section>
 
+<?php snth_show_template('home/section-why-us.php') ?>
+
 <div class="wrap">
     <?php snth_show_template('content/front-tour-section.php'); ?>
 </div>
