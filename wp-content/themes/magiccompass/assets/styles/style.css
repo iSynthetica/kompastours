@@ -19006,10 +19006,6 @@ a.btn_login:hover, .btn_login:hover {
   background-color: #fff;
   border: 1px solid #ced4da; }
 
-#search-form-toggle__holder .form-data-toggle-target {
-  display: none;
-  padding: 0.9375rem 0; }
-
 #search-form .form-list {
   list-style: none;
   padding: 0;
@@ -26381,12 +26377,9 @@ i.list-item-icon {
     text-align: center;
     font-size: 1.375rem;
     line-height: 2.5rem;
-    position: absolute;
-    width: 3.75rem;
+    width: 3.125rem;
     height: 2.5rem;
     padding: 0;
-    top: 0;
-    right: 0.625rem;
     background-color: #fefefe;
     color: #e04f67;
     border-color: #fefefe;
@@ -26423,80 +26416,89 @@ i.list-item-icon {
   text-align: center;
   margin-bottom: 0.625rem; }
 
-#search-form-toggle__holder > div {
-  margin-right: -5px;
-  margin-left: -5px;
-  padding-right: 3.75rem; }
-
-#search-form-toggle__holder > div > div {
-  position: relative;
-  padding-right: 5px;
-  padding-left: 5px; }
-
-#search-form-toggle__holder .form-data-toggle-target {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  margin-top: 0.625rem;
-  padding: 0.625rem;
-  border: 1px solid #ccc; }
-  #search-form-toggle__holder .form-data-toggle-target h3 {
-    font-size: 1.25rem;
-    margin-top: 0; }
-  #search-form-toggle__holder .form-data-toggle-target h4 {
-    font-size: 1rem; }
-
-@media (max-width: 767px) {
-  #search-form-toggle__holder .form-data-toggle-target {
-    padding-top: 4.125rem;
-    margin-top: 0;
-    position: fixed;
-    top: 0;
+.search-form-toggle__holder {
+  position: relative; }
+  .search-form-toggle__holder .form-data-toggle-target {
+    display: none;
+    position: absolute;
+    top: 0.9375rem;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000; }
-    #search-form-toggle__holder .form-data-toggle-target h3 {
+    min-width: 20rem;
+    background-color: #fff;
+    margin-top: 0.625rem;
+    padding: 0.625rem;
+    border: 1px solid #ccc; }
+    .search-form-toggle__holder .form-data-toggle-target h3 {
+      font-size: 1.25rem;
+      margin-top: 0; }
+    .search-form-toggle__holder .form-data-toggle-target h4 {
+      font-size: 1rem; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .search-form-toggle__holder .form-data-toggle-target {
+      top: 3.4375rem; } }
+  @media (min-width: 768px) {
+    .search-form-toggle__holder .form-data-toggle-header {
       display: none; }
-  #search-form-toggle__holder .form-data-toggle-body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 4.0625rem;
-    padding-bottom: 4.6875rem; }
-  #search-form-toggle__holder .form-data-toggle-header {
-    background-color: #fefefe;
-    padding: 0.625rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; }
-    #search-form-toggle__holder .form-data-toggle-header .btn {
+    .search-form-toggle__holder .form-data-toggle-footer {
+      display: none; }
+    .search-form-toggle__holder #filter-select__section {
+      left: auto;
+      right: 0; }
+    .search-form-toggle__holder #guests-select_section, .search-form-toggle__holder #dates-select_section {
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%); } }
+  @media (max-width: 767px) {
+    .search-form-toggle__holder .form-data-toggle-target {
+      padding-top: 4.125rem;
+      margin-top: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding-right: 10px;
-      padding-left: 10px;
-      margin-bottom: 0;
-      max-width: 15rem; }
-    #search-form-toggle__holder .form-data-toggle-header > .col-12 {
-      padding-right: 0;
-      padding-left: 0; }
-  #search-form-toggle__holder .form-data-toggle-footer {
-    background-color: #fefefe;
-    padding: 0.625rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; }
-    #search-form-toggle__holder .form-data-toggle-footer .btn {
-      margin-bottom: 0; }
-      #search-form-toggle__holder .form-data-toggle-footer .btn.close-current {
-        padding-right: 1px;
-        padding-left: 1px;
-        width: 2.5rem;
-        text-align: center; } }
+      height: 100%;
+      z-index: 1000; }
+      .search-form-toggle__holder .form-data-toggle-target h3 {
+        display: none; }
+    .search-form-toggle__holder .form-data-toggle-body {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding-top: 4.0625rem;
+      padding-bottom: 4.6875rem; }
+    .search-form-toggle__holder .form-data-toggle-header {
+      background-color: #fefefe;
+      padding: 0.625rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; }
+      .search-form-toggle__holder .form-data-toggle-header .btn {
+        width: 100%;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-bottom: 0;
+        max-width: 15rem; }
+      .search-form-toggle__holder .form-data-toggle-header > .col-12 {
+        padding-right: 0;
+        padding-left: 0; }
+    .search-form-toggle__holder .form-data-toggle-footer {
+      background-color: #fefefe;
+      padding: 0.625rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%; }
+      .search-form-toggle__holder .form-data-toggle-footer .btn {
+        margin-bottom: 0; }
+        .search-form-toggle__holder .form-data-toggle-footer .btn.close-current {
+          padding-right: 1px;
+          padding-left: 1px;
+          width: 2.5rem;
+          text-align: center; } }
 
 #search-form-main__holder .search-summary__row .search-summary__col .input-group.input-group__style-1 .input-group-prepend {
   background-color: #fefefe;
@@ -26538,11 +26540,11 @@ i.list-item-icon {
 
 @media (min-width: 768px) {
   #filter_summary__col {
-    display: none; }
-  .form-data-toggle-header {
-    display: none; }
-  .form-data-toggle-footer {
-    display: none; } }
+    position: absolute;
+    width: 3.75rem;
+    height: 2.5rem;
+    top: 0;
+    right: 0.625rem; } }
 
 @media (max-width: 767px) {
   .pf-body.toggle-is-active .site-header nav {
@@ -26552,9 +26554,7 @@ i.list-item-icon {
     #search-form-main__holder .search-summary__row {
       padding-right: 0; }
       #search-form-main__holder .search-summary__row .search-summary__col {
-        margin-bottom: 0.3125rem; }
-  #filter_options__holder {
-    display: none; } }
+        margin-bottom: 0.3125rem; } }
 
 .tour_review_rate {
   margin-bottom: 0.625rem; }

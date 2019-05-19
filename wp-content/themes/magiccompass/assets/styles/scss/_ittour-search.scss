@@ -47,7 +47,6 @@
 
     .search-btn__holder {
         text-align: center;
-
         .search-btn {
             padding-left: rem-calc(45);
             width: 100%;
@@ -76,12 +75,9 @@
         text-align: center;
         font-size: rem-calc(22);
         line-height: rem-calc(40);
-        position: absolute;
-        width: rem-calc(60);
+        width: rem-calc(50);
         height: rem-calc(40);
         padding: 0;
-        top: 0;
-        right: rem-calc(10);
         background-color: $color-white;
         color: $color-red;
         border-color: $color-white;
@@ -135,23 +131,15 @@
     }
 }
 
+.search-form-toggle__holder {
+    position: relative;
 
-#search-form-toggle__holder {
-    & > div {
-        margin-right: -5px;
-        margin-left: -5px;
-        padding-right: rem-calc(60);
-    }
-    & > div > div {
-        position: relative;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
     .form-data-toggle-target {
+        display: none;
         position: absolute;
-        top: 0;
+        top: rem-calc(15);
         left: 0;
-        // max-width: rem-calc(480);
+        min-width: rem-calc(320);
         background-color: #fff;
         margin-top: rem-calc(10);
         padding: rem-calc(10);
@@ -162,6 +150,32 @@
         }
         h4 {
             font-size: rem-calc(16);
+        }
+    }
+
+    @media (min-width : 768px) and (max-width : 991px) {
+        .form-data-toggle-target {
+            top: rem-calc(55);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .form-data-toggle-header {
+            display: none;
+        }
+
+        .form-data-toggle-footer {
+            display: none;
+        }
+
+        #filter-select__section {
+            left: auto;
+            right: 0;
+        }
+
+        #guests-select_section, #dates-select_section {
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 
@@ -197,6 +211,7 @@
             top: 0;
             left: 0;
             width: 100%;
+
             .btn {
                 width: 100%;
                 padding-right: 10px;
@@ -289,17 +304,14 @@
 
 @media (min-width: 768px) {
     #filter_summary__col {
-        display: none;
-    }
-
-    .form-data-toggle-header {
-        display: none;
-    }
-
-    .form-data-toggle-footer {
-        display: none;
+        position: absolute;
+        width: rem-calc(60);
+        height: rem-calc(40);
+        top: 0;
+        right: rem-calc(10);
     }
 }
+
 @media (max-width: 767px) {
     .pf-body.toggle-is-active .site-header nav {
         z-index: auto !important;
@@ -315,9 +327,5 @@
                 margin-bottom: rem-calc(5);
             }
         }
-    }
-
-    #filter_options__holder {
-        display: none;
     }
 }

@@ -3535,3 +3535,232 @@
 [17-May-2019 16:24:30 UTC] 
 [17-May-2019 16:24:31 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
 [17-May-2019 16:24:32 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:51:33 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[17-May-2019 16:51:36 UTC] 
+[17-May-2019 16:51:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:51:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:53:03 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[17-May-2019 16:53:07 UTC] 
+[17-May-2019 16:53:08 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:53:09 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:56:33 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[17-May-2019 16:56:37 UTC] 
+[17-May-2019 16:56:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:56:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:56:52 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[17-May-2019 16:56:56 UTC] 
+[17-May-2019 16:56:56 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 16:56:58 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 17:00:04 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[17-May-2019 17:00:08 UTC] 
+[17-May-2019 17:00:14 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[17-May-2019 17:00:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 11:11:54 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[18-May-2019 11:11:55 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[18-May-2019 11:11:55 UTC] PHP Stack trace:
+[18-May-2019 11:11:55 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[18-May-2019 11:11:55 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[18-May-2019 11:11:55 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[18-May-2019 11:11:55 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[18-May-2019 11:11:55 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[18-May-2019 11:11:55 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[18-May-2019 11:11:55 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:148
+[18-May-2019 11:11:55 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[18-May-2019 11:11:55 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[18-May-2019 11:12:02 UTC] ?date_from=17.05.19&date_till=21.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&child_amount=1&child_age=1&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[18-May-2019 11:12:02 UTC] PHP Notice:  Undefined variable: result in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/result-error.php on line 18
+[18-May-2019 11:12:02 UTC] PHP Stack trace:
+[18-May-2019 11:12:02 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[18-May-2019 11:12:02 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[18-May-2019 11:12:02 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[18-May-2019 11:12:02 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[18-May-2019 11:12:02 UTC] PHP   5. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/search.php:17
+[18-May-2019 11:12:02 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[18-May-2019 11:12:02 UTC] PHP   7. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search-results.php:148
+[18-May-2019 11:12:02 UTC] PHP   8. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[18-May-2019 11:12:02 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[18-May-2019 11:12:17 UTC] 
+[18-May-2019 11:12:17 UTC] 
+[18-May-2019 11:12:29 UTC] 
+[18-May-2019 11:13:51 UTC] 
+[18-May-2019 11:16:31 UTC] 
+[18-May-2019 11:20:30 UTC] 
+[18-May-2019 11:20:36 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 11:20:39 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[18-May-2019 11:20:42 UTC] 
+[18-May-2019 11:20:43 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 11:20:44 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 11:25:41 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[18-May-2019 11:25:45 UTC] 
+[18-May-2019 11:25:45 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 11:25:46 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[18-May-2019 17:38:12 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 160
+[18-May-2019 17:38:12 UTC] PHP Stack trace:
+[18-May-2019 17:38:12 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[18-May-2019 17:38:12 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[18-May-2019 17:38:12 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[18-May-2019 17:38:12 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[18-May-2019 17:38:12 UTC] PHP   5. wp_version_check() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[18-May-2019 17:38:12 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:160
+[18-May-2019 17:38:12 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 384
+[18-May-2019 17:38:12 UTC] PHP Stack trace:
+[18-May-2019 17:38:12 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[18-May-2019 17:38:12 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[18-May-2019 17:38:12 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[18-May-2019 17:38:12 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[18-May-2019 17:38:12 UTC] PHP   5. wp_update_plugins() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[18-May-2019 17:38:12 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:384
+[18-May-2019 17:38:12 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 569
+[18-May-2019 17:38:12 UTC] PHP Stack trace:
+[18-May-2019 17:38:12 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[18-May-2019 17:38:12 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[18-May-2019 17:38:12 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[18-May-2019 17:38:12 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[18-May-2019 17:38:12 UTC] PHP   5. wp_update_themes() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[18-May-2019 17:38:12 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:569
+[19-May-2019 05:37:31 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 160
+[19-May-2019 05:37:31 UTC] PHP Stack trace:
+[19-May-2019 05:37:31 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[19-May-2019 05:37:31 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[19-May-2019 05:37:31 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[19-May-2019 05:37:31 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[19-May-2019 05:37:31 UTC] PHP   5. wp_version_check() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[19-May-2019 05:37:31 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:160
+[19-May-2019 05:37:31 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 384
+[19-May-2019 05:37:31 UTC] PHP Stack trace:
+[19-May-2019 05:37:31 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[19-May-2019 05:37:31 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[19-May-2019 05:37:31 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[19-May-2019 05:37:31 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[19-May-2019 05:37:31 UTC] PHP   5. wp_update_plugins() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[19-May-2019 05:37:31 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:384
+[19-May-2019 05:37:31 UTC] PHP Warning:  Сталася неочікувана помилка. Можливо, щось не так з сайтом WordPress.org або з налаштуваннями вашого серверу. Якщо проблема не вирішиться, зверніться на <a href="https://uk.wordpress.org/support/">форуми підтримки</a>. (WordPress не зміг встановити безпечне з'єднання з сервером WordPress.org. Будь ласка, зв'яжіться з адміністратором вашого серверу.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php on line 569
+[19-May-2019 05:37:31 UTC] PHP Stack trace:
+[19-May-2019 05:37:31 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:0
+[19-May-2019 05:37:31 UTC] PHP   2. do_action_ref_array() /var/www/synthetica/magiccompass/ru/public_html/wp-cron.php:133
+[19-May-2019 05:37:31 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:531
+[19-May-2019 05:37:31 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[19-May-2019 05:37:31 UTC] PHP   5. wp_update_themes() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[19-May-2019 05:37:31 UTC] PHP   6. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/update.php:569
+[19-May-2019 09:33:11 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:33:16 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:34:25 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:34:29 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:35:10 UTC] info/05-07-deadbe87c898a236c8962fe90cf11164
+[19-May-2019 09:35:15 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:38:58 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:39:03 UTC] 
+[19-May-2019 09:39:04 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:39:05 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:40:43 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:40:47 UTC] 
+[19-May-2019 09:40:48 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:40:48 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:41:34 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:41:37 UTC] 
+[19-May-2019 09:41:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:41:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:42:27 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:42:31 UTC] 
+[19-May-2019 09:42:32 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:42:33 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:44:10 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:44:14 UTC] 
+[19-May-2019 09:44:14 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:44:15 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:45:34 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:45:38 UTC] 
+[19-May-2019 09:45:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:45:39 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:47:50 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:47:54 UTC] 
+[19-May-2019 09:47:54 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:47:55 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:50:32 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:50:36 UTC] 
+[19-May-2019 09:50:36 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:50:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:51:13 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:51:17 UTC] 
+[19-May-2019 09:51:17 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:51:18 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:55:06 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:55:10 UTC] 
+[19-May-2019 09:55:10 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:55:11 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:56:21 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:56:24 UTC] 
+[19-May-2019 09:56:25 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:56:26 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:58:43 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 09:58:47 UTC] 
+[19-May-2019 09:58:48 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 09:58:48 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:00:36 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:00:39 UTC] 
+[19-May-2019 10:00:40 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:00:41 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:00:52 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:00:55 UTC] 
+[19-May-2019 10:00:56 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:00:56 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:02:54 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:02:59 UTC] 
+[19-May-2019 10:03:00 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:03:01 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:04:29 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:04:33 UTC] 
+[19-May-2019 10:04:34 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:04:35 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:08:32 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:08:35 UTC] 
+[19-May-2019 10:08:36 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:08:36 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:09:12 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:09:15 UTC] 
+[19-May-2019 10:09:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:09:16 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:11:45 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:11:49 UTC] 
+[19-May-2019 10:11:50 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:11:51 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:12:53 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:12:57 UTC] 
+[19-May-2019 10:12:58 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:12:58 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:15:41 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:15:45 UTC] 
+[19-May-2019 10:15:45 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:15:46 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:19:21 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:19:25 UTC] 
+[19-May-2019 10:19:26 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:19:27 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:24:41 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:24:45 UTC] 
+[19-May-2019 10:24:45 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:24:46 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:27:25 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:27:29 UTC] 
+[19-May-2019 10:27:29 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:27:30 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:29:03 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:29:07 UTC] 
+[19-May-2019 10:29:07 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:29:08 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:34:34 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:34:38 UTC] 
+[19-May-2019 10:34:39 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:34:39 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:38:14 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:38:19 UTC] 
+[19-May-2019 10:38:19 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:38:20 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:40:01 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:40:09 UTC] 
+[19-May-2019 10:40:10 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:40:11 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:42:56 UTC] ?date_from=19.05.19&date_till=24.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[19-May-2019 10:43:00 UTC] 
+[19-May-2019 10:43:00 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[19-May-2019 10:43:01 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
