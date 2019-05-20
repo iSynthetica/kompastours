@@ -75,7 +75,18 @@ add_action( 'rest_api_init', function () {
 } );
 
 function ittour_rest_tour_info($request) {
-    $tour = ittour_tour($request['key'], 'uk');
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $tour = ittour_tour($request['key'], $lang);
 
     $tour_info = $tour->info();
 
@@ -109,15 +120,37 @@ add_action( 'rest_api_init', function () {
 } );
 
 function ittour_rest_search($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
     $parameters = $request->get_params();
 
-    return ittour_get_search_result($parameters);
+    return ittour_get_search_result($parameters, 'search', $lang);
 }
 
 function ittour_rest_search_list($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
     $parameters = $request->get_params();
 
-    return ittour_get_search_result($parameters, 'search-list');
+    return ittour_get_search_result($parameters, 'search-list', $lang);
 }
 
 function ittour_check_permission($request) {
@@ -126,8 +159,8 @@ function ittour_check_permission($request) {
     return true;
 }
 
-function ittour_get_search_result($parameters, $module = 'search') {
-    $search = ittour_search('uk');
+function ittour_get_search_result($parameters, $module = 'search', $lang = 'ru') {
+    $search = ittour_search($lang);
 
     $country            = !empty($parameters['country']) ? (int) sanitize_text_field($parameters['country'])  : false;
 
