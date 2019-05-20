@@ -1507,6 +1507,84 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
     <?php
 }
 
+function ittour_get_min_prices_by_country($country, $args = array()) {
+    $saved_prices_by_rating = get_option('ittour_prices_by_rating');
+    $time = time();
+    $expiration_period = 60 * 60 * 6;
+    // $expiration_period = 60 * 10;
+
+    if (!empty($saved_prices_by_rating)) {
+        if (!empty($saved_prices_by_rating[$country]['prices'])) {
+            $price_by_region = $saved_prices_by_rating[$country]['prices'];
+
+            $old_prices_by_rating = $saved_prices_by_rating[$country]['prices'];
+            $prices_expired = $saved_prices_by_rating[$country]['expired'];
+
+            if ($prices_expired > $time) {
+                $need_update = false;
+            } else {
+                $need_update = true;
+            }
+        } else {
+            $need_update = true;
+        }
+    } else {
+        $saved_prices_by_rating = array();
+        $need_update = true;
+    }
+
+    if ($need_update) {
+        $args['items_per_page'] = 1;
+        $search = ittour_search('uk');
+
+        $hotel_ratings = array('78', '4', '3');
+
+        $prices_by_rating = array();
+
+        foreach ($hotel_ratings as $rating) {
+            $args['hotel_rating'] = $rating;
+
+            $search_result = $search->getList($country, $args);
+
+            if (!is_wp_error($search_result) && !empty($search_result['offers'][0]['prices']['2'])) {
+                $prices_by_rating[$rating] = $search_result['offers'][0]['prices']['2'];
+            } else {
+                if (!empty($old_prices_by_rating[$rating])) {
+                    $prices_by_rating[$rating] = $old_prices_by_rating[$rating];
+                }
+            }
+        }
+
+        $saved_prices_by_rating[$country] = array(
+            'prices' => $prices_by_rating,
+            'expired'   => $time + $expiration_period
+        );
+
+        $updated_prices_by_rating = update_option('ittour_prices_by_rating', $saved_prices_by_rating);
+    } else {
+        $prices_by_rating = $old_prices_by_rating;
+    }
+
+    ob_start();
+
+    if (!empty($prices_by_rating)) {
+        foreach ($prices_by_rating as $rating => $price) {
+            ?>
+            <div class="row">
+                <div class="col-6">
+                    <?php echo __('Hotels', 'snthwp') ?> <?php echo ittour_get_hotel_number_rating_by_id($rating) ?>
+                </div>
+                <div class="col-6">
+                    <?php echo __('from', 'snthwp') ?> <?php echo $price ?> <?php echo __('uah.', 'snthwp') ?>
+                </div>
+            </div>
+            <?php
+        }
+    }
+
+    return ob_get_clean();
+}
+
 function ittour_get_min_prices_by_region($country, $args = array()) {
 
     $saved_prices_by_rating = get_option('ittour_prices_by_rating');
@@ -1516,6 +1594,8 @@ function ittour_get_min_prices_by_region($country, $args = array()) {
 
     if (!empty($saved_prices_by_rating)) {
         if (!empty($saved_prices_by_rating[$args['region']]['prices'])) {
+            $price_by_region = $saved_prices_by_rating[$args['region']]['prices'];
+
             $old_prices_by_rating = $saved_prices_by_rating[$args['region']]['prices'];
             $prices_expired = $saved_prices_by_rating[$args['region']]['expired'];
 

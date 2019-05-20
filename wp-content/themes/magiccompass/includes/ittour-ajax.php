@@ -111,6 +111,8 @@ function ittour_ajax_get_tours_list() {
         $result = ittour_get_tours_table_sort_by_date($country, $args);
     } elseif ('min-prices-by-region' === $template) {
         $result = ittour_get_min_prices_by_region($country, $args);
+    } elseif ('min-prices-by-country' === $template) {
+        $result = ittour_get_min_prices_by_country($country, $args);
     }
 
     echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $result ));

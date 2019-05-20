@@ -32,6 +32,8 @@ if (empty($content)) {
     </div>
 </section>
 
+<?php snth_show_template('home/popular-destinations.php') ?>
+
 <?php snth_show_template('home/section-why-us.php') ?>
 
 <div class="wrap">

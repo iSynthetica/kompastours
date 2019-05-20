@@ -39,7 +39,17 @@ function ittour_rest_params($request) {
     $headers = $request->get_headers();
     $parameters = $request->get_params();
     $country_id = $request['country_id'];
-    $params_obj = ittour_params('uk');
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $params_obj = ittour_params($lang);
 
     if ($country_id) {
         $params = $params_obj->getCountry($country_id);

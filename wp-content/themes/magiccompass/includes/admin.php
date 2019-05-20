@@ -95,6 +95,7 @@ function snth_enqueue_admin_scripts() {
     wp_enqueue_script( 'site-admin-js', SNTH_ASSETS_URL.'/admin/scripts/scripts.js', array( 'jquery' ), SNTH_VERSION, true );
 
     // Register main stylesheet
+    wp_enqueue_style( 'snth-flags-css', SNTH_ASSETS_URL.'/admin/styles/flags.css', array(), SNTH_VERSION, 'all' );
     wp_enqueue_style( 'snth-admin-css', SNTH_ASSETS_URL.'/admin/styles/style.css', array(), SNTH_VERSION, 'all' );
 }
 add_action( 'admin_enqueue_scripts', 'snth_enqueue_admin_scripts' );

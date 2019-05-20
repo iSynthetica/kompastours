@@ -1,10 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: snth
- * Date: 19.05.19
- * Time: 14:29
+ * Why us sections for Home page
+ *
+ * @package WordPress
+ * @subpackage Magiccompass/Parts/Home
+ * @version 0.0.11
+ * @since 0.0.11
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 $preferences = array(
     array(
@@ -38,7 +42,7 @@ $preferences = array(
 
 if (!empty($preferences)) {
     ?>
-    <section id="why-us__section" class="ptb-40 ptb-md-60 ptb-lg-100">
+    <section id="why_us" class="ptb-20 ptb-md-40 ptb-lg-60">
         <div class="container">
             <div class="row">
                 <div class="col-12">

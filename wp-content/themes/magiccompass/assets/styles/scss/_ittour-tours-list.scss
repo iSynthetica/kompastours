@@ -349,3 +349,15 @@
         border-radius: 100%;
     }
 }
+
+.region-grid__container {
+    position: relative;
+
+    .flag-icon {
+        position: absolute;
+        top: rem-calc(20);
+        left: -5px;
+        width: rem-calc(40);
+        line-height: rem-calc(30);
+    }
+}

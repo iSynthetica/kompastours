@@ -141,7 +141,10 @@ $countries_en = $params_en['countries'];
                 ?>
             </td>
             <td><?php echo $country_slug; ?></td>
-            <td><?php echo strtoupper($country['iso']) ?></td>
+            <td>
+                <?php echo strtoupper($country['iso']) ?> <br>
+                <span class="flag-icon flag-icon-<?php echo $country['iso']; ?>" style="width: 45px; line-height: 35px"></span>
+            </td>
             <td><?php echo $country['type_id'] ?></td>
             <td><?php echo $country['transport_type_id'] ?></td>
             <td>
@@ -202,4 +205,12 @@ $countries_en = $params_en['countries'];
     ?>
     </tbody>
 </table>
+
+<script type="text/javascript">
+    (function(d, w, s) {
+        var widgetHash = '0R1469U11LgQ', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
+        gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+        var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+    })(document, window, 'script');
+</script>
 
