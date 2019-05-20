@@ -12,37 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $why_us = get_field('why_us');
 
-$preferences = array(
-    array(
-        'icon' => 'fas fa-medal',
-        'count' => '11',
-        'title' => __('Years in tourist business', 'snthwp'),
-        'text'  => ''
-    ),
-
-    array(
-        'icon' => 'fas fa-map-marked-alt',
-        'count' => '71',
-        'title' => __('Interesting destinations', 'snthwp'),
-        'text'  => ''
-    ),
-
-    array(
-        'icon' => 'far fa-grin-hearts',
-        'count' => '2489',
-        'title' => __('Happy clients', 'snthwp'),
-        'text'  => ''
-    ),
-
-    array(
-        'icon' => 'far fa-handshake',
-        'count' => '40',
-        'title' => __('Raliable partners', 'snthwp'),
-        'text'  => ''
-    ),
-);
-
-if (!empty($preferences)) {
+if (!empty($why_us["items"])) {
     ?>
     <section id="why_us" class="ptb-20 ptb-md-40 ptb-lg-60">
         <div class="container">
@@ -62,8 +32,8 @@ if (!empty($preferences)) {
                 <?php
                 foreach ($why_us["items"] as $item) {
                     ?>
-                    <div class="col-12 col-lg-3 col-md-6 text-center sm-margin-30px-bottom wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="counter-feature-box-1 w-100 border-all p-5">
+                    <div class="col-12 col-lg-3 col-md-6 text-center">
+                        <div class="counter-feature-box-1 w-100 p-5">
                             <div class="counter-box bg-white d-flex justify-content-center flex-column h-100">
                                 <i class="<?php echo $item['icon']; ?> icon-extra-medium txt-gray-40-color mb-20"></i>
 
@@ -79,6 +49,32 @@ if (!empty($preferences)) {
                 }
                 ?>
             </div>
+
+            <?php
+            if (!empty($why_us["primary_button"]["link"]) || $why_us["secondary_button"]["link"]) {
+                ?>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center mt-10 mt-md-20 mt-lg-40">
+                            <?php
+                            if (!empty($why_us["primary_button"]["link"])) {
+                                ?>
+                                <a class="btn size-xl shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["primary_button"]["link"]['url'] ?>"><?php echo $why_us['primary_button']['label'] ?></a>
+                                <?php
+                            }
+
+                            if (!empty($why_us["secondary_button"]["link"])) {
+                                ?>
+                                <a class="btn size-xl type-hollow shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["secondary_button"]["link"]['url'] ?>"><?php echo $why_us['secondary_button']['label'] ?></a>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
         </div>
     </section>
     <?php

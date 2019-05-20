@@ -11,7 +11,7 @@ function snth_enqueue_scripts() {
   global $wp_styles; // Call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
 
     $query_args = array(
-        'family' => 'Open+Sans:300,400,400i,700,700i|Oswald:300,400,700',
+        'family' => 'Open+Sans+Condensed:300,700',
         'subset' => 'cyrillic'
     );
     wp_register_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );

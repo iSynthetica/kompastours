@@ -7146,3 +7146,23 @@ Stack trace:
 [20-May-2019 13:13:24 UTC] 
 [20-May-2019 14:50:35 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
 [20-May-2019 14:50:56 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
+[20-May-2019 16:39:44 UTC] PHP Warning:  Illegal string offset 'url' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/home/section-why-us.php on line 98
+[20-May-2019 16:39:44 UTC] PHP Stack trace:
+[20-May-2019 16:39:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[20-May-2019 16:39:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[20-May-2019 16:39:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[20-May-2019 16:39:44 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[20-May-2019 16:39:44 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/front-page.php:15
+[20-May-2019 16:39:44 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[20-May-2019 16:39:44 UTC] PHP   7. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/front.php:37
+[20-May-2019 16:39:44 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[20-May-2019 16:40:37 UTC] PHP Warning:  Illegal string offset 'url' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/home/section-why-us.php on line 98
+[20-May-2019 16:40:37 UTC] PHP Stack trace:
+[20-May-2019 16:40:37 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[20-May-2019 16:40:37 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[20-May-2019 16:40:37 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[20-May-2019 16:40:37 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:77
+[20-May-2019 16:40:37 UTC] PHP   5. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/front-page.php:15
+[20-May-2019 16:40:37 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[20-May-2019 16:40:37 UTC] PHP   7. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/front.php:37
+[20-May-2019 16:40:37 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50

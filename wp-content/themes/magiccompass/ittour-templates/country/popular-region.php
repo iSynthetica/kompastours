@@ -52,7 +52,7 @@ $template_args = array(
 
         <div class="row">
             <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                <a href="<?php echo get_post_permalink( $region->ID ); ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended">
+                <a href="<?php echo get_post_permalink( $region->ID ); ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended font-alt font-weight-900">
                     <?php echo __('Find tour', 'snthwp'); ?>
                 </a>
             </div>
