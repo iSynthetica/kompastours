@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-17 15:50+0000\n"
+"POT-Creation-Date: 2019-05-17 15:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -98,7 +98,6 @@ msgstr ""
 
 #: ittour-templates/single-tour-content.php:197
 #: ittour-templates/form/search-tab.php:126
-msgctxt "Відправлення з"
 msgid "Departure from"
 msgstr ""
 
@@ -209,7 +208,6 @@ msgstr ""
 
 #: includes/ittour-template-functions.php:134
 #: includes/ittour-template-functions.php:482
-msgctxt "відправлення з"
 msgid "departure from"
 msgstr ""
 

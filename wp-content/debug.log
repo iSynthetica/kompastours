@@ -7144,3 +7144,5 @@ Stack trace:
 [20-May-2019 13:11:00 UTC] 
 [20-May-2019 13:13:24 UTC] 
 [20-May-2019 13:13:24 UTC] 
+[20-May-2019 14:50:35 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
+[20-May-2019 14:50:56 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
