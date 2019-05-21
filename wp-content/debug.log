@@ -7336,3 +7336,336 @@ Stack trace:
 [21-May-2019 10:52:23 UTC] 
 [21-May-2019 10:56:54 UTC] 
 [21-May-2019 10:59:07 UTC] 
+[21-May-2019 12:16:10 UTC] 
+[21-May-2019 12:16:37 UTC] 
+[21-May-2019 12:18:54 UTC] 
+[21-May-2019 12:18:56 UTC] 
+[21-May-2019 12:19:06 UTC] 
+[21-May-2019 12:19:33 UTC] 
+[21-May-2019 12:19:51 UTC] 
+[21-May-2019 12:21:23 UTC] ?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=78%3A4&type=1&items_per_page=12&template=grid&country=372
+[21-May-2019 12:21:23 UTC] 
+[21-May-2019 12:22:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:22:33 UTC] PHP Stack trace:
+[21-May-2019 12:22:33 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:22:33 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:22:33 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:22:33 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:22:33 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:22:33 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:22:33 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:22:33 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:22:33 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:22:34 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:22:34 UTC] PHP Stack trace:
+[21-May-2019 12:22:34 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:22:34 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:22:34 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:22:34 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:22:34 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:22:34 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:22:34 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:22:34 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:22:34 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:22:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:22:36 UTC] PHP Stack trace:
+[21-May-2019 12:22:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:22:36 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:22:36 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:22:36 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:22:36 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:22:36 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:22:36 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:22:36 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:22:36 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:22:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:22:41 UTC] PHP Stack trace:
+[21-May-2019 12:22:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:22:41 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:22:41 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:22:41 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:22:41 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:22:41 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:22:41 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:22:41 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:22:41 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:23:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:23:08 UTC] PHP Stack trace:
+[21-May-2019 12:23:08 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:23:08 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:23:08 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:23:08 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:23:08 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:23:08 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:23:08 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:23:08 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:23:08 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:24:58 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[21-May-2019 12:25:30 UTC] 
+[21-May-2019 12:27:09 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[21-May-2019 12:29:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:29:05 UTC] PHP Stack trace:
+[21-May-2019 12:29:05 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:29:05 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:29:05 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:29:05 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:29:05 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:29:05 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:29:05 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:29:05 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:29:05 UTC] PHP   9. ittour_get_hotel_ratings_field($params = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:30:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 613
+[21-May-2019 12:30:44 UTC] PHP Stack trace:
+[21-May-2019 12:30:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:30:44 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:30:44 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:30:44 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:30:44 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:30:44 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:30:44 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:30:44 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:30:44 UTC] PHP   9. ittour_get_hotel_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:101
+[21-May-2019 12:30:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:30:44 UTC] PHP Stack trace:
+[21-May-2019 12:30:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:30:44 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:30:44 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:30:44 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:30:44 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:30:44 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:30:44 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:30:44 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:30:44 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:45:45 UTC] 
+[21-May-2019 12:47:54 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:47:54 UTC] PHP Stack trace:
+[21-May-2019 12:47:54 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:47:54 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:47:54 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:47:54 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:47:54 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:47:54 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:47:54 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:47:54 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:47:54 UTC] PHP   9. ittour_get_hotel_ratings_field($params = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 12:48:11 UTC] 
+[21-May-2019 12:48:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 12:48:12 UTC] PHP Stack trace:
+[21-May-2019 12:48:12 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 12:48:12 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 12:48:12 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 12:48:12 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 12:48:12 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 12:48:12 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 12:48:12 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 12:48:12 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 12:48:12 UTC] PHP   9. ittour_get_hotel_ratings_field($params = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 13:02:11 UTC] 
+[21-May-2019 13:04:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 13:04:36 UTC] PHP Stack trace:
+[21-May-2019 13:04:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 13:04:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 13:04:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 13:04:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 13:04:36 UTC] PHP   5. ittour_ajax_load_search_form(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 13:04:36 UTC] PHP   6. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 13:04:36 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 13:04:36 UTC] PHP   8. ittour_get_form_fields($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 13:04:36 UTC] PHP   9. ittour_get_hotel_ratings_field($params = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 13:05:39 UTC] 
+[21-May-2019 13:06:35 UTC] 
+[21-May-2019 13:06:38 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 13:06:38 UTC] PHP Stack trace:
+[21-May-2019 13:06:38 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 13:06:38 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 13:06:38 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 13:06:38 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 13:06:38 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 13:06:38 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 13:06:38 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 13:06:38 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 13:06:38 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 13:08:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 655
+[21-May-2019 13:08:21 UTC] PHP Stack trace:
+[21-May-2019 13:08:21 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[21-May-2019 13:08:21 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:167
+[21-May-2019 13:08:21 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[21-May-2019 13:08:21 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[21-May-2019 13:08:21 UTC] PHP   5. ittour_ajax_load_search_form() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[21-May-2019 13:08:21 UTC] PHP   6. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:44
+[21-May-2019 13:08:21 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[21-May-2019 13:08:21 UTC] PHP   8. ittour_get_form_fields() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:16
+[21-May-2019 13:08:21 UTC] PHP   9. ittour_get_hotel_ratings_field() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:102
+[21-May-2019 13:09:54 UTC] 
+[21-May-2019 13:10:31 UTC] 
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:09:06 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[21-May-2019 16:09:09 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:09:11 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:09:12 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:09:12 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:09:12 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:09:12 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:09:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[21-May-2019 16:09:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:09:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:09:17 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:09:17 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:09:17 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:09:17 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:09:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:09:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:09:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:09:23 UTC] 
+[21-May-2019 16:09:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:09:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[21-May-2019 16:09:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:09:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[21-May-2019 16:16:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:16:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:16:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:16:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:16:13 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:16:14 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:16:15 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:16:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:16:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:16:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:16:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:16:16 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:16:18 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:16:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:16:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:16:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:16:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[21-May-2019 16:16:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:16:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:16:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:16:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:16:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:16:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:16:23 UTC] 
+[21-May-2019 16:16:24 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:16:24 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:16:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:16:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:16:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:16:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:16:27 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:17:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[21-May-2019 16:17:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:28 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:28 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:17:29 UTC] 
+[21-May-2019 16:17:29 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:29 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:17:31 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:31 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:35 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:36 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:37 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:38 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:38 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:38 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:39 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:39 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:17:40 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:17:41 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:17:41 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:17:41 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:17:41 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[21-May-2019 16:17:44 UTC] 
+[21-May-2019 16:18:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:18:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:18:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:18:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:18:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:18:21 UTC] 
+[21-May-2019 16:18:22 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:18:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:18:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:18:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:18:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:18:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:18:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:18:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:18:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:18:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[21-May-2019 16:19:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:19:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:19:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:19:21 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:19:22 UTC] 
+[21-May-2019 16:19:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:19:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:19:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:19:24 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:19:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:19:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:19:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:19:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[21-May-2019 16:20:49 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:20:49 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:20:49 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:20:50 UTC] 
+[21-May-2019 16:20:51 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:20:51 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:20:51 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:20:52 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:20:53 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:20:53 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[21-May-2019 16:21:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:21:23 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:21:24 UTC] 
+[21-May-2019 16:21:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:21:25 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:21:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:21:26 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[21-May-2019 16:22:18 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:22:19 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:22:19 UTC] 
+[21-May-2019 16:22:20 UTC] -list?date_from=22.05.19&date_till=01.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[21-May-2019 16:23:26 UTC] 
+[21-May-2019 16:23:40 UTC] 
+[21-May-2019 16:23:52 UTC] 
+[21-May-2019 16:23:59 UTC] 
+[21-May-2019 16:25:04 UTC] 
+[21-May-2019 16:25:08 UTC] 
+[21-May-2019 16:25:25 UTC] 
+[21-May-2019 16:25:56 UTC] 
+[21-May-2019 16:27:21 UTC] 

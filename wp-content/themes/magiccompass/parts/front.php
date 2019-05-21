@@ -46,6 +46,8 @@ if (empty($content)) {
 
 <?php snth_show_template('home/section-blog.php') ?>
 
+<?php snth_show_template('home/section-partners.php') ?>
+
 <?php snth_show_template('home/section-content.php') ?>
 
 <div class="wrap">

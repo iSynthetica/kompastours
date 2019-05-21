@@ -59,13 +59,13 @@ if (!empty($why_us["items"])) {
                             <?php
                             if (!empty($why_us["primary_button"]["link"])) {
                                 ?>
-                                <a class="btn size-xl shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["primary_button"]["link"]['url'] ?>"><?php echo $why_us['primary_button']['label'] ?></a>
+                                <a class="btn size-lg shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["primary_button"]["link"]['url'] ?>"><?php echo $why_us['primary_button']['label'] ?></a>
                                 <?php
                             }
 
                             if (!empty($why_us["secondary_button"]["link"])) {
                                 ?>
-                                <a class="btn size-xl type-hollow shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["secondary_button"]["link"]['url'] ?>"><?php echo $why_us['secondary_button']['label'] ?></a>
+                                <a class="btn size-lg type-hollow shape-rnd hvr-invert prl-40 mrl-10 mb-0 text-uppercase font-alt font-weight-900" href="<?php echo $why_us["secondary_button"]["link"]['url'] ?>"><?php echo $why_us['secondary_button']['label'] ?></a>
                                 <?php
                             }
                             ?>

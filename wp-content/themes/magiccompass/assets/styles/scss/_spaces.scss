@@ -544,3 +544,43 @@ $widths: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100;
         }
     }
 }
+
+$heights: 40, 50, 60, 70, 80, 90, 100, 110, 120;
+
+@each $height in $heights {
+    .height-#{$height}px {
+        height: #{$height}px;
+    }
+}
+
+@media (min-width: 576px) {
+    @each $height in $heights {
+        .height-sm-#{$height}px {
+            height: #{$height}px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    @each $height in $heights {
+        .height-md-#{$height}px {
+            height: #{$height}px;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    @each $height in $heights {
+        .height-lg-#{$height}px {
+            height: #{$height}px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    @each $height in $heights {
+        .height-xl-#{$height}px {
+            height: #{$height}px;
+        }
+    }
+}

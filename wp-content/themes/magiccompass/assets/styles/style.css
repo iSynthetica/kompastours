@@ -32241,6 +32241,113 @@ a.btn, button.btn, div.btn {
   .width-xl-100px {
     width: 100px; } }
 
+.height-40px {
+  height: 40px; }
+
+.height-50px {
+  height: 50px; }
+
+.height-60px {
+  height: 60px; }
+
+.height-70px {
+  height: 70px; }
+
+.height-80px {
+  height: 80px; }
+
+.height-90px {
+  height: 90px; }
+
+.height-100px {
+  height: 100px; }
+
+.height-110px {
+  height: 110px; }
+
+.height-120px {
+  height: 120px; }
+
+@media (min-width: 576px) {
+  .height-sm-40px {
+    height: 40px; }
+  .height-sm-50px {
+    height: 50px; }
+  .height-sm-60px {
+    height: 60px; }
+  .height-sm-70px {
+    height: 70px; }
+  .height-sm-80px {
+    height: 80px; }
+  .height-sm-90px {
+    height: 90px; }
+  .height-sm-100px {
+    height: 100px; }
+  .height-sm-110px {
+    height: 110px; }
+  .height-sm-120px {
+    height: 120px; } }
+
+@media (min-width: 768px) {
+  .height-md-40px {
+    height: 40px; }
+  .height-md-50px {
+    height: 50px; }
+  .height-md-60px {
+    height: 60px; }
+  .height-md-70px {
+    height: 70px; }
+  .height-md-80px {
+    height: 80px; }
+  .height-md-90px {
+    height: 90px; }
+  .height-md-100px {
+    height: 100px; }
+  .height-md-110px {
+    height: 110px; }
+  .height-md-120px {
+    height: 120px; } }
+
+@media (min-width: 992px) {
+  .height-lg-40px {
+    height: 40px; }
+  .height-lg-50px {
+    height: 50px; }
+  .height-lg-60px {
+    height: 60px; }
+  .height-lg-70px {
+    height: 70px; }
+  .height-lg-80px {
+    height: 80px; }
+  .height-lg-90px {
+    height: 90px; }
+  .height-lg-100px {
+    height: 100px; }
+  .height-lg-110px {
+    height: 110px; }
+  .height-lg-120px {
+    height: 120px; } }
+
+@media (min-width: 1200px) {
+  .height-xl-40px {
+    height: 40px; }
+  .height-xl-50px {
+    height: 50px; }
+  .height-xl-60px {
+    height: 60px; }
+  .height-xl-70px {
+    height: 70px; }
+  .height-xl-80px {
+    height: 80px; }
+  .height-xl-90px {
+    height: 90px; }
+  .height-xl-100px {
+    height: 100px; }
+  .height-xl-110px {
+    height: 110px; }
+  .height-xl-120px {
+    height: 120px; } }
+
 /*
 [Table of contents]
 
