@@ -13,6 +13,8 @@ if (empty($args)) {
     $args = array();
 }
 
+$search_disabled = empty($args['country']);
+
 $form_fields = ittour_get_form_fields($args);
 $from_cities_array = get_option('ittour_from_cities');
 
@@ -60,7 +62,8 @@ $search_steps = get_field('timeline_items', 493);
                                     ittour_show_toggle_mobile_header_footer(
                                         'from-city-select_section',
                                         false,
-                                        array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section')
+                                        array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section', 'disabled' => false),
+                                        $search_disabled
                                     )
                                     ?>
                                 </div>
@@ -116,8 +119,9 @@ $search_steps = get_field('timeline_items', 493);
                                     <?php
                                     ittour_show_toggle_mobile_header_footer(
                                         'destination-select_section',
-                                        array('label' => __('Departure from', 'snthwp'), 'container' => 'from-city-select_section'),
-                                        array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section')
+                                        array('label' => __('Departure from', 'snthwp'), 'container' => 'from-city-select_section', 'disabled' => false),
+                                        array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section', 'disabled' => $search_disabled),
+                                        $search_disabled
                                     )
                                     ?>
                                 </div>
@@ -185,8 +189,9 @@ $search_steps = get_field('timeline_items', 493);
                                     <?php
                                     ittour_show_toggle_mobile_header_footer(
                                         'dates-select_section',
-                                        array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section'),
-                                        array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section')
+                                        array('label' => __('Destination', 'snthwp'), 'container' => 'destination-select_section', 'disabled' => false),
+                                        array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section', 'disabled' => $search_disabled),
+                                        $search_disabled
                                     )
                                     ?>
                                 </div>
@@ -255,8 +260,9 @@ $search_steps = get_field('timeline_items', 493);
                                     <?php
                                     ittour_show_toggle_mobile_header_footer(
                                         'guests-select_section',
-                                        array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section'),
-                                        array('label' => __('Filter', 'snthwp'), 'container' => 'filter-select__section')
+                                        array('label' => __('Dates', 'snthwp'), 'container' => 'dates-select_section', 'disabled' => $search_disabled),
+                                        array('label' => __('Filter', 'snthwp'), 'container' => 'filter-select__section', 'disabled' => $search_disabled),
+                                        $search_disabled
                                     )
                                     ?>
                             </div>
@@ -306,8 +312,9 @@ $search_steps = get_field('timeline_items', 493);
                                     <?php
                                     ittour_show_toggle_mobile_header_footer(
                                         'filter-select__section',
-                                        array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section'),
-                                        false
+                                        array('label' => __('Guests', 'snthwp'), 'container' => 'guests-select_section', 'disabled' => $search_disabled),
+                                        false,
+                                        $search_disabled
                                     )
                                     ?>
                                 </div>
@@ -322,7 +329,7 @@ $search_steps = get_field('timeline_items', 493);
                             <div class="search-btn__holder">
                                 <button
                                     id="start_search"
-                                    class="btn shape-rnd bg-primary-color search-btn"
+                                    class="btn shape-rnd bg-primary-color search-btn font-alt font-weight-900"
                                     type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>
                                 >
                                     <?php echo __('Search', 'snthwp') ?>

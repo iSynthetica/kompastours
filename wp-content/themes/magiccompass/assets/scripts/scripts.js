@@ -26259,13 +26259,17 @@ and dependencies (minified).
             selectedRegion = $.trim($('#region_select').find(":selected").text()) + ', ';
         }
 
-        // if ( '' !== selectedHotelVal ) {
-        //     selectedHotel = $.trim($('#hotel_select').find(":selected").text()) + ', ';
-        // }
-
         if ('' === selectedCountry || ('' !== selectedCountry && '' === selectedHotel)) {
             $('#filter_options').prop('disabled', true);
             $('#start_search').prop('disabled', true);
+            $('.start_search').prop('disabled', true);
+
+            $('#destination-select_section .btn-next-step').prop('disabled', true);
+            $('#dates-select_section .btn-next-step').prop('disabled', true);
+            $('#guests-select_section .btn-prev-step').prop('disabled', true);
+            $('#guests-select_section .btn-next-step').prop('disabled', true);
+            $('#filter-select__section .btn-prev-step').prop('disabled', true);
+
             $('#dates-duration_summary').prop('disabled', true);
             $('#guests_summary').prop('disabled', true);
             $('#filter_summary').prop('disabled', true);
@@ -26275,6 +26279,14 @@ and dependencies (minified).
         } else {
             $('#filter_options').prop('disabled', false);
             $('#start_search').prop('disabled', false);
+            $('.start_search').prop('disabled', false);
+
+            $('#destination-select_section .btn-next-step').prop('disabled', false);
+            $('#dates-select_section .btn-next-step').prop('disabled', false);
+            $('#guests-select_section .btn-prev-step').prop('disabled', false);
+            $('#guests-select_section .btn-next-step').prop('disabled', false);
+            $('#filter-select__section .btn-prev-step').prop('disabled', false);
+
             $('#dates-duration_summary').prop('disabled', false).prop('readonly', true);
             $('#guests_summary').prop('disabled', false).prop('readonly', true);
             $('#filter_summary').prop('disabled', false).prop('readonly', true);

@@ -1461,7 +1461,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
     return ob_get_clean();
 }
 
-function ittour_show_toggle_mobile_header_footer($container, $prev = false, $next = false) {
+function ittour_show_toggle_mobile_header_footer($container, $prev = false, $next = false, $search_disabled = false) {
     ?>
     <div class="form-data-toggle-header">
         <div class="col-12">
@@ -1470,7 +1470,7 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
                     <?php
                     if (!empty($prev)) {
                         ?>
-                        <button type="button" class="btn size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control" data-form_toggle_target="<?php echo $prev['container']; ?>">
+                        <button type="button" class="btn btn-prev-step size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control font-alt font-weight-900" data-form_toggle_target="<?php echo $prev['container']; ?>"<?php echo true === $prev['disabled'] ? ' disabled' : ''; ?>>
                             <i class="fas fa-chevron-left"></i>
                             <?php echo $prev['label']; ?>
                         </button>
@@ -1483,7 +1483,7 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
                     <?php
                     if (!empty($next)) {
                         ?>
-                        <button type="button" class="btn size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control" data-form_toggle_target="<?php echo $next['container']; ?>">
+                        <button type="button" class="btn btn-next-step size-xs bg-info-color shape-rnd type-hollow form-data-toggle-control font-alt font-weight-900" data-form_toggle_target="<?php echo $next['container']; ?>"<?php echo true === $next['disabled'] ? ' disabled' : ''; ?>>
                             <?php echo $next['label']; ?>
                             <i class="fas fa-chevron-right"></i>
                         </button>
@@ -1501,7 +1501,11 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
                     <i class="fas fa-times"></i>
                 </button>
 
-                <button type="submit" class="btn bg-primary-color shape-rnd"><?php echo __('Search', 'snthwp') ?></button>
+                <button
+                        type="submit"
+                        class="search-btn start_search btn bg-primary-color shape-rnd font-alt text-uppercase font-weight-900"
+                        <?php echo $search_disabled ? ' disabled' : '';  ?>
+                ><?php echo __('Search', 'snthwp') ?></button>
         </div>
     </div>
     <?php
