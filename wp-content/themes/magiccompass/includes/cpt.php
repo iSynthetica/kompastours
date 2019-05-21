@@ -108,3 +108,59 @@ function snth_destination_type_tax() {
 
 }
 add_action( 'init', 'snth_destination_type_tax', 0 );
+
+// Register Custom Post Type
+function snth_partner_cpt() {
+
+    $labels = array(
+        'name'                  => _x( 'Partners', 'Post Type General Name', 'snthwp' ),
+        'singular_name'         => _x( 'Partner', 'Post Type Singular Name', 'snthwp' ),
+        'menu_name'             => __( 'Partners', 'snthwp' ),
+        'name_admin_bar'        => __( 'Partner', 'snthwp' ),
+        'archives'              => __( 'Partners Archives', 'snthwp' ),
+        'attributes'            => __( 'Partner Attributes', 'snthwp' ),
+        'parent_item_colon'     => __( 'Parent Partner:', 'snthwp' ),
+        'all_items'             => __( 'All Partners', 'snthwp' ),
+        'add_new_item'          => __( 'Add New Partner', 'snthwp' ),
+        'add_new'               => __( 'Add New', 'snthwp' ),
+        'new_item'              => __( 'New Partner', 'snthwp' ),
+        'edit_item'             => __( 'Edit Partner', 'snthwp' ),
+        'update_item'           => __( 'Update Partner', 'snthwp' ),
+        'view_item'             => __( 'View Partner', 'snthwp' ),
+        'view_items'            => __( 'View Partners', 'snthwp' ),
+        'search_items'          => __( 'Search Partner', 'snthwp' ),
+        'not_found'             => __( 'Not found', 'snthwp' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'snthwp' ),
+        'featured_image'        => __( 'Featured Image', 'snthwp' ),
+        'set_featured_image'    => __( 'Set featured image', 'snthwp' ),
+        'remove_featured_image' => __( 'Remove featured image', 'snthwp' ),
+        'use_featured_image'    => __( 'Use as featured image', 'snthwp' ),
+        'insert_into_item'      => __( 'Insert into Partner', 'snthwp' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Partner', 'snthwp' ),
+        'items_list'            => __( 'Partners list', 'snthwp' ),
+        'items_list_navigation' => __( 'Partners list navigation', 'snthwp' ),
+        'filter_items_list'     => __( 'Filter Partners list', 'snthwp' ),
+    );
+    $args = array(
+        'label'                 => __( 'Partner', 'snthwp' ),
+        'description'           => __( 'Partners of our tourist agency', 'snthwp' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-businessman',
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'partner', $args );
+
+}
+add_action( 'init', 'snth_partner_cpt', 0 );
