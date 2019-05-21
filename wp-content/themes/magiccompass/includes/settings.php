@@ -42,6 +42,12 @@ function snth_settings_media_image_sizes ( $sizes ) {
             'c'  =>  true,
             'label' =>  __('Archive Photo Template', 'snthwp')
         ),
+        'blog_thumb' => array (
+            'w'     =>  900,
+            'h'     =>  650,
+            'c'  =>  true,
+            'label' =>  __('Archive Blog Thumb', 'snthwp')
+        ),
     );
 }
 add_filter( 'snth_image_sizes', 'snth_settings_media_image_sizes', 999 );

@@ -32,9 +32,19 @@ if (empty($content)) {
     </div>
 </section>
 
-<?php snth_show_template('home/popular-destinations.php') ?>
+<section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
+    <div class="container">
+        <?php
+        ittour_show_template('form/section-search.php');
+        ?>
+    </div>
+</section>
+
+<?php snth_show_template('home/section-popular-destinations.php') ?>
 
 <?php snth_show_template('home/section-why-us.php') ?>
+
+<?php snth_show_template('home/section-blog.php') ?>
 
 <?php snth_show_template('home/section-content.php') ?>
 

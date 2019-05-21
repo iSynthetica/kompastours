@@ -72,3 +72,57 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 48px;
     }
 }
+
+.txt-extrasmall {
+    font-size: rem-calc(10);
+    line-height: rem-calc(12);
+}
+.txt-small {
+    font-size: rem-calc(12);
+    line-height: rem-calc(14);
+}
+.txt-mediumsmall {
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+}
+.txt-medium {
+    font-size: rem-calc(16);
+    line-height: rem-calc(18);
+}
+.txt-mediumlarge {
+    font-size: rem-calc(18);
+    line-height: rem-calc(20);
+}
+.txt-large {
+    font-size: rem-calc(22);
+    line-height: rem-calc(24);
+}
+.txt-extralarge {
+    font-size: rem-calc(26);
+    line-height: rem-calc(29);
+}
+
+
+@media (min-width: 576px) {
+    .title-style1 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    .title-style1 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 992px) {
+    .title-style1 {
+        font-size: 42px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .title-style1 {
+        font-size: 48px;
+    }
+}

@@ -95,6 +95,7 @@
 
     #select-from-city__holder {
         @media (min-width: 768px) {
+            z-index: 100;
             position: absolute;
             top: rem-calc(-30);
             padding: rem-calc(5);
@@ -133,6 +134,7 @@
 
 .search-form-toggle__holder {
     position: relative;
+    z-index: 100;
 
     .form-data-toggle-target {
         display: none;
