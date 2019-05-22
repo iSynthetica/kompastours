@@ -88,3 +88,88 @@ require_once(SNTH_INCLUDES.'/enqueue-scripts.php');
 
 // Customize the WordPress admin
 require_once(SNTH_INCLUDES.'/admin.php');
+
+add_action('wp_head', 'remove_one_wpseo_og', 1);
+
+function remove_one_wpseo_og() {
+    if ( is_page ( 495 ) ) {
+        remove_action( 'wpseo_head', array( $GLOBALS['wpseo_og'], 'opengraph' ), 30 );
+    }
+}
+
+add_action("wp", "ittour_set_global_variable");
+
+function ittour_set_global_variable() {
+    if ( is_page ( 495 ) ) {
+        global $ittour_global_tour_result;
+
+        if (empty($_GET['key'])) {
+            $ittour_global_tour_result['error'] = 'no_key';
+        } else {
+            $tour_key = $_GET['key'];
+            $tour = ittour_tour($tour_key, 'uk');
+            $tour_info = $tour->info();
+
+            if (is_wp_error($tour_info)) {
+
+            } else {
+                $ittour_global_tour_result['result'] = $tour_info;
+            }
+        }
+    }
+}
+
+add_filter( 'wp_title', 'custom_title', 1000 );
+
+function custom_title($title) {
+    if ( is_page ( 495 ) ) {
+        global $ittour_global_tour_result;
+
+        $title = 'My title';
+    }
+
+    return $title;
+}
+
+function ittour_change_page_title( $title ) {
+    if ( is_page ( 495 ) ) {
+        global $ittour_global_tour_result;
+
+        $page_title = '';
+
+        if (!empty($ittour_global_tour_result['result']['country'])) {
+            $page_title .= $ittour_global_tour_result['result']['country'];
+        }
+
+        if (!empty($ittour_global_tour_result['result']['region'])) {
+            if (!empty($page_title)) {
+                $page_title .= ' - ';
+            }
+
+            $page_title .= $ittour_global_tour_result['result']['region'];
+        }
+
+        if (!empty($page_title)) {
+            $title = $page_title;
+        }
+    }
+
+    return $title;
+}
+
+add_filter( 'wpseo_title', 'ittour_change_page_title', 1000, 1 );
+
+function ittour_insert_open_graph() {
+    if ( is_page ( 495 ) ) {
+        global $ittour_global_tour_result;
+
+        ?>
+        <meta property="og:title" content="My Title"/>
+        <meta property="og:type" content=”hotel”/>
+        <?php
+    }
+}
+
+add_action( 'wp_head', 'ittour_insert_open_graph', 5 );
+
+// $title = apply_filters( 'pre_get_document_title', '' );

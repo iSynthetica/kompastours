@@ -10,6 +10,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+
+global $ittour_global_tour_result;
 ?>
 
 <?php get_header('white'); ?>
