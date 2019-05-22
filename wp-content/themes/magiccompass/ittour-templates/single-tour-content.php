@@ -44,26 +44,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 }
                                 ?>
                             </div>
-
-                            <?php
-                            if (false) {
-                                ?>
-                                <div class="single-tour-slider__container">
-                                    <div class="row">
-                                        <?php
-                                        foreach ($tour_info["hotel_info"]["images"] as $image) {
-                                            ?>
-                                            <div class="col-3">
-                                                <img src="<?php echo $image['thumb']; ?>" alt="" style="max-width: 100%">
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            ?>
                         </div>
 
                         <script>
@@ -104,6 +84,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         }
                     }
                     ?>
+
+                    <?php snth_the_social_share(); ?>
                 </div>
 
                 <div class="col-md-12 col-lg-5">

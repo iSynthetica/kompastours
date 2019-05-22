@@ -7689,3 +7689,21 @@ Stack trace:
 [21-May-2019 17:02:09 UTC] 
 [21-May-2019 17:02:15 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
 [21-May-2019 17:03:12 UTC] 
+[22-May-2019 12:50:41 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[22-May-2019 12:50:45 UTC] ?date_from=22.05.19&date_till=27.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[22-May-2019 12:50:49 UTC] 
+[22-May-2019 12:50:50 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[22-May-2019 12:50:50 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[22-May-2019 12:51:08 UTC] info/05-07-fb53d5879362043b14e04aa24dec56e0
+[22-May-2019 12:51:11 UTC] -list?date_from=23.05.19&date_till=25.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=501&template=table-sort-by-date&country=338
+[22-May-2019 12:54:06 UTC] info/05-07-fb53d5879362043b14e04aa24dec56e0
+[22-May-2019 12:54:07 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function is_checkout() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/global/share.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/content-templates.php(18): snth_show_template('global/share.ph...')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour-content.php(88): snth_the_social_share()
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php(50): include('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(44): snth_show_template('single-tour-con...', Array, 'ittour-template...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/it in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/global/share.php on line 9
+[22-May-2019 12:55:01 UTC] info/05-07-fb53d5879362043b14e04aa24dec56e0
+[22-May-2019 12:55:03 UTC] -list?date_from=23.05.19&date_till=25.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=501&template=table-sort-by-date&country=338

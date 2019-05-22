@@ -14,6 +14,10 @@ function snth_get_post_thumbnail_url($size = 'full') {
     return '';
 }
 
+function snth_the_social_share() {
+    snth_show_template('global/share.php');
+}
+
 /**
  * Custom Breadcrumbs
  */
