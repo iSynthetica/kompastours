@@ -1,0 +1,393 @@
+/************************************************
+ Stylesheet: Icons Stylesheet
+ ================================================
+
+ Table of Contents:
+
+ 1.GENERAL
+ 2.SIZES
+ 3.COLORS
+
+ *************************************************/
+
+/********************
+ 1.GENERAL
+ ********************/
+.icon {
+    display: inline-block;
+    position: relative;
+    outline: none;
+    padding: 0;
+    height: rem_calc($icon-size);
+    width: rem_calc($icon-size);
+    margin: rem-calc(0 0 5 0);
+
+    &:before {
+        position: absolute;
+        display: block;
+        content: ' ';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+        border-width: rem_calc($icon-border-width);
+        border-style: solid;
+    }
+
+    @include icon-color-scheme($icon-default-color);
+
+    i {
+        position: relative;
+        display: block;
+        text-align: center;
+        font-size: rem_calc($icon-font-size);
+        line-height: rem_calc($icon-size);
+    }
+
+    &.icon-diamond {
+        height: rem_calc($icon-size + 7);
+        width: rem_calc($icon-size + 7);
+        i {
+            line-height: rem_calc($icon-size + 7);
+        }
+        &:before {
+            top: rem-calc(7);
+            right: rem-calc(7);
+            bottom: rem-calc(7);
+            left: rem-calc(7);
+            transform: rotate(45deg);
+        }
+    }
+
+    &.shape-rnd, &.icon-rnd {
+        &:before {
+            border-radius: 50%;
+        }
+    }
+
+    &.shape-crnr, &.icon-crnr {
+        &:before {
+            border-radius: rem_calc($icon-crnr);
+        }
+    }
+}
+
+/********************
+ 2.SIZES
+ ********************/
+.icon {
+    &.icon-xs, &.size-xs{
+        height: rem_calc($icon-size-xs);
+        width: rem_calc($icon-size-xs);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-xs);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-xs);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-xs);
+            line-height: rem_calc($icon-size-xs);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-xs + 7);
+            width: rem_calc($icon-size-xs + 7);
+            i {
+                line-height: rem_calc($icon-size-xs + 7);
+            }
+            &:before {
+                top: rem-calc(6);
+                right: rem-calc(6);
+                bottom: rem-calc(6);
+                left: rem-calc(6);
+            }
+        }
+    }
+    &.icon-sm, &.size-sm{
+        height: rem_calc($icon-size-sm);
+        width: rem_calc($icon-size-sm);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-sm);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-sm);
+            }
+        }
+
+        i {
+            font-size: rem_calc($icon-font-size-sm);
+            line-height: rem_calc($icon-size-sm - 2*$icon-border-width-sm);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-sm + 7);
+            width: rem_calc($icon-size-sm + 7);
+            i {
+                line-height: rem_calc($icon-size-sm + 7);
+            }
+            &:before {
+                top: rem-calc(6);
+                right: rem-calc(6);
+                bottom: rem-calc(6);
+                left: rem-calc(6);
+            }
+        }
+    }
+    &.icon-lg, &.size-lg {
+        height: rem_calc($icon-size-lg);
+        width: rem_calc($icon-size-lg);
+        border-width: rem_calc($icon-border-width-lg);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-lg);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-lg);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-lg);
+            line-height: rem_calc($icon-size-lg);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-lg + 9);
+            width: rem_calc($icon-size-lg + 9);
+            i {
+                line-height: rem_calc($icon-size-lg + 9);
+            }
+            &:before {
+                top: rem-calc(8);
+                right: rem-calc(8);
+                bottom: rem-calc(8);
+                left: rem-calc(8);
+            }
+        }
+    }
+    &.icon-xl, &.size-xl{
+        height: rem_calc($icon-size-xl);
+        width: rem_calc($icon-size-xl);
+        border-width: rem_calc($icon-border-width-xl);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-xl);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-xl);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-xl);
+            line-height: rem_calc($icon-size-xl);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-xl + 9);
+            width: rem_calc($icon-size-xl + 9);
+            i {
+                line-height: rem_calc($icon-size-xl + 9);
+            }
+            &:before {
+                top: rem-calc(9);
+                right: rem-calc(9);
+                bottom: rem-calc(9);
+                left: rem-calc(9);
+            }
+        }
+    }
+}
+
+.size-xs {
+    .icon {
+        height: rem_calc($icon-size-xs);
+        width: rem_calc($icon-size-xs);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-xs);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-xs);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-xs);
+            line-height: rem_calc($icon-size-xs);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-xs + 7);
+            width: rem_calc($icon-size-xs + 7);
+            i {
+                line-height: rem_calc($icon-size-xs + 7);
+            }
+            &:before {
+                top: rem-calc(6);
+                right: rem-calc(6);
+                bottom: rem-calc(6);
+                left: rem-calc(6);
+            }
+        }
+    }
+}
+.size-sm {
+    .icon {
+        height: rem_calc($icon-size-sm);
+        width: rem_calc($icon-size-sm);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-sm);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-sm);
+            }
+        }
+
+        i {
+            font-size: rem_calc($icon-font-size-sm);
+            line-height: rem_calc($icon-size-sm - 2*$icon-border-width-sm);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-sm + 7);
+            width: rem_calc($icon-size-sm + 7);
+            i {
+                line-height: rem_calc($icon-size-sm + 7);
+            }
+            &:before {
+                top: rem-calc(6);
+                right: rem-calc(6);
+                bottom: rem-calc(6);
+                left: rem-calc(6);
+            }
+        }
+    }
+}
+.size-lg {
+    .icon {
+        height: rem_calc($icon-size-lg);
+        width: rem_calc($icon-size-lg);
+        border-width: rem_calc($icon-border-width-lg);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-lg);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-lg);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-lg);
+            line-height: rem_calc($icon-size-lg);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-lg + 9);
+            width: rem_calc($icon-size-lg + 9);
+            i {
+                line-height: rem_calc($icon-size-lg + 9);
+            }
+            &:before {
+                top: rem-calc(8);
+                right: rem-calc(8);
+                bottom: rem-calc(8);
+                left: rem-calc(8);
+            }
+        }
+    }
+}
+.size-xl {
+    .icon {
+        height: rem_calc($icon-size-xl);
+        width: rem_calc($icon-size-xl);
+        border-width: rem_calc($icon-border-width-xl);
+
+        &:before {
+            border-width: rem_calc($icon-border-width-xl);
+        }
+        &.shape-crnr, &.icon-crnr {
+            &:before {
+                border-radius: rem_calc($icon-crnr-xl);
+            }
+        }
+        i {
+            font-size: rem_calc($icon-font-size-xl);
+            line-height: rem_calc($icon-size-xl);
+        }
+
+        &.icon-diamond {
+            height: rem_calc($icon-size-xl + 9);
+            width: rem_calc($icon-size-xl + 9);
+            i {
+                line-height: rem_calc($icon-size-xl + 9);
+            }
+            &:before {
+                top: rem-calc(9);
+                right: rem-calc(9);
+                bottom: rem-calc(9);
+                left: rem-calc(9);
+            }
+        }
+    }
+}
+
+.icon-group {
+    .icon {
+        margin: 0;
+    }
+    &:after {
+        display: table;
+        content: ' ';
+        clear: both;
+    }
+}
+
+a, div, button {
+    &.icon {
+
+    }
+}
+
+button {
+    &.icon {
+        cursor: pointer;
+    }
+}
+
+div {
+    &.icon {
+        cursor: default;
+    }
+}
+
+/********************
+ 3.COLORS
+ ********************/
+
+@each $color-title, $color-value in $merged-theme-colors {
+    .icon {
+        &.bg-#{$color-title}-color, &.icon-#{$color-title}-color {
+            @include icon-color-scheme($color-value);
+        }
+    }
+}
+
+@each $color-title, $color-value in $merged-theme-colors {
+    .icon {
+        &.bg-#{$color-title}-color-hvr, &.icon-#{$color-title}-color-hvr {
+            @include icon-color-scheme-hvr($color-value);
+        }
+    }
+}

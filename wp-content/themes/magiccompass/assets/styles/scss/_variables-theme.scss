@@ -54,8 +54,54 @@ $custom-theme-colors: (
     orange: #f7941d
 );
 
+$color-amazon: #ff9900;
+$color-facebook: #3e5b98;
+$color-facebook-messenger: #0084ff;
+$color-flipboard: #e12828;
+$color-get-pocket: #ED4055;
+$color-google-plus: #dd4b39;
+$color-instagram: #c13584;
+$color-linkedin: #3371b7;
+$color-odnoklassniki: #f48420;
+$color-pinterest: #c92619;
+$color-skype: #28abe3;
+$color-telegram: #0088cc;
+$color-trello: #0079bf;
+$color-tumblr: #45556c;
+$color-twitter: #4da7de;
+$color-viber: #7b519d;
+$color-vk: #5a7fa6;
+$color-youtube: #e02a20;
+$color-whatsapp: #20B038;
+$color-wordpress: #464646;
+
+$brand-colors: (
+        amazon: $color-amazon,
+        facebook: $color-facebook,
+        facebook-f: $color-facebook,
+        facebook-messenger: $color-facebook-messenger,
+        flipboard: $color-flipboard,
+        get-pocket: $color-get-pocket,
+        google-plus: $color-google-plus,
+        instagram: $color-instagram,
+        linkedin: $color-linkedin,
+        odnoklassniki: $color-odnoklassniki,
+        pinterest: $color-pinterest,
+        skype: $color-skype,
+        telegram: $color-telegram,
+        trello: $color-trello,
+        tumblr: $color-tumblr,
+        twitter: $color-twitter,
+        viber: $color-viber,
+        vk: $color-vk,
+        youtube: $color-youtube,
+        whatsapp: $color-whatsapp,
+        wordpress: $color-wordpress
+);
+
 $merged-theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $merged-theme-colors: map-merge($merged-theme-colors, $custom-grays-colors);
+$merged-theme-colors: map-merge($merged-theme-colors, $brand-colors);
 
 /********************
  2.BUTTONS
@@ -86,3 +132,34 @@ $btn-border-width-xl: 3;
 $btn-size-xl: 56;
 $btn-font-size-xl: 26;
 $shape-crnr-xl: 10;
+
+/********************
+ 4.ICONS
+ ********************/
+/* ICONS SIZES */
+$icon-default-color: $color-theme;
+
+$icon-border-width: 1;
+$icon-size: 40;
+$icon-font-size: 20;
+$icon-crnr: 3;
+
+$icon-border-width-xs: 1;
+$icon-size-xs: 32;
+$icon-font-size-xs: 16;
+$icon-crnr-xs: 3;
+
+$icon-border-width-sm: 1;
+$icon-size-sm: 36;
+$icon-font-size-sm: 18;
+$icon-crnr-sm: 5;
+
+$icon-border-width-lg: 2;
+$icon-size-lg: 48;
+$icon-font-size-lg: 23;
+$icon-crnr-lg: 7;
+
+$icon-border-width-xl: 3;
+$icon-size-xl: 56;
+$icon-font-size-xl: 26;
+$icon-crnr-xl: 10;

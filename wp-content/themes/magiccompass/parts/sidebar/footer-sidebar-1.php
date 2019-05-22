@@ -9,19 +9,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <div class="row">
-    <div class="col-lg-4 col-md-4">
+    <div class="col-lg-3 col-md-6 mb-20 mb-lg-0">
         <?php dynamic_sidebar( 'footer1' ); ?>
     </div>
 
-    <div class="col-lg-2 col-md-3 ml-md-auto">
+    <div class="col-lg-3 col-md-6 mb-20 mb-lg-0">
         <?php dynamic_sidebar( 'footer2' ); ?>
     </div>
 
-    <div class="col-lg-3 col-md-4">
+    <div class="col-lg-3 col-md-6 mb-20 mb-md-0">
         <?php dynamic_sidebar( 'footer3' ); ?>
     </div>
 
-    <div class="col-lg-2 ml-lg-auto">
+    <div class="col-lg-3 col-md-6">
         <?php dynamic_sidebar( 'footer4' ); ?>
     </div>
 </div>

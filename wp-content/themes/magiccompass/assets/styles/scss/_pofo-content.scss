@@ -1,3 +1,18 @@
+.display-block {display:block !important}
+.display-inline-block {display:inline-block !important}
+.display-inline {display:inline !important}
+.display-none {display:none !important}
+.display-inherit {display:inherit !important}
+.display-table {display:table !important}
+.display-table-cell {display:table-cell !important}
+.overflow-hidden {overflow:hidden !important}
+.overflow-visible {overflow:visible !important}
+.overflow-auto {overflow:auto !important}
+
+.vertical-align-middle {vertical-align: middle;}
+.vertical-align-top {vertical-align: top;}
+.vertical-align-bottom {vertical-align: bottom;}
+
 /* separator */
 .separator-line-verticle-extra-small {width:1px; height: 8px;}
 .separator-line-verticle-small-thick {width:17px; height: 3px;}
@@ -12,6 +27,20 @@
 .separator-line-horrizontal-medium-light3 {width:18%; height: 1px;}
 .separator-line-horrizontal-medium-thick {width:50px; height: 5px;}
 .separator-line-horrizontal-full {width:100%; height: 1px;}
+
+/* social media icon style */
+.extra-small-icon, .small-icon, .medium-icon, .large-icon, .extra-large-icon {list-style: none; padding: 0;}
+.extra-small-icon li, .small-icon li, .medium-icon li, .large-icon li, .extra-large-icon li {display: inline-block;}
+.extra-small-icon li {margin: 0 2px}
+.small-icon li {margin: 0 2px}
+.medium-icon li {margin: 0 8px}
+.large-icon li {margin: 0 10px}
+.extra-large-icon li {margin: 0 12px}
+.extra-small-icon a {font-size: 14px; width:30px; height:30px;line-height:29px;}
+.small-icon a {font-size: 16px; width: 40px; height:40px;line-height: 38px;}
+.medium-icon a {font-size: 20px; width: 50px; height:50px;line-height: 48px;}
+.large-icon a {font-size: 24px; width: 60px; height: 60px;line-height: 61px;}
+.extra-large-icon a {font-size: 30px; width: 70px; height: 70px;line-height: 68px;}
 
 /* counter box style 1 */
 .counter-box {

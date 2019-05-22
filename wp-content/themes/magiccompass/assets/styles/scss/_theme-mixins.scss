@@ -83,3 +83,113 @@
         }
     }
 }
+
+/********************
+ 1.ICONS
+ ********************/
+@mixin icon-color ($border-color, $background-color, $color) {
+    color: $color;
+    &:before {
+        border-color: $border-color;
+        background-color: $background-color;
+    }
+}
+
+@mixin icon-color-scheme ($color) {
+    $hover-color: null;
+    $txt-color: null;
+
+    @if (lightness($color) < 10) {
+        $hover-color: lighten($color, 10%);
+    } @else {
+        $hover-color: darken($color, 10%);
+    }
+
+    @if (lightness($color) > 60) {
+        $txt-color: $black;
+    } @else {
+        $txt-color: $white;
+    }
+
+    @include icon-color(transparent, transparent, $color);
+
+    &:hover {
+        @include icon-color(transparent, transparent, $hover-color);
+    }
+
+    &.type-bg, &.icon-bg {
+        @include icon-color($color, $color, $txt-color);
+
+        &:hover {
+            @include icon-color($hover-color, $hover-color, $txt-color);
+        }
+        &.hvr-invert {
+            &:hover {
+                @include icon-color($color, transparent, $color);
+            }
+        }
+    }
+
+    &.type-hollow, &.icon-hollow {
+        @include icon-color($color, transparent, $color);
+        &:hover {
+            @include icon-color($hover-color, transparent, $hover-color);
+        }
+        &.hvr-invert {
+            &:hover {
+                @include icon-color($color, $color, $txt-color);
+            }
+        }
+    }
+}
+
+@mixin icon-color-scheme-hvr ($color) {
+    $hover-color: null;
+    $txt-color: null;
+
+    @if (lightness($color) < 10) {
+        $hover-color: lighten($color, 10%);
+    } @else {
+        $hover-color: darken($color, 10%);
+    }
+
+    @if (lightness($color) > 60) {
+        $txt-color: $black;
+    } @else {
+        $txt-color: $white;
+    }
+
+    &:hover {
+        color: $color;
+    }
+
+    &.type-bg, &.icon-bg {
+        &:hover {
+            border-color: $color;
+            background-color: $color;
+            color: $txt-color;
+        }
+        &.hvr-invert {
+            &:hover {
+                border-color: $color;
+                background-color: transparent;
+                color: $color;
+            }
+        }
+    }
+
+    &.type-hollow, &.icon-hollow {
+        &:hover {
+            border-color: $color;
+            background-color: transparent;
+            color: $color;
+        }
+        &.hvr-invert {
+            &:hover {
+                border-color: $color;
+                background-color: $color;
+                color: $txt-color;
+            }
+        }
+    }
+}

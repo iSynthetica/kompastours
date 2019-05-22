@@ -163,10 +163,70 @@ function ittour_insert_open_graph() {
     if ( is_page ( 495 ) ) {
         global $ittour_global_tour_result;
 
+        $image = '';
+        $title = __('Hot tour', 'snthwp');
+
+        if (!empty($ittour_global_tour_result["result"]["hotel"])) {
+            $title = $ittour_global_tour_result["result"]["hotel"];
+
+            if (!empty($ittour_global_tour_result["result"]["hotel_rating_kn"])) {
+                $title .= ' ' . $ittour_global_tour_result["result"]["hotel_rating_kn"];
+            }
+
+            if (!empty($ittour_global_tour_result["result"]["prices"][1])) {
+                $title .= ' - ' . $ittour_global_tour_result["result"]["prices"][1] . '$';
+            }
+        }
+
+        if (!empty($ittour_global_tour_result["result"]["hotel_info"]["images"][0]["full"])) {
+            $image = $ittour_global_tour_result["result"]["hotel_info"]["images"][0]["full"];
+        }
+
+        $description = '';
+
+        if (!empty($ittour_global_tour_result["result"]["country"])) {
+            $description .= $ittour_global_tour_result["result"]["country"];
+        }
+
+        if (!empty($ittour_global_tour_result["result"]["region"])) {
+            if (!empty($description)) {
+                $description .= ', ';
+            }
+
+            $description .= $ittour_global_tour_result["result"]["region"];
+        }
+
+        if (!empty($ittour_global_tour_result["result"]["date_from"])) {
+            if (!empty($description)) {
+                $description .= ' - ';
+            }
+
+            $description .= $ittour_global_tour_result["result"]["date_from"];
+        }
+
+        if (!empty($ittour_global_tour_result["result"]["meal_type"])) {
+            if (!empty($description)) {
+                $description .= ' - ';
+            }
+
+            $description .= $ittour_global_tour_result["result"]["meal_type"];
+
+            if (!empty($ittour_global_tour_result["result"]["meal_type_full"])) {
+                $description .= ' (' . $ittour_global_tour_result["result"]["meal_type_full"] . ')';
+            }
+        }
+
         ?>
-        <meta property="og:title" content="My Title"/>
-        <meta property="og:type" content=”hotel”/>
+        <meta property="og:url" content="<?php echo get_home_url() . '/tour-result/?key=' . $ittour_global_tour_result["result"]["key"]; ?>"/>
+        <meta property="og:title" content="<?php echo $title; ?>"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:description" content="<?php echo $description; ?>"/>
         <?php
+        if (!empty($image)) {
+            ?>
+            <meta property="og:image" content="<?php echo $image ?>"/>
+            <?php
+        }
     }
 }
 
