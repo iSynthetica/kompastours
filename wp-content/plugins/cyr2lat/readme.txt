@@ -3,7 +3,7 @@ Contributors: SergeyBiryukov, mihdan, karevn, webvitaly, kaggdesign
 Tags: cyrillic, belorussian, ukrainian, bulgarian, macedonian, georgian, kazakh, latin, l10n, russian, cyr-to-lat, cyr2lat, rustolat, slugs, translations, transliteration
 Requires at least: 2.3
 Tested up to: 5.2
-Stable tag: 4.0
+Stable tag: 4.1.2
 Requires PHP: 5.2
 
 Converts Cyrillic characters in post, page and term slugs to Latin characters.
@@ -62,6 +62,21 @@ Yes you can!
 * Join in on our [Telegram Channel](https://t.me/cyr2lat)
 
 == Changelog ==
+
+= 4.1.2 (22.05.2019) =
+* Fixed bug with fatal error in Cyr_To_Lat_Converter with php 5.2
+
+= 4.1.1 (22.05.2019) =
+* Fixed bug with fatal error in Cyr_To_Lat_Converter with php 5.6
+
+= 4.1 (21.05.2019) =
+* Added he_IL Table
+* Added plugin translation to Ukrainian
+* Added plugin translation to Swedish
+* Added phpunit tests. All plugin classes are 100% covered
+* Added js tests. All plugin js code is 100% covered
+* Fixed bug with Jetpack sync
+* Fixed empty slug bug while using characters outside of locale
 
 = 4.0 (24.04.2019) =
 * Added button to convert existing slugs, instead of checkbox

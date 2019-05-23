@@ -193,6 +193,15 @@ class Cyr_To_Lat_Settings {
 				'supplemental' => '',
 				'default'      => Cyr_To_Lat_Conversion_Tables::get( 'kk' ),
 			),
+			'he_IL' => array(
+				'label'        => __( 'he_IL Table', 'cyr2lat' ),
+				'section'      => 'he_IL_section',
+				'type'         => 'table',
+				'placeholder'  => '',
+				'helper'       => '',
+				'supplemental' => '',
+				'default'      => Cyr_To_Lat_Conversion_Tables::get( 'he_IL' ),
+			),
 		);
 	}
 
@@ -324,6 +333,10 @@ class Cyr_To_Lat_Settings {
 	 * Setup settings sections.
 	 */
 	public function setup_sections() {
+		if ( ! $this->is_ctl_options_screen() ) {
+			return;
+		}
+
 		add_settings_section(
 			'iso9_section',
 			__( 'ISO9 Table', 'cyr2lat' ),
@@ -363,6 +376,12 @@ class Cyr_To_Lat_Settings {
 		add_settings_section(
 			'kk_section',
 			__( 'kk Table', 'cyr2lat' ),
+			array( $this, 'cyr_to_lat_section' ),
+			self::PAGE
+		);
+		add_settings_section(
+			'he_IL_section',
+			__( 'he_IL Table', 'cyr2lat' ),
 			array( $this, 'cyr_to_lat_section' ),
 			self::PAGE
 		);
@@ -409,6 +428,10 @@ class Cyr_To_Lat_Settings {
 	 * @param array $arguments Field arguments.
 	 */
 	public function field_callback( $arguments ) {
+		if ( ! isset( $arguments['field_id'] ) ) {
+			return;
+		}
+
 		$value = $this->get_option( $arguments['field_id'] );
 
 		// Check which type of field we want.
@@ -566,6 +589,7 @@ class Cyr_To_Lat_Settings {
 				}
 				break;
 			default:
+				break;
 		}
 
 		// If there is help text.
@@ -656,6 +680,7 @@ class Cyr_To_Lat_Settings {
 					$value[ $key ]    = $form_field_value;
 					break;
 				default:
+					break;
 			}
 		}
 
