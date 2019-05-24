@@ -92,7 +92,7 @@ require_once(SNTH_INCLUDES.'/admin.php');
 add_action('wp_head', 'remove_one_wpseo_og', 1);
 
 function remove_one_wpseo_og() {
-    if ( is_page ( 495 ) ) {
+    if ( is_page_template( 'templates/tour.php' )) {
         remove_action( 'wpseo_head', array( $GLOBALS['wpseo_og'], 'opengraph' ), 30 );
     }
 }
@@ -100,7 +100,7 @@ function remove_one_wpseo_og() {
 add_action("wp", "ittour_set_global_variable");
 
 function ittour_set_global_variable() {
-    if ( is_page ( 495 ) ) {
+    if ( is_page_template( 'templates/tour.php' )) {
         global $ittour_global_tour_result;
 
         if (empty($_GET['key'])) {
@@ -122,7 +122,7 @@ function ittour_set_global_variable() {
 add_filter( 'wp_title', 'custom_title', 1000 );
 
 function custom_title($title) {
-    if ( is_page ( 495 ) ) {
+    if ( is_page_template( 'templates/tour.php' )) {
         global $ittour_global_tour_result;
 
         $title = 'My title';
@@ -132,7 +132,9 @@ function custom_title($title) {
 }
 
 function ittour_change_page_title( $title ) {
-    if ( is_page ( 495 ) ) {
+    $key = get_query_var( 'tour' );
+
+    if ( !empty($key)) {
         global $ittour_global_tour_result;
 
         $page_title = '';
@@ -160,7 +162,9 @@ function ittour_change_page_title( $title ) {
 add_filter( 'wpseo_title', 'ittour_change_page_title', 1000, 1 );
 
 function ittour_insert_open_graph() {
-    if ( is_page ( 495 ) ) {
+    $key = get_query_var( 'tour' );
+
+    if (!empty($key)) {
         global $ittour_global_tour_result;
 
         $image = '';
@@ -217,7 +221,7 @@ function ittour_insert_open_graph() {
         }
 
         ?>
-        <meta property="og:url" content="<?php echo get_home_url() . '/tour-result/?key=' . $ittour_global_tour_result["result"]["key"]; ?>"/>
+        <meta property="og:url" content="<?php echo get_home_url() . '/tour/' . $ittour_global_tour_result["result"]["key"]; ?>"/>
         <meta property="og:title" content="<?php echo $title; ?>"/>
         <meta property="og:type" content="website"/>
         <meta property="og:description" content="<?php echo $description; ?>"/>
@@ -231,5 +235,19 @@ function ittour_insert_open_graph() {
 }
 
 add_action( 'wp_head', 'ittour_insert_open_graph', 5 );
+
+function blog_canonical( $canonical ) {
+    $key = get_query_var( 'tour' );
+
+    if (!empty($key)) {
+        global $ittour_global_tour_result;
+
+        $canonical = get_home_url() . '/tour/' . $ittour_global_tour_result["result"]["key"];
+    }
+
+    return $canonical;
+}
+// RUN THE FILTER ON PAGES. NORMAL PAGES GET A NORMAL CANONICAL REFERENCE, BLOG POSTS GET THE REMAPPED ONE
+add_filter( 'wpseo_canonical', 'blog_canonical' );
 
 // $title = apply_filters( 'pre_get_document_title', '' );

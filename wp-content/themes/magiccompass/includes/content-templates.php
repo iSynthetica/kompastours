@@ -321,3 +321,32 @@ function snth_better_comments_cb($comment, $args, $depth) {
         'depth'   => $depth,
     ) );
 }
+
+function snth_default_image($size = 'full') {
+    $default_images = get_field('default_images', 'options');
+    $image = SNTH_IMAGES_URL . '/default_placeholder.jpg';
+
+    if (!empty($default_images)) {
+        $count = count($default_images);
+
+        $rand = rand(0, $count - 1);
+
+        $image_array = $default_images[$rand];
+
+        if ('full' === $size) {
+            $image = $image_array["image"]["url"];
+        } else {
+            $image = $image_array["image"]["sizes"][$size];
+
+            if (empty($image)) {
+                $image = $image_array["image"]["url"];
+            }
+        }
+    }
+
+    if (empty($image)) {
+        $image = SNTH_IMAGES_URL . '/default_placeholder.jpg';
+    }
+
+    return $image;
+}

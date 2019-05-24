@@ -13,11 +13,37 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $template_args = array(
     'type' => 1,
     'country' => $country_id,
+    'tour_type'     => 1,
+    'tour_kind'     => 1,
+    'meal_type'     => '560:512:498',
+    'items_per_page' => 12,
+);
+
+$template_args = array(
+    'type' => 1,
+    'country' => $country_id,
     'items_per_page' => 12,
 );
 
 $popular_regions = get_field('popular_country_regions', get_the_ID());
 ?>
+
+<section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
+    <div class="container">
+        <?php
+        ittour_show_template('form/section-search.php', array(
+            'country'       => $country_id,
+            'hotel_rating'  => '78:4',
+            'tour_type'     => 1,
+            'tour_kind'     => 1,
+            'meal_type'     => '560:512:498',
+        ));
+        ?>
+    </div>
+</section>
+
+<?php snth_show_template('breadcrumbs.php'); ?>
+
 <section id="recomended-tours__section" class="ptb-40">
     <div class="container">
         <div class="row">
@@ -63,21 +89,3 @@ if (!empty($popular_regions)) {
     <?php
 }
 ?>
-
-<section id="search-form__section" class="pt-20 pb-20">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="main_title">
-                    <h2 class="mt-0 mb-40"><?php the_title(); ?> <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
-                </div>
-            </div>
-        </div>
-
-        <?php
-        ittour_show_template('form/section-search.php', array(
-            'country'       => $country_id
-        ));
-        ?>
-    </div>
-</section>

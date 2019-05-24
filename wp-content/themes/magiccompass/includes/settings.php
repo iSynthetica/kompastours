@@ -48,6 +48,12 @@ function snth_settings_media_image_sizes ( $sizes ) {
             'c'  =>  true,
             'label' =>  __('Archive Blog Thumb', 'snthwp')
         ),
+        'share_thumb' => array (
+            'w'     =>  900,
+            'h'     =>  474,
+            'c'  =>  true,
+            'label' =>  __('Picture for sharing', 'snthwp')
+        ),
     );
 }
 add_filter( 'snth_image_sizes', 'snth_settings_media_image_sizes', 999 );

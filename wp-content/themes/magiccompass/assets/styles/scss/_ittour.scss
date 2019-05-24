@@ -3,6 +3,14 @@
     overflow: hidden;
 }
 
+#search-form__section {
+    background-color: $color-gray-3;
+
+    @media (min-width: 992px) {
+        background-color: $color-red;
+    }
+}
+
 #single-tour-main-info__container {
     .table-summary_holder {
         padding: rem-calc(10);

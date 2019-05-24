@@ -15,19 +15,25 @@ if (empty($template)) {
 if (empty($content)) {
     $content = 'page';
 }
+
+$thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnail_url(null, 'full');
 ?>
 
-<section class="parallax-window" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url('full') ?>" data-natural-width="1400"
-         data-natural-height="470">
-    <div class="parallax-content-1">
-        <div class="animated fadeInDown">
-            <h1><?php the_title(); ?></h1>
+<section class="pt-120 pb-80 ptb-lg-0 cover-background screen-xl-small-medium screen-lg-medium bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo $thumbnail_url ?>');">
+    <div class="bg-overlay bg-black-color bg-opacity-20"></div>
 
-            <?php
-            if (!empty($subtitle)) {
-                ?><h3 class="entry-subtitle"><?php echo $subtitle; ?></h3><?php
-            }
-            ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 screen-xl-small-medium screen-lg-medium text-center page-title-extra-small d-flex flex-column justify-content-center">
+                <h1 class="txt-white-color mt-10 entry-title title-style1"><?php echo the_title(); ?></h1>
+
+                <?php
+                if (!empty($subtitle)) {
+                    ?><h2 class="txt-white-color"><?php echo $subtitle; ?></h2><?php
+                }
+                ?>
+
+            </div>
         </div>
     </div>
 </section>

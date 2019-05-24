@@ -80,7 +80,7 @@ $country = $result['hotels'][0]['country'];
 
                             <div class="row mt-20">
                                 <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-                                    <a href="/tour-result/?key=<?php echo $first_offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended">
+                                    <a href="/tour/<?php echo $first_offer['key'] ?>" class="btn shape-rnd type-hollow hvr-invert size-sm size-extended">
                                         <?php echo __('Want to this hotel', 'snthwp'); ?>
                                     </a>
                                 </div>

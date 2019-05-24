@@ -37,3 +37,39 @@ function ittour_tour($key, $lang = 'ru') {
 
     return new ittourTourApi($key, $lang);
 }
+
+add_action('init', 'ittour_rewrite_rule');
+/**
+ * Add rewrite rule for a pattern matching "post-by-slug/<post_name>"
+ */
+function ittour_rewrite_rule() {
+    add_rewrite_rule('^tour/(.*)/?', 'index.php?tour=$matches[1]', 'top');
+    add_rewrite_tag( '%tour%', '(.*)' );
+}
+
+add_action( 'template_redirect', function() {
+    $key = get_query_var( 'tour' );
+
+    if ( $key ) {
+        $_GET['key'] = $key;
+
+        global $ittour_global_tour_result;
+
+        if (empty($_GET['key'])) {
+            $ittour_global_tour_result['error'] = 'no_key';
+        } else {
+            $tour_key = $_GET['key'];
+            $tour = ittour_tour($tour_key, 'uk');
+            $tour_info = $tour->info();
+
+            if (is_wp_error($tour_info)) {
+
+            } else {
+                $ittour_global_tour_result['result'] = $tour_info;
+            }
+        }
+
+        include SNTH_DIR . '/templates/tour.php';
+        die;
+    }
+} );

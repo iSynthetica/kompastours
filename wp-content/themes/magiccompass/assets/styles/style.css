@@ -23744,6 +23744,89 @@ ul.plan-features {
   height: 70px;
   line-height: 68px; }
 
+.screen-extra-small {
+  height: 300px; }
+
+.screen-small {
+  height: 450px; }
+
+.screen-small-medium {
+  height: 600px; }
+
+.screen-medium {
+  height: 190px; }
+
+.screen-medium-large {
+  height: 400px; }
+
+.screen-large {
+  height: 400px; }
+
+.screen-extra-large {
+  height: 400px; }
+
+@media (min-width: 576px) {
+  .screen-sm-extra-small {
+    height: 300px; }
+  .screen-sm-small {
+    height: 400px; }
+  .screen-sm-small-medium {
+    height: 400px; }
+  .screen-sm-medium {
+    height: 290px; }
+  .screen-sm-medium-large {
+    height: 400px; }
+  .screen-sm-large {
+    height: 400px; }
+  .screen-sm-extra-large {
+    height: 400px; } }
+
+@media (min-width: 768px) {
+  .screen-md-extra-small {
+    height: 300px; }
+  .screen-md-small {
+    height: 400px; }
+  .screen-md-small-medium {
+    height: 400px; }
+  .screen-md-medium {
+    height: 360px; }
+  .screen-md-medium-large {
+    height: 400px; }
+  .screen-md-large {
+    height: 400px; }
+  .screen-md-extra-large {
+    height: 400px; } }
+
+@media (min-width: 992px) {
+  .screen-lg-extra-small {
+    height: 150px; }
+  .screen-lg-small {
+    height: 200px; }
+  .screen-lg-small-medium {
+    height: 300px; }
+  .screen-lg-medium {
+    height: 495px; }
+  .screen-lg-medium-large {
+    height: 500px; }
+  .screen-lg-large {
+    height: 600px; }
+  .screen-lg-extra-large {
+    height: 700px; } }
+
+@media (min-width: 1200px) {
+  .screen-xl-extra-small {
+    height: 300px; }
+  .screen-xl-small {
+    height: 450px; }
+  .screen-xl-small-medium {
+    height: 600px; }
+  .screen-xl-medium {
+    height: 700px; }
+  .screen-xl-medium-large {
+    height: 800px; }
+  .screen-xl-extra-large {
+    height: 900px; } }
+
 /* counter box style 1 */
 .counter-box h6 {
   font-size: 2rem; }
@@ -23906,6 +23989,12 @@ ul.plan-features {
   width: 100%;
   top: 0;
   left: 0; }
+
+.bg-opacity-5 {
+  opacity: 0.05; }
+
+.bg-opacity-10 {
+  opacity: 0.1; }
 
 .bg-opacity-20 {
   opacity: 0.2; }
@@ -26434,6 +26523,12 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
 .img_container {
   position: relative;
   overflow: hidden; }
+
+#search-form__section {
+  background-color: #f9f9f9; }
+  @media (min-width: 992px) {
+    #search-form__section {
+      background-color: #e04f67; } }
 
 #single-tour-main-info__container .table-summary_holder {
   padding: 0.625rem; }

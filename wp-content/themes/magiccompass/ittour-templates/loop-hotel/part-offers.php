@@ -15,7 +15,7 @@
     foreach ($offers as $offer) {
         ?>
         <li>
-            <a href="/tour-result/?key=<?php echo $offer['key'] ?>">
+            <a href="/tour/<?php echo $offer['key'] ?>">
                 <span><?php echo $offer['room_type'] ?></span> -
                 <span><?php echo $offer['meal_type_full'] ?></span> -
                 <span><?php echo $offer['duration'] ?> <?php _e('nights', 'snthwp'); ?> </span>

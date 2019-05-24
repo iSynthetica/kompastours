@@ -22,16 +22,23 @@ $post_id = get_the_ID();
 $subtitle = get_field('subtitle', get_the_ID());
 $destination_type = wp_get_post_terms( $post_id, 'destination_type' );
 $destination_type_template = $destination_type[0]->slug;
+$thumbnail_url = get_the_post_thumbnail_url(null, 'full');
+
+if (empty($thumbnail_url)) {
+    $thumbnail_url = snth_default_image();
+}
 
 if ('country' === $destination_type_template) {
     $template = 'full-width';
     $country_id = get_field('ittour_id', $post_id);
     $destination_content = snth_get_template('destination/country.php', array('country_id' => $country_id));
 } elseif('region' === $destination_type_template) {
+    $template = 'full-width';
     $region_id = get_field('ittour_id', $post_id);
     $country_id = get_field('ittour_country_id', $post_id);
     $destination_content = snth_get_template('destination/region.php', array('country_id' => $country_id, 'region_id' => $region_id));
 } elseif('hotel' === $destination_type_template) {
+    $template = 'full-width';
     $hotel_id = get_field('ittour_id', $post_id);
     $hotel_rating = get_field('ittour_hotel_rating', $post_id);
     $country_id = get_field('ittour_country_id', $post_id);
@@ -45,12 +52,11 @@ if ('country' === $destination_type_template) {
 }
 
 snth_show_template('titles/static-image-bg.php', array(
-        'title' => get_the_title()
+        'title' => get_the_title(),
+        'thumbnail_url' => $thumbnail_url
     )
 );
 ?>
-
-<?php snth_show_template('breadcrumbs.php'); ?>
 
 <div class="wrap">
     <?php

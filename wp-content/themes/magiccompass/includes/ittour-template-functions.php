@@ -1435,7 +1435,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                                                 <div class="col-12 col-sm-6">
                                                     <div class="tour_list_more_button">
                                                         <a
-                                                                href="/tour-result/?key=<?php echo $offer['key'] ?>"
+                                                                href="/tour/<?php echo $offer['key'] ?>"
                                                                 class="btn shape-rnd type-hollow hvr-invert size-xs"
                                                         >
                                                             <?php echo __('Details', 'snthwp'); ?>
@@ -1786,7 +1786,7 @@ function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $
                                     <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
                                 </td>
                                 <td>
-                                    <a href="/tour-result/?key=<?php echo $offer['key'] ?>" class="btn_1 small"><?php echo __('Details', 'snthwp'); ?></a>
+                                    <a href="/tour/<?php echo $offer['key'] ?>" class="btn_1 small"><?php echo __('Details', 'snthwp'); ?></a>
                                 </td>
                             </tr>
                             <?php
@@ -1888,7 +1888,7 @@ function ittour_get_hotel_tours_calendar($country_id, $hotel_id, $hotel_rating, 
                     $offers = $search_result['hotels'][0]['offers'];
                     $first_offer = $offers[0];
 
-                    $offer_html = '<br>' . __('from', 'snthwp') . ' <a href="/tour-result/?key='.$first_offer['key'].'">' . $first_offer['prices'][2] . '</a>';
+                    $offer_html = '<br>' . __('from', 'snthwp') . ' <a href="/tour/'.$first_offer['key'].'">' . $first_offer['prices'][2] . '</a>';
                 }
 
                 echo "<td>" . $day . $offer_html . "</td>";
