@@ -8,6 +8,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
+    <?php snth_show_template('global/subscribe.php'); ?>
+
     <?php snth_show_template('footer/classic.php'); ?>
 
     <?php wp_footer(); ?>
