@@ -130,6 +130,12 @@
         margin-top: 0;
         margin-bottom: rem-calc(15);
     }
+
+    .change-flight__holder span {
+        cursor: pointer;
+        color: $color-blue;
+    }
+
     .tour-details-list {
         list-style: none;
         padding-left: 0;
@@ -137,6 +143,32 @@
         li {
             font-size: rem-calc(16);
             margin-bottom: rem-calc(10);
+        }
+
+        &.select-flight__holder {
+            margin-top: rem-calc(10);
+            padding: rem-calc(3);
+            background-color: $color-gray-5;
+
+            li {
+                font-size: rem-calc(13);
+                cursor: pointer;
+                padding: rem-calc(8);
+                border-radius: rem-calc(8);
+                border: 1px solid $color-gray-10;
+                background-color: $color-white;
+                margin-bottom: rem-calc(3);
+                transition: all 0.3s;
+
+                &.selected, &:hover {
+                    border: 1px solid $color-green;
+                    color: $color-green;
+                }
+            }
+
+            li:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }

@@ -26604,12 +26604,34 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
   margin-top: 0;
   margin-bottom: 0.9375rem; }
 
+#single-tour-main-info__container .change-flight__holder span {
+  cursor: pointer;
+  color: #0072bc; }
+
 #single-tour-main-info__container .tour-details-list {
   list-style: none;
   padding-left: 0; }
   #single-tour-main-info__container .tour-details-list li {
     font-size: 1rem;
     margin-bottom: 0.625rem; }
+  #single-tour-main-info__container .tour-details-list.select-flight__holder {
+    margin-top: 0.625rem;
+    padding: 0.1875rem;
+    background-color: #f3f3f3; }
+    #single-tour-main-info__container .tour-details-list.select-flight__holder li {
+      font-size: 0.8125rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #e6e6e6;
+      background-color: #fefefe;
+      margin-bottom: 0.1875rem;
+      transition: all 0.3s; }
+      #single-tour-main-info__container .tour-details-list.select-flight__holder li.selected, #single-tour-main-info__container .tour-details-list.select-flight__holder li:hover {
+        border: 1px solid #7db594;
+        color: #7db594; }
+    #single-tour-main-info__container .tour-details-list.select-flight__holder li:last-child {
+      margin-bottom: 0; }
 
 i.list-item-icon {
   width: 1.5625rem;

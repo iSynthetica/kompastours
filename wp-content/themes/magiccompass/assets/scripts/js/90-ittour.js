@@ -23,6 +23,42 @@
 
     });
 
+    $(document.body).on('click', '#changeFlightThere', function() {
+        $('#flightThere__list').toggle();
+        $('#flightBack__list').hide();
+    });
+
+    $(document.body).on('click', '#changeFlightBack', function() {
+        $('#flightBack__list').toggle();
+        $('#flightThere__list').hide();
+    });
+
+    $(document.body).on('click', '.select-flight__holder li', function() {
+        var selected = $(this);
+
+        if (selected.hasClass('selected')) {
+            return true;
+        }
+
+        var type = selected.parents('.select-flight__holder').data('type');
+        var selectedHtml = selected.html();
+        var selectedVal = selected.data('value');
+        var variants = selected.parents('.select-flight__holder').find('li');
+
+        variants.each(function () {
+            $(this).removeClass('selected');
+        });
+
+        selected.addClass('selected');
+
+        var textHolder = $('#'+type+'__holder');
+        var formTextHolder = $('#form'+type+'__holder');
+
+        textHolder.html(selectedHtml);
+        formTextHolder.html(selectedHtml);
+        selected.parents('.select-flight__holder').hide();
+    });
+
     $(document.body).on('click', '.more-offers__link', function() {
         var control = $(this);
         var parent = control.parents('.tour_list_container');

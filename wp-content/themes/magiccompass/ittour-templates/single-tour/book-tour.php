@@ -51,6 +51,23 @@ if (empty($tour_info)) {
         <div id="booking-form__container">
             <div id="booking-form__body">
                 <form action="" id="booking-form">
+                    <input type="hidden" name="key" value="<?php echo $tour_info["key"] ?>">
+                    <input type="hidden" name="id" value="<?php echo $tour_info["id"] ?>">
+                    <input type="hidden" name="tour_id" value="<?php echo $tour_info["tour_id"] ?>">
+                    <input type="hidden" name="spo" value="<?php echo $tour_info["spo"] ?>">
+                    <input type="hidden" name="country_id" value="<?php echo $tour_info["country_id"] ?>">
+                    <input type="hidden" name="region_id" value="<?php echo $tour_info["region_id"] ?>">
+                    <input type="hidden" name="hotel_id" value="<?php echo $tour_info["hotel_id"] ?>">
+                    <input type="hidden" name="meal_type" value="<?php echo $tour_info["meal_type"] ?>">
+                    <input type="hidden" name="duration" value="<?php echo $tour_info["duration"] ?>">
+                    <input type="hidden" name="date_from" value="<?php echo $tour_info["date_from"] ?>">
+                    <input type="hidden" name="adult_amount" value="<?php echo $tour_info["adult_amount"] ?>">
+                    <input type="hidden" name="price_usd" value="<?php echo $tour_info["prices"]['1'] ?>">
+                    <input type="hidden" name="price_uah" value="<?php echo $tour_info["prices"]['2'] ?>">
+                    <input type="hidden" name="price_euro" value="<?php echo $tour_info["prices"]['10'] ?>">
+                    <input type="hidden" name="destination" value="<?php echo $tour_info["country"] ?>, <?php echo $tour_info["region"] ?>">
+                    <input type="hidden" name="hotel" value="<?php echo $tour_info["hotel"] ?> <?php echo ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]) ?>">
+
                     <header id="booking-form__header" class="mb-10 mb-md-20">
                         <h3 class="font-weight-900 mtb-0 text-center"><?php echo __('Tour booking', 'snthwp'); ?></h3>
                     </header>
@@ -159,8 +176,55 @@ if (empty($tour_info)) {
                                         </div>
                                         <?php
                                     }
+
                                     ?>
                                 </div>
+
+                                <?php
+                                if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])) {
+                                    ?>
+                                    <h4 class="mt-10 mb-10 font-weight-900 text-center"><?php echo __('Flight details', 'snthwp'); ?></h4>
+
+                                    <div class="row">
+                                        <?php
+                                        if (!empty($tour_info["flights"]["from"])) {
+                                            $from = $tour_info["flights"]['from'][0];
+                                            ?>
+                                            <div class="col-md-6 mtb-5">
+                                                <i class="fas fa-plane-departure list-item-icon"></i>
+
+                                                <span id="formflightThere__holder">
+                                                    <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
+                                                    <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
+                                                    <i class="fas fa-arrow-right"></i>
+                                                    <strong><?php echo $from['date_till'] ?> <?php echo $from['time_till'] ?></strong> <?php echo $from['to_city'] ?> (<?php echo $from['to_airport'] ?>)
+                                                    <i class="far fa-clock"></i> <?php echo $from['duration'] ?>
+                                                </span>
+                                            </div>
+                                            <?php
+                                        }
+
+                                        if (!empty($tour_info["flights"]["to"])) {
+                                            $from = $tour_info["flights"]['to'][0];
+                                            ?>
+                                            <div class="col-md-6 mtb-5">
+                                                <i class="fas fa-plane-arrival list-item-icon"></i>
+
+                                                <span id="formflightBack__holder">
+                                                    <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
+                                                    <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
+                                                    <i class="fas fa-arrow-right"></i>
+                                                    <strong><?php echo $from['date_till'] ?> <?php echo $from['time_till'] ?></strong> <?php echo $from['to_city'] ?> (<?php echo $from['to_airport'] ?>)
+                                                    <i class="far fa-clock"></i> <?php echo $from['duration'] ?>
+                                                </span>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </div>
 

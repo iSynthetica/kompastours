@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 14:41+0000\n"
-"PO-Revision-Date: 2019-05-25 14:43+0000\n"
+"POT-Creation-Date: 2019-05-25 17:24+0000\n"
+"PO-Revision-Date: 2019-05-25 17:25+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -56,7 +56,7 @@ msgstr "Продолжительность тура"
 #: includes/ittour-template-functions.php:240
 #: includes/ittour-template-functions.php:246 includes/enqueue-scripts.php:53
 #: ittour-templates/form/search-tab.php:176
-#: ittour-templates/single-tour/book-tour.php:77
+#: ittour-templates/single-tour/book-tour.php:109
 #: ittour-templates/loop-hotel/tour-list-default.php:121
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
@@ -64,14 +64,14 @@ msgstr "ночей"
 
 #: ittour-templates/single-tour-content.php:120
 #: ittour-templates/form/search.php:26
-#: ittour-templates/single-tour/book-tour.php:86
+#: ittour-templates/single-tour/book-tour.php:118
 #: ittour-templates/loop-hotel/part-price.php:14
 msgid "Adults"
 msgstr "Взрослые"
 
 #: ittour-templates/single-tour-content.php:130
 #: includes/ittour-template-functions.php:1159
-#: ittour-templates/single-tour/book-tour.php:96
+#: ittour-templates/single-tour/book-tour.php:128
 #: ittour-templates/loop-hotel/part-price.php:15
 msgid "Children"
 msgstr "Дети"
@@ -89,14 +89,14 @@ msgstr "Тип номера"
 #: includes/ittour-template-functions.php:332
 #: includes/ittour-template-functions.php:339
 #: includes/ittour-template-functions.php:819
-#: ittour-templates/single-tour/book-tour.php:125
+#: ittour-templates/single-tour/book-tour.php:157
 msgid "Plane"
 msgstr "Самолет"
 
 #: ittour-templates/single-tour-content.php:164
 #: includes/ittour-template-functions.php:341
 #: includes/ittour-template-functions.php:824
-#: ittour-templates/single-tour/book-tour.php:128
+#: ittour-templates/single-tour/book-tour.php:160
 msgid "Bus"
 msgstr "Автобус"
 
@@ -107,19 +107,19 @@ msgstr "Транспорт"
 
 #: ittour-templates/single-tour-content.php:179
 #: ittour-templates/form/search-tab.php:122
-#: ittour-templates/single-tour/book-tour.php:142
+#: ittour-templates/single-tour/book-tour.php:174
 msgid "Departure from"
 msgstr "Отправление из"
 
-#: ittour-templates/single-tour-content.php:210
+#: ittour-templates/single-tour-content.php:211
 msgid "More Tours"
 msgstr "Больше туров"
 
-#: ittour-templates/single-tour-content.php:216
+#: ittour-templates/single-tour-content.php:217
 msgid "Hotel Description"
 msgstr "Описание отеля"
 
-#: ittour-templates/single-tour-content.php:222
+#: ittour-templates/single-tour-content.php:223
 msgid "Location"
 msgstr "Расположение"
 
@@ -1017,7 +1017,7 @@ msgid "Tour is not actual"
 msgstr "Тур не актуальный"
 
 #: ittour-templates/single-tour/book-tour.php:42
-#: ittour-templates/single-tour/book-tour.php:208
+#: ittour-templates/single-tour/book-tour.php:288
 msgid "Book now"
 msgstr "Забронировать"
 
@@ -1029,43 +1029,47 @@ msgstr "или"
 msgid "Ask a question"
 msgstr "Задать вопрос"
 
-#: ittour-templates/single-tour/book-tour.php:55
+#: ittour-templates/single-tour/book-tour.php:72
 msgid "Tour booking"
 msgstr "Бронирование тура"
 
-#: ittour-templates/single-tour/book-tour.php:59
+#: ittour-templates/single-tour/book-tour.php:76
 msgid "Tour details"
 msgstr "Детали тура"
 
-#: ittour-templates/single-tour/book-tour.php:151
+#: ittour-templates/single-tour/book-tour.php:186
+msgid "Flight details"
+msgstr "Детали вылета"
+
+#: ittour-templates/single-tour/book-tour.php:231
 msgid "Contact details"
 msgstr "Контактные данные"
 
-#: ittour-templates/single-tour/book-tour.php:157
+#: ittour-templates/single-tour/book-tour.php:237
 msgid "Your name"
 msgstr "Ваше имя"
 
-#: ittour-templates/single-tour/book-tour.php:158
+#: ittour-templates/single-tour/book-tour.php:238
 msgid "Enter your name"
 msgstr "Введите Ваше имя"
 
-#: ittour-templates/single-tour/book-tour.php:164
+#: ittour-templates/single-tour/book-tour.php:244
 msgid "Your email"
 msgstr "Ваш email"
 
-#: ittour-templates/single-tour/book-tour.php:165
+#: ittour-templates/single-tour/book-tour.php:245
 msgid "Enter your email"
 msgstr "Введите Ваш email"
 
-#: ittour-templates/single-tour/book-tour.php:173
+#: ittour-templates/single-tour/book-tour.php:253
 msgid "Your phone"
 msgstr "Номер телефона"
 
-#: ittour-templates/single-tour/book-tour.php:174
+#: ittour-templates/single-tour/book-tour.php:254
 msgid "Enter your phone"
 msgstr "Введите номер телефона"
 
-#: ittour-templates/single-tour/book-tour.php:180
+#: ittour-templates/single-tour/book-tour.php:260
 msgid "Messangers for this phone"
 msgstr "Мессенджеры на этом телефоне"
 
@@ -1085,16 +1089,21 @@ msgstr "Расписание"
 msgid "Hotel info"
 msgstr "Информация об отеле"
 
-#: ittour-templates/single-tour/flights-list.php:16
+#: ittour-templates/single-tour/flights-list.php:17
 msgid "Flight there"
 msgstr "Вылет туда"
 
-#: ittour-templates/single-tour/flights-list.php:36
-#: ittour-templates/single-tour/flights-list.php:62
+#: ittour-templates/single-tour/flights-list.php:25
+#: ittour-templates/single-tour/flights-list.php:78
+msgid "change"
+msgstr "изменить"
+
+#: ittour-templates/single-tour/flights-list.php:46
+#: ittour-templates/single-tour/flights-list.php:99
 msgid "Departure time is specified and will be available within 48 hours."
 msgstr "Время отправления уточняется и будет известно в течении 48 часов."
 
-#: ittour-templates/single-tour/flights-list.php:42
+#: ittour-templates/single-tour/flights-list.php:71
 msgid "Flight back"
 msgstr "Вылет назад"
 
@@ -1119,7 +1128,7 @@ msgstr "Следующий"
 
 #: ittour-templates/search/no-parameters.php:18
 msgid "How to"
-msgstr ""
+msgstr "Как правильно"
 
 #: ittour-templates/search/tour-grid-default.php:84
 msgid "Want to this hotel"
