@@ -26533,23 +26533,55 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
 #single-tour-main-info__container .table-summary_holder {
   padding: 0.625rem; }
 
+#single-tour-main-info__container .tour_price, #single-tour-main-info__container .tour_price_currency {
+  line-height: 1.625rem;
+  font-size: 1.5rem;
+  margin: 0 0.625rem; }
+
 #single-tour-main-info__container .tour_price {
-  line-height: 1.5rem;
-  text-align: right;
-  font-size: 1.375rem;
-  color: #e74c3c; }
+  color: #e04f67; }
   #single-tour-main-info__container .tour_price small {
     font-size: 1.125rem; }
 
 #single-tour-main-info__container .tour_price_currency {
-  line-height: 1.125rem;
-  text-align: right;
-  font-size: 1rem;
-  color: #777; }
+  color: #7f7f7f; }
   #single-tour-main-info__container .tour_price_currency sup {
-    font-size: 0.75rem;
+    font-size: 1.125rem;
     position: relative;
     top: -0.25rem; }
+
+@media (min-width: 576px) {
+  #single-tour-main-info__container .tour_price, #single-tour-main-info__container .tour_price_currency {
+    line-height: 2rem;
+    font-size: 1.875rem; }
+  #single-tour-main-info__container .tour_price small {
+    font-size: 1.3125rem; }
+  #single-tour-main-info__container .tour_price_currency sup {
+    font-size: 1.3125rem;
+    position: relative;
+    top: -0.5rem; } }
+
+@media (min-width: 768px) {
+  #single-tour-main-info__container .tour_price, #single-tour-main-info__container .tour_price_currency {
+    line-height: 1.875rem;
+    font-size: 1.75rem; }
+  #single-tour-main-info__container .tour_price small {
+    font-size: 1.125rem; }
+  #single-tour-main-info__container .tour_price_currency sup {
+    font-size: 1.125rem;
+    position: relative;
+    top: -0.5rem; } }
+
+@media (min-width: 992px) {
+  #single-tour-main-info__container .tour_price, #single-tour-main-info__container .tour_price_currency {
+    line-height: 2.375rem;
+    font-size: 2.25rem; }
+  #single-tour-main-info__container .tour_price small {
+    font-size: 1.4375rem; }
+  #single-tour-main-info__container .tour_price_currency sup {
+    font-size: 1.4375rem;
+    position: relative;
+    top: -0.5rem; } }
 
 /* Tours boxes*/
 .tour_container {
@@ -34680,6 +34712,9 @@ div.icon {
 
 .flag-icon-xk.flag-icon-squared {
   background-image: url(../images/flags/1x1/xk.svg); }
+
+.m-auto {
+  margin: auto !important; }
 
 .m-0 {
   margin: 0 !important; }

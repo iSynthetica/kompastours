@@ -26883,6 +26883,24 @@ and dependencies (minified).
         });
 
 
+        /*==============================================================*/
+        //Modal popup - START CODE
+        /*==============================================================*/
+        $('.modal-popup').magnificPopup({
+            type: 'inline',
+            preloader: false,
+            // modal: true,
+            blackbg: true,
+            callbacks: {
+                open: function () {
+                    $('html').css('margin-right', 0);
+                }
+            }
+        });
+        $(document).on('click', '.popup-modal-dismiss', function (e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
         /*==============================================================
          counter
          ==============================================================*/

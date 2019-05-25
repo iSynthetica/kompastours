@@ -108,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <li>
                                 <i class="far fa-clock list-item-icon"></i>
                                 <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["duration"] ?></strong> <?php _e('nights', 'snthwp'); ?>
+                                <strong><?php echo $tour_info["duration"] ?> <?php _e('nights', 'snthwp'); ?></strong>
                             </li>
                             <?php
                         }
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <li>
                                 <i class="fas fa-utensils list-item-icon"></i>
                                 <small><?php _e('Meal type', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["meal_type"] ?></strong> <?php echo $tour_info["meal_type_full"] ?>
+                                <strong><?php echo $tour_info["meal_type"] ?> (<?php echo $tour_info["meal_type_full"] ?>)</strong>
                             </li>
                             <?php
                         }
@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <li>
                                 <i class="fas fa-key list-item-icon"></i>
                                 <small><?php _e('Room type', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["accomodation"] ?></strong> <?php echo $tour_info["room_type"] ?>
+                                <strong><?php echo $tour_info["room_type"] ?></strong>
                             </li>
                             <?php
                         }
@@ -187,6 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php
                     if (2 !== $tour_info['type']) {
                         $flights = !empty($tour_info['flights']) ? $tour_info['flights'] : array();
+
                         ittour_show_template('single-tour/flights-list.php', array('flights_info' => $flights));
                     }
                     ?>
@@ -195,38 +196,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
 
         <div class="col-md-4 col-lg-3">
-            <div class="box_style_1 expose table-summary_holder">
-                <div class="text-center mb-10 mb-md-20">
-                    <div class="tour_price">
-                        <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
-                    </div>
-                    <div class="tour_price_currency">
-                        <sup>$</sup><strong><?php echo $tour_info['prices'][1] ?></strong>
-                    </div>
-                </div>
-
-                <?php
-                if (0 === $tour_info['stop_flight']) {
-                    ?>
-                    <a class="btn bg-success-color size-lg shape-rnd type-hollow hvr-invert size-extended" href="cart.html" style="margin-bottom:0;">Book now</a>
-                    <?php
-                } else if (1 === $tour_info['stop_flight']) {
-                    ?>
-                    <?php echo __('Tour is not actual', 'snthwp'); ?>
-                    <?php
-                }
-                ?>
-
-
-            </div>
-            <!--/box_style_1 -->
-
-            <div class="box_style_4">
-                <i class="icon_set_1_icon-90"></i>
-                <h4><span>Book</span> by phone</h4>
-                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
-                <small>Monday to Friday 9.00am - 7.30pm</small>
-            </div>
+            <?php
+            ittour_show_template('single-tour/book-tour.php', array('tour_info' => $tour_info));
+            ?>
+            <?php ittour_show_template('single-tour/book-by-phone.php') ?>
         </div>
     </div>
 </section>

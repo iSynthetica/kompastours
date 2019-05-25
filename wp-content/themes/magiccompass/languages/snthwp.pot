@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 08:58+0000\n"
+"POT-Creation-Date: 2019-05-25 14:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -56,6 +56,7 @@ msgstr ""
 #: includes/ittour-template-functions.php:240
 #: includes/ittour-template-functions.php:246 includes/enqueue-scripts.php:53
 #: ittour-templates/form/search-tab.php:176
+#: ittour-templates/single-tour/book-tour.php:77
 #: ittour-templates/loop-hotel/tour-list-default.php:121
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
@@ -63,12 +64,14 @@ msgstr ""
 
 #: ittour-templates/single-tour-content.php:120
 #: ittour-templates/form/search.php:26
+#: ittour-templates/single-tour/book-tour.php:86
 #: ittour-templates/loop-hotel/part-price.php:14
 msgid "Adults"
 msgstr ""
 
 #: ittour-templates/single-tour-content.php:130
 #: includes/ittour-template-functions.php:1159
+#: ittour-templates/single-tour/book-tour.php:96
 #: ittour-templates/loop-hotel/part-price.php:15
 msgid "Children"
 msgstr ""
@@ -86,12 +89,14 @@ msgstr ""
 #: includes/ittour-template-functions.php:332
 #: includes/ittour-template-functions.php:339
 #: includes/ittour-template-functions.php:819
+#: ittour-templates/single-tour/book-tour.php:125
 msgid "Plane"
 msgstr ""
 
 #: ittour-templates/single-tour-content.php:164
 #: includes/ittour-template-functions.php:341
 #: includes/ittour-template-functions.php:824
+#: ittour-templates/single-tour/book-tour.php:128
 msgid "Bus"
 msgstr ""
 
@@ -102,47 +107,19 @@ msgstr ""
 
 #: ittour-templates/single-tour-content.php:179
 #: ittour-templates/form/search-tab.php:122
+#: ittour-templates/single-tour/book-tour.php:142
 msgid "Departure from"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:201
-#: includes/ittour-template-functions.php:395
-#: includes/ittour-template-functions.php:401
-#: includes/ittour-template-functions.php:407
-#: includes/ittour-template-functions.php:415
-#: includes/ittour-template-functions.php:421
-#: includes/ittour-template-functions.php:427
-#: includes/ittour-template-functions.php:724
-#: includes/ittour-template-functions.php:729
-#: includes/ittour-template-functions.php:734
-#: includes/ittour-template-functions.php:739
-#: includes/ittour-template-functions.php:744
-#: includes/ittour-template-functions.php:749
-#: includes/ittour-template-functions.php:766
-#: includes/ittour-template-functions.php:768
-#: includes/ittour-template-functions.php:1430
-#: includes/ittour-template-functions.php:1582
-#: includes/ittour-template-functions.php:1661
-#: includes/ittour-template-functions.php:1784
-#: ittour-templates/search/tour-grid-default.php:53
-#: ittour-templates/loop-hotel/tour-list-default.php:180
-#: ittour-templates/loop-hotel/tour-list-default.php:286
-msgid "uah."
-msgstr ""
-
-#: ittour-templates/single-tour-content.php:215
-msgid "Tour is not actual"
-msgstr ""
-
-#: ittour-templates/single-tour-content.php:238
+#: ittour-templates/single-tour-content.php:210
 msgid "More Tours"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:244
+#: ittour-templates/single-tour-content.php:216
 msgid "Hotel Description"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:250
+#: ittour-templates/single-tour-content.php:222
 msgid "Location"
 msgstr ""
 
@@ -248,6 +225,31 @@ msgstr ""
 #: includes/ittour-template-functions.php:347
 #: includes/ittour-template-functions.php:807
 msgid "Transit not included"
+msgstr ""
+
+#: includes/ittour-template-functions.php:395
+#: includes/ittour-template-functions.php:401
+#: includes/ittour-template-functions.php:407
+#: includes/ittour-template-functions.php:415
+#: includes/ittour-template-functions.php:421
+#: includes/ittour-template-functions.php:427
+#: includes/ittour-template-functions.php:724
+#: includes/ittour-template-functions.php:729
+#: includes/ittour-template-functions.php:734
+#: includes/ittour-template-functions.php:739
+#: includes/ittour-template-functions.php:744
+#: includes/ittour-template-functions.php:749
+#: includes/ittour-template-functions.php:766
+#: includes/ittour-template-functions.php:768
+#: includes/ittour-template-functions.php:1430
+#: includes/ittour-template-functions.php:1582
+#: includes/ittour-template-functions.php:1661
+#: includes/ittour-template-functions.php:1784
+#: ittour-templates/single-tour/book-tour.php:21
+#: ittour-templates/search/tour-grid-default.php:53
+#: ittour-templates/loop-hotel/tour-list-default.php:180
+#: ittour-templates/loop-hotel/tour-list-default.php:286
+msgid "uah."
 msgstr ""
 
 #: includes/ittour-template-functions.php:401
@@ -1004,6 +1006,67 @@ msgstr ""
 #: ittour-templates/single-tour/flights-table.php:16
 #: ittour-templates/single-tour/flights-table.php:60
 msgid "Arrival"
+msgstr ""
+
+#: ittour-templates/single-tour/book-by-phone.php:23
+msgid "<span>Book</span> by phone"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:37
+msgid "Tour is not actual"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:42
+#: ittour-templates/single-tour/book-tour.php:208
+msgid "Book now"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:44
+msgid "or"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:46
+msgid "Ask a question"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:55
+msgid "Tour booking"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:59
+msgid "Tour details"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:151
+msgid "Contact details"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:157
+msgid "Your name"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:158
+msgid "Enter your name"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:164
+msgid "Your email"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:165
+msgid "Enter your email"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:173
+msgid "Your phone"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:174
+msgid "Enter your phone"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour.php:180
+msgid "Messangers for this phone"
 msgstr ""
 
 #: ittour-templates/single-tour/hotel-map.php:26
