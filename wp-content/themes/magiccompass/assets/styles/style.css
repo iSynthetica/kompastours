@@ -15572,7 +15572,7 @@ img.mfp-img {
   color: #999; }
 
 .daterangepicker td.in-range {
-  background-color: #ebf4f8;
+  background-color: #abe0ff;
   border-color: transparent;
   color: #000;
   border-radius: 0; }
@@ -19677,7 +19677,7 @@ a.btn_login:hover, .btn_login:hover {
     width: 100%;
     z-index: 99; }
   .pf-body .header-with-topbar .top-header-area {
-    font-size: 11px;
+    font-size: 13px;
     position: fixed;
     top: 0;
     z-index: 10005;
@@ -19687,6 +19687,10 @@ a.btn_login:hover, .btn_login:hover {
     -moz-transition: ease-in-out 0.3s;
     -ms-transition: ease-in-out 0.3s;
     -o-transition: ease-in-out 0.3s; }
+    .pf-body .header-with-topbar .top-header-area a {
+      color: #fefefe; }
+      .pf-body .header-with-topbar .top-header-area a:hover {
+        color: #0072bc; }
   .pf-body .sticky.header-with-topbar .top-header-area {
     top: -45px; }
   .pf-body .sticky.header-with-topbar.fixed-topbar .top-header-area {
@@ -20198,9 +20202,7 @@ a.btn_login:hover, .btn_login:hover {
     font-weight: 900;
     font-size: 42px; }
   .pf-body .header-with-topbar .navbar-top, .pf-body .header-with-topbar .navbar-fixed-top {
-    top: 36px;
-    background: #fff;
-    box-shadow: 0 4px 10px -10px rgba(0, 0, 0, 0.6); }
+    top: 2.5rem; }
   .pf-body .header-with-topbar.sticky .navbar-top {
     top: -160px; }
   .pf-body .header-with-topbar.sticky.header-appear .navbar-top {
@@ -23884,6 +23886,97 @@ ul.plan-features {
   top: 40%;
   opacity: 1; }
 
+/* scroll to top */
+.scroll-top-arrow, .scroll-top-arrow:focus {
+  color: #fff;
+  background: #878787;
+  line-height: 28px;
+  display: none;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  position: fixed;
+  right: 45px;
+  text-align: center;
+  text-decoration: none;
+  top: 91%;
+  z-index: 10006;
+  border-radius: 100%; }
+
+.scroll-top-arrow:hover {
+  background: #000;
+  opacity: .8;
+  color: #fff;
+  border-color: #ff214f; }
+
+.scroll-top-arrow i {
+  line-height: 30px;
+  position: relative; }
+
+/* search form */
+.search-cart-header {
+  padding-top: 14px;
+  float: right;
+  letter-spacing: 1px; }
+
+.header-search-form {
+  color: #232323; }
+
+.search-form .search-input {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 30px;
+  font-weight: 100;
+  padding: 20px 38px 20px 2px;
+  text-transform: capitalize;
+  background: transparent;
+  line-height: 40px;
+  color: #fff; }
+  .search-form .search-input:focus {
+    outline: none; }
+
+.search-input ::-moz-placeholder, .search-input [placeholder] {
+  color: #ff0000; }
+
+.search-form .search-button {
+  font-size: 21px;
+  color: #fff;
+  top: 31px;
+  right: 0;
+  outline: none; }
+
+#search-header {
+  height: 100%;
+  width: 45%;
+  margin: 0 auto; }
+
+.close-search {
+  color: #373737;
+  position: absolute;
+  right: 0;
+  top: 23px;
+  z-index: 998;
+  cursor: pointer; }
+
+.close-search:hover {
+  color: #9a9a9a; }
+
+.search-button {
+  cursor: pointer;
+  z-index: 0;
+  margin-right: 0;
+  border: none;
+  background: none; }
+
+@media (max-width: 991px) {
+  .search-form .search-input {
+    font-size: 24px;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+  .search-form .search-button {
+    font-size: 15px; } }
+
 .tags a {
   display: inline-block;
   margin: 5px 14px 10px 0;
@@ -26530,6 +26623,20 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     #search-form__section {
       background-color: #e04f67; } }
 
+@media (min-width: 768px) {
+  #home-search-form__section .search-form_ajax {
+    position: relative; }
+    #home-search-form__section .search-form_ajax .search-form__holder {
+      position: absolute;
+      width: 100%;
+      top: -8.125rem; } }
+
+@media (min-width: 992px) {
+  #home-search-form__section .search-form_ajax .search-form__holder {
+    position: absolute;
+    width: 100%;
+    top: -5.3125rem; } }
+
 #single-tour-main-info__container .table-summary_holder {
   padding: 0.625rem; }
 
@@ -26880,7 +26987,7 @@ i.list-item-icon {
       padding-top: 4.125rem;
       margin-top: 0;
       position: fixed;
-      top: 0;
+      top: 2.5rem;
       left: 0;
       width: 100%;
       height: 100%;
@@ -26889,7 +26996,7 @@ i.list-item-icon {
         display: none; }
     .search-form-toggle__holder .form-data-toggle-body {
       position: fixed;
-      top: 0;
+      top: 2.5rem;
       left: 0;
       width: 100%;
       height: 100%;
@@ -26899,7 +27006,7 @@ i.list-item-icon {
       background-color: #fefefe;
       padding: 0.625rem;
       position: fixed;
-      top: 0;
+      top: 2.5rem;
       left: 0;
       width: 100%; }
       .search-form-toggle__holder .form-data-toggle-header .btn {

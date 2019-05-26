@@ -25692,6 +25692,40 @@ and dependencies (minified).
 
     });
 
+    $(document.body).on('click', '.book-btn', function() {
+        var formData = $("#booking-form").serializeArray();
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_book_tour',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        alert(decoded.message);
+                    } else {
+                        alert(decoded.message);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    });
+
     $(document.body).on('click', '#changeFlightThere', function() {
         $('#flightThere__list').toggle();
         $('#flightBack__list').hide();
@@ -26034,6 +26068,8 @@ and dependencies (minified).
 
 }(jQuery));
 (function ($) {
+    var start = $.now();
+
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
@@ -26093,6 +26129,8 @@ and dependencies (minified).
                 format: 'DD.MM.YY'
             }
         });
+        var loadForm = $.now() - start;
+        console.log(loadForm + ' s');
     });
 
     $(document.body).on('click', '.form-data-toggle-control', function() {
@@ -26736,10 +26774,11 @@ and dependencies (minified).
     }
 
 
-    $(document).ready(function() {});
+    $(document).ready(function() {
+        ittourLoadSearchForm();
+    });
 
     $(window).on('load', function () {
-        ittourLoadSearchForm();
     });
 
     $(window).on('scroll', function() {});
@@ -26804,18 +26843,15 @@ and dependencies (minified).
                     if (decoded.success) {
                         var fragments = decoded.message.fragments;
 
-                        setTimeout(function () {
-                            updateFragments(fragments);
+                        updateFragments(fragments);
+                        $( document.body ).trigger('search_form_loaded');
 
-                            $( document.body ).trigger( 'search_form_loaded' );
-                        }, 1000);
                     } else {
                         alert(decoded.message);
                     }
                 } else {
                     alert('Something went wrong');
                 }
-
             }
         });
     }
@@ -26871,6 +26907,12 @@ and dependencies (minified).
     }
 
     $(document).ready(function() {
+
+        //Click event to scroll to top
+        $(document).on('click', '.scroll-top-arrow', function () {
+            $('html, body').animate({scrollTop: 0}, 800);
+            return false;
+        });
 
         /*==============================================================*/
         //magnificPopup Start
@@ -26962,6 +27004,11 @@ and dependencies (minified).
         if ($('body').hasClass('pf-body')) {
             init_scroll_navigate();
         }
+
+        if ($(this).scrollTop() > 150)
+            $('.scroll-top-arrow').fadeIn('slow');
+        else
+            $('.scroll-top-arrow').fadeOut('slow');
     });
 
     $(window).on('resize', function(e) {

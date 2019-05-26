@@ -222,3 +222,78 @@
 
 .blog-post-style3 .grid-item .blog-post .blog-post-images .blog-hover-icon span {top: 35%; position: relative; font-size: 48px; color: #fff; opacity: 0}
 .blog-post-style3 .grid-item .blog-post:hover .blog-post-images .blog-hover-icon span {top: 40%; opacity: 1;}
+
+/* scroll to top */
+.scroll-top-arrow, .scroll-top-arrow:focus {
+    color: #fff;
+    background: #878787;
+    line-height: 28px;
+    display: none;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    position: fixed;
+    right: 45px;
+    text-align: center;
+    text-decoration: none;
+    top: 91%;
+    z-index: 10006;
+    border-radius: 100%;
+}
+
+.scroll-top-arrow:hover {
+    background: #000;
+    opacity: .8;
+    color: #fff;
+    border-color: #ff214f
+}
+
+.scroll-top-arrow i {
+    line-height: 30px;
+    position: relative;
+}
+
+/* search form */
+.search-cart-header { padding-top: 14px; float: right; letter-spacing: 1px}
+.header-search-form {color: #232323}
+
+.search-form {
+    .search-input {
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid rgba(255,255,255,0.5);
+        font-size: 30px;
+        font-weight: 100;
+        padding: 20px 38px 20px 2px;
+        text-transform: capitalize;
+        background: transparent;
+        line-height: 40px;
+        color: #fff;
+
+        &:focus {
+            outline: none
+        }
+    }
+}
+
+
+.search-input ::-moz-placeholder, .search-input [placeholder] { color: #ff0000; }
+.search-form .search-button {font-size:21px; color:#fff; top:31px; right: 0; outline: none;}
+#search-header {height:100%; width: 45%; margin:0 auto;}
+.close-search { color: #373737; position: absolute; right: 0; top: 23px; z-index: 998; cursor: pointer; }
+.close-search:hover { color: #9a9a9a;}
+.search-button { cursor: pointer;  z-index: 0; margin-right: 0; border: none; background: none; }
+
+@media (max-width: 991px) {
+    .search-form {
+        .search-input {
+            font-size: 24px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .search-button {
+            font-size: 15px;
+        }
+    }
+}

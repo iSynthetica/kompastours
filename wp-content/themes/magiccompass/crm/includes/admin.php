@@ -12,6 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
+function crm_enqueue_admin_scripts() {
+    // Adding scripts file in the footer
+    wp_enqueue_script( 'crm-admin-js', CRM_ASSETS_JS.'/admin.js', array( 'jquery' ), CRM_VERSION, true );
+
+    // Register main stylesheet
+    wp_enqueue_style( 'crm-admin-css', CRM_ASSETS_CSS.'/admin.css', array(), CRM_VERSION, 'all' );
+}
+add_action( 'admin_enqueue_scripts', 'crm_enqueue_admin_scripts' );
+
 function crm_admin_menu() {
     add_menu_page(
         __('CRM Settings', 'snthwp'),

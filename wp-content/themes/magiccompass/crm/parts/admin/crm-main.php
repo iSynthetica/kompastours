@@ -14,23 +14,51 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <h3>Clients</h3>
 
 <?php
-if (empty(CRM_User::isTableExists())) {
-    ?>
-    <p>
-        <?php _e('In order to start working with CRM you need to create Clients table', 'snthwp') ?>
-    </p>
+$user = new CRM_User();
 
-    <button id="updateClientTable" class="button button-primary"><?php _e('Create Clients Table', 'snthwp') ?></button>
-    <?php
-    // CRM_User::createObjectTable();
-} elseif (CRM_User::isTableChanged()) {
+if (empty($user->isTableExists())) {
     ?>
-    <p>
-        <?php _e('Clients table was changed, please upgrade it in your DB.', 'snthwp') ?>
-    </p>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('In order to start working with CRM you need to create Clients table', 'snthwp') ?>
+        </p>
 
-    <button id="updateClientTable" class="button button-primary"><?php _e('Update Clients Table', 'snthwp') ?></button>
+        <button class="updateCRMTable button button-primary" data-table="user" data-operation="create"><?php _e('Create Clients Table', 'snthwp') ?></button>
+    </div>
     <?php
-    // CRM_User::createObjectTable();
+} elseif ($user->isTableChanged()) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('Clients table was changed, please upgrade it in your DB.', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="user" data-operation="update"><?php _e('Update Clients Table', 'snthwp') ?></button>
+    </div>
+    <?php
+}
+
+$user_meta = new CRM_Usermeta();
+
+if (empty($user_meta->isTableExists())) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('In order to start working with CRM you need to create Clients meta table', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="usermeta" data-operation="create"><?php _e('Create Clients Meta Table', 'snthwp') ?></button>
+    </div>
+    <?php
+} elseif ($user_meta->isTableChanged()) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('Clients meta table was changed, please upgrade it in your DB.', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="usermeta" data-operation="update"><?php _e('Update Clients Meta Table', 'snthwp') ?></button>
+    </div>
+    <?php
 }
 ?>

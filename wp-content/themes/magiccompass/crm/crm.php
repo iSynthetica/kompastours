@@ -16,6 +16,11 @@ define('CRM_ABSPATH', dirname(__FILE__));
 define('CRM_USER_NAME', __('User', 'snthwp'));
 define('CRM_USERS_NAME', __('Users', 'snthwp'));
 
+define('CRM_URL', get_template_directory_uri() . '/crm');
+define('CRM_ASSETS_URL', CRM_URL . '/assets');
+define('CRM_ASSETS_CSS', CRM_ASSETS_URL . '/css');
+define('CRM_ASSETS_JS', CRM_ASSETS_URL . '/js');
+
 spl_autoload_register('crm_autoload');
 
 /**
@@ -38,6 +43,7 @@ function crm_autoload($class_name)
 
 include_once(CRM_ABSPATH . '/includes/template-functions.php');
 include_once(CRM_ABSPATH . '/includes/admin.php');
+include_once(CRM_ABSPATH . '/includes/ajax.php');
 
 $path = CRM_ABSPATH;
 $true_path = '';

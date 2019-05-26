@@ -1,4 +1,6 @@
 (function ($) {
+    var start = $.now();
+
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
@@ -58,6 +60,8 @@
                 format: 'DD.MM.YY'
             }
         });
+        var loadForm = $.now() - start;
+        console.log(loadForm + ' s');
     });
 
     $(document.body).on('click', '.form-data-toggle-control', function() {
@@ -701,10 +705,11 @@
     }
 
 
-    $(document).ready(function() {});
+    $(document).ready(function() {
+        ittourLoadSearchForm();
+    });
 
     $(window).on('load', function () {
-        ittourLoadSearchForm();
     });
 
     $(window).on('scroll', function() {});
@@ -769,18 +774,15 @@
                     if (decoded.success) {
                         var fragments = decoded.message.fragments;
 
-                        setTimeout(function () {
-                            updateFragments(fragments);
+                        updateFragments(fragments);
+                        $( document.body ).trigger('search_form_loaded');
 
-                            $( document.body ).trigger( 'search_form_loaded' );
-                        }, 1000);
                     } else {
                         alert(decoded.message);
                     }
                 } else {
                     alert('Something went wrong');
                 }
-
             }
         });
     }

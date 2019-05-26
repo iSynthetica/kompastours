@@ -481,7 +481,7 @@
     }
 
     .header-with-topbar .top-header-area {
-        font-size: 11px;
+        font-size: 13px;
         position: fixed;
         top: 0;
         z-index: 10005;
@@ -491,6 +491,14 @@
         -moz-transition: ease-in-out 0.3s;
         -ms-transition: ease-in-out 0.3s;
         -o-transition: ease-in-out 0.3s;
+
+        a {
+            color: $color-white;
+
+            &:hover {
+                color: $color-blue;
+            }
+        }
     }
     .sticky.header-with-topbar .top-header-area {
         top: -45px
@@ -1173,9 +1181,7 @@
 
     /* header style two */
     .header-with-topbar .navbar-top, .header-with-topbar .navbar-fixed-top {
-        top: 36px;
-        background: #fff;
-        box-shadow: 0 4px 10px -10px rgba(0, 0, 0, 0.6)
+        top: rem-calc(40);
     }
     .header-with-topbar.sticky .navbar-top {
         top: -160px;

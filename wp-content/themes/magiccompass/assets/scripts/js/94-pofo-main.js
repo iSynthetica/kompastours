@@ -23,6 +23,12 @@
 
     $(document).ready(function() {
 
+        //Click event to scroll to top
+        $(document).on('click', '.scroll-top-arrow', function () {
+            $('html, body').animate({scrollTop: 0}, 800);
+            return false;
+        });
+
         /*==============================================================*/
         //magnificPopup Start
         /*==============================================================*/
@@ -113,6 +119,11 @@
         if ($('body').hasClass('pf-body')) {
             init_scroll_navigate();
         }
+
+        if ($(this).scrollTop() > 150)
+            $('.scroll-top-arrow').fadeIn('slow');
+        else
+            $('.scroll-top-arrow').fadeOut('slow');
     });
 
     $(window).on('resize', function(e) {

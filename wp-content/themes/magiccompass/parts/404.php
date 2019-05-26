@@ -23,12 +23,19 @@ if (empty($thumbnail_url)) {
 }
 
 snth_show_template('titles/static-image-bg.php', array(
-        'title' => get_the_title(),
+        'title' => '404',
         'thumbnail_url' => $thumbnail_url
     )
 );
 ?>
 
+<section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
+    <div class="container">
+        <?php
+        ittour_show_template('form/section-search.php');
+        ?>
+    </div>
+</section>
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 

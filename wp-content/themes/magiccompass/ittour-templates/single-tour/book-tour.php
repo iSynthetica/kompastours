@@ -235,14 +235,14 @@ if (empty($tour_info)) {
                                 <div class="col-md-6">
                                     <div class="form-group text-left">
                                         <label for="clientName"><small><?php echo __('Your name', 'snthwp'); ?> (*)</small></label>
-                                        <input type="text" class="form-control" id="clientName" placeholder="<?php echo __('Enter your name', 'snthwp'); ?>">
+                                        <input type="text" class="form-control" name="clientName" id="clientName" placeholder="<?php echo __('Enter your name', 'snthwp'); ?>">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 text-left">
                                     <div class="form-group">
                                         <label for="clientEmail"><small><?php echo __('Your email', 'snthwp'); ?></small></label>
-                                        <input type="text" class="form-control" id="clientEmail" placeholder="<?php echo __('Enter your email', 'snthwp'); ?>">
+                                        <input type="text" class="form-control" name="clientEmail" id="clientEmail" placeholder="<?php echo __('Enter your email', 'snthwp'); ?>">
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +251,7 @@ if (empty($tour_info)) {
                                 <div class="col-md-6">
                                     <div class="form-group text-left">
                                         <label for="clientPhone"><small><?php echo __('Your phone', 'snthwp'); ?> (*)</small></label>
-                                        <input type="text" class="form-control" id="clientPhone" placeholder="<?php echo __('Enter your phone', 'snthwp'); ?>">
+                                        <input type="text" class="form-control" name="clientPhone" id="clientPhone" placeholder="<?php echo __('Enter your phone', 'snthwp'); ?>">
                                     </div>
                                 </div>
 
@@ -261,12 +261,12 @@ if (empty($tour_info)) {
 
                                         <div class="mt-10">
                                             <div class="d-inline-block mr-10">
-                                                <input id="clientViber" class="iCheckGray styled_1" type="checkbox" value="viber">
+                                                <input id="clientViber" name="clientViber" class="iCheckGray styled_1" type="checkbox" value="viber">
                                                 <label class="mb-0" for="clientViber">Viber</label>
                                             </div>
 
                                             <div class="d-inline-block mr-10">
-                                                <input id="clientTelegram" class="iCheckGray styled_1" type="checkbox" value="telegram">
+                                                <input id="clientTelegram" name="clientTelegram" class="iCheckGray styled_1" type="checkbox" value="telegram">
                                                 <label class="mb-0" for="clientTelegram">Telegram</label>
                                             </div>
                                         </div>

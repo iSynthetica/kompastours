@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <!-- start header -->
-<header id="masthead" class="site-header" role="banner">
+<header id="masthead" class="site-header header-with-topbar" role="banner">
+    <?php snth_show_template('header/topbar.php'); ?>
     <!-- start navigation -->
     <nav class="navbar navbar-default bootsnav navbar-top header-light background-transparent nav-box-width white-link navbar-expand-lg">
         <div class="container-fluid nav-header-container">
@@ -45,11 +46,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
                         </div>
                     </form>
-                </div>
-                <div class="header-social-icon d-none d-md-inline-block">
-                    <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://twitter.com/" title="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://dribbble.com/" title="Dribbble" target="_blank"><i class="fab fa-dribbble"></i></a>
                 </div>
             </div>
         </div>

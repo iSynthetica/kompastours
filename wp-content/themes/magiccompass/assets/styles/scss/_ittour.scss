@@ -11,6 +11,27 @@
     }
 }
 
+#home-search-form__section {
+    .search-form_ajax {
+        @media (min-width: 768px) {
+            position: relative;
+            .search-form__holder {
+                position: absolute;
+                width: 100%;
+                top: rem-calc(-130);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .search-form__holder {
+                position: absolute;
+                width: 100%;
+                top: rem-calc(-85);
+            }
+        }
+    }
+}
+
 #single-tour-main-info__container {
     .table-summary_holder {
         padding: rem-calc(10);
