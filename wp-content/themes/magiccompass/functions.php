@@ -109,7 +109,7 @@ function ittour_set_global_variable() {
             $ittour_global_tour_result['error'] = 'no_key';
         } else {
             $tour_key = $_GET['key'];
-            $tour = ittour_tour($tour_key, 'uk');
+            $tour = ittour_tour($tour_key, ITTOUR_LANG);
             $tour_info = $tour->info();
 
             if (is_wp_error($tour_info)) {

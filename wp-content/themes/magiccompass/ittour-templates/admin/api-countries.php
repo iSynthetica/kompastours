@@ -10,7 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 $countries_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('country');
 
-$params_obj = ittour_params('uk');
+$params_obj = ittour_params(ITTOUR_LANG);
 $params = $params_obj->get();
 
 if (is_wp_error($params)) {
@@ -205,12 +205,4 @@ $countries_en = $params_en['countries'];
     ?>
     </tbody>
 </table>
-
-<script type="text/javascript">
-    (function(d, w, s) {
-        var widgetHash = '0R1469U11LgQ', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
-        gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
-        var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
-    })(document, window, 'script');
-</script>
 

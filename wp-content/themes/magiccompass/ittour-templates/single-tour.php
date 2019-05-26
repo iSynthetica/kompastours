@@ -21,7 +21,7 @@ if (empty($_GET['key'])) {
     $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));
 } else {
     $tour_key = $_GET['key'];
-    $tour = ittour_tour($tour_key, 'uk');
+    $tour = ittour_tour($tour_key, ITTOUR_LANG);
     $tour_info = $tour->info();
 
     $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));

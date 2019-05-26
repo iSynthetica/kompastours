@@ -69,7 +69,7 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
 }
 
 function ittour_get_form_fields($args = array()) {
-    $params_obj = ittour_params('uk');
+    $params_obj = ittour_params(ITTOUR_LANG);
     $params = $params_obj->get();
 
     if (is_wp_error( $params )) {
@@ -1303,7 +1303,7 @@ function ittour_get_transport_type_by_id($id) {
 }
 
 function ittour_get_tours_grid($country, $args = array()) {
-    $search = ittour_search('uk');
+    $search = ittour_search(ITTOUR_LANG);
     $search_result = $search->get($country, $args);
 
     ob_start();
@@ -1313,7 +1313,7 @@ function ittour_get_tours_grid($country, $args = array()) {
 }
 
 function ittour_get_tours_table_sort_by_date($country, $args = array()) {
-    $search = ittour_search('uk');
+    $search = ittour_search(ITTOUR_LANG);
     $search_result = $search->getList($country, $args);
 
     if (is_wp_error($search_result)) {
@@ -1539,7 +1539,7 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
 
     if ($need_update) {
         $args['items_per_page'] = 1;
-        $search = ittour_search('uk');
+        $search = ittour_search(ITTOUR_LANG);
 
         $hotel_ratings = array('78', '4', '3');
 

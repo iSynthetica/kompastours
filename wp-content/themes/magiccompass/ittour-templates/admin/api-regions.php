@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 $countries_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('country');
 $regions_site_by_ittour_id = ittour_get_destinations_list_sort_by_ittour_id('region');
 
-$params_obj = ittour_params('uk');
+$params_obj = ittour_params(ITTOUR_LANG);
 $params = $params_obj->get();
 $countries = $params['countries'];
 $countries_by_id = array();

@@ -7,6 +7,7 @@
  */
 
 define ('ITTOUR_VERSION', '0.0.1');
+define ('ITTOUR_LANG', 'ru');
 define ('ITTOUR_DIR', get_template_directory() . '/includes/ittourAPI');
 
 include_once SNTH_INCLUDES.'/ittour-api.php';
