@@ -89,6 +89,8 @@ require_once(SNTH_INCLUDES.'/enqueue-scripts.php');
 // Customize the WordPress admin
 require_once(SNTH_INCLUDES.'/admin.php');
 
+require_once(SNTH_DIR . '/crm/crm.php');
+
 add_action('wp_head', 'remove_one_wpseo_og', 1);
 
 function remove_one_wpseo_og() {
