@@ -79,11 +79,7 @@ function crm_claims_admin_page() {
 function crm_clients_admin_page() {
     ?>
     <div class="wrap">
-        <h2><?php _e('CRM Clients', 'snthwp'); ?></h2>
-
-        <?php
-        crm_show_template('admin/crm-main.php');
-        ?>
+        <?php crm_show_template('admin/clients.php'); ?>
     </div>
     <?php
 }

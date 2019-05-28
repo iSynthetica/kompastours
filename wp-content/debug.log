@@ -12256,3 +12256,45 @@ Stack trace:
 [28-May-2019 09:19:06 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
 [28-May-2019 09:19:06 UTC] PHP   5. include() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:499
 [28-May-2019 09:19:06 UTC] PHP   6. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/functions.php:92
+[28-May-2019 10:08:23 UTC] 
+[28-May-2019 10:08:30 UTC] 
+[28-May-2019 10:08:30 UTC] ?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=78%3A4&type=1&items_per_page=12&template=grid&country=372
+[28-May-2019 10:08:31 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 10:08:32 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 10:08:33 UTC] 
+[28-May-2019 10:08:33 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[28-May-2019 10:08:34 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[28-May-2019 10:08:34 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[28-May-2019 10:08:34 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[28-May-2019 10:08:34 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[28-May-2019 10:08:34 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[28-May-2019 10:08:36 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[28-May-2019 10:08:37 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[28-May-2019 10:08:37 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[28-May-2019 10:08:38 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[28-May-2019 10:08:38 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[28-May-2019 10:08:38 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[28-May-2019 10:08:39 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[28-May-2019 10:08:41 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[28-May-2019 10:08:41 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[28-May-2019 10:08:41 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[28-May-2019 10:08:41 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[28-May-2019 10:08:41 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[28-May-2019 10:08:43 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[28-May-2019 10:08:45 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[28-May-2019 10:08:45 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[28-May-2019 10:08:45 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[28-May-2019 10:08:45 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[28-May-2019 10:08:45 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[28-May-2019 10:08:46 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[28-May-2019 10:08:48 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[28-May-2019 10:08:48 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[28-May-2019 10:08:49 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[28-May-2019 10:08:49 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[28-May-2019 10:08:49 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[28-May-2019 10:08:49 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[28-May-2019 10:08:52 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[28-May-2019 10:08:52 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[28-May-2019 10:08:53 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[28-May-2019 10:08:53 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[28-May-2019 10:08:53 UTC] -list?date_from=29.05.19&date_till=08.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
