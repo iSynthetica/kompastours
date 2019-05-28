@@ -6,23 +6,27 @@
  * Time: 16:08
  */
 
-class CRM_User extends CRM_Entity {
-    protected static $table_name = 'crm_users';
+class CRM_Claim extends CRM_Entity {
+    protected static $table_name = 'crm_claims';
 
     protected static $fields = array(
         'ID' => 'bigint(20) unsigned NOT NULL auto_increment',
-        'user_display_name' => "varchar(100) NOT NULL default ''",
-        'user_email' => "varchar(100) NOT NULL default ''",
-        'user_phone' => "varchar(25) NOT NULL default ''",
-        'user_viber' => "int(1) NOT NULL default '0'",
-        'user_telegram' => "int(1) NOT NULL default '0'",
-        'user_registered' => "datetime NOT NULL default '0000-00-00 00:00:00'",
+        'parent_id' => 'bigint(20) unsigned NOT NULL auto_increment',
+        'client_id' => 'bigint(20) unsigned NOT NULL auto_increment',
+        'title' => "varchar(200) NOT NULL default ''",
+        'excerpt' => 'text NOT NULL',
+        'type' => "varchar(20) NOT NULL default 'tour'",
+        'status' => "varchar(20) NOT NULL default 'pending'",
+        'created' => "datetime NOT NULL default '0000-00-00 00:00:00'",
+        'modified' => "datetime NOT NULL default '0000-00-00 00:00:00'",
     );
 
     protected static $keys = array(
         'primary' => 'ID',
         'keys'    => array(
-            'user_phone' => 'user_phone',
+            'title' => 'title(191)',
+            'client' => 'client_id',
+            'type_status_date' => "type,status,created,ID"
         )
     );
 

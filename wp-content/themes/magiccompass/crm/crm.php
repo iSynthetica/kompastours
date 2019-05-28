@@ -4,13 +4,13 @@
  *
  * @package WordPress
  * @subpackage Magiccompass/CRM
- * @version 0.0.1
+ * @version 0.0.2
  * @since 0.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define('CRM_VERSION', '0.0.1');
+define('CRM_VERSION', '0.0.2');
 define('CRM_ABSPATH', dirname(__FILE__));
 
 define('CRM_USER_NAME', __('User', 'snthwp'));
@@ -44,6 +44,7 @@ function crm_autoload($class_name)
 include_once(CRM_ABSPATH . '/includes/template-functions.php');
 include_once(CRM_ABSPATH . '/includes/admin.php');
 include_once(CRM_ABSPATH . '/includes/ajax.php');
+include_once(CRM_ABSPATH . '/includes/ajax-front.php');
 
 $path = CRM_ABSPATH;
 $true_path = '';

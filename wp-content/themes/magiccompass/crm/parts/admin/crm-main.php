@@ -11,12 +11,10 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
-<h3>Clients</h3>
+<h3><?php _e('Clients', 'snthwp') ?></h3>
 
 <?php
-$user = new CRM_User();
-
-if (empty($user->isTableExists())) {
+if (empty(CRM_User::isTableExists())) {
     ?>
     <div class="fragment-holder">
         <p>
@@ -26,7 +24,7 @@ if (empty($user->isTableExists())) {
         <button class="updateCRMTable button button-primary" data-table="user" data-operation="create"><?php _e('Create Clients Table', 'snthwp') ?></button>
     </div>
     <?php
-} elseif ($user->isTableChanged()) {
+} elseif (CRM_User::isTableChanged()) {
     ?>
     <div class="fragment-holder">
         <p>
@@ -38,9 +36,7 @@ if (empty($user->isTableExists())) {
     <?php
 }
 
-$user_meta = new CRM_Usermeta();
-
-if (empty($user_meta->isTableExists())) {
+if (empty(CRM_Usermeta::isTableExists())) {
     ?>
     <div class="fragment-holder">
         <p>
@@ -50,7 +46,7 @@ if (empty($user_meta->isTableExists())) {
         <button class="updateCRMTable button button-primary" data-table="usermeta" data-operation="create"><?php _e('Create Clients Meta Table', 'snthwp') ?></button>
     </div>
     <?php
-} elseif ($user_meta->isTableChanged()) {
+} elseif (CRM_Usermeta::isTableChanged()) {
     ?>
     <div class="fragment-holder">
         <p>
@@ -58,6 +54,54 @@ if (empty($user_meta->isTableExists())) {
         </p>
 
         <button class="updateCRMTable button button-primary" data-table="usermeta" data-operation="update"><?php _e('Update Clients Meta Table', 'snthwp') ?></button>
+    </div>
+    <?php
+}
+?>
+
+<h3><?php _e('Claims', 'snthwp') ?></h3>
+
+<?php
+if (empty(CRM_Claim::isTableExists())) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('In order to start working with CRM you need to create Claims table', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="claim" data-operation="create"><?php _e('Create Claims Table', 'snthwp') ?></button>
+    </div>
+    <?php
+} elseif (CRM_Claim::isTableChanged()) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('Claims table was changed, please upgrade it in your DB.', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="claim" data-operation="update"><?php _e('Update Claims Table', 'snthwp') ?></button>
+    </div>
+    <?php
+}
+
+if (empty(CRM_Claimmeta::isTableExists())) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('In order to start working with CRM you need to create Claims Meta table', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="claimmeta" data-operation="create"><?php _e('Create Claims Meta Table', 'snthwp') ?></button>
+    </div>
+    <?php
+} elseif (CRM_Claim::isTableChanged()) {
+    ?>
+    <div class="fragment-holder">
+        <p>
+            <?php _e('Claims Meta table was changed, please upgrade it in your DB.', 'snthwp') ?>
+        </p>
+
+        <button class="updateCRMTable button button-primary" data-table="claimmeta" data-operation="update"><?php _e('Update Claims Meta Table', 'snthwp') ?></button>
     </div>
     <?php
 }

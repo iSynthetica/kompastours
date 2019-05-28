@@ -11719,3 +11719,540 @@ Stack trace:
 [27-May-2019 15:49:38 UTC] 
 [27-May-2019 15:49:43 UTC] 
 [27-May-2019 15:49:47 UTC] 
+[27-May-2019 15:50:52 UTC] 
+[27-May-2019 15:54:58 UTC] 
+[27-May-2019 15:54:59 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[27-May-2019 15:55:00 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[27-May-2019 15:55:01 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=338
+[27-May-2019 15:55:02 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:55:02 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:55:03 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:55:04 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:55:05 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:55:06 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:55:06 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:55:07 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:55:08 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:55:09 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[27-May-2019 15:55:10 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[27-May-2019 15:55:11 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=320
+[27-May-2019 15:55:12 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:55:12 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:55:13 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:55:14 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:55:14 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:55:15 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:55:16 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:55:17 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:55:18 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:55:19 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:55:20 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:55:20 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:55:21 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:55:22 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:55:23 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:55:24 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:55:25 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:55:26 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:55:27 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[27-May-2019 15:55:27 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[27-May-2019 15:55:28 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=334
+[27-May-2019 15:56:13 UTC] 
+[27-May-2019 15:56:15 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:56:15 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:56:16 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=318
+[27-May-2019 15:56:17 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:56:17 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:56:18 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=16
+[27-May-2019 15:56:19 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:56:20 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:56:20 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=332
+[27-May-2019 15:56:21 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:56:22 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:56:22 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=372
+[27-May-2019 15:56:23 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:56:25 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:56:25 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=324
+[27-May-2019 15:56:26 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:56:27 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:56:27 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=110
+[27-May-2019 15:56:28 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:56:29 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:56:29 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=378
+[27-May-2019 15:56:30 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:56:32 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:56:33 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=434
+[27-May-2019 15:56:33 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:56:34 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:56:35 UTC] -list?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=3&type=1&kind=1&template=min-prices-by-country&items_per_page=1&country=39
+[27-May-2019 15:56:44 UTC] 
+[27-May-2019 15:56:45 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[27-May-2019 15:56:46 UTC] /372?entity=hotel%3Ameal_type%3Afrom_city
+[27-May-2019 15:56:47 UTC] ?date_from=28.05.19&date_till=07.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=78%3A4&type=1&items_per_page=12&template=grid&country=372
+[27-May-2019 15:57:01 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:57:02 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:57:04 UTC] -list?date_from=28.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=7659&hotel=809276&template=table-sort-by-date&country=372
+[27-May-2019 15:57:36 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:57:37 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:57:39 UTC] -list?date_from=28.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=7659&hotel=809276&template=table-sort-by-date&country=372
+[27-May-2019 15:58:10 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:58:11 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:58:15 UTC] -list?date_from=28.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=7659&hotel=809276&template=table-sort-by-date&country=372
+[27-May-2019 15:58:44 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:58:45 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 15:58:48 UTC] -list?date_from=28.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=7659&hotel=809276&template=table-sort-by-date&country=372
+[27-May-2019 16:42:10 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 16:42:11 UTC] info/05-06-6ebc13e7dfbb7b1cd5cfe483d4efeb1c
+[27-May-2019 16:42:15 UTC] -list?date_from=28.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=7659&hotel=809276&template=table-sort-by-date&country=372
+[27-May-2019 16:44:57 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:45:25 UTC] PHP Notice:  Undefined variable: userdata in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php on line 43
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2363
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:45:25 UTC] PHP  10. wpdb->process_field_formats($data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2326
+[27-May-2019 16:45:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2395
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:45:25 UTC] PHP  10. wpdb->process_field_charsets($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2331
+[27-May-2019 16:45:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2426
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:45:25 UTC] PHP  10. wpdb->process_field_lengths($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2336
+[27-May-2019 16:45:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2971
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:45:25 UTC] PHP  10. wpdb->strip_invalid_text($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2341
+[27-May-2019 16:45:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2165
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. array_keys(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:45:25 UTC] PHP Warning:  implode(): Invalid arguments passed in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. implode(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:45:25 UTC] PHP Notice:  Функция wpdb::prepare вызвана <strong>неправильно</strong>. Аргумент запроса метода wpdb::prepare() должен содержать описатель преобразований. Дополнительную информацию можно найти на странице <a href="https://codex.wordpress.org/Debugging_in_WordPress">&laquo;Отладка в WordPress&raquo;</a>. (Это сообщение было добавлено в версии 3.9.0.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php on line 4773
+[27-May-2019 16:45:25 UTC] PHP Stack trace:
+[27-May-2019 16:45:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:45:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:45:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:45:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:45:25 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:45:25 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:45:25 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:43
+[27-May-2019 16:45:25 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:45:25 UTC] PHP   9. wpdb->prepare($query = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2181
+[27-May-2019 16:45:25 UTC] PHP  10. _doing_it_wrong($function = *uninitialized*, $message = *uninitialized*, $version = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1303
+[27-May-2019 16:45:25 UTC] PHP  11. trigger_error(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php:4773
+[27-May-2019 16:45:25 UTC] База данных WordPress возвратила ошибку Column count doesn't match value count at row 1 в ответ на запрос INSERT INTO `mc_users` (``) VALUES (), выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_User::insert
+[27-May-2019 16:46:32 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:46:45 UTC] PHP Notice:  Undefined variable: userdata in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php on line 44
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2363
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:46:45 UTC] PHP  10. wpdb->process_field_formats($data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2326
+[27-May-2019 16:46:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2395
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:46:45 UTC] PHP  10. wpdb->process_field_charsets($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2331
+[27-May-2019 16:46:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2426
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:46:45 UTC] PHP  10. wpdb->process_field_lengths($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2336
+[27-May-2019 16:46:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2971
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:46:45 UTC] PHP  10. wpdb->strip_invalid_text($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2341
+[27-May-2019 16:46:45 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2165
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. array_keys(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:46:45 UTC] PHP Warning:  implode(): Invalid arguments passed in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. implode(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:46:45 UTC] PHP Notice:  Функция wpdb::prepare вызвана <strong>неправильно</strong>. Аргумент запроса метода wpdb::prepare() должен содержать описатель преобразований. Дополнительную информацию можно найти на странице <a href="https://codex.wordpress.org/Debugging_in_WordPress">&laquo;Отладка в WordPress&raquo;</a>. (Это сообщение было добавлено в версии 3.9.0.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php on line 4773
+[27-May-2019 16:46:45 UTC] PHP Stack trace:
+[27-May-2019 16:46:45 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:46:45 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:46:45 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:46:45 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:46:45 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:46:45 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:46:45 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:46:45 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:46:45 UTC] PHP   9. wpdb->prepare($query = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2181
+[27-May-2019 16:46:45 UTC] PHP  10. _doing_it_wrong($function = *uninitialized*, $message = *uninitialized*, $version = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1303
+[27-May-2019 16:46:45 UTC] PHP  11. trigger_error(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php:4773
+[27-May-2019 16:46:45 UTC] База данных WordPress возвратила ошибку Column count doesn't match value count at row 1 в ответ на запрос INSERT INTO `mc_crm_users` (``) VALUES (), выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_User::insert
+[27-May-2019 16:47:10 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:47:54 UTC] PHP Notice:  Undefined variable: userdata in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php on line 44
+[27-May-2019 16:47:54 UTC] PHP Stack trace:
+[27-May-2019 16:47:54 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:47:54 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:47:54 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:47:54 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:47:54 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:47:54 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2363
+[27-May-2019 16:48:04 UTC] PHP Stack trace:
+[27-May-2019 16:48:04 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:04 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:04 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:04 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:04 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:04 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:04 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:04 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:04 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:48:04 UTC] PHP  10. wpdb->process_field_formats($data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2326
+[27-May-2019 16:48:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2395
+[27-May-2019 16:48:04 UTC] PHP Stack trace:
+[27-May-2019 16:48:04 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:04 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:04 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:04 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:04 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:04 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:04 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:04 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:04 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:48:04 UTC] PHP  10. wpdb->process_field_charsets($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2331
+[27-May-2019 16:48:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2426
+[27-May-2019 16:48:04 UTC] PHP Stack trace:
+[27-May-2019 16:48:04 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:04 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:04 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:04 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:04 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:04 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:04 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:04 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:04 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:48:04 UTC] PHP  10. wpdb->process_field_lengths($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2336
+[27-May-2019 16:48:04 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2971
+[27-May-2019 16:48:04 UTC] PHP Stack trace:
+[27-May-2019 16:48:04 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:04 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:04 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:04 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:04 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:04 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:04 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:04 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:04 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:48:04 UTC] PHP  10. wpdb->strip_invalid_text($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2341
+[27-May-2019 16:48:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2165
+[27-May-2019 16:48:40 UTC] PHP Stack trace:
+[27-May-2019 16:48:40 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:40 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:40 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:40 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:40 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:40 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:40 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:40 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:42 UTC] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:48:42 UTC] PHP Stack trace:
+[27-May-2019 16:48:42 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:42 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:42 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:42 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:42 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:42 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:42 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:42 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:42 UTC] PHP   9. array_keys(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:48:42 UTC] PHP Warning:  implode(): Invalid arguments passed in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:48:42 UTC] PHP Stack trace:
+[27-May-2019 16:48:42 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:48:42 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:48:42 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:48:42 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:48:42 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:48:42 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:48:42 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:48:42 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:48:42 UTC] PHP   9. implode(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:49:18 UTC] PHP Notice:  Функция wpdb::prepare вызвана <strong>неправильно</strong>. Аргумент запроса метода wpdb::prepare() должен содержать описатель преобразований. Дополнительную информацию можно найти на странице <a href="https://codex.wordpress.org/Debugging_in_WordPress">&laquo;Отладка в WordPress&raquo;</a>. (Это сообщение было добавлено в версии 3.9.0.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php on line 4773
+[27-May-2019 16:49:18 UTC] PHP Stack trace:
+[27-May-2019 16:49:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:49:18 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:49:18 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:49:18 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:49:18 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:49:18 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:49:18 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:49:18 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:49:18 UTC] PHP   9. wpdb->prepare($query = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2181
+[27-May-2019 16:49:18 UTC] PHP  10. _doing_it_wrong($function = *uninitialized*, $message = *uninitialized*, $version = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1303
+[27-May-2019 16:49:18 UTC] PHP  11. trigger_error(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php:4773
+[27-May-2019 16:49:18 UTC] База данных WordPress возвратила ошибку Column count doesn't match value count at row 1 в ответ на запрос INSERT INTO `mc_crm_users` (``) VALUES (), выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_User::insert
+[27-May-2019 16:49:56 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:50:05 UTC] PHP Notice:  Undefined variable: userdata in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php on line 44
+[27-May-2019 16:50:05 UTC] PHP Stack trace:
+[27-May-2019 16:50:05 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:05 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:05 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:05 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:05 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:05 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2363
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:50:36 UTC] PHP  10. wpdb->process_field_formats($data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2326
+[27-May-2019 16:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2395
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:50:36 UTC] PHP  10. wpdb->process_field_charsets($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2331
+[27-May-2019 16:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2426
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:50:36 UTC] PHP  10. wpdb->process_field_lengths($data = *uninitialized*, $table = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2336
+[27-May-2019 16:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2971
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. wpdb->process_fields($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2159
+[27-May-2019 16:50:36 UTC] PHP  10. wpdb->strip_invalid_text($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2341
+[27-May-2019 16:50:36 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2165
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP Warning:  array_keys() expects parameter 1 to be array, null given in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. array_keys(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:50:36 UTC] PHP Warning:  implode(): Invalid arguments passed in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 2175
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. implode(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2175
+[27-May-2019 16:50:36 UTC] PHP Notice:  Функция wpdb::prepare вызвана <strong>неправильно</strong>. Аргумент запроса метода wpdb::prepare() должен содержать описатель преобразований. Дополнительную информацию можно найти на странице <a href="https://codex.wordpress.org/Debugging_in_WordPress">&laquo;Отладка в WordPress&raquo;</a>. (Это сообщение было добавлено в версии 3.9.0.) in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php on line 4773
+[27-May-2019 16:50:36 UTC] PHP Stack trace:
+[27-May-2019 16:50:36 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[27-May-2019 16:50:36 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:188
+[27-May-2019 16:50:36 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 16:50:36 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 16:50:36 UTC] PHP   5. ittour_ajax_book_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 16:50:36 UTC] PHP   6. CRM_User::insert() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:74
+[27-May-2019 16:50:36 UTC] PHP   7. wpdb->insert($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-user.php:44
+[27-May-2019 16:50:36 UTC] PHP   8. wpdb->_insert_replace_helper($table = *uninitialized*, $data = *uninitialized*, $format = *uninitialized*, $type = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2103
+[27-May-2019 16:50:36 UTC] PHP   9. wpdb->prepare($query = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:2181
+[27-May-2019 16:50:36 UTC] PHP  10. _doing_it_wrong($function = *uninitialized*, $message = *uninitialized*, $version = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1303
+[27-May-2019 16:50:36 UTC] PHP  11. trigger_error(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/functions.php:4773
+[27-May-2019 16:50:36 UTC] База данных WordPress возвратила ошибку Column count doesn't match value count at row 1 в ответ на запрос INSERT INTO `mc_crm_users` (``) VALUES (), выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_User::insert
+[27-May-2019 16:50:47 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:53:01 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 16:57:28 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_' doesn't exist в ответ на запрос SELECT * FROM mc_ WHERE user_phone = '+380509863673' LIMIT 1, выполненный do_action('wp_ajax_nopriv_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_Entity::getByField
+[27-May-2019 17:59:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function CRM_User() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax.php:15
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): crm_update_table('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_crm_aja...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax.php on line 15
+[27-May-2019 18:10:26 UTC] PHP Fatal error:  Cannot redeclare static CRM_Entity::$keys as non static CRM_Claim::$keys in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claim.php on line 58
+[27-May-2019 18:10:26 UTC] PHP Stack trace:
+[27-May-2019 18:10:26 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[27-May-2019 18:10:26 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[27-May-2019 18:10:26 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[27-May-2019 18:10:26 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[27-May-2019 18:10:26 UTC] PHP   5. crm_admin_page(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[27-May-2019 18:10:26 UTC] PHP   6. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:43
+[27-May-2019 18:10:26 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[27-May-2019 18:10:26 UTC] PHP   8. spl_autoload_call(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/crm-main.php:66
+[27-May-2019 18:10:26 UTC] PHP   9. crm_autoload($class_name = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/crm-main.php:66
+[27-May-2019 18:16:26 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' type varchar(20) NOT NULL default 'tour', status varchar(20) NOT NULL default '' at line 1 в ответ на запрос CREATE TABLE mc_crm_claims (ID bigint(20) unsigned NOT NULL auto_increment, parent_id bigint(20) unsigned NOT NULL auto_increment, client_id bigint(20) unsigned NOT NULL auto_increment, title varchar(200) NOT NULL default '', description , type varchar(20) NOT NULL default 'tour', status varchar(20) NOT NULL default 'pending', created datetime NOT NULL default '0000-00-00 00:00:00', modified datetime NOT NULL default '0000-00-00 00:00:00', PRIMARY KEY (ID), KEY title (title(191)), KEY client (client_id), KEY type_status_date (type,status,created,ID)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный do_action('wp_ajax_crm_ajax_update_table'), WP_Hook->do_action, WP_Hook->apply_filters, crm_update_table, CRM_Entity::createObjectTable, dbDelta
+[27-May-2019 18:20:26 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' type varchar(20) NOT NULL default 'tour', status varchar(20) NOT NULL default '' at line 1 в ответ на запрос CREATE TABLE mc_crm_claims (ID bigint(20) unsigned NOT NULL auto_increment, parent_id bigint(20) unsigned NOT NULL auto_increment, client_id bigint(20) unsigned NOT NULL auto_increment, title varchar(200) NOT NULL default '', description , type varchar(20) NOT NULL default 'tour', status varchar(20) NOT NULL default 'pending', created datetime NOT NULL default '0000-00-00 00:00:00', modified datetime NOT NULL default '0000-00-00 00:00:00', PRIMARY KEY (ID), KEY title (title(191)), KEY client (client_id), KEY type_status_date (type,status,created,ID)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный do_action('wp_ajax_crm_ajax_update_table'), WP_Hook->do_action, WP_Hook->apply_filters, crm_update_table, CRM_Entity::createObjectTable, dbDelta
+[28-May-2019 09:17:05 UTC] PHP Fatal error:  Cannot redeclare crm_admin_page() (previously declared in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:55) in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php on line 101
+[28-May-2019 09:17:05 UTC] PHP Stack trace:
+[28-May-2019 09:17:05 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[28-May-2019 09:17:05 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[28-May-2019 09:17:05 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[28-May-2019 09:17:05 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[28-May-2019 09:17:05 UTC] PHP   5. include() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:499
+[28-May-2019 09:17:05 UTC] PHP   6. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/functions.php:92
+[28-May-2019 09:19:06 UTC] PHP Fatal error:  Cannot redeclare crm_admin_page() (previously declared in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:55) in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php on line 101
+[28-May-2019 09:19:06 UTC] PHP Stack trace:
+[28-May-2019 09:19:06 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[28-May-2019 09:19:06 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[28-May-2019 09:19:06 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[28-May-2019 09:19:06 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[28-May-2019 09:19:06 UTC] PHP   5. include() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:499
+[28-May-2019 09:19:06 UTC] PHP   6. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/functions.php:92

@@ -12,9 +12,7 @@ function crm_update_table() {
 
     $class_name = 'CRM_' . ucfirst($table);
 
-    $entity = new $class_name();
-
-    $entity->createObjectTable();
+    $class_name::createObjectTable();
 
     $response = array('success' => 1, 'error' => 0, 'message' => __('Success', 'wp2leads'));
 

@@ -31,6 +31,24 @@ function crm_admin_menu() {
         'dashicons-id-alt',
         6
     );
+
+    add_submenu_page(
+        'crm-page',
+        __('Claims Page', 'snthwp'),
+        __('Claims', 'snthwp'),
+        'manage_options',
+        'crm-claims',
+        'crm_claims_admin_page'
+    );
+
+    add_submenu_page(
+        'crm-page',
+        __('Clients Page', 'snthwp'),
+        __('Clients', 'snthwp'),
+        'manage_options',
+        'crm-clients',
+        'crm_clients_admin_page'
+    );
 }
 add_action( 'admin_menu', 'crm_admin_menu' );
 
@@ -38,6 +56,30 @@ function crm_admin_page() {
     ?>
     <div class="wrap">
         <h2><?php _e('CRM Settings', 'snthwp'); ?></h2>
+
+        <?php
+        crm_show_template('admin/crm-main.php');
+        ?>
+    </div>
+    <?php
+}
+
+function crm_claims_admin_page() {
+    ?>
+    <div class="wrap">
+        <h2><?php _e('CRM Claims', 'snthwp'); ?></h2>
+
+        <?php
+        crm_show_template('admin/crm-main.php');
+        ?>
+    </div>
+    <?php
+}
+
+function crm_clients_admin_page() {
+    ?>
+    <div class="wrap">
+        <h2><?php _e('CRM Clients', 'snthwp'); ?></h2>
 
         <?php
         crm_show_template('admin/crm-main.php');
