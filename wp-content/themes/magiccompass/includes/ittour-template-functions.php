@@ -674,7 +674,7 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             ?>
             <li style="display: inline-block">
 
-                <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray styled_1" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?><?php echo $disabled ?>>
+                <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray styled_12" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?><?php echo $disabled ?>>
                 <label for="hotel_rating_<?php echo $hotel_rating['id'] ?>"><?php echo $hotel_rating['name'] ?>*</label>
             </li>
             <?php
@@ -1517,6 +1517,21 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
     $expiration_period = 60 * 60 * 6;
     // $expiration_period = 60 * 10;
 
+    $test = 'date=29.05.19+-+10.06.19';
+
+    $url = '/search/';
+    $url .= '?from_city=2014';
+    $url .= '&country=' . $country;
+    $url .= '&region=';
+    $url .= '&tour_type=' . $args['type'];
+    $url .= '&tour_kind=' . $args['kind'];
+    $url .= '&adult_amount=2';
+    $url .= '&night_from=' . $args['night_from'];
+    $url .= '&night_till=' . $args['night_till'];
+    $url .= '&price_limit=';
+    $url .= '&price_limit_from=';
+    $url .= '&price_limit_till=';
+
     if (!empty($saved_prices_by_rating)) {
         if (!empty($saved_prices_by_rating[$country]['prices'])) {
             $price_by_region = $saved_prices_by_rating[$country]['prices'];
@@ -1573,13 +1588,17 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
 
     if (!empty($prices_by_rating)) {
         foreach ($prices_by_rating as $rating => $price) {
+            $search_link = $url . '&hotel_rating[]=' .  $rating;
             ?>
             <div class="row">
                 <div class="col-6">
                     <?php echo __('Hotels', 'snthwp') ?> <?php echo ittour_get_hotel_number_rating_by_id($rating) ?>
                 </div>
                 <div class="col-6">
-                    <?php echo __('from', 'snthwp') ?> <?php echo $price ?> <?php echo __('uah.', 'snthwp') ?>
+                    <?php echo __('from', 'snthwp') ?>
+                    <a href="<?php echo $search_link ?>" class="font-weight-900 font-alt">
+                        <?php echo $price ?> <?php echo __('uah.', 'snthwp') ?>
+                    </a>
                 </div>
             </div>
             <?php

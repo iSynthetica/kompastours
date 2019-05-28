@@ -41,8 +41,8 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="region-grid__container mb-20">
                         <div class="img_container">
-                            <a href="#">
-                                <img src="<?php echo SNTH_IMAGES_URL; ?>/placeholder-520x346.png" class="img-fluid" alt="Image">
+                            <a href="<?php echo get_post_permalink( $country->ID ); ?>" style="display: block">
+                                <img src="<?php echo SNTH_IMAGES_URL; ?>/ph650-253.jpg" class="img-fluid" alt="Image">
 
                                 <?php
                                 $img_url = get_the_post_thumbnail_url( $country->ID, 'archive_photo_thumb' );

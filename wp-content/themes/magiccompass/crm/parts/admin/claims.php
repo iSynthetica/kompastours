@@ -9,3 +9,20 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+$allowed_actions = array (
+    'add_new', 'edit'
+);
+
+if (
+    empty($_GET['action']) ||
+    !in_array($_GET['action'], $allowed_actions) ||
+    ('edit' === $_GET['action'] && empty($_GET['claim_id']))
+) {
+    crm_show_template('admin/claims-list.php');
+} elseif ('add_new' === $_GET['action']) {
+    crm_show_template('admin/claims-add-new.php');
+}
+?>
+
+<p>This page is under construction</p>

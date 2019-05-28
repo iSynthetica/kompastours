@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if (empty($tour_info)) {
     return;
 }
+
+// TODO: Show buttons
 ?>
 
 <div class="box_style_1 expose table-summary_holder">
@@ -26,26 +28,12 @@ if (empty($tour_info)) {
         </div>
     </div>
 
-    <?php
-    if (false ) {
-        if (0 === $tour_info['stop_flight']) {
-            ?>
-            <a class="btn bg-success-color size-md shape-rnd hvr-invert size-extended" href="cart.html" style="margin-bottom:0;">Book now</a>
-            <?php
-        } else if (1 === $tour_info['stop_flight']) {
-            ?>
-            <?php echo __('Tour is not actual', 'snthwp'); ?>
-            <?php
-        }
-    }
-    ?>
-    <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
+    <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0 d-none" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
 
-    <span class="mtb-5 d-block text-center txt-gray-40-color"><?php echo __('or', 'snthwp'); ?></span>
+    <span class="mtb-5 text-center txt-gray-40-color d-none"><?php echo __('or', 'snthwp'); ?></span>
 
-    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900"><?php echo __('Ask a question', 'snthwp'); ?></button>
+    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none"><?php echo __('Ask a question', 'snthwp'); ?></button>
 
-    <!-- start modal pop-up -->
     <div id="modal-popup" class="bg-white-color mfp-hide col-xl-5 col-md-9 col-11 m-auto modal-popup-main p-20">
 
         <div id="booking-form__container">
@@ -292,5 +280,4 @@ if (empty($tour_info)) {
             </div>
         </div>
     </div>
-    <!-- end modal pop-up -->
 </div>

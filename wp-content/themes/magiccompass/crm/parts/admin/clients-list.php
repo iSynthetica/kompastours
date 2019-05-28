@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
+            <th><?php _e('Manager', 'snthwp'); ?></th>
         </tr>
     </thead>
 
@@ -38,6 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
+            <th><?php _e('Manager', 'snthwp'); ?></th>
         </tr>
     </tfoot>
 </table>

@@ -158,7 +158,7 @@ $search_steps = get_field('timeline_items', 493);
 
                                         <div class="form-group">
                                             <label><?php echo __('Dates of start tour', 'snthwp') ?></label>
-                                            <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value=""<?php echo $dates_data; ?>>
+                                            <input id="date-pick__select" class="date-pick form-control" name="date" type="text" data-current_value=""<?php echo $dates_data; ?> readonly="readonly">
 
                                             <div class="date-pick__select__container"></div>
                                         </div>
