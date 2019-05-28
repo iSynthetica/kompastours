@@ -175,12 +175,28 @@ $search_steps = get_field('timeline_items', 493);
                                             ?>
                                             <label><?php echo __('Duration', 'snthwp') ?> (<?php echo __('nights', 'snthwp') ?>)</label>
                                             <div class="form-group">
-                                                <div class="numbers-alt numbers-ver" style="display: inline-block">
-                                                    <input type="number" value="<?php echo $night_from ?>" id="duration-from__select" class="qty2 form-control" name="night_from" data-current_value="<?php echo $night_from ?>">
+                                                <div class="numbers-alt numbers-gor style_1" style="display: inline-block">
+                                                    <input
+                                                            type="number"
+                                                            value="<?php echo $night_from ?>"
+                                                            id="duration-from__select"
+                                                            class="qty2 form-control"
+                                                            name="night_from"
+                                                            data-current_value="<?php echo $night_from ?>"
+                                                            readonly="readonly"
+                                                    >
                                                 </div>
-                                                -
-                                                <div class="numbers-alt numbers-ver" style="display: inline-block">
-                                                    <input type="number" value="<?php echo $night_till ?>" id="duration-till__select" class="qty2 form-control" name="night_till" data-current_value="<?php echo $night_till ?>">
+                                                <span class="d-inline-block mrl-10">-</span>
+                                                <div class="numbers-alt numbers-gor style_1" style="display: inline-block">
+                                                    <input
+                                                            type="number"
+                                                            value="<?php echo $night_till ?>"
+                                                            id="duration-till__select"
+                                                            class="qty2 form-control"
+                                                            name="night_till"
+                                                            data-current_value="<?php echo $night_till ?>"
+                                                            readonly="readonly"
+                                                    >
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +245,7 @@ $search_steps = get_field('timeline_items', 493);
                                             ?>
                                             <label><?php echo __('Adult amount', 'snthwp') ?></label>
 
-                                            <div class="numbers-alt numbers-gor">
+                                            <div class="numbers-alt numbers-gor style_1">
                                                 <input type="number" value="<?php echo $adult_amount ?>" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount">
                                             </div>
                                         </div>

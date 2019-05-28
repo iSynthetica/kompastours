@@ -53,17 +53,21 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
                                     <?php
                                 }
                                 ?>
+
+                                <div class="short_info with-flag">
+                                    <span class="flag-icon flag-icon-<?php echo $ittour_iso; ?>"></span>
+
+                                    <h3 class="hotel_title mtb-0 txt-white-color">
+                                        <?php echo $country->post_title; ?>
+                                    </h3>
+                                </div>
                             </a>
                         </div>
 
-                        <span class="flag-icon flag-icon-<?php echo $ittour_iso; ?>"></span>
 
-                        <div class="content__container p-10 bg-white-color">
-                            <h3 class="hotel_title mtb-0">
-                                <?php echo $country->post_title; ?>
-                            </h3>
 
-                            <div class="ptb-20">
+                        <div class="content__container prl-20 ptb-10 bg-white-color">
+                            <div class="pb-10" style="max-width: 240px; margin: auto">
                                 <?php
 
                                 $template_args = array(

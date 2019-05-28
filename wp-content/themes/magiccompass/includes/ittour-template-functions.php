@@ -1591,11 +1591,11 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
             $search_link = $url . '&hotel_rating[]=' .  $rating;
             ?>
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 font-weight-900 font-alt">
                     <?php echo __('Hotels', 'snthwp') ?> <?php echo ittour_get_hotel_number_rating_by_id($rating) ?>
                 </div>
                 <div class="col-6">
-                    <?php echo __('from', 'snthwp') ?>
+                    <small><?php echo __('from', 'snthwp') ?></small>
                     <a href="<?php echo $search_link ?>" class="font-weight-900 font-alt">
                         <?php echo $price ?> <?php echo __('uah.', 'snthwp') ?>
                     </a>

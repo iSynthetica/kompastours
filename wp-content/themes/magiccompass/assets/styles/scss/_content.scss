@@ -1193,6 +1193,32 @@ input.qty2 {
                 right: 0;
             }
         }
+
+        &.style_1 {
+            width: rem-calc(116);
+
+            input[type="number"] {
+                left: rem-calc(38);
+            }
+
+            .buttons_inc {
+                width: rem-calc(34);
+                height: rem-calc(34);
+                line-height: rem-calc(34);
+
+                &.decr {
+                    border-radius: rem-calc(34);
+                    top: rem-calc(3);
+                    left: 0;
+                }
+
+                &.incr {
+                    border-radius: rem-calc(34);
+                    top: rem-calc(3);
+                    right: 0;
+                }
+            }
+        }
     }
 
     &.numbers-ver {

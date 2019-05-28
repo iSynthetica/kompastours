@@ -282,8 +282,26 @@ i.list-item-icon {
     right: 0;
     background: -webkit-linear-gradient(top,transparent,#000);
     background: linear-gradient(to bottom,transparent,#000);
-    padding: 45px 10px 8px 5px;
+    padding: rem-calc(25 8 5 8);
     color: #fff;
+
+    &.with-flag {
+        padding-left: rem-calc(50);
+        padding-bottom: rem-calc(8);
+    }
+
+    .price {
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        display: inline-block;
+
+        sup {
+            font-size: 18px;
+            position: relative;
+            top: -5px;
+        }
+    }
 }
 
 .img-overlay {
@@ -296,19 +314,6 @@ i.list-item-icon {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.short_info .price {
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.short_info .price sup {
-    font-size: 18px;
-    position: relative;
-    top: -5px;
 }
 
 /* GMAP Infobox */

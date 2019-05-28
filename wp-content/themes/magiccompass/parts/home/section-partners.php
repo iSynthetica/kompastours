@@ -35,7 +35,7 @@ if (empty($partners) || empty($partners['section_content']['partners'])) {
             <?php
             foreach ($partners['section_content']['partners'] as $partner) {
                 ?>
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-6 col-lg-3">
                     <div class="text-center mb-10 mb-md-20 mb-lg-40">
                         <?php echo get_the_post_thumbnail( $partner->ID, 'full', array(
                             'style' => 'max-width:100%;width:220px;'
