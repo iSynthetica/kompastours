@@ -9,6 +9,8 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+$clients = CRM_User::getAll();
 ?>
 
 <h1 class="wp-heading-inline">
@@ -25,12 +27,24 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
-            <th><?php _e('Manager', 'snthwp'); ?></th>
         </tr>
     </thead>
 
     <tbody id="the-list">
-
+        <?php
+        if (!empty($clients)) {
+            foreach ($clients as $client) {
+                ?>
+                <tr>
+                    <th><strong><?php echo $client->user_display_name ?></strong></th>
+                    <td><?php echo $client->user_phone ?></td>
+                    <td><?php echo $client->user_email ?></td>
+                    <td></td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
     </tbody>
 
     <tfoot>
@@ -39,7 +53,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
-            <th><?php _e('Manager', 'snthwp'); ?></th>
         </tr>
     </tfoot>
 </table>

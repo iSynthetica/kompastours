@@ -25715,9 +25715,14 @@ and dependencies (minified).
 
                 if (decoded) {
                     if (decoded.success) {
-                        alert(decoded.message);
+                        var fragments = response.message.fragments;
+                        $( ".book-btn" ).remove();
+                        $( ".error_messages" ).remove();
+                        updateFragments(fragments);
                     } else {
-                        alert(decoded.message);
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
                     }
                 } else {
                     alert('Something went wrong');
@@ -25745,7 +25750,8 @@ and dependencies (minified).
 
         var type = selected.parents('.select-flight__holder').data('type');
         var selectedHtml = selected.html();
-        var selectedVal = selected.data('value');
+        var selectedVal = selected.data('txt-val');
+        var selectedStructured = selected.data('structured-val');
         var variants = selected.parents('.select-flight__holder').find('li');
 
         variants.each(function () {
@@ -25759,6 +25765,8 @@ and dependencies (minified).
 
         textHolder.html(selectedHtml);
         formTextHolder.html(selectedHtml);
+        $('#'+type+'_val').val(selectedVal);
+        $('#'+type+'_structured').val(selectedStructured);
         selected.parents('.select-flight__holder').hide();
     });
 

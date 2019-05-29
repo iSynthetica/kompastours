@@ -12540,3 +12540,163 @@ Stack trace:
 [28-May-2019 13:41:06 UTC] 
 [28-May-2019 13:41:07 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
 [28-May-2019 13:41:07 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 13:46:11 UTC] ?date_from=29.05.19&date_till=03.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4%3A78&type=1&kind=1&meal_type=560%3A512%3A498&country=338
+[28-May-2019 13:46:13 UTC] 
+[28-May-2019 13:46:14 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 13:46:15 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 13:46:59 UTC] 
+[28-May-2019 14:41:31 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:41:32 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:41:36 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 14:43:11 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:43:11 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:43:14 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 14:57:53 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:57:53 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:57:56 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 14:58:04 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:58:05 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 14:58:07 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 15:19:32 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 15:19:34 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 15:19:39 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 15:21:16 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 15:21:17 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 15:21:22 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 15:21:30 UTC] ?date_from=29.05.19&date_till=10.06.19&night_from=7&night_till=7&from_city=2014&adult_amount=2&hotel_rating=78&type=1&kind=1&country=338
+[28-May-2019 15:21:37 UTC] 
+[28-May-2019 15:21:37 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 15:21:38 UTC] /338?entity=hotel%3Ameal_type%3Afrom_city
+[28-May-2019 15:21:45 UTC] info/05-07-65cd382460b855b83f53663b734c4015
+[28-May-2019 15:21:46 UTC] info/05-07-65cd382460b855b83f53663b734c4015
+[28-May-2019 15:21:51 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=5&type=1&kind=1&region=1&hotel=841251&template=table-sort-by-date&country=338
+[28-May-2019 16:18:47 UTC] PHP Fatal error:  Uncaught Error: Class 'CRM_ClaimHelper' not found in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:103
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_book_tour('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_ittour_...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php on line 103
+[28-May-2019 16:30:40 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:30:41 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:30:44 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 16:32:04 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:32:06 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:32:08 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 16:33:11 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:33:11 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:33:15 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 16:36:03 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:36:04 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 16:36:08 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:02:46 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:02:47 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:02:52 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:13:32 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:13:33 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:13:37 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:16:24 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:16:25 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:16:32 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:25:34 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:25:35 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:25:41 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:27:47 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:27:48 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:27:50 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:31:02 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:31:03 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:31:05 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[28-May-2019 17:34:15 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:34:16 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[28-May-2019 17:34:19 UTC] -list?date_from=29.05.19&date_till=31.05.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[29-May-2019 09:09:51 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:09:52 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:10:00 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=5&type=1&kind=1&region=1&hotel=6549&template=table-sort-by-date&country=338
+[29-May-2019 09:14:30 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:14:31 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:14:35 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=5&type=1&kind=1&region=1&hotel=6549&template=table-sort-by-date&country=338
+[29-May-2019 09:16:43 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_crm_claims' doesn't exist в ответ на запрос SHOW FULL COLUMNS FROM `mc_crm_claims`, выполненный do_action('wp_ajax_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_ClaimManager::create_new_booking_request, CRM_Claim::insert
+[29-May-2019 09:19:03 UTC] База данных WordPress возвратила ошибку Table 'synthetica_magiccompass_ru.mc_crm_claims' doesn't exist в ответ на запрос SHOW FULL COLUMNS FROM `mc_crm_claims`, выполненный do_action('wp_ajax_ittour_ajax_book_tour'), WP_Hook->do_action, WP_Hook->apply_filters, ittour_ajax_book_tour, CRM_ClaimManager::create_new_booking_request, CRM_Claim::insert
+[29-May-2019 09:20:09 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:20:11 UTC] info/05-07-4c6044ae55eb0a11af69430859cdc116
+[29-May-2019 09:20:14 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=5&type=1&kind=1&region=1&hotel=6549&template=table-sort-by-date&country=338
+[29-May-2019 09:21:10 UTC] База данных WordPress возвратила ошибку Incorrect table definition; there can be only one auto column and it must be defined as a key в ответ на запрос CREATE TABLE mc_crm_claims (ID bigint(20) unsigned NOT NULL auto_increment, parent_id bigint(20) unsigned NOT NULL auto_increment, client_id bigint(20) unsigned NOT NULL auto_increment, title varchar(200) NOT NULL default '', excerpt text NOT NULL, type varchar(20) NOT NULL default 'tour', status varchar(20) NOT NULL default 'pending', created datetime NOT NULL default '0000-00-00 00:00:00', modified datetime NOT NULL default '0000-00-00 00:00:00', PRIMARY KEY (ID), KEY title (title(191)), KEY client (client_id), KEY type_status_date (type,status,created,ID)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный do_action('wp_ajax_crm_ajax_update_table'), WP_Hook->do_action, WP_Hook->apply_filters, crm_update_table, CRM_Entity::createObjectTable, dbDelta
+[29-May-2019 09:21:13 UTC] База данных WordPress возвратила ошибку Key column 'user_id' doesn't exist in table в ответ на запрос CREATE TABLE mc_crm_claimss_meta (id bigint(20) unsigned NOT NULL auto_increment, claim_id bigint(20) unsigned NOT NULL default '0', meta_key varchar(255) default NULL, meta_value longtext, PRIMARY KEY (id), KEY user_id (user_id), KEY meta_key (meta_key(191))) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный do_action('wp_ajax_crm_ajax_update_table'), WP_Hook->do_action, WP_Hook->apply_filters, crm_update_table, CRM_Entity::createObjectTable, dbDelta
+[29-May-2019 09:31:23 UTC] База данных WordPress возвратила ошибку Key column 'user_id' doesn't exist in table в ответ на запрос CREATE TABLE mc_crm_claimss_meta (id bigint(20) unsigned NOT NULL auto_increment, claim_id bigint(20) unsigned NOT NULL default '0', meta_key varchar(255) default NULL, meta_value longtext, PRIMARY KEY (id), KEY user_id (user_id), KEY meta_key (meta_key(191))) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci, выполненный do_action('wp_ajax_crm_ajax_update_table'), WP_Hook->do_action, WP_Hook->apply_filters, crm_update_table, CRM_Entity::createObjectTable, dbDelta
+[29-May-2019 09:51:16 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 09:51:17 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 09:51:21 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[29-May-2019 10:03:43 UTC] PHP Notice:  Undefined property: stdClass::$user_display_name in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 40
+[29-May-2019 10:03:43 UTC] PHP Stack trace:
+[29-May-2019 10:03:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:03:43 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:03:43 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:03:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:03:43 UTC] PHP   5. crm_claims_admin_page() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:03:43 UTC] PHP   6. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:03:43 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:03:43 UTC] PHP   8. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:03:43 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:03:43 UTC] PHP Notice:  Undefined property: stdClass::$user_phone in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 41
+[29-May-2019 10:03:43 UTC] PHP Stack trace:
+[29-May-2019 10:03:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:03:43 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:03:43 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:03:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:03:43 UTC] PHP   5. crm_claims_admin_page() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:03:43 UTC] PHP   6. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:03:43 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:03:43 UTC] PHP   8. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:03:43 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:03:43 UTC] PHP Notice:  Undefined property: stdClass::$user_email in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 42
+[29-May-2019 10:03:43 UTC] PHP Stack trace:
+[29-May-2019 10:03:43 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:03:43 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:03:43 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:03:43 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:03:43 UTC] PHP   5. crm_claims_admin_page() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:03:43 UTC] PHP   6. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:03:43 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:03:43 UTC] PHP   8. crm_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:03:43 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP Notice:  Undefined property: stdClass::$user_display_name in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 40
+[29-May-2019 10:05:25 UTC] PHP Stack trace:
+[29-May-2019 10:05:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:05:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:05:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:05:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:05:25 UTC] PHP   5. crm_claims_admin_page(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:05:25 UTC] PHP   6. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:05:25 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP   8. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:05:25 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP Notice:  Undefined property: stdClass::$user_phone in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 41
+[29-May-2019 10:05:25 UTC] PHP Stack trace:
+[29-May-2019 10:05:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:05:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:05:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:05:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:05:25 UTC] PHP   5. crm_claims_admin_page(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:05:25 UTC] PHP   6. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:05:25 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP   8. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:05:25 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP Notice:  Undefined property: stdClass::$user_email in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims-list.php on line 42
+[29-May-2019 10:05:25 UTC] PHP Stack trace:
+[29-May-2019 10:05:25 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:0
+[29-May-2019 10:05:25 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin.php:253
+[29-May-2019 10:05:25 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[29-May-2019 10:05:25 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[29-May-2019 10:05:25 UTC] PHP   5. crm_claims_admin_page(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[29-May-2019 10:05:25 UTC] PHP   6. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/admin.php:71
+[29-May-2019 10:05:25 UTC] PHP   7. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:05:25 UTC] PHP   8. crm_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/parts/admin/claims.php:22
+[29-May-2019 10:05:25 UTC] PHP   9. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/template-functions.php:32
+[29-May-2019 10:54:30 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 10:54:31 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 10:54:34 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338
+[29-May-2019 11:19:22 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 11:19:24 UTC] info/05-07-00922ee23771d9a58c5a8793d35ed48a
+[29-May-2019 11:19:30 UTC] -list?date_from=30.05.19&date_till=01.06.19&night_from=7&night_till=9&from_city=2014&adult_amount=2&hotel_rating=4&type=1&kind=1&region=5996&hotel=50&template=table-sort-by-date&country=338

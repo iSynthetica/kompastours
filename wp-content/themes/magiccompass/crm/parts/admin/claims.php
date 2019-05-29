@@ -22,6 +22,8 @@ if (
     crm_show_template('admin/claims-list.php');
 } elseif ('add_new' === $_GET['action']) {
     crm_show_template('admin/claims-add-new.php');
+} elseif ('edit' === $_GET['action']) {
+    crm_show_template('admin/claims-edit.php', array('claim_id' => $_GET['claim_id']));
 }
 ?>
 

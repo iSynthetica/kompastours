@@ -112,4 +112,22 @@ class CRM_Entity {
 
         return $result;
     }
+
+    public static function get($ID = null) {
+        global $wpdb;
+        $table = $wpdb->prefix . static::$table_name;
+
+        $sql = "SELECT * FROM {$table} WHERE ID = {$ID}";
+
+        return $wpdb->get_row( $sql );
+    }
+
+    public static function getAll($params = array()) {
+        global $wpdb;
+        $table = $wpdb->prefix . static::$table_name;
+
+        $sql = "SELECT * FROM {$table}";
+
+        return $wpdb->get_results( $sql );
+    }
 }

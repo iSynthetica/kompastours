@@ -48,13 +48,41 @@ if (!empty($flights_info['from'])) {
 }
 ?>
 
-<ul id="flightThere__list" class="tour-details-list select-flight__holder" data-type="flightThere" style="display:none; line-height: 1.1">
-    <?php
-    if (!empty($flights_info['from'])) {
-        $i = 1;
+<?php
+
+if (!empty($flights_info['from'])) {
+    $i = 1;
+    ?>
+    <ul id="flightThere__list" class="tour-details-list select-flight__holder" data-type="flightThere" style="display:none; line-height: 1.1">
+        <?php
         foreach ($flights_info['from'] as $from) {
+            $structured_val =   $from['code'] . '{}'
+                       . $from['air_company'] . '{}'
+                       . $from['travel_class'] . '{}'
+                       . $from['date_from'] . '{}'
+                       . $from['time_from'] . '{}'
+                       . $from['from_city'] . '{}'
+                       . $from['from_airport'] . '{}'
+                       . $from['date_till'] . '{}'
+                       . $from['time_till'] . '{}'
+                       . $from['to_city'] . '{}'
+                       . $from['to_airport'] . '{}'
+                       . $from['duration'];
+
+            $txt_val =   $from['code'] . ' - '
+                       . $from['air_company'] . ' - '
+                       . $from['travel_class'] . ' - '
+                       . $from['date_from'] . ' - '
+                       . $from['time_from'] . ' - '
+                       . $from['from_city'] . ' - '
+                       . $from['from_airport'] . ' - '
+                       . $from['date_till'] . ' - '
+                       . $from['time_till'] . ' - '
+                       . $from['to_city'] . ' - '
+                       . $from['to_airport'] . ' - '
+                       . $from['duration'];
             ?>
-            <li<?php echo 1 === $i ? ' class="selected"' : '' ?>>
+            <li<?php echo 1 === $i ? ' class="selected"' : '' ?> data-structured-val="<?php echo $structured_val ?>" data-txt-val="<?php echo $txt_val ?>">
                 <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
                 <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
                 <i class="fas fa-arrow-right"></i>
@@ -64,9 +92,13 @@ if (!empty($flights_info['from'])) {
             <?php
             $i++;
         }
-    }
-    ?>
-</ul>
+        ?>
+    </ul>
+
+    <?php
+}
+
+?>
 
 <h4 class="mt-10 mt-md-20"><?php _e('Flight back', 'snthwp'); ?>
     <?php
@@ -101,13 +133,40 @@ if (!empty($flights_info['to'])) {
 }
 ?>
 
-<ul id="flightBack__list" class="tour-details-list select-flight__holder" data-type="flightBack" style="display:none; line-height: 1.1">
-    <?php
-    if (!empty($flights_info['to'])) {
-        $i = 1;
+<?php
+if (!empty($flights_info['to'])) {
+    $i = 1;
+    ?>
+    <ul id="flightBack__list" class="tour-details-list select-flight__holder" data-type="flightBack" style="display:none; line-height: 1.1">
+        <?php
         foreach ($flights_info['to'] as $from) {
+            $structured_val =   $from['code'] . '{}'
+                                . $from['air_company'] . '{}'
+                                . $from['travel_class'] . '{}'
+                                . $from['date_from'] . '{}'
+                                . $from['time_from'] . '{}'
+                                . $from['from_city'] . '{}'
+                                . $from['from_airport'] . '{}'
+                                . $from['date_till'] . '{}'
+                                . $from['time_till'] . '{}'
+                                . $from['to_city'] . '{}'
+                                . $from['to_airport'] . '{}'
+                                . $from['duration'];
+
+            $txt_val =   $from['code'] . ' - '
+                         . $from['air_company'] . ' - '
+                         . $from['travel_class'] . ' - '
+                         . $from['date_from'] . ' - '
+                         . $from['time_from'] . ' - '
+                         . $from['from_city'] . ' - '
+                         . $from['from_airport'] . ' - '
+                         . $from['date_till'] . ' - '
+                         . $from['time_till'] . ' - '
+                         . $from['to_city'] . ' - '
+                         . $from['to_airport'] . ' - '
+                         . $from['duration'];
             ?>
-            <li<?php echo 1 === $i ? ' class="selected"' : '' ?>>
+            <li<?php echo 1 === $i ? ' class="selected"' : '' ?> data-structured-val="<?php echo $structured_val ?>" data-txt-val="<?php echo $txt_val ?>">
                 <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
                 <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
                 <i class="fas fa-arrow-right"></i>
@@ -117,8 +176,10 @@ if (!empty($flights_info['to'])) {
             <?php
             $i++;
         }
-    }
-    ?>
-</ul>
+        ?>
+    </ul>
+    <?php
+}
+?>
 
 <hr>

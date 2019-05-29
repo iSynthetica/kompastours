@@ -11,8 +11,9 @@ class CRM_Claim extends CRM_Entity {
 
     protected static $fields = array(
         'ID' => 'bigint(20) unsigned NOT NULL auto_increment',
-        'parent_id' => 'bigint(20) unsigned NOT NULL auto_increment',
-        'client_id' => 'bigint(20) unsigned NOT NULL auto_increment',
+        'parent_id' => 'bigint(20) unsigned NOT NULL',
+        'client_id' => 'bigint(20) unsigned NOT NULL',
+        'manager_id' => 'bigint(20) unsigned NOT NULL',
         'title' => "varchar(200) NOT NULL default ''",
         'excerpt' => 'text NOT NULL',
         'type' => "varchar(20) NOT NULL default 'tour'",
@@ -30,12 +31,16 @@ class CRM_Claim extends CRM_Entity {
         )
     );
 
-    public static function insert($userdata) {
+    protected static $types = array(
+
+    );
+
+    public static function insert($data) {
         global $wpdb;
         $table = $wpdb->prefix . self::$table_name;
 
-        if ( ! empty( $userdata['ID'] ) ) {
-            $ID            = (int) $userdata['ID'];
+        if ( ! empty( $data['ID'] ) ) {
+            $ID            = (int) $data['ID'];
             $update        = true;
         } else {
             $update = false;
@@ -44,11 +49,27 @@ class CRM_Claim extends CRM_Entity {
         if ($update) {
 
         } else {
-            $wpdb->insert( $table, $userdata );
+            $wpdb->insert( $table, $data );
 
-            $user_id = (int) $wpdb->insert_id;
+            $id = (int) $wpdb->insert_id;
         }
 
-        return $user_id;
+        return $id;
+    }
+
+    public static function getStatuses() {
+        return array(
+            'pending' => __('Pending', 'snthwp'),
+            'cancelled' => __('Cancelled', 'snthwp'),
+            'closed' => __('Closed', 'snthwp'),
+        );
+    }
+
+    public static function getTypes() {
+        return array(
+            'initial' => __('Initial', 'snthwp'),
+            'tour_search_request' => __('Tour search request', 'snthwp'),
+            'tour_booking_request' => __('Tour booking request', 'snthwp'),
+        );
     }
 }

@@ -15,6 +15,69 @@ if (empty($tour_info)) {
 }
 
 // TODO: Show buttons
+
+if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])) {
+        if (!empty($tour_info["flights"]["from"])) {
+            $from = $tour_info["flights"]['from'][0];
+
+            $structured_val_from =   $from['code'] . '{}'
+                                . $from['air_company'] . '{}'
+                                . $from['travel_class'] . '{}'
+                                . $from['date_from'] . '{}'
+                                . $from['time_from'] . '{}'
+                                . $from['from_city'] . '{}'
+                                . $from['from_airport'] . '{}'
+                                . $from['date_till'] . '{}'
+                                . $from['time_till'] . '{}'
+                                . $from['to_city'] . '{}'
+                                . $from['to_airport'] . '{}'
+                                . $from['duration'];
+
+            $txt_val_from =   $from['code'] . ' - '
+                         . $from['air_company'] . ' - '
+                         . $from['travel_class'] . ' - '
+                         . $from['date_from'] . ' - '
+                         . $from['time_from'] . ' - '
+                         . $from['from_city'] . ' - '
+                         . $from['from_airport'] . ' - '
+                         . $from['date_till'] . ' - '
+                         . $from['time_till'] . ' - '
+                         . $from['to_city'] . ' - '
+                         . $from['to_airport'] . ' - '
+                         . $from['duration'];
+        }
+
+        if (!empty($tour_info["flights"]["to"])) {
+            $from = $tour_info["flights"]['to'][0];
+
+            $structured_val_to =   $from['code'] . '{}'
+                                     . $from['air_company'] . '{}'
+                                     . $from['travel_class'] . '{}'
+                                     . $from['date_from'] . '{}'
+                                     . $from['time_from'] . '{}'
+                                     . $from['from_city'] . '{}'
+                                     . $from['from_airport'] . '{}'
+                                     . $from['date_till'] . '{}'
+                                     . $from['time_till'] . '{}'
+                                     . $from['to_city'] . '{}'
+                                     . $from['to_airport'] . '{}'
+                                     . $from['duration'];
+
+            $txt_val_to =   $from['code'] . ' - '
+                              . $from['air_company'] . ' - '
+                              . $from['travel_class'] . ' - '
+                              . $from['date_from'] . ' - '
+                              . $from['time_from'] . ' - '
+                              . $from['from_city'] . ' - '
+                              . $from['from_airport'] . ' - '
+                              . $from['date_till'] . ' - '
+                              . $from['time_till'] . ' - '
+                              . $from['to_city'] . ' - '
+                              . $from['to_airport'] . ' - '
+                              . $from['duration'];
+
+        }
+}
 ?>
 
 <div class="box_style_1 expose table-summary_holder">
@@ -28,11 +91,11 @@ if (empty($tour_info)) {
         </div>
     </div>
 
-    <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0 d-none" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
+    <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
 
-    <span class="mtb-5 text-center txt-gray-40-color d-none"><?php echo __('or', 'snthwp'); ?></span>
+    <span class="mtb-5 text-center txt-gray-40-color d-block"><?php echo __('or', 'snthwp'); ?></span>
 
-    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none"><?php echo __('Ask a question', 'snthwp'); ?></button>
+    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900"><?php echo __('Ask a question', 'snthwp'); ?></button>
 
     <div id="modal-popup" class="bg-white-color mfp-hide col-xl-5 col-md-9 col-11 m-auto modal-popup-main p-20">
 
@@ -55,6 +118,22 @@ if (empty($tour_info)) {
                     <input type="hidden" name="price_euro" value="<?php echo $tour_info["prices"]['10'] ?>">
                     <input type="hidden" name="destination" value="<?php echo $tour_info["country"] ?>, <?php echo $tour_info["region"] ?>">
                     <input type="hidden" name="hotel" value="<?php echo $tour_info["hotel"] ?> <?php echo ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]) ?>">
+
+                    <?php
+                    if (!empty($structured_val_from)) {
+                        ?>
+                        <input id="flightThere_val" type="hidden" name="flight_from" value="<?php echo $txt_val_from ?>">
+                        <input id="flightThere_structured" type="hidden" name="flight_from_structured" value="<?php echo $structured_val_from ?>">
+                        <?php
+                    }
+
+                    if (!empty($structured_val_to)) {
+                        ?>
+                        <input id="flightBack_val" type="hidden" name="flight_to" value="<?php echo $txt_val_to ?>">
+                        <input id="flightBack_structured" type="hidden" name="flight_to_structured" value="<?php echo $structured_val_to ?>">
+                        <?php
+                    }
+                    ?>
 
                     <header id="booking-form__header" class="mb-10 mb-md-20">
                         <h3 class="font-weight-900 mtb-0 text-center"><?php echo __('Tour booking', 'snthwp'); ?></h3>
@@ -216,9 +295,10 @@ if (empty($tour_info)) {
                             </div>
                         </div>
 
-                        <h4 class="mt-0 mb-10 font-weight-900 text-center"><?php echo __('Contact details', 'snthwp'); ?></h4>
 
                         <div id="contact-details__holder">
+                            <h4 class="mt-0 mb-10 font-weight-900 text-center"><?php echo __('Contact details', 'snthwp'); ?></h4>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group text-left">
@@ -239,7 +319,7 @@ if (empty($tour_info)) {
                                 <div class="col-md-6">
                                     <div class="form-group text-left">
                                         <label for="clientPhone"><small><?php echo __('Your phone', 'snthwp'); ?> (*)</small></label>
-                                        <input type="text" class="form-control" name="clientPhone" id="clientPhone" placeholder="<?php echo __('Enter your phone', 'snthwp'); ?>">
+                                        <input type="text" class="form-control" name="clientPhone" id="clientPhone" placeholder="+380XXXXXXXXX">
                                     </div>
                                 </div>
 
@@ -249,12 +329,12 @@ if (empty($tour_info)) {
 
                                         <div class="mt-10">
                                             <div class="d-inline-block mr-10">
-                                                <input id="clientViber" name="clientViber" class="iCheckGray styled_1" type="checkbox" value="viber">
+                                                <input id="clientViber" name="clientViber" type="checkbox" value="viber">
                                                 <label class="mb-0" for="clientViber">Viber</label>
                                             </div>
 
                                             <div class="d-inline-block mr-10">
-                                                <input id="clientTelegram" name="clientTelegram" class="iCheckGray styled_1" type="checkbox" value="telegram">
+                                                <input id="clientTelegram" name="clientTelegram" type="checkbox" value="telegram">
                                                 <label class="mb-0" for="clientTelegram">Telegram</label>
                                             </div>
                                         </div>
@@ -263,6 +343,8 @@ if (empty($tour_info)) {
                             </div>
                         </div>
                     </div>
+
+                    <div class="error_messages"></div>
 
                     <footer id="booking-form__footer" class="text-center mt-10 mt-md-20">
                         <button type="button" class="btn bg-danger-color shape-rnd type-hollow popup-modal-dismiss">
