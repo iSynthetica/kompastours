@@ -4,7 +4,9 @@
 (function ($) {
 
     $(document).ready(function() {
-
+        $('.datepicker').datepicker({
+            autoclose: 1
+        });
     });
 
     $(window).on('load', function () {
@@ -21,6 +23,43 @@
 
     $(window).on('resize', function(e) {
 
+    });
+
+    $(document.body).on('click', '#lp-order-form__submit', function() {
+        var formData = $("#lp-order-form").serializeArray();
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_get_lp_proposal',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
     });
 
     $(document.body).on('click', '.book-btn', function() {

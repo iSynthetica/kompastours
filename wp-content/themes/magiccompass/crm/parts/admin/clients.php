@@ -22,4 +22,6 @@ if (
     crm_show_template('admin/clients-list.php');
 } elseif ('add_new' === $_GET['action']) {
     crm_show_template('admin/clients-add-new.php');
+} elseif ('edit' === $_GET['action']) {
+    crm_show_template('admin/clients-edit.php', array('user_id' => $_GET['user_id']));
 }

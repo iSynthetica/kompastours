@@ -120,3 +120,35 @@
     flex: 0 0 100%;
     max-width: 100%;
 }
+
+.crm-card {
+
+}
+
+.crm-card .crm-card__header {
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.crm-card .crm-card__header h3 {
+    margin: 0;
+}
+
+.crm-card .crm-card__body {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.crm-card .crm-card__body ul {
+    margin-top: 0;
+}
+
+.crm-card .crm-card__body .crm-card__item:last-child {
+    margin-bottom: 0;
+}
+
+.crm-card .crm-card__footer {
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}

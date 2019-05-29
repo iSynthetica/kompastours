@@ -113,6 +113,8 @@ function ittour_ajax_get_tours_list() {
         $result = ittour_get_min_prices_by_region($country, $args);
     } elseif ('min-prices-by-country' === $template) {
         $result = ittour_get_min_prices_by_country($country, $args);
+    } elseif ('min-prices-by-month' === $template) {
+        $result = ittour_get_min_prices_by_month($country, $args);
     }
 
     echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $result ));
@@ -212,6 +214,7 @@ function ajax_admin_add_country() {
     $ittour_group = !empty($_POST['ittourGroup']) ? $_POST['ittourGroup'] : false;
     $ittour_type = !empty($_POST['ittourType']) ? $_POST['ittourType'] : false;
     $ittour_transport = !empty($_POST['ittourTransport']) ? $_POST['ittourTransport'] : false;
+    $ittour_currency = !empty($_POST['ittourCurrency']) ? $_POST['ittourCurrency'] : false;
 
     if (!$ittour_id) {
         $response = array('success' => 0, 'error' => 1, 'message' => __('No ITTour ID', 'wp2leads'));
@@ -235,9 +238,9 @@ function ajax_admin_add_country() {
     }
 
     if ($post_id) {
-        $post_created = ittour_update_country($post_id, $ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+        $post_created = ittour_update_country($post_id, $ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport, $ittour_currency);
     } else {
-        $post_created = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport);
+        $post_created = ittour_create_country($ittour_name, $ittour_slug, $ittour_id, $ittour_iso, $ittour_group, $ittour_type, $ittour_transport, $ittour_currency);
     }
 
     $params_obj = ittour_params();

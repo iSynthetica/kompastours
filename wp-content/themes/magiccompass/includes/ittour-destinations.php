@@ -6,7 +6,7 @@
  * Time: 12:42
  */
 
-function ittour_create_country($name, $slug, $id, $iso, $group, $type, $transport) {
+function ittour_create_country($name, $slug, $id, $iso, $group, $type, $transport, $ittour_currency) {
     // Prepare post data
     $post_data = array(
         'post_title'    => wp_strip_all_tags( $name ),
@@ -29,11 +29,12 @@ function ittour_create_country($name, $slug, $id, $iso, $group, $type, $transpor
     $update_field = update_field( 'ittour_country_group', $group, $post_id );
     $update_field = update_field( 'ittour_type', $type_array, $post_id );
     $update_field = update_field( 'ittour_transport', $transport_array, $post_id );
+    $update_field = update_field( 'main_currency', $ittour_currency, $post_id );
 
     return $post_id;
 }
 
-function ittour_update_country($post_id, $name, $slug, $id, $iso, $group, $type, $transport) {
+function ittour_update_country($post_id, $name, $slug, $id, $iso, $group, $type, $transport, $ittour_currency) {
     // Prepare post data
     $post_data = array(
         'ID'             => $post_id,
@@ -57,6 +58,7 @@ function ittour_update_country($post_id, $name, $slug, $id, $iso, $group, $type,
     $update_field = update_field( 'ittour_country_group', $group, $post_id );
     $update_field = update_field( 'ittour_type', $type_array, $post_id );
     $update_field = update_field( 'ittour_transport', $transport_array, $post_id );
+    $update_field = update_field( 'main_currency', $ittour_currency, $post_id );
 
     return $post_id;
 }
@@ -136,6 +138,56 @@ function ittour_get_destination_by_ittour_id($id) {
     wp_reset_postdata();
 
     return $destinations;
+}
+
+function ittour_destination_by_ittour_id($id) {
+    $args = array(
+        'numberposts' => '1',
+        'post_type'   => 'destination',
+        'meta_query' => array(
+            array(
+                'key'     => 'ittour_id',
+                'value'   => $id,
+                'compare' => '='
+            )
+        )
+    );
+
+    $destinations = get_posts($args);
+
+    wp_reset_postdata();
+
+    $destination_info = array(
+        'ID' => $destinations[0]->ID,
+        'title' => $destinations[0]->post_title,
+        'slug' => $destinations[0]->post_name,
+    );
+
+    $destination_types = get_the_terms( $destinations[0]->ID, 'destination_type' );
+
+    $destination_info['type'] = $destination_types[0]->slug;
+    $destination_info['type_name'] = $destination_types[0]->name;
+
+    $destination_info['ittour_id'] = get_field('ittour_id', $destinations[0]->ID);
+
+    if ('country' === $destination_types[0]->slug) {
+        $destination_info['ittour_iso'] = get_field('ittour_iso', $destinations[0]->ID);
+        $destination_info['ittour_country_group'] = get_field('ittour_country_group', $destinations[0]->ID);
+        $destination_info['ittour_type'] = get_field('ittour_type', $destinations[0]->ID);
+        $destination_info['ittour_transport'] = get_field('ittour_transport', $destinations[0]->ID);
+        $main_currency = get_field('main_currency', $destinations[0]->ID);
+        $destination_info['main_currency'] = !empty($main_currency) ? $main_currency : '10';
+    } else if ('region' === $destination_types[0]->slug) {
+        $destination_info['ittour_country_id'] = get_field('ittour_country_id', $destinations[0]->ID);
+        $destination_info['ittour_type'] = get_field('ittour_type', $destinations[0]->ID);
+    } else if ('hotel' === $destination_types[0]->slug) {
+        $destination_info['ittour_hotel_rating'] = get_field('ittour_hotel_rating', $destinations[0]->ID);
+        $destination_info['ittour_country_id'] = get_field('ittour_country_id', $destinations[0]->ID);
+        $destination_info['ittour_region_id'] = get_field('ittour_region_id', $destinations[0]->ID);
+        $destination_info['ittour_type'] = get_field('ittour_type', $destinations[0]->ID);
+    }
+
+    return $destination_info;
 }
 
 function ittour_create_hotel($name, $slug, $id, $rating, $type, $country_id, $region_id, $parent_id = 0) {

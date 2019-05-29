@@ -164,3 +164,66 @@ function snth_partner_cpt() {
 
 }
 add_action( 'init', 'snth_partner_cpt', 0 );
+
+// Register Custom Post Type
+function snth_landing_cpt() {
+
+    $labels = array(
+        'name'                  => _x( 'Landings', 'Post Type General Name', 'snthwp' ),
+        'singular_name'         => _x( 'Landing', 'Post Type Singular Name', 'snthwp' ),
+        'menu_name'             => __( 'Landings', 'snthwp' ),
+        'name_admin_bar'        => __( 'Landing', 'snthwp' ),
+        'archives'              => __( 'Landing Archives', 'snthwp' ),
+        'attributes'            => __( 'Landing Attributes', 'snthwp' ),
+        'parent_item_colon'     => __( 'Parent Landing:', 'snthwp' ),
+        'all_items'             => __( 'All Landings', 'snthwp' ),
+        'add_new_item'          => __( 'Add New Landing', 'snthwp' ),
+        'add_new'               => __( 'Add New', 'snthwp' ),
+        'new_item'              => __( 'New Landing', 'snthwp' ),
+        'edit_item'             => __( 'Edit Landing', 'snthwp' ),
+        'update_item'           => __( 'Update Landing', 'snthwp' ),
+        'view_item'             => __( 'View Landing', 'snthwp' ),
+        'view_items'            => __( 'View Landings', 'snthwp' ),
+        'search_items'          => __( 'Search Landing', 'snthwp' ),
+        'not_found'             => __( 'Not found', 'snthwp' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'snthwp' ),
+        'featured_image'        => __( 'Featured Image', 'snthwp' ),
+        'set_featured_image'    => __( 'Set featured image', 'snthwp' ),
+        'remove_featured_image' => __( 'Remove featured image', 'snthwp' ),
+        'use_featured_image'    => __( 'Use as featured image', 'snthwp' ),
+        'insert_into_item'      => __( 'Insert into Landing', 'snthwp' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Landing', 'snthwp' ),
+        'items_list'            => __( 'Landings list', 'snthwp' ),
+        'items_list_navigation' => __( 'Landings list navigation', 'snthwp' ),
+        'filter_items_list'     => __( 'Filter Landings list', 'snthwp' ),
+    );
+    $rewrite = array(
+        'slug'                  => 'lp',
+        'with_front'            => true,
+        'pages'                 => false,
+        'feeds'                 => false,
+    );
+    $args = array(
+        'label'                 => __( 'Landing', 'snthwp' ),
+        'description'           => __( 'Landing pages generator', 'snthwp' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+        'hierarchical'          => true,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-megaphone',
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'rewrite'               => $rewrite,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'landing', $args );
+
+}
+add_action( 'init', 'snth_landing_cpt', 0 );

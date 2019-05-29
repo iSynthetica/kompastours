@@ -123,6 +123,34 @@
     }
 }
 
+.single-landing {
+    .sale-holder {
+        font-size: rem-calc(35);
+
+        @media (min-width: 576px) {
+            font-size: rem-calc(43);
+        }
+
+        @media (min-width: 768px) {
+            font-size: rem-calc(60);
+        }
+
+        @media (min-width: 992px) {
+            font-size: rem-calc(720);
+        }
+
+        @media (min-width: 1200px) {
+            font-size: rem-calc(80);
+        }
+    }
+}
+
+#lp-order-form {
+    .form-control[readonly] {
+        background-color: $color-white;
+    }
+}
+
 /* Tours boxes*/
 .tour_container {
     background-color: #fff;

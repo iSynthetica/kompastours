@@ -297,3 +297,99 @@
         }
     }
 }
+
+.counter-container {
+    .counter-box {
+        .number {
+            background-color: $color-red;
+            color: $color-white;
+            font-size: rem-calc(20);
+            padding: rem-calc(8);
+            margin: rem-calc(0);
+            border-radius: rem-calc(5);
+        }
+
+        span {
+            font-size: rem-calc(11);
+        }
+    }
+    .counter-box-divider {
+        vertical-align: top;
+        .counter-divider {
+            color: $color-red;
+            font-size: rem-calc(20);
+            padding: rem-calc(8 0);
+            margin: rem-calc(0 1);
+            font-weight: 900;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+    .counter-container {
+        .counter-box {
+            .number {
+                font-size: rem-calc(28);
+                padding: rem-calc(15 6);
+            }
+
+            span {
+                font-size: rem-calc(11);
+            }
+        }
+        .counter-box-divider {
+            .counter-divider {
+                font-size: rem-calc(28);
+                padding: rem-calc(15 6);
+            }
+        }
+    }
+}
+
+.datepicker {
+    .datepicker-days {
+        table {
+            thead {
+                tr {
+                    th {
+                        color: $color-gray-80;
+
+                        &.datepicker-switch, &.dow {
+                            font-family: 'Open Sans Condensed', sans-serif;
+                            font-weight: 900;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        color: $color-gray-80;
+
+                        &.old, &.new {
+                            color: $color-gray-40;
+                        }
+
+                        &.active {
+                            background-color: $color-blue;
+                            border-color: $color-blue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

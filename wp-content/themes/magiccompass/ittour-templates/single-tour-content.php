@@ -98,7 +98,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             <li>
                                 <i class="far fa-calendar-alt list-item-icon"></i>
                                 <small><?php _e('Start date', 'snthwp'); ?>:</small>
-                                <strong><?php echo $tour_info["date_from"] ?></strong>
+                                <strong><?php echo snth_convert_date_to_human($tour_info["date_from"]); ?></strong>
                             </li>
                             <?php
                         }
@@ -197,7 +197,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
         <div class="col-md-4 col-lg-3">
             <?php
-            ittour_show_template('single-tour/book-tour.php', array('tour_info' => $tour_info));
+            ittour_show_template('single-tour/book-tour.php', array(
+                    'tour_info' => $tour_info,
+                    'main_currency_label' => $main_currency_label,
+                    'main_currency' => $main_currency,
+                )
+            );
             ?>
             <?php ittour_show_template('single-tour/book-by-phone.php') ?>
         </div>
@@ -243,6 +248,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
                 $template_args['date_from'] = $date_range["date_from"];
                 $template_args['date_till'] = $date_range["date_till"];
+            }
+
+            if (!empty($tour_info['adult_amount'])) {
+                $template_args['adult_amount'] = $tour_info["adult_amount"];
+            }
+
+            if (!empty($tour_info['from_city_id'])) {
+                $template_args['from_city'] = $tour_info["from_city_id"];
+            }
+
+            if (!empty($tour_info['child_amount']) && !empty($tour_info['child_age'])) {
+                $template_args['child_amount'] = $tour_info["child_amount"];
+                $template_args['child_age'] = $tour_info["child_age"];
             }
 
             if (!empty($tour_info["type"])) {

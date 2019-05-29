@@ -10248,6 +10248,195 @@ $.magnificPopup.registerModule(RETINA_NS, {
   };
 }));
 
+/*!
+ * The Final Countdown for jQuery v2.0.4
+ */
+(function(factory) {
+    "use strict";
+    if (typeof define === "function" && define.amd) {
+        define([ "jquery" ], factory);
+    } else {
+        factory(jQuery);
+    }
+})(function($) {
+    "use strict";
+    var PRECISION = 100;
+    var instances = [], matchers = [];
+    matchers.push(/^[0-9]*$/.source);
+    matchers.push(/([0-9]{1,2}\/){2}[0-9]{4}( [0-9]{1,2}(:[0-9]{2}){2})?/.source);
+    matchers.push(/[0-9]{4}([\/\-][0-9]{1,2}){2}( [0-9]{1,2}(:[0-9]{2}){2})?/.source);
+    matchers = new RegExp(matchers.join("|"));
+    function parseDateString(dateString) {
+        if (dateString instanceof Date) {
+            return dateString;
+        }
+        if (String(dateString).match(matchers)) {
+            if (String(dateString).match(/^[0-9]*$/)) {
+                dateString = Number(dateString);
+            }
+            if (String(dateString).match(/\-/)) {
+                dateString = String(dateString).replace(/\-/g, "/");
+            }
+            return new Date(dateString);
+        } else {
+            throw new Error("Couldn't cast `" + dateString + "` to a date object.");
+        }
+    }
+    var DIRECTIVE_KEY_MAP = {
+        Y: "years",
+        m: "months",
+        w: "weeks",
+        d: "days",
+        D: "totalDays",
+        H: "hours",
+        M: "minutes",
+        S: "seconds"
+    };
+    function strftime(offsetObject) {
+        return function(format) {
+            var directives = format.match(/%(-|!)?[A-Z]{1}(:[^;]+;)?/gi);
+            if (directives) {
+                for (var i = 0, len = directives.length; i < len; ++i) {
+                    var directive = directives[i].match(/%(-|!)?([a-zA-Z]{1})(:[^;]+;)?/), regexp = new RegExp(directive[0]), modifier = directive[1] || "", plural = directive[3] || "", value = null;
+                    directive = directive[2];
+                    if (DIRECTIVE_KEY_MAP.hasOwnProperty(directive)) {
+                        value = DIRECTIVE_KEY_MAP[directive];
+                        value = Number(offsetObject[value]);
+                    }
+                    if (value !== null) {
+                        if (modifier === "!") {
+                            value = pluralize(plural, value);
+                        }
+                        if (modifier === "") {
+                            if (value < 10) {
+                                value = "0" + value.toString();
+                            }
+                        }
+                        format = format.replace(regexp, value.toString());
+                    }
+                }
+            }
+            format = format.replace(/%%/, "%");
+            return format;
+        };
+    }
+    function pluralize(format, count) {
+        var plural = "s", singular = "";
+        if (format) {
+            format = format.replace(/(:|;|\s)/gi, "").split(/\,/);
+            if (format.length === 1) {
+                plural = format[0];
+            } else {
+                singular = format[0];
+                plural = format[1];
+            }
+        }
+        if (Math.abs(count) === 1) {
+            return singular;
+        } else {
+            return plural;
+        }
+    }
+    var Countdown = function(el, finalDate, callback) {
+        this.el = el;
+        this.$el = $(el);
+        this.interval = null;
+        this.offset = {};
+        this.instanceNumber = instances.length;
+        instances.push(this);
+        this.$el.data("countdown-instance", this.instanceNumber);
+        if (callback) {
+            this.$el.on("update.countdown", callback);
+            this.$el.on("stoped.countdown", callback);
+            this.$el.on("finish.countdown", callback);
+        }
+        this.setFinalDate(finalDate);
+        this.start();
+    };
+    $.extend(Countdown.prototype, {
+        start: function() {
+            if (this.interval !== null) {
+                clearInterval(this.interval);
+            }
+            var self = this;
+            this.update();
+            this.interval = setInterval(function() {
+                self.update.call(self);
+            }, PRECISION);
+        },
+        stop: function() {
+            clearInterval(this.interval);
+            this.interval = null;
+            this.dispatchEvent("stoped");
+        },
+        pause: function() {
+            this.stop.call(this);
+        },
+        resume: function() {
+            this.start.call(this);
+        },
+        remove: function() {
+            this.stop();
+            instances[this.instanceNumber] = null;
+            delete this.$el.data().countdownInstance;
+        },
+        setFinalDate: function(value) {
+            this.finalDate = parseDateString(value);
+        },
+        update: function() {
+            if (this.$el.closest("html").length === 0) {
+                this.remove();
+                return;
+            }
+            this.totalSecsLeft = this.finalDate.getTime() - new Date().getTime();
+            this.totalSecsLeft = Math.ceil(this.totalSecsLeft / 1e3);
+            this.totalSecsLeft = this.totalSecsLeft < 0 ? 0 : this.totalSecsLeft;
+            this.offset = {
+                seconds: this.totalSecsLeft % 60,
+                minutes: Math.floor(this.totalSecsLeft / 60) % 60,
+                hours: Math.floor(this.totalSecsLeft / 60 / 60) % 24,
+                days: Math.floor(this.totalSecsLeft / 60 / 60 / 24) % 7,
+                totalDays: Math.floor(this.totalSecsLeft / 60 / 60 / 24),
+                weeks: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 7),
+                months: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 30),
+                years: Math.floor(this.totalSecsLeft / 60 / 60 / 24 / 365)
+            };
+            if (this.totalSecsLeft === 0) {
+                this.stop();
+                this.dispatchEvent("finish");
+            } else {
+                this.dispatchEvent("update");
+            }
+        },
+        dispatchEvent: function(eventName) {
+            var event = $.Event(eventName + ".countdown");
+            event.finalDate = this.finalDate;
+            event.offset = $.extend({}, this.offset);
+            event.strftime = strftime(this.offset);
+            this.$el.trigger(event);
+        }
+    });
+    $.fn.countdown = function() {
+        var argumentsArray = Array.prototype.slice.call(arguments, 0);
+        return this.each(function() {
+            var instanceNumber = $(this).data("countdown-instance");
+            if (instanceNumber !== undefined) {
+                var instance = instances[instanceNumber], method = argumentsArray[0];
+                if (Countdown.prototype.hasOwnProperty(method)) {
+                    instance[method].apply(instance, argumentsArray.slice(1));
+                } else if (String(method).match(/^[$A-Z_][0-9A-Z_$]*$/i) === null) {
+                    instance.setFinalDate.call(instance, method);
+                    instance.start();
+                } else {
+                    $.error("Method %s does not exist on jQuery.countdown".replace(/\%s/gi, method));
+                }
+            } else {
+                new Countdown(this, argumentsArray[0], argumentsArray[1]);
+            }
+        });
+    };
+});
+		
 /* ====================================================================================================
   SHOW PASSWORD
 ==================================================================================================== */
@@ -25377,10 +25566,70 @@ and dependencies (minified).
 	});
 
 }))}));
+var SNTHJS = SNTHJS || {};
+
 (function ($) {
+    var $window = $(window),
+        $body = $('body');
+
+    SNTHJS.content = {
+        addBodyClass: function() {
+            var orientation = SNTHJS.device.orientation();
+            $body.removeClass('device-landscape device-portrait').addClass(orientation);
+
+            var deviceType = SNTHJS.device.type();
+            $body.removeClass('device-mobile device-desktop').addClass(deviceType);
+        }
+    };
+
+    SNTHJS.device = {
+        isMobile: {
+            Android: function () {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function () {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function () {
+                return (
+                    SNTHJS.device.isMobile.Android() ||
+                    SNTHJS.device.isMobile.BlackBerry() ||
+                    SNTHJS.device.isMobile.iOS() ||
+                    SNTHJS.device.isMobile.Opera() ||
+                    SNTHJS.device.isMobile.Windows()
+                );
+            }
+        },
+        type: function () {
+            if (SNTHJS.device.isMobile.any()) {
+                return 'device-mobile';
+            }
+
+            return 'device-desktop';
+        },
+        orientation: function () {
+            if($(window).width() > $(window).height()) {
+                return 'device-landscape';
+            }
+
+            return 'device-portrait';
+        }
+    };
 
     $(document).ready(function() {
+        SNTHJS.content.addBodyClass();
 
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
     });
 
     /* Preload */
@@ -25403,6 +25652,10 @@ and dependencies (minified).
         }
 
         $(window).scroll();
+    });
+
+    $(window).on('resize', function(e) {
+        SNTHJS.content.addBodyClass();
     });
 
     /* Sticky nav */
@@ -25673,7 +25926,9 @@ and dependencies (minified).
 (function ($) {
 
     $(document).ready(function() {
-
+        $('.datepicker').datepicker({
+            autoclose: 1
+        });
     });
 
     $(window).on('load', function () {
@@ -25690,6 +25945,43 @@ and dependencies (minified).
 
     $(window).on('resize', function(e) {
 
+    });
+
+    $(document.body).on('click', '#lp-order-form__submit', function() {
+        var formData = $("#lp-order-form").serializeArray();
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_get_lp_proposal',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
     });
 
     $(document.body).on('click', '.book-btn', function() {
@@ -26987,12 +27279,11 @@ and dependencies (minified).
             e.preventDefault();
             $.magnificPopup.close();
         });
+
         /*==============================================================
          counter
          ==============================================================*/
-        $(function ($) {
-            animatecounters();
-        });
+        $(function ($) {animatecounters();});
 
         function animatecounters() {
             $('.timer').each(count);
@@ -27002,6 +27293,12 @@ and dependencies (minified).
                 $this.countTo(options);
             }
         }
+
+        $('.countdown').countdown(
+            $('.countdown').attr("data-enddate")
+        ).on('update.countdown', function (event) {
+            $(this).html(event.strftime('' + '<div class="counter-container font-alt">' + '<div class="counter-box first d-inline-block text-center"><div class="number font-weight-900">%H</div><span>Hours</span></div><div class="counter-box-divider d-inline-block"><div class="counter-divider">:</div></div>' + '<div class="counter-box d-inline-block text-center"><div class="number font-weight-900">%M</div><span>Minutes</span></div><div class="counter-box-divider d-inline-block"><div class="counter-divider">:</div></div>' + '<div class="counter-box last d-inline-block text-center"><div class="number font-weight-900">%S</div><span>Seconds</span></div></div>'));
+        });
     });
 
     $(window).on('load', function () {

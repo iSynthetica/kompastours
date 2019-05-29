@@ -59,6 +59,7 @@ $countries_en = $params_en['countries'];
         <th>Type</th>
         <th>Transport</th>
         <th>Group</th>
+        <th><?php echo __('Currency', 'snthwp') ?></th>
         <th>Modified</th>
         <th></th>
     </tr>
@@ -93,6 +94,16 @@ $countries_en = $params_en['countries'];
             $country_site_modified = $countries_site_by_ittour_id[$country_id]['modified'];
 
             unset ($countries_site_by_ittour_id[$country_id]);
+        }
+
+        $country_currency = '10';
+
+        if ($country_site_id) {
+            $country_currency_field = get_field('main_currency', $country_site_id);
+
+            if (!empty($country_currency_field)) {
+                $country_currency = $country_currency_field;
+            }
         }
         ?>
         <tr>
@@ -161,6 +172,13 @@ $countries_en = $params_en['countries'];
 
                 echo $display;
                 ?>
+            </td>
+            <td>
+                <select name="main_currency" id="main_currency_<?php echo $country_id ?>">
+                    <option value="1"<?php echo '1' === $country_currency ? ' selected' : ''; ?>><?php echo __('USD', 'snthwp'); ?></option>
+                    <option value="2"<?php echo '2' === $country_currency ? ' selected' : ''; ?>><?php echo __('UAH', 'snthwp'); ?></option>
+                    <option value="10"<?php echo '10' === $country_currency ? ' selected' : ''; ?>><?php echo __('EURO', 'snthwp'); ?></option>
+                </select>
             </td>
             <td><?php echo $country_site_modified; ?></td>
             <td>

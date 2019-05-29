@@ -26,6 +26,7 @@ $clients = CRM_User::getAll();
             <th><?php _e('Name', 'snthwp'); ?></th>
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
+            <th><?php _e('Registered', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
         </tr>
     </thead>
@@ -36,9 +37,16 @@ $clients = CRM_User::getAll();
             foreach ($clients as $client) {
                 ?>
                 <tr>
-                    <th><strong><?php echo $client->user_display_name ?></strong></th>
+                    <th>
+                        <strong>
+                            <a href="/wp-admin/admin.php?page=crm-clients&action=edit&user_id=<?php echo $client->ID ?>">
+                                <?php echo $client->user_display_name ?>
+                            </a>
+                        </strong>
+                    </th>
                     <td><?php echo $client->user_phone ?></td>
                     <td><?php echo $client->user_email ?></td>
+                    <td><?php echo $client->user_registered ?></td>
                     <td></td>
                 </tr>
                 <?php
@@ -52,6 +60,7 @@ $clients = CRM_User::getAll();
             <th><?php _e('Name', 'snthwp'); ?></th>
             <th><?php _e('Phone', 'snthwp'); ?></th>
             <th><?php _e('Email', 'snthwp'); ?></th>
+            <th><?php _e('Registered', 'snthwp'); ?></th>
             <th><?php _e('Opened Claims', 'snthwp'); ?></th>
         </tr>
     </tfoot>

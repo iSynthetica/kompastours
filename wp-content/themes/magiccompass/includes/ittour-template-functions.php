@@ -1316,6 +1316,18 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
     $search = ittour_search(ITTOUR_LANG);
     $search_result = $search->getList($country, $args);
 
+    $country_info = ittour_destination_by_ittour_id($country);
+
+    $main_currency = $country_info["main_currency"];
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else if ('2' === $main_currency) {
+        $main_currency_label = __('UAH', 'snthwp');
+    }
+
     if (is_wp_error($search_result)) {
         return false;
     }
@@ -1345,6 +1357,8 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
         }
     }
 
+    ksort($sort_date_array);
+
     ob_start();
 
     $i = 1;
@@ -1357,7 +1371,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                     <div class="card-header">
                         <h3 class="mtb-0">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#tour_list_container-<?php echo $i; ?>" href="#collapse_<?php echo $i; ?>_date">
-                                <?php echo $date ?>
+                                <?php echo snth_convert_date_to_human($date); ?>
                                 <i class="fas fa-plus float-right indicator"></i>
                             </a>
                         </h3>
@@ -1429,7 +1443,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                                                     <div class="tour_list_more_price">
                                                         <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
 
-                                                        <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
+                                                        <span><sup><?php echo $main_currency_label; ?></sup><strong><?php echo $offer['prices'][$main_currency] ?></strong></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-12 col-sm-6">
@@ -1509,6 +1523,311 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
         </div>
     </div>
     <?php
+}
+
+function ittour_get_min_prices_by_month($country, $args) {
+    $country_info = ittour_destination_by_ittour_id($country);
+
+    $main_currency = $country_info["main_currency"];
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else if ('2' === $main_currency) {
+        $main_currency_label = __('UAH', 'snthwp');
+    }
+
+    $settings_key = '';
+    $settings_key .= 'country_min_prices';
+    $settings_key .= $country;
+    $settings_key .= $args["type"];
+
+    if (1 === $args["type"] && !empty($args["kind"])) {
+        $settings_key .= $args["kind"];
+    }
+
+    $settings_key .= $args["night_from"];
+    $settings_key .= $args["night_till"];
+    $settings_key .= $args["adult_amount"];
+
+    if (!empty($args["child_amount"])) {
+        $settings_key .= $args["child_amount"];
+        $settings_key .= $args["child_age"];
+    } else {
+        $settings_key .= '0';
+    }
+
+    $settings_key_hash = md5($settings_key);
+    $saved_prices = get_transient('lp_' . $settings_key_hash);
+
+    $show_months = 4;
+
+    $months_array = array();
+
+    $current_year = (int) date('Y');
+    $current_month = (int) date('n');
+    $current_day = date('j') + 1;
+    $current_numbers_of_days = (int) date('t');
+
+    $days_left = $current_numbers_of_days - $current_day;
+
+    if (5 > $days_left) {
+        $first_month = $current_month === 12 ? 1 : $current_month + 1;
+        $first_year = $current_month === 12 ? $current_year + 1 : $current_year;
+
+        $start_date_time = mktime(0, 0, 0, $first_month, 1, $first_year);
+        $end_date_time = mktime(0, 0, 0, $first_month, 10, $first_year);
+    } else {
+        $first_month = $current_month;
+        $first_year = $current_year;
+
+        $start_date_time = mktime(0, 0, 0, $first_month, $current_day, $first_year);
+
+        if (10 > $days_left) {
+            $end_date_time = mktime(0, 0, 0, $first_month, $current_numbers_of_days, $first_year);
+        } else {
+            $end_date_time = mktime(0, 0, 0, $first_month, $current_day + 10, $first_year);
+        }
+    }
+
+    $args['type'] = 1;
+    $args['items_per_page'] = 1;
+
+    $months_array[$first_month] = array(
+        'year' => $first_year,
+        'args' => $args,
+        'results' => array(
+            '78' => array(),
+            '4' => array(),
+            '3' => array(),
+        ),
+    );
+
+    $months_array[$first_month]['args']['date_from'] = date('d.m.y', $start_date_time);
+    $months_array[$first_month]['args']['date_till'] = date('d.m.y', $end_date_time);
+
+    $prev_month = $first_month;
+    $prev_year = $first_year;
+
+    for ($i = 1; $i < $show_months; $i++) {
+        $next_month = $prev_month === 12 ? 1 : $prev_month + 1;
+        $next_year = $prev_month === 12 ? $prev_year + 1 : $prev_year;
+
+        $start_date_time = mktime(0, 0, 0, $next_month, 1, $next_year);
+        $end_date_time = mktime(0, 0, 0, $next_month, 10, $next_year);
+
+        $months_array[$next_month] = array(
+            'year' => $next_year,
+            'args' => $args,
+            'results' => array(
+                '78' => array(),
+                '4' => array(),
+                '3' => array(),
+            ),
+        );
+
+        $months_array[$next_month]['args']['date_from'] = date('d.m.y', $start_date_time);
+        $months_array[$next_month]['args']['date_till'] = date('d.m.y', $end_date_time);
+
+        $prev_month = $next_month;
+        $prev_year = $next_year;
+    }
+
+    $search = ittour_search(ITTOUR_LANG);
+
+    foreach ($months_array as $month => $params) {
+
+        foreach ($params['results'] as $hotel_rating => $data) {
+            $month_args = $params['args'];
+            $month_args['hotel_rating'] = $hotel_rating;
+
+            $search_result = $search->getList($country, $month_args);
+
+            if (!is_wp_error($search_result) && !empty($search_result["offers"][0])) {
+                $months_array[$month]['results'][$hotel_rating] = $search_result["offers"][0];
+            }
+        }
+    }
+
+    set_transient('lp_' . $settings_key_hash, $months_array, 60 * 60 * 12);
+
+    ob_start();
+
+    ?>
+    <div class="row">
+        <?php
+        foreach($months_array as $month => $data) {
+            ?>
+            <div class="col-6 col-md-3">
+                <h4 class="text-uppercase text-center font-weight-900 mb-20">
+                    <?php echo ittour_get_month_by_number($month); ?>
+                    <?php echo $data['year']; ?>
+                </h4>
+
+                <?php
+                foreach ($data['results'] as $rating => $offer) {
+                    ?>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-md-4 font-weight-900 font-alt">
+                            <?php echo __('Hotels', 'snthwp') ?> <?php echo ittour_get_hotel_number_rating_by_id($rating) ?>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                            <small><?php echo __('from', 'snthwp') ?></small>
+                            <strong class="font-weight-900 font-alt">
+                                <?php echo $offer['prices'][$main_currency] ?> <?php echo $main_currency_label ?>
+                            </strong>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_month_by_number($month, $format = '') {
+    switch ((string) $month) {
+        case '1':
+        case '01':
+            if ('genetive' === $format) {
+                return __('of January', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Jan', 'snthwp');
+            }
+
+            return __('January', 'snthwp');
+
+        case '2':
+        case '02':
+            if ('genetive' === $format) {
+                return __('of February', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Feb', 'snthwp');
+            }
+
+            return __('February', 'snthwp');
+
+        case '3':
+        case '03':
+            if ('genetive' === $format) {
+                return __('of March', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Mar', 'snthwp');
+            }
+
+            return __('March', 'snthwp');
+
+        case '4':
+        case '04':
+            if ('genetive' === $format) {
+                return __('of April', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Apr', 'snthwp');
+            }
+
+            return __('April', 'snthwp');
+
+        case '5':
+        case '05':
+            if ('genetive' === $format) {
+                return __('of May', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('May', 'snthwp');
+            }
+
+            return __('May', 'snthwp');
+
+        case '6':
+        case '06':
+            if ('genetive' === $format) {
+                return __('of June', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Jun', 'snthwp');
+            }
+
+            return __('June', 'snthwp');
+
+        case '7':
+        case '07':
+            return __('July', 'snthwp');
+
+        case '8':
+        case '08':
+            if ('genetive' === $format) {
+                return __('of August', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Aug', 'snthwp');
+            }
+
+            return __('August', 'snthwp');
+
+        case '9':
+        case '09':
+            if ('genetive' === $format) {
+                return __('of September', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Sep', 'snthwp');
+            }
+
+            return __('September', 'snthwp');
+
+        case '10':
+            if ('genetive' === $format) {
+                return __('of October', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Oct', 'snthwp');
+            }
+
+            return __('October', 'snthwp');
+
+        case '11':
+            if ('genetive' === $format) {
+                return __('of November', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Nov', 'snthwp');
+            }
+
+            return __('November', 'snthwp');
+
+        case '12':
+            if ('genetive' === $format) {
+                return __('of December', 'snthwp');
+            }
+
+            if ('short' === $format) {
+                return __('Dec', 'snthwp');
+            }
+
+            return __('December', 'snthwp');
+    }
 }
 
 function ittour_get_min_prices_by_country($country, $args = array()) {

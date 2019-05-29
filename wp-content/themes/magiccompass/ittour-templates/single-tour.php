@@ -21,15 +21,31 @@ if (empty($_GET['key'])) {
     $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));
 } else {
     $tour_key = $_GET['key'];
-    $tour = ittour_tour($tour_key, ITTOUR_LANG);
-    $tour_info = $tour->info();
+    $tour = ittour_tour($tour_key, ITTOUR_LANG);$tour_info = $tour->info();
 
-    $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));
+    if (empty($tour_info["from_city_id"]) && !empty($_GET["from_city"])) {
+        $tour_info["from_city_id"] = (int) $_GET["from_city"];
+    }
+
+    if (empty($tour_info["child_age"]) && !empty($_GET["child_age"])) {
+        $tour_info["child_age"] = (int) $_GET["child_age"];
+    }
 
     $country = ittour_get_destination_by_ittour_id($tour_info['country_id']);
+    $country_info = ittour_destination_by_ittour_id($tour_info['country_id']);
+
+    $main_currency = $country_info["main_currency"];
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else if ('2' === $main_currency) {
+        $main_currency_label = __('UAH', 'snthwp');
+    }
 
     if (!empty($country)) {
-        $country_url = get_permalink($country[0]->ID);
+        $country_url = get_permalink($country_info['ID']);
         $country_title = '<a href="'.$country_url.'">'.$tour_info['country'].'</a>';
     } else {
         $country_title = $tour_info['country'];
@@ -43,6 +59,13 @@ if (empty($_GET['key'])) {
     } else {
         $region_title = $tour_info['region'];
     }
+
+    $ittour_content = ittour_get_template('single-tour-content.php', array(
+            'tour_info' => $tour_info,
+            'main_currency_label' => $main_currency_label,
+            'main_currency' => $main_currency,
+        )
+    );
     ?>
     <section id="single_tour__heading" class="bg-gray-5-color ptb-lg-40 ptb-20 top-space">
         <div class="container">

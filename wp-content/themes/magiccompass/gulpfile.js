@@ -52,6 +52,8 @@ const SOURCE = {
 
         VENDORS + '/jquery-countTo/jquery.countTo.js',
 
+        VENDORS + '/counter.js',
+
         // VENDORS + '/Datedropper3/datedropper.js',
 
         // VENDORS + '/timedropper/timedropper.js',

@@ -18,13 +18,21 @@ foreach ($result['hotels'] as $hotel) {
 
     unset ($hotel['offers'][0]);
 
-    ittour_show_template('loop-hotel/tour-list-default.php', array(
-            'hotel' => $hotel,
-            'first_offer' => $first_offer,
-            'delay' => $delay,
-            'total' => $total_offers
-        )
+    $template_args = array(
+        'hotel' => $hotel,
+        'first_offer' => $first_offer,
+        'delay' => $delay,
+        'total' => $total_offers,
+        'main_currency_label' => $main_currency_label,
+        'main_currency' => $main_currency,
+        'from_city' => $from_city,
     );
+
+    if (!empty($child_age)) {
+        $template_args['child_age'] = $child_age;
+    }
+
+    ittour_show_template('loop-hotel/tour-list-default.php', $template_args);
     $i++;
 }
 ?>

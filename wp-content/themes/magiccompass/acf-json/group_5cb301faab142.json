@@ -123,6 +123,34 @@
             "ajax": 0,
             "return_format": "array",
             "placeholder": ""
+        },
+        {
+            "key": "field_5cf67a7cf0cd2",
+            "label": "Main Currency",
+            "name": "main_currency",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "USD",
+                "2": "UAH",
+                "10": "EURO"
+            },
+            "default_value": [
+                10
+            ],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -147,5 +175,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555319262
+    "modified": 1559657243
 }

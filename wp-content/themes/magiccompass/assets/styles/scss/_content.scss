@@ -1,6 +1,88 @@
 /*============================================================================================*/
 /* 2.  CONTENT  */
 /*============================================================================================*/
+.device-desktop {
+    .hide-for-desktop {
+        display: none;
+    }
+    .show-for-desktop {
+        display: block !important;
+    }
+}
+
+.device-mobile {
+    .hide-for-mobile {
+        display: none;
+    }
+    .show-for-mobile {
+        display: block !important;
+    }
+}
+
+.video-background__holder {
+    position: relative;
+    height: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+.loading .video-background {
+    opacity: 0;
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-top: 56.25%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: 2s opacity ease;
+    transition: 2s opacity ease;
+    opacity: 1;
+}
+
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    pointer-events: none; }
+
+.tv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    .screen {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+
+        margin: auto;
+
+        opacity: 0;
+        transition: opacity .5s;
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;

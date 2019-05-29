@@ -1,7 +1,67 @@
+var SNTHJS = SNTHJS || {};
+
 (function ($) {
+    var $window = $(window),
+        $body = $('body');
+
+    SNTHJS.content = {
+        addBodyClass: function() {
+            var orientation = SNTHJS.device.orientation();
+            $body.removeClass('device-landscape device-portrait').addClass(orientation);
+
+            var deviceType = SNTHJS.device.type();
+            $body.removeClass('device-mobile device-desktop').addClass(deviceType);
+        }
+    };
+
+    SNTHJS.device = {
+        isMobile: {
+            Android: function () {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function () {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function () {
+                return (
+                    SNTHJS.device.isMobile.Android() ||
+                    SNTHJS.device.isMobile.BlackBerry() ||
+                    SNTHJS.device.isMobile.iOS() ||
+                    SNTHJS.device.isMobile.Opera() ||
+                    SNTHJS.device.isMobile.Windows()
+                );
+            }
+        },
+        type: function () {
+            if (SNTHJS.device.isMobile.any()) {
+                return 'device-mobile';
+            }
+
+            return 'device-desktop';
+        },
+        orientation: function () {
+            if($(window).width() > $(window).height()) {
+                return 'device-landscape';
+            }
+
+            return 'device-portrait';
+        }
+    };
 
     $(document).ready(function() {
+        SNTHJS.content.addBodyClass();
 
+        $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
+        $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
     });
 
     /* Preload */
@@ -24,6 +84,10 @@
         }
 
         $(window).scroll();
+    });
+
+    $(window).on('resize', function(e) {
+        SNTHJS.content.addBodyClass();
     });
 
     /* Sticky nav */

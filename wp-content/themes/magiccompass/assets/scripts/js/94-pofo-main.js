@@ -94,12 +94,11 @@
             e.preventDefault();
             $.magnificPopup.close();
         });
+
         /*==============================================================
          counter
          ==============================================================*/
-        $(function ($) {
-            animatecounters();
-        });
+        $(function ($) {animatecounters();});
 
         function animatecounters() {
             $('.timer').each(count);
@@ -109,6 +108,12 @@
                 $this.countTo(options);
             }
         }
+
+        $('.countdown').countdown(
+            $('.countdown').attr("data-enddate")
+        ).on('update.countdown', function (event) {
+            $(this).html(event.strftime('' + '<div class="counter-container font-alt">' + '<div class="counter-box first d-inline-block text-center"><div class="number font-weight-900">%H</div><span>Hours</span></div><div class="counter-box-divider d-inline-block"><div class="counter-divider">:</div></div>' + '<div class="counter-box d-inline-block text-center"><div class="number font-weight-900">%M</div><span>Minutes</span></div><div class="counter-box-divider d-inline-block"><div class="counter-divider">:</div></div>' + '<div class="counter-box last d-inline-block text-center"><div class="number font-weight-900">%S</div><span>Seconds</span></div></div>'));
+        });
     });
 
     $(window).on('load', function () {

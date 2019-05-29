@@ -147,3 +147,13 @@ function snth_get_slug_lat($string) {
 
     return $string_lat_slug;
 }
+
+function snth_convert_date_to_human($date, $format = 'Y-m-d') {
+    $date_obj = date_create_from_format($format, $date);
+
+    $year = date_format($date_obj, 'Y');
+    $month = date_format($date_obj, 'm');
+    $day = date_format($date_obj, 'j');
+
+    return $day . ' ' . ittour_get_month_by_number($month, 'genetive') . ' ' . $year;
+}

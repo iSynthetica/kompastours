@@ -108,6 +108,7 @@
         var ittourGroup = button.data('ittour-group');
         var ittourType = button.data('ittour-type');
         var ittourTransport = button.data('ittour-transport');
+        var ittourCurrency = $('#main_currency_' + ittourId).val();
 
         $.ajax({
             url: ajaxurl,
@@ -121,7 +122,8 @@
                 ittourIso: ittourIso,
                 ittourGroup: ittourGroup,
                 ittourType: ittourType,
-                ittourTransport: ittourTransport
+                ittourTransport: ittourTransport,
+                ittourCurrency: ittourCurrency
             },
             success: function (response) {
                 var decoded;

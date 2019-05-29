@@ -36,6 +36,43 @@
         });
     });
 
+    $(document.body).on('click', '#start-working', function() {
+        var btn = $(this);
+        var claimId = btn.data('claim-id');
+        var userId = btn.data('user-id');
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'post',
+            data: {
+                action: 'crm_ajax_start_claim',
+                claimId: claimId,
+                userId: userId,
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = $.parseJSON(response);
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = decoded.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        alert(decoded.message);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    });
+
     $(document).ready(function() {
 
     });
@@ -51,5 +88,18 @@
     $(window).on('resize', function(e) {
 
     });
+
+    /**
+     *
+     * @param e
+     * @param fragments
+     */
+    function updateFragments( fragments ) {
+        if ( fragments ) {
+            $.each( fragments, function( key, value ) {
+                $( key ).replaceWith( value );
+            });
+        }
+    }
 
 }(jQuery));

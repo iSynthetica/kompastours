@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <div class="col-6">
                                     <p>
                                         <i class="far fa-calendar-alt list-item-icon"></i>
-                                        <?php echo $first_offer['date_from']; ?>
+                                        <?php echo snth_convert_date_to_human($first_offer['date_from']); ?>
                                     </p>
                                 </div>
 
@@ -181,13 +181,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                                         </div>
 
                                         <div class="tour_price_currency d-inline-block d-lg-block mb-lg-10">
-                                            <sup>$</sup><strong><?php echo $first_offer['prices'][1] ?></strong>
+                                            <sup><?php echo $main_currency_label ?></sup><strong><?php echo $first_offer['prices'][$main_currency] ?></strong>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 col-5">
                                         <a
-                                                href="/tour/<?php echo $first_offer['key'] ?>"
+                                                href="/tour/<?php echo $first_offer['key'] ?>?from_city=<?php echo $from_city ?><?php echo !empty($child_age) ? '&child_age=' . $child_age : '' ?>"
                                                 class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>
@@ -254,7 +254,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                 echo __('Ask manager', 'snthwp');
                                             }
                                         }
-                                        ?> - <?php echo $offer['date_from'] ?>
+                                        ?> - <?php echo snth_convert_date_to_human($offer['date_from']); ?>
                                     </div>
                                 </div>
 
@@ -285,13 +285,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     <div class="tour_list_more_price">
                                         <strong><?php echo $offer['prices'][2] ?></strong><small> <?php echo __('uah.', 'snthwp'); ?></small>
 
-                                        <span>(<sup>$</sup><strong><?php echo $offer['prices'][1] ?></strong>)</span>
+                                        <span>(<sup><?php echo $main_currency_label ?></sup><strong><?php echo $offer['prices'][$main_currency] ?></strong>)</span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="tour_list_more_button">
                                         <a
-                                                href="/tour/<?php echo $offer['key'] ?>"
+                                                href="/tour/<?php echo $offer['key'] ?>?from_city=<?php echo $from_city ?><?php echo !empty($child_age) ? '&child_age=' . $child_age : '' ?>"
                                                 class="btn shape-rnd type-hollow hvr-invert size-xs"
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>

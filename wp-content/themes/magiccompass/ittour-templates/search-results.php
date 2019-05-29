@@ -45,6 +45,18 @@ if (!$country_id) {
 } else {
     $args = array();
 
+    $country_info = ittour_destination_by_ittour_id($country_id);
+
+    $main_currency = $country_info["main_currency"];
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else if ('2' === $main_currency) {
+        $main_currency_label = __('UAH', 'snthwp');
+    }
+
     $args['from_city'] = $from_city ? $from_city : '2014';
     $args['adult_amount'] = $adult_amount ? $adult_amount : '2';
     $args['night_from'] = $night_from ? $night_from : '7';
@@ -159,7 +171,20 @@ if (!$country_id) {
         )
     );
 
-    $ittour_content = ittour_get_template('search/result.php', array('result' => $search_result, 'url' => $url));
+    $template_args = array(
+        'result' => $search_result,
+        'main_currency_label' => $main_currency_label,
+        'main_currency' => $main_currency,
+        'url' => $url,
+        'from_city' => $from_city,
+    );
+
+    if (!empty($child_age)) {
+        $template_args['child_age'] = $child_age;
+    }
+
+    $ittour_content = ittour_get_template('search/result.php', $template_args
+    );
 }
 ?>
 

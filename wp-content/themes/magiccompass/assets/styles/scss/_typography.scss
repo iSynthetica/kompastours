@@ -1,6 +1,57 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans Condensed', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: $color-gray-80;
 }
+
+h1, .h1 {font-size: rem-calc(31);}
+h2, .h2 {font-size: rem-calc(25);}
+h3, .h3 {font-size: rem-calc(22);}
+h4, .h4 {font-size: rem-calc(19);}
+h5, .h5 {font-size: rem-calc(16);}
+h6, .h6 {font-size: rem-calc(16);}
+
+@media (min-width: 576px) {
+    h1, .h1 {font-size: 33px;}
+    h2, .h2 {font-size: 27px;}
+    h3, .h3 {font-size: 24px;}
+    h4, .h4 {font-size: 21px;}
+    h5, .h5 {font-size: 16px;}
+    h6, .h6 {font-size: 16px;}
+}
+
+@media (min-width: 768px) {
+    h1, .h1 {font-size: rem-calc(36);}
+    h2, .h2 {font-size: rem-calc(32);}
+    h3, .h3 {font-size: rem-calc(28);}
+    h4, .h4 {font-size: rem-calc(24);}
+    h5, .h5 {font-size: rem-calc(20);}
+    h6, .h6 {font-size: rem-calc(16);}
+}
+
+@media (min-width: 992px) {
+    h1, .h1 {font-size: rem-calc(40);}
+    h2, .h2 {font-size: rem-calc(29);}
+    h3, .h3 {font-size: rem-calc(26);}
+    h4, .h4 {font-size: rem-calc(22);}
+    h5, .h5 {font-size: rem-calc(18);}
+    h6, .h6 {font-size: rem-calc(16);}
+}
+
+@media (min-width: 1200px) {
+    h1, .h1 {font-size: rem-calc(44);}
+    h2, .h2 {font-size: rem-calc(32);}
+    h3, .h3 {font-size: rem-calc(28);}
+    h4, .h4 {font-size: rem-calc(24);}
+    h5, .h5 {font-size: rem-calc(20);}
+    h6, .h6 {font-size: rem-calc(16);}
+}
+
+h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .font-alt {
     font-family: 'Open Sans Condensed', sans-serif;
 }
