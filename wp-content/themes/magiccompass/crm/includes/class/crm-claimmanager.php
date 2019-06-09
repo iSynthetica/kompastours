@@ -11,14 +11,14 @@ class CRM_ClaimManager {
             'client_id' => '',
             'title' => '',
             'excerpt' => '',
-            'type' => 'tour_booking_request',
+            'type' => 'tour',
             'status' => 'pending',
             'created' => $created,
             'modified' => $created,
         );
 
-        if (!empty($data['type'])) {
-            $claim_data['type'] = $data['type'];
+        if (!empty($data['claim_type'])) {
+            $claim_data['type'] = $data['claim_type'];
         }
 
         $order_items = array();

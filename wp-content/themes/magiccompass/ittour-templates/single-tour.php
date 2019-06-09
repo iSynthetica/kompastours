@@ -28,7 +28,7 @@ if (empty($_GET['key'])) {
     }
 
     if (empty($tour_info["child_age"]) && !empty($_GET["child_age"])) {
-        $tour_info["child_age"] = (int) $_GET["child_age"];
+        $tour_info["child_age"] = $_GET["child_age"];
     }
 
     $country = ittour_get_destination_by_ittour_id($tour_info['country_id']);

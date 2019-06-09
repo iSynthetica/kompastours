@@ -1281,6 +1281,50 @@ function ittour_get_hotel_number_rating_by_id($id) {
     return $rating;
 }
 
+function ittour_get_tour_operator($form) {
+    $form_string = $form;
+    $operator_title = '';
+
+    if (strpos($form_string, 'tpg.ua')) {
+        $operator_title = 'TPG';
+    } elseif (strpos($form_string, 'anextour.com.ua')) {
+        $operator_title = 'Anex Tour';
+    } elseif (strpos($form_string, 'joinup.ua')) {
+        $operator_title = 'Join UP';
+    } elseif (strpos($form_string, 'tui.ua')) {
+        $operator_title = 'TUI';
+    } elseif (strpos($form_string, 'coraltravel.com.ua')) {
+        $operator_title = 'Coral Travel';
+    } elseif (strpos($form_string, 'teztour.ua')) {
+        $operator_title = 'TEZ Tour';
+    } elseif (strpos($form_string, 'kompastour.com.ua')) {
+        $operator_title = 'Kompas';
+    } elseif (strpos($form_string, 'alf-ua.com')) {
+        $operator_title = 'ALF';
+    } elseif (strpos($form_string, 'mouzenidis-travel.ru')) {
+        $operator_title = 'Mouzenidis';
+    } elseif (strpos($form_string, 'pegast.com.ua')) {
+        $operator_title = 'Pegas';
+    }
+
+    if (empty($operator_title)) {
+        error_log($form);
+        error_log('===============================================================');
+        return '';
+    }
+
+    ob_start();
+    ?>
+    <li>
+        <i class="fas fa-info list-item-icon"></i>
+        <small><?php _e('Tour operator', 'snthwp'); ?>:</small>
+        <strong><?php echo $operator_title ?></strong>
+    </li>
+    <?php
+
+    return ob_get_clean();
+}
+
 function ittour_get_transport_type_by_id($id) {
     switch ($id) {
         case "0":

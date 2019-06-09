@@ -59,6 +59,16 @@
         }
     }
 
+    .tour_on_stop {
+        .tour_price {
+            color: $color-gray-50;
+        }
+
+        .tour_price_currency {
+            color: $color-gray-40;
+        }
+    }
+
     @media (min-width: 576px) {
         .tour_price, .tour_price_currency {
             line-height: rem-calc(32);

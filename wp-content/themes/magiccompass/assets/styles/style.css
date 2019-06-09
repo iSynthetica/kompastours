@@ -26846,6 +26846,12 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     position: relative;
     top: -0.25rem; }
 
+#single-tour-main-info__container .tour_on_stop .tour_price {
+  color: #7f7f7f; }
+
+#single-tour-main-info__container .tour_on_stop .tour_price_currency {
+  color: #999999; }
+
 @media (min-width: 576px) {
   #single-tour-main-info__container .tour_price, #single-tour-main-info__container .tour_price_currency {
     line-height: 2rem;
@@ -27528,6 +27534,10 @@ i.list-item-icon {
     left: 0.3125rem;
     width: 2.5rem;
     line-height: 1.875rem; }
+
+#hotel-reviews__holder {
+  max-height: 31.25rem;
+  overflow: hidden; }
 
 /* TIMELINE */
 ul.cbp_tmtimeline {

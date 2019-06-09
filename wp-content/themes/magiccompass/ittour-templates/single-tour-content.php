@@ -181,6 +181,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                             </li>
                             <?php
                         }
+
+                        if (!empty($tour_info["online_booking_form"])) {
+                            echo ittour_get_tour_operator($tour_info["online_booking_form"]);
+                        }
                         ?>
                     </ul>
 
@@ -211,27 +215,70 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 <div id="single_tour_tabs">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <?php
+        $first = true;
+
+        if (!empty($tour_info["hotel_info"]["hotel_review_rate"])) {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="true">
+                    <?php _e('Hotel Reviews', 'snthwp'); ?>
+                </a>
+            </li>
+            <?php
+            $first = false;
+        }
+        ?>
+
         <li class="nav-item">
-            <a class="nav-link active" id="calendar-tab" data-toggle="tab" href="#calendar" role="tab" aria-controls="home" aria-selected="true">
+            <a class="nav-link<?php echo $first ? ' active' : ''; ?>"
+               id="calendar-tab"
+               data-toggle="tab"
+               href="#calendar"
+               role="tab"
+               aria-controls="calendar"
+               aria-selected="<?php echo $first ? 'true' : 'false'; ?>"
+            >
                 <?php _e('More Tours', 'snthwp'); ?>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="home" aria-selected="true">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">
                 <?php _e('Hotel Description', 'snthwp'); ?>
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                <?php _e('Location', 'snthwp'); ?>
-            </a>
-        </li>
+        <?php
+        if (!empty($tour_info["hotel_info"]['lat']) && !empty($tour_info["hotel_info"]['lng'])) {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                    <?php _e('Location', 'snthwp'); ?>
+                </a>
+            </li>
+            <?php
+        }
+        ?>
     </ul>
 
     <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="calendar" role="tabpanel" aria-labelledby="home-tab">
+        <?php
+        $first_tab = true;
+
+        if (!empty($tour_info["hotel_info"]["hotel_review_rate"])) {
+            ?>
+            <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="home-tab">
+                <?php
+                ittour_show_template('single-tour/hotel-reviews.php', array('hotel_id' => $tour_info["hotel_id"]));
+                ?>
+            </div>
+            <?php
+            $first_tab = false;
+        }
+        ?>
+
+        <div class="tab-pane fade<?php echo $first_tab ? ' show active' : ''; ?>" id="calendar" role="tabpanel" aria-labelledby="home-tab">
             <?php
             $template_args = array(
                 'country' => $tour_info["country_id"],
@@ -288,14 +335,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             ?>
         </div>
 
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <?php
-            ittour_show_template('single-tour/hotel-map.php', array(
-                'hotel_info' => $tour_info['hotel_info'],
-                'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating'])
-            ));
+
+
+        <?php
+        if (!empty($tour_info["hotel_info"]['lat']) && !empty($tour_info["hotel_info"]['lng'])) {
             ?>
-        </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <?php
+                ittour_show_template('single-tour/hotel-map.php', array(
+                    'hotel_info' => $tour_info['hotel_info'],
+                    'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating'])
+                ));
+                ?>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 

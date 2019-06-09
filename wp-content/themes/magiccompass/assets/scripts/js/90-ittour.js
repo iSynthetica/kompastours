@@ -62,6 +62,47 @@
         });
     });
 
+    $(document.body).on('click', '.validate-btn', function() {
+        var btn = $(this);
+
+        var key = btn.data('key');
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_validate_tour',
+                key: key
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        $( ".book-btn" ).remove();
+                        $( ".error_messages" ).remove();
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    });
+
     $(document.body).on('click', '.book-btn', function() {
         var formData = $("#booking-form").serializeArray();
 

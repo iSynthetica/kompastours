@@ -19,6 +19,20 @@ class ittourTourApi extends ittourApi {
         return $this->request($params);
     }
 
+    public function validate() {
+
+        $params = 'validate/' . $this->key;
+
+        return $this->request($params);
+    }
+
+    public function flighs() {
+
+        $params = 'flighs/' . $this->key;
+
+        return $this->request($params);
+    }
+
     public function flights() {
 
         $params = 'flights/' . $this->key;

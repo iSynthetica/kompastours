@@ -62,6 +62,42 @@ function ittour_rest_params($request) {
 }
 
 add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/hotel/(?P<hotel_id>\d+)/reviews/', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_hotel_reviews',
+        'args'     => array(
+            'hotel_id' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_hotel_reviews($request) {
+    $headers = $request->get_headers();
+    $hotel_id = $request['hotel_id'];
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $hotel_obj = ittour_hotel($hotel_id, $lang);
+
+    if ($hotel_id) {
+        $reviews = $hotel_obj->reviews();
+    }
+
+
+    return $reviews;
+}
+
+add_action( 'rest_api_init', function () {
     register_rest_route( 'ittour/v1', '/tour/info/(?P<key>[a-zA-Z0-9-]+)', array(
         'methods' => WP_REST_Server::READABLE,
         'callback' => 'ittour_rest_tour_info',
@@ -89,6 +125,70 @@ function ittour_rest_tour_info($request) {
     $tour = ittour_tour($request['key'], $lang);
 
     $tour_info = $tour->info();
+
+    return $tour_info;
+}
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/tour/validate/(?P<key>[a-zA-Z0-9-]+)', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_tour_validate',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_tour_validate($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $tour = ittour_tour($request['key'], $lang);
+
+    $tour_info = $tour->validate();
+
+    return $tour_info;
+}
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/tour/flighs/(?P<key>[a-zA-Z0-9-]+)', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_tour_validate',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_tour_flighs($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $tour = ittour_tour($request['key'], $lang);
+
+    $tour_info = $tour->flighs();
 
     return $tour_info;
 }

@@ -361,3 +361,8 @@
         line-height: rem-calc(30);
     }
 }
+
+#hotel-reviews__holder {
+    max-height: rem-calc(500);
+    overflow: hidden;
+}

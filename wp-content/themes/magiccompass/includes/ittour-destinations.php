@@ -288,3 +288,12 @@ function ittour_get_destinations_list_sort_by_ittour_id($destination_type = 'cou
 
     return $destinations_by_ittour_id;
 }
+
+function ittour_is_tour_outdated($date, $format = 'Y-m-d') {
+    $date_obj = date_create_from_format($format, $date);
+    $date_timestamp = date_format($date_obj, 'U');
+    $current_timestamp = time();
+
+
+    return $date_timestamp < $current_timestamp;
+}

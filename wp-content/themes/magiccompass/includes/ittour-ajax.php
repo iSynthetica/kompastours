@@ -7,12 +7,41 @@
  */
 
 
+function ittour_ajax_validate_tour() {
+    if(isset($_POST['key'])) {
+        $key = sanitize_key( $_POST['key'] );
+    }
+
+    $tour = ittour_tour($key, ITTOUR_LANG);
+    $tour_info = $tour->validate();
+
+    if (empty($tour_info["price_changed"])) {
+        $message = array(
+            'fragments' => array(
+                '.validate-btn' => '',
+            ),
+        );
+    } else {
+        $message = array(
+            'fragments' => array(
+                '.table-summary_holder_01' => 'Test',
+            ),
+        );
+    }
+
+    echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $message ));
+
+    die;
+}
+add_action('wp_ajax_nopriv_ittour_ajax_validate_tour', 'ittour_ajax_validate_tour');
+add_action('wp_ajax_ittour_ajax_validate_tour', 'ittour_ajax_validate_tour');
+
 function ittour_ajax_load_single_tour() {
     if(isset($_POST['key'])) {
         $key = sanitize_key( $_POST['key'] );
     }
 
-    $tour = ittour_tour($key);
+    $tour = ittour_tour($key, ITTOUR_LANG);
     $tour_info = $tour->info();
 
     ob_start();

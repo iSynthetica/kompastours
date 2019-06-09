@@ -81,24 +81,71 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
 ?>
 
 <div class="box_style_1 expose table-summary_holder">
-    <div class="text-center mb-0 ptb-20">
+    <?php
+    $tour_on_stop = false;
+    $tour_outdated = ittour_is_tour_outdated($tour_info["date_from"]);
+
+    if ($tour_outdated) {
+        $tour_on_stop = true;
+    } else {
+        if ('flight' === $tour_info["transport_type"] && (!empty($tour_info["stop_sale"]) || !empty($tour_info["stop_flight"]))) {
+            $tour_on_stop = true;
+        }
+    }
+
+    ?>
+
+    <div class="text-center mb-0 ptb-20<?php echo !empty($tour_on_stop) ? ' tour_on_stop' : ''; ?>">
         <div class="tour_price text-center font-alt d-inline-block d-md-block">
             <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
         </div>
 
         <div class="tour_price_currency text-center font-alt d-inline-block d-md-block">
-            <sup><?php echo $main_currency_label; ?></sup><strong><?php echo $tour_info['prices'][$main_currency] ?></strong>
+            <sup><?php echo $main_currency_label; ?></sup><strong><?php echo $tour_info['prices'][$main_currency]; ?></strong>
         </div>
     </div>
 
-    <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
+    <?php
+    if (!empty($tour_on_stop)) {
+        ?>
+        <h5 class="mt-0 mb-10 text-center"><?php echo __('Sorry, but this tour is not actual', 'snthwp'); ?></h5>
+        <?php
+        if ($tour_outdated) {
+            ?>
+            <p class="mtb-5 text-center"><?php echo __('Tour is outdated', 'snthwp'); ?></p>
+            <?php
+        } else {
+            if (!empty($tour_info["stop_sale"])) {
+                ?>
+                <p class="mtb-5 text-center"><?php echo __('No rooms available', 'snthwp'); ?></p>
+                <?php
+            }
+
+            if (!empty($tour_info["stop_flight"])) {
+                ?>
+                <p class="mtb-5 text-center"><?php echo __('No tickets available', 'snthwp'); ?></p>
+                <?php
+            }
+        }
+
+    } else {
+        ?>
+        <button class="btn shape-rnd type-hollow size-xs size-extended text-uppercase font-alt font-weight-900 validate-btn"
+                data-key="<?php echo $tour_info["key"]; ?>"
+                type="button">
+            <i class="fas fa-sync-alt d-inline-block mr-10"></i> <?php echo __('Check tour actuality', 'snthwp'); ?>
+        </button>
+
+        <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
+        <?php
+    }
+    ?>
 
     <span class="mtb-5 text-center txt-gray-40-color d-none"><?php echo __('or', 'snthwp'); ?></span>
 
     <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none"><?php echo __('Ask a question', 'snthwp'); ?></button>
 
     <div id="modal-popup" class="bg-white-color mfp-hide col-xl-5 col-md-9 col-11 m-auto modal-popup-main p-20">
-
         <div id="booking-form__container">
             <div id="booking-form__body">
                 <form action="" id="booking-form">
@@ -106,63 +153,90 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
                     if (!empty($tour_info["key"])) {
                         ?><input type="hidden" name="key" value="<?php echo $tour_info["key"] ?>"><?php
                     }
+
                     if (!empty($tour_info["id"])) {
                         ?><input type="hidden" name="id" value="<?php echo $tour_info["id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["tour_id"])) {
                         ?><input type="hidden" name="tour_id" value="<?php echo $tour_info["tour_id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["spo"])) {
                         ?><input type="hidden" name="spo" value="<?php echo $tour_info["spo"] ?>"><?php
                     }
+
                     if (!empty($tour_info["from_city"])) {
-                        ?><input type="hidden" name="from_city" value="<?php echo $tour_info["from_city"] ?>"><?php
+                        ?><input type="hidden" name="from_city_name" value="<?php echo $tour_info["from_city"] ?>"><?php
                     }
+
                     if (!empty($tour_info["from_city_id"])) {
-                        ?><input type="hidden" name="from_city_id" value="<?php echo $tour_info["from_city_id"] ?>"><?php
+                        ?><input type="hidden" name="from_city" value="<?php echo $tour_info["from_city_id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["country"])) {
-                        ?><input type="hidden" name="country" value="<?php echo $tour_info["country"] ?>"><?php
+                        ?><input type="hidden" name="country_name" value="<?php echo $tour_info["country"] ?>"><?php
                     }
+
                     if (!empty($tour_info["country_id"])) {
-                        ?><input type="hidden" name="country_id" value="<?php echo $tour_info["country_id"] ?>"><?php
+                        ?><input type="hidden" name="country" value="<?php echo $tour_info["country_id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["region"])) {
-                        ?><input type="hidden" name="region" value="<?php echo $tour_info["region"] ?>"><?php
+                        ?><input type="hidden" name="region_name" value="<?php echo $tour_info["region"] ?>"><?php
                     }
+
                     if (!empty($tour_info["region_id"])) {
-                        ?><input type="hidden" name="region_id" value="<?php echo $tour_info["region_id"] ?>"><?php
+                        ?><input type="hidden" name="region" value="<?php echo $tour_info["region_id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["hotel"])) {
                         ?>
                         <input
                                 type="hidden"
-                                name="hotel"
+                                name="hotel_name"
                                 value="<?php echo $tour_info["hotel"] ?><?php echo !empty($tour_info["hotel_rating"]) ? ' ' . ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]) : ''; ?>"
                         >
                         <?php
                     }
+
                     if (!empty($tour_info["hotel_id"])) {
-                        ?><input type="hidden" name="hotel_id" value="<?php echo $tour_info["hotel_id"] ?>"><?php
+                        ?><input type="hidden" name="hotel" value="<?php echo $tour_info["hotel_id"] ?>"><?php
                     }
+
                     if (!empty($tour_info["meal_type"])) {
                         ?><input type="hidden" name="meal_type" value="<?php echo $tour_info["meal_type"] ?>"><?php
                     }
+
                     if (!empty($tour_info["duration"])) {
-                        ?><input type="hidden" name="duration" value="<?php echo $tour_info["duration"] ?>"><?php
+                        ?><input type="hidden" name="night_from" value="<?php echo $tour_info["duration"] ?>"><?php
                     }
+
                     if (!empty($tour_info["date_from"])) {
                         ?><input type="hidden" name="date_from" value="<?php echo $tour_info["date_from"] ?>"><?php
                     }
+
                     if (!empty($tour_info["adult_amount"])) {
                         ?><input type="hidden" name="adult_amount" value="<?php echo $tour_info["adult_amount"] ?>"><?php
                     }
+
+                    if (!empty($tour_info["child_amount"])) {
+                        ?><input type="hidden" name="child_amount" value="<?php echo $tour_info["child_amount"] ?>"><?php
+
+
+                        if (!empty($tour_info["child_age"])) {
+                            ?><input type="hidden" name="child_age" value="<?php echo $tour_info["child_age"] ?>"><?php
+                        }
+                    }
+
                     if (!empty($tour_info["prices"]['1'])) {
                         ?><input type="hidden" name="price_usd" value="<?php echo $tour_info["prices"]['1'] ?>"><?php
                     }
+
                     if (!empty($tour_info["prices"]['2'])) {
                         ?><input type="hidden" name="price_uah" value="<?php echo $tour_info["prices"]['2'] ?>"><?php
                     }
+
                     if (!empty($tour_info["prices"]['10'])) {
                         ?><input type="hidden" name="price_euro" value="<?php echo $tour_info["prices"]['10'] ?>"><?php
                     }
