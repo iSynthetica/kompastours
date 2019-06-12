@@ -1,23 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: snth
- * Date: 20.09.18
- * Time: 16:26
- */
+
 ?>
+<div id="single-tour-price__holder" class="text-center mb-0 ptb-20<?php echo !empty($tour_on_stop) ? ' tour_on_stop' : ''; ?>">
+    <div class="tour_price text-center font-alt d-inline-block d-md-block">
+        <strong><?php echo $price_uah ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
+    </div>
 
-
-<p>
-    <strong><?php echo __('Price', 'snthwp') ?>:</strong> <span class="tour-price_amount"><?php echo $tour_info['price'] ?></span> <span class="tour-price_currency"><?php echo ittour_get_currency_by_id($tour_info['currency_id']); ?></span>
-</p>
-<p>
-    <strong><?php echo __('Price table', 'snthwp') ?>:</strong><br>
-    <?php
-    foreach ($tour_info['prices'] as $key => $price) {
-        ?>
-        <span class="tour-price_amount"><?php echo $price; ?></span> <span class="tour-price_currency"><?php echo ittour_get_currency_by_id($key); ?></span><br>
-        <?php
-    }
-    ?>
-</p>
+    <div class="tour_price_currency text-center font-alt d-inline-block d-md-block">
+        <sup><?php echo $main_currency_label; ?></sup><strong><?php echo $price_currency; ?></strong>
+    </div>
+</div>

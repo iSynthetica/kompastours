@@ -12,6 +12,12 @@ function ittour_ajax_validate_tour() {
         $key = sanitize_key( $_POST['key'] );
     }
 
+    $main_currency = '10';
+
+    if(isset($_POST['currency'])) {
+        $main_currency = sanitize_key( $_POST['currency'] );
+    }
+
     $tour = ittour_tour($key, ITTOUR_LANG);
     $tour_info = $tour->validate();
 
@@ -22,9 +28,23 @@ function ittour_ajax_validate_tour() {
             ),
         );
     } else {
+
+        $tour_on_stop = false;
+
+        if ('flight' === $tour_info["transport_type"] && (!empty($tour_info["stop_sale"]) || !empty($tour_info["stop_flight"]))) {
+            $tour_on_stop = true;
+        }
+
+        $html = ittour_get_template('single-tour/price.php', array(
+            'tour_on_stop' => $tour_on_stop,
+            'price_uah' => $tour_info["prices"][2],
+            'price_currency' => $tour_info["prices"][$main_currency],
+            'main_currency_label' => 'EURO',
+        ));
+
         $message = array(
             'fragments' => array(
-                '.table-summary_holder_01' => 'Test',
+                '#single-tour-price__holder' => $html,
             ),
         );
     }

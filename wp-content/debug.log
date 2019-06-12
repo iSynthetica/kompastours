@@ -14,3 +14,4 @@ Stack trace:
 #3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(188): do_action('wp_ajax_nopriv_...')
 #4 {main}
   thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 18
+[12-Jun-2019 12:08:24 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116

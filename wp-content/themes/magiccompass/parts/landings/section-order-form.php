@@ -29,7 +29,7 @@ $from_cities_array = get_option('ittour_from_cities');
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-9 col-lg-9">
-                <h3 class="section-title text-uppercase font-weight-900 text-center mt-0 mb-20 mb-md-40 mb-lg-60"><?php echo __('Оставить заявку', 'snthwp'); ?></h3>
+                <h3 class="section-title text-uppercase font-weight-900 text-center mt-0 mb-20 mb-md-40 mb-lg-60"><?php echo __('Send request', 'snthwp'); ?></h3>
 
                 <form id="lp-order-form">
                     <input type="hidden" name="country" value="<?php echo $country_info['title']; ?>">

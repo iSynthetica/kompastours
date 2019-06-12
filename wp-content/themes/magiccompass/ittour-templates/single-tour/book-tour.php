@@ -95,7 +95,7 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
 
     ?>
 
-    <div class="text-center mb-0 ptb-20<?php echo !empty($tour_on_stop) ? ' tour_on_stop' : ''; ?>">
+    <div id="single-tour-price__holder" class="text-center mb-0 ptb-20<?php echo !empty($tour_on_stop) ? ' tour_on_stop' : ''; ?>">
         <div class="tour_price text-center font-alt d-inline-block d-md-block">
             <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
         </div>
@@ -132,6 +132,7 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
         ?>
         <button class="btn shape-rnd type-hollow size-xs size-extended text-uppercase font-alt font-weight-900 validate-btn"
                 data-key="<?php echo $tour_info["key"]; ?>"
+                data-currency="<?php echo $main_currency; ?>"
                 type="button">
             <i class="fas fa-sync-alt d-inline-block mr-10"></i> <?php echo __('Check tour actuality', 'snthwp'); ?>
         </button>

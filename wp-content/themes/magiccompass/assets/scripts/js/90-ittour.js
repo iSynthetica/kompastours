@@ -66,6 +66,7 @@
         var btn = $(this);
 
         var key = btn.data('key');
+        var currency = btn.data('currency');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -73,7 +74,8 @@
             dataType: "json",
             data: {
                 action: 'ittour_ajax_validate_tour',
-                key: key
+                key: key,
+                currency: currency
             },
             success: function (response) {
                 var decoded;
