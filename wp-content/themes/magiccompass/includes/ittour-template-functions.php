@@ -1413,12 +1413,12 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
             <div class="tour_list_container">
                 <div id="tour_list_container-<?php echo $i; ?>" class="tour_list_container-inner card accordion_styled">
                     <div class="card-header">
-                        <h3 class="mtb-0">
+                        <h5 class="mtb-0 font-weight-900">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#tour_list_container-<?php echo $i; ?>" href="#collapse_<?php echo $i; ?>_date">
                                 <?php echo snth_convert_date_to_human($date); ?>
                                 <i class="fas fa-plus float-right indicator"></i>
                             </a>
-                        </h3>
+                        </h5>
                     </div>
 
                     <div id="collapse_<?php echo $i; ?>_date" class="collapse<?php echo 1 === $i ? ' show' : ''; ?>" data-parent="#tour_list_container-<?php echo $i; ?>">
@@ -1878,9 +1878,6 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
     $saved_prices_by_rating = get_option('ittour_prices_by_rating');
     $time = time();
     $expiration_period = 60 * 60 * 6;
-    // $expiration_period = 60 * 10;
-
-    $test = 'date=29.05.19+-+10.06.19';
 
     $url = '/search/';
     $url .= '?from_city=2014';

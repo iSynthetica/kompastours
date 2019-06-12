@@ -18924,8 +18924,8 @@ h1, h2, h3 {
   background: #fff;
   border-radius: 3px;
   border: 1px solid #ddd;
-  margin-bottom: 25px;
-  padding: 30px;
+  margin-bottom: 1.5625rem;
+  padding: 0.625rem;
   position: relative;
   color: #666; }
 
@@ -27164,7 +27164,7 @@ i.list-item-icon {
 
 .search-form-toggle__holder {
   position: relative;
-  z-index: 100; }
+  z-index: 1005; }
   .search-form-toggle__holder .form-data-toggle-target {
     display: none;
     position: absolute;

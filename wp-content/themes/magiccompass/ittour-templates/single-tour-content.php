@@ -10,7 +10,9 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-
+<?php ittour_show_template('single-tour/change-parameters.php', array(
+    'tour_info' => $tour_info
+)) ?>
 <section id="single-tour-main-info__container">
     <div class="row">
         <div class="col-md-8 col-lg-9">
@@ -200,6 +202,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
 
         <div class="col-md-4 col-lg-3">
+
+
             <?php
             ittour_show_template('single-tour/book-tour.php', array(
                     'tour_info' => $tour_info,
@@ -208,6 +212,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 )
             );
             ?>
+
             <?php ittour_show_template('single-tour/book-by-phone.php') ?>
         </div>
     </div>

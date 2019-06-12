@@ -4,8 +4,8 @@
     -moz-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid #ddd;
-    margin-bottom: 25px;
-    padding: 30px;
+    margin-bottom: rem-calc(25);
+    padding: rem-calc(10);
     position: relative;
     color: #666;
 }

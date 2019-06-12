@@ -15,3 +15,77 @@ Stack trace:
 #4 {main}
   thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 18
 [12-Jun-2019 12:08:24 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
+[12-Jun-2019 14:57:50 UTC] PHP Notice:  Undefined index: from_city in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/change-parameters.php on line 24
+[12-Jun-2019 14:57:50 UTC] PHP Stack trace:
+[12-Jun-2019 14:57:50 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[12-Jun-2019 14:57:50 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[12-Jun-2019 14:57:50 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[12-Jun-2019 14:57:50 UTC] PHP   4. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:13
+[12-Jun-2019 14:57:50 UTC] PHP   5. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[12-Jun-2019 14:57:50 UTC] PHP   6. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[12-Jun-2019 14:57:50 UTC] PHP   7. {closure:/var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:58-83}(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[12-Jun-2019 14:57:50 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:80
+[12-Jun-2019 14:57:50 UTC] PHP   9. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:19
+[12-Jun-2019 14:57:50 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 14:57:50 UTC] PHP  11. ittour_get_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:66
+[12-Jun-2019 14:57:50 UTC] PHP  12. snth_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[12-Jun-2019 14:57:50 UTC] PHP  13. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[12-Jun-2019 14:57:50 UTC] PHP  14. ittour_show_template($template_name = *uninitialized*, $args = *uninitialized*, $template_path = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour-content.php:14
+[12-Jun-2019 14:57:50 UTC] PHP  15. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP Notice:  Undefined variable: tour_info in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/price.php on line 15
+[12-Jun-2019 17:30:44 UTC] PHP Stack trace:
+[12-Jun-2019 17:30:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[12-Jun-2019 17:30:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[12-Jun-2019 17:30:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[12-Jun-2019 17:30:44 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:13
+[12-Jun-2019 17:30:44 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[12-Jun-2019 17:30:44 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[12-Jun-2019 17:30:44 UTC] PHP   7. {closure:/var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:58-83}() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[12-Jun-2019 17:30:44 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:80
+[12-Jun-2019 17:30:44 UTC] PHP   9. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:19
+[12-Jun-2019 17:30:44 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP  11. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:66
+[12-Jun-2019 17:30:44 UTC] PHP  12. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[12-Jun-2019 17:30:44 UTC] PHP  13. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[12-Jun-2019 17:30:44 UTC] PHP  14. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour-content.php:211
+[12-Jun-2019 17:30:44 UTC] PHP  15. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP  16. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/book-tour.php:108
+[12-Jun-2019 17:30:44 UTC] PHP  17. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP Notice:  Undefined variable: main_currency in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/price.php on line 16
+[12-Jun-2019 17:30:44 UTC] PHP Stack trace:
+[12-Jun-2019 17:30:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[12-Jun-2019 17:30:44 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[12-Jun-2019 17:30:44 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[12-Jun-2019 17:30:44 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:13
+[12-Jun-2019 17:30:44 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[12-Jun-2019 17:30:44 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[12-Jun-2019 17:30:44 UTC] PHP   7. {closure:/var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:58-83}() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[12-Jun-2019 17:30:44 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:80
+[12-Jun-2019 17:30:44 UTC] PHP   9. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:19
+[12-Jun-2019 17:30:44 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP  11. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:66
+[12-Jun-2019 17:30:44 UTC] PHP  12. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[12-Jun-2019 17:30:44 UTC] PHP  13. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[12-Jun-2019 17:30:44 UTC] PHP  14. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour-content.php:211
+[12-Jun-2019 17:30:44 UTC] PHP  15. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:30:44 UTC] PHP  16. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/book-tour.php:108
+[12-Jun-2019 17:30:44 UTC] PHP  17. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:31:41 UTC] PHP Notice:  Undefined variable: main_currency in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/price.php on line 16
+[12-Jun-2019 17:31:41 UTC] PHP Stack trace:
+[12-Jun-2019 17:31:41 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[12-Jun-2019 17:31:41 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[12-Jun-2019 17:31:41 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[12-Jun-2019 17:31:41 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:13
+[12-Jun-2019 17:31:41 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[12-Jun-2019 17:31:41 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[12-Jun-2019 17:31:41 UTC] PHP   7. {closure:/var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:58-83}() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[12-Jun-2019 17:31:41 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php:80
+[12-Jun-2019 17:31:41 UTC] PHP   9. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php:19
+[12-Jun-2019 17:31:41 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:31:41 UTC] PHP  11. ittour_get_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:66
+[12-Jun-2019 17:31:41 UTC] PHP  12. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:44
+[12-Jun-2019 17:31:41 UTC] PHP  13. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[12-Jun-2019 17:31:41 UTC] PHP  14. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour-content.php:211
+[12-Jun-2019 17:31:41 UTC] PHP  15. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[12-Jun-2019 17:31:41 UTC] PHP  16. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/book-tour.php:109
+[12-Jun-2019 17:31:41 UTC] PHP  17. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28

@@ -6,10 +6,6 @@
 
         $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
-        // $('.repeater').repeater({
-        //     initEmpty: true
-        // });
-
         var dateFrom = $('input.date-pick').data('date-from');
         var dateTill = $('input.date-pick').data('date-till');
 
@@ -41,7 +37,6 @@
             allowClear: true
         });
 
-        // $('.form-select2').select2();
         $('#hotel_select').select2({
             placeholder: hotelPlaceholder,
             maximumSelectionLength: 10

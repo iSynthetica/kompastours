@@ -8,6 +8,7 @@
 ?><!DOCTYPE html>
 <html class="no-js"  <?php language_attributes(); ?>>
 <head>
+    <?php snth_show_template('global/head-scripts.php') ?>
     <meta charset="utf-8">
 
     <!-- Force IE to use the latest rendering engine available -->

@@ -157,3 +157,11 @@ function snth_convert_date_to_human($date, $format = 'Y-m-d') {
 
     return $day . ' ' . ittour_get_month_by_number($month, 'genetive') . ' ' . $year;
 }
+
+function snth_convert_date_format($date, $format_from = 'Y-m-d', $format_to = 'd.m.y') {
+    $date_obj = date_create_from_format($format_from, $date);
+
+    $date_converted = date_format($date_obj, $format_to);
+
+    return $date_converted;
+}

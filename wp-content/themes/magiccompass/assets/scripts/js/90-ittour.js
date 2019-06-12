@@ -62,6 +62,15 @@
         });
     });
 
+    $(document.body).on('click', '#change-parameters-btn', function() {
+        $('#search-form__section').slideToggle();
+
+        $.smoothScroll({
+            scrollTarget: '#search-form__section',
+            offset: -60
+        });
+    });
+
     $(document.body).on('click', '.validate-btn', function() {
         var btn = $(this);
 

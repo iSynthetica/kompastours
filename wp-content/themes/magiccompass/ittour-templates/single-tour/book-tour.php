@@ -82,6 +82,13 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
 
 <div class="box_style_1 expose table-summary_holder">
     <?php
+    $tour_need_to_validate = false;
+    $tour_validated = get_transient('ittour_validated_' . $tour_info["key"]);
+
+    if (empty($tour_validated)) {
+        $tour_need_to_validate = true;
+    }
+
     $tour_on_stop = false;
     $tour_outdated = ittour_is_tour_outdated($tour_info["date_from"]);
 
@@ -93,19 +100,16 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
         }
     }
 
-    ?>
+    ittour_show_template('single-tour/price.php', array(
+        'tour_on_stop' => $tour_on_stop,
+        'price_uah' => $tour_info["prices"][2],
+        'price_currency' => $tour_info['prices'][$main_currency],
+        'main_currency_label' => $main_currency_label,
+        'main_currency' => $main_currency,
+        'tour_need_to_validate' => $tour_need_to_validate,
+        'tour_info_key' => $tour_info["key"],
+    ));
 
-    <div id="single-tour-price__holder" class="text-center mb-0 ptb-20<?php echo !empty($tour_on_stop) ? ' tour_on_stop' : ''; ?>">
-        <div class="tour_price text-center font-alt d-inline-block d-md-block">
-            <strong><?php echo $tour_info['prices'][2] ?></strong> <small><?php echo __('uah.', 'snthwp'); ?></small>
-        </div>
-
-        <div class="tour_price_currency text-center font-alt d-inline-block d-md-block">
-            <sup><?php echo $main_currency_label; ?></sup><strong><?php echo $tour_info['prices'][$main_currency]; ?></strong>
-        </div>
-    </div>
-
-    <?php
     if (!empty($tour_on_stop)) {
         ?>
         <h5 class="mt-0 mb-10 text-center"><?php echo __('Sorry, but this tour is not actual', 'snthwp'); ?></h5>
@@ -130,19 +134,18 @@ if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])
 
     } else {
         ?>
-        <button class="btn shape-rnd type-hollow size-xs size-extended text-uppercase font-alt font-weight-900 validate-btn"
-                data-key="<?php echo $tour_info["key"]; ?>"
-                data-currency="<?php echo $main_currency; ?>"
-                type="button">
-            <i class="fas fa-sync-alt d-inline-block mr-10"></i> <?php echo __('Check tour actuality', 'snthwp'); ?>
-        </button>
-
         <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
         <?php
     }
     ?>
 
-    <span class="mtb-5 text-center txt-gray-40-color d-none"><?php echo __('or', 'snthwp'); ?></span>
+    <span class="mtb-5 text-center txt-gray-40-color d-block"><?php echo __('or', 'snthwp'); ?></span>
+
+    <button id="change-parameters-btn" class="btn bg-primary-color shape-rnd hvr-invert size-extended text-uppercase mb-0 font-alt font-weight-900"
+            type="button"
+    >
+        <?php echo __('Change parameters', 'snthwp'); ?>
+    </button>
 
     <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none"><?php echo __('Ask a question', 'snthwp'); ?></button>
 
