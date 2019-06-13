@@ -6,7 +6,9 @@
  * Time: 20:26
  */
 
-$social = get_field('social', 'options');
+/**
+ * @var $social
+ */
 ?>
 
 <footer id="colophon" class="footer-classic">
@@ -26,7 +28,6 @@ $social = get_field('social', 'options');
 
                 <!-- start social media -->
                 <div class="col-lg-4 col-md-5 text-center text-md-right mt-10 mt-md-0">
-                    <span class="font-alt mr-20 font-weight-900"><?php echo __('On social networks', 'snthwp'); ?></span>
                     <div class="social-icon-style-8 display-inline-block vertical-align-middle">
                         <ul class="small-icon mb-0">
                             <?php

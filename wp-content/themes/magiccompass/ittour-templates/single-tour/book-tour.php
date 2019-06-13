@@ -10,481 +10,85 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * @var array $tour_info
+ * @var integer $main_currency
+ * @var string $main_currency_label
+ */
+
 if (empty($tour_info)) {
     return;
 }
 
 // TODO: Show buttons
+$tour_info_json = $tour_info;
 
-if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])) {
-    if (!empty($tour_info["flights"]["from"])) {
-        $from = $tour_info["flights"]['from'][0];
+unset ($tour_info_json["comment"]);
+unset ($tour_info_json["hotel_info"]);
+unset ($tour_info_json["online_booking_form"]);
 
-        $structured_val_from =   $from['code'] . '{}'
-                            . $from['air_company'] . '{}'
-                            . $from['travel_class'] . '{}'
-                            . $from['date_from'] . '{}'
-                            . $from['time_from'] . '{}'
-                            . $from['from_city'] . '{}'
-                            . $from['from_airport'] . '{}'
-                            . $from['date_till'] . '{}'
-                            . $from['time_till'] . '{}'
-                            . $from['to_city'] . '{}'
-                            . $from['to_airport'] . '{}'
-                            . $from['duration'];
-
-        $txt_val_from =   $from['code'] . ' - '
-                     . $from['air_company'] . ' - '
-                     . $from['travel_class'] . ' - '
-                     . $from['date_from'] . ' - '
-                     . $from['time_from'] . ' - '
-                     . $from['from_city'] . ' - '
-                     . $from['from_airport'] . ' - '
-                     . $from['date_till'] . ' - '
-                     . $from['time_till'] . ' - '
-                     . $from['to_city'] . ' - '
-                     . $from['to_airport'] . ' - '
-                     . $from['duration'];
-    }
-
-    if (!empty($tour_info["flights"]["to"])) {
-        $from = $tour_info["flights"]['to'][0];
-
-        $structured_val_to =   $from['code'] . '{}'
-                                 . $from['air_company'] . '{}'
-                                 . $from['travel_class'] . '{}'
-                                 . $from['date_from'] . '{}'
-                                 . $from['time_from'] . '{}'
-                                 . $from['from_city'] . '{}'
-                                 . $from['from_airport'] . '{}'
-                                 . $from['date_till'] . '{}'
-                                 . $from['time_till'] . '{}'
-                                 . $from['to_city'] . '{}'
-                                 . $from['to_airport'] . '{}'
-                                 . $from['duration'];
-
-        $txt_val_to =   $from['code'] . ' - '
-                          . $from['air_company'] . ' - '
-                          . $from['travel_class'] . ' - '
-                          . $from['date_from'] . ' - '
-                          . $from['time_from'] . ' - '
-                          . $from['from_city'] . ' - '
-                          . $from['from_airport'] . ' - '
-                          . $from['date_till'] . ' - '
-                          . $from['time_till'] . ' - '
-                          . $from['to_city'] . ' - '
-                          . $from['to_airport'] . ' - '
-                          . $from['duration'];
-
-    }
-}
+$tour_info_json = json_encode($tour_info_json, JSON_FORCE_OBJECT);
 ?>
 
-<div class="box_style_1 expose table-summary_holder">
+<div id="single-tour-booking__holder" class="box_style_1 expose table-summary_holder"
+     data-key="<?php echo $tour_info["key"]; ?>"
+     data-currency="<?php echo $main_currency; ?>"
+     data-tour-info='<?php echo $tour_info_json; ?>'
+>
     <?php
+    $tour_outdated = ittour_is_tour_outdated($tour_info["date_from"]);
+
     $tour_need_to_validate = false;
+    $tour_validated_timeout = false;
     $tour_validated = get_transient('ittour_validated_' . $tour_info["key"]);
 
-    if (empty($tour_validated)) {
-        $tour_need_to_validate = true;
+    if (!$tour_outdated) {
+        if ($tour_validated) $tour_validated_timeout = snth_get_transient_timeout('ittour_validated_' . $tour_info["key"]);
+
+        if (empty($tour_validated)) $tour_need_to_validate = true;
     }
 
     $tour_on_stop = false;
-    $tour_outdated = ittour_is_tour_outdated($tour_info["date_from"]);
 
-    if ($tour_outdated) {
-        $tour_on_stop = true;
-    } else {
-        if ('flight' === $tour_info["transport_type"] && (!empty($tour_info["stop_sale"]) || !empty($tour_info["stop_flight"]))) {
-            $tour_on_stop = true;
-        }
-    }
+    if ($tour_outdated || !empty($tour_info["stop_sale"]) || !empty($tour_info["stop_flight"])) $tour_on_stop = true;
 
     ittour_show_template('single-tour/price.php', array(
         'tour_on_stop' => $tour_on_stop,
+        'tour_outdated' => $tour_outdated,
+        'tour_need_to_validate' => $tour_need_to_validate,
+        'tour_validated_timeout' => $tour_validated_timeout,
         'price_uah' => $tour_info["prices"][2],
         'price_currency' => $tour_info['prices'][$main_currency],
         'main_currency_label' => $main_currency_label,
         'main_currency' => $main_currency,
-        'tour_need_to_validate' => $tour_need_to_validate,
         'tour_info_key' => $tour_info["key"],
     ));
 
     if (!empty($tour_on_stop)) {
-        ?>
-        <h5 class="mt-0 mb-10 text-center"><?php echo __('Sorry, but this tour is not actual', 'snthwp'); ?></h5>
-        <?php
-        if ($tour_outdated) {
-            ?>
-            <p class="mtb-5 text-center"><?php echo __('Tour is outdated', 'snthwp'); ?></p>
-            <?php
-        } else {
-            if (!empty($tour_info["stop_sale"])) {
-                ?>
-                <p class="mtb-5 text-center"><?php echo __('No rooms available', 'snthwp'); ?></p>
-                <?php
-            }
-
-            if (!empty($tour_info["stop_flight"])) {
-                ?>
-                <p class="mtb-5 text-center"><?php echo __('No tickets available', 'snthwp'); ?></p>
-                <?php
-            }
-        }
-
+        ittour_show_template('single-tour/tour-not-actual-message.php', array(
+            'tour_outdated' => $tour_outdated,
+            'tour_stop_sale' => $tour_info["stop_sale"],
+            'tour_stop_flight' => $tour_info["stop_flight"],
+        ));
     } else {
-        ?>
-        <button class="btn modal-popup bg-success-color size-md shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 mb-0" href="#modal-popup"><?php echo __('Book now', 'snthwp'); ?></button>
-        <?php
+        ittour_show_template('single-tour/open-booking-btn.php', array('tour_need_to_validate' => $tour_need_to_validate));
     }
     ?>
 
-    <span class="mtb-5 text-center txt-gray-40-color d-block"><?php echo __('or', 'snthwp'); ?></span>
-
-    <button id="change-parameters-btn" class="btn bg-primary-color shape-rnd hvr-invert size-extended text-uppercase mb-0 font-alt font-weight-900"
+    <button id="change-parameters-btn"
+            class="btn bg-primary-color type-hollow shape-rnd hvr-invert size-xs size-extended text-uppercase mb-0 font-alt font-weight-900"
             type="button"
     >
         <?php echo __('Change parameters', 'snthwp'); ?>
     </button>
 
-    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none"><?php echo __('Ask a question', 'snthwp'); ?></button>
+    <button class="btn bg-gray-50-color type-hollow size-sm shape-rnd hvr-invert size-extended text-uppercase font-alt font-weight-900 d-none">
+        <?php echo __('Ask a question', 'snthwp'); ?>
+    </button>
 
-    <div id="modal-popup" class="bg-white-color mfp-hide col-xl-5 col-md-9 col-11 m-auto modal-popup-main p-20">
-        <div id="booking-form__container">
-            <div id="booking-form__body">
-                <form action="" id="booking-form">
-                    <?php
-                    if (!empty($tour_info["key"])) {
-                        ?><input type="hidden" name="key" value="<?php echo $tour_info["key"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["id"])) {
-                        ?><input type="hidden" name="id" value="<?php echo $tour_info["id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["tour_id"])) {
-                        ?><input type="hidden" name="tour_id" value="<?php echo $tour_info["tour_id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["spo"])) {
-                        ?><input type="hidden" name="spo" value="<?php echo $tour_info["spo"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["from_city"])) {
-                        ?><input type="hidden" name="from_city_name" value="<?php echo $tour_info["from_city"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["from_city_id"])) {
-                        ?><input type="hidden" name="from_city" value="<?php echo $tour_info["from_city_id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["country"])) {
-                        ?><input type="hidden" name="country_name" value="<?php echo $tour_info["country"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["country_id"])) {
-                        ?><input type="hidden" name="country" value="<?php echo $tour_info["country_id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["region"])) {
-                        ?><input type="hidden" name="region_name" value="<?php echo $tour_info["region"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["region_id"])) {
-                        ?><input type="hidden" name="region" value="<?php echo $tour_info["region_id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["hotel"])) {
-                        ?>
-                        <input
-                                type="hidden"
-                                name="hotel_name"
-                                value="<?php echo $tour_info["hotel"] ?><?php echo !empty($tour_info["hotel_rating"]) ? ' ' . ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]) : ''; ?>"
-                        >
-                        <?php
-                    }
-
-                    if (!empty($tour_info["hotel_id"])) {
-                        ?><input type="hidden" name="hotel" value="<?php echo $tour_info["hotel_id"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["meal_type"])) {
-                        ?><input type="hidden" name="meal_type" value="<?php echo $tour_info["meal_type"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["duration"])) {
-                        ?><input type="hidden" name="night_from" value="<?php echo $tour_info["duration"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["date_from"])) {
-                        ?><input type="hidden" name="date_from" value="<?php echo $tour_info["date_from"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["adult_amount"])) {
-                        ?><input type="hidden" name="adult_amount" value="<?php echo $tour_info["adult_amount"] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["child_amount"])) {
-                        ?><input type="hidden" name="child_amount" value="<?php echo $tour_info["child_amount"] ?>"><?php
-
-
-                        if (!empty($tour_info["child_age"])) {
-                            ?><input type="hidden" name="child_age" value="<?php echo $tour_info["child_age"] ?>"><?php
-                        }
-                    }
-
-                    if (!empty($tour_info["prices"]['1'])) {
-                        ?><input type="hidden" name="price_usd" value="<?php echo $tour_info["prices"]['1'] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["prices"]['2'])) {
-                        ?><input type="hidden" name="price_uah" value="<?php echo $tour_info["prices"]['2'] ?>"><?php
-                    }
-
-                    if (!empty($tour_info["prices"]['10'])) {
-                        ?><input type="hidden" name="price_euro" value="<?php echo $tour_info["prices"]['10'] ?>"><?php
-                    }
-
-                    if (!empty($structured_val_from)) {
-                        ?>
-                        <input id="flightThere_val" type="hidden" name="flight_from" value="<?php echo $txt_val_from ?>">
-                        <input id="flightThere_structured" type="hidden" name="flight_from_structured" value="<?php echo $structured_val_from ?>">
-                        <?php
-                    }
-
-                    if (!empty($structured_val_to)) {
-                        ?>
-                        <input id="flightBack_val" type="hidden" name="flight_to" value="<?php echo $txt_val_to ?>">
-                        <input id="flightBack_structured" type="hidden" name="flight_to_structured" value="<?php echo $structured_val_to ?>">
-                        <?php
-                    }
-                    ?>
-
-                    <header id="booking-form__header" class="mb-10 mb-md-20">
-                        <h3 class="font-weight-900 mtb-0 text-center"><?php echo __('Tour booking', 'snthwp'); ?></h3>
-                    </header>
-
-                    <div id="booking-form__content">
-                        <h4 class="mt-0 mb-10 font-weight-900 text-center"><?php echo __('Tour details', 'snthwp'); ?></h4>
-
-                        <div id="booking-details__holder">
-                            <div class="tour-details-list mb-20 prl-5 prl-md-10 prl-lg-20">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <i class="fas fa-map-marker-alt list-item-icon"></i>
-                                        <strong>
-                                            <?php echo $tour_info["country"] ?>, <?php echo $tour_info["region"] ?>
-                                        </strong>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <i class="fas fa-h-square list-item-icon"></i>
-                                        <strong>
-                                            <?php echo $tour_info["hotel"] ?> <?php echo ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]) ?>
-                                        </strong>
-                                    </div>
-
-                                    <?php
-                                    if (!empty($tour_info["date_from"])) {
-                                        ?>
-                                        <div class="col-6">
-                                            <i class="far fa-calendar-alt list-item-icon"></i>
-                                            <strong><?php echo $tour_info["date_from"] ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["duration"])) {
-                                        ?>
-                                        <div class="col-6">
-                                            <i class="far fa-clock list-item-icon"></i>
-                                            <strong><?php echo $tour_info["duration"] ?> <?php _e('nights', 'snthwp'); ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["adult_amount"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <i class="fas fa-male list-item-icon"></i>
-                                            <small><?php echo __('Adults', 'snthwp') ?>:</small>
-                                            <strong><?php echo $tour_info["adult_amount"] ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["child_amount"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <i class="fas fa-baby list-item-icon"></i>
-                                            <small><?php echo __('Children', 'snthwp') ?>:</small>
-                                            <strong><?php echo $tour_info["child_amount"] ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["meal_type"]) && !empty($tour_info["meal_type_full"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <i class="fas fa-utensils list-item-icon"></i>
-                                            <strong><?php echo $tour_info["meal_type"] ?> (<?php echo $tour_info["meal_type_full"] ?>)</strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["accomodation"]) && !empty($tour_info["room_type"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <i class="fas fa-key list-item-icon"></i>
-                                            <?php echo $tour_info["room_type"] ?>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["transport_type"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <?php
-                                            if ('flight' === $tour_info["transport_type"]) {
-                                                $transport = __('Plane', 'snthwp');
-                                                ?><i class="fas fa-plane list-item-icon"></i><?php
-                                            } else {
-                                                $transport = __('Bus', 'snthwp');
-                                                ?><i class="fas fa-bus list-item-icon"></i><?php
-                                            }
-                                            ?>
-
-                                            <strong><?php echo $transport; ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    if (!empty($tour_info["from_city"])) {
-                                        ?>
-                                        <div class="col-md-6">
-                                            <i class="fas fa-map-pin list-item-icon"></i>
-                                            <small><?php _e('Departure from', 'snthwp'); ?>:</small>
-                                            <strong><?php echo $tour_info["from_city"] ?></strong>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    ?>
-                                </div>
-
-                                <?php
-                                if (!empty($tour_info["flights"]["from"]) || !empty($tour_info["flights"]["to"])) {
-                                    ?>
-                                    <h4 class="mt-10 mb-10 font-weight-900 text-center"><?php echo __('Flight details', 'snthwp'); ?></h4>
-
-                                    <div class="row">
-                                        <?php
-                                        if (!empty($tour_info["flights"]["from"])) {
-                                            $from = $tour_info["flights"]['from'][0];
-                                            ?>
-                                            <div class="col-md-6 mtb-5">
-                                                <i class="fas fa-plane-departure list-item-icon"></i>
-
-                                                <span id="formflightThere__holder">
-                                                    <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
-                                                    <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
-                                                    <i class="fas fa-arrow-right"></i>
-                                                    <strong><?php echo $from['date_till'] ?> <?php echo $from['time_till'] ?></strong> <?php echo $from['to_city'] ?> (<?php echo $from['to_airport'] ?>)
-                                                    <i class="far fa-clock"></i> <?php echo $from['duration'] ?>
-                                                </span>
-                                            </div>
-                                            <?php
-                                        }
-
-                                        if (!empty($tour_info["flights"]["to"])) {
-                                            $from = $tour_info["flights"]['to'][0];
-                                            ?>
-                                            <div class="col-md-6 mtb-5">
-                                                <i class="fas fa-plane-arrival list-item-icon"></i>
-
-                                                <span id="formflightBack__holder">
-                                                    <i class="fas fa-plane"></i> <strong><?php echo $from['code'] ?></strong> <?php echo $from['air_company'] ?> (<?php echo $from['travel_class'] ?>)<br>
-                                                    <strong><?php echo $from['date_from'] ?> <?php echo $from['time_from'] ?></strong> <?php echo $from['from_city'] ?> (<?php echo $from['from_airport'] ?>)
-                                                    <i class="fas fa-arrow-right"></i>
-                                                    <strong><?php echo $from['date_till'] ?> <?php echo $from['time_till'] ?></strong> <?php echo $from['to_city'] ?> (<?php echo $from['to_airport'] ?>)
-                                                    <i class="far fa-clock"></i> <?php echo $from['duration'] ?>
-                                                </span>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </div>
-
-
-                        <div id="contact-details__holder">
-                            <h4 class="mt-0 mb-10 font-weight-900 text-center"><?php echo __('Contact details', 'snthwp'); ?></h4>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group text-left">
-                                        <label for="clientName"><small><?php echo __('Your name', 'snthwp'); ?> (*)</small></label>
-                                        <input type="text" class="form-control" name="clientName" id="clientName" placeholder="<?php echo __('Enter your name', 'snthwp'); ?>">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 text-left">
-                                    <div class="form-group">
-                                        <label for="clientEmail"><small><?php echo __('Your email', 'snthwp'); ?></small></label>
-                                        <input type="text" class="form-control" name="clientEmail" id="clientEmail" placeholder="<?php echo __('Enter your email', 'snthwp'); ?>">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row client-phone__row">
-                                <div class="col-md-6">
-                                    <div class="form-group text-left">
-                                        <label for="clientPhone"><small><?php echo __('Your phone', 'snthwp'); ?> (*)</small></label>
-                                        <input type="text" class="form-control" name="clientPhone" id="clientPhone" placeholder="+380XXXXXXXXX">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 text-left">
-                                    <div class="form-group text-left">
-                                        <label><small><?php echo __('Messangers for this phone', 'snthwp'); ?></small></label>
-
-                                        <div class="mt-10">
-                                            <div class="d-inline-block mr-10">
-                                                <input id="clientViber" name="clientViber" type="checkbox" value="viber">
-                                                <label class="mb-0" for="clientViber">Viber</label>
-                                            </div>
-
-                                            <div class="d-inline-block mr-10">
-                                                <input id="clientTelegram" name="clientTelegram" type="checkbox" value="telegram">
-                                                <label class="mb-0" for="clientTelegram">Telegram</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="error_messages"></div>
-
-                    <footer id="booking-form__footer" class="text-center mt-10 mt-md-20">
-                        <button type="button" class="btn bg-danger-color shape-rnd type-hollow popup-modal-dismiss">
-                            <i class="fas fa-times"></i>
-                        </button>
-
-                        <button
-                                type="button"
-                                class="book-btn btn bg-primary-color shape-rnd font-alt text-uppercase font-weight-900"
-                        >
-                            <?php echo __('Book now', 'snthwp') ?>
-                        </button>
-                    </footer>
-                </form>
-            </div>
-        </div>
-    </div>
+    <?php
+    ittour_show_template('single-tour/book-tour-form-popup.php', array(
+           'tour_info' => $tour_info,
+    ));
+    ?>
 </div>

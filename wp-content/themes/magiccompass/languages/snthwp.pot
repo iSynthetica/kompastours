@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-12 12:11+0000\n"
+"POT-Creation-Date: 2019-06-15 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -41,16 +41,16 @@ msgid "Search tours"
 msgstr ""
 
 #: ittour-templates/search-results.php:53 ittour-templates/single-tour.php:40
-#: includes/ittour-template-functions.php:1368
-#: includes/ittour-template-functions.php:1578
+#: includes/ittour-template-functions.php:1453
+#: includes/ittour-template-functions.php:1663 includes/ittour-ajax.php:17
 #: parts/landings/section-min-prices-by-month.php:18
 #: parts/landings/section-order-form.php:18
 msgid "€"
 msgstr ""
 
 #: ittour-templates/search-results.php:55 ittour-templates/single-tour.php:42
-#: includes/ittour-template-functions.php:1370
-#: includes/ittour-template-functions.php:1580
+#: includes/ittour-template-functions.php:1455
+#: includes/ittour-template-functions.php:1665 includes/ittour-ajax.php:19
 #: parts/landings/section-min-prices-by-month.php:20
 #: parts/landings/section-order-form.php:20
 msgid "$"
@@ -58,12 +58,12 @@ msgstr ""
 
 #: ittour-templates/search-results.php:57 ittour-templates/single-tour.php:44
 #: includes/ittour-template-functions.php:1181
-#: includes/ittour-template-functions.php:1372
-#: includes/ittour-template-functions.php:1582
+#: includes/ittour-template-functions.php:1457
+#: includes/ittour-template-functions.php:1667 includes/ittour-ajax.php:21
 #: parts/landings/section-min-prices-by-month.php:22
 #: parts/landings/section-order-form.php:22
 #: ittour-templates/admin/api-countries.php:179
-#: crm/includes/class/crm-claimmanager.php:96
+#: crm/includes/class/crm-claimmanager.php:267
 msgid "UAH"
 msgstr ""
 
@@ -75,94 +75,98 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:92
+#: ittour-templates/single-tour-content.php:94
 msgid "Tour price includes"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:100
+#: ittour-templates/single-tour-content.php:102
 msgid "Start date"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:110
-#: crm/includes/class/crm-claimmanager.php:59
+#: ittour-templates/single-tour-content.php:112
+#: crm/includes/class/crm-claimmanager.php:189
 msgid "Tour duration"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:111
+#: ittour-templates/single-tour-content.php:113
 #: includes/ittour-template-functions.php:240
 #: includes/ittour-template-functions.php:246 includes/enqueue-scripts.php:53
 #: ittour-templates/form/search-tab.php:176
-#: ittour-templates/single-tour/book-tour.php:297
+#: ittour-templates/single-tour/book-tour-form-popup.php:87
 #: ittour-templates/loop-hotel/tour-list-default.php:121
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:120
+#: ittour-templates/single-tour-content.php:122
 #: ittour-templates/form/search.php:26
-#: ittour-templates/single-tour/book-tour.php:306
+#: ittour-templates/single-tour/book-tour-form-popup.php:97
 #: ittour-templates/loop-hotel/part-price.php:14
-#: crm/includes/class/crm-claimmanager.php:70
+#: crm/includes/class/crm-claimmanager.php:144
 msgid "Adults"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:130
+#: ittour-templates/single-tour-content.php:132
 #: includes/ittour-template-functions.php:1159
-#: ittour-templates/single-tour/book-tour.php:316
+#: ittour-templates/single-tour/book-tour-form-popup.php:108
 #: ittour-templates/loop-hotel/part-price.php:15
-#: crm/includes/class/crm-claimmanager.php:76
+#: crm/includes/class/crm-claimmanager.php:149
 msgid "Children"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:140
+#: ittour-templates/single-tour-content.php:142
 #: includes/ittour-template-functions.php:890
-#: crm/includes/class/crm-claimmanager.php:63
+#: crm/includes/class/crm-claimmanager.php:197
 msgid "Meal type"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:150
+#: ittour-templates/single-tour-content.php:152
 msgid "Room type"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:161
+#: ittour-templates/single-tour-content.php:163
 #: includes/ittour-template-functions.php:332
 #: includes/ittour-template-functions.php:339
 #: includes/ittour-template-functions.php:819
-#: ittour-templates/single-tour/book-tour.php:345
+#: ittour-templates/single-tour/book-tour-form-popup.php:137
 msgid "Plane"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:164
+#: ittour-templates/single-tour-content.php:166
 #: includes/ittour-template-functions.php:341
 #: includes/ittour-template-functions.php:824
-#: ittour-templates/single-tour/book-tour.php:348
+#: ittour-templates/single-tour/book-tour-form-popup.php:140
 msgid "Bus"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:169
+#: ittour-templates/single-tour-content.php:171
 #: includes/ittour-template-functions.php:797
 msgid "Transport"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:179
+#: ittour-templates/single-tour-content.php:181
 #: ittour-templates/form/search-tab.php:122
-#: ittour-templates/single-tour/book-tour.php:362
+#: ittour-templates/single-tour/book-tour-form-popup.php:154
 msgid "Departure from"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:225
+#: ittour-templates/single-tour-content.php:208
+msgid "Tour comment"
+msgstr ""
+
+#: ittour-templates/single-tour-content.php:243
 msgid "Hotel Reviews"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:242
+#: ittour-templates/single-tour-content.php:260
 msgid "More Tours"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:248
+#: ittour-templates/single-tour-content.php:266
 msgid "Hotel Description"
 msgstr ""
 
-#: ittour-templates/single-tour-content.php:257
+#: ittour-templates/single-tour-content.php:275
 msgid "Location"
 msgstr ""
 
@@ -215,9 +219,9 @@ msgstr ""
 msgid "ITTour Hotels Settings"
 msgstr ""
 
-#: includes/admin.php:44 includes/ittour-template-functions.php:1717
-#: includes/ittour-template-functions.php:1958
+#: includes/admin.php:44 includes/ittour-template-functions.php:1802
 #: includes/ittour-template-functions.php:2040
+#: includes/ittour-template-functions.php:2122
 #: parts/landings/section-min-prices-by-month.php:106
 msgid "Hotels"
 msgstr ""
@@ -286,11 +290,11 @@ msgstr ""
 #: includes/ittour-template-functions.php:749
 #: includes/ittour-template-functions.php:766
 #: includes/ittour-template-functions.php:768
-#: includes/ittour-template-functions.php:1488
-#: includes/ittour-template-functions.php:1963
-#: includes/ittour-template-functions.php:2043
-#: includes/ittour-template-functions.php:2166
-#: ittour-templates/single-tour/book-tour.php:100
+#: includes/ittour-template-functions.php:1573
+#: includes/ittour-template-functions.php:2045
+#: includes/ittour-template-functions.php:2125
+#: includes/ittour-template-functions.php:2248
+#: ittour-templates/single-tour/price.php:30
 #: ittour-templates/search/tour-grid-default.php:53
 #: ittour-templates/loop-hotel/tour-list-default.php:180
 #: ittour-templates/loop-hotel/tour-list-default.php:286
@@ -381,7 +385,7 @@ msgstr ""
 
 #: includes/ittour-template-functions.php:1178
 #: ittour-templates/admin/api-countries.php:178
-#: crm/includes/class/crm-claimmanager.php:100
+#: crm/includes/class/crm-claimmanager.php:274
 msgid "USD"
 msgstr ""
 
@@ -389,34 +393,34 @@ msgstr ""
 msgid "EUR"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1320
+#: includes/ittour-template-functions.php:1405
 msgid "Tour operator"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1475
-#: includes/ittour-template-functions.php:2160
+#: includes/ittour-template-functions.php:1560
+#: includes/ittour-template-functions.php:2242
 #: parts/landings/section-order-form.php:90
 #: ittour-templates/search/tour-grid-default.php:45
 #: ittour-templates/loop-hotel/tour-list-default.php:276
 msgid "Nights"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1499
-#: includes/ittour-template-functions.php:2171
+#: includes/ittour-template-functions.php:1584
+#: includes/ittour-template-functions.php:2253
 #: ittour-templates/loop-hotel/tour-list-default.php:193
 #: ittour-templates/loop-hotel/tour-list-default.php:297
 msgid "Details"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1566
+#: includes/ittour-template-functions.php:1651
 #: ittour-templates/form/search-tab.php:351
 msgid "Search"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1721
-#: includes/ittour-template-functions.php:1961
+#: includes/ittour-template-functions.php:1806
 #: includes/ittour-template-functions.php:2043
-#: includes/ittour-template-functions.php:2273
+#: includes/ittour-template-functions.php:2125
+#: includes/ittour-template-functions.php:2355
 #: parts/landings/section-min-prices-by-month.php:110
 #: parts/landings/section-order-form.php:141
 #: parts/destination/hotel-calendar.php:76
@@ -424,195 +428,194 @@ msgstr ""
 msgid "from"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1745
+#: includes/ittour-template-functions.php:1830
 msgid "of January"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1749
+#: includes/ittour-template-functions.php:1834
 msgid "Jan"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1752
+#: includes/ittour-template-functions.php:1837
 msgid "January"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1757
+#: includes/ittour-template-functions.php:1842
 msgid "of February"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1761
+#: includes/ittour-template-functions.php:1846
 msgid "Feb"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1764
+#: includes/ittour-template-functions.php:1849
 msgid "February"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1769
+#: includes/ittour-template-functions.php:1854
 msgid "of March"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1773
+#: includes/ittour-template-functions.php:1858
 msgid "Mar"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1776
+#: includes/ittour-template-functions.php:1861
 msgid "March"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1781
+#: includes/ittour-template-functions.php:1866
 msgid "of April"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1785
+#: includes/ittour-template-functions.php:1870
 msgid "Apr"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1788
+#: includes/ittour-template-functions.php:1873
 msgid "April"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1793
+#: includes/ittour-template-functions.php:1878
 msgid "of May"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1797
-#: includes/ittour-template-functions.php:1800
+#: includes/ittour-template-functions.php:1882
+#: includes/ittour-template-functions.php:1885
 msgid "May"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1805
+#: includes/ittour-template-functions.php:1890
 msgid "of June"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1809
+#: includes/ittour-template-functions.php:1894
 msgid "Jun"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1812
+#: includes/ittour-template-functions.php:1897
 msgid "June"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1816
+#: includes/ittour-template-functions.php:1901
 msgid "July"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1821
+#: includes/ittour-template-functions.php:1906
 msgid "of August"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1825
+#: includes/ittour-template-functions.php:1910
 msgid "Aug"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1828
+#: includes/ittour-template-functions.php:1913
 msgid "August"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1833
+#: includes/ittour-template-functions.php:1918
 msgid "of September"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1837
+#: includes/ittour-template-functions.php:1922
 msgid "Sep"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1840
+#: includes/ittour-template-functions.php:1925
 msgid "September"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1844
+#: includes/ittour-template-functions.php:1929
 msgid "of October"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1848
+#: includes/ittour-template-functions.php:1933
 msgid "Oct"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1851
+#: includes/ittour-template-functions.php:1936
 msgid "October"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1855
+#: includes/ittour-template-functions.php:1940
 msgid "of November"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1859
+#: includes/ittour-template-functions.php:1944
 msgid "Nov"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1862
+#: includes/ittour-template-functions.php:1947
 msgid "November"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1866
+#: includes/ittour-template-functions.php:1951
 msgid "of December"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1870
+#: includes/ittour-template-functions.php:1955
 msgid "Dec"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1873
+#: includes/ittour-template-functions.php:1958
 msgid "December"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2117
+#: includes/ittour-template-functions.php:2199
 msgid "Room Type"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2118
+#: includes/ittour-template-functions.php:2200
 msgid "Meal Type"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2119
+#: includes/ittour-template-functions.php:2201
 msgid "Guests / Nights"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2120
-#: ittour-templates/single-tour/price.php:12
-#: crm/includes/class/crm-claimmanager.php:96
-#: crm/includes/class/crm-claimmanager.php:100
-#: crm/includes/class/crm-claimmanager.php:104
+#: includes/ittour-template-functions.php:2202
+#: crm/includes/class/crm-claimmanager.php:267
+#: crm/includes/class/crm-claimmanager.php:274
+#: crm/includes/class/crm-claimmanager.php:281
 msgid "Price"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2236
+#: includes/ittour-template-functions.php:2318
 #: parts/destination/hotel-calendar.php:38
 msgid "Monday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2237
+#: includes/ittour-template-functions.php:2319
 #: parts/destination/hotel-calendar.php:39
 msgid "Tuesday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2238
+#: includes/ittour-template-functions.php:2320
 #: parts/destination/hotel-calendar.php:40
 msgid "Wednesday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2239
+#: includes/ittour-template-functions.php:2321
 #: parts/destination/hotel-calendar.php:41
 msgid "Thursday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2240
+#: includes/ittour-template-functions.php:2322
 #: parts/destination/hotel-calendar.php:42
 msgid "Friday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2241
+#: includes/ittour-template-functions.php:2323
 #: parts/destination/hotel-calendar.php:43
 msgid "Saturday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2242
+#: includes/ittour-template-functions.php:2324
 #: parts/destination/hotel-calendar.php:44
 msgid "Sunday"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2260
+#: includes/ittour-template-functions.php:2342
 msgid "Today"
 msgstr ""
 
@@ -667,7 +670,6 @@ msgstr ""
 #: includes/cpt.php:17 includes/cpt.php:49
 #: ittour-templates/form/search-tab.php:65
 #: ittour-templates/form/search-tab.php:208
-#: crm/includes/class/crm-claimmanager.php:35
 msgid "Destination"
 msgstr ""
 
@@ -1120,39 +1122,39 @@ msgstr ""
 msgid "Clients"
 msgstr ""
 
-#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:171
+#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:174
 msgid "Input your name, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:215
+#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:218
 msgid "Input correct email, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:180
+#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:183
 msgid "Input your phone, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:194
+#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:197
 msgid "Input correct phone, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:207
+#: crm/includes/ajax-front.php:210
 msgid "Select tour date, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:227
+#: crm/includes/ajax-front.php:230
 msgid "Input number as Adult amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:243
+#: crm/includes/ajax-front.php:246
 msgid "Input number as Children amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:259
+#: crm/includes/ajax-front.php:262
 msgid "Input number as Price from, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:275
+#: crm/includes/ajax-front.php:278
 msgid "Input number as Price till, please"
 msgstr ""
 
@@ -1161,32 +1163,32 @@ msgid "Send request"
 msgstr ""
 
 #: parts/landings/section-order-form.php:41
-#: ittour-templates/single-tour/book-tour.php:426
+#: ittour-templates/single-tour/book-tour-form-popup.php:218
 msgid "Your name"
 msgstr ""
 
 #: parts/landings/section-order-form.php:42
-#: ittour-templates/single-tour/book-tour.php:427
+#: ittour-templates/single-tour/book-tour-form-popup.php:219
 msgid "Enter your name"
 msgstr ""
 
 #: parts/landings/section-order-form.php:48
-#: ittour-templates/single-tour/book-tour.php:433
+#: ittour-templates/single-tour/book-tour-form-popup.php:225
 msgid "Your email"
 msgstr ""
 
 #: parts/landings/section-order-form.php:49
-#: ittour-templates/single-tour/book-tour.php:434
+#: ittour-templates/single-tour/book-tour-form-popup.php:226
 msgid "Enter your email"
 msgstr ""
 
 #: parts/landings/section-order-form.php:57
-#: ittour-templates/single-tour/book-tour.php:442
+#: ittour-templates/single-tour/book-tour-form-popup.php:234
 msgid "Your phone"
 msgstr ""
 
 #: parts/landings/section-order-form.php:64
-#: ittour-templates/single-tour/book-tour.php:449
+#: ittour-templates/single-tour/book-tour-form-popup.php:241
 msgid "Messangers for this phone"
 msgstr ""
 
@@ -1209,7 +1211,7 @@ msgid "Children amount"
 msgstr ""
 
 #: parts/landings/section-order-form.php:125
-#: crm/includes/class/crm-claimmanager.php:50
+#: crm/includes/class/crm-claimmanager.php:181
 msgid "Departure city"
 msgstr ""
 
@@ -1223,6 +1225,14 @@ msgstr ""
 
 #: parts/landings/content-country_min_prices.php:84
 msgid "Sale"
+msgstr ""
+
+#: parts/global/contact-actions.php:35
+msgid "Call Us"
+msgstr ""
+
+#: parts/global/contact-actions.php:42
+msgid "Write Us"
 msgstr ""
 
 #: parts/global/share.php:16
@@ -1240,10 +1250,6 @@ msgstr ""
 #: parts/home/section-popular-destinations.php:89
 #: ittour-templates/country/popular-region.php:56
 msgid "Find tour"
-msgstr ""
-
-#: parts/footer/classic.php:29
-msgid "On social networks"
 msgstr ""
 
 #: parts/destination/country.php:52
@@ -1326,7 +1332,7 @@ msgid "Currency"
 msgstr ""
 
 #: ittour-templates/admin/api-countries.php:180
-#: crm/includes/class/crm-claimmanager.php:104
+#: crm/includes/class/crm-claimmanager.php:281
 msgid "EURO"
 msgstr ""
 
@@ -1335,7 +1341,7 @@ msgid "Loading search form"
 msgstr ""
 
 #: ittour-templates/form/search.php:21 ittour-templates/form/search-tab.php:95
-#: crm/includes/class/crm-claimmanager.php:40
+#: crm/includes/class/crm-claimmanager.php:92
 msgid "Country"
 msgstr ""
 
@@ -1346,11 +1352,12 @@ msgid "Select destination"
 msgstr ""
 
 #: ittour-templates/form/search-tab.php:101
+#: crm/includes/class/crm-claimmanager.php:106
 msgid "Region"
 msgstr ""
 
 #: ittour-templates/form/search-tab.php:107
-#: crm/includes/class/crm-claimmanager.php:45
+#: crm/includes/class/crm-claimmanager.php:130
 msgid "Hotel"
 msgstr ""
 
@@ -1385,10 +1392,6 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: ittour-templates/single-tour/price.php:15
-msgid "Price table"
-msgstr ""
-
 #: ittour-templates/single-tour/hotel-table.php:71
 #: ittour-templates/single-tour/hotel-calendar.php:71
 msgid "1 adult"
@@ -1407,6 +1410,49 @@ msgstr ""
 #: ittour-templates/single-tour/hotel-table.php:74
 #: ittour-templates/single-tour/hotel-calendar.php:74
 msgid "4 adults"
+msgstr ""
+
+#: ittour-templates/single-tour/validation-timeout.php:18
+msgid "Price can be changed in"
+msgstr ""
+
+#: ittour-templates/single-tour/validation-timeout.php:20
+msgctxt "short time"
+msgid "min"
+msgstr ""
+
+#: ittour-templates/single-tour/validation-timeout.php:20
+msgctxt "short time"
+msgid "sec"
+msgstr ""
+
+#: ittour-templates/single-tour/validation-timeout.php:23
+msgid "Check tour actuality"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour-form-popup.php:27
+msgid "Tour booking"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour-form-popup.php:32
+msgid "Tour details"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour-form-popup.php:166
+msgid "Flight details"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour-form-popup.php:213
+msgid "Contact details"
+msgstr ""
+
+#: ittour-templates/single-tour/book-tour-form-popup.php:271
+#: ittour-templates/single-tour/open-booking-btn.php:22
+msgid "Book now"
+msgstr ""
+
+#: ittour-templates/single-tour/open-booking-btn.php:25
+msgid "or"
 msgstr ""
 
 #: ittour-templates/single-tour/hotel-reviews.php:34
@@ -1435,53 +1481,12 @@ msgstr ""
 msgid "<span>Book</span> by phone"
 msgstr ""
 
-#: ittour-templates/single-tour/book-tour.php:111
-msgid "Sorry, but this tour is not actual"
+#: ittour-templates/single-tour/book-tour.php:82
+msgid "Change parameters"
 msgstr ""
 
-#: ittour-templates/single-tour/book-tour.php:115
-msgid "Tour is outdated"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:120
-msgid "No rooms available"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:126
-msgid "No tickets available"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:136
-msgid "Check tour actuality"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:139
-#: ittour-templates/single-tour/book-tour.php:479
-msgid "Book now"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:144
-msgid "or"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:146
+#: ittour-templates/single-tour/book-tour.php:86
 msgid "Ask a question"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:260
-msgid "Tour booking"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:264
-msgid "Tour details"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:374
-msgid "Flight details"
-msgstr ""
-
-#: ittour-templates/single-tour/book-tour.php:421
-msgid "Contact details"
 msgstr ""
 
 #: ittour-templates/single-tour/hotel-map.php:26
@@ -1501,7 +1506,24 @@ msgstr ""
 msgid "Hotel info"
 msgstr ""
 
+#: ittour-templates/single-tour/tour-not-actual-message.php:21
+msgid "Sorry, but this tour is not actual"
+msgstr ""
+
+#: ittour-templates/single-tour/tour-not-actual-message.php:25
+msgid "Tour is outdated"
+msgstr ""
+
+#: ittour-templates/single-tour/tour-not-actual-message.php:30
+msgid "No rooms available"
+msgstr ""
+
+#: ittour-templates/single-tour/tour-not-actual-message.php:36
+msgid "No tickets available"
+msgstr ""
+
 #: ittour-templates/single-tour/flights-list.php:17
+#: crm/includes/class/crm-claimmanager.php:234
 msgid "Flight there"
 msgstr ""
 
@@ -1516,6 +1538,7 @@ msgid "Departure time is specified and will be available within 48 hours."
 msgstr ""
 
 #: ittour-templates/single-tour/flights-list.php:103
+#: crm/includes/class/crm-claimmanager.php:241
 msgid "Flight back"
 msgstr ""
 
@@ -1611,15 +1634,7 @@ msgstr ""
 msgid "CRM Add new Client"
 msgstr ""
 
-#: crm/parts/admin/claims-edit.php:18
-msgid "Claim Title"
-msgstr ""
-
-#: crm/parts/admin/claims-edit.php:30
-msgid "Claim Info"
-msgstr ""
-
-#: crm/parts/admin/claims-edit.php:43 crm/parts/admin/claims-list.php:27
+#: crm/parts/admin/claims-edit.php:39 crm/parts/admin/claims-list.php:27
 #: crm/parts/admin/claims-list.php:62
 msgid "Client"
 msgstr ""
@@ -1723,72 +1738,68 @@ msgstr ""
 msgid "CRM Add new Claim"
 msgstr ""
 
-#: crm/includes/class/crm-claimmanager.php:54
-msgid "Tour start"
-msgstr ""
-
-#: crm/includes/class/crm-claimmanager.php:58
-msgid " nights"
-msgstr ""
-
-#: crm/includes/class/crm-claimmanager.php:72
+#: crm/includes/class/crm-claimmanager.php:146
 msgid " adults"
 msgstr ""
 
-#: crm/includes/class/crm-claimmanager.php:75
+#: crm/includes/class/crm-claimmanager.php:150
 msgid " children"
 msgstr ""
 
-#: crm/includes/class/crm-claimmanager.php:84
-msgid "Key"
+#: crm/includes/class/crm-claimmanager.php:188
+msgid " nights"
 msgstr ""
 
-#: crm/includes/class/crm-claimmanager.php:88
+#: crm/includes/class/crm-claimmanager.php:227
+msgid "Tour start"
+msgstr ""
+
+#: crm/includes/class/crm-claimmanager.php:287
 msgid "Price From"
 msgstr ""
 
-#: crm/includes/class/crm-claimmanager.php:92
+#: crm/includes/class/crm-claimmanager.php:291
 msgid "Price Till"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:165
+#: crm/includes/class/crm-claim.php:167
 msgid "Pending"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:166
+#: crm/includes/class/crm-claim.php:168
 msgid "In Progress"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:167
+#: crm/includes/class/crm-claim.php:169
 msgid "Cancelled"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:168
+#: crm/includes/class/crm-claim.php:170
 msgid "Closed"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:174
+#: crm/includes/class/crm-claim.php:176
 msgid "Initial"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:175
+#: crm/includes/class/crm-claim.php:177
 msgid "Package Tour"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:176 crm/includes/class/crm-claim.php:177
 #: crm/includes/class/crm-claim.php:178 crm/includes/class/crm-claim.php:179
+#: crm/includes/class/crm-claim.php:180 crm/includes/class/crm-claim.php:181
 msgid "Excursion Tour"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:180
+#: crm/includes/class/crm-claim.php:182
 msgid "Booking Hotel"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:183
+#: crm/includes/class/crm-claim.php:185
 msgid "Tour search request"
 msgstr ""
 
-#: crm/includes/class/crm-claim.php:184
+#: crm/includes/class/crm-claim.php:186
 msgid "Tour booking request"
 msgstr ""
 
@@ -1805,7 +1816,16 @@ msgid "Modified"
 msgstr ""
 
 #: crm/parts/admin/claim-sections/claim-edit-service-info.php:54
+#: crm/parts/admin/claim-sections/claim-edit-tour_booking_parameters.php:65
 msgid "Take to work"
+msgstr ""
+
+#: crm/parts/admin/claim-sections/claim-edit-tour_booking_parameters.php:42
+msgid "Booking requests parameters"
+msgstr ""
+
+#: crm/parts/admin/claim-sections/claim-edit-excerpt-info.php:16
+msgid "Claim Info"
 msgstr ""
 
 #. Name of the theme

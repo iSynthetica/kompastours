@@ -117,7 +117,13 @@ class CRM_Entity {
         global $wpdb;
         $table = $wpdb->prefix . static::$table_name;
 
-        $sql = "SELECT * FROM {$table} WHERE ID = {$ID}";
+        if (static::$table_name === 'crm_claims' || static::$table_name === 'crm_users') {
+            $id_field = 'ID';
+        } else {
+            $id_field = 'id';
+        }
+
+        $sql = "SELECT * FROM {$table} WHERE {$id_field} = {$ID}";
 
         return $wpdb->get_row( $sql );
     }

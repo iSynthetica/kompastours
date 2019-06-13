@@ -128,6 +128,19 @@ function snth_is_yoast_seo_active()
     return snth_is_plugin_active ( 'wordpress-seo/wp-seo.php' );
 }
 
+function snth_get_transient_timeout( $transient ) {
+    global $wpdb;
+
+    $transient_timeout = $wpdb->get_col( "
+      SELECT option_value
+      FROM $wpdb->options
+      WHERE option_name
+      LIKE '%_transient_timeout_$transient%'
+    " );
+
+    return $transient_timeout[0];
+}
+
 function snth_get_slug_lat($string) {
     $cyr = [
         'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п',

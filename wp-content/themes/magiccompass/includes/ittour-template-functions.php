@@ -1253,6 +1253,91 @@ function ittour_get_hotel_rating_by_number($id) {
     return $rating;
 }
 
+function ittour_get_flights_structured_data($flight_info_array) {
+    $structured = array(
+        'from' => array(),
+        'to' => array(),
+    );
+
+    if (!empty($flight_info_array["from"])) {
+        foreach ($flight_info_array["from"] as $flight_info) {
+            $structured_val =   $flight_info['code'] . '{}'
+                                     . $flight_info['air_company'] . '{}'
+                                     . $flight_info['travel_class'] . '{}'
+                                     . $flight_info['date_from'] . '{}'
+                                     . $flight_info['time_from'] . '{}'
+                                     . $flight_info['from_city'] . '{}'
+                                     . $flight_info['from_airport'] . '{}'
+                                     . $flight_info['date_till'] . '{}'
+                                     . $flight_info['time_till'] . '{}'
+                                     . $flight_info['to_city'] . '{}'
+                                     . $flight_info['to_airport'] . '{}'
+                                     . $flight_info['duration'];
+
+            $txt_val =   $flight_info['code'] . ' - '
+                              . $flight_info['air_company'] . ' - '
+                              . $flight_info['travel_class'] . ' - '
+                              . $flight_info['date_from'] . ' - '
+                              . $flight_info['time_from'] . ' - '
+                              . $flight_info['from_city'] . ' - '
+                              . $flight_info['from_airport'] . ' - '
+                              . $flight_info['date_till'] . ' - '
+                              . $flight_info['time_till'] . ' - '
+                              . $flight_info['to_city'] . ' - '
+                              . $flight_info['to_airport'] . ' - '
+                              . $flight_info['duration'];
+
+            $json_val = json_encode($flight_info, JSON_FORCE_OBJECT);
+
+            $structured['from'][] = array (
+                'structured_val' => $structured_val,
+                'txt_val' => $txt_val,
+                'json_val' => $json_val,
+            );
+        }
+    }
+
+    if (!empty($flight_info_array["to"])) {
+        foreach ($flight_info_array["to"] as $flight_info) {
+            $structured_val =   $flight_info['code'] . '{}'
+                                     . $flight_info['air_company'] . '{}'
+                                     . $flight_info['travel_class'] . '{}'
+                                     . $flight_info['date_from'] . '{}'
+                                     . $flight_info['time_from'] . '{}'
+                                     . $flight_info['from_city'] . '{}'
+                                     . $flight_info['from_airport'] . '{}'
+                                     . $flight_info['date_till'] . '{}'
+                                     . $flight_info['time_till'] . '{}'
+                                     . $flight_info['to_city'] . '{}'
+                                     . $flight_info['to_airport'] . '{}'
+                                     . $flight_info['duration'];
+
+            $txt_val =   $flight_info['code'] . ' - '
+                              . $flight_info['air_company'] . ' - '
+                              . $flight_info['travel_class'] . ' - '
+                              . $flight_info['date_from'] . ' - '
+                              . $flight_info['time_from'] . ' - '
+                              . $flight_info['from_city'] . ' - '
+                              . $flight_info['from_airport'] . ' - '
+                              . $flight_info['date_till'] . ' - '
+                              . $flight_info['time_till'] . ' - '
+                              . $flight_info['to_city'] . ' - '
+                              . $flight_info['to_airport'] . ' - '
+                              . $flight_info['duration'];
+
+            $json_val = json_encode($flight_info, JSON_FORCE_OBJECT);
+
+            $structured['to'][] = array (
+                'structured_val' => $structured_val,
+                'txt_val' => $txt_val,
+                'json_val' => $json_val,
+            );
+        }
+    }
+
+    return $structured;
+}
+
 function ittour_get_hotel_number_rating_by_id($id) {
     switch ($id) {
         case '2':
@@ -1493,7 +1578,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                                                 <div class="col-12 col-sm-6">
                                                     <div class="tour_list_more_button">
                                                         <a
-                                                                href="/tour/<?php echo $offer['key'] ?>"
+                                                                href="/tour/<?php echo $offer['key'] ?>?from_city=<?php echo $args["from_city"] ?><?php echo !empty($args["child_age"]) ? '&child_age=' . $args["child_age"] : '' ?>"
                                                                 class="btn shape-rnd type-hollow hvr-invert size-xs"
                                                         >
                                                             <?php echo __('Details', 'snthwp'); ?>

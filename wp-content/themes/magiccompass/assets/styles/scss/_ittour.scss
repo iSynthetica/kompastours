@@ -52,6 +52,7 @@
 
     .tour_price_currency {
         color: $color-gray-50;
+
         sup {
             font-size: rem-calc(18);
             position: relative;
@@ -59,7 +60,7 @@
         }
     }
 
-    .tour_on_stop {
+    .tour_on_stop, .tour_need_to_validate {
         .tour_price {
             color: $color-gray-50;
         }

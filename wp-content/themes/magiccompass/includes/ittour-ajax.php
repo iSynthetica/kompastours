@@ -8,45 +8,65 @@
 
 
 function ittour_ajax_validate_tour() {
-    if(isset($_POST['key'])) {
-        $key = sanitize_key( $_POST['key'] );
-    }
-
     $main_currency = '10';
 
-    if(isset($_POST['currency'])) {
-        $main_currency = sanitize_key( $_POST['currency'] );
+    if(isset($_POST['key'])) $key = sanitize_key( $_POST['key'] );
+    if(isset($_POST['currency'])) $main_currency = sanitize_key( $_POST['currency'] );
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else if ('2' === $main_currency) {
+        $main_currency_label = __('UAH', 'snthwp');
     }
 
     $tour = ittour_tour($key, ITTOUR_LANG);
     $tour_info = $tour->validate();
+    // $tour_flights_info = $tour->flights();
 
-    if (empty($tour_info["price_changed"])) {
-        $message = array(
-            'fragments' => array(
-                '.validate-btn' => '',
-            ),
-        );
-    } else {
+    set_transient('ittour_validated_' . $key, 1, 10 * 60);
+    $tour_validated_timeout = time() + (10 * 60);
+    $counter_date = get_date_from_gmt( date( 'Y-m-d H:i:s', $tour_validated_timeout ), 'Y/m/d H:i:s' );
 
-        $tour_on_stop = false;
+    $tour_on_stop = false;
 
-        if ('flight' === $tour_info["transport_type"] && (!empty($tour_info["stop_sale"]) || !empty($tour_info["stop_flight"]))) {
-            $tour_on_stop = true;
-        }
+    if (!empty($tour_info["stop_sale"]) || $tour_info["stop_flight"]) $tour_on_stop = true;
 
-        $html = ittour_get_template('single-tour/price.php', array(
-            'tour_on_stop' => $tour_on_stop,
-            'price_uah' => $tour_info["prices"][2],
-            'price_currency' => $tour_info["prices"][$main_currency],
-            'main_currency_label' => 'EURO',
+    $price_fragment = ittour_get_template('single-tour/price.php', array(
+        'tour_on_stop' => $tour_on_stop,
+        'price_uah' => $tour_info["prices"][2],
+        'price_currency' => $tour_info["prices"][$main_currency],
+        'main_currency_label' => $main_currency_label,
+    ));
+
+    $validation_fragment = ittour_get_template('single-tour/validation-timeout.php', array('counter_date' => $counter_date ));
+
+    $message = array(
+        'fragments' => array(
+            '#single-tour-price__holder' => $price_fragment,
+            '#validation-spinner__holder' => $validation_fragment,
+            '#validation-timeout__holder' => $validation_fragment,
+            '#price_uah' => '<input id="price_uah" type="hidden" name="price_uah" value="'.$tour_info["prices"][2].'">',
+            '#price_usd' => '<input id="price_usd" type="hidden" name="price_usd" value="'.$tour_info["prices"][1].'">',
+            '#price_euro' => '<input id="price_euro" type="hidden" name="price_euro" value="'.$tour_info["prices"][10].'">',
+        ),
+    );
+
+    if ($tour_on_stop) {
+        $tour_not_actual_message_fragment = ittour_get_template('single-tour/tour-not-actual-message.php', array(
+            'tour_outdated' => false,
+            'tour_stop_sale' => $tour_info["stop_sale"],
+            'tour_stop_flight' => $tour_info["stop_flight"],
         ));
 
-        $message = array(
-            'fragments' => array(
-                '#single-tour-price__holder' => $html,
-            ),
-        );
+        $message['fragments']['#open-booking-btn_holder'] = $tour_not_actual_message_fragment;
+        $message['fragments']['#tour-not-actual-message_holder'] = $tour_not_actual_message_fragment;
+    } else {
+        $open_booking_button = ittour_get_template('single-tour/open-booking-btn.php', array('tour_need_to_validate' => false));
+
+        $message['fragments']['#tour-not-actual-message_holder'] = $open_booking_button;
+        $message['fragments']['#open-booking-btn_holder'] = $open_booking_button;
     }
 
     echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $message ));

@@ -9,18 +9,24 @@
 
 @mixin btn-color-scheme ($color) {
     $hover-color: null;
+    $disabled-color: null;
     $txt-color: null;
+    $txt-disabled-color: null;
 
     @if (lightness($color) < 10) {
         $hover-color: lighten($color, 5%);
+        $disabled-color: lighten(desaturate( $color, 30% ), 7%);
     } @else {
+        $disabled-color: desaturate( $color, 30% );
         $hover-color: darken($color, 10%);
     }
 
     @if (lightness($color) > 70) {
-        $txt-color: $black;
+        $txt-color: $color-gray-90;
+        $txt-disabled-color: $color-gray-70;
     } @else {
         $txt-color: $white;
+        $txt-disabled-color: $color-gray-10;
     }
 
     @include btn-color($color, $color, $txt-color);
@@ -42,6 +48,35 @@
         &.hvr-invert {
             &:hover {
                 @include btn-color($color, $color, $txt-color);
+            }
+        }
+    }
+
+    &[disabled], &.disabled {
+        @include btn-color(
+            $disabled-color,
+            $disabled-color,
+            $txt-disabled-color
+        );
+
+        &:hover {
+            @include btn-color($disabled-color, $disabled-color, $txt-disabled-color);
+        }
+        &.hvr-invert {
+            &:hover {
+                @include btn-color($disabled-color, $disabled-color, $txt-disabled-color);
+            }
+        }
+
+        &.type-hollow {
+            @include btn-color($disabled-color, rgba( $disabled-color, .05 ), $disabled-color);
+            &:hover {
+                @include btn-color($disabled-color, rgba( $disabled-color, .05 ), $disabled-color);
+            }
+            &.hvr-invert {
+                &:hover {
+                    @include btn-color($disabled-color, rgba( $disabled-color, .05 ), $disabled-color);
+                }
             }
         }
     }

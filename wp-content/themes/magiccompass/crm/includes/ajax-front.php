@@ -122,6 +122,9 @@ function ittour_ajax_book_tour() {
     unset($form_data_array['clientTelegram']);
 
     $form_data_array['client_id'] = $user_id;
+    $form_data_array['claim_type'] = 'tour';
+    $form_data_array['claim_step'] = 'tour_booking_request';
+    $form_data_array['claim_meta_group'] = 'tour_booking_parameters';
 
     $claim_id = CRM_ClaimManager::create_new_booking_request($form_data_array);
     $fake_claim_id = $claim_id + CRM_Claim::$initial_claim_number;

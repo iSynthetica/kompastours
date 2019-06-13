@@ -19,7 +19,7 @@ if (empty($thumbnail_url)) {
 }
 
 $video = false;
-$counter_date = date("Y/m/d H:i:s", strtotime('tomorrow'))
+$counter_date = date("Y/m/d H:i:s", strtotime('tomorrow'));
 ?>
 
 

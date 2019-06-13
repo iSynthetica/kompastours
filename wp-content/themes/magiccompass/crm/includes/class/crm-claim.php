@@ -92,6 +92,8 @@ class CRM_Claim extends CRM_Entity {
 
         if ( isset( $this->data->$name ) ) {
             $value = $this->data->$name;
+        } else {
+
         }
 
         return $value;

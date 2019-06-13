@@ -33,6 +33,15 @@ class CRM_Claimmeta extends CRM_Entity {
         return $wpdb->get_var($sql);
     }
 
+    public static function getClaimMeta( $claim_id, $meta_key ) {
+        global $wpdb;
+
+        $table = $wpdb->prefix . self::$table_name;
+        $sql = $wpdb->prepare("SELECT id, claim_id, meta_key, meta_value FROM {$table} WHERE meta_key = %s AND claim_id = %d", $meta_key, $claim_id);
+
+        return $wpdb->get_results($sql, ARRAY_A);
+    }
+
     public static function insert($data) {
         global $wpdb;
         $table = $wpdb->prefix . self::$table_name;

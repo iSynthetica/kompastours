@@ -21,6 +21,8 @@
     height: rem_calc($icon-size);
     width: rem_calc($icon-size);
     margin: rem-calc(0 0 5 0);
+    border: none;
+    background: transparent;
 
     &:before {
         position: absolute;

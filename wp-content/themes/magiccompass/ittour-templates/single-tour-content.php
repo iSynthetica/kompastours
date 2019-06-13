@@ -191,19 +191,32 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     </ul>
 
                     <?php
-                    if (2 !== $tour_info['type']) {
+                    if (2 !== $tour_info['type'] && 'flight' === $tour_info["transport_type"]) {
                         $flights = !empty($tour_info['flights']) ? $tour_info['flights'] : array();
 
                         ittour_show_template('single-tour/flights-list.php', array('flights_info' => $flights));
                     }
                     ?>
                 </div>
+
+                <?php
+                if (!empty($tour_info["comment"])) {
+                    ?>
+                    <div class="col-12 mb-20">
+                        <hr>
+
+                        <h4 class="mt-10 mt-md-20"><?php _e('Tour comment', 'snthwp'); ?></h4>
+                        <?php
+                        echo $tour_info["comment"];
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 
         <div class="col-md-4 col-lg-3">
-
-
             <?php
             ittour_show_template('single-tour/book-tour.php', array(
                     'tour_info' => $tour_info,

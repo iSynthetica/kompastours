@@ -162,9 +162,9 @@ function ittour_rest_tour_validate($request) {
 }
 
 add_action( 'rest_api_init', function () {
-    register_rest_route( 'ittour/v1', '/tour/flighs/(?P<key>[a-zA-Z0-9-]+)', array(
+    register_rest_route( 'ittour/v1', '/tour/flights/(?P<key>[a-zA-Z0-9-]+)', array(
         'methods' => WP_REST_Server::READABLE,
-        'callback' => 'ittour_rest_tour_validate',
+        'callback' => 'ittour_rest_tour_flights',
         'args'     => array(
             'key' => array(
                 'required' => false
@@ -174,7 +174,7 @@ add_action( 'rest_api_init', function () {
     ) );
 } );
 
-function ittour_rest_tour_flighs($request) {
+function ittour_rest_tour_flights($request) {
     $headers = $request->get_headers();
     $lang = 'ru';
 
@@ -188,7 +188,7 @@ function ittour_rest_tour_flighs($request) {
 
     $tour = ittour_tour($request['key'], $lang);
 
-    $tour_info = $tour->flighs();
+    $tour_info = $tour->flights();
 
     return $tour_info;
 }

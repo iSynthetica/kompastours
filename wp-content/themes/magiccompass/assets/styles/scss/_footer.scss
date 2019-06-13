@@ -37,3 +37,80 @@
         color: $color-gray-60;
     }
 }
+
+.footer-classic {
+    padding-bottom: rem-calc(36);
+
+    @media (min-width: 768px) {
+        padding-bottom: 0;
+    }
+}
+
+#contact-actions__holder {
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+#phones-actions__holder {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%);
+    transition: all 0.5s;
+
+    .phones-actions__close {
+        position: absolute;
+        top: rem-calc(-32);
+        right: rem-calc(5);
+        display: none;
+        transition: all 0.3s;
+    }
+}
+
+.phones-active {
+    #phones-actions__holder {
+        bottom: rem-calc(36);
+        transform: translateY(0%);
+
+        .phones-actions__close {
+            display: inline-block;
+        }
+    }
+}
+
+/* scroll to top */
+.scroll-top-arrow, .scroll-top-arrow:focus {
+    color: #fff;
+    background: #878787;
+    line-height: 28px;
+    display: none;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    position: fixed;
+    right: rem-calc(10);
+    text-align: center;
+    text-decoration: none;
+    bottom: rem-calc(46);
+    z-index: 10006;
+    border-radius: 100%;
+}
+
+.scroll-top-arrow:hover {
+    background: #000;
+    opacity: .8;
+    color: #fff;
+    border-color: #ff214f
+}
+
+.scroll-top-arrow i {
+    line-height: 30px;
+    position: relative;
+}

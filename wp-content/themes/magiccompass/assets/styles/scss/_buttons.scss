@@ -14,6 +14,7 @@
 
     border-width: rem_calc($btn-border-width);
     border-style: solid;
+    border-radius: 0;
 
     text-align: center;
     font-size: rem_calc($btn-font-size);
@@ -101,6 +102,10 @@ div {
     &.size-extended, &.size-expanded {
         display: block;
         width: 100%;
+    }
+
+    &[disabled], &.disabled {
+        cursor: default;
     }
 }
 

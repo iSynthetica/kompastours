@@ -26,5 +26,3 @@ if (
     crm_show_template('admin/claims-edit.php', array('claim_id' => $_GET['claim_id']));
 }
 ?>
-
-<p>This page is under construction</p>

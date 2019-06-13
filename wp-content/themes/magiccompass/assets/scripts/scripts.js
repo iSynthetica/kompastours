@@ -26288,7 +26288,52 @@ var SNTHJS = SNTHJS || {};
         $('.datepicker').datepicker({
             autoclose: 1
         });
+
+        var isSingleTourPage = false;
+        var singleTourContainer = $('#single-tour-main-info__container');
+        
+        if (singleTourContainer.length > 0) {
+            isSingleTourPage = true;
+        }
+        
+        if (isSingleTourPage) {
+            runValidationCountdown();
+            ittourSingleTourFunctions();
+        }
     });
+
+    function runValidationCountdown() {
+        $('.validate-countdown').countdown($('.validate-countdown').attr("data-enddate"))
+            .on('update.countdown', function (event) {
+                    var minLabel = $('.validate-countdown').attr("data-min-label");
+                    var secLabel = $('.validate-countdown').attr("data-sec-label");
+
+                    $(this).html(event.strftime('' + '<div class="validate-counter-container font-alt">' + '<div class="counter-box first  d-inline-block text-center"><div class="number font-weight-900">%M</div><span>'+minLabel+'</span></div><div class="counter-box-divider d-inline-block"><div class="counter-divider">:</div></div>' + '<div class="counter-box last d-inline-block text-center"><div class="number font-weight-900">%S</div><span>'+secLabel+'</span></div></div>'));
+
+                    if (5 > event.offset.minutes) {
+                        $('#validate-btn').show();
+                    }
+            }).on('finish.countdown', function(event) {
+                ittourValidateTour();
+            });
+
+        $('.modal-popup').magnificPopup({
+            type: 'inline',
+            preloader: false,
+            // modal: true,
+            blackbg: true,
+            callbacks: {
+                open: function () {
+                    $('html').css('margin-right', 0);
+                }
+            }
+        });
+
+        $(document).on('click', '.popup-modal-dismiss', function (e) {
+            e.preventDefault();
+            $.magnificPopup.close();
+        });
+    }
 
     $(window).on('load', function () {
         // block($('#tour-flights'));
@@ -26353,10 +26398,11 @@ var SNTHJS = SNTHJS || {};
     });
 
     $(document.body).on('click', '.validate-btn', function() {
-        var btn = $(this);
+        var singleTourSummary = $('#single-tour-booking__holder');
 
-        var key = btn.data('key');
-        var currency = btn.data('currency');
+        var key = singleTourSummary.data('key');
+        var currency = singleTourSummary.data('currency');
+        var tourInfo = singleTourSummary.data('tour-info');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -26365,7 +26411,8 @@ var SNTHJS = SNTHJS || {};
             data: {
                 action: 'ittour_ajax_validate_tour',
                 key: key,
-                currency: currency
+                currency: currency,
+                tourInfo: tourInfo
             },
             success: function (response) {
                 var decoded;
@@ -26380,9 +26427,8 @@ var SNTHJS = SNTHJS || {};
                 if (decoded) {
                     if (decoded.success) {
                         var fragments = response.message.fragments;
-                        $( ".book-btn" ).remove();
-                        $( ".error_messages" ).remove();
                         updateFragments(fragments);
+                        runValidationCountdown();
                     } else {
                         var fragments = response.message.fragments;
 
@@ -26486,6 +26532,57 @@ var SNTHJS = SNTHJS || {};
             moreOffers.slideDown();
         }
     });
+    
+    function ittourSingleTourFunctions() {
+        var validateSpinner = $('#validation-spinner__holder');
+
+        if (validateSpinner.length > 0) {
+            ittourValidateTour();
+        }
+    }
+    
+    function ittourValidateTour() {
+        var singleTourSummary = $('#single-tour-booking__holder');
+
+        var key = singleTourSummary.data('key');
+        var currency = singleTourSummary.data('currency');
+        var tourInfo = singleTourSummary.data('tour-info');
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_validate_tour',
+                key: key,
+                currency: currency,
+                tourInfo: tourInfo
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                        runValidationCountdown();
+                    } else {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    }
 
     function ittourLoadToursList() {
         var toursListContainer = $('.tours-list-ajax__container');
@@ -27798,6 +27895,18 @@ var SNTHJS = SNTHJS || {};
 
 }(jQuery));
 (function ($) {
+
+    $(document.body).on('click', '#phones-actions__btn', function() {
+        var parentHolder = $('#contact-actions__holder');
+
+        parentHolder.toggleClass('phones-active');
+    });
+
+    $(document.body).on('click', '.phones-actions__close', function() {
+        var parentHolder = $('#contact-actions__holder');
+
+        parentHolder.removeClass('phones-active');
+    });
 
     $(document).ready(function() {});
 
