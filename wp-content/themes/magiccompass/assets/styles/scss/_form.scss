@@ -81,6 +81,55 @@ input {
     }
 }
 
+.star-checkbox {
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    span {
+        cursor: pointer;
+        width: rem-calc(36);
+        height: rem-calc(32);
+        position: relative;
+        display: inline-block;
+    }
+
+    span:after {
+        top: 0;
+        left: 0;
+        width: rem-calc(36);
+        text-align: center;
+        line-height: rem-calc(32);
+        position: absolute;
+        content: attr(data-star);
+        color: $color-gray-50;
+    }
+
+    span:before {
+        top: 0;
+        left: 0;
+        font-size: rem-calc(32);
+        position: absolute;
+        font-family: "Font Awesome 5 Free";
+        color: $color-gray-50;
+        font-weight: 400;
+        font-style: normal;
+        line-height: rem-calc(29);
+        content: '\f005';
+    }
+
+    input[type="checkbox"]:checked ~ span:before {
+        color: #f1cd03;
+        font-weight: 900;
+        content: '\f005';
+    }
+
+    input[type="checkbox"]:checked ~ span:after {
+        color: $color-white;
+        font-weight: 900;
+    }
+}
+
 /* Select2 */
 .select2-container {
     .select2-selection--single {

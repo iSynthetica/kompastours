@@ -50,16 +50,28 @@ if (!$country) {
 
     ?>
     <div class="tours-list-ajax__container"<?php echo $tours_list_data; ?>>
-        <div class="progress-bar__container" style="padding:10px;">
-            <div class="row">
-                <div class="col-12">
-                    <div class="progress" style="height: 15px;">
-                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+
+        <?php
+        if (!empty($prices_by_rating)) {
+            ittour_show_template('general/prices-by-rating.php', array(
+                'country' => $country,
+                'prices_by_rating' => $prices_by_rating
+            ));
+        } else {
+            ?>
+            <div class="progress-bar__container" style="padding:10px;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="progress" style="height: 15px;">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
     <?php
 }

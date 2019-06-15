@@ -69,8 +69,20 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
 }
 
 function ittour_get_form_fields($args = array()) {
+    $start = microtime(true);
     $params_obj = ittour_params(ITTOUR_LANG);
+
+    $params = get_transient('ittour_search_params');
+
+    if (!$params) {
+        $params = $params_obj->get();
+
+        set_transient('ittour_search_params', $params, 60 * 60 * 6);
+    }
+
     $params = $params_obj->get();
+    $end = microtime(true) - $start;
+    error_log($end . ' ms');
 
     if (is_wp_error( $params )) {
         return $params->get_error_message();
@@ -89,7 +101,7 @@ function ittour_get_form_fields($args = array()) {
     $from_cities_array = get_option('ittour_from_cities');
 
     return array(
-        'from_city_summary' => ittour_get_from_city_summary_field($args),
+        'from_city_summary' => ittour_get_from_city_summary_field($args, $from_cities_array),
         'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
         'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
         'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
@@ -106,9 +118,8 @@ function ittour_get_form_fields($args = array()) {
     );
 }
 
-function ittour_get_from_city_summary_field($args = array()) {
+function ittour_get_from_city_summary_field($args, $from_cities_array) {
     $default_city = '2014'; // Kiev is default city
-    $from_cities_array = get_option('ittour_from_cities');
 
     if (empty($args) || empty($args['fromCity'])) {
         $selected_city = $default_city;
@@ -673,9 +684,10 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             }
             ?>
             <li style="display: inline-block">
-
-                <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" class="iCheckGray styled_12" name="hotel_rating[]" type="checkbox" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?><?php echo $disabled ?>>
-                <label for="hotel_rating_<?php echo $hotel_rating['id'] ?>"><?php echo $hotel_rating['name'] ?>*</label>
+                <label class="star-checkbox">
+                    <input id="hotel_rating_<?php echo $hotel_rating['id'] ?>" type="checkbox" name="hotel_rating[]" value="<?php echo $hotel_rating['id'] ?>"<?php echo $selected ?>>
+                    <span data-star="<?php echo $hotel_rating['name'] ?>"></span>
+                </label>
             </li>
             <?php
         }
@@ -1390,6 +1402,8 @@ function ittour_get_tour_operator($form) {
         $operator_title = 'Mouzenidis';
     } elseif (strpos($form_string, 'pegast.com.ua')) {
         $operator_title = 'Pegas';
+    } elseif (strpos($form_string, 'zeus.travel')) {
+        $operator_title = 'Zeus Travel';
     }
 
     if (empty($operator_title)) {

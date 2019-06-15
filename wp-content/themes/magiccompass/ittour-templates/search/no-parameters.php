@@ -16,9 +16,6 @@ $search_steps = get_field('timeline_items');
 <div id="search-result" class="search-result container">
     <div class="main_title">
         <h2><?php echo __('How to', 'snthwp'); ?></h2>
-        <p>
-            Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-        </p>
     </div>
 
     <hr>

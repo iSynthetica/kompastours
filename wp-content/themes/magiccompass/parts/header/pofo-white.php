@@ -12,16 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 
 <!-- start header -->
-<header id="masthead" class="site-header header-with-topbar" role="banner">
-    <?php snth_show_template('header/topbar.php'); ?>
+<header id="masthead" class="site-header" role="banner">
+    <?php // snth_show_template('header/topbar.php'); ?>
     <!-- start navigation -->
     <nav class="navbar navbar-default bootsnav bg-white-color header-light navbar-top navbar-expand-lg nav-box-width">
         <div class="container-fluid nav-header-container">
             <!-- start logo -->
             <div class="col-auto pl-0">
                 <a href="/" title="Pofo" class="logo">
-                    <img src="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/newlogo.png" class="logo-dark default">
-                    <img src="<?php echo SNTH_IMAGES_URL ?>/logo-white.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/logo-white.png" class="logo-light">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/logo-new-color-hd.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/logo-new-color-hd.png" class="logo-dark default">
+                    <img src="<?php echo SNTH_IMAGES_URL ?>/logo-new-white-hd.png" data-rjs="<?php echo SNTH_IMAGES_URL ?>/logo-new-white-hd.png" class="logo-light">
                 </a>
             </div>
             <!-- end logo -->

@@ -15648,15 +15648,9 @@ img.mfp-img {
   vertical-align: middle; }
 
 .daterangepicker .drp-selected {
-  display: inline-block;
+  display: none;
   font-size: 12px;
   padding-right: 8px; }
-
-.daterangepicker .drp-buttons .btn {
-  margin-left: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px; }
 
 .daterangepicker.show-ranges .drp-calendar.left {
   border-left: 1px solid #ddd; }
@@ -21592,6 +21586,9 @@ a.btn_login:hover, .btn_login:hover {
     #contact-actions__holder {
       display: none; } }
 
+.toggle-is-active #contact-actions__holder {
+  z-index: 1; }
+
 #phones-actions__holder {
   width: 100%;
   position: absolute;
@@ -24335,6 +24332,9 @@ ul.plan-features {
   top: 0;
   left: 0; }
 
+.bg-opacity-1 {
+  opacity: 0.01; }
+
 .bg-opacity-5 {
   opacity: 0.05; }
 
@@ -26839,6 +26839,47 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
     width: 0.8125rem;
     height: 0.8125rem; }
 
+.star-checkbox input[type="checkbox"] {
+  display: none; }
+
+.star-checkbox span {
+  cursor: pointer;
+  width: 2.25rem;
+  height: 2rem;
+  position: relative;
+  display: inline-block; }
+
+.star-checkbox span:after {
+  top: 0;
+  left: 0;
+  width: 2.25rem;
+  text-align: center;
+  line-height: 2rem;
+  position: absolute;
+  content: attr(data-star);
+  color: #7f7f7f; }
+
+.star-checkbox span:before {
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  color: #7f7f7f;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8125rem;
+  content: '\f005'; }
+
+.star-checkbox input[type="checkbox"]:checked ~ span:before {
+  color: #f1cd03;
+  font-weight: 900;
+  content: '\f005'; }
+
+.star-checkbox input[type="checkbox"]:checked ~ span:after {
+  color: #fefefe;
+  font-weight: 900; }
+
 /* Select2 */
 .select2-container .select2-selection--single {
   height: 2.5rem;
@@ -27264,16 +27305,16 @@ i.list-item-icon {
       padding-top: 4.125rem;
       margin-top: 0;
       position: fixed;
-      top: 2.5rem;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1000; }
+      z-index: 1005; }
       .search-form-toggle__holder .form-data-toggle-target h3 {
         display: none; }
     .search-form-toggle__holder .form-data-toggle-body {
       position: fixed;
-      top: 2.5rem;
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
@@ -27283,7 +27324,7 @@ i.list-item-icon {
       background-color: #fefefe;
       padding: 0.625rem;
       position: fixed;
-      top: 2.5rem;
+      top: 0;
       left: 0;
       width: 100%; }
       .search-form-toggle__holder .form-data-toggle-header .btn {

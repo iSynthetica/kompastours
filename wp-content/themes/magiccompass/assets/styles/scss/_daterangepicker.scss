@@ -274,17 +274,17 @@
 }
 
 .daterangepicker .drp-selected {
-  display: inline-block;
+  display: none;
   font-size: 12px;
   padding-right: 8px;
 }
 
-.daterangepicker .drp-buttons .btn {
-  margin-left: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 4px 8px;
-}
+//.daterangepicker .drp-buttons .btn {
+//  margin-left: 8px;
+//  font-size: 12px;
+//  font-weight: bold;
+//  padding: 4px 8px;
+//}
 
 .daterangepicker.show-ranges .drp-calendar.left {
   border-left: 1px solid #ddd;

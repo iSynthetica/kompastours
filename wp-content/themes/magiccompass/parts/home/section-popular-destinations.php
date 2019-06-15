@@ -33,6 +33,9 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
 
         <div class="row">
             <?php
+            $saved_prices_by_rating = get_option('ittour_prices_by_rating');
+            $time = time();
+
             foreach ($popular_destinations['section_content']['countries'] as $country) {
                 $ittour_country = get_field('ittour_id', $country->ID);
                 $ittour_iso = get_field('ittour_iso', $country->ID);
@@ -45,7 +48,7 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
                                 <img src="<?php echo SNTH_IMAGES_URL; ?>/ph650-253.jpg" class="img-fluid" alt="Image">
 
                                 <?php
-                                $img_url = get_the_post_thumbnail_url( $country->ID, 'archive_photo_thumb' );
+                                $img_url = get_the_post_thumbnail_url( $country->ID, 'long_small_thumb' );
 
                                 if (!empty($img_url)) {
                                     ?>
@@ -69,17 +72,39 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
                         <div class="content__container prl-20 ptb-10 bg-white-color">
                             <div class="pb-10" style="max-width: 240px; margin: auto">
                                 <?php
+                                if (empty($saved_prices_by_rating[$ittour_country])) {
+                                    $template_args = array(
+                                        'country' => $ittour_country,
+                                        'type' => '1',
+                                        'kind' => '1',
+                                        'night_from' => '7',
+                                        'night_till' => '7',
+                                        'template' => 'min-prices-by-country',
+                                    );
 
-                                $template_args = array(
-                                    'country' => $ittour_country,
-                                    'type' => '1',
-                                    'kind' => '1',
-                                    'night_from' => '7',
-                                    'night_till' => '7',
-                                    'template' => 'min-prices-by-country',
-                                );
+                                    ittour_show_template('general/tours-min-prices.php', $template_args);
+                                } else {
+                                    $prices_expired = $saved_prices_by_rating[$ittour_country]['expired'];
 
-                                ittour_show_template('general/tours-min-prices.php', $template_args);
+                                    if ($prices_expired > $time) {
+                                        ittour_show_template('general/prices-by-rating.php', array(
+                                            'country' => $ittour_country,
+                                            'prices_by_rating' => $saved_prices_by_rating[$ittour_country]["prices"]
+                                        ));
+                                    } else {
+                                        $template_args = array(
+                                            'country' => $ittour_country,
+                                            'type' => '1',
+                                            'kind' => '1',
+                                            'night_from' => '7',
+                                            'night_till' => '7',
+                                            'template' => 'min-prices-by-country',
+                                            'prices_by_rating' => $saved_prices_by_rating[$ittour_country]["prices"]
+                                        );
+
+                                        ittour_show_template('general/tours-min-prices.php', $template_args);
+                                    }
+                                }
                                 ?>
                             </div>
 

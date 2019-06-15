@@ -57,6 +57,11 @@
         display: none;
     }
 }
+.toggle-is-active {
+    #contact-actions__holder {
+        z-index: 1;
+    }
+}
 
 #phones-actions__holder {
     width: 100%;

@@ -70,7 +70,7 @@ if ( $latest_posts ) {
                             <a href="<?php the_permalink(); ?>">
                                 <?php
                                 if('' !== get_the_post_thumbnail()) {
-                                    the_post_thumbnail( 'blog_thumb' );
+                                    the_post_thumbnail( 'long_small_thumb' );
                                 } else {
                                     ?>
                                     <img src="http://placehold.it/900x650" alt="">

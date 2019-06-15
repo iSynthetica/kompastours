@@ -1,51 +1,51 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: snth
- * Date: 27.01.19
- * Time: 12:56
+ * Country Content Template.
+ *
+ * @package WordPress
+ * @subpackage Magiccompass/Parts/Destination
+ * @version 0.0.9
+ * @since 0.0.8
  */
 
-$map = get_field('map', 'options');
-$map_markers = array();
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-$map_markers[] = array(
-    'marker' => array(
-        'lat' => $map['lat'],
-        'lng' => $map['lng'],
-    ),
-    'title' => '',
-    'info'  => ''
-);
-
-$icon = SNTH_IMAGES_URL . '/map-marker.png';
-
-wp_enqueue_script('gmapLocations');
-
-wp_localize_script('gmapLocations', 'jointsMapObj', array(
-    'markers'   => $map_markers,
-    'center'    => $map,
-    'icon'      =>  $icon,
-    'zoom'      =>  17,
-));
+/**
+ * @var $offices
+ */
 ?>
 
 <div class="row">
     <div class="col-md-8 col-lg-9">
+        <div class="form_title">
+            <h3 class="font-weight-900"><strong><i class="fas fa-thumbtack"></i></strong><?php _e('Our offices', 'snthwp'); ?></h3>
+        </div>
+
+        <div class="step">
+            <div class="row">
+                <?php
+                foreach ($offices as $office) {
+                    ?>
+                    <div class="col-md-6">
+                        <h4 class="font-weight-900 mt-0 mb-10"><?php echo $office["title"] ?></h4>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+        </div>
 
         <div class="form_title">
-            <h3><strong><i class="fas fa-pencil-alt"></i></strong>Fill the form below</h3>
-            <p>
-                Mussum ipsum cacilds, vidis litro abertis.
-            </p>
+            <h3 class="font-weight-900"><strong><i class="fas fa-pencil-alt"></i></strong><?php _e('Write us a message', 'snthwp'); ?></h3>
         </div>
 
         <div class="step">
             <div id="message-contact"></div>
 
-            <?php echo do_shortcode('[contact-form-7 id="1760" title="Contacts"]'); ?>
+            <?php snth_show_template('global/form-contact.php'); ?>
         </div>
     </div>
+
     <div class="col-md-4 col-lg-3">
         <div class="box_style_5">
             <div class="box_header">

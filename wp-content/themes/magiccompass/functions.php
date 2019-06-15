@@ -63,6 +63,9 @@ require_once(SNTH_INCLUDES.'/shortcodes.php');
 //// Helpers library
 //require_once(SNTH_INCLUDES.'/core.php');
 
+// Ajax form handler
+require_once(SNTH_INCLUDES.'/ajax-forms.php');
+
 // Custom Post Types
 require_once(SNTH_INCLUDES.'/ittour-bootstrap.php');
 

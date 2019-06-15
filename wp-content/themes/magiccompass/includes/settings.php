@@ -54,6 +54,18 @@ function snth_settings_media_image_sizes ( $sizes ) {
             'c'  =>  true,
             'label' =>  __('Picture for sharing', 'snthwp')
         ),
+        'long_small_thumb' => array (
+            'w'     =>  510,
+            'h'     =>  200,
+            'c'  =>  true,
+            'label' =>  __('Picture for long preview', 'snthwp')
+        ),
+        'logo_thumb' => array (
+            'w'     =>  220,
+            'h'     =>  128,
+            'c'  =>  true,
+            'label' =>  __('Logo thumbnails', 'snthwp')
+        ),
     );
 }
 add_filter( 'snth_image_sizes', 'snth_settings_media_image_sizes', 999 );

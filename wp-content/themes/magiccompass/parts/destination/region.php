@@ -24,7 +24,7 @@ $template_args = array(
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
         <?php
-        ittour_show_template('form/section-search.php', array(
+        ittour_show_template('form/section-search-ajax.php', array(
             'country'       => $country_id,
             'region'        => $region_id,
 //            'hotel'         => $hotel,

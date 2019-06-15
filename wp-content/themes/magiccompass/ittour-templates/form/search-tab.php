@@ -7,8 +7,6 @@
  * @since 0.0.1
  */
 
-// var_dump(ittour_get_countries_list());
-
 if (empty($args)) {
     $args = array();
 }
@@ -16,7 +14,6 @@ if (empty($args)) {
 $search_disabled = empty($args['country']);
 
 $form_fields = ittour_get_form_fields($args);
-$from_cities_array = get_option('ittour_from_cities');
 
 if ( !is_array( $form_fields ) ) {
     return;

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-15 14:43+0000\n"
+"POT-Creation-Date: 2019-06-16 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr ""
 
-#: functions.php:173
+#: functions.php:176
 msgid "Hot tour"
 msgstr ""
 
@@ -30,6 +30,10 @@ msgstr ""
 
 #: crm/crm.php:17
 msgid "Users"
+msgstr ""
+
+#: parts/contacts.php:49 ittour-templates/single-tour/hotel-map.php:37
+msgid "Schedule"
 msgstr ""
 
 #: parts/archive.php:25 includes/content-templates.php:27
@@ -641,6 +645,25 @@ msgstr ""
 msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr ""
 
+#: includes/ajax-forms.php:39 crm/includes/ajax-front.php:38
+#: crm/includes/ajax-front.php:174
+msgid "Input your name, please"
+msgstr ""
+
+#: includes/ajax-forms.php:47
+msgid "Input your email, please"
+msgstr ""
+
+#: includes/ajax-forms.php:52 crm/includes/ajax-front.php:47
+#: crm/includes/ajax-front.php:218
+msgid "Input correct email, please"
+msgstr ""
+
+#: includes/ajax-forms.php:69 crm/includes/ajax-front.php:68
+#: crm/includes/ajax-front.php:197
+msgid "Input correct phone, please"
+msgstr ""
+
 #: includes/enqueue-scripts.php:55
 msgid "Select country"
 msgstr ""
@@ -1122,20 +1145,8 @@ msgstr ""
 msgid "Clients"
 msgstr ""
 
-#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:174
-msgid "Input your name, please"
-msgstr ""
-
-#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:218
-msgid "Input correct email, please"
-msgstr ""
-
 #: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:183
 msgid "Input your phone, please"
-msgstr ""
-
-#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:197
-msgid "Input correct phone, please"
 msgstr ""
 
 #: crm/includes/ajax-front.php:210
@@ -1162,32 +1173,32 @@ msgstr ""
 msgid "Send request"
 msgstr ""
 
-#: parts/landings/section-order-form.php:41
+#: parts/landings/section-order-form.php:41 parts/global/form-contact.php:17
 #: ittour-templates/single-tour/book-tour-form-popup.php:218
 msgid "Your name"
 msgstr ""
 
-#: parts/landings/section-order-form.php:42
+#: parts/landings/section-order-form.php:42 parts/global/form-contact.php:18
 #: ittour-templates/single-tour/book-tour-form-popup.php:219
 msgid "Enter your name"
 msgstr ""
 
-#: parts/landings/section-order-form.php:48
+#: parts/landings/section-order-form.php:48 parts/global/form-contact.php:24
 #: ittour-templates/single-tour/book-tour-form-popup.php:225
 msgid "Your email"
 msgstr ""
 
-#: parts/landings/section-order-form.php:49
+#: parts/landings/section-order-form.php:49 parts/global/form-contact.php:25
 #: ittour-templates/single-tour/book-tour-form-popup.php:226
 msgid "Enter your email"
 msgstr ""
 
-#: parts/landings/section-order-form.php:57
+#: parts/landings/section-order-form.php:57 parts/global/form-contact.php:33
 #: ittour-templates/single-tour/book-tour-form-popup.php:234
 msgid "Your phone"
 msgstr ""
 
-#: parts/landings/section-order-form.php:64
+#: parts/landings/section-order-form.php:64 parts/global/form-contact.php:40
 #: ittour-templates/single-tour/book-tour-form-popup.php:241
 msgid "Messangers for this phone"
 msgstr ""
@@ -1215,7 +1226,7 @@ msgstr ""
 msgid "Departure city"
 msgstr ""
 
-#: parts/landings/section-order-form.php:154
+#: parts/landings/section-order-form.php:154 parts/global/form-contact.php:59
 msgid "Your message"
 msgstr ""
 
@@ -1227,12 +1238,20 @@ msgstr ""
 msgid "Sale"
 msgstr ""
 
+#: parts/global/message-contact-form-success.php:6
+msgid "Your message sent successfuly. We will contact you soon!"
+msgstr ""
+
 #: parts/global/contact-actions.php:35
 msgid "Call Us"
 msgstr ""
 
 #: parts/global/contact-actions.php:42
 msgid "Write Us"
+msgstr ""
+
+#: parts/global/form-contact.php:70
+msgid "Send"
 msgstr ""
 
 #: parts/global/share.php:16
@@ -1258,6 +1277,14 @@ msgstr ""
 
 #: parts/destination/country.php:70
 msgid "<span>Popular</span> Regions"
+msgstr ""
+
+#: parts/content/contacts.php:21
+msgid "Our offices"
+msgstr ""
+
+#: parts/content/contacts.php:39
+msgid "Write us a message"
 msgstr ""
 
 #: parts/content/loop.php:58
@@ -1496,10 +1523,6 @@ msgstr ""
 #: ittour-templates/single-tour/hotel-map.php:33
 #: crm/parts/admin/clients-list.php:27 crm/parts/admin/clients-list.php:61
 msgid "Phone"
-msgstr ""
-
-#: ittour-templates/single-tour/hotel-map.php:37
-msgid "Schedule"
 msgstr ""
 
 #: ittour-templates/single-tour/hotel.php:10

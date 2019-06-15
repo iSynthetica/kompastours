@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-15 14:43+0000\n"
-"PO-Revision-Date: 2019-06-15 14:44+0000\n"
+"POT-Creation-Date: 2019-06-16 12:09+0000\n"
+"PO-Revision-Date: 2019-06-16 12:11+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -20,7 +20,7 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Search &hellip;"
 
-#: functions.php:173
+#: functions.php:176
 msgid "Hot tour"
 msgstr "Горящий тур"
 
@@ -31,6 +31,10 @@ msgstr "Пользователь"
 #: crm/crm.php:17
 msgid "Users"
 msgstr "Пользователи"
+
+#: parts/contacts.php:49 ittour-templates/single-tour/hotel-map.php:37
+msgid "Schedule"
+msgstr "Расписание"
 
 #: parts/archive.php:25 includes/content-templates.php:27
 msgid "Blog"
@@ -641,6 +645,25 @@ msgstr "<i class=\"fas fa-angle-left\"></i>"
 msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr "<i class=\"fas fa-angle-right\"></i>"
 
+#: includes/ajax-forms.php:39 crm/includes/ajax-front.php:38
+#: crm/includes/ajax-front.php:174
+msgid "Input your name, please"
+msgstr "Введите Ваше имя"
+
+#: includes/ajax-forms.php:47
+msgid "Input your email, please"
+msgstr ""
+
+#: includes/ajax-forms.php:52 crm/includes/ajax-front.php:47
+#: crm/includes/ajax-front.php:218
+msgid "Input correct email, please"
+msgstr "Введите корректный адрес электронной почты"
+
+#: includes/ajax-forms.php:69 crm/includes/ajax-front.php:68
+#: crm/includes/ajax-front.php:197
+msgid "Input correct phone, please"
+msgstr "Введите правильный номер телефона"
+
 #: includes/enqueue-scripts.php:55
 msgid "Select country"
 msgstr "Выберите страну"
@@ -1122,21 +1145,9 @@ msgstr "Страница клиентов"
 msgid "Clients"
 msgstr "Клиенты"
 
-#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:174
-msgid "Input your name, please"
-msgstr "Введите Ваше имя"
-
-#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:218
-msgid "Input correct email, please"
-msgstr "Введите корректный адрес электронной почты"
-
 #: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:183
 msgid "Input your phone, please"
 msgstr "Введите номер телефона"
-
-#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:197
-msgid "Input correct phone, please"
-msgstr "Введите правильный номер телефона"
 
 #: crm/includes/ajax-front.php:210
 msgid "Select tour date, please"
@@ -1162,32 +1173,32 @@ msgstr ""
 msgid "Send request"
 msgstr "Отправить запрос"
 
-#: parts/landings/section-order-form.php:41
+#: parts/landings/section-order-form.php:41 parts/global/form-contact.php:17
 #: ittour-templates/single-tour/book-tour-form-popup.php:218
 msgid "Your name"
 msgstr "Ваше имя"
 
-#: parts/landings/section-order-form.php:42
+#: parts/landings/section-order-form.php:42 parts/global/form-contact.php:18
 #: ittour-templates/single-tour/book-tour-form-popup.php:219
 msgid "Enter your name"
 msgstr "Введите Ваше имя"
 
-#: parts/landings/section-order-form.php:48
+#: parts/landings/section-order-form.php:48 parts/global/form-contact.php:24
 #: ittour-templates/single-tour/book-tour-form-popup.php:225
 msgid "Your email"
 msgstr "Ваш email"
 
-#: parts/landings/section-order-form.php:49
+#: parts/landings/section-order-form.php:49 parts/global/form-contact.php:25
 #: ittour-templates/single-tour/book-tour-form-popup.php:226
 msgid "Enter your email"
 msgstr "Введите Ваш email"
 
-#: parts/landings/section-order-form.php:57
+#: parts/landings/section-order-form.php:57 parts/global/form-contact.php:33
 #: ittour-templates/single-tour/book-tour-form-popup.php:234
 msgid "Your phone"
 msgstr "Номер телефона"
 
-#: parts/landings/section-order-form.php:64
+#: parts/landings/section-order-form.php:64 parts/global/form-contact.php:40
 #: ittour-templates/single-tour/book-tour-form-popup.php:241
 msgid "Messangers for this phone"
 msgstr "Мессенджеры на этом телефоне"
@@ -1215,7 +1226,7 @@ msgstr "Количество детей"
 msgid "Departure city"
 msgstr "Город отправления"
 
-#: parts/landings/section-order-form.php:154
+#: parts/landings/section-order-form.php:154 parts/global/form-contact.php:59
 msgid "Your message"
 msgstr "Ваше сообщение"
 
@@ -1227,6 +1238,10 @@ msgstr "Получить предложения"
 msgid "Sale"
 msgstr "Распродажа"
 
+#: parts/global/message-contact-form-success.php:6
+msgid "Your message sent successfuly. We will contact you soon!"
+msgstr ""
+
 #: parts/global/contact-actions.php:35
 msgid "Call Us"
 msgstr "Позвоните нам"
@@ -1234,6 +1249,10 @@ msgstr "Позвоните нам"
 #: parts/global/contact-actions.php:42
 msgid "Write Us"
 msgstr "Напишите нам"
+
+#: parts/global/form-contact.php:70
+msgid "Send"
+msgstr "Отправить"
 
 #: parts/global/share.php:16
 msgid "Share:"
@@ -1259,6 +1278,14 @@ msgstr "Рекомендуемые туры"
 #: parts/destination/country.php:70
 msgid "<span>Popular</span> Regions"
 msgstr "Популярные регионы"
+
+#: parts/content/contacts.php:21
+msgid "Our offices"
+msgstr "Наши офисы"
+
+#: parts/content/contacts.php:39
+msgid "Write us a message"
+msgstr "Напишите нам сообщение"
 
 #: parts/content/loop.php:58
 msgid "Read more..."
@@ -1497,10 +1524,6 @@ msgstr "Адрес"
 #: crm/parts/admin/clients-list.php:27 crm/parts/admin/clients-list.php:61
 msgid "Phone"
 msgstr "Номер телефона"
-
-#: ittour-templates/single-tour/hotel-map.php:37
-msgid "Schedule"
-msgstr "Расписание"
 
 #: ittour-templates/single-tour/hotel.php:10
 msgid "Hotel info"

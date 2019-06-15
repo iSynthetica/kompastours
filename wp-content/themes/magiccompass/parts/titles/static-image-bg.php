@@ -16,7 +16,7 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
 ?>
 
 <section class="cover-background pt-80 ptb-60 ptb-md-80 ptb-lg-140 bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo $thumbnail_url ?>');">
-    <div class="bg-overlay bg-black-color bg-opacity-40"></div>
+    <div class="bg-overlay bg-black-color bg-opacity-1"></div>
     <div class="container">
         <div class="row">
             <div class="col-12 extra-small-screen text-center page-title-extra-small d-flex flex-column justify-content-center">

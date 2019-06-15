@@ -20,7 +20,7 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
 ?>
 
 <section class="pt-120 pb-80 ptb-lg-0 cover-background screen-lg-medium screen-md-medium bg-overlay-holder" data-stellar-background-ratio="0.5" style="background-image:url('<?php echo $thumbnail_url ?>');">
-    <div class="bg-overlay bg-black-color bg-opacity-20"></div>
+    <div class="bg-overlay bg-black-color bg-opacity-1"></div>
 
     <div class="container">
         <div class="row">
@@ -40,9 +40,7 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
 
 <section id="home-search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
-        <?php
-        ittour_show_template('form/section-search.php');
-        ?>
+        <?php ittour_show_template('form/section-search-ajax.php'); ?>
     </div>
 </section>
 

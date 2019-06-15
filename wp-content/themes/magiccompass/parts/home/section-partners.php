@@ -37,7 +37,7 @@ if (empty($partners) || empty($partners['section_content']['partners'])) {
                 ?>
                 <div class="col-6 col-lg-3">
                     <div class="text-center mb-10 mb-md-20 mb-lg-40">
-                        <?php echo get_the_post_thumbnail( $partner->ID, 'full', array(
+                        <?php echo get_the_post_thumbnail( $partner->ID, 'logo_thumb', array(
                             'style' => 'max-width:100%;width:220px;'
                         ) ); ?>
                     </div>

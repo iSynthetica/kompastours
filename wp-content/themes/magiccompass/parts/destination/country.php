@@ -31,7 +31,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
         <?php
-        ittour_show_template('form/section-search.php', array(
+        ittour_show_template('form/section-search-ajax.php', array(
             'country'       => $country_id,
             'hotel_rating'  => '78:4',
             'tour_type'     => 1,
@@ -50,7 +50,6 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
             <div class="col-12">
                 <div class="main_title">
                     <h2 class="mt-0 mb-20"><?php the_title(); ?> - <small><?php echo __('<span>Top</span> Tours', 'snthwp'); ?></small></h2>
-                    <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
                 </div>
             </div>
         </div>

@@ -26877,6 +26877,8 @@ var SNTHJS = SNTHJS || {};
 }(jQuery));
 (function ($) {
     var start = $.now();
+    var starsArray = [];
+    var maxStarsNum = 2;
 
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
@@ -26930,10 +26932,18 @@ var SNTHJS = SNTHJS || {};
             },
             locale: {
                 format: 'DD.MM.YY'
-            }
+            },
+            applyButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
+            cancelButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt'
         });
         var loadForm = $.now() - start;
         console.log(loadForm + ' s');
+
+        var selectedRatings = $( "#hotel_rating_select input:checked" );
+
+        $.each(selectedRatings, function (index, selectedRating) {
+            starsArray.push($(selectedRating).val());
+        });
     });
 
     $(document.body).on('click', '.form-data-toggle-control', function() {
@@ -27046,7 +27056,50 @@ var SNTHJS = SNTHJS || {};
         ittourShowDestinationSummary();
     });
 
-    $(document.body).on('change', '#hotel_rating_select input', function() {
+    $(document.body).on('click', '#hotel_rating_select input', function() {
+        var selectedRatings = $( "#hotel_rating_select input:checked" );
+        var method = $(this).prop('checked');
+        var star = $(this).val();
+
+        if (method === true) {
+            $('#hotel_rating_select input').prop('checked',false);
+
+            if (starsArray.length >= maxStarsNum) {
+                starsArray.shift();
+            }
+
+            starsArray.push(star);
+
+            starsArray.forEach(function(star_el){
+                $('#hotel_rating_select input[value="'+star_el+'"]').prop('checked',true);
+            });
+        } else if (method === false) {
+            console.log('unselected');
+
+            if (starsArray.length > 0) {
+                $('#hotel_rating_select input[value="'+star+'"]').prop('checked',false);
+
+                var tempArray = [];
+
+                starsArray.forEach(function(el){
+                    if (el === star && starsArray.length !== 1) {
+                        $('#hotel_rating_select input[value="'+el+'"]').prop('checked',false);
+                    } else {
+                        tempArray.push(el);
+                        $('#hotel_rating_select input[value="'+el+'"]').prop('checked',true);
+                    }
+                });
+
+                starsArray = tempArray;
+            }
+        }
+
+        ittourGetHotelsList(function() {
+            ittourShowDestinationSummary();
+        });
+    });
+
+    $(document.body).on('change', '#hotel_rating_select input_1', function() {
         var selectedRatingsCount = $( "#hotel_rating_select input:checked" ).length;
 
         if (0 === selectedRatingsCount) {
@@ -27589,6 +27642,7 @@ var SNTHJS = SNTHJS || {};
     $(window).on('resize', function(e) {});
 
     function ittourLoadSearchForm() {
+        // return true;
         var searchFormHolder = $('.search-form_ajax');
 
         if (0 === searchFormHolder.length) {return;}
@@ -27908,6 +27962,43 @@ var SNTHJS = SNTHJS || {};
         parentHolder.removeClass('phones-active');
     });
 
+    $(document.body).on('click', '#contact-form__submit', function() {
+        var formData = $("#contact-form").serializeArray();
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'snth_ajax_contact_form',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    });
+
     $(document).ready(function() {});
 
     $(window).on('load', function () {});
@@ -27917,5 +28008,31 @@ var SNTHJS = SNTHJS || {};
     $(window).on('resize', function(e) {
 
     });
+
+    /**
+     *
+     * @param e
+     * @param fragments
+     */
+    function updateFragments( fragments ) {
+        if ( fragments ) {
+            $.each( fragments, function( key ) {
+                $( key )
+                    .addClass( 'updating' )
+                    .fadeTo( '400', '0.6' )
+                    .block({
+                        message: null,
+                        overlayCSS: {
+                            opacity: 0.6
+                        }
+                    });
+            });
+
+            $.each( fragments, function( key, value ) {
+                $( key ).replaceWith( value );
+                $( key ).stop( true ).css( 'opacity', '1' ).unblock();
+            });
+        }
+    }
 
 }(jQuery));

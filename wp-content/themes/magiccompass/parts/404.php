@@ -32,7 +32,7 @@ snth_show_template('titles/static-image-bg.php', array(
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
         <?php
-        ittour_show_template('form/section-search.php');
+        ittour_show_template('form/section-search-ajax.php');
         ?>
     </div>
 </section>
