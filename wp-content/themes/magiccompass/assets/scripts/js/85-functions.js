@@ -338,17 +338,5 @@ var SNTHJS = SNTHJS || {};
             (a.target == this || "search-overlay-close" == a.target.className || 27 == a.keyCode) && $(this).removeClass("open");
         });
 
-    /* Show Password */
-    $('#password').hidePassword('focus', {
-        toggle: {
-            className: 'my-toggle'
-        }
-    });
-
-    /* Forgot Password */
-    $("#forgot").click(function () {
-        $("#forgot_pw").fadeToggle("fast");
-    });
-
 
 }(jQuery));

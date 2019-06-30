@@ -37,18 +37,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     <?php snth_show_template('nav/pofo-main.php'); ?>
                 </div>
             </div>
-            <div class="col-auto pr-lg-0">
-                <div class="header-searchbar">
-                    <a href="#search-header" class="header-search-form"><i class="fas fa-search search-button"></i></a>
-                    <!-- search input-->
-                    <form id="search-header" method="post" action="search-result.html" name="search-header" class="mfp-hide search-form-result">
-                        <div class="search-form position-relative">
-                            <button type="submit" class="fas fa-search close-search search-button"></button>
-                            <input type="text" name="search" class="search-input" placeholder="Enter your keywords..." autocomplete="off">
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
     </nav>
     <!-- end navigation -->

@@ -1,3 +1,6 @@
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+
 (function ($) {
 
     $(document.body).on('click', '#phones-actions__btn', function() {

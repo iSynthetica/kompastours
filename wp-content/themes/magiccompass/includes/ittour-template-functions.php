@@ -94,24 +94,36 @@ function ittour_get_form_fields($args = array()) {
         }
     }
 
-    $from_cities_array = get_option('ittour_from_cities');
+    $form_fields = false;
 
-    $form_fields = array(
-        'from_city_summary' => ittour_get_from_city_summary_field($args, $from_cities_array),
-        'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
-        'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
-        'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
-        'dates_summary' => ittour_get_dates_summary_field($args),
-        'guests_summary' => ittour_get_guests_summary_field($args),
-        'filter_summary' => ittour_get_filter_summary_field($args),
-        'countries' =>  ittour_get_country_field($params, $args),
-        'regions' =>  ittour_get_region_field($params, $args),
-        'hotels' =>  ittour_get_hotel_field($params, $args),
-        'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
-        'transport_types' =>  ittour_get_transport_type_field($args),
-        'meal_types' =>  itour_get_meal_type_field($args),
-        'price_limit' =>  ittour_get_price_limit_field($args),
-    );
+    if (empty($args)) {
+        $form_fields = get_transient('ittour_search_fields_empty');
+    }
+
+    if (!$form_fields) {
+        $from_cities_array = get_option('ittour_from_cities');
+
+        $form_fields = array(
+            'from_city_summary' => ittour_get_from_city_summary_field($args, $from_cities_array),
+            'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
+            'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
+            'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
+            'dates_summary' => ittour_get_dates_summary_field($args),
+            'guests_summary' => ittour_get_guests_summary_field($args),
+            'filter_summary' => ittour_get_filter_summary_field($args),
+            'countries' =>  ittour_get_country_field($params, $args),
+            'regions' =>  ittour_get_region_field($params, $args),
+            'hotels' =>  ittour_get_hotel_field($params, $args),
+            'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
+            'transport_types' =>  ittour_get_transport_type_field($args),
+            'meal_types' =>  itour_get_meal_type_field($args),
+            'price_limit' =>  ittour_get_price_limit_field($args),
+        );
+
+        if (empty($args)) {
+            set_transient('ittour_search_fields_empty', $form_fields, 60 * 60 * 6);
+        }
+    }
 
     $end = microtime(true) - $start;
     error_log($end . ' ms');
@@ -518,7 +530,6 @@ function ittour_get_from_city_field($args, $from_cities_array, $template = 'sele
  * @return string
  */
 function ittour_get_country_field($params, $args = array()) {
-
     $country_id = !empty($args['country']) ? $args['country'] : false;
 
     ob_start();
@@ -795,7 +806,7 @@ function ittour_get_transport_type_field($args = array()) {
 
     if (empty($args)) {
         $type = '1';
-        $kind = '1';
+        $kind = '';
     } else {
         if (!empty($args['tourType'])) {
             $type = $args['tourType'];
@@ -846,6 +857,44 @@ function ittour_get_transport_type_field($args = array()) {
     return ob_get_clean();
 }
 
+function itour_get_meal_type_field($args = array()) {
+    $meal_types = ittour_get_meal_types_array();
+
+    if (empty($args)) {
+        $selected_values = array('560', '512', '498');
+    } else {
+        if (!empty($args['mealType'])) {
+            $selected_values = explode(':', $args['mealType']);
+        } else {
+            $selected_values = array('');
+        }
+    }
+
+    ob_start();
+    ?>
+    <label><?php echo __('Meal type', 'snthwp') ?></label>
+
+    <ul id="meal_type_select" class="form-list">
+        <?php
+        foreach ($meal_types as $id => $meal_type) {
+            $selected = '';
+
+            if (in_array($id, $selected_values)) {
+                $selected = ' checked';
+            }
+            ?>
+            <li>
+                <input id="meal_type_<?php echo $id ?>" class="iCheckGray styled_1" name="meal_type[]" data-short="<?php echo $meal_type['short'] ?>" type="checkbox" value="<?php echo $id ?>"<?php echo $selected ?>>
+                <label for="meal_type_<?php echo $id ?>"><?php echo $meal_type['short'] ?> (<?php echo $meal_type['title'] ?>)</label>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
 function ittour_get_meal_types_array($id = '') {
     $meal_types = array(
         '560' => array(
@@ -883,44 +932,6 @@ function ittour_get_meal_types_array($id = '') {
     }
 
     return false;
-}
-
-function itour_get_meal_type_field($args = array()) {
-    $meal_types = ittour_get_meal_types_array();
-
-    if (empty($args)) {
-        $selected_values = array('560', '512', '498');
-    } else {
-        if (!empty($args['mealType'])) {
-            $selected_values = explode(':', $args['mealType']);
-        } else {
-            $selected_values = array('');
-        }
-    }
-
-    ob_start();
-    ?>
-    <label><?php echo __('Meal type', 'snthwp') ?></label>
-
-    <ul id="meal_type_select" class="form-list">
-        <?php
-        foreach ($meal_types as $id => $meal_type) {
-            $selected = '';
-
-            if (in_array($id, $selected_values)) {
-                $selected = ' checked';
-            }
-            ?>
-            <li>
-                <input id="meal_type_<?php echo $id ?>" class="iCheckGray styled_1" name="meal_type[]" data-short="<?php echo $meal_type['short'] ?>" type="checkbox" value="<?php echo $id ?>"<?php echo $selected ?>>
-                <label for="meal_type_<?php echo $id ?>"><?php echo $meal_type['short'] ?> (<?php echo $meal_type['title'] ?>)</label>
-            </li>
-            <?php
-        }
-        ?>
-    </ul>
-    <?php
-    return ob_get_clean();
 }
 
 function itour_get_adult_amount_field() {

@@ -52,7 +52,7 @@ if (empty($popular_destinations) || empty($popular_destinations['section_content
 
                                 if (!empty($img_url)) {
                                     ?>
-                                    <div class="img-overlay" style="background-image: url('<?php echo $img_url; ?>')"></div>
+                                    <div class="img-overlay lozad" data-background-image="<?php echo $img_url; ?>"></div>
                                     <?php
                                 }
                                 ?>

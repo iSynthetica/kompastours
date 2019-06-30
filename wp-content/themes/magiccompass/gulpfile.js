@@ -64,7 +64,7 @@ const SOURCE = {
 
         // MODULES + '/jquery.repeater/jquery.repeater.js',
 
-        VENDORS + '/showpassword.js',
+        // VENDORS + '/showpassword.js',
 
         VENDORS + '/bootsnav/bootsnav.js',
         VENDORS + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
@@ -75,6 +75,7 @@ const SOURCE = {
         MODULES + '/lg-thumbnail.js/dist/lg-thumbnail.js',
 
         MODULES + '/select2/dist/js/select2.js',
+        MODULES + '/lozad/dist/lozad.js',
 
         MODULES + '/daterangepicker/moment.min.js',
 
