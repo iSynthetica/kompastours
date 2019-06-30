@@ -12,7 +12,7 @@
 }
 
 #home-search-form__section {
-    .search-form_ajax {
+    .search-form_ajax, .search-form_static {
         @media (min-width: 768px) {
             position: relative;
             .search-form__holder {

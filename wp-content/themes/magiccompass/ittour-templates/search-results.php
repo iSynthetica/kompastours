@@ -198,7 +198,7 @@ echo $page_title_template;
 <section id="search-section">
     <div class="container">
         <?php
-        ittour_show_template('form/section-search-ajax.php', array(
+        ittour_show_template('form/section-search.php', array(
             'country'       => $country_id,
             'region'        => $region,
             'hotel'         => $hotel,

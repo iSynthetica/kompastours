@@ -80,10 +80,6 @@ function ittour_get_form_fields($args = array()) {
         set_transient('ittour_search_params', $params, 60 * 60 * 6);
     }
 
-    $params = $params_obj->get();
-    $end = microtime(true) - $start;
-    error_log($end . ' ms');
-
     if (is_wp_error( $params )) {
         return $params->get_error_message();
     }
@@ -100,7 +96,7 @@ function ittour_get_form_fields($args = array()) {
 
     $from_cities_array = get_option('ittour_from_cities');
 
-    return array(
+    $form_fields = array(
         'from_city_summary' => ittour_get_from_city_summary_field($args, $from_cities_array),
         'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
         'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
@@ -116,6 +112,11 @@ function ittour_get_form_fields($args = array()) {
         'meal_types' =>  itour_get_meal_type_field($args),
         'price_limit' =>  ittour_get_price_limit_field($args),
     );
+
+    $end = microtime(true) - $start;
+    error_log($end . ' ms');
+
+    return $form_fields;
 }
 
 function ittour_get_from_city_summary_field($args, $from_cities_array) {

@@ -39,7 +39,7 @@ if (empty($tour_info["country_id"])) {
             }
         }
 
-        ittour_show_template('form/section-search-ajax.php', $template_args);
+        ittour_show_template('form/section-search.php', $template_args);
         ?>
     </div>
 </section>

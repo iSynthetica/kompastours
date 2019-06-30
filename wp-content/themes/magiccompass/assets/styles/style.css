@@ -26917,15 +26917,15 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
       background-color: #e04f67; } }
 
 @media (min-width: 768px) {
-  #home-search-form__section .search-form_ajax {
+  #home-search-form__section .search-form_ajax, #home-search-form__section .search-form_static {
     position: relative; }
-    #home-search-form__section .search-form_ajax .search-form__holder {
+    #home-search-form__section .search-form_ajax .search-form__holder, #home-search-form__section .search-form_static .search-form__holder {
       position: absolute;
       width: 100%;
       top: -8.125rem; } }
 
 @media (min-width: 992px) {
-  #home-search-form__section .search-form_ajax .search-form__holder {
+  #home-search-form__section .search-form_ajax .search-form__holder, #home-search-form__section .search-form_static .search-form__holder {
     position: absolute;
     width: 100%;
     top: -5.3125rem; } }

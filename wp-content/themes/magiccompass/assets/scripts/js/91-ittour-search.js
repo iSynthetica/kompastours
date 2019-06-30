@@ -754,7 +754,13 @@
 
 
     $(document).ready(function() {
-        ittourLoadSearchForm();
+        var staticForm = $('#search-form');
+
+        if (staticForm.length > 0) {
+            $( document.body ).trigger('search_form_loaded');
+        } else {
+            ittourLoadSearchForm();
+        }
     });
 
     $(window).on('load', function () {

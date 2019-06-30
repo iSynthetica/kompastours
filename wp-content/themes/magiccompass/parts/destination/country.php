@@ -31,7 +31,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
         <?php
-        ittour_show_template('form/section-search-ajax.php', array(
+        ittour_show_template('form/section-search.php', array(
             'country'       => $country_id,
             'hotel_rating'  => '78:4',
             'tour_type'     => 1,
