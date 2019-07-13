@@ -128,6 +128,55 @@ function snth_is_yoast_seo_active()
     return snth_is_plugin_active ( 'wordpress-seo/wp-seo.php' );
 }
 
+/**
+ * Set a cookie - wrapper for setcookie using WP constants.
+ *
+ * @param  string  $name   Name of the cookie being set.
+ * @param  string  $value  Value of the cookie.
+ * @param  integer $expire Expiry of the cookie.
+ * @param  bool    $secure Whether the cookie should be served only over https.
+ * @param  bool    $httponly Whether the cookie is only accessible over HTTP, not scripting languages like JavaScript. @since 3.6.0.
+ */
+function snth_setcookie( $name, $value, $expire = 0, $secure = false, $httponly = false ) {
+    if ( ! headers_sent() ) {
+        setcookie( $name, $value, $expire, COOKIEPATH ? COOKIEPATH : '/', COOKIE_DOMAIN, $secure, apply_filters( 'woocommerce_cookie_httponly', $httponly, $name, $value, $expire, $secure ) );
+    } elseif ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+        headers_sent( $file, $line );
+        trigger_error( "{$name} cookie cannot be set - headers already sent by {$file} on line {$line}", E_USER_NOTICE ); // @codingStandardsIgnoreLine
+    }
+}
+
+/**
+ * Generate a unique customer ID for guests, or return user ID if logged in.
+ *
+ * Uses Portable PHP password hashing framework to generate a unique cryptographically strong ID.
+ *
+ * @return string
+ */
+function snth_generate_customer_id() {
+    $customer_id = '';
+
+    if ( is_user_logged_in() ) {
+        $customer_id = get_current_user_id();
+    }
+
+    if ( empty( $customer_id ) ) {
+        require_once ABSPATH . 'wp-includes/class-phpass.php';
+        $hasher      = new PasswordHash( 8, false );
+        $customer_id = md5( $hasher->get_random_bytes( 32 ) );
+    }
+
+    return $customer_id;
+}
+
+function snth_use_secure_cookie() {
+    return snth_site_is_https() && is_ssl();
+}
+
+function snth_site_is_https() {
+    return false !== strstr( get_option( 'home' ), 'https:' );
+}
+
 function snth_get_transient_timeout( $transient ) {
     global $wpdb;
 

@@ -19,7 +19,7 @@ $from_cities_array = get_option('ittour_from_cities');
             <div class="col-12">
                 <h3 class="section-title text-uppercase font-weight-900 text-center mt-0 mb-20 mb-md-40 mb-lg-60"><?php echo __('Send request', 'snthwp'); ?></h3>
 
-                <form id="lp-order-form">
+                <form id="find-me-tour-form">
                     <div class="row">
                         <div class="col-12 col-sm-6">
                             <div class="form-group">
@@ -30,7 +30,7 @@ $from_cities_array = get_option('ittour_from_cities');
 
                         <div class="col-12 col-sm-6">
                             <div class="form-group">
-                                <label for="clientName" class="font-alt"><?php echo __('Your email', 'snthwp'); ?></label>
+                                <label for="clientEmail" class="font-alt"><?php echo __('Your email', 'snthwp'); ?></label>
                                 <input type="email" class="form-control" id="clientEmail" name="clientEmail" placeholder="<?php echo __('Enter your email', 'snthwp'); ?>">
                             </div>
                         </div>
@@ -39,7 +39,7 @@ $from_cities_array = get_option('ittour_from_cities');
                     <div class="row">
                         <div class="col-12 col-sm-6">
                             <div class="form-group">
-                                <label for="clientName" class="font-alt"><?php echo __('Your phone', 'snthwp'); ?> (<strong class="txt-red-color">*</strong>)</label>
+                                <label for="clientPhone" class="font-alt"><?php echo __('Your phone', 'snthwp'); ?> (<strong class="txt-red-color">*</strong>)</label>
                                 <input type="text" class="form-control" id="clientPhone" name="clientPhone" placeholder="+380XXXXXXXXX">
                             </div>
                         </div>
@@ -106,22 +106,29 @@ $from_cities_array = get_option('ittour_from_cities');
 
                     <div class="row">
                         <div class="col-12 col-sm-6">
-                            <div class="form-group">
-                                <label for="from_city" class="font-alt"><?php echo __('Departure city', 'snthwp'); ?></label>
+                            <div class="row">
+                                <div class="col-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="from_city" class="font-alt"><?php echo __('Departure city', 'snthwp'); ?></label>
 
-                                <?php
-                                echo $form_fields["countries"];
-                                ?>
+                                        <select class="form-control" name="from_city" id="from_city">
+                                            <?php
+                                            foreach ($from_cities_array as $from_city_id => $from_city) {
+                                                ?>
+                                                <option value="<?php echo $from_city['name'] ?>"<?php echo $from_city_id == 2014 ? ' selected' : ''; ?>><?php echo $from_city['name'] ?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
 
-                                <select class="form-control" name="from_city" id="from_city">
-                                    <?php
-                                    foreach ($from_cities_array as $from_city_id => $from_city) {
-                                        ?>
-                                        <option value="<?php echo $from_city['name'] ?>"<?php echo $from_city_id == 2014 ? ' selected' : ''; ?>><?php echo $from_city['name'] ?></option>
-                                        <?php
-                                    }
-                                    ?>
-                                </select>
+                                <div class="col-6 col-md-6">
+                                    <div class="form-group">
+                                        <label for="country_select" class="font-alt"><?php echo __('Select country', 'snthwp'); ?></label>
+                                        <?php echo $form_fields["countries_req"]; ?>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -151,7 +158,7 @@ $from_cities_array = get_option('ittour_from_cities');
 
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-10 col-lg-8 col-xl-6">
-                            <button id="lp-order-form__submit" type="button" class="btn shape-rnd hvr-invert text-uppercase size-xl size-extended font-alt font-weight-900 mt-20 mb-0">
+                            <button id="find-me-tour-form__submit" type="button" class="btn shape-rnd hvr-invert text-uppercase size-extended font-alt font-weight-900 mt-20 mb-0">
                                 <?php echo __('Get proposals', 'snthwp'); ?>
                             </button>
                         </div>

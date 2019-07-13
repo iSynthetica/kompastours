@@ -94,6 +94,8 @@ function ittour_get_form_fields($args = array()) {
         }
     }
 
+    delete_transient('ittour_search_fields_empty');
+
     $form_fields = false;
 
     if (empty($args)) {
@@ -118,6 +120,7 @@ function ittour_get_form_fields($args = array()) {
             'transport_types' =>  ittour_get_transport_type_field($args),
             'meal_types' =>  itour_get_meal_type_field($args),
             'price_limit' =>  ittour_get_price_limit_field($args),
+            'countries_req' =>  ittour_get_country_req_field($params, $args),
         );
 
         if (empty($args)) {
@@ -536,6 +539,38 @@ function ittour_get_country_field($params, $args = array()) {
     if (!empty($params['countries'])) {
         ?>
         <select id="country_select" name="country" class="form-control form-select2" style="width: 100%">
+            <option></option>
+
+            <?php
+            foreach ($params['countries'] as $country) {
+                $selected = '';
+
+                if ($country_id && $country['id'] === $country_id) {
+                    $selected .= ' selected';
+                }
+                ?>
+                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <input type="text" placeholder="Country" class="form-control" name="country" required>
+        <?php
+    }
+
+    return ob_get_clean();
+}
+
+function ittour_get_country_req_field($params, $args = array()) {
+    $country_id = !empty($args['country']) ? $args['country'] : false;
+
+    ob_start();
+    if (!empty($params['countries'])) {
+        ?>
+        <select id="country_req_select" name="country" class="form-control form-select2" style="width: 100%">
             <option></option>
 
             <?php

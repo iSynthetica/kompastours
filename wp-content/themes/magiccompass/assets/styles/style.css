@@ -27396,6 +27396,10 @@ i.list-item-icon {
   border: 1px solid #cccccc;
   border-left: none; }
 
+#find-me-tour-form__holder {
+  padding: 0 0.625rem 0.625rem 0.625rem;
+  background-color: #e04f67; }
+
 @media (min-width: 768px) {
   #filter_summary__col {
     position: absolute;
@@ -27412,7 +27416,9 @@ i.list-item-icon {
     #search-form-main__holder .search-summary__row {
       padding-right: 0; }
       #search-form-main__holder .search-summary__row .search-summary__col {
-        margin-bottom: 0.3125rem; } }
+        margin-bottom: 0.3125rem; }
+  #find-me-tour-form__holder {
+    background-color: transparent; } }
 
 .tour_review_rate {
   margin-bottom: 0.625rem; }

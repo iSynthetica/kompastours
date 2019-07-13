@@ -5,6 +5,7 @@
 
     $(document).ready(function() {
         $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
             autoclose: 1
         });
 
@@ -68,6 +69,49 @@
 
     $(window).on('resize', function(e) {
 
+    });
+
+    $(document.body).on('click', '#find-me-tour-form__submit', function() {
+        var formData = $("#find-me-tour-form").serializeArray();
+
+        var country_name = $('#country_req_select').find('option:selected').text();
+
+        if (country_name) {
+            formData.push({name: 'country_name', value: country_name});
+        }
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'ittour_ajax_find_me_tour',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
     });
 
     $(document.body).on('click', '#lp-order-form__submit', function() {

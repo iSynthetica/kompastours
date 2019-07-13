@@ -7,6 +7,15 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+if ( !snth_is_request( 'ajax' )  ) {
+    $snth_theme_version = get_option('snth_theme_version');
+
+    if (!$snth_theme_version || 0 !== version_compare ( SNTH_VERSION , $snth_theme_version )) {
+        ittour_create_session_table();
+        update_option('snth_theme_version', SNTH_VERSION);
+    }
+}
+
 /**
  * Adding WP Functions & Theme Support
  */

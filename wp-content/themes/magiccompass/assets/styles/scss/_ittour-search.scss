@@ -317,6 +317,11 @@
     }
 }
 
+#find-me-tour-form__holder {
+    padding: rem-calc(0 10 10 10);
+    background-color: $main-site-color;
+}
+
 @media (min-width: 768px) {
     #filter_summary__col {
         position: absolute;
@@ -342,5 +347,9 @@
                 margin-bottom: rem-calc(5);
             }
         }
+    }
+
+    #find-me-tour-form__holder {
+        background-color: transparent;
     }
 }

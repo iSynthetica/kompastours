@@ -21,7 +21,8 @@ if (empty($_GET['key'])) {
     $ittour_content = ittour_get_template('single-tour-content.php', array('tour_info' => $tour_info));
 } else {
     $tour_key = $_GET['key'];
-    $tour = ittour_tour($tour_key, ITTOUR_LANG);$tour_info = $tour->info();
+    $tour = ittour_tour($tour_key, ITTOUR_LANG);
+    $tour_info = $tour->info();
 
     if (empty($tour_info["from_city_id"]) && !empty($_GET["from_city"])) {
         $tour_info["from_city_id"] = (int) $_GET["from_city"];

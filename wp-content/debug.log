@@ -1307,3 +1307,470 @@ Stack trace:
   thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 34
 [01-Jul-2019 11:43:42 UTC] 2.0114841461182 ms
 [01-Jul-2019 11:47:51 UTC] 2.1049311161041 ms
+[01-Jul-2019 13:22:42 UTC] 0.0032329559326172 ms
+[01-Jul-2019 13:23:05 UTC] 0.003648042678833 ms
+[01-Jul-2019 13:43:11 UTC] 0.0032408237457275 ms
+[01-Jul-2019 13:43:36 UTC] 0.0034480094909668 ms
+[01-Jul-2019 13:46:54 UTC] 0.0029611587524414 ms
+[01-Jul-2019 13:47:01 UTC] 0.0051519870758057 ms
+[01-Jul-2019 13:47:02 UTC] 0.0029900074005127 ms
+[01-Jul-2019 13:48:03 UTC] 0.0029549598693848 ms
+[01-Jul-2019 13:48:54 UTC] 0.0036180019378662 ms
+[01-Jul-2019 13:49:15 UTC] 0.0042350292205811 ms
+[01-Jul-2019 13:49:15 UTC] 0.0032408237457275 ms
+[01-Jul-2019 13:49:41 UTC] 0.0033328533172607 ms
+[01-Jul-2019 13:49:43 UTC] 0.0030350685119629 ms
+[01-Jul-2019 13:49:44 UTC] 0.0033481121063232 ms
+[01-Jul-2019 13:55:59 UTC] 0.0030419826507568 ms
+[01-Jul-2019 13:55:59 UTC] PHP Notice:  Undefined index: countries_req in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/general/form-find-me-tour.php on line 129
+[01-Jul-2019 13:55:59 UTC] PHP Stack trace:
+[01-Jul-2019 13:55:59 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/index.php:0
+[01-Jul-2019 13:55:59 UTC] PHP   2. require() /var/www/synthetica/magiccompass/ru/public_html/index.php:17
+[01-Jul-2019 13:55:59 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php:19
+[01-Jul-2019 13:55:59 UTC] PHP   4. include() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.php:78
+[01-Jul-2019 13:55:59 UTC] PHP   5. snth_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/front-page.php:15
+[01-Jul-2019 13:55:59 UTC] PHP   6. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:50
+[01-Jul-2019 13:55:59 UTC] PHP   7. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/parts/front.php:43
+[01-Jul-2019 13:55:59 UTC] PHP   8. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Jul-2019 13:55:59 UTC] PHP   9. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/section-search.php:35
+[01-Jul-2019 13:55:59 UTC] PHP  10. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Jul-2019 13:55:59 UTC] PHP  11. ittour_show_template() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/form/search-tab.php:365
+[01-Jul-2019 13:55:59 UTC] PHP  12. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
+[01-Jul-2019 13:56:40 UTC] 0.051147937774658 ms
+[01-Jul-2019 13:57:16 UTC] 0.03703498840332 ms
+[01-Jul-2019 13:57:16 UTC] 0.034489870071411 ms
+[01-Jul-2019 13:57:28 UTC] 0.039052963256836 ms
+[01-Jul-2019 13:57:30 UTC] 0.037492036819458 ms
+[01-Jul-2019 13:57:31 UTC] 0.033928155899048 ms
+[01-Jul-2019 13:57:57 UTC] 0.037533044815063 ms
+[01-Jul-2019 13:57:58 UTC] 0.033397912979126 ms
+[01-Jul-2019 13:57:59 UTC] 0.035338878631592 ms
+[01-Jul-2019 14:42:47 UTC] 0.054986953735352 ms
+[01-Jul-2019 14:42:54 UTC] 0.055148124694824 ms
+[01-Jul-2019 14:42:56 UTC] 0.050765037536621 ms
+[01-Jul-2019 15:35:14 UTC] 0.11225295066833 ms
+[01-Jul-2019 15:35:16 UTC] 0.052922010421753 ms
+[01-Jul-2019 15:36:26 UTC] 0.053990125656128 ms
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 167
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:167
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 168
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:168
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 169
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:169
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 167
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:167
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 168
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:168
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 169
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:169
+[01-Jul-2019 15:41:23 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 177
+[01-Jul-2019 15:41:23 UTC] PHP Stack trace:
+[01-Jul-2019 15:41:23 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 15:41:23 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 15:41:23 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 15:41:23 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 15:41:23 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 15:41:23 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 15:41:23 UTC] PHP   7. snth_convert_date_format($date = *uninitialized*, $format_from = *uninitialized*, $format_to = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:228
+[01-Jul-2019 15:41:23 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:177
+[01-Jul-2019 15:52:08 UTC] 0.051246166229248 ms
+[01-Jul-2019 15:53:57 UTC] 0.052109956741333 ms
+[01-Jul-2019 15:53:59 UTC] 0.054273843765259 ms
+[01-Jul-2019 16:09:04 UTC] 0.059983968734741 ms
+[01-Jul-2019 16:09:08 UTC] 0.052091121673584 ms
+[01-Jul-2019 16:09:10 UTC] 0.053427934646606 ms
+[01-Jul-2019 16:10:18 UTC] 0.05314302444458 ms
+[01-Jul-2019 16:10:21 UTC] 0.050225019454956 ms
+[01-Jul-2019 16:10:23 UTC] 0.051050901412964 ms
+[01-Jul-2019 16:12:04 UTC] 0.064718008041382 ms
+[01-Jul-2019 16:12:07 UTC] 0.055039882659912 ms
+[01-Jul-2019 16:12:09 UTC] 0.050325870513916 ms
+[01-Jul-2019 16:14:15 UTC] PHP Notice:  Undefined index: name in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php on line 363
+[01-Jul-2019 16:14:15 UTC] PHP Stack trace:
+[01-Jul-2019 16:14:15 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:14:15 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:14:15 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:14:15 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:14:15 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:14:15 UTC] PHP Notice:  Undefined index: value in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php on line 364
+[01-Jul-2019 16:14:15 UTC] PHP Stack trace:
+[01-Jul-2019 16:14:15 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:14:15 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:14:15 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:14:15 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:14:15 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:14:23 UTC] 0.054917097091675 ms
+[01-Jul-2019 16:14:26 UTC] 0.046388149261475 ms
+[01-Jul-2019 16:14:28 UTC] 0.048721075057983 ms
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 167
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:167
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 168
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:168
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 169
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:169
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 167
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:167
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 168
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:168
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 169
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:227
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:169
+[01-Jul-2019 16:15:44 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 177
+[01-Jul-2019 16:15:44 UTC] PHP Stack trace:
+[01-Jul-2019 16:15:44 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:15:44 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:15:44 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:15:44 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:15:44 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:15:44 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:15:44 UTC] PHP   7. snth_convert_date_format($date = *uninitialized*, $format_from = *uninitialized*, $format_to = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:228
+[01-Jul-2019 16:15:44 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:177
+[01-Jul-2019 16:18:21 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 167
+[01-Jul-2019 16:18:21 UTC] PHP Stack trace:
+[01-Jul-2019 16:18:21 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:18:21 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:18:21 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:18:21 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:18:21 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:18:21 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:18:21 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:18:21 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:167
+[01-Jul-2019 16:18:21 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 168
+[01-Jul-2019 16:18:21 UTC] PHP Stack trace:
+[01-Jul-2019 16:18:21 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:18:21 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:18:21 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:18:21 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:18:21 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:18:21 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:18:21 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:18:21 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:168
+[01-Jul-2019 16:18:21 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php on line 169
+[01-Jul-2019 16:18:21 UTC] PHP Stack trace:
+[01-Jul-2019 16:18:21 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[01-Jul-2019 16:18:21 UTC] PHP   2. do_action($tag = *uninitialized*, $arg = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[01-Jul-2019 16:18:21 UTC] PHP   3. WP_Hook->do_action($args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[01-Jul-2019 16:18:21 UTC] PHP   4. WP_Hook->apply_filters($value = *uninitialized*, $args = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[01-Jul-2019 16:18:21 UTC] PHP   5. ittour_ajax_find_me_tour(*uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[01-Jul-2019 16:18:21 UTC] PHP   6. CRM_ClaimManager::create_new_booking_request($data = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/ajax-front.php:550
+[01-Jul-2019 16:18:21 UTC] PHP   7. snth_convert_date_to_human($date = *uninitialized*, $format = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/crm/includes/class/crm-claimmanager.php:226
+[01-Jul-2019 16:18:21 UTC] PHP   8. date_format(*uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:169
+[01-Jul-2019 16:21:05 UTC] 0.061125040054321 ms
+[01-Jul-2019 16:21:08 UTC] 0.049969911575317 ms
+[01-Jul-2019 16:21:11 UTC] 0.047765970230103 ms
+[01-Jul-2019 16:24:22 UTC] 1.2896111011505 ms
+[01-Jul-2019 16:24:24 UTC] 0.047552824020386 ms
+[01-Jul-2019 18:05:37 UTC] 0.055068969726562 ms
+[01-Jul-2019 18:05:41 UTC] 0.05380392074585 ms
+[01-Jul-2019 18:05:43 UTC] 0.061769962310791 ms
+[01-Jul-2019 18:06:34 UTC] 0.061344861984253 ms
+[01-Jul-2019 18:07:55 UTC] 0.053824901580811 ms
+[01-Jul-2019 18:08:22 UTC] 2.3210229873657 ms
+[01-Jul-2019 18:08:52 UTC] 2.0717880725861 ms
+[01-Jul-2019 18:09:15 UTC] 2.2051539421082 ms
+[01-Jul-2019 18:10:01 UTC] 2.1495549678802 ms
+[01-Jul-2019 18:10:07 UTC] 0.039608001708984 ms
+[01-Jul-2019 18:10:09 UTC] 0.047022104263306 ms
+[01-Jul-2019 18:10:23 UTC] 2.0796530246735 ms
+[01-Jul-2019 18:10:26 UTC] 0.035536050796509 ms
+[01-Jul-2019 18:10:28 UTC] 0.053181886672974 ms
+[01-Jul-2019 18:11:09 UTC] 0.048341989517212 ms
+[01-Jul-2019 18:11:37 UTC] 0.050915002822876 ms
+[01-Jul-2019 18:23:37 UTC] [Loco.warning] "One file has been skipped because it's 226 KB. (Max is 100 KB). Check all strings are present before saving." in src/error/AdminNotices.php:94
+[01-Jul-2019 18:35:43 UTC] [Loco.debug] "Translations don't match template. Run sync to update from snthwp.pot" in src/error/AdminNotices.php:116
+[01-Jul-2019 18:36:25 UTC] 0.051555156707764 ms
+[01-Jul-2019 18:36:27 UTC] 0.054370880126953 ms
+[01-Jul-2019 18:37:31 UTC] 0.054044961929321 ms
+[01-Jul-2019 18:37:34 UTC] 0.043034076690674 ms
+[01-Jul-2019 18:37:36 UTC] 0.055814027786255 ms
+[01-Jul-2019 21:01:10 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:34
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_validate_tour('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_ittour_...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 34
+[06-Jul-2019 11:59:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php on line 1533
+[06-Jul-2019 11:59:29 UTC] PHP Stack trace:
+[06-Jul-2019 11:59:29 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[06-Jul-2019 11:59:29 UTC] PHP   2. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:173
+[06-Jul-2019 11:59:29 UTC] PHP   3. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Jul-2019 11:59:29 UTC] PHP   4. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Jul-2019 11:59:29 UTC] PHP   5. ittour_ajax_get_tours_list() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Jul-2019 11:59:29 UTC] PHP   6. ittour_get_tours_table_sort_by_date() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:180
+[06-Jul-2019 12:08:37 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:34
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_validate_tour('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_ittour_...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 34
+[07-Jul-2019 12:13:42 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:34
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_validate_tour('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_ittour_...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 34
+[07-Jul-2019 19:09:07 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:26
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php(19): ittour_show_template('single-tour.php')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php(80): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): {closure}('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.p in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 26
+[07-Jul-2019 19:10:20 UTC] 1.0196180343628 ms
+[07-Jul-2019 19:10:52 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:26
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php(19): ittour_show_template('single-tour.php')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php(80): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): {closure}('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.p in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 26
+[07-Jul-2019 19:10:53 UTC] 0.036385059356689 ms
+[08-Jul-2019 04:35:02 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:26
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php(19): ittour_show_template('single-tour.php')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php(80): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): {closure}('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.p in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 26
+[08-Jul-2019 04:35:05 UTC] 1.3750650882721 ms
+[08-Jul-2019 08:02:28 UTC] 0.057850122451782 ms
+[08-Jul-2019 10:07:08 UTC] 2.3121500015259 ms
+[08-Jul-2019 10:07:17 UTC] 2.1413979530334 ms
+[08-Jul-2019 10:07:23 UTC] 0.021769046783447 ms
+[08-Jul-2019 10:07:23 UTC] 0.040021896362305 ms
+[08-Jul-2019 10:07:45 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php:34
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_validate_tour('')
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php(173): do_action('wp_ajax_ittour_...')
+#4 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php on line 34
+[08-Jul-2019 18:03:55 UTC] 1.3276450634003 ms
+[09-Jul-2019 16:44:24 UTC] 1.0793538093567 ms
+[09-Jul-2019 18:16:55 UTC] 0.075571060180664 ms
+[09-Jul-2019 18:47:29 UTC] 0.054406881332397 ms
+[09-Jul-2019 18:48:25 UTC] 0.057836055755615 ms
+[09-Jul-2019 18:49:54 UTC] 0.053382873535156 ms
+[09-Jul-2019 19:03:07 UTC] 0.05402398109436 ms
+[09-Jul-2019 19:03:22 UTC] 0.055767059326172 ms
+[09-Jul-2019 19:03:27 UTC] 0.058173894882202 ms
+[09-Jul-2019 19:04:38 UTC] 0.045352935791016 ms
+[09-Jul-2019 19:05:37 UTC] 0.046200037002563 ms
+[09-Jul-2019 19:06:10 UTC] 0.055763006210327 ms
+[09-Jul-2019 19:09:35 UTC] 0.054856061935425 ms
+[09-Jul-2019 19:14:02 UTC] 0.054425954818726 ms
+[09-Jul-2019 19:15:15 UTC] 0.05066180229187 ms
+[09-Jul-2019 19:16:51 UTC] 0.059935092926025 ms
+[09-Jul-2019 19:22:36 UTC] 0.05744481086731 ms
+[09-Jul-2019 19:24:12 UTC] 0.062702178955078 ms
+[09-Jul-2019 19:27:00 UTC] 0.053380966186523 ms
+[09-Jul-2019 19:28:00 UTC] 0.057281017303467 ms
+[09-Jul-2019 19:28:34 UTC] 0.058145046234131 ms
+[09-Jul-2019 19:29:48 UTC] 0.051681041717529 ms
+[09-Jul-2019 19:30:22 UTC] 0.058456182479858 ms
+[09-Jul-2019 19:30:33 UTC] 0.10170102119446 ms
+[09-Jul-2019 19:31:32 UTC] 0.062430143356323 ms
+[09-Jul-2019 19:31:57 UTC] 0.056923151016235 ms
+[09-Jul-2019 19:32:04 UTC] 0.060985088348389 ms
+[09-Jul-2019 19:37:34 UTC] 0.061380863189697 ms
+[09-Jul-2019 19:38:42 UTC] 0.060592174530029 ms
+[09-Jul-2019 19:42:01 UTC] 0.053478002548218 ms
+[09-Jul-2019 19:43:30 UTC] 0.05437707901001 ms
+[09-Jul-2019 19:46:24 UTC] 0.056037187576294 ms
+[09-Jul-2019 19:48:18 UTC] 0.052149057388306 ms
+[09-Jul-2019 20:04:26 UTC] 0.059308767318726 ms
+[09-Jul-2019 20:04:33 UTC] 0.063488006591797 ms
+[09-Jul-2019 20:27:12 UTC] 0.0574049949646 ms
+[09-Jul-2019 20:27:33 UTC] 0.059255123138428 ms
+[09-Jul-2019 20:28:21 UTC] 0.057286977767944 ms
+[09-Jul-2019 20:48:14 UTC] 0.058170080184937 ms
+[09-Jul-2019 20:48:38 UTC] 0.0522620677948 ms
+[09-Jul-2019 20:48:55 UTC] 0.062213182449341 ms
+[09-Jul-2019 20:50:59 UTC] 0.05530309677124 ms
+[09-Jul-2019 20:51:30 UTC] 0.068856000900269 ms
+[09-Jul-2019 20:51:50 UTC] 0.062087059020996 ms
+[09-Jul-2019 20:54:45 UTC] 0.0553138256073 ms
+[09-Jul-2019 21:06:36 UTC] 0.053902149200439 ms
+[09-Jul-2019 21:06:46 UTC] PHP Parse error:  syntax error, unexpected ')' in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/theme-support.php on line 12
+[09-Jul-2019 21:07:22 UTC] 0.053870916366577 ms
+[09-Jul-2019 21:07:56 UTC] 0.055506229400635 ms
+[09-Jul-2019 21:09:10 UTC] 0.055089950561523 ms
+[09-Jul-2019 21:16:03 UTC] 0.055181980133057 ms
+[09-Jul-2019 21:17:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function ittour_create_session_table() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/theme-support.php:14
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/functions.php(48): require_once()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(499): include('/var/www/synthe...')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(80): require_once('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php(13): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/index.php(17): require('/var/www/synthe...')
+#6 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/theme-support.php on line 14
+[09-Jul-2019 21:18:58 UTC] 0.055485010147095 ms
+[09-Jul-2019 21:20:19 UTC] 0.061233043670654 ms
+[09-Jul-2019 21:20:49 UTC] 0.058374166488647 ms
+[09-Jul-2019 21:21:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function dbDelta() in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-core.php:40
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/theme-support.php(14): ittour_create_session_table()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/functions.php(50): require_once('/var/www/synthe...')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php(499): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-config.php(80): require_once('/var/www/synthe...')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-load.php(37): require_once('/var/www/synthe...')
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-blog-header.php(13): require_once('/var/www/synthe...')
+#6 /var/www/synthetica/magiccompass/ru/public_html/index.php(17): require('/var/www/synthe...')
+#7 {main}
+  thrown in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-core.php on line 40
+[09-Jul-2019 21:23:21 UTC] 0.038706064224243 ms
+[09-Jul-2019 21:29:04 UTC] 0.039299011230469 ms
+[09-Jul-2019 21:29:09 UTC] 0.048101902008057 ms
+[09-Jul-2019 21:29:09 UTC] 0.036060810089111 ms
+[10-Jul-2019 15:41:51 UTC] 0.98138689994812 ms
+[10-Jul-2019 15:43:20 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php:26
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/templates/tour.php(19): ittour_show_template('single-tour.php')
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-api.php(80): include('/var/www/synthe...')
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): {closure}('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/template-loader.p in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour.php on line 26
+[12-Jul-2019 16:37:18 UTC] 1.6708118915558 ms
+[12-Jul-2019 16:37:19 UTC] 2.5053260326385 ms
+[12-Jul-2019 16:37:20 UTC] 0.036598920822144 ms
+[12-Jul-2019 16:37:38 UTC] 0.036349058151245 ms
+[12-Jul-2019 16:37:39 UTC] 0.035534858703613 ms
+[12-Jul-2019 16:37:42 UTC] 0.063071012496948 ms
+[12-Jul-2019 16:40:01 UTC] 0.054415941238403 ms
+[12-Jul-2019 16:40:14 UTC] 0.059048175811768 ms
+[12-Jul-2019 16:40:21 UTC] 0.052249908447266 ms
+[12-Jul-2019 17:29:32 UTC] 0.053071975708008 ms
+[12-Jul-2019 17:29:36 UTC] 0.052441120147705 ms
+[12-Jul-2019 17:29:39 UTC] 0.054949045181274 ms
+[12-Jul-2019 17:29:43 UTC] 0.052095890045166 ms
+[12-Jul-2019 17:29:46 UTC] 0.050010919570923 ms
+[12-Jul-2019 17:29:48 UTC] 0.062453031539917 ms
+[12-Jul-2019 17:30:07 UTC] 0.044008016586304 ms
+[12-Jul-2019 17:30:10 UTC] 0.052343845367432 ms
+[12-Jul-2019 17:30:13 UTC] 0.052599906921387 ms
+[12-Jul-2019 17:31:39 UTC] 1.941241979599 ms
+[12-Jul-2019 17:31:42 UTC] 0.037375926971436 ms
+[12-Jul-2019 17:31:44 UTC] 0.050351142883301 ms
+[12-Jul-2019 17:33:28 UTC] 1.7732839584351 ms
+[12-Jul-2019 17:40:27 UTC] 2.0643270015717 ms
+[12-Jul-2019 17:52:58 UTC] 1.9839398860931 ms
+[12-Jul-2019 17:55:29 UTC] 1.8506441116333 ms
+[13-Jul-2019 12:39:45 UTC] 3.2054069042206 ms
+[13-Jul-2019 13:01:10 UTC] 2.0557961463928 ms
+[13-Jul-2019 13:31:11 UTC] 1.9826030731201 ms
+[13-Jul-2019 13:32:32 UTC] 1.9355540275574 ms
+[13-Jul-2019 13:33:03 UTC] 0.03334903717041 ms
+[13-Jul-2019 13:33:10 UTC] 0.045663833618164 ms
+[13-Jul-2019 13:33:49 UTC] 2.263571023941 ms

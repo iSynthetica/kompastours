@@ -8,7 +8,13 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+if ( defined('ITTOUR_SLAVE') ) {
+    return;
+}
 ?>
+<!--NEXTEL - Коллтрекинг и виджеты-->
+<script async src="https://cstat.nextel.com.ua:8443/tracking/script/630/329"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141955151-1"></script>
 <script>
