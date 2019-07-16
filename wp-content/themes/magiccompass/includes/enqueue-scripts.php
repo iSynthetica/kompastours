@@ -56,6 +56,31 @@ function snth_enqueue_scripts() {
             'selectRegion'          => __('Select region', 'snthwp'),
             'selectHotel'           => __('Select hotel', 'snthwp'),
         ),
+        'calendar' => array(
+            'daysOfWeekShort' => array(
+                    'mo' => __('Mo', 'snthwp'),
+                    'tu' => __('Tu', 'snthwp'),
+                    'we' => __('We', 'snthwp'),
+                    'th' => __('Th', 'snthwp'),
+                    'fr' => __('Fr', 'snthwp'),
+                    'sa' => __('Sa', 'snthwp'),
+                    'su' => __('Su', 'snthwp'),
+            ),
+            'monthNamesShort' => array(
+                'jan' => __('Jan', 'snthwp'),
+                'feb' => __('Feb', 'snthwp'),
+                'mar' => __('Mar', 'snthwp'),
+                'apr' => __('Apr', 'snthwp'),
+                'may' => __('May', 'snthwp'),
+                'jun' => __('Jun', 'snthwp'),
+                'jul' => __('Jul', 'snthwp'),
+                'aug' => __('Aug', 'snthwp'),
+                'sep' => __('Sep', 'snthwp'),
+                'oct' => __('Oct', 'snthwp'),
+                'nov' => __('Nov', 'snthwp'),
+                'dec' => __('Dec', 'snthwp'),
+            ),
+        )
     ) );
 }
 add_action('wp_enqueue_scripts', 'snth_enqueue_scripts', 999);

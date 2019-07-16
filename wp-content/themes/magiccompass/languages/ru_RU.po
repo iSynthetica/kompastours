@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-01 18:35+0000\n"
-"PO-Revision-Date: 2019-07-01 18:36+0000\n"
+"POT-Creation-Date: 2019-07-16 16:15+0000\n"
+"PO-Revision-Date: 2019-07-16 16:54+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -20,7 +20,7 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Search &hellip;"
 
-#: functions.php:176
+#: functions.php:183
 msgid "Hot tour"
 msgstr "Горящий тур"
 
@@ -44,7 +44,7 @@ msgstr "Блог"
 msgid "Search tours"
 msgstr "Поиск туров"
 
-#: ittour-templates/search-results.php:53 ittour-templates/single-tour.php:40
+#: ittour-templates/search-results.php:53 ittour-templates/single-tour.php:41
 #: includes/ittour-template-functions.php:1514
 #: includes/ittour-template-functions.php:1724 includes/ittour-ajax.php:17
 #: parts/landings/section-min-prices-by-month.php:18
@@ -52,7 +52,7 @@ msgstr "Поиск туров"
 msgid "€"
 msgstr "€"
 
-#: ittour-templates/search-results.php:55 ittour-templates/single-tour.php:42
+#: ittour-templates/search-results.php:55 ittour-templates/single-tour.php:43
 #: includes/ittour-template-functions.php:1516
 #: includes/ittour-template-functions.php:1726 includes/ittour-ajax.php:19
 #: parts/landings/section-min-prices-by-month.php:20
@@ -60,7 +60,7 @@ msgstr "€"
 msgid "$"
 msgstr "$"
 
-#: ittour-templates/search-results.php:57 ittour-templates/single-tour.php:44
+#: ittour-templates/search-results.php:57 ittour-templates/single-tour.php:45
 #: includes/ittour-template-functions.php:1240
 #: includes/ittour-template-functions.php:1518
 #: includes/ittour-template-functions.php:1728 includes/ittour-ajax.php:21
@@ -187,11 +187,11 @@ msgstr "... Подробнее &raquo;"
 msgid "Posts by %s"
 msgstr ""
 
-#: includes/theme-support.php:62
+#: includes/theme-support.php:71
 msgid "Theme General Settings"
 msgstr ""
 
-#: includes/theme-support.php:63
+#: includes/theme-support.php:72
 msgid "Theme settings"
 msgstr ""
 
@@ -443,7 +443,7 @@ msgstr "от"
 msgid "of January"
 msgstr "Января"
 
-#: includes/ittour-template-functions.php:1895
+#: includes/ittour-template-functions.php:1895 includes/enqueue-scripts.php:70
 msgid "Jan"
 msgstr "Янв"
 
@@ -455,7 +455,7 @@ msgstr "Январь"
 msgid "of February"
 msgstr "Февраля"
 
-#: includes/ittour-template-functions.php:1907
+#: includes/ittour-template-functions.php:1907 includes/enqueue-scripts.php:71
 msgid "Feb"
 msgstr "Фев"
 
@@ -467,7 +467,7 @@ msgstr "Февраль"
 msgid "of March"
 msgstr "Марта"
 
-#: includes/ittour-template-functions.php:1919
+#: includes/ittour-template-functions.php:1919 includes/enqueue-scripts.php:72
 msgid "Mar"
 msgstr "Мар"
 
@@ -479,7 +479,7 @@ msgstr "Март"
 msgid "of April"
 msgstr "Апреля"
 
-#: includes/ittour-template-functions.php:1931
+#: includes/ittour-template-functions.php:1931 includes/enqueue-scripts.php:73
 msgid "Apr"
 msgstr "Апр"
 
@@ -492,7 +492,7 @@ msgid "of May"
 msgstr "Мая"
 
 #: includes/ittour-template-functions.php:1943
-#: includes/ittour-template-functions.php:1946
+#: includes/ittour-template-functions.php:1946 includes/enqueue-scripts.php:74
 msgid "May"
 msgstr "Май"
 
@@ -500,7 +500,7 @@ msgstr "Май"
 msgid "of June"
 msgstr "Июня"
 
-#: includes/ittour-template-functions.php:1955
+#: includes/ittour-template-functions.php:1955 includes/enqueue-scripts.php:75
 msgid "Jun"
 msgstr "Июн"
 
@@ -516,7 +516,7 @@ msgstr "Июль"
 msgid "of August"
 msgstr "Августа"
 
-#: includes/ittour-template-functions.php:1971
+#: includes/ittour-template-functions.php:1971 includes/enqueue-scripts.php:77
 msgid "Aug"
 msgstr "Авг"
 
@@ -528,7 +528,7 @@ msgstr "Август"
 msgid "of September"
 msgstr "Сентября"
 
-#: includes/ittour-template-functions.php:1983
+#: includes/ittour-template-functions.php:1983 includes/enqueue-scripts.php:78
 msgid "Sep"
 msgstr "Сен"
 
@@ -540,7 +540,7 @@ msgstr "Сентябрь"
 msgid "of October"
 msgstr "Октября"
 
-#: includes/ittour-template-functions.php:1994
+#: includes/ittour-template-functions.php:1994 includes/enqueue-scripts.php:79
 msgid "Oct"
 msgstr "Окт"
 
@@ -552,7 +552,7 @@ msgstr "Октябрь"
 msgid "of November"
 msgstr "Ноября"
 
-#: includes/ittour-template-functions.php:2005
+#: includes/ittour-template-functions.php:2005 includes/enqueue-scripts.php:80
 msgid "Nov"
 msgstr "Ноя"
 
@@ -564,7 +564,7 @@ msgstr "Ноябрь"
 msgid "of December"
 msgstr "Декабря"
 
-#: includes/ittour-template-functions.php:2016
+#: includes/ittour-template-functions.php:2016 includes/enqueue-scripts.php:81
 msgid "Dec"
 msgstr "Дек"
 
@@ -653,7 +653,7 @@ msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr "<i class=\"fas fa-angle-right\"></i>"
 
 #: includes/ajax-forms.php:39 crm/includes/ajax-front.php:38
-#: crm/includes/ajax-front.php:174 crm/includes/ajax-front.php:379
+#: crm/includes/ajax-front.php:177 crm/includes/ajax-front.php:382
 msgid "Input your name, please"
 msgstr "Введите Ваше имя"
 
@@ -662,12 +662,12 @@ msgid "Input your email, please"
 msgstr ""
 
 #: includes/ajax-forms.php:52 crm/includes/ajax-front.php:47
-#: crm/includes/ajax-front.php:218 crm/includes/ajax-front.php:423
+#: crm/includes/ajax-front.php:221 crm/includes/ajax-front.php:426
 msgid "Input correct email, please"
 msgstr "Введите корректный адрес электронной почты"
 
 #: includes/ajax-forms.php:69 crm/includes/ajax-front.php:68
-#: crm/includes/ajax-front.php:197 crm/includes/ajax-front.php:402
+#: crm/includes/ajax-front.php:200 crm/includes/ajax-front.php:405
 msgid "Input correct phone, please"
 msgstr "Введите правильный номер телефона"
 
@@ -683,6 +683,38 @@ msgstr "Выберите регион"
 #: includes/enqueue-scripts.php:57
 msgid "Select hotel"
 msgstr "Выберите отель"
+
+#: includes/enqueue-scripts.php:61
+msgid "Mo"
+msgstr "Пн"
+
+#: includes/enqueue-scripts.php:62
+msgid "Tu"
+msgstr "Вт"
+
+#: includes/enqueue-scripts.php:63
+msgid "We"
+msgstr "Ср"
+
+#: includes/enqueue-scripts.php:64
+msgid "Th"
+msgstr "Чт"
+
+#: includes/enqueue-scripts.php:65
+msgid "Fr"
+msgstr "Пт"
+
+#: includes/enqueue-scripts.php:66
+msgid "Sa"
+msgstr "Сб"
+
+#: includes/enqueue-scripts.php:67
+msgid "Su"
+msgstr "Вс"
+
+#: includes/enqueue-scripts.php:76
+msgid "Jul"
+msgstr "Июл"
 
 #: includes/cpt.php:14
 msgctxt "Post Type General Name"
@@ -1161,32 +1193,32 @@ msgstr "Страница клиентов"
 msgid "Clients"
 msgstr "Клиенты"
 
-#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:183
-#: crm/includes/ajax-front.php:388
+#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:186
+#: crm/includes/ajax-front.php:391
 msgid "Input your phone, please"
 msgstr "Введите номер телефона"
 
-#: crm/includes/ajax-front.php:210 crm/includes/ajax-front.php:415
+#: crm/includes/ajax-front.php:213 crm/includes/ajax-front.php:418
 msgid "Select tour date, please"
 msgstr "Выберите дату тура"
 
-#: crm/includes/ajax-front.php:230 crm/includes/ajax-front.php:435
+#: crm/includes/ajax-front.php:233 crm/includes/ajax-front.php:438
 msgid "Input number as Adult amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:246 crm/includes/ajax-front.php:451
+#: crm/includes/ajax-front.php:249 crm/includes/ajax-front.php:454
 msgid "Input number as Children amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:262 crm/includes/ajax-front.php:476
+#: crm/includes/ajax-front.php:265 crm/includes/ajax-front.php:479
 msgid "Input number as Price from, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:278 crm/includes/ajax-front.php:492
+#: crm/includes/ajax-front.php:281 crm/includes/ajax-front.php:495
 msgid "Input number as Price till, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:463
+#: crm/includes/ajax-front.php:466
 msgid "Select country, please"
 msgstr ""
 
@@ -1825,6 +1857,27 @@ msgstr "Стоимость от"
 msgid "Price Till"
 msgstr "Стоимость до"
 
+#: crm/includes/class/crm-claimmanager.php:351
+msgid "Booking request"
+msgstr ""
+
+#: crm/includes/class/crm-claimmanager.php:352
+msgid "Ура, бронирование тура на сайте!"
+msgstr ""
+
+#: crm/includes/class/crm-claimmanager.php:354
+#: crm/includes/class/crm-claim.php:185
+msgid "Tour search request"
+msgstr "Запрос на поиск тура"
+
+#: crm/includes/class/crm-claimmanager.php:355
+msgid "Ура, заказ на поиск тура на сайте!"
+msgstr ""
+
+#: crm/includes/class/crm-claimmanager.php:399
+msgid "Tour link on Kompas Tours"
+msgstr ""
+
 #: crm/includes/class/crm-claim.php:167
 msgid "Pending"
 msgstr "В ожидании"
@@ -1857,10 +1910,6 @@ msgstr "Экскурсионные туры"
 #: crm/includes/class/crm-claim.php:182
 msgid "Booking Hotel"
 msgstr "Бронирование отеля"
-
-#: crm/includes/class/crm-claim.php:185
-msgid "Tour search request"
-msgstr "Запрос на поиск тура"
 
 #: crm/includes/class/crm-claim.php:186
 msgid "Tour booking request"

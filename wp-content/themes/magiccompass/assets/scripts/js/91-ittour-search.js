@@ -54,10 +54,35 @@
                 "days": 12
             },
             locale: {
-                format: 'DD.MM.YY'
+                format: 'DD.MM.YY',
+                firstDay: 1,
+                daysOfWeek: [
+                    snthWpJsObj.calendar.daysOfWeekShort.su,
+                    snthWpJsObj.calendar.daysOfWeekShort.mo,
+                    snthWpJsObj.calendar.daysOfWeekShort.tu,
+                    snthWpJsObj.calendar.daysOfWeekShort.we,
+                    snthWpJsObj.calendar.daysOfWeekShort.th,
+                    snthWpJsObj.calendar.daysOfWeekShort.fr,
+                    snthWpJsObj.calendar.daysOfWeekShort.sa
+                ],
+                monthNames: [
+                    snthWpJsObj.calendar.monthNamesShort.jan,
+                    snthWpJsObj.calendar.monthNamesShort.feb,
+                    snthWpJsObj.calendar.monthNamesShort.mar,
+                    snthWpJsObj.calendar.monthNamesShort.apr,
+                    snthWpJsObj.calendar.monthNamesShort.may,
+                    snthWpJsObj.calendar.monthNamesShort.jun,
+                    snthWpJsObj.calendar.monthNamesShort.jul,
+                    snthWpJsObj.calendar.monthNamesShort.aug,
+                    snthWpJsObj.calendar.monthNamesShort.sep,
+                    snthWpJsObj.calendar.monthNamesShort.oct,
+                    snthWpJsObj.calendar.monthNamesShort.nov,
+                    snthWpJsObj.calendar.monthNamesShort.dec
+                ]
             },
             applyButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
-            cancelButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt'
+            cancelButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
+            autoApply: true
         });
         var loadForm = $.now() - start;
         console.log(loadForm + ' s');

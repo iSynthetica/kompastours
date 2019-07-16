@@ -115,6 +115,8 @@ function ittour_ajax_book_tour() {
         $user_id = $user->ID;
     }
 
+    $data_for_email = $form_data_array;
+
     unset($form_data_array['clientName']);
     unset($form_data_array['clientEmail']);
     unset($form_data_array['clientPhone']);
@@ -127,6 +129,7 @@ function ittour_ajax_book_tour() {
     $form_data_array['claim_meta_group'] = 'tour_booking_parameters';
 
     $claim_id = CRM_ClaimManager::create_new_booking_request($form_data_array);
+    $email_sent = CRM_ClaimManager::send_moituristy_email('tour_booking_request', $data_for_email);
     $fake_claim_id = $claim_id + CRM_Claim::$initial_claim_number;
 
     $success_message = crm_get_template('admin/messages/booking-success.php', array('claim_id' => $fake_claim_id));

@@ -305,8 +305,6 @@ class CRM_ClaimManager {
 
         if (!empty($title)) {
             $claim_data['title'] = implode(', ', $title);
-
-            unset($title);
         }
 
         unset($item);
@@ -341,6 +339,125 @@ class CRM_ClaimManager {
             $cgid = CRM_Claim::addMetadata($claim_id, $claim_group, $order_items);
         }
 
+        unset($title);
+
         return $claim_id;
+    }
+
+    public static function send_moituristy_email( $source, $data ) {
+        $result = $data;
+
+        if ('tour_booking_request' === $source) {
+            $subject = __('Booking request', 'snthwp');
+            $message = __('Ура, бронирование тура на сайте!', 'snthwp');
+        } else {
+            $subject = __('Tour search request', 'snthwp');
+            $message = __('Ура, заказ на поиск тура на сайте!', 'snthwp');
+        }
+
+        $headers = array();
+
+        if (!empty($data["clientEmail"])) {
+            $headers[] = 'From: '.$data["clientName"].' <'.$data["clientEmail"].'>';
+        } else {
+            $headers[] = 'From: '.$data["clientName"];
+        }
+
+        $headers[] = 'content-type: text/html';
+
+        $destination = '';
+
+        if (!empty($data["country_name"])) {
+            $destination .= $data["country_name"];
+        }
+
+        if (!empty($data["region_name"])) {
+            if (!empty($destination)) {
+                $destination .= ', ';
+            }
+
+            $destination .= $data["region_name"];
+        }
+
+        if (!empty($data["hotel_name"])) {
+            if (!empty($destination)) {
+                $destination .= ', ';
+            }
+
+            $destination .= $data["hotel_name"];
+
+            if (!empty($data["hotel_rating"])) {
+                $destination .= ' ' . ittour_get_hotel_number_rating_by_id($data["hotel_rating"]);
+            }
+        }
+
+        if (!empty($destination)) {
+            $message .= '<br>' . $destination;
+        }
+
+        if (!empty($data["key"])) {
+            $message .= '<br> '.__('Tour link on Kompas Tours', 'snthwp').': https://kompas.tours/tour/'.$data["key"] . '/';
+        }
+
+        $client_info = '';
+
+        if (!empty($data["clientName"])) {
+            $client_info .= $data["clientName"];
+        }
+
+        if (!empty($data["clientEmail"])) {
+            if (!empty($client_info)) {
+                $client_info .= ', ';
+            }
+
+            $client_info .= $data["clientEmail"];
+        }
+
+        if (!empty($data["clientPhone"])) {
+            if (!empty($client_info)) {
+                $client_info .= ', ';
+            }
+
+            $client_info .= $data["clientPhone"];
+
+            if (!empty($data["clientViber"]) || !empty($data["clientTelegram"])) {
+                $client_info .= ' (';
+
+                if (!empty($data["clientViber"])) {
+                    $client_info .= ' viber ';
+                }
+
+                if (!empty($data["clientTelegram"])) {
+                    $client_info .= ' telegram ';
+                }
+
+                $client_info .= ' )';
+            }
+        }
+
+        if (!empty($client_info)) {
+            $message .= '<br><br>' . $client_info;
+        }
+
+
+//        $subject = __('Message from contact form');
+//
+//        $headers = array (
+//            'From: '.'Kompas Tours'.' <info@kompas.tours>',
+//            'content-type: text/html',
+//        );
+//
+//        // $message = $data;
+//
+//        $message = '';
+//        $message .= 'Ура, заказ!<br>';
+//        $message .= 'Турция, Алания<br>';
+//        $message .= 'Туристы: 2 взр. + 1 реб<br>';
+//        $message .= 'Даты: c 17.07.2019 - по 17.07.2019<br>';
+//        $message .= 'Бюджет: 20 000 грн<br>';
+//
+        $result = wp_mail( '2385@z.moituristy.com', $subject, $message, $headers );
+
+        return $result;
     }
 }

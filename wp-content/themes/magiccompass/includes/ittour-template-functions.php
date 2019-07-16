@@ -896,7 +896,7 @@ function itour_get_meal_type_field($args = array()) {
     $meal_types = ittour_get_meal_types_array();
 
     if (empty($args)) {
-        $selected_values = array('560', '512', '498');
+        $selected_values = array('560', '512', '498', '496', '388', '1956');
     } else {
         if (!empty($args['mealType'])) {
             $selected_values = explode(':', $args['mealType']);
