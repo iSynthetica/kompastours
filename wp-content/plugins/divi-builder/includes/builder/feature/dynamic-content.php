@@ -8,7 +8,13 @@
  *
  * @return array<string, array>
  */
-function et_builder_get_built_in_dynamic_content_fields( $post_id = 0 ) {
+function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
+	$cache_key = 'et_builder_get_built_in_dynamic_content_fields';
+
+	if ( et_core_cache_has( $cache_key ) ) {
+		return et_core_cache_get( $cache_key );
+	}
+
 	$post_type           = get_post_type( $post_id );
 	$post_type           = $post_type ? $post_type : 'post';
 	$post_type_object    = get_post_type_object( $post_type );
@@ -224,28 +230,29 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id = 0 ) {
 		),
 		'post_link_url'               => array(
 			// Translators: %1$s: Post type name
-			'label' => esc_html( sprintf( __( '%1$s Link', 'et_builder' ), $post_type_label ) ),
-			'type'  => 'url',
+			'label'  => esc_html( sprintf( __( 'Current %1$s Link', 'et_builder' ), $post_type_label ) ),
+			'type'   => 'url',
 		),
 		'home_url'                    => array(
-			'label' => esc_html__( 'Homepage Link', 'et_builder' ),
-			'type'  => 'url',
+			'label'  => esc_html__( 'Homepage Link', 'et_builder' ),
+			'type'   => 'url',
 		),
 		'post_featured_image'         => array(
-			'label' => esc_html__( 'Featured Image', 'et_builder' ),
-			'type'  => 'image',
+			'label'  => esc_html__( 'Featured Image', 'et_builder' ),
+			'type'   => 'image',
 		),
 		'post_author_profile_picture' => array(
 			// Translators: %1$s: Post type name
-			'label' => esc_html( sprintf( __( '%1$s Author Profile Picture', 'et_builder' ), $post_type_label ) ),
-			'type'  => 'image',
+			'label'  => esc_html( sprintf( __( '%1$s Author Profile Picture', 'et_builder' ), $post_type_label ) ),
+			'type'   => 'image',
 		),
 		'site_logo'                   => array(
-			'label' => esc_html__( 'Site Logo', 'et_builder' ),
-			'type'  => 'image',
+			'label'  => esc_html__( 'Site Logo', 'et_builder' ),
+			'type'   => 'image',
 		),
 	);
 
+	// Fill in tag taxonomies.
 	if ( isset( $post_taxonomy_types["${post_type}_tag"] ) ) {
 		$fields['post_tags'] = array(
 			// Translators: %1$s: Post type name
@@ -278,6 +285,27 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id = 0 ) {
 		unset( $fields['post_tags'] );
 	}
 
+	// Fill in post type URL options.
+	$post_types = et_builder_get_public_post_types();
+	foreach ( $post_types as $public_post_type ) {
+		$public_post_type_label = $public_post_type->labels->singular_name;
+		$key = 'post_link_url_' . $public_post_type->name;
+
+		$fields[ $key ] = array(
+			// Translators: %1$s: Post type name
+			'label'  => esc_html( sprintf( __( '%1$s Link', 'et_builder' ), $public_post_type_label ) ),
+			'type'   => 'url',
+			'fields' => array(
+				'post_id'            => array(
+					'label'     => $public_post_type_label,
+					'type'      => 'select_post',
+					'post_type' => $public_post_type->name,
+					'default'   => '',
+				),
+			),
+		);
+	}
+
 	// Fill in boilerplate.
 	foreach ( $fields as $key => $field ) {
 		$fields[ $key ]['custom'] = false;
@@ -301,8 +329,22 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id = 0 ) {
 		}
 	}
 
+	et_core_cache_add( $cache_key, $fields );
+
 	return $fields;
 }
+
+/**
+ * Clear dynamic content fields cache whenever a custom post type is registered.
+ *
+ * @since 3.26.7
+ *
+ * @return void
+ */
+function et_builder_clear_get_built_in_dynamic_content_fields_cache() {
+	et_core_cache_delete( 'et_builder_get_built_in_dynamic_content_fields' );
+}
+add_action( 'registered_post_type', 'et_builder_clear_get_built_in_dynamic_content_fields_cache' );
 
 /**
  * Get all public taxonomies associated with a given post type.
@@ -762,6 +804,11 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			$content = esc_url( home_url( '/' ) );
 			break;
 
+		case 'any_post_link_url':
+			$selected_post_id  = $_->array_get( $settings, 'post_id', $def( $post_id, $name, 'post_id' ) );
+			$content           = esc_url( get_permalink( $selected_post_id ) );
+			break;
+
 		case 'post_featured_image':
 			if ( isset( $overrides[ $name ] ) ) {
 				$id      = (int) $overrides[ $name ];
@@ -786,6 +833,20 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			}
 
 			break;
+	}
+
+	// Handle in post type URL options.
+	$post_types = et_builder_get_public_post_types();
+	foreach ( $post_types as $public_post_type ) {
+		$key = 'post_link_url_' . $public_post_type->name;
+
+		if ( $key !== $name ) {
+			continue;
+		}
+
+		$selected_post_id  = $_->array_get( $settings, 'post_id', $def( $post_id, $name, 'post_id' ) );
+		$content           = esc_url( get_permalink( $selected_post_id ) );
+		break;
 	}
 
 	if ( ! $wrapped ) {

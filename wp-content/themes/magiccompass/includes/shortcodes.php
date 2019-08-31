@@ -18,3 +18,19 @@ function snth_footer_first_sidebar_shortcode() {
 }
 add_shortcode( 'snth_footer_first_sidebar', 'snth_footer_first_sidebar_shortcode' );
 
+
+
+function snth_tour_request_by_country_shortcode() {
+    ob_start();
+
+    snth_show_template('landings/section-order-form.php', array(
+        'country' => 318,
+        'title' => get_the_title()
+    ));
+
+    $content = ob_get_clean();
+
+    return $content;
+}
+add_shortcode( 'snth_tour_request_by_country', 'snth_tour_request_by_country_shortcode' );
+

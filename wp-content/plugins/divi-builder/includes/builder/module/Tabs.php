@@ -39,6 +39,7 @@ class ET_Builder_Module_Tabs extends ET_Builder_Module {
 					),
 					'block_elements' => array(
 						'tabbed_subtoggles' => true,
+						'bb_icons_support'  => true,
 					),
 				),
 				'tab'  => array(
@@ -186,7 +187,7 @@ class ET_Builder_Module_Tabs extends ET_Builder_Module {
 		}
 
 		// Active Text Color
-		et_pb_responsive_options()->generate_responsive_css( $active_tab_text_color_values, '%%order_class%% .et_pb_tabs_controls li.et_pb_tab_active a', 'color', $render_slug, ' !important;', 'color' );
+		et_pb_responsive_options()->generate_responsive_css( $active_tab_text_color_values, '%%order_class%%.et_pb_tabs .et_pb_tabs_controls li.et_pb_tab_active a', 'color', $render_slug, ' !important;', 'color' );
 
 		if ( et_builder_is_hover_enabled( 'active_tab_text_color', $this->props ) ) {
 			ET_Builder_Element::set_style( $render_slug, array(
@@ -204,9 +205,18 @@ class ET_Builder_Module_Tabs extends ET_Builder_Module {
 		if ( ! empty( $et_pb_tab_titles ) ) {
 			foreach ( $et_pb_tab_titles as $tab_title ){
 				++$i;
-				$tabs .= sprintf( '<li class="%3$s%1$s"><a href="#">%2$s</a></li>',
+				$tabs .= sprintf( '<li class="%3$s%1$s">%2$s</li>',
 					( 1 === $i ? ' et_pb_tab_active' : '' ),
-					esc_html( $tab_title ),
+					et_pb_multi_view_options( $this )->render_element( array(
+						'tag'     => 'a',
+						'content' => '{{tab_title}}',
+						'attrs'   => array(
+							'href' => '#',
+						),
+						'custom_props' => array(
+							'tab_title' => $tab_title,
+						)
+					) ),
 					esc_attr( ltrim( $et_pb_tab_classes[ $i-1 ] ) )
 				);
 			}

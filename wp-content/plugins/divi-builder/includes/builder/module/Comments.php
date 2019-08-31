@@ -252,6 +252,8 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 				),
 				'toggle_slug'      => 'elements',
 				'default_on_front' => 'on',
+				'mobile_options'   => true,
+				'hover'            => 'tabs',
 			),
 			'show_reply' => array(
 				'label'            => esc_html__( 'Show Reply Button', 'et_builder' ),
@@ -264,6 +266,8 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 				),
 				'toggle_slug'      => 'elements',
 				'default_on_front' => 'on',
+				'mobile_options'   => true,
+				'hover'            => 'tabs',
 			),
 			'show_count' => array(
 				'label'            => esc_html__( 'Show Comment Count', 'et_builder' ),
@@ -276,6 +280,8 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 				),
 				'toggle_slug'      => 'elements',
 				'default_on_front' => 'on',
+				'mobile_options'   => true,
+				'hover'            => 'tabs',
 			),
 		);
 
@@ -339,6 +345,7 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 	}
 
 	function render( $attrs, $content = null, $render_slug ) {
+		$multi_view                      = et_pb_multi_view_options( $this );
 		$button_custom                   = $this->props['custom_button'];
 		$show_avatar                     = $this->props['show_avatar'];
 		$show_reply                      = $this->props['show_reply'];
@@ -425,8 +432,22 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 		// Removed automatically added classname
 		$this->remove_classname( $render_slug );
 
+		$multi_view_data_attr = $multi_view->render_attrs( array(
+			'classes' =>  array(
+				'et_pb_no_avatar' => array(
+					'show_avatar' => 'off',
+				),
+				'et_pb_no_reply_button' => array(
+					'show_reply' => 'off',
+				),
+				'et_pb_no_comments_count' => array(
+					'show_count' => 'off',
+				)
+			),
+		) );
+
 		$output = sprintf(
-			'<div%3$s class="%2$s"%4$s%7$s%8$s%9$s%10$s>
+			'<div%3$s class="%2$s"%4$s%7$s%8$s%9$s%10$s%11$s>
 				%5$s
 				%6$s
 				%1$s
@@ -440,7 +461,8 @@ class ET_Builder_Module_Comments extends ET_Builder_Module {
 			et_core_esc_previously( $data_background_layout ),
 			et_core_esc_previously( $data_background_layout_hover ),
 			'' !== $comments_custom_icon_tablet ? sprintf( ' data-icon-tablet="%1$s"', esc_attr( et_pb_process_font_icon( $comments_custom_icon_tablet ) ) ) : '',
-			'' !== $comments_custom_icon_phone ? sprintf( ' data-icon-phone="%1$s"', esc_attr( et_pb_process_font_icon( $comments_custom_icon_phone ) ) ) : '' // #10
+			'' !== $comments_custom_icon_phone ? sprintf( ' data-icon-phone="%1$s"', esc_attr( et_pb_process_font_icon( $comments_custom_icon_phone ) ) ) : '', // #10
+			$multi_view_data_attr
 		);
 
 		return $output;

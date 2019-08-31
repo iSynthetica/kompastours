@@ -24,6 +24,7 @@ if (empty($tour_info["country_id"])) {
         if (!empty($tour_info["from_city_id"]))     $template_args['from_city'] = $tour_info["from_city_id"];
         if (!empty($tour_info["region_id"]))     $template_args['region'] = $tour_info["region_id"];
         if (!empty($tour_info["hotel_rating"]))     $template_args['hotel_rating'] = $tour_info["hotel_rating"];
+        if (!empty($tour_info["hotel_id"]))     $template_args['hotel'] = $tour_info["hotel_id"];
         if (!empty($tour_info["adult_amount"]))     $template_args['adult_amount'] = $tour_info["adult_amount"];
         if (!empty($tour_info["duration"]))     $template_args['night_from'] = $tour_info["duration"];
         if (!empty($tour_info["duration"]))     $template_args['night_till'] = $tour_info["duration"];

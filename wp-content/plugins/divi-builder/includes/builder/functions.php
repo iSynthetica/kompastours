@@ -4,7 +4,7 @@ require_once 'module/helpers/Overflow.php';
 
 if ( ! defined( 'ET_BUILDER_PRODUCT_VERSION' ) ) {
 	// Note, this will be updated automatically during grunt release task.
-	define( 'ET_BUILDER_PRODUCT_VERSION', '3.24.1' );
+	define( 'ET_BUILDER_PRODUCT_VERSION', '3.27.4' );
 }
 
 if ( ! defined( 'ET_BUILDER_VERSION' ) ) {
@@ -1084,9 +1084,14 @@ function et_pb_process_computed_property() {
 	// $_POST['depends_on'] is a single dimensional assoc array created by jQuery.ajax data param, sanitize each key and value, they will both be strings
 	foreach ( $depends_on as $key => $value ) {
 
-		// correctly sanitize the strings with %date variable. sanitize_text_field will strip the '%da' and '%date' will be saved as 'te'.
-		$prepared_value = str_replace( '%date', '___et-fb-date___', $value );
-		$sanitized_value = str_replace( '___et-fb-date___', '%date', sanitize_text_field( $prepared_value ) );
+		if ( et_()->includes( $value, '%' ) ) {
+			// `sanitize_text_fields` removes octets `%[a-f0-9]{2}` and would zap icon values / `%date`
+			// so we prefix octets with `_` to protected them and remove the prefix after sanitization.
+			$prepared_value  = preg_replace( '/%([a-f0-9]{2})/', '%_$1', $value );
+			$sanitized_value = preg_replace( '/%_([a-f0-9]{2})/', '%$1', sanitize_text_field( $prepared_value ) );
+		} else {
+			$sanitized_value = sanitize_text_field( $value );
+		}
 
 		$depends_on[ sanitize_text_field( $key ) ] = $sanitized_value;
 
@@ -1119,9 +1124,12 @@ function et_fb_process_to_shortcode( $object, $options = array(), $library_item_
 	$_object = array();
 
 	$options = wp_parse_args( $options, array(
-		'force_valid_slugs' => false,
-		'post_type'         => false,
+		'force_valid_slugs'       => false,
+		'post_type'               => false,
+		'apply_custom_defaults'   => false,
 	) );
+
+	$custom_defaults_manager = ET_Builder_Custom_Defaults_Settings::instance();
 
 	// do not proceed if $object is empty
 	if ( empty( $object ) ) {
@@ -1185,6 +1193,12 @@ function et_fb_process_to_shortcode( $object, $options = array(), $library_item_
 
 		if ( ! empty( $item['raw_child_content'] ) ) {
 			$content = stripslashes( $item['raw_child_content'] );
+		}
+
+		if ( $options['apply_custom_defaults'] ) {
+			$module_type            = $custom_defaults_manager->maybe_convert_module_type( $type, $item['attrs'] );
+			$module_custom_defaults = $custom_defaults_manager->get_module_custom_defaults( $module_type );
+			$item['attrs']          = array_merge( $module_custom_defaults, $item['attrs'] );
 		}
 
 		foreach ( $item['attrs'] as $attribute => $value ) {
@@ -1601,8 +1615,14 @@ function et_fb_prepare_shortcode() {
 		die( -1 );
 	}
 
-	$content = isset( $_POST['et_page_content'] ) ? json_decode( stripslashes( $_POST['et_page_content'] ), true ) : '';
-	$result  = $content ? et_fb_process_to_shortcode( $content, array(), '', false ) : '';
+	$content               = isset( $_POST['et_page_content'] ) ? json_decode( stripslashes( $_POST['et_page_content'] ), true ) : '';
+	$apply_custom_defaults = isset( $_POST['apply_custom_defaults'] ) ? wp_validate_boolean( $_POST['apply_custom_defaults'] ) : false;
+
+	$options = array(
+		'apply_custom_defaults' => $apply_custom_defaults,
+	);
+
+	$result  = $content ? et_fb_process_to_shortcode( $content, $options, '', false ) : '';
 
 	die( json_encode( array( 'shortcode' => $result ) ) );
 }
@@ -2656,7 +2676,7 @@ function et_pb_export_layouts_interface() {
 	?>
 	<a href="<?php echo et_core_esc_wp( admin_url( 'edit-tags.php?taxonomy=layout_category' ) ); ?>" id="et_load_category_page"><?php esc_html_e( 'Manage Categories', 'et_builder' ); ?></a>
 	<?php
-	echo et_core_esc_previously( et_core_portability_link( 'et_builder_layouts', array( 'class' => 'et-pb-portability-button' ) ) );
+	echo et_core_esc_previously( et_builder_portability_link( 'et_builder_layouts', array( 'class' => 'et-pb-portability-button' ) ) );
 }
 endif;
 
@@ -3094,12 +3114,12 @@ function et_pb_before_main_editor( $post ) {
 		printf( '<div class="et_pb_toggle_builder_wrapper%1$s"%4$s>%2$s</div><div id="et_pb_main_editor_wrap"%3$s>',
 			( $is_builder_used ? ' et_pb_builder_is_used' : '' ),
 			et_core_esc_previously( $buttons ),
-			( $is_builder_used ? ' class="et_pb_hidden"' : '' ),
+			( $is_builder_used ? ' class="et_pb_post_body_hidden"' : '' ),
 			( et_builder_bfb_enabled() ? ' style="opacity: 0;"' : '' )
 		);
 	} else {
 		printf( '<div class="et_pb_toggle_builder_wrapper%2$s"%3$s></div><div id="et_pb_main_editor_wrap"%1$s>',
-			( $is_builder_used ? ' class="et_pb_hidden"' : '' ),
+			( $is_builder_used ? ' class="et_pb_post_body_hidden"' : '' ),
 			( $is_builder_used ? ' et_pb_builder_is_used' : '' ),
 			( et_builder_bfb_enabled() ? ' style="opacity: 0;"' : '' )
 		);
@@ -3524,6 +3544,12 @@ function et_bfb_enqueue_scripts() {
 	wp_enqueue_script( 'et_bfb_google_maps_api', esc_url( add_query_arg( array( 'key' => et_pb_get_google_api_key(), 'callback' => 'initMap' ), is_ssl() ? 'https://maps.googleapis.com/maps/api/js' : 'http://maps.googleapis.com/maps/api/js' ) ), array(), '3', true );
 
 	wp_enqueue_script( 'et_pb_media_library', ET_BUILDER_URI . '/scripts/ext/media-library.js', array( 'media-editor' ), ET_BUILDER_PRODUCT_VERSION, true );
+
+	if ( ! wp_script_is( 'wp-hooks', 'registered' ) ) {
+		// Use bundled wp-hooks script when WP < 5.0
+		wp_enqueue_script( 'wp-hooks', ET_BUILDER_URI. '/frontend-builder/assets/backports/hooks.js');
+	}
+
 	wp_enqueue_script( 'et_bfb_admin_js', ET_BUILDER_URI . '/scripts/bfb_admin_script.js', array( 'jquery', 'et_pb_media_library' ), ET_BUILDER_PRODUCT_VERSION, true );
 	wp_localize_script( 'et_bfb_admin_js', 'et_bfb_options', apply_filters( 'et_bfb_options', array(
 		'ajaxurl'                     => admin_url( 'admin-ajax.php' ),
@@ -3772,7 +3798,7 @@ function et_pb_add_builder_page_js_css(){
 		'page_color_palette'                       => get_post_meta( get_the_ID(), '_et_pb_color_palette', true ),
 		'default_color_palette'                    => implode( '|', et_pb_get_default_color_palette() ),
 		'page_section_bg_color'                    => get_post_meta( get_the_ID(), '_et_pb_section_background_color', true ),
-		'page_gutter_width'                        => '' !== ( $saved_gutter_width = get_post_meta( get_the_ID(), '_et_pb_gutter_width', true ) ) ? $saved_gutter_width : et_get_option( 'gutter_width', 3 ),
+		'page_gutter_width'                        => '' !== ( $saved_gutter_width = get_post_meta( get_the_ID(), '_et_pb_gutter_width', true ) ) ? $saved_gutter_width : et_get_option( 'gutter_width', '3' ),
 		'product_version'                          => ET_BUILDER_PRODUCT_VERSION,
 		'active_plugins'                           => et_builder_get_active_plugins(),
 		'force_cache_purge'                        => $force_cache_update ? 'true' : 'false',
@@ -3932,6 +3958,7 @@ function et_pb_history_localization() {
 			'configured'    => esc_html__( 'Configured', 'et_builder' ),
 			'find_replace'  => esc_html__( 'Find & Replace', 'et_builder' ),
 			'extend_styles' => esc_html__( 'Extend Styles', 'et_builder' ),
+			'imported'      => esc_html__( 'Imported From Layout', 'et_builder' ),
 		),
 		'noun' => array(
 			'section'           => esc_html__( 'Section', 'et_builder' ),
@@ -5096,7 +5123,7 @@ function et_pb_pagebuilder_meta_box() {
 			%3$s
 		</script>',
 		et_core_esc_previously( $page_settings_button ),
-		et_core_esc_previously( et_core_portability_link( 'et_builder', array( 'class' => $portability_class ) ) ),
+		et_core_esc_previously( et_builder_portability_link( 'et_builder', array( 'class' => $portability_class ) ) ),
 		et_core_esc_previously( $view_stats_button )
 	);
 
@@ -5703,17 +5730,21 @@ function et_pb_pagebuilder_meta_box() {
 	// Advanced Settings Buttons Module
 	printf(
 		'<script type="text/template" id="et-builder-advanced-setting">
-			<a href="#" class="et-pb-advanced-setting-remove">
-				<span>%1$s</span>
-			</a>
+			<%% if ( \'et_pb_column\' !== module_type && \'et_pb_column_inner\' !== module_type ) { %%>
+				<a href="#" class="et-pb-advanced-setting-remove">
+					<span>%1$s</span>
+				</a>
+			<%% } %%>
 
 			<a href="#" class="et-pb-advanced-setting-options">
 				<span>%2$s</span>
 			</a>
-
-			<a href="#" class="et-pb-clone et-pb-advanced-setting-clone">
-				<span>%3$s</span>
-			</a>
+			
+			<%% if ( \'et_pb_column\' !== module_type && \'et_pb_column_inner\' !== module_type ) { %%>
+				<a href="#" class="et-pb-clone et-pb-advanced-setting-clone">
+					<span>%3$s</span>
+				</a>
+			<%% } %%>
 		</script>',
 		esc_html__( 'Delete', 'et_builder' ),
 		esc_html__( 'Settings', 'et_builder' ),
@@ -7733,10 +7764,6 @@ function et_pb_all_role_options() {
 				'name'           => esc_html__( 'Theme Customizer', 'et_builder' ),
 				'applicability'  => array( 'administrator' ),
 			),
-			'module_customizer' => array(
-				'name'           => esc_html__( 'Module Customizer', 'et_builder' ),
-				'applicability'  => array( 'administrator' ),
-			),
 			'page_options' => array(
 				'name'    => esc_html__( 'Page Options', 'et_builder' ),
 			),
@@ -7894,7 +7921,7 @@ function et_pb_display_role_editor() {
 		et_core_esc_previously( $menu_tabs ),
 		esc_html__( 'Divi Role Editor', 'et_builder' ),
 		esc_html__( 'Save Divi Roles', 'et_builder' ),
-		et_core_esc_previously( et_core_portability_link( 'et_pb_roles', array( 'class' => 'et-pb-layout-buttons et-pb-portability-button' ) ) ),
+		et_core_esc_previously( et_builder_portability_link( 'et_pb_roles', array( 'class' => 'et-pb-layout-buttons et-pb-portability-button' ) ) ),
 		et_core_esc_previously( $option_tabs )
 	);
 }
@@ -8726,7 +8753,7 @@ function et_fb_get_builder_definitions( $post_type ) {
 	$unique_fields = array();
 	$unique_count  = 0;
 
-	foreach ( array( 'general_fields', 'advanced_fields' ) as $source ) {
+	foreach ( array( 'custom_css', 'general_fields', 'advanced_fields' ) as $source ) {
 		$definitions  = &$fields_data[ $source ];
 		$module_names = array_keys( $definitions );
 
@@ -8885,7 +8912,7 @@ function et_fb_remove_site_url_protocol( $json ) {
 function et_fb_get_asset_definitions( $content, $post_type ) {
 	$definitions = et_fb_get_builder_definitions( $post_type );
 	return sprintf(
-		'window.ETBuilderBackend = jQuery.extend(true, %s, window.ETBuilderBackend)',
+		'window.ETBuilderBackend=jQuery.extend(true,%s,window.ETBuilderBackend)',
 		et_fb_remove_site_url_protocol( wp_json_encode( $definitions, ET_BUILDER_JSON_ENCODE_OPTIONS ) )
 	);
 }
@@ -9115,6 +9142,25 @@ function et_fb_process_shortcode( $content, $parent_address = '', $global_parent
 		if ( '' === $global_parent && in_array( $tag, $possible_global_parents ) ) {
 			$global_parent = isset( $attr['global_module'] ) ? $attr['global_module'] : '';
 			$global_parent_type = $tag;
+		}
+
+		// As responsive content attributes value might be has been encoded before saving to database,
+		// so we need to decode it before passing back to builder.
+		if ( $attr ) {
+			$decoded_content_fields = array(
+				'content__hover',
+				'content_tablet',
+				'content_phone',
+				'raw_content__hover',
+				'raw_content_tablet',
+				'raw_content_phone',
+			);
+
+			foreach( $decoded_content_fields as $decoded_content_field ) {
+				if ( array_key_exists( $decoded_content_field, $attr ) ) {
+					$attr[ $decoded_content_field ] = str_replace( array( '%22', '%92', '%91', '%93' ), array( '"', '\\', '&#91;', '&#93;' ), $attr[ $decoded_content_field ] );
+				}
+			}
 		}
 
 		$attr['_i'] = $index;
@@ -10141,3 +10187,376 @@ if ( ! function_exists( 'et_builder_module_prop' ) ) {
 		return null === $value || '' === $value ? $default : $value;
     }
 }
+
+if ( ! function_exists( 'et_pb_get_column_svg' ) ) {
+	/**
+	 * Returns svg which represents the requried columns type
+	 *
+	 * @param string $type
+	 *
+	 * @return string svg code.
+	 */
+	function et_pb_get_column_svg( $type ) {
+		$svg = '';
+
+		switch ( $type ) {
+			case '4_4':
+				$svg = '<rect width="100%" height="20" y="5" rx="5" ry="5" />';
+				break;
+			case '1_2,1_2':
+				$svg = '<rect width="48.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="48.5%" height="20" y="5" rx="5" ry="5" x="51.5%" />';
+				break;
+			case '1_3,1_3,1_3':
+				$svg = '<rect width="31.3%" height="20" y="5" rx="5" ry="5" />
+						<rect width="31.3%" height="20" y="5" rx="5" ry="5" x="34.3%" />
+						<rect width="31.3%" height="20" y="5" rx="5" ry="5" x="68.6%" />';
+				break;
+			case '1_4,1_4,1_4,1_4':
+				$svg = '<rect width="22.75%" height="20" y="5" rx="5" ry="5" />
+						<rect width="22.75%" height="20" y="5" rx="5" ry="5" x="25.75%" />
+						<rect width="22.75%" height="20" y="5" rx="5" ry="5" x="51.5%" />
+						<rect width="22.75%" height="20" y="5" rx="5" ry="5" x="77.25%" />';
+				break;
+			case '1_5,1_5,1_5,1_5,1_5':
+				$svg = '<rect width="17.6%" height="20" y="5" rx="5" ry="5" />
+						<rect width="17.6%" height="20" y="5" rx="5" ry="5" x="20.6%" />
+						<rect width="17.6%" height="20" y="5" rx="5" ry="5" x="41.2%" />
+						<rect width="17.6%" height="20" y="5" rx="5" ry="5" x="61.8%" />
+						<rect width="17.6%" height="20" y="5" rx="5" ry="5" x="82.4%" />';
+				break;
+			case '1_6,1_6,1_6,1_6,1_6,1_6':
+				$svg = '<rect width="14.16%" height="20" y="5" rx="5" ry="5" />
+						<rect width="14.16%" height="20" y="5" rx="5" ry="5" x="17.16%" />
+						<rect width="14.16%" height="20" y="5" rx="5" ry="5" x="34.32%" />
+						<rect width="14.16%" height="20" y="5" rx="5" ry="5" x="51.48%" />
+						<rect width="14.16%" height="20" y="5" rx="5" ry="5" x="68.64%" />
+						<rect width="14.16%" height="20" y="5" rx="5" ry="5" x="85.8%" />';
+				break;
+			case '2_5,3_5' :
+				$svg = '<rect width="38.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="58.5%" height="20" y="5" rx="5" ry="5" x="41.5%" />';
+				break;
+			case '3_5,2_5' :
+				$svg = '<rect width="58.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="38.5%" height="20" y="5" rx="5" ry="5" x="61.5%" />';
+				break;
+			case '1_3,2_3' :
+				$svg = '<rect width="31.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="65.5%" height="20" y="5" rx="5" ry="5" x="34.5%" />';
+				break;
+			case '2_3,1_3' :
+				$svg = '<rect width="65.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="31.5%" height="20" y="5" rx="5" ry="5" x="68.5%" />';
+				break;
+			case '1_4,3_4' :
+				$svg = '<rect width="23.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="73.5%" height="20" y="5" rx="5" ry="5" x="26.5%" />';
+				break;
+			case '3_4,1_4' :
+				$svg = '<rect width="73.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="23.5%" height="20" y="5" rx="5" ry="5" x="76.5%" />';
+				break;
+			case '1_4,1_2,1_4':
+				$svg = '<rect width="23.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="47%" height="20" y="5" rx="5" ry="5" x="26.5%" />
+						<rect width="23.5%" height="20" y="5" rx="5" ry="5" x="76.5%" />';
+				break;
+			case '1_5,3_5,1_5':
+				$svg = '<rect width="18.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="57%" height="20" y="5" rx="5" ry="5" x="21.5%" />
+						<rect width="18.5%" height="20" y="5" rx="5" ry="5" x="81.5%" />';
+				break;
+			case '1_4,1_4,1_2':
+				$svg = '<rect width="23.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="23.5%" height="20" y="5" rx="5" ry="5" x="26.5%" />
+						<rect width="47%" height="20" y="5" rx="5" ry="5" x="53%" />';
+				break;
+			case '1_2,1_4,1_4':
+				$svg = '<rect width="47%" height="20" y="5" rx="5" ry="5" />
+						<rect width="23.5%" height="20" y="5" rx="5" ry="5" x="50%" />
+						<rect width="23.5%" height="20" y="5" rx="5" ry="5" x="76.5%" />';
+				break;
+			case '1_5,1_5,3_5':
+				$svg = '<rect width="18.5%" height="20" y="5" rx="5" ry="5" />
+						<rect width="18.5%" height="20" y="5" rx="5" ry="5" x="21.5%" />
+						<rect width="57%" height="20" y="5" rx="5" ry="5" x="43%" />';
+				break;
+			case '3_5,1_5,1_5':
+				$svg = '<rect width="57%" height="20" y="5" rx="5" ry="5" />
+						<rect width="18.5%" height="20" y="5" rx="5" ry="5" x="60%" />
+						<rect width="18.5%" height="20" y="5" rx="5" ry="5" x="81.5%" />';
+				break;
+			case '1_6,1_6,1_6,1_2':
+				$svg = '<rect width="14.6%" height="20" y="5" rx="5" ry="5" />
+						<rect width="14.6%" height="20" y="5" rx="5" ry="5" x="18.1%" />
+						<rect width="14.6%" height="20" y="5" rx="5" ry="5" x="36.2%" />
+						<rect width="45.7%" height="20" y="5" rx="5" ry="5" x="54.3%" />';
+				break;
+			case '1_2,1_6,1_6,1_6':
+				$svg = '<rect width="47%" height="20" y="5" rx="5" ry="5" />
+						<rect width="14.6%" height="20" y="5" rx="5" ry="5" x="50%" />
+						<rect width="14.6%" height="20" y="5" rx="5" ry="5" x="67.6%" />
+						<rect width="14.6%" height="20" y="5" rx="5" ry="5" x="85.2%" />';
+				break;
+		}
+
+		return $svg;
+	}
+}
+
+/**
+ * Get image metadata responsive sizes
+ *
+ * @since 3.27.3
+ *
+ * @param string $image_src     The 'src' of the image.
+ * @param array  $image_meta    The image meta data as returned by 'wp_get_attachment_metadata()'.
+ * @param array  $size          Array of width and height values in pixels (in that order).
+ *
+ * @return array|bool
+ */
+function et_builder_responsive_image_metadata( $image_src, $image_meta = null, $size = null ) {
+	$cache = ET_Core_Cache_File::get( 'image_responsive_metadata' );
+
+	if ( isset( $cache[ $image_src ] ) ) {
+		return $cache[ $image_src ];
+	}
+
+	$responsive_sizes = array();
+
+	$image_id = is_numeric( $image_src ) ? intval( $image_src ) : et_get_attachment_id_by_url( $image_src );
+
+	if ( ! $image_id ) {
+		return $responsive_sizes;
+	}
+
+	if ( is_null( $image_meta ) ) {
+		$image_meta = wp_get_attachment_metadata( $image_id );
+	}
+
+	if ( ! $image_meta || empty( $image_meta['sizes'] ) )  {
+		return $responsive_sizes;
+	}
+
+	if ( is_null( $size ) ) {
+		$size = et_get_attachment_size_by_url( $image_src );
+	}
+
+	if ( 'full' === $size && isset( $image_meta['width'] ) && isset( $image_meta['height'] ) ) {
+		$size = array(
+			absint( $image_meta['width'] ),
+			absint( $image_meta['height'] ),
+		);
+	} else if ( is_string( $size ) && ! empty( $image_meta['sizes'][ $size ] ) ) {
+		$size = array(
+			absint( $image_meta['sizes'][ $size ]['width'] ),
+			absint( $image_meta['sizes'][ $size ]['height'] ),
+		);
+	}
+
+	if ( ! $size || ! is_array( $size ) )  {
+		return $responsive_sizes;
+	}
+
+	foreach ( $image_meta['sizes'] as $size_key => $size_data ) {
+		if ( strpos( $size_key, 'et-pb-image--responsive--' ) !== 0 ) {
+			continue;
+		}
+
+		if ( is_array( $size ) && $size[0] < $size_data['width'] ) {
+			$responsive_sizes[ $size_data['width'] ] = false;
+		} else {
+			$responsive_sizes[ $size_data['width'] ] = $size_data;
+		}
+	}
+
+	if ( $responsive_sizes ) {
+		ksort( $responsive_sizes );
+	}
+
+	$cache[ $image_src ] = $responsive_sizes;
+
+	ET_Core_Cache_File::set( 'image_responsive_metadata', $cache );
+
+	return $responsive_sizes;
+}
+
+/**
+ * Filters an image's 'srcset' sources.
+ *
+ * @since 3.27
+ *
+ * @param array  $sources {
+ *     One or more arrays of source data to include in the 'srcset'.
+ *
+ *     @type array $width {
+ *         @type string $url        The URL of an image source.
+ *         @type string $descriptor The descriptor type used in the image candidate string,
+ *                                  either 'w' or 'x'.
+ *         @type int    $value      The source width if paired with a 'w' descriptor, or a
+ *                                  pixel density value if paired with an 'x' descriptor.
+ *     }
+ * }
+ * @param array  $size_array    Array of width and height values in pixels (in that order).
+ * @param string $image_src     The 'src' of the image.
+ * @param array  $image_meta    The image meta data as returned by 'wp_get_attachment_metadata()'.
+ *
+ * @return array
+ */
+if ( ! function_exists( 'et_filter_wp_calculate_image_srcset' ) ):
+function et_filter_wp_calculate_image_srcset( $sources, $size_array, $image_src, $image_meta ) {
+	// Do not filter when in wp-admin area.
+	if ( is_admin() ) {
+		return $sources;
+	}
+
+	$responsive_sources = array();
+
+	if ( ! et_is_responsive_images_enabled() ) {
+		return $responsive_sources;
+	}
+
+	if ( is_string( $size_array ) ) {
+		$size_array = et_get_attachment_size_by_url( $image_src );
+	}
+
+	if ( is_string( $size_array ) && $image_meta ) {
+		if ( $size_array === 'full' ) {
+			$size_array = array(
+				absint( $image_meta['width'] ),
+				absint( $image_meta['height'] ),
+			);
+		} else if ( ! empty( $image_meta['sizes'][ $size_array ] ) ) {
+			$size_array = array(
+				absint( $image_meta['sizes'][ $size_array ]['width'] ),
+				absint( $image_meta['sizes'][ $size_array ]['height'] ),
+			);
+		}
+	}
+
+	if ( ! is_array( $size_array ) ) {
+		return $responsive_sources;
+	}
+
+	$responsive_metadata = et_builder_responsive_image_metadata( $image_src, $image_meta, $size_array );
+
+	if ( $responsive_metadata ) {
+		foreach ( $responsive_metadata as $max_width => $size_data ) {
+			if ( ! $size_data ) {
+				continue;
+			}
+
+			$responsive_sources[ $max_width ] = array(
+				'url'        => str_replace( basename( $image_src ),  $size_data['file'], $image_src ),
+				'descriptor' => 'w',
+				'value'      => $max_width,
+			);
+		}
+
+		if ( $responsive_sources && $size_array[0] > $max_width ) {
+			$responsive_sources[ $size_array[0] ] = array(
+				'url'        => $image_src,
+				'descriptor' => 'w',
+				'value'      => $size_array[0],
+			);
+		}
+
+		if ( $responsive_sources ) {
+			krsort( $responsive_sources );
+		}
+	} else {
+		$responsive_sources = $sources;
+	}
+
+	return $responsive_sources;
+}
+endif;
+add_filter( 'wp_calculate_image_srcset', 'et_filter_wp_calculate_image_srcset', 10, 4 );
+
+/**
+ * Filters the output of 'wp_calculate_image_sizes()'.
+ *
+ * @since 3.27.3
+ *
+ * @param string       $sizes         A source size value for use in a 'sizes' attribute.
+ * @param array|string $size          Requested size. Image size or array of width and height values
+ *                                    in pixels (in that order).
+ * @param string|null  $image_src     The URL to the image file or null.
+ * @param array|null   $image_meta    The image meta data as returned by wp_get_attachment_metadata() or null.
+ *
+ * @return string|bool A valid source size value for use in a 'sizes' attribute or false.
+ */
+if ( ! function_exists( 'et_filter_wp_calculate_image_sizes' ) ):
+function et_filter_wp_calculate_image_sizes( $sizes, $size, $image_src, $image_meta ) {
+	// Do not filter when in wp-admin area.
+	if ( is_admin() ) {
+		return $sizes;
+	}
+
+	$responsive_sizes = '';
+
+	if ( ! et_is_responsive_images_enabled() ) {
+		return $responsive_sizes;
+	}
+
+	if ( is_string( $size ) ) {
+		$size = et_get_attachment_size_by_url( $image_src );
+	}
+
+	if ( is_string( $size ) && $image_meta ) {
+		if ( $size === 'full' ) {
+			$size = array(
+				absint( $image_meta['width'] ),
+				absint( $image_meta['height'] ),
+			);
+		} else if ( ! empty( $image_meta['sizes'][ $size ] ) ) {
+			$size = array(
+				absint( $image_meta['sizes'][ $size ]['width'] ),
+				absint( $image_meta['sizes'][ $size ]['height'] ),
+			);
+		}
+	}
+
+	if ( ! is_array( $size ) ) {
+		return $responsive_sizes;
+	}
+
+	$responsive_metadata = et_builder_responsive_image_metadata( $image_src, $image_meta, $size );
+
+	if ( $responsive_metadata ) {
+		$max_width  = 0;
+		$prev_width = 0;
+		$sizes_temp = array();
+
+		foreach ( $responsive_metadata as $max_width => $size_data ) {
+			if ( ! $size_data ) {
+				continue;
+			}
+
+			if ( $prev_width ) {
+				$sizes_temp[$max_width] = sprintf( '((min-width: %2$dpx) and (max-width: %1$dpx)) %1$dpx', $max_width, ( $prev_width + 1 ) );
+			} else {
+				$sizes_temp[$max_width] = sprintf( '((min-width: %2$dpx) and (max-width: %1$dpx)) %1$dpx', $max_width, $prev_width );
+			}
+
+			$prev_width = $max_width;
+		}
+
+		if ( $sizes_temp && $size[0] > $prev_width ) {
+			$sizes_temp[$size[0]] = sprintf( '(min-width: %2$dpx) %1$dpx', $size[0], ( $prev_width + 1 ) );
+		}
+
+		if ( $sizes_temp ) {
+			$sizes_temp[] = '100vw';
+		}
+
+		$responsive_sizes = implode( ', ', $sizes_temp );
+	} else {
+		$responsive_sizes = $sizes;
+	}
+
+	return $responsive_sizes;
+}
+endif;
+add_filter( 'wp_calculate_image_sizes', 'et_filter_wp_calculate_image_sizes', 10, 4 );

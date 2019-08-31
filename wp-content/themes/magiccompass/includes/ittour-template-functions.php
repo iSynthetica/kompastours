@@ -191,7 +191,7 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
 
             if (1 === count($hotel_array)) {
                 foreach ($country_params["hotels"] as $hotel) {
-                    if ($hotel['id'] === $hotel_array[0]) {
+                    if ((int)$hotel['id'] === (int)$hotel_array[0]) {
                         $hotel_name = $hotel['name'] . ' ' . ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']);
 
                         continue;
@@ -209,7 +209,7 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
             $region_name = '';
 
             foreach ($params['regions'] as $region) {
-                if ($region['id'] === $args['region']) {
+                if ((int)$region['id'] === (int)$args['region']) {
                     $region_name = $region['name'];
                     continue;
                 }
@@ -222,7 +222,7 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
             $country_name = '';
 
             foreach ($params['countries'] as $country) {
-                if ($country['id'] === $args['country']) {
+                if ((int)$country['id'] === (int)$args['country']) {
                     $country_name = $country['name'];
                     continue;
                 }
@@ -545,7 +545,7 @@ function ittour_get_country_field($params, $args = array()) {
             foreach ($params['countries'] as $country) {
                 $selected = '';
 
-                if ($country_id && $country['id'] === $country_id) {
+                if ($country_id && (int)$country['id'] === (int)$country_id) {
                     $selected .= ' selected';
                 }
                 ?>
@@ -577,7 +577,7 @@ function ittour_get_country_req_field($params, $args = array()) {
             foreach ($params['countries'] as $country) {
                 $selected = '';
 
-                if ($country_id && $country['id'] === $country_id) {
+                if ($country_id && (int)$country['id'] === (int)$country_id) {
                     $selected .= ' selected';
                 }
                 ?>
@@ -630,7 +630,7 @@ function ittour_get_region_field($params, $args = array()) {
                 foreach ($regions_by_countries[$args['country']] as $region) {
                     $selected = '';
 
-                    if (!empty($args['region']) && $args['region'] === $region['id']) {
+                    if (!empty($args['region']) && (int)$args['region'] === (int)$region['id']) {
                         $selected .= ' selected';
                     }
                     ?>
@@ -675,8 +675,15 @@ function ittour_get_hotel_field($params, $args = array()) {
 
                 if (!empty($args['hotelRating'])) {
                     $hotel_ratings_array = explode(':', $args['hotelRating']);
+                    $hotel_rating_name = $hotel['hotel_rating_id'];
 
-                    if (!in_array($hotel['hotel_rating_id'], $hotel_ratings_array)) {
+                    if ('7' === $hotel_rating_name) {
+                        $hotel_rating_name = '2';
+                    } elseif ('78' === $hotel_rating_name) {
+                        $hotel_rating_name = '5';
+                    }
+
+                    if (!in_array($hotel['hotel_rating_id'], $hotel_ratings_array) && !in_array($hotel_rating_name, $hotel_ratings_array)) {
                         $show = false;
                     }
                 }
@@ -717,7 +724,7 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             if (!empty($args['hotelRating'])) {
                 $hotel_rating_array = explode(':', $args['hotelRating']);
 
-                if (in_array($hotel_rating['id'], $hotel_rating_array)) {
+                if (in_array($hotel_rating['id'], $hotel_rating_array) || (!empty($hotel_rating['name']) && in_array($hotel_rating['name'], $hotel_rating_array))) {
                     $selected = ' checked';
                 } else {
                     $disabled = ' disabled';

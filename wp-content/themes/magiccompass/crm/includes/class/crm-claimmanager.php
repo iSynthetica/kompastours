@@ -346,13 +346,18 @@ class CRM_ClaimManager {
 
     public static function send_moituristy_email( $source, $data ) {
         $result = $data;
+        $tour_data = '<table style="display:none !important;"><tr>';
 
         if ('tour_booking_request' === $source) {
             $subject = __('Booking request', 'snthwp');
             $message = __('Ура, бронирование тура на сайте!', 'snthwp');
+
+            $tour_data .= '<td data-source="'.__('Форма бронирование тура на сайте', 'snthwp').'"></td>';
         } else {
             $subject = __('Tour search request', 'snthwp');
             $message = __('Ура, заказ на поиск тура на сайте!', 'snthwp');
+
+            $tour_data .= '<td data-source="'.__('Форма бронирование тура на сайте', 'snthwp').'"></td>';
         }
 
         $headers = array();
@@ -369,6 +374,8 @@ class CRM_ClaimManager {
 
         if (!empty($data["country_name"])) {
             $destination .= $data["country_name"];
+
+            $tour_data .= '<td data-country="'.$data["country_name"].'">'.$data["country_name"].'</td>';
         }
 
         if (!empty($data["region_name"])) {
@@ -377,18 +384,25 @@ class CRM_ClaimManager {
             }
 
             $destination .= $data["region_name"];
+
+            $tour_data .= '<td data-city="'.$data["region_name"].'">'.$data["region_name"].'</td>';
         }
 
         if (!empty($data["hotel_name"])) {
+            $hotel = '';
             if (!empty($destination)) {
                 $destination .= ', ';
             }
 
             $destination .= $data["hotel_name"];
+            $hotel .= $data["hotel_name"];
 
             if (!empty($data["hotel_rating"])) {
                 $destination .= ' ' . ittour_get_hotel_number_rating_by_id($data["hotel_rating"]);
+                $hotel .= ' ' . ittour_get_hotel_number_rating_by_id($data["hotel_rating"]);
             }
+
+            $tour_data .= '<td data-city="'.$hotel.'">'.$hotel.'</td>';
         }
 
         if (!empty($destination)) {
@@ -397,12 +411,15 @@ class CRM_ClaimManager {
 
         if (!empty($data["key"])) {
             $message .= '<br> '.__('Tour link on Kompas Tours', 'snthwp').': https://kompas.tours/tour/'.$data["key"] . '/';
+            $tour_data .= '<td data-tour="'.'https://kompas.tours/tour/'.$data["key"] . '/'.$data["clientName"].'</td>';
         }
 
         $client_info = '';
 
         if (!empty($data["clientName"])) {
             $client_info .= $data["clientName"];
+
+            $tour_data .= '<td data-client="'.$data["clientName"].'">'.$data["clientName"].'</td>';
         }
 
         if (!empty($data["clientEmail"])) {
@@ -411,6 +428,7 @@ class CRM_ClaimManager {
             }
 
             $client_info .= $data["clientEmail"];
+            $tour_data .= '<td data-email="'.$data["clientEmail"].'">'.$data["clientEmail"].'</td>';
         }
 
         if (!empty($data["clientPhone"])) {
@@ -419,6 +437,8 @@ class CRM_ClaimManager {
             }
 
             $client_info .= $data["clientPhone"];
+
+            $tour_data .= '<td data-phone="'.$data["clientPhone"].'">'.$data["clientPhone"].'</td>';
 
             if (!empty($data["clientViber"]) || !empty($data["clientTelegram"])) {
                 $client_info .= ' (';
@@ -439,6 +459,8 @@ class CRM_ClaimManager {
             $message .= '<br><br>' . $client_info;
         }
 
+        $tour_data .= '</tr></table>';
+
 
 //        $subject = __('Message from contact form');
 //
@@ -456,7 +478,7 @@ class CRM_ClaimManager {
 //        $message .= 'Даты: c 17.07.2019 - по 17.07.2019<br>';
 //        $message .= 'Бюджет: 20 000 грн<br>';
 //
-        $result = wp_mail( '2385@z.moituristy.com', $subject, $message, $headers );
+        $result = wp_mail( '2385@z.moituristy.com', $subject, $message . $tour_data, $headers );
 
         return $result;
     }

@@ -13,8 +13,16 @@ if ( defined('ITTOUR_SLAVE') ) {
     return;
 }
 ?>
+<script type="text/javascript">
+  (function(d, w, s) {
+	var widgetHash = '23183', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
+	gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
+	var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
+  })(document, window, 'script');
+</script>
+
 <!--NEXTEL - Коллтрекинг и виджеты-->
-<script async src="https://cstat.nextel.com.ua:8443/tracking/script/630/329"></script>
+<!-- <script async src="https://cstat.nextel.com.ua:8443/tracking/script/630/329"></script> -->
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141955151-1"></script>
 <script>

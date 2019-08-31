@@ -41,6 +41,10 @@ function et_builder_should_load_framework() {
 		return $should_load = true;
 	}
 
+	if ( ET_Core_Portability::doing_import() ) {
+		return $should_load = true;
+	}
+
 	$is_admin = is_admin();
 	$required_admin_pages = array( 'edit.php', 'post.php', 'post-new.php', 'admin.php', 'customize.php', 'edit-tags.php', 'admin-ajax.php', 'export.php', 'options-permalink.php', 'themes.php', 'revision.php' ); // list of admin pages where we need to load builder files
 	$specific_filter_pages = array( 'edit.php', 'post.php', 'post-new.php', 'admin.php', 'edit-tags.php' ); // list of admin pages where we need more specific filtering
@@ -586,7 +590,11 @@ function et_is_extra_library_layout( $post_id ) {
 }
 
 /**
- * Check whether the specified capability allowed for current user
+ * Check whether the specified capability allowed for the user
+ *
+ * @param array|string $capabilities
+ * @param string       $role         - The user role. If empty the role of the current user is used
+ *
  * @return bool
  */
 function et_pb_is_allowed( $capabilities, $role = '' ) {
@@ -1736,6 +1744,9 @@ function et_pb_heartbeat_post_modified( $response ) {
 					$response['et']['action'] = 'current editor is fb, content wasnt updated by bb'; // dev use
 				}
 			}
+
+			$custom_defaults_manager = ET_Builder_Custom_Defaults_Settings::instance();
+			$response['et']['custom_defaults'] = $custom_defaults_manager->get_custom_defaults();
 		} else {
 			$response['et']['post_not_modified'] = true;
 			$response['et']['action'] = 'post content not modified externally'; // dev use
@@ -2053,35 +2064,39 @@ function et_fb_get_portability_export_url() {
 function et_fb_get_nonces() {
 	$nonces    = apply_filters( 'et_fb_nonces', array() );
 	$fb_nonces = array(
-		'moduleContactFormSubmit'       => wp_create_nonce( 'et-pb-contact-form-submit' ),
-		'et_admin_load'                 => wp_create_nonce( 'et_admin_load_nonce' ),
-		'computedProperty'              => wp_create_nonce( 'et_pb_process_computed_property_nonce' ),
-		'renderShortcode'               => wp_create_nonce( 'et_pb_render_shortcode_nonce' ),
-		'updateAssets'                  => wp_create_nonce( 'et_fb_update_helper_assets_nonce' ),
-		'loadAssets'                    => wp_create_nonce( 'et_fb_load_helper_assets_nonce' ),
-		'renderSave'                    => wp_create_nonce( 'et_fb_save_nonce' ),
-		'convertToShortcode'            => wp_create_nonce( 'et_fb_convert_to_shortcode_nonce' ),
-		'dropAutosave'                  => wp_create_nonce( 'et_fb_drop_autosave_nonce' ),
-		'prepareShortcode'              => wp_create_nonce( 'et_fb_prepare_shortcode_nonce' ),
-		'processImportedData'           => wp_create_nonce( 'et_fb_process_imported_data_nonce' ),
-		'retrieveLibraryModules'        => wp_create_nonce( 'et_fb_retrieve_library_modules_nonce' ),
-		'saveLibraryModules'            => wp_create_nonce( 'et_fb_save_library_modules_nonce' ),
-		'preview'                       => wp_create_nonce( 'et_pb_preview_nonce' ),
-		'autosave'                      => wp_create_nonce( 'et_fb_autosave_nonce' ),
-		'moduleEmailOptinFetchLists'    => wp_create_nonce( 'et_builder_email_fetch_lists_nonce' ),
-		'moduleEmailOptinAddAccount'    => wp_create_nonce( 'et_builder_email_add_account_nonce' ),
-		'moduleEmailOptinRemoveAccount' => wp_create_nonce( 'et_builder_email_remove_account_nonce' ),
-		'uploadFontNonce'               => wp_create_nonce( 'et_fb_upload_font_nonce' ),
-		'abTestingReport'               => wp_create_nonce( 'ab_testing_builder_nonce' ),
-		'libraryLayoutsData'            => wp_create_nonce( 'et_builder_library_get_layouts_data' ),
-		'libraryGetLayout'              => wp_create_nonce( 'et_builder_library_get_layout' ),
-		'libraryUpdateAccount'          => wp_create_nonce( 'et_builder_library_update_account' ),
-		'fetchAttachments'              => wp_create_nonce( 'et_fb_fetch_attachments' ),
-		'droploaderProcess'             => wp_create_nonce( 'et_builder_droploader_process_nonce' ),
-		'resolvePostContent'            => wp_create_nonce( 'et_fb_resolve_post_content' ),
-		'getPostTypes'                  => wp_create_nonce( 'et_fb_get_post_types' ),
-		'getPostsList'                  => wp_create_nonce( 'et_fb_get_posts_list' ),
-		'sendErrorReport'               => wp_create_nonce( 'et_fb_send_error_report' ),
+		'moduleContactFormSubmit'         => wp_create_nonce( 'et-pb-contact-form-submit' ),
+		'et_admin_load'                   => wp_create_nonce( 'et_admin_load_nonce' ),
+		'computedProperty'                => wp_create_nonce( 'et_pb_process_computed_property_nonce' ),
+		'renderShortcode'                 => wp_create_nonce( 'et_pb_render_shortcode_nonce' ),
+		'updateAssets'                    => wp_create_nonce( 'et_fb_update_helper_assets_nonce' ),
+		'loadAssets'                      => wp_create_nonce( 'et_fb_load_helper_assets_nonce' ),
+		'renderSave'                      => wp_create_nonce( 'et_fb_save_nonce' ),
+		'convertToShortcode'              => wp_create_nonce( 'et_fb_convert_to_shortcode_nonce' ),
+		'dropAutosave'                    => wp_create_nonce( 'et_fb_drop_autosave_nonce' ),
+		'prepareShortcode'                => wp_create_nonce( 'et_fb_prepare_shortcode_nonce' ),
+		'processImportedData'             => wp_create_nonce( 'et_fb_process_imported_data_nonce' ),
+		'retrieveLibraryModules'          => wp_create_nonce( 'et_fb_retrieve_library_modules_nonce' ),
+		'saveLibraryModules'              => wp_create_nonce( 'et_fb_save_library_modules_nonce' ),
+		'preview'                         => wp_create_nonce( 'et_pb_preview_nonce' ),
+		'autosave'                        => wp_create_nonce( 'et_fb_autosave_nonce' ),
+		'moduleEmailOptinFetchLists'      => wp_create_nonce( 'et_builder_email_fetch_lists_nonce' ),
+		'moduleEmailOptinAddAccount'      => wp_create_nonce( 'et_builder_email_add_account_nonce' ),
+		'moduleEmailOptinRemoveAccount'   => wp_create_nonce( 'et_builder_email_remove_account_nonce' ),
+		'uploadFontNonce'                 => wp_create_nonce( 'et_fb_upload_font_nonce' ),
+		'abTestingReport'                 => wp_create_nonce( 'ab_testing_builder_nonce' ),
+		'libraryLayoutsData'              => wp_create_nonce( 'et_builder_library_get_layouts_data' ),
+		'libraryGetLayout'                => wp_create_nonce( 'et_builder_library_get_layout' ),
+		'libraryUpdateAccount'            => wp_create_nonce( 'et_builder_library_update_account' ),
+		'fetchAttachments'                => wp_create_nonce( 'et_fb_fetch_attachments' ),
+		'droploaderProcess'               => wp_create_nonce( 'et_builder_droploader_process_nonce' ),
+		'resolvePostContent'              => wp_create_nonce( 'et_fb_resolve_post_content' ),
+		'getPostTypes'                    => wp_create_nonce( 'et_fb_get_post_types' ),
+		'getPostsList'                    => wp_create_nonce( 'et_fb_get_posts_list' ),
+		'sendErrorReport'                 => wp_create_nonce( 'et_fb_send_error_report' ),
+		'saveCustomDefaultsHistory'       => wp_create_nonce( 'et_builder_save_custom_defaults_history' ),
+		'retrieveCustomDefaultsHistory'   => wp_create_nonce( 'et_builder_retrieve_custom_defaults_history' ),
+		'migrateModuleCustomizerPhaseTwo' => wp_create_nonce( 'et_builder_migrate_module_customizer_phase_two' ),
+		'searchPosts'                     => wp_create_nonce( 'et_builder_search_posts' ),
 	);
 
 	return array_merge( $nonces, $fb_nonces );
@@ -3769,6 +3784,9 @@ if ( ! function_exists( 'et_fb_is_enabled' ) ) :
  * @return bool
  */
 function et_fb_is_enabled( $post_id = false ) {
+	// Cache results since the function could end up being called thousands of times.
+	static $cache = array();
+
 	if ( ! $post_id ) {
 		global $post;
 
@@ -3781,15 +3799,21 @@ function et_fb_is_enabled( $post_id = false ) {
 		return $check;
 	}
 
+	if ( ! $post_id ) {
+		return false;
+	}
+
+	if ( isset( $cache[ $post_id ] ) ) {
+		return $cache[ $post_id ];
+	}
+
+	$cache[ $post_id ] = false;
+
 	if ( is_admin() ) {
 		return false;
 	}
 
 	if ( is_customize_preview() ) {
-		return false;
-	}
-
-	if ( ! $post_id ) {
 		return false;
 	}
 
@@ -3808,6 +3832,8 @@ function et_fb_is_enabled( $post_id = false ) {
 	if ( ! et_pb_is_allowed( 'use_visual_builder' ) ) {
 		return false;
 	}
+
+	$cache[ $post_id ] = true;
 
 	return true;
 }
@@ -5051,7 +5077,7 @@ function et_builder_show_bfb_optin_modal() {
 	if ( 'post.php' !== $pagenow ) {
 		return;
 	}
-	
+
 	// Exit if no pagebuilder enabled or BFB activated already.
 	if ( ! et_pb_is_pagebuilder_used() || et_builder_bfb_enabled() ) {
 		return;
@@ -5449,6 +5475,9 @@ function et_fb_delete_builder_assets() {
 	foreach ( array_merge( $old_files, $new_files, $modules_files ) as $file ) {
 		@unlink( $file );
 	}
+
+	// Responsive Content MultiViews cache
+	@unlink( sprintf( '%s/%s', $cache , 'multiviews.data' ) );
 }
 endif;
 
@@ -5463,3 +5492,204 @@ function et_fb_enqueue_open_sans() {
 	wp_enqueue_style( 'et-fb-fonts', esc_url_raw( add_query_arg( $query_args, "{$protocol}://fonts.googleapis.com/css" ) ), array(), null );
 }
 endif;
+
+/**
+ * Wrapper for et_core_portability_link() which does ET capability checks as well.
+ *
+ * @since 3.26
+ *
+ * @param string $context
+ * @param string|array $attributes
+ *
+ * @return string
+ */
+function et_builder_portability_link( $context, $attributes = array() ) {
+	global $shortname;
+
+	$product = (string) $shortname;
+
+	$context_caps = array(
+		'et_builder'         => 'et_builder_portability',
+		'et_builder_layouts' => 'et_builder_layouts_portability',
+		"et_{$product}_mods" => "et_{$product}_mods_portability",
+		'et_pb_roles'        => 'et_pb_roles_portability',
+		'epanel'             => 'epanel_portability',
+	);
+
+	$cap = et_()->array_get( $context_caps, $context, '' );
+
+	if ( ! empty( $cap ) && ! et_pb_is_allowed( $cap ) ) {
+		return '';
+	}
+
+	return et_core_portability_link( $context, $attributes );
+}
+
+/**
+ * Get the list of all public post types.
+ *
+ * @since 3.26.7
+ *
+ * @return array<string, WP_Post_Type>
+ */
+function et_builder_get_public_post_types() {
+	$cache_key = 'et_builder_get_public_post_types';
+
+	if ( ! et_core_cache_has( $cache_key ) ) {
+		$blacklist      = array(
+			'et_pb_layout',
+		);
+		$all_post_types = get_post_types( array(), 'objects' );
+		$post_types     = array();
+
+		foreach ( $all_post_types as $post_type ) {
+			if ( ! in_array( $post_type->name, $blacklist, true ) && et_builder_is_post_type_public( $post_type->name ) ) {
+				$post_types[ $post_type->name ] = $post_type;
+			}
+		}
+
+		et_core_cache_add( $cache_key, $post_types );
+	}
+
+	/**
+	 * Filter array of public post types.
+	 *
+	 * @since 3.26.7
+	 *
+	 * @param array<string, WP_Post_Type>
+	 */
+	return apply_filters( 'et_builder_get_public_post_types', et_core_cache_get( $cache_key ) );
+}
+
+/**
+ * Clear public post type cache whenever a custom post type is registered.
+ *
+ * @since 3.26.7
+ *
+ * @return void
+ */
+function et_builder_clear_get_public_post_types_cache() {
+	et_core_cache_delete( 'et_builder_get_public_post_types' );
+}
+add_action( 'registered_post_type', 'et_builder_clear_get_public_post_types_cache' );
+
+if ( ! function_exists( 'et_filter_intermediate_image_sizes_advanced' ) ):
+/**
+ * Filters the image sizes to calculate responsive image height.
+ *
+ * @param array $sizes    An associative array of image sizes.
+ * @param array $metadata An associative array of image metadata: width, height, file.
+ *
+ * @return array
+ */
+function et_filter_intermediate_image_sizes_advanced( $sizes, $metadata ) {
+	foreach ( array_keys( $sizes ) as $size_key ) {
+		if ( strpos( $size_key, 'et-pb-image--responsive--' ) !== 0 ) {
+			continue;
+		}
+
+		$breakpoint      = str_replace( 'et-pb-image--responsive--', '', $size_key );
+		$responsive_size = et_image_get_responsive_size( $metadata['width'], $metadata['height'], $breakpoint );
+
+		if ( $responsive_size && isset( $responsive_size['width'] ) && isset( $responsive_size['height'] ) ) {
+			$sizes[ $size_key ]['width']  = $responsive_size['width'];
+			$sizes[ $size_key ]['height'] = $responsive_size['height'];
+		} else {
+			unset( $sizes[ $size_key ] );
+		}
+	}
+
+	return $sizes;
+}
+endif;
+add_filter( 'intermediate_image_sizes_advanced', 'et_filter_intermediate_image_sizes_advanced', 10, 2 );
+
+if ( ! function_exists( 'et_filter_wp_generate_attachment_metadata' ) ):
+/**
+ * Sync the cached srcset data when attachment meta data generated/updated.
+ *
+ * @since 3.27.1
+ *
+ * @param array $metadata      An array of attachment meta data.
+ * @param int   $attachment_id Current attachment ID.
+ *
+ * @return array
+ */
+function et_filter_wp_generate_attachment_metadata( $metadata, $attachment_id ) {
+	if ( ! class_exists( 'ET_Builder_Module_Helper_MultiViewOptions' ) ) {
+		require_once 'module/helpers/MultiViewOptions.php';
+	}
+
+	$cache                      = ET_Builder_Module_Helper_MultiViewOptions::get_cache_data();
+	$cache_responsive_metadata  = ET_Core_Cache_File::get( 'responsive_metadata' );
+	$cache_attachment_id_by_url = ET_Core_Cache_File::get( 'attachment_id_by_url' );
+
+	if ( ! $cache && ! $cache_responsive_metadata && $cache_attachment_id_by_url ) {
+		return $metadata;
+	}
+
+	$save_cache                      = false;
+	$save_cache_responsive_metadata  = false;
+	$save_cache_attachment_id_by_url = false;
+	$attachment_url                  = wp_get_attachment_url( $attachment_id );
+
+	if ( isset( $cache[ $attachment_url ] ) ) {
+		unset( $cache[ $attachment_url ] );
+		$save_cache = true;
+	}
+
+	if ( isset( $cache_responsive_metadata[ $attachment_url ] ) ) {
+		unset( $cache_responsive_metadata[ $attachment_url ] );
+		$save_cache_responsive_metadata = true;
+	}
+
+	if ( isset( $cache_attachment_id_by_url[ $attachment_url ] ) ) {
+		unset( $cache_attachment_id_by_url[ $attachment_url ] );
+		$save_cache_attachment_id_by_url = true;
+	}
+
+	if ( isset( $metadata['sizes'] ) ) {
+		$attachment_url_basename = basename( $attachment_url );
+
+		foreach ( $metadata['sizes'] as $image_size ) {
+			$image_size_url = str_replace( $attachment_url_basename, $image_size['file'], $attachment_url );
+
+			if ( isset( $cache[ $image_size_url ] ) ) {
+				unset( $cache[ $image_size_url ] );
+
+				$save_cache = true;
+			}
+
+			if ( isset( $cache_responsive_metadata[ $image_size_url ] ) ) {
+				unset( $cache_responsive_metadata[ $image_size_url ] );
+	
+				$save_cache_responsive_metadata = true;
+			}
+
+			if ( isset( $cache_attachment_id_by_url[ $image_size_url ] ) ) {
+				unset( $cache_attachment_id_by_url[ $image_size_url ] );
+	
+				$save_cache_attachment_id_by_url = true;
+			}
+		}
+	}
+
+	if ( $save_cache ) {
+		ET_Builder_Module_Helper_MultiViewOptions::set_cache_data( $cache );
+		ET_Builder_Module_Helper_MultiViewOptions::save_cache( true );
+	}
+
+	if ( $save_cache_responsive_metadata ) {
+		ET_Core_Cache_File::set( 'responsive_metadata', $cache_responsive_metadata );
+		ET_Core_Cache_File::save_cache( true );
+	}
+
+	if ( $save_cache_attachment_id_by_url ) {
+		ET_Core_Cache_File::set( 'attachment_id_by_url', $cache_attachment_id_by_url );
+		ET_Core_Cache_File::save_cache( true );
+	}
+
+	return $metadata;
+}
+endif;
+add_filter( 'wp_generate_attachment_metadata', 'et_filter_wp_generate_attachment_metadata', 10, 2 );

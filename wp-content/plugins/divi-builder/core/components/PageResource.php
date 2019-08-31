@@ -922,6 +922,7 @@ class ET_Core_PageResource {
 		self::$data_utils->remove_empty_directories( $cache_dir );
 
 		// Clear cache managed by 3rd-party cache plugins
+		$post_id = ! empty( $post_id ) && absint( $post_id ) > 0 ? $post_id : '';
 		et_core_clear_wp_cache( $post_id );
 
 		// Set our DONOTCACHEPAGE file for the next request.

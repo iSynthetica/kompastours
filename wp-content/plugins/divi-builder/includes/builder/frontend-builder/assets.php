@@ -243,6 +243,12 @@ function et_fb_enqueue_assets() {
 		$builder_modules_script_handle,
 	);
 
+	if ( ! wp_script_is( 'wp-hooks', 'registered' ) ) {
+		// Use bundled wp-hooks script when WP < 5.0
+		wp_register_script( 'wp-hooks', "{$assets}/backports/hooks.js" );
+		$dependencies_list[] = 'wp-hooks';
+	}
+
 	// Add dependency on et-shortcode-js only if Divi Theme is used or ET Shortcodes plugin activated
 	if ( ! et_is_builder_plugin_active() || et_is_shortcodes_plugin_active() ) {
 		$dependencies_list[] = 'et-shortcodes-js';
@@ -373,8 +379,8 @@ function et_fb_enqueue_react() {
 	wp_deregister_script( 'react-dom' );
 
 	if ( $DEBUG || DiviExtensions::is_debugging_extension() ) {
-		wp_enqueue_script( 'react', 'https://cdn.jsdelivr.net/npm/react@16/umd/react.development.js', array(), $react_version, true );
-		wp_enqueue_script( 'react-dom', 'https://cdn.jsdelivr.net/npm/react-dom@16/umd/react-dom.development.js', array( 'react' ), $react_version, true );
+		wp_enqueue_script( 'react', "https://cdn.jsdelivr.net/npm/react@{$react_version}/umd/react.development.js", array(), $react_version, true );
+		wp_enqueue_script( 'react-dom', "https://cdn.jsdelivr.net/npm/react-dom@{$react_version}/umd/react-dom.development.js", array( 'react' ), $react_version, true );
 		add_filter( 'script_loader_tag', 'et_core_add_crossorigin_attribute', 10, 3 );
 	} else {
 		wp_enqueue_script( 'react', "{$core_scripts}/react.production.min.js", array(), $react_version, true );

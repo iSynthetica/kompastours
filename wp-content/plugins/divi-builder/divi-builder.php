@@ -3,7 +3,7 @@
  * Plugin Name: Divi Builder
  * Plugin URI: http://elegantthemes.com
  * Description: The ultimate WordPress page builder. Already included and not needed when using the Divi or Extra theme.
- * Version: 2.24.1
+ * Version: 2.27.4
  * Author: Elegant Themes
  * Author URI: http://elegantthemes.com
  * License: GPLv2 or later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'ET_BUILDER_PLUGIN_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'ET_BUILDER_PLUGIN_URI', plugins_url('', __FILE__) );
-define( 'ET_BUILDER_PLUGIN_VERSION', '2.24.1' );
+define( 'ET_BUILDER_PLUGIN_VERSION', '2.27.4' );
 
 if ( ! class_exists( 'ET_Dashboard_v2' ) ) {
 	require_once( ET_BUILDER_PLUGIN_DIR . 'dashboard/dashboard.php' );
@@ -162,6 +162,8 @@ class ET_Builder_Plugin extends ET_Dashboard_v2 {
 		// Check if the plugin was just activated and call for the et_builder_prepare_bfb().
 		if ( 'activated' === get_option( 'et_pb_builder_plugin_status', '' ) ) {
 			et_builder_prepare_bfb();
+			// Delete cached definitions / helpers
+			et_fb_delete_builder_assets();
 			delete_option( 'et_pb_builder_plugin_status' );
 		}
 	}

@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class ET_Core_Support_Center Provides admin tools to assist with troubleshooting and fixing issues in our products.
  *
- * @since ?? Renamed from `ET_Support_Center` to `ET_Core_Support_Center`.
+ * @since 3.24.1 Renamed from `ET_Support_Center` to `ET_Core_Support_Center`.
  * @since 3.20
  */
 class ET_Core_Support_Center {
@@ -162,6 +162,7 @@ class ET_Core_Support_Center {
 		'divi-builder/divi-builder.php', // Divi Builder Plugin
 		'query-monitor/query-monitor.php', // Query Monitor
 		'woocommerce/woocommerce.php', // WooCommerce
+		'really-simple-ssl/rlrsssl-really-simple-ssl.php', // Really Simple SSL
 	);
 
 	/**
@@ -2173,6 +2174,15 @@ class ET_Core_Support_Center {
 		update_user_meta( $user_id, '_et_support_center_safe_mode', $activate ? 'on' : 'off' );
 
 		$activate ? $this->maybe_add_mu_autoloader() : $this->maybe_remove_mu_autoloader();
+		
+		/**
+		 * Fires when safe mode is toggled on or off.
+		 *
+		 * @since 3.25.4
+		 *
+		 * @param bool $state True if toggled on, false if toggled off.
+		 */
+		do_action( 'et_support_center_toggle_safe_mode', $activate );
 	}
 
 	/**

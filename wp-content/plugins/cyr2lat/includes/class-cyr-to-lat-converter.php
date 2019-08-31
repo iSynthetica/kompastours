@@ -73,7 +73,7 @@ class Cyr_To_Lat_Converter {
 	) {
 		$this->main         = $main;
 		$this->settings     = $settings;
-		$this->option_group = Cyr_To_Lat_Settings::OPTION_GROUP; 
+		$this->option_group = Cyr_To_Lat_Settings::OPTION_GROUP;
 
 		$this->process_all_posts = $process_all_posts;
 		if ( ! $this->process_all_posts ) {
@@ -99,30 +99,6 @@ class Cyr_To_Lat_Converter {
 	public function init_hooks() {
 		add_action( 'admin_init', array( $this, 'process_handler' ) );
 		add_action( 'admin_init', array( $this, 'conversion_notices' ) );
-
-		/**
-		 * Fix bug in WP_Background_Process::memory_exceeded() function.
-		 * See hook.
-		 */
-		add_filter(
-			CYR_TO_LAT_PREFIX . '_' . CYR_TO_LAT_POST_CONVERSION_ACTION . '_memory_exceeded',
-			array( $this, 'memory_exceeded_filter' )
-		);
-		add_filter(
-			CYR_TO_LAT_PREFIX . '_' . CYR_TO_LAT_TERM_CONVERSION_ACTION . '_memory_exceeded',
-			array( $this, 'memory_exceeded_filter' )
-		);
-
-		// Do not limit execution time with WP_CLI.
-		add_filter(
-			CYR_TO_LAT_PREFIX . '_' . CYR_TO_LAT_POST_CONVERSION_ACTION . '_time_exceeded',
-			array( $this, 'time_exceeded_filter' )
-		);
-		add_filter(
-			CYR_TO_LAT_PREFIX . '_' . CYR_TO_LAT_TERM_CONVERSION_ACTION . '_time_exceeded',
-			array( $this, 'time_exceeded_filter' )
-		);
-
 	}
 
 	/**
@@ -225,13 +201,13 @@ class Cyr_To_Lat_Converter {
 				$this->process_all_posts->push_to_queue( $post );
 			}
 
-			$this->process_all_posts->save()->dispatch();
-
 			$this->log( __( 'Post slugs conversion started.', 'cyr2lat' ) );
 			$this->admin_notices->add_notice(
 				__( 'Cyr To Lat started conversion of existing post slugs.', 'cyr2lat' ),
 				'notice notice-info is-dismissible'
 			);
+
+			$this->process_all_posts->save()->dispatch();
 		} else {
 			$this->admin_notices->add_notice(
 				__( 'Cyr To Lat has not found existing post slugs for conversion.', 'cyr2lat' ),
@@ -242,7 +218,8 @@ class Cyr_To_Lat_Converter {
 		// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 		$terms = $wpdb->get_results(
 			$wpdb->prepare(
-				"SELECT term_id, slug FROM $wpdb->terms WHERE slug REGEXP(%s)",
+				"SELECT t.term_id, slug, tt.taxonomy, tt.term_taxonomy_id FROM $wpdb->terms t, $wpdb->term_taxonomy tt
+					WHERE t.slug REGEXP(%s) AND tt.term_id = t.term_id",
 				$regexp
 			)
 		);
@@ -252,13 +229,13 @@ class Cyr_To_Lat_Converter {
 				$this->process_all_terms->push_to_queue( $term );
 			}
 
-			$this->process_all_terms->save()->dispatch();
-
 			$this->log( __( 'Term slugs conversion started.', 'cyr2lat' ) );
 			$this->admin_notices->add_notice(
 				__( 'Cyr To Lat started conversion of existing term slugs.', 'cyr2lat' ),
 				'notice notice-info is-dismissible'
 			);
+
+			$this->process_all_terms->save()->dispatch();
 		} else {
 			$this->admin_notices->add_notice(
 				__( 'Cyr To Lat has not found existing term slugs for conversion.', 'cyr2lat' ),
@@ -275,7 +252,7 @@ class Cyr_To_Lat_Converter {
 	protected function log( $message ) {
 		if ( defined( 'WP_DEBUG_LOG' ) && WP_DEBUG_LOG ) {
 			// @phpcs:disable WordPress.PHP.DevelopmentFunctions.error_log_error_log
-			error_log( 'Cyr-To-Lat: ' . $message );
+			error_log( 'Cyr To Lat: ' . $message );
 			// @phpcs:enable WordPress.PHP.DevelopmentFunctions.error_log_error_log
 		}
 	}

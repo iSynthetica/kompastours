@@ -314,6 +314,10 @@ class ET_Builder_Settings {
 			'toggle_slug' => 'visibility',
 		) );
 
+		foreach ( $overflow_fields as $field => &$definition ) {
+			$definition['id'] = $field;
+		}
+
 		$fields = array_merge( $fields, $overflow_fields );
 
 		$fields = array_merge( $fields, array(
@@ -346,7 +350,7 @@ class ET_Builder_Settings {
 					'min_limit' => 1,
 					'max_limit' => 4,
 				),
-				'default'        => et_get_option( 'gutter_width', 3 ),
+				'default'        => (string) et_get_option( 'gutter_width', '3' ),
 				'mobile_options' => false,
 				'validate_unit'  => false,
 				'tab_slug'       => 'design',
