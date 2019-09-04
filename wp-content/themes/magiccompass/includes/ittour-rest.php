@@ -314,3 +314,34 @@ function ittour_get_search_result($parameters, $module = 'search', $lang = 'ru')
 
     return $search_result;
 }
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/module-excursion/params/', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_excursion_params',
+        'args'     => array(
+            'country_id' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_excursion_params($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $params_obj = ittour_excursion_params($lang);
+    $params = $params_obj->get();
+
+    return $params;
+}

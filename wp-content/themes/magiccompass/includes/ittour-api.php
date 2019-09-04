@@ -46,6 +46,14 @@ function ittour_hotel($hotel_id, $lang = 'ru') {
     return new ittourHotelApi($hotel_id, $lang);
 }
 
+function ittour_excursion_params($lang = 'ru') {
+    ittour_api_init();
+
+    include_once ITTOUR_DIR . '/class.ittourExcursionParamsApi.php';
+
+    return new ittourExcursionParamsApi($lang);
+}
+
 add_action('init', 'ittour_rewrite_rule');
 /**
  * Add rewrite rule for a pattern matching "post-by-slug/<post_name>"
