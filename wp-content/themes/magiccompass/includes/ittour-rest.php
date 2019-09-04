@@ -206,19 +206,6 @@ add_action( 'rest_api_init', function () {
     ) );
 } );
 
-add_action( 'rest_api_init', function () {
-    register_rest_route( 'ittour/v1', '/module/search-list/', array(
-        'methods' => WP_REST_Server::READABLE,
-        'callback' => 'ittour_rest_search_list',
-        'args'     => array(
-            'key' => array(
-                'required' => false
-            ),
-        ),
-        'permission_callback' => 'ittour_check_permission'
-    ) );
-} );
-
 function ittour_rest_search($request) {
     $headers = $request->get_headers();
     $lang = 'ru';
@@ -235,6 +222,19 @@ function ittour_rest_search($request) {
 
     return ittour_get_search_result($parameters, 'search', $lang);
 }
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/module/search-list/', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_search_list',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
 
 function ittour_rest_search_list($request) {
     $headers = $request->get_headers();
@@ -344,4 +344,77 @@ function ittour_rest_excursion_params($request) {
     $params = $params_obj->get();
 
     return $params;
+}
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/module-excursion/search/', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_excursion_search',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_excursion_search($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $parameters = $request->get_params();
+
+    return ittour_get_excursion_search_result($parameters, $lang);
+}
+
+function ittour_get_excursion_search_result($parameters, $lang = 'ru') {
+    $search = ittour_excursion_search($lang);
+
+    $country                    = !empty($parameters['country']) ? (int) sanitize_text_field($parameters['country'])  : false;
+
+    $transport_type             = !empty($parameters['transport_type']) ? (int) sanitize_text_field($parameters['transport_type']) : false;
+    $from_city                  = !empty($parameters['from_city']) ? (int) sanitize_text_field($parameters['from_city']) : false;
+    $city                       = !empty($parameters['city']) ? (int) sanitize_text_field($parameters['city']) : false;
+    $date_from                  = !empty($parameters['date_from']) ? sanitize_text_field($parameters['date_from']) : false;
+    $date_till                  = !empty($parameters['date_till']) ? sanitize_text_field($parameters['date_till']) : false;
+    $show_selected_countries    = !empty($parameters['show_selected_countries']) ? sanitize_text_field($parameters['show_selected_countries']) : 0;
+    $show_selected_cities       = !empty($parameters['show_selected_cities']) ? sanitize_text_field($parameters['show_selected_cities']) : 0;
+    $night_moves                = !empty($parameters['night_moves']) ? sanitize_text_field($parameters['night_moves']) : 0;
+    $page                       = !empty($parameters['page']) ? sanitize_text_field($parameters['page']) : 1;
+    $items_per_page             = !empty($parameters['items_per_page']) ? sanitize_text_field($parameters['items_per_page']) : 10;
+    $country_image_count        = !empty($parameters['country_image_count']) ? sanitize_text_field($parameters['country_image_count']) : 1;
+    $accomodation               = !empty($parameters['accomodation']) ? sanitize_text_field($parameters['accomodation']) : false;
+    $adult                      = !empty($parameters['adult']) ? sanitize_text_field($parameters['adult']) : 1;
+    $child                      = !empty($parameters['child']) ? sanitize_text_field($parameters['child']) : 0;
+
+    $args = array();
+
+    if ($transport_type)            $args['transport_type']             = $transport_type;
+    if ($from_city)                 $args['from_city']                  = $from_city;
+    if ($city)                      $args['city']                       = $city;
+    if ($date_from)                 $args['date_from']                  = $date_from;
+    if ($date_till)                 $args['date_till']                  = $date_till;
+    if ($show_selected_countries)   $args['show_selected_countries']    = $show_selected_countries;
+    if ($show_selected_cities)      $args['show_selected_cities']       = $show_selected_cities;
+    if ($night_moves)               $args['night_moves']                = $night_moves;
+    if ($page)                      $args['page']                       = $page;
+    if ($items_per_page)            $args['items_per_page']             = $items_per_page;
+    if ($country_image_count)       $args['country_image_count']        = $country_image_count;
+    if ($accomodation)              $args['accomodation']               = $accomodation;
+    if ($adult)                     $args['adult']                      = $adult;
+    if ($child)                     $args['child']                      = $child;
+
+
+    $search_result = $search->get($country, $args);
+
+    return $search_result;
 }
