@@ -62,6 +62,14 @@ function ittour_excursion_search($lang = 'ru') {
     return new ittourExcursionSearchApi($lang);
 }
 
+function ittour_excursion_tour($key, $lang = 'ru') {
+    ittour_api_init();
+
+    include_once ITTOUR_DIR . '/class.ittourExcursionTourApi.php';
+
+    return new ittourExcursionTourApi($key, $lang);
+}
+
 add_action('init', 'ittour_rewrite_rule');
 /**
  * Add rewrite rule for a pattern matching "post-by-slug/<post_name>"
@@ -69,6 +77,9 @@ add_action('init', 'ittour_rewrite_rule');
 function ittour_rewrite_rule() {
     add_rewrite_rule('^tour/(.*)/?', 'index.php?tour=$matches[1]', 'top');
     add_rewrite_tag( '%tour%', '(.*)' );
+
+    add_rewrite_rule('^excursion-tour/(.*)/?', 'index.php?excursion-tour=$matches[1]', 'top');
+    add_rewrite_tag( '%excursion-tour%', '(.*)' );
 }
 
 add_action( 'template_redirect', function() {
@@ -94,6 +105,15 @@ add_action( 'template_redirect', function() {
         }
 
         include SNTH_DIR . '/templates/tour.php';
+        die;
+    }
+
+    $key = get_query_var( 'excursion-tour' );
+
+    if ( $key ) {
+        $_GET['key'] = $key;
+
+        include SNTH_DIR . '/templates/excursion-tour.php';
         die;
     }
 } );

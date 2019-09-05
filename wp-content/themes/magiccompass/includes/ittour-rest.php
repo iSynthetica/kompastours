@@ -418,3 +418,50 @@ function ittour_get_excursion_search_result($parameters, $lang = 'ru') {
 
     return $search_result;
 }
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'ittour/v1', '/tour-excursion/info/(?P<key>[a-zA-Z0-9-]+)', array(
+        'methods' => WP_REST_Server::READABLE,
+        'callback' => 'ittour_rest_excursion_tour_info',
+        'args'     => array(
+            'key' => array(
+                'required' => false
+            ),
+        ),
+        'permission_callback' => 'ittour_check_permission'
+    ) );
+} );
+
+function ittour_rest_excursion_tour_info($request) {
+    $headers = $request->get_headers();
+    $lang = 'ru';
+
+    if (!empty($headers['accept_language'][0])) {
+        $rest_lang = $headers['accept_language'][0];
+
+        if (in_array($rest_lang, array('ru', 'uk', 'en'))) {
+            $lang = $rest_lang;
+        }
+    }
+
+    $parameters = $request->get_params();
+
+    $date_from                  = !empty($parameters['date_from']) ? sanitize_text_field($parameters['date_from']) : false;
+    $date_till                  = !empty($parameters['date_till']) ? sanitize_text_field($parameters['date_till']) : false;
+    $hikes                  = !empty($parameters['hikes']) ? sanitize_text_field($parameters['hikes']) : true;
+    $includes                  = !empty($parameters['includes']) ? sanitize_text_field($parameters['includes']) : true;
+    $desc                  = !empty($parameters['desc']) ? sanitize_text_field($parameters['desc']) : 'day_detail';
+
+    $args = array();
+
+    if ($date_from) $args['date_from']  = $date_from;
+    if ($date_till) $args['date_till']  = $date_till;
+    if ($hikes) $args['hikes']  = $hikes;
+    if ($includes) $args['includes']  = $includes;
+    if ($desc) $args['desc']  = $desc;
+
+    $tour = ittour_excursion_tour($request['key'], $lang);
+    $tour_info = $tour->info($args);
+
+    return $tour_info;
+}
