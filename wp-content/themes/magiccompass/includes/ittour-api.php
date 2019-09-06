@@ -78,8 +78,10 @@ function ittour_rewrite_rule() {
     add_rewrite_rule('^tour/(.*)/?', 'index.php?tour=$matches[1]', 'top');
     add_rewrite_tag( '%tour%', '(.*)' );
 
-    add_rewrite_rule('^excursion-tour/(.*)/?', 'index.php?excursion-tour=$matches[1]', 'top');
+    add_rewrite_rule('^excursion-tour/([^/]*)/([^/]*)/([^/]*)/?', 'index.php?excursion-tour=$matches[1]&date_from=$matches[2]&date_till=$matches[3]', 'top');
     add_rewrite_tag( '%excursion-tour%', '(.*)' );
+    add_rewrite_tag( '%date_from%', '(.*)' );
+    add_rewrite_tag( '%date_till%', '(.*)' );
 }
 
 add_action( 'template_redirect', function() {
@@ -111,7 +113,12 @@ add_action( 'template_redirect', function() {
     $key = get_query_var( 'excursion-tour' );
 
     if ( $key ) {
+        $date_from = get_query_var( 'date_from' );
+        $date_till = get_query_var( 'date_till' );
+
         $_GET['key'] = $key;
+        $_GET['date_from'] = $date_from;
+        $_GET['date_till'] = $date_till;
 
         include SNTH_DIR . '/templates/excursion-tour.php';
         die;

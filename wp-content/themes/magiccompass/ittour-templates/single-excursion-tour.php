@@ -16,8 +16,16 @@ if (empty($template)) {
 }
 
 $tour_key = $_GET['key'];
+$date_from                  = !empty($_GET['date_from']) ? sanitize_text_field($_GET['date_from']) : false;
+$date_till                  = !empty($_GET['date_till']) ? sanitize_text_field($_GET['date_till']) : false;
+
+$args = array();
+
+if ($date_from) $args['date_from']  = $date_from;
+if ($date_till) $args['date_till']  = $date_till;
+
 $tour = ittour_excursion_tour($tour_key, ITTOUR_LANG);
-$tour_info = $tour->info();
+$tour_info = $tour->info($args);
 
 $main_currency_label = array();
 $main_currency = array();
@@ -29,14 +37,58 @@ $ittour_content = ittour_get_template('single-tour-excursion-content.php', array
     )
 );
 
-$thumbnail_url = snth_default_image();
+if (!empty($tour_info["countries"])) {
+    foreach ($tour_info["countries"] as $country) {
+        if (!empty($country["images"])) {
+            foreach ($country["images"] as $image) {
+                if (!empty($image['full'])) {
+                    $thumbnail_url = $image['full'];
 
-snth_show_template('titles/static-image-bg.php', array(
-        'title' => get_the_title(),
-        'thumbnail_url' => $thumbnail_url
-    )
-);
+                    break 2;
+                }
+            }
+        }
+    }
+}
+
+if (empty($thumbnail_url)) {
+    $thumbnail_url = snth_default_image();
+}
 ?>
+
+<section id="single_tour__heading" class="bg-gray-5-color ptb-lg-40 ptb-20 top-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <h1 class="hotel_title mt-0"><?php echo $tour_info['name']; ?></h1>
+
+                <?php
+                if (!empty($tour_info["countries"])) {
+                    ?>
+                    <div class="hotel_location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <?php
+                        $i = 0;
+                        $count = count($tour_info["countries"]);
+                        foreach ($tour_info["countries"] as $country) {
+                            ?>
+                            <?php echo $country['name']; ?>
+                            <?php
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+
+            </div>
+        </div>
+    </div>
+</section>
 
 <div class="wrap">
     <?php
