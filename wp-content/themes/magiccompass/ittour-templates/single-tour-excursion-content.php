@@ -12,18 +12,74 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
+<pre>
+    <?php
+    //print_r($tour_info);
+    ?>
+</pre>
 <section id="single-tour-main-info__container">
     <div class="row">
         <div class="col-md-8 col-lg-9">
             <div class="row">
                 <div class="col-md-12 col-lg-7">
+                    <?php
+                    // Show gallery images
+
+                    if (!empty($tour_info["countries"][0]["images"][0]["full"])) {
+                        $gallery_images = array();
+
+                        foreach ($tour_info["countries"] as $country) {
+                            foreach ($country['images'] as $index => $images) {
+                                if (!empty($images['full'])) {
+                                    $images_array = array();
+                                    $images_array['full'] = $images['full'];
+
+                                    if (!empty($images['thumb'])) {
+                                        $images_array['thumb'] = $images['thumb'];
+                                    } else {
+                                        $images_array['thumb'] = $images['full'];
+                                    }
+
+                                    $gallery_images[] = $images_array;
+                                }
+                            }
+                        }
+
+                        ittour_show_template('general/tour-gallery.php', array('gallery_images' => $gallery_images));
+                    }
+
+                    ?>
                     <?php snth_the_social_share(); ?>
                 </div>
 
                 <div class="col-md-12 col-lg-5">
-                    <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
+                    <?php
+                    if (!empty($tour_info['include'])) {
+                        ?>
+                        <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
+                        <ul class="tour-details-list">
+                            <?php
+                            foreach ($tour_info['include'] as $item) {
+                                ?><li><?php echo $item; ?></li><?php
+                            }
+                            ?>
+                        </ul>
+                        <?php
+                    }
 
-                    <?php var_dump($tour_info); ?>
+                    if (!empty($tour_info['not_include'])) {
+                        ?>
+                        <h3><?php _e('Tour price not includes', 'snthwp'); ?></h3>
+                        <ul class="tour-details-list">
+                            <?php
+                            foreach ($tour_info['not_include'] as $item) {
+                                ?><li><?php echo $item; ?></li><?php
+                            }
+                            ?>
+                        </ul>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -173,3 +229,5 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         ?>
     </div>
 </div>
+
+<?php var_dump($tour_info); ?>

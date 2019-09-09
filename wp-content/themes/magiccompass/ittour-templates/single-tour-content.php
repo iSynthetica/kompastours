@@ -19,61 +19,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="row">
                 <div class="col-md-12 col-lg-7">
                     <?php
+                    // Show gallery images
                     if (!empty($tour_info["hotel_info"]["images"][0]['full'])) {
                         $images_count = count($tour_info["hotel_info"]["images"]);
-                        ?>
-                        <div id="single-tour-gallery__container" class="mb-20">
-                            <div class="single-tour-thumbnail__container">
-                                <img id="dynamicGallery" style="max-width: 100%" src="<?php echo $tour_info["hotel_info"]["images"][0]['full'] ?>" alt="">
-                            </div>
-
-                            <div class="single-tour-slider__container text-center">
-                                <?php
-                                $i = 0;
-                                foreach ($tour_info["hotel_info"]["images"] as $image) {
-                                    if (0 !== $i) {
-                                        ?><div class="single-tour-slider__item">
-                                        <div class="single-tour-slider__item-inner" style="background-image: url('<?php echo $image['thumb']; ?>')">
-
-                                        </div>
-                                        </div><?php
-                                    }
-                                    $i++;
-
-                                    if ($i > 3) {
-                                        break;
-                                    }
-                                }
-                                ?>
-                            </div>
-                        </div>
-
-                        <script>
-                            var dynamicImages = {
-                                dynamic: true,
-                                download: false,
-                                dynamicEl: [
-                                    <?php
-                                        foreach ($tour_info["hotel_info"]["images"] as $image) {
-                                            ?>
-                                            {
-                                                "src": '<?php echo $image["full"]; ?>',
-                                                'thumb': '<?php echo $image["thumb"]; ?>'
-                                            },
-                                            <?php
-                                        }
-                                    ?>
-                                ]
-                            };
-
-                            document.getElementById('dynamicGallery').addEventListener('click', function() {
-                                lightGallery(document.getElementById('dynamicGallery'), dynamicImages)
-                            });
-                        </script>
-                        <?php
+                        ittour_show_template('general/tour-gallery.php', array('gallery_images' => $tour_info["hotel_info"]["images"]));
                     }
-                    
-                    
+
+
                     if (!empty($tour_info['hotel_info']['hotel_facilities'])) {
                         $hotel_facilities_html = ittour_get_hotel_facilities($tour_info['hotel_info']['hotel_facilities']);
 

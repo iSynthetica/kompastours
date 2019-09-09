@@ -18,11 +18,17 @@ if (empty($template)) {
 $tour_key = $_GET['key'];
 $date_from                  = !empty($_GET['date_from']) ? sanitize_text_field($_GET['date_from']) : false;
 $date_till                  = !empty($_GET['date_till']) ? sanitize_text_field($_GET['date_till']) : false;
+$hikes                  = !empty($_GET['hikes']) ? sanitize_text_field($_GET['hikes']) : true;
+$includes                  = !empty($_GET['includes']) ? sanitize_text_field($_GET['includes']) : true;
+$desc                  = !empty($_GET['desc']) ? sanitize_text_field($_GET['desc']) : 'day_detail';
 
 $args = array();
 
 if ($date_from) $args['date_from']  = $date_from;
 if ($date_till) $args['date_till']  = $date_till;
+if ($hikes) $args['hikes']  = $hikes;
+if ($includes) $args['includes']  = $includes;
+if ($desc) $args['desc']  = $desc;
 
 $tour = ittour_excursion_tour($tour_key, ITTOUR_LANG);
 $tour_info = $tour->info($args);
@@ -68,11 +74,11 @@ if (empty($thumbnail_url)) {
                     <div class="hotel_location">
                         <i class="fas fa-map-marker-alt"></i>
                         <?php
-                        $i = 0;
+                        $i = 1;
                         $count = count($tour_info["countries"]);
                         foreach ($tour_info["countries"] as $country) {
                             ?>
-                            <?php echo $country['name']; ?>
+                            <?php echo $country['name']; ?><?php echo $i < $count ? ', ' : ''; ?>
                             <?php
                             $i++;
                         }
