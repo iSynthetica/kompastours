@@ -1646,7 +1646,7 @@ function ittour_get_tours_table_sort_by_date($country, $args = array()) {
                                                 <div class="col-12 col-sm-6">
                                                     <div class="tour_list_more_button">
                                                         <a
-                                                                href="/tour/<?php echo $offer['key'] ?>?from_city=<?php echo $args["from_city"] ?><?php echo !empty($args["child_age"]) ? '&child_age=' . $args["child_age"] : '' ?>"
+                                                                href="/tour/<?php echo $offer['key'] ?>/<?php echo $args["from_city"] ?><?php echo !empty($args["child_age"]) ? '/' . $args["child_age"] : '' ?>"
                                                                 class="btn shape-rnd type-hollow hvr-invert size-xs"
                                                         >
                                                             <?php echo __('Details', 'snthwp'); ?>

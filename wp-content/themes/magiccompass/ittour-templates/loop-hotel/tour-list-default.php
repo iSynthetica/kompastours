@@ -187,7 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                                     <div class="col-lg-12 col-5">
                                         <a
-                                                href="/tour/<?php echo $first_offer['key'] ?>?from_city=<?php echo $from_city ?><?php echo !empty($child_age) ? '&child_age=' . $child_age : '' ?>"
+                                                href="/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
                                                 class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>
@@ -291,7 +291,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <div class="col-12 col-sm-6">
                                     <div class="tour_list_more_button">
                                         <a
-                                                href="/tour/<?php echo $offer['key'] ?>?from_city=<?php echo $from_city ?><?php echo !empty($child_age) ? '&child_age=' . $child_age : '' ?>"
+                                                href="/tour/<?php echo $offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
                                                 class="btn shape-rnd type-hollow hvr-invert size-xs"
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>

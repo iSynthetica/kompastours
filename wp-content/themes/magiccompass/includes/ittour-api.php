@@ -75,8 +75,12 @@ add_action('init', 'ittour_rewrite_rule');
  * Add rewrite rule for a pattern matching "post-by-slug/<post_name>"
  */
 function ittour_rewrite_rule() {
+    add_rewrite_rule('^tour/(.*)/([^/]*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]&child_age=$matches[3]', 'top');
+    add_rewrite_rule('^tour/(.*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]', 'top');
     add_rewrite_rule('^tour/(.*)/?', 'index.php?tour=$matches[1]', 'top');
     add_rewrite_tag( '%tour%', '(.*)' );
+    add_rewrite_tag( '%from_city%', '(.*)' );
+    add_rewrite_tag( '%child_age%', '(.*)' );
 
     add_rewrite_rule('^excursion-tour/([^/]*)/([^/]*)/([^/]*)/?', 'index.php?excursion-tour=$matches[1]&date_from=$matches[2]&date_till=$matches[3]', 'top');
     add_rewrite_tag( '%excursion-tour%', '(.*)' );
@@ -89,6 +93,18 @@ add_action( 'template_redirect', function() {
 
     if ( $key ) {
         $_GET['key'] = $key;
+
+        $from_city = get_query_var( 'from_city' );
+
+        if (!empty($from_city)) {
+            $_GET['from_city'] = $from_city;
+        }
+
+        $child_age = get_query_var( 'child_age' );
+
+        if (!empty($child_age)) {
+            $_GET['child_age'] = $child_age;
+        }
 
         global $ittour_global_tour_result;
 
