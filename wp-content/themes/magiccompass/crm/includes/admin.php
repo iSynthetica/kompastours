@@ -49,6 +49,15 @@ function crm_admin_menu() {
         'crm-clients',
         'crm_clients_admin_page'
     );
+
+    add_submenu_page(
+        'crm-page',
+        __('Moi Turisty Page', 'snthwp'),
+        __('Moi Turisty', 'snthwp'),
+        'manage_options',
+        'crm-moi-turisty',
+        'crm_moi_turisty_admin_page'
+    );
 }
 add_action( 'admin_menu', 'crm_admin_menu' );
 
@@ -78,6 +87,14 @@ function crm_clients_admin_page() {
     ?>
     <div class="wrap">
         <?php crm_show_template('admin/clients.php'); ?>
+    </div>
+    <?php
+}
+
+function crm_moi_turisty_admin_page() {
+    ?>
+    <div class="wrap">
+        <?php crm_show_template('admin/moi-turisty.php'); ?>
     </div>
     <?php
 }
