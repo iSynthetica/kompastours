@@ -10,21 +10,24 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-//$allowed_actions = array (
-//    'add_new', 'edit'
-//);
-//
-//if (
-//    empty($_GET['action']) ||
-//    !in_array($_GET['action'], $allowed_actions) ||
-//    ('edit' === $_GET['action'] && empty($_GET['user_id']))
-//) {
-//    crm_show_template('admin/clients-list.php');
-//} elseif ('add_new' === $_GET['action']) {
-//    crm_show_template('admin/clients-add-new.php');
-//} elseif ('edit' === $_GET['action']) {
-//    crm_show_template('admin/clients-edit.php', array('user_id' => $_GET['user_id']));
-//}
-?>
+$allowed_actions = array (
+    'add_new', 'edit'
+);
 
-MOI TURISTY
+?>
+<ul>
+    <li><a href="?page=crm-moi-turisty&tab=clients">Clients</a></li>
+    <li><a href="?page=crm-moi-turisty&tab=claims">Claims</a></li>
+</ul>
+<?php
+
+if (
+    empty($_GET['tab']) || $_GET['tab'] === 'clients'
+) {
+    crm_show_template('admin/moi-turisty-clients.php');
+} elseif ('claims' === $_GET['tab']) {
+    crm_show_template('admin/moi-turisty-claims.php');
+} elseif ('edit' === $_GET['action']) {
+    crm_show_template('admin/clients-edit.php', array('user_id' => $_GET['user_id']));
+}
+?>
