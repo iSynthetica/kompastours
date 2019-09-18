@@ -33,6 +33,7 @@ $show_array = array(
 <table class="wp-list-table widefat fixed striped pages">
     <thead>
     <tr>
+        <th>#</th>
         <?php foreach ($entity_fields as $i => $entity_field) {
             if (in_array($i, $show_array)) {
                 ?><th><?php echo $entity_field ?></th><?php
@@ -43,9 +44,11 @@ $show_array = array(
 
     <tbody id="the-list">
     <?php
+    $num = 1;
     foreach ($entity_data as $entity_item) {
         ?>
         <tr>
+            <td><?php echo $num ?></td>
             <?php
             foreach ($entity_item as $i => $value) {
                 if (in_array($i, $show_array)) {
@@ -57,6 +60,7 @@ $show_array = array(
             ?>
         </tr>
         <?php
+        $num++;
     }
     ?>
     </tbody>
