@@ -134,3 +134,111 @@ function crm_moi_turisty_get_client_tags($client_id) {
 
     return $client_tags_names;
 }
+
+function crm_moi_turisty_get_client_claims($client_id) {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+
+    $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/claims.json');
+    $entity_decoded = json_decode($entity, true);
+    $entity_fields = $entity_decoded['struct'];
+    $entity_data = $entity_decoded['data'];
+    $client_claims = array();
+
+    if (!empty($entity_data)) {
+        foreach ($entity_data as $data) {
+            if ((int)$data['ci'] == (int)$client_id) {
+                $client_claims[$data['i']] = $data;
+            }
+        }
+    }
+
+    return $client_claims;
+}
+
+function crm_moi_turisty_get_claims_by_client_id() {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+
+    $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/claims.json');
+    $entity_decoded = json_decode($entity, true);
+    $entity_fields = $entity_decoded['struct'];
+    $entity_data = $entity_decoded['data'];
+    $client_claims = array();
+
+    if (!empty($entity_data)) {
+        foreach ($entity_data as $data) {
+            $client_claims[$data['ci']][] = $data;
+        }
+    }
+
+    return $client_claims;
+}
+
+/**
+ *
+ */
+function crm_moi_turisty_get_clients_ids_by_tags() {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+
+    $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/clients_tags.json');
+    $entity_decoded = json_decode($entity, true);
+    $entity_fields = $entity_decoded['struct'];
+    $entity_data = $entity_decoded['data'];
+
+    $tags_array = array();
+
+    if (!empty($entity_data)) {
+        foreach ($entity_data as $data) {
+            $tags_array[$data['ti']][] = $data['ci'];
+        }
+    }
+
+    return $tags_array;
+}
+
+function crm_moi_turisty_get_tags_names_by_id() {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+
+    $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/tf_tags.json');
+    $entity_decoded = json_decode($entity, true);
+    $entity_fields = $entity_decoded['struct'];
+    $entity_data = $entity_decoded['data'];
+
+    $tags_array = array();
+
+    if (!empty($entity_data)) {
+        foreach ($entity_data as $data) {
+            $tags_array[$data['i']] = $data['n'];
+        }
+    }
+
+    return $tags_array;
+}
+
+function crm_moi_turisty_get_clients_data_by_id($sort = 'DESC', $client_id = null) {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+    $clients = $response = file_get_contents($upload_dir_path . '/moi-turisty/clients.json');
+
+    $clients_decoded = json_decode($clients, true);
+    $clients_fields = $clients_decoded['struct'];
+
+    if ('DESC' === $sort) {
+        $clients_data = array_reverse($clients_decoded['data']);
+    }
+
+    $clients_array = array();
+
+    $clients_array['struct'] = $clients_fields;
+
+    if (!empty($clients_data)) {
+        foreach ($clients_data as $data) {
+            $clients_array['data'][$data['i']] = $data;
+        }
+    }
+
+    return $clients_array;
+}

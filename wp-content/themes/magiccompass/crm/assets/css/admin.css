@@ -152,3 +152,29 @@
     background-color: #fff;
     border-top: 1px solid #ccc;
 }
+
+.crm-filter-container {
+    padding: 10px 15px;
+}
+
+.crm-tag-item {
+    color: #777;
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 8px;
+    border:1px solid #ccc;
+    border-radius: 3px;
+    background-color:#fff;
+    margin-bottom: 3px;
+    text-decoration: none;
+}
+.crm-tag-item.crm-remove-tag-item:hover {
+    color: #771112;
+    border:1px solid #b4191c;
+}
+.crm-tag-item.crm-add-tag-item:hover {
+    color: #0f7734;
+    border:1px solid #17b54f;
+}

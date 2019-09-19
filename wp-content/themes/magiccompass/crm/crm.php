@@ -10,7 +10,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define('CRM_VERSION', '0.0.2');
+define('CRM_VERSION', '0.0.3');
 define('CRM_ABSPATH', dirname(__FILE__));
 
 define('CRM_USER_NAME', __('User', 'snthwp'));

@@ -18,13 +18,9 @@ $entity_decoded = json_decode($entity, true);
 $entity_fields = $entity_decoded['struct'];
 $entity_data = $entity_decoded['data'];
 
-$tf_tags = $response = file_get_contents($upload_dir_path . '/moi-turisty/tf_tags.json');
+var_dump(crm_moi_turisty_get_tags_names_by_id());
+var_dump(crm_moi_turisty_get_clients_ids_by_tags());
 
-$tf_tags_decoded = json_decode($tf_tags, true);
-$tf_tags_fields = $tf_tags_decoded['struct'];
-$tf_tags_data = $tf_tags_decoded['data'];
-
-var_dump($tf_tags_data);
 var_dump($entity_fields);
 
 $show_array = array(
