@@ -98,3 +98,23 @@ function crm_moi_turisty_admin_page() {
     </div>
     <?php
 }
+
+function crm_moi_turisty_get_client_tags($client_id) {
+    $upload_dir = wp_get_upload_dir();
+    $upload_dir_path = $upload_dir['basedir'];
+    $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/clients_tags.json');
+    $entity_decoded = json_decode($entity, true);
+    $entity_fields = $entity_decoded['struct'];
+    $entity_data = $entity_decoded['data'];
+    $client_tags_id = array();
+
+    if (!empty($entity_data)) {
+        foreach ($entity_data as $data) {
+            if ((int)$data['ci'] == (int)$client_id) {
+                $client_tags_id[] = $data['ti'];
+            }
+        }
+    }
+
+    return $client_tags_id;
+}
