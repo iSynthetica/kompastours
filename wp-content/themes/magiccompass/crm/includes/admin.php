@@ -102,11 +102,19 @@ function crm_moi_turisty_admin_page() {
 function crm_moi_turisty_get_client_tags($client_id) {
     $upload_dir = wp_get_upload_dir();
     $upload_dir_path = $upload_dir['basedir'];
+
     $entity = $response = file_get_contents($upload_dir_path . '/moi-turisty/clients_tags.json');
     $entity_decoded = json_decode($entity, true);
     $entity_fields = $entity_decoded['struct'];
     $entity_data = $entity_decoded['data'];
+
+    $tf_tags = $response = file_get_contents($upload_dir_path . '/moi-turisty/tf_tags.json');
+    $tf_tags_decoded = json_decode($tf_tags, true);
+    $tf_tags_fields = $tf_tags_decoded['struct'];
+    $tf_tags_data = $tf_tags_decoded['data'];
+
     $client_tags_id = array();
+    $client_tags_names = array();
 
     if (!empty($entity_data)) {
         foreach ($entity_data as $data) {
@@ -116,5 +124,13 @@ function crm_moi_turisty_get_client_tags($client_id) {
         }
     }
 
-    return $client_tags_id;
+    if (!empty($client_tags_id) && !empty($tf_tags_data)) {
+        foreach ($tf_tags_data as $tag_data) {
+            if (in_array($tag_data['i'], $client_tags_id)) {
+                $client_tags_names[$tag_data['i']] = $tag_data['n'];
+            }
+        }
+    }
+
+    return $client_tags_names;
 }
