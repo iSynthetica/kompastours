@@ -64,3 +64,19 @@ function crm_start_claim() {
     wp_die();
 }
 add_action( 'wp_ajax_crm_ajax_start_claim', 'crm_start_claim' );
+
+function crm_moi_turisty_download_csv() {
+    $only_mail = $_POST['onlyMail'];
+    $tag_id = $_POST['tagId'];
+
+
+//    $response = array('success' => 1, 'error' => 0, 'message' => 'Success');
+//
+//    echo json_encode($response);
+
+    header("Content-type: text/x-csv");
+    header("Content-Disposition: attachment; filename=search_results.csv");
+    wp_die();
+}
+
+add_action( 'wp_ajax_crm_ajax_moi_turisty_download_csv', 'crm_moi_turisty_download_csv' );

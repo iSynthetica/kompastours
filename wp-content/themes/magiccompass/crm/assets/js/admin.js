@@ -73,6 +73,44 @@
         });
     });
 
+    $(document.body).on('click', '#download_csv', function() {
+        var btn = $(this);
+        var onlyMail = btn.data('only-mail');
+        var tagId = btn.data('tag-id');
+
+        $.ajax({
+            url: ajaxurl,
+            method: 'post',
+            data: {
+                action: 'crm_ajax_moi_turisty_download_csv',
+                onlyMail: onlyMail,
+                tagId: tagId,
+            },
+            success: function (response) {
+                // var decoded;
+                //
+                // try {
+                //     decoded = $.parseJSON(response);
+                // } catch(err) {
+                //     console.log(err);
+                //     decoded = false;
+                // }
+                //
+                // if (decoded) {
+                //     if (decoded.success) {
+                //         // alert(decoded.message);
+                //         // var fragments = decoded.message.fragments;
+                //         // updateFragments(fragments);
+                //     } else {
+                //         alert(decoded.message);
+                //     }
+                // } else {
+                //     alert('Something went wrong');
+                // }
+            }
+        });
+    });
+
     $(document).ready(function() {
 
     });

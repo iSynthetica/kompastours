@@ -86,9 +86,42 @@ function ittour_rewrite_rule() {
     add_rewrite_tag( '%excursion-tour%', '(.*)' );
     add_rewrite_tag( '%date_from%', '(.*)' );
     add_rewrite_tag( '%date_till%', '(.*)' );
+
+    // add_rewrite_rule('^download-csv/(.*)/([^/]*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]&child_age=$matches[3]', 'top');
+    // add_rewrite_rule('^download-csv/(.*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]', 'top');
+    add_rewrite_rule('^download-file/(.*)/([^/]*)/([^/]*)/?', 'index.php?file_format=$matches[1]&only_mail=$matches[2]&tag_id=$matches[3]', 'top');
+    add_rewrite_rule('^download-file/(.*)/?', 'index.php?file_format=$matches[1]', 'top');
+    add_rewrite_tag( '%file_format%', '(.*)' );
+    add_rewrite_tag( '%only_mail%', '(.*)' );
+    add_rewrite_tag( '%tag_id%', '(.*)' );
 }
 
 add_action( 'template_redirect', function() {
+    $file_format = get_query_var( 'file_format' );
+
+    if ($file_format) {
+        $_GET['file_format'] = $file_format;
+
+        $only_mail = get_query_var( 'only_mail' );
+        $tag_id = get_query_var( 'tag_id' );
+
+        if ($only_mail) {
+            $_GET['only_mail'] = $only_mail;
+        } else {
+            $_GET['only_mail'] = 'no';
+        }
+
+        if ($tag_id) {
+            $_GET['tag_id'] = $tag_id;
+        } else {
+            $_GET['tag_id'] = 'no';
+        }
+
+        include SNTH_DIR . '/templates/download.php';
+        die;
+    }
+
+
     $key = get_query_var( 'tour' );
 
     if ( $key ) {

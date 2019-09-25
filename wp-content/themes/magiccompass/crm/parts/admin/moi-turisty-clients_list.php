@@ -50,6 +50,12 @@ $show_array = array(
 ?>
 <h2><?php _e('Clients'); ?> (<?php echo count($clients_data); ?>)</h2>
 
+<div>
+    <a target="_blank" href="<?php echo get_site_url() ?>/download-file/csv/<?php echo $only_mail ? 'yes' : 'no' ?>/<?php echo !empty($tag_id) ? $tag_id : 'no'; ?>" class="button button-primary" data-only-mail="<?php echo $only_mail ? '1' : '0' ?>" data-tag-id="<?php echo $tag_id ?>">
+        <?php _e('Download CSv'); ?>
+    </a>
+</div>
+
 <?php
 if (!empty($tag_id) || !empty($only_mail)) {
     ?>
