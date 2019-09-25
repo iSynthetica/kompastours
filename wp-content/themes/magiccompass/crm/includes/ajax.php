@@ -152,19 +152,20 @@ function print_csv()
     $output .= PHP_EOL;
 
     foreach ($clients_data as $client_id => $client_data) {
+
+        if ($tag_id && !in_array($client_id, $clients_only_tags)) {
+            continue;
+        }
+
+        if ($only_mail) {
+            if (empty($client_data['m'])) {
+                continue;
+            }
+        }
+
         $i = 1;
         $num = count($show_array);
         foreach ($show_array as $field_i) {
-
-            if ($tag_id && !in_array($client_id, $clients_only_tags)) {
-                continue;
-            }
-
-            if ($only_mail) {
-                if (empty($client_data['m'])) {
-                    continue;
-                }
-            }
 
             $output .= '"' . $client_data[$field_i] . '"';
 
