@@ -49,12 +49,6 @@ $show_array = array(
 );
 ?>
 <h2><?php _e('Clients'); ?> (<?php echo count($clients_data); ?>)</h2>
-
-<div>
-    <a target="_blank" href="<?php echo get_site_url() ?>/download-file/csv/<?php echo $only_mail ? 'yes' : 'no' ?>/<?php echo !empty($tag_id) ? $tag_id : 'no'; ?>" class="button button-primary" data-only-mail="<?php echo $only_mail ? '1' : '0' ?>" data-tag-id="<?php echo $tag_id ?>">
-        <?php _e('Download CSv'); ?>
-    </a>
-</div>
 <div>
     <?php
     $path = 'admin-post.php?action=print.csv';
@@ -71,8 +65,8 @@ $show_array = array(
         $path .= '&tag_id=no';
     }
     ?>
-    <a target="_blank" href="<?php echo admin_url( $path ) ?>" class="button button-primary" data-only-mail="<?php echo $only_mail ? '1' : '0' ?>" data-tag-id="<?php echo $tag_id ?>">
-        <?php _e('Download CSv'); ?>
+    <a target="_blank" href="<?php echo admin_url( $path ) ?>" class="button button-primary">
+        <?php _e('Download CSV'); ?>
     </a>
 </div>
 
