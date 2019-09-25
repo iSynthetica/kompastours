@@ -1,6 +1,7 @@
 <?php
 header("Content-type: text/x-csv");
 header("Content-Disposition: attachment; filename=search_results.csv");
+exit();
 $only_mail = !empty($_GET['only_mail']) ? $_GET['only_mail'] : false;
 
 if ($only_mail && 'no' === $only_mail) {
@@ -47,7 +48,6 @@ $show_array = array(
 
 $output = '';
 
-ob_start();
 $i = 1;
 $num = count($show_array);
 foreach ($show_array as $field_i) {
@@ -75,8 +75,6 @@ foreach ($clients_data as $client_id => $client_data) {
     }
     $output .= PHP_EOL;
 }
-
-$data = ob_get_clean();
 
 echo $output;
 exit();

@@ -55,6 +55,26 @@ $show_array = array(
         <?php _e('Download CSv'); ?>
     </a>
 </div>
+<div>
+    <?php
+    $path = 'admin-post.php?action=print.csv';
+
+    if ($only_mail) {
+        $path .= '&only_mail=yes';
+    } else {
+        $path .= '&only_mail=no';
+    }
+
+    if (!empty($tag_id)) {
+        $path .= '&tag_id=' . $tag_id;
+    } else {
+        $path .= '&tag_id=no';
+    }
+    ?>
+    <a target="_blank" href="<?php echo admin_url( $path ) ?>" class="button button-primary" data-only-mail="<?php echo $only_mail ? '1' : '0' ?>" data-tag-id="<?php echo $tag_id ?>">
+        <?php _e('Download CSv'); ?>
+    </a>
+</div>
 
 <?php
 if (!empty($tag_id) || !empty($only_mail)) {
