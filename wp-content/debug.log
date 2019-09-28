@@ -29,3 +29,367 @@
 [25-Sep-2019 15:13:25 UTC] 1.453057050705 ms
 [25-Sep-2019 15:13:26 UTC] 0.038733959197998 ms
 [25-Sep-2019 17:19:22 UTC] 0.04204797744751 ms
+[26-Sep-2019 09:19:17 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:19:17 UTC] PHP Stack trace:
+[26-Sep-2019 09:19:17 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:19:17 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:19:17 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:19:17 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:19:17 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:19:17 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:19:17 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:19:17 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:20:48 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:20:48 UTC] PHP Stack trace:
+[26-Sep-2019 09:20:48 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:20:48 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:20:48 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:20:48 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:20:48 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:20:48 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:20:48 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:20:48 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:21:17 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:21:17 UTC] PHP Stack trace:
+[26-Sep-2019 09:21:17 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:21:17 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:21:17 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:21:17 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:21:17 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:21:17 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:21:17 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:21:17 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:22:48 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:22:48 UTC] PHP Stack trace:
+[26-Sep-2019 09:22:48 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:22:48 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:22:48 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:22:48 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:22:48 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:22:48 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:22:48 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:22:48 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:23:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:23:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:23:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:23:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:23:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:23:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:23:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:23:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:23:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:23:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:24:48 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:24:48 UTC] PHP Stack trace:
+[26-Sep-2019 09:24:48 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:24:48 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:24:48 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:24:48 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:24:48 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:24:48 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:24:48 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:24:48 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:25:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:25:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:25:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:25:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:25:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:25:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:25:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:25:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:25:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:25:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:26:49 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:26:49 UTC] PHP Stack trace:
+[26-Sep-2019 09:26:49 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:26:49 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:26:49 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:26:49 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:26:49 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:26:49 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:26:49 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:26:49 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:27:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:27:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:27:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:27:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:27:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:27:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:27:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:27:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:27:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:27:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:28:50 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:28:50 UTC] PHP Stack trace:
+[26-Sep-2019 09:28:50 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:28:50 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:28:50 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:28:50 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:28:50 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:28:50 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:28:50 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:28:50 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:29:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:29:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:29:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:29:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:29:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:29:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:29:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:29:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:29:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:29:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:30:51 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:30:51 UTC] PHP Stack trace:
+[26-Sep-2019 09:30:51 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:30:51 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:30:51 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:30:51 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:30:51 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:30:51 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:30:51 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:30:51 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:31:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:31:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:31:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:31:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:31:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:31:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:31:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:31:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:31:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:31:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:32:52 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:32:52 UTC] PHP Stack trace:
+[26-Sep-2019 09:32:52 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:32:52 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:32:52 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:32:52 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:32:52 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:32:52 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:32:52 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:32:52 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:33:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:33:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:33:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:33:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:33:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:33:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:33:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:33:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:33:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:33:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:34:53 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:34:53 UTC] PHP Stack trace:
+[26-Sep-2019 09:34:53 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:34:53 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:34:53 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:34:53 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:34:53 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:34:53 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:34:53 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:34:53 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:35:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:35:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:35:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:35:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:35:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:35:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:35:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:35:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:35:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:35:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:36:54 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:36:54 UTC] PHP Stack trace:
+[26-Sep-2019 09:36:54 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:36:54 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:36:54 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:36:54 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:36:54 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:36:54 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:36:54 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:36:54 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:37:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:37:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:37:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:37:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:37:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:37:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:37:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:37:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:37:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:37:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:38:55 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:38:55 UTC] PHP Stack trace:
+[26-Sep-2019 09:38:55 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:38:55 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:38:55 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:38:55 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:38:55 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:38:55 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:38:55 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:38:55 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:39:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:39:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:39:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:39:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:39:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:39:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:39:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:39:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:39:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:39:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:40:56 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:40:56 UTC] PHP Stack trace:
+[26-Sep-2019 09:40:56 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:40:56 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:40:56 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:40:56 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:40:56 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:40:56 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:40:56 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:40:56 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:41:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:41:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:41:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:41:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:41:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:41:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:41:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:41:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:41:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:41:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:42:57 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:42:57 UTC] PHP Stack trace:
+[26-Sep-2019 09:42:57 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:42:57 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:42:57 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:42:57 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:42:57 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:42:57 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:42:57 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:42:57 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:43:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:43:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:43:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:43:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:43:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:43:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:43:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:43:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:43:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:43:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:44:58 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:44:58 UTC] PHP Stack trace:
+[26-Sep-2019 09:44:58 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:44:58 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:44:58 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:44:58 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:44:58 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:44:58 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:44:58 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:44:58 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:45:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:45:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:45:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:45:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:45:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:45:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:45:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:45:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:45:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:45:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:46:58 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:46:58 UTC] PHP Stack trace:
+[26-Sep-2019 09:46:58 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:46:58 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:46:58 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:46:58 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:46:58 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:46:58 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:46:58 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:46:58 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:47:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:47:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:47:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:47:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:47:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:47:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:47:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:47:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:47:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:47:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:48:59 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:48:59 UTC] PHP Stack trace:
+[26-Sep-2019 09:48:59 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:48:59 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:48:59 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:48:59 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:48:59 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:48:59 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:48:59 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:48:59 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:49:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:49:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:49:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:49:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:49:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:49:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:49:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:49:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:49:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:49:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:51:00 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:51:00 UTC] PHP Stack trace:
+[26-Sep-2019 09:51:00 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:51:00 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:51:00 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:51:00 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:51:00 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:51:00 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:51:00 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:51:00 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:51:18 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:51:18 UTC] PHP Stack trace:
+[26-Sep-2019 09:51:18 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:51:18 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:51:18 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:51:18 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:51:18 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:51:18 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:51:18 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:51:18 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[26-Sep-2019 09:53:01 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): No such file or directory in /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php on line 1612
+[26-Sep-2019 09:53:01 UTC] PHP Stack trace:
+[26-Sep-2019 09:53:01 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:0
+[26-Sep-2019 09:53:01 UTC] PHP   2. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-ajax.php:22
+[26-Sep-2019 09:53:01 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-load.php:37
+[26-Sep-2019 09:53:01 UTC] PHP   4. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-config.php:80
+[26-Sep-2019 09:53:01 UTC] PHP   5. require_wp_db() /var/www/synthetica/magiccompass/ru/public_html/wp-settings.php:120
+[26-Sep-2019 09:53:01 UTC] PHP   6. wpdb->__construct($dbuser = *uninitialized*, $dbpassword = *uninitialized*, $dbname = *uninitialized*, $dbhost = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/load.php:427
+[26-Sep-2019 09:53:01 UTC] PHP   7. wpdb->db_connect($allow_bail = *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:639
+[26-Sep-2019 09:53:01 UTC] PHP   8. mysqli_real_connect(*uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*, *uninitialized*) /var/www/synthetica/magiccompass/ru/public_html/wp-includes/wp-db.php:1612
+[28-Sep-2019 16:07:28 UTC] 1.4762008190155 ms
+[28-Sep-2019 16:07:29 UTC] 0.036754131317139 ms
+[28-Sep-2019 16:15:06 UTC] 0.07285213470459 ms
+[28-Sep-2019 16:15:06 UTC] 0.056840896606445 ms
+[28-Sep-2019 16:20:04 UTC] 0.059102058410645 ms
+[28-Sep-2019 16:20:36 UTC] 0.061702013015747 ms
+[28-Sep-2019 16:20:41 UTC] 0.039488077163696 ms
+[28-Sep-2019 16:20:43 UTC] 0.038891077041626 ms
+[28-Sep-2019 16:21:31 UTC] 0.036389827728271 ms
+[28-Sep-2019 16:21:52 UTC] 0.033838033676147 ms
+[28-Sep-2019 16:24:07 UTC] 0.065822124481201 ms
+[28-Sep-2019 16:24:11 UTC] 0.046394824981689 ms
+[28-Sep-2019 16:24:16 UTC] 0.11033892631531 ms
+[28-Sep-2019 16:24:53 UTC] 0.059773921966553 ms
+[28-Sep-2019 16:25:19 UTC] 0.077357053756714 ms
+[28-Sep-2019 16:25:20 UTC] 0.079163074493408 ms
+[28-Sep-2019 16:28:01 UTC] 0.066330909729004 ms
+[28-Sep-2019 16:28:03 UTC] 0.079948902130127 ms
+[28-Sep-2019 16:28:04 UTC] 0.10506796836853 ms
+[28-Sep-2019 16:28:16 UTC] 0.070054054260254 ms
+[28-Sep-2019 16:28:17 UTC] 0.059257030487061 ms
+[28-Sep-2019 16:28:49 UTC] 0.046992778778076 ms
+[28-Sep-2019 16:28:52 UTC] 0.09333610534668 ms
+[28-Sep-2019 16:28:52 UTC] 0.065480947494507 ms
