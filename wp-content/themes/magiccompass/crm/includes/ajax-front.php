@@ -539,6 +539,8 @@ function ittour_ajax_find_me_tour() {
         $user_id = $user->ID;
     }
 
+    $data_for_email = $form_data_array;
+
     $form_data_array['client_id'] = $user_id;
     $form_data_array['claim_type'] = 'tour';
     $form_data_array['claim_step'] = 'tour_booking_request';
@@ -551,6 +553,7 @@ function ittour_ajax_find_me_tour() {
     unset($form_data_array['clientTelegram']);
 
     $claim_id = CRM_ClaimManager::create_new_booking_request($form_data_array);
+    $email_sent = CRM_ClaimManager::send_moituristy_email('tour_booking_request', $data_for_email);
     $fake_claim_id = $claim_id + CRM_Claim::$initial_claim_number;
 
     $success_message = crm_get_template('messages/request-success.php', array('claim_id' => $fake_claim_id));

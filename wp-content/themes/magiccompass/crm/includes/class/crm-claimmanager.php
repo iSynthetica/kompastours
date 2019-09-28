@@ -478,7 +478,7 @@ class CRM_ClaimManager {
 //        $message .= 'Даты: c 17.07.2019 - по 17.07.2019<br>';
 //        $message .= 'Бюджет: 20 000 грн<br>';
 //
-        $result = wp_mail( '2385@z.moituristy.com', $subject, $message . $tour_data, $headers );
+        $result = wp_mail( '24@z.agent.tat.ua', $subject, $message . $tour_data, $headers );
 
         return $result;
     }
