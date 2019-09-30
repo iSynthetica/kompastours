@@ -648,6 +648,11 @@
         padding: 20px 0 20px;
     }
 
+    .site-header.sticky nav.navbar.navbar-default.navbar-fixed-top ul.nav > li > button,
+    .site-header.sticky nav.navbar.navbar-default.navbar-top ul.nav > li > button {
+        margin-top: 13px;
+    }
+
     /* mega menu */
     nav .accordion-menu {
         position: initial;
@@ -1544,6 +1549,9 @@
         border-color: transparent;
         font-weight: 600;
         display: block;
+    }
+    nav.navbar.navbar-default ul.nav > li > button {
+        margin-top: 20px;
     }
     nav.navbar.navbar-default ul.nav > li.dropdown > a.dropdown-toggle::after, nav.navbar.sidebar-nav ul.nav > li.dropdown > a.dropdown-toggle::after {
         content: "";

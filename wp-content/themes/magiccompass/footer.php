@@ -25,6 +25,13 @@ $messangers = get_field('messangers', 'options');
         'messangers' => $messangers,
     )); ?>
 
+
+    <?php
+    $form_fields = ittour_get_form_fields();
+
+    ittour_show_template('general/form-find-me-tour.php', array('form_fields' => $form_fields));
+    ?>
+
     <?php wp_footer(); ?>
 
     </body>

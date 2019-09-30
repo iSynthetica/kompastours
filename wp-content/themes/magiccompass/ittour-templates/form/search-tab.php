@@ -354,16 +354,4 @@ $search_steps = get_field('timeline_items', 493);
             </div>
         </div>
     </form>
-
-    <div id="find-me-tour-form__holder">
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-3">
-                <button class="modal-popup btn size-xs bg-success-color shape-rnd font-weight-900 font-alt text-uppercase mb-0 size-extended" href="#find-me-tour-popup">
-                    <?php echo __('Find me a tour', 'snthwp'); ?>
-                </button>
-            </div>
-        </div>
-
-        <?php  ittour_show_template('general/form-find-me-tour.php', array('form_fields' => $form_fields)); ?>
-    </div>
 </div>

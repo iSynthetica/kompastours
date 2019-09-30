@@ -41,3 +41,15 @@ CREATE TABLE {$wpdb->prefix}ittour_sessions (
 
     dbDelta( $sql );
 }
+
+add_filter( 'wp_nav_menu_items', 'add_logout_link', 10, 2);
+
+/**
+ * Add a login link to the members navigation
+ */
+function add_logout_link( $items, $args )
+{
+    $items .= '<li><button href="#find-me-tour-popup" class="modal-popup btn size-xs bg-success-color font-weight-900 font-alt text-uppercase shape-rnd">'.__('Find me a tour', 'snthwp').'</button></li>';
+
+    return $items;
+}
