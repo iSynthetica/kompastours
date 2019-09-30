@@ -1714,7 +1714,7 @@ function ittour_show_toggle_mobile_header_footer($container, $prev = false, $nex
 
                 <button
                         type="submit"
-                        class="search-btn start_search btn bg-primary-color shape-rnd font-alt text-uppercase font-weight-900"
+                        class="search-btn start_search btn bg-success-color shape-rnd font-alt text-uppercase font-weight-900"
                         <?php echo $search_disabled ? ' disabled' : '';  ?>
                 ><?php echo __('Search', 'snthwp') ?></button>
         </div>

@@ -342,7 +342,7 @@ $search_steps = get_field('timeline_items', 493);
                             <div class="search-btn__holder">
                                 <button
                                     id="start_search"
-                                    class="btn shape-rnd bg-primary-color search-btn font-alt font-weight-900"
+                                    class="btn shape-rnd bg-success-color search-btn font-alt font-weight-900"
                                     type="submit"<?php echo empty($args['country']) ? ' disabled' : ''; ?>
                                 >
                                     <?php echo __('Search', 'snthwp') ?>

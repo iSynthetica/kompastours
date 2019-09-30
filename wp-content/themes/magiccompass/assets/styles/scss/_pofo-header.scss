@@ -569,7 +569,7 @@
         color: #232323;
         font-size: 12px;
         font-weight: 800;
-        margin: 0 20px;
+        margin: 0 14px;
         padding: 5px 0px 5px;
         text-transform: uppercase;
         letter-spacing: 0.015em;
@@ -1543,6 +1543,12 @@
     }
 
     /* dropdown menu */
+    nav.navbar.navbar-default.background-transparent {
+        background: rgba(0, 0, 0, 0.1);
+    }
+    .sticky nav.navbar.navbar-default.background-transparent.header-light {
+        background: #ffffff;
+    }
     nav.navbar.navbar-default ul.nav > li > a {
         padding: 26px 0;
         background: transparent;

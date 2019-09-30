@@ -49,7 +49,7 @@ add_filter( 'wp_nav_menu_items', 'add_logout_link', 10, 2);
  */
 function add_logout_link( $items, $args )
 {
-    $items .= '<li><button href="#find-me-tour-popup" class="modal-popup btn size-xs bg-success-color font-weight-900 font-alt text-uppercase shape-rnd">'.__('Find me a tour', 'snthwp').'</button></li>';
+    $items .= '<li><button href="#find-me-tour-popup" class="modal-popup btn size-xs bg-primary-color font-weight-900 font-alt text-uppercase shape-rnd">'.__('Find me a tour', 'snthwp').'</button></li>';
 
     return $items;
 }

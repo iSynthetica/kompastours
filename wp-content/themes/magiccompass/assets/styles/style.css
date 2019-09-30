@@ -19813,7 +19813,7 @@ a.btn_login:hover, .btn_login:hover {
     color: #232323;
     font-size: 12px;
     font-weight: 800;
-    margin: 0 20px;
+    margin: 0 14px;
     padding: 5px 0px 5px;
     text-transform: uppercase;
     letter-spacing: 0.015em; }
@@ -20564,6 +20564,10 @@ a.btn_login:hover, .btn_login:hover {
     width: 40px;
     height: 40px;
     color: #232323; }
+  .pf-body nav.navbar.navbar-default.background-transparent {
+    background: rgba(0, 0, 0, 0.1); }
+  .pf-body .sticky nav.navbar.navbar-default.background-transparent.header-light {
+    background: #ffffff; }
   .pf-body nav.navbar.navbar-default ul.nav > li > a {
     padding: 26px 0;
     background: transparent;
