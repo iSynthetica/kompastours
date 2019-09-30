@@ -39,7 +39,7 @@
 }
 
 .footer-classic {
-    padding-bottom: rem-calc(36);
+    padding-bottom: rem-calc(72);
 
     @media (min-width: 768px) {
         padding-bottom: 0;
@@ -47,7 +47,7 @@
 }
 
 #contact-actions__holder {
-    z-index: 1000;
+    z-index: 200005 !important;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -81,7 +81,7 @@
 
 .phones-active {
     #phones-actions__holder {
-        bottom: rem-calc(36);
+        bottom: rem-calc(64);
         transform: translateY(0%);
 
         .phones-actions__close {
@@ -96,16 +96,15 @@
     background: #878787;
     line-height: 28px;
     display: none;
-    height: 30px;
-    width: 30px;
+    height: 36px;
+    width: 36px;
     padding: 0;
     position: fixed;
-    right: rem-calc(10);
+    right: rem-calc(0);
     text-align: center;
     text-decoration: none;
-    bottom: rem-calc(46);
-    z-index: 10006;
-    border-radius: 100%;
+    bottom: rem-calc(0);
+    z-index: 200009 !important;
 }
 
 .scroll-top-arrow:hover {
@@ -116,6 +115,6 @@
 }
 
 .scroll-top-arrow i {
-    line-height: 30px;
+    line-height: 36px;
     position: relative;
 }

@@ -42,6 +42,13 @@ if (!empty($messangers)) {
                     <?php _e('Write Us', 'snthwp') ?>
                 </a>
             </div>
+
+            <div class="col-12">
+                <button href="#find-me-tour-popup" type="button" class="modal-popup btn size-sm bg-primary-color size-extended mb-0 font-alt font-weight-900">
+                    <i class="far fa-question-circle"></i>
+                    <?php _e('Find me a tour', 'snthwp') ?>
+                </button>
+            </div>
         </div>
     </div>
 

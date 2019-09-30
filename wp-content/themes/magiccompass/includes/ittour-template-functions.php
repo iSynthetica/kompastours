@@ -128,8 +128,8 @@ function ittour_get_form_fields($args = array()) {
         }
     }
 
-    $end = microtime(true) - $start;
-    error_log($end . ' ms');
+//    $end = microtime(true) - $start;
+//    error_log($end . ' ms');
 
     return $form_fields;
 }
