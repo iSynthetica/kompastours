@@ -10,6 +10,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+global $post;
+
 $template_args = array(
     'type' => 1,
     'country' => $country_id,
@@ -44,7 +46,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 
-<section id="recomended-tours__section" class="ptb-40">
+<section id="recomended-tours__section" class="pb-40">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -59,6 +61,19 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 </section>
 
 <?php
+if (!empty($post->post_content)) {
+    ?>
+    <section id="recomended-tours__section" class="ptb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <?php the_content(); ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php
+}
 if (!empty($popular_regions)) {
     ?>
     <section id="popular-regions__section" class="ptb-40 bg-gray-10-color">
