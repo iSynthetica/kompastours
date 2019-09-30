@@ -31,7 +31,8 @@ if (empty($phones)) {
         <?php
     }
 
-    if (!empty($schedule)) {
+    // if (false !empty($schedule)) {
+    if (false) {
         foreach ($schedule as $item) {
             if (!empty($item['description']) && !empty($item['time'])) {
                 ?>

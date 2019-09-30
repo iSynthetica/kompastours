@@ -24895,13 +24895,14 @@ ul.list_order li span {
 
 /* Position  breadcrumbs */
 #position {
-  background-color: #333;
+  background-color: #e87542;
   padding: 10px 0;
-  font-size: 11px; }
+  font-size: 14px;
+  font-family: 'Open Sans Condensed', sans-serif; }
   #position ul {
     margin: 0;
     padding: 0;
-    color: #888; }
+    color: #fefefe; }
     #position ul li {
       display: inline-block;
       position: relative; }
@@ -24909,10 +24910,11 @@ ul.list_order li span {
         padding-left: 5px;
         padding-right: 5px; }
       #position ul li a {
-        color: #fff;
-        opacity: 0.7; }
+        color: #fefefe;
+        opacity: 0.8;
+        font-weight: 700; }
         #position ul li a:hover {
-          color: #fff;
+          color: #fefefe;
           opacity: 1; }
 
 /*Banners*/
