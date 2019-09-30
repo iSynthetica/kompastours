@@ -22,7 +22,7 @@ $country = $result['hotels'][0]['country'];
 
                 unset ($hotel['offers'][0]);
                 ?>
-                <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="<?php echo $seconds ?>s">
+                <div class="col-lg-4 col-md-6">
                     <div class="tour_container tour-grid__container">
                         <div class="img_container">
                             <img src="<?php echo SNTH_IMAGES_URL; ?>/tours/tour_box_1.jpg" width="800" height="533" class="img-fluid" alt="Image">

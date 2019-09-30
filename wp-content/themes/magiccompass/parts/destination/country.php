@@ -46,7 +46,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 
-<section id="recomended-tours__section" class="pb-40">
+<section id="recomended-tours__section" class="ptb-40">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -63,7 +63,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 <?php
 if (!empty($post->post_content)) {
     ?>
-    <section id="recomended-tours__section" class="ptb-40">
+    <section id="recomended-tours__section" class="pb-40">
         <div class="container">
             <div class="row">
                 <div class="col-12">

@@ -29,9 +29,9 @@ $template_args = array(
                 <img src="<?php echo SNTH_IMAGES_URL; ?>/placeholder-520x346.png" class="img-fluid" alt="Image">
 
                 <?php
-                if (!empty($hotel['images'][0]['full'])) {
+                if (!empty(get_the_post_thumbnail_url($region->ID))) {
                     ?>
-                    <div class="img-overlay" style="background-image: url('<?php echo $hotel['images'][0]['full'] ?>')"></div>
+                    <div class="img-overlay" style="background-image: url('<?php echo get_the_post_thumbnail_url($region->ID, 'full') ?>')"></div>
                     <?php
                 }
                 ?>

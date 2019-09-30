@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="tour_list_container wow fadeIn mt-20 mb-20" data-wow-delay="<?php echo $delay; ?>s">
+<div class="tour_list_container mt-20 mb-20">
 
     <div class="tour-list-item">
         <div class="row">
