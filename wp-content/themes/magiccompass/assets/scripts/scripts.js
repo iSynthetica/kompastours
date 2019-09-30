@@ -27749,6 +27749,23 @@ observer.observe();
         });
     });
 
+    $('body').click(function (event) {
+        if(
+            !$(event.target).closest('.form-data-toggle-target').length &&
+            !$(event.target).hasClass('form-data-toggle-target') &&
+            !$(event.target).hasClass('form-data-toggle-control') &&
+            !$(event.target).hasClass('form-data-toggle-control-icon'))
+        {
+            var openedSearchModal = $('.form-data-toggle-target.active');
+
+            if (openedSearchModal.length > 0) {
+                openedSearchModal.removeClass('active').hide('0', function() {
+                    $('body').removeClass('toggle-is-active');
+                });
+            }
+        }
+    });
+
     $(document).ready(function() {});
 
     $(window).on('load', function () {});

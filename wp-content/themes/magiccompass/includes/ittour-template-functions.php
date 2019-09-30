@@ -462,7 +462,7 @@ function ittour_get_filter_summary_field($args) {
     <div id="filter_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
         <div class="input-group input-group__style-1">
             <div class="input-group-prepend">
-                <span class="btn btn-light"><i class="fas fa-sliders-h"></i></span>
+                <span class="btn btn-light"><i class="fas fa-sliders-h form-data-toggle-control-icon"></i></span>
             </div>
 
             <input id="filter_summary"

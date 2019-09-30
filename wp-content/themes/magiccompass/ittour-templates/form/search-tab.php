@@ -289,7 +289,7 @@ $search_steps = get_field('timeline_items', 493);
 
                             <div class="d-none d-md-block">
                                 <button id="filter_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section"<?php echo empty($args['country']) ? ' disabled' : ''; ?>>
-                                    <i class="fas fa-sliders-h"></i>
+                                    <i class="fas fa-sliders-h form-data-toggle-control-icon"></i>
                                 </button>
                             </div>
 

@@ -404,3 +404,44 @@
 [30-Sep-2019 10:13:54 UTC] 1.6847259998322 ms
 [30-Sep-2019 10:17:05 UTC] 1.9902050495148 ms
 [30-Sep-2019 10:17:24 UTC] 1.7391829490662 ms
+[30-Sep-2019 10:30:26 UTC] 1.7851219177246 ms
+[30-Sep-2019 10:42:12 UTC] 5.9910399913788 ms
+[30-Sep-2019 10:42:48 UTC] 0.022264957427979 ms
+[30-Sep-2019 10:42:49 UTC] 0.037687063217163 ms
+[30-Sep-2019 10:43:22 UTC] 1.8314797878265 ms
+[30-Sep-2019 10:43:26 UTC] 0.050365924835205 ms
+[30-Sep-2019 10:43:27 UTC] 0.1244580745697 ms
+[30-Sep-2019 10:55:30 UTC] 0.065667152404785 ms
+[30-Sep-2019 10:55:30 UTC] 0.059854984283447 ms
+[30-Sep-2019 10:56:20 UTC] 1.8627400398254 ms
+[30-Sep-2019 10:56:22 UTC] 0.063594102859497 ms
+[30-Sep-2019 10:56:23 UTC] 0.14847779273987 ms
+[30-Sep-2019 10:56:53 UTC] 1.6682729721069 ms
+[30-Sep-2019 10:56:55 UTC] 0.043810129165649 ms
+[30-Sep-2019 10:56:57 UTC] 0.13724684715271 ms
+[30-Sep-2019 10:57:00 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/tour-grid-default.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(1507): ittour_show_template('search/tour-gri...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(178): ittour_get_tours_grid(338, Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_get_tours_list('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/syn in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/tour-grid-default.php on line 9
+[30-Sep-2019 10:58:05 UTC] 2.0353858470917 ms
+[30-Sep-2019 10:58:07 UTC] 0.052230834960938 ms
+[30-Sep-2019 10:58:09 UTC] 0.11500787734985 ms
+[30-Sep-2019 10:58:11 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/tour-grid-default.php:9
+Stack trace:
+#0 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(28): include()
+#1 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php(1507): ittour_show_template('search/tour-gri...', Array)
+#2 /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-ajax.php(178): ittour_get_tours_grid(338, Array)
+#3 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(286): ittour_ajax_get_tours_list('')
+#4 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#5 /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#6 /var/www/syn in /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/search/tour-grid-default.php on line 9
+[30-Sep-2019 11:01:33 UTC] 2.2755608558655 ms
+[30-Sep-2019 11:01:35 UTC] 0.047652006149292 ms
+[30-Sep-2019 11:01:36 UTC] 0.090569972991943 ms
+[30-Sep-2019 11:02:15 UTC] 0.067739963531494 ms
+[30-Sep-2019 11:02:15 UTC] 0.057240009307861 ms
