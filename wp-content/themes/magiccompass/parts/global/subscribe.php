@@ -14,7 +14,7 @@ $subscribe = get_field('subscribe', 'options');
 
 if (!empty($subscribe)) {
     ?>
-    <section id="subscribe" class="ptb-20 ptb-md-40 ptb-lg-60 bg-gray-10-color">
+    <section id="subscribe" class="ptb-20 bg-orange-color">
         <div class="container">
             <?php
             if (!empty($subscribe['title'] || !empty($subscribe['text']))) {
@@ -24,13 +24,13 @@ if (!empty($subscribe)) {
                         <?php
                         if (!empty($subscribe['title'])) {
                             ?>
-                            <h2 class="text-center mt-0 mb-20 font-weight-600"><?php echo $subscribe['title'] ?></h2>
+                            <h2 class="text-center mt-0 mb-10 font-weight-600 txt-white-color"><?php echo $subscribe['title'] ?></h2>
                             <?php
                         }
 
                         if (!empty($subscribe['text'])) {
                             ?>
-                            <p class="text-center mt-0 mb-20 mb-md-40"><?php echo $subscribe['text'] ?></p>
+                            <p class="text-center mt-0 mb-20 txt-white-color"><?php echo $subscribe['text'] ?></p>
                             <?php
                         }
                         ?>

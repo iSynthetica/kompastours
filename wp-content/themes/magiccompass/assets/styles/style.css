@@ -21608,7 +21608,7 @@ a.btn_login:hover, .btn_login:hover {
       display: none; } }
 
 .toggle-is-active #contact-actions__holder {
-  z-index: 1; }
+  z-index: 1 !important; }
 
 #phones-actions__holder {
   width: 100%;

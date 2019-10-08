@@ -42,7 +42,7 @@ snth_show_template('breadcrumbs.php');
 ?>
 
 <div class="wrap">
-    <div class="container margin_60">
+    <div class="container ptb-20 ptb-md-40 ptb-lg-60">
         <div class="row">
             <?php
             if ( 'right-sidebar' === $template ) {
