@@ -38,7 +38,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
             'hotel_rating'  => '78:4',
             'tour_type'     => 1,
             'tour_kind'     => 1,
-            'meal_type'     => '560:512:498',
+            'meal_type'     => '560:512:498:496:388:1956',
         ));
         ?>
     </div>
