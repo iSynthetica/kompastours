@@ -6,8 +6,20 @@
  * Time: 16:29
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+
+if (!empty($country_info)) {
+    $country_url = get_permalink($country_info['ID']);
+    $country_title = '<a target="_blank" href="'.$country_url.'">'.$hotel['country'].'</a>';
+} else {
+    $country_title = $hotel['country'];
+}
+
+if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
+    $region_url = get_permalink($regions_info[$hotel["region_id"]]['ID']);
+    $region_title = '<a target="_blank" href="'.$region_url.'">'.$hotel['region'].'</a>';
+} else {
+    $region_title = $hotel['region'];
 }
 ?>
 
@@ -41,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <strong><?php echo $hotel['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating']); ?></strong>
                             </h3>
 
-                            <div class="hotel_location"><?php echo $hotel['country'] . ', ' .$hotel['region']; ?></div>
+                            <div class="hotel_location"><?php echo $country_title . ', ' .$region_title; ?></div>
                         </div>
                     </div>
                 </div>
@@ -65,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <strong><?php echo $hotel['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating']); ?></strong>
                             </h3>
 
-                            <div class="hotel_location"><?php echo $hotel['country'] . ', ' .$hotel['region']; ?></div>
+                            <div class="hotel_location"><?php echo $country_title . ', ' .$region_title; ?></div>
                         </div>
                     </div>
 
@@ -186,12 +198,27 @@ if ( ! defined( 'ABSPATH' ) ) {
                                     </div>
 
                                     <div class="col-lg-12 col-5">
-                                        <a
-                                                href="/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
-                                                class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
-                                        >
-                                            <?php echo __('Details', 'snthwp'); ?>
-                                        </a>
+                                        <?php
+                                        if (false) {
+                                            ?>
+                                            <a
+                                                    href="/countries/<?php echo $country_info['slug'] ?>/region/hotel/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
+                                                    class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
+                                            >
+                                                <?php echo __('Details', 'snthwp'); ?>
+                                            </a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a
+                                                    href="/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
+                                                    class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
+                                            >
+                                                <?php echo __('Details', 'snthwp'); ?>
+                                            </a>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
 
                                     <?php

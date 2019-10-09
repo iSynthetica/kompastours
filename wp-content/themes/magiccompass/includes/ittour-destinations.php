@@ -63,6 +63,81 @@ function ittour_update_country($post_id, $name, $slug, $id, $iso, $group, $type,
     return $post_id;
 }
 
+function ittour_get_region($region_id) {
+    $region = null;
+    $region_en = null;
+
+    $params_obj = ittour_params(ITTOUR_LANG);
+    $params = $params_obj->get();
+    $regions = $params['regions'];
+
+    $params_obj_en = ittour_params('en');
+    $params_en = $params_obj_en->get();
+    $regions_en = $params_en['regions'];
+
+    foreach ($regions as $key => $region_data) {
+        if ((int)$region_data['id'] === (int) $region_id) {
+            $region = $region_data;
+            $region_en = $regions_en[$key];
+
+            if ((int)$region_en['id'] !== (int) $region['id']) {
+                foreach ($regions_en as $key_en => $region_en_data) {
+                    if ((int)$region_en_data['id'] === (int) $region_id) {
+                        $region_en = $region_en_data;
+
+                        break;
+                    }
+                }
+            }
+
+            break;
+        }
+    }
+
+    if (empty($region)) {
+        return false;
+    }
+
+    $destination_country_id = $region['country_id'];
+    $country_info = ittour_destination_by_ittour_id($destination_country_id);
+
+    if (empty($country_info)) {
+        return false;
+    }
+
+    $parent_post_ID = $country_info['ID'];
+    $destination_id = $region['id'];
+    $destination_name = $region['name'];
+    $destination_type = $region['type_id'];
+
+    if (!empty($region_en)) {
+        $destination_slug = snth_get_slug_lat($region_en['name']);
+    } else {
+        $destination_slug = snth_get_slug_lat($region['name']);
+    }
+
+    $post_id = ittour_create_region($destination_name, $destination_slug, $destination_id, $destination_type, $destination_country_id, $parent_post_ID);
+
+    if (empty($post_id)) {
+        return false;
+    }
+
+    $destination_types = get_the_terms( $post_id, 'destination_type' );
+    $destination_info['type'] = $destination_types[0]->slug;
+    $destination_info['type_name'] = $destination_types[0]->name;
+
+    return array(
+        'ID' => $post_id,
+        'title' => $destination_name,
+        'slug' => $destination_slug,
+        'type' => $destination_types[0]->slug,
+        'type_name' => $destination_types[0]->name,
+        'ittour_id' => $destination_id,
+        'ittour_country_id' => $destination_country_id,
+        'ittour_type' => array_map('trim',explode(',', $destination_type)),
+    );
+}
+
 function ittour_create_region($name, $slug, $id, $type, $country_id, $parent_id = 0) {
     // Prepare post data
     $post_data = array(
@@ -156,6 +231,10 @@ function ittour_destination_by_ittour_id($id) {
     $destinations = get_posts($args);
 
     wp_reset_postdata();
+
+    if (empty($destinations)) {
+        return false;
+    }
 
     $destination_info = array(
         'ID' => $destinations[0]->ID,

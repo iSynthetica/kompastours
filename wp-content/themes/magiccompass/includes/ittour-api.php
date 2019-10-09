@@ -75,6 +75,30 @@ add_action('init', 'ittour_rewrite_rule');
  * Add rewrite rule for a pattern matching "post-by-slug/<post_name>"
  */
 function ittour_rewrite_rule() {
+    // countries/[country_slug]/[region_slug]/[hotel_slug]/tour/[tour_id]/[from_city]/[child_age]
+    add_rewrite_rule(
+        '^countries/(.*)/([^/]*)/([^/]*)/tour/([^/]*)/([^/]*)/([^/]*)/?',
+        'index.php?country=$matches[1]&region=$matches[2]&hotel=$matches[3]&tour=$matches[4]&from_city=$matches[5]&child_age=$matches[6]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^countries/(.*)/([^/]*)/([^/]*)/tour/([^/]*)/([^/]*)/?',
+        'index.php?country=$matches[1]&region=$matches[2]&hotel=$matches[3]&tour=$matches[4]&from_city=$matches[5]',
+        'top'
+    );
+    add_rewrite_rule(
+        '^countries/(.*)/([^/]*)/([^/]*)/tour/([^/]*)/?',
+        'index.php?country=$matches[1]&region=$matches[2]&hotel=$matches[3]&tour=$matches[4]',
+        'top'
+    );
+    add_rewrite_tag( '%country%', '(.*)' );
+    add_rewrite_tag( '%region%', '(.*)' );
+    add_rewrite_tag( '%hotel%', '(.*)' );
+    add_rewrite_tag( '%tour%', '(.*)' );
+    add_rewrite_tag( '%from_city%', '(.*)' );
+    add_rewrite_tag( '%child_age%', '(.*)' );
+
+
     add_rewrite_rule('^tour/(.*)/([^/]*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]&child_age=$matches[3]', 'top');
     add_rewrite_rule('^tour/(.*)/([^/]*)/?', 'index.php?tour=$matches[1]&from_city=$matches[2]', 'top');
     add_rewrite_rule('^tour/(.*)/?', 'index.php?tour=$matches[1]', 'top');

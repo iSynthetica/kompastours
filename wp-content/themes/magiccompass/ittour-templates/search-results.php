@@ -172,12 +172,17 @@ if (!$country_id) {
     );
 
     $template_args = array(
+        'country_id' => $country_id,
         'result' => $search_result,
         'main_currency_label' => $main_currency_label,
         'main_currency' => $main_currency,
         'url' => $url,
         'from_city' => $from_city,
     );
+
+    if (!empty($region)) {
+        $template_args['region_id'] = $region;
+    }
 
     if (!empty($child_age)) {
         $template_args['child_age'] = $child_age;

@@ -27753,6 +27753,7 @@ observer.observe();
         if (!$('body').hasClass('et_mobile_device')) {
             if(
                 !$(event.target).closest('.form-data-toggle-target').length &&
+                !$(event.target).closest('.select2-container').length &&
                 !$(event.target).hasClass('form-data-toggle-target') &&
                 !$(event.target).hasClass('form-data-toggle-control') &&
                 !$(event.target).closest('.date-pick__select__container').length &&
