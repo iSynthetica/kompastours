@@ -148,7 +148,7 @@ if (!$country_id) {
 
     $url = http_build_query($_GET);
 
-    $search = ittour_search('uk');
+    $search = ittour_search(ITTOUR_LANG);
     $search_result = $search->get($country_id, $args);
 
     if (is_wp_error($search_result)) {
