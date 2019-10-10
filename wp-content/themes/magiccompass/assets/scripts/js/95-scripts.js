@@ -59,7 +59,9 @@ observer.observe();
                 !$(event.target).closest('.select2-container').length &&
                 !$(event.target).hasClass('form-data-toggle-target') &&
                 !$(event.target).hasClass('form-data-toggle-control') &&
+                !$(event.target).hasClass('available') &&
                 !$(event.target).closest('.date-pick__select__container').length &&
+                !$(event.target).closest('.available').length &&
                 !$(event.target).hasClass('form-data-toggle-control-icon'))
             {
                 var openedSearchModal = $('.form-data-toggle-target.active');
