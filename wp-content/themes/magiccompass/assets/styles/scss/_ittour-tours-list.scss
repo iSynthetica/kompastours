@@ -172,6 +172,36 @@
         }
     }
 
+    .more-dates__link {
+        display: block;
+        text-align: left;
+        cursor: pointer;
+        color: #51bce6;
+        font-size: rem-calc(12);
+
+        &:hover {
+            color: #333;
+        }
+        .show-more-dates {
+            display: inline-block;
+        }
+        .hide-more-dates {
+            display: none;
+        }
+
+        &.active {
+            .show-more-dates {
+                display: none;
+            }
+            .hide-more-dates {
+                display: inline-block;
+            }
+        }
+        i {
+            font-size: rem-calc(12);
+        }
+    }
+
     .more-offers__link {
         display: block;
         text-align: center;

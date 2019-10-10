@@ -23,6 +23,8 @@ class ittourExcursionSearchApi extends ittourApi {
         return array(
             'date_from' => $this->date_from,
             'date_till' => $this->date_till,
+            'show_selected_countries' => false,
+            'show_selected_cities' => false,
         );
     }
 

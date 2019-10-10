@@ -2469,3 +2469,36 @@ function ittour_get_date_range($date, $date_range = 2) {
         'date_till' => date('d.m.y', $date_till)
     );
 }
+
+function ittour_excursion_get_transport_by_id($id) {
+    switch ($id) {
+        case 1:
+            $transport = array(
+                'icon' => 'fas fa-plane',
+                'label' => __('Plane', 'snthwp'),
+            );
+            break;
+        case 2:
+            $transport = array(
+                'icon' => 'fas fa-bus',
+                'label' => __('Bus', 'snthwp'),
+            );
+            break;
+        case 3:
+            $transport = array(
+                'icon' => 'fas fa-train',
+                'label' => __('Train', 'snthwp'),
+            );
+            break;
+        case 5:
+            $transport = array(
+                'icon' => 'fas fa-walking',
+                'label' => __('Walking', 'snthwp'),
+            );
+            break;
+        default:
+            $transport = array();
+    }
+
+    return $transport;
+}

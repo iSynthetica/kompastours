@@ -188,8 +188,7 @@ if (!$country_id) {
         $template_args['child_age'] = $child_age;
     }
 
-    $ittour_content = ittour_get_template('search/result.php', $template_args
-    );
+    $ittour_content = ittour_get_template('search/result.php', $template_args);
 }
 ?>
 

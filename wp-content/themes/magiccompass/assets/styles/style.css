@@ -27549,6 +27549,24 @@ i.list-item-icon {
           font-size: 1.125rem; }
         .tour_list_container .tour_list_price .tour-meta p i.fa-child {
           font-size: 0.8125rem; }
+  .tour_list_container .more-dates__link {
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    color: #51bce6;
+    font-size: 0.75rem; }
+    .tour_list_container .more-dates__link:hover {
+      color: #333; }
+    .tour_list_container .more-dates__link .show-more-dates {
+      display: inline-block; }
+    .tour_list_container .more-dates__link .hide-more-dates {
+      display: none; }
+    .tour_list_container .more-dates__link.active .show-more-dates {
+      display: none; }
+    .tour_list_container .more-dates__link.active .hide-more-dates {
+      display: inline-block; }
+    .tour_list_container .more-dates__link i {
+      font-size: 0.75rem; }
   .tour_list_container .more-offers__link {
     display: block;
     text-align: center;

@@ -11,11 +11,11 @@
 
         var isSingleTourPage = false;
         var singleTourContainer = $('#single-tour-main-info__container');
-        
+
         if (singleTourContainer.length > 0) {
             isSingleTourPage = true;
         }
-        
+
         if (isSingleTourPage) {
             runValidationCountdown();
             ittourSingleTourFunctions();
@@ -295,7 +295,21 @@
             moreOffers.slideDown();
         }
     });
-    
+
+    $(document.body).on('click', '.more-dates__link', function() {
+        var control = $(this);
+        var parent = control.parents('.more-dates__container');
+        var moreOffers = parent.find('.dates_list_more');
+
+        if (control.hasClass('active')) {
+            control.removeClass('active');
+            moreOffers.slideUp();
+        } else {
+            control.addClass('active');
+            moreOffers.slideDown();
+        }
+    });
+
     function ittourSingleTourFunctions() {
         var validateSpinner = $('#validation-spinner__holder');
 
@@ -303,7 +317,7 @@
             ittourValidateTour();
         }
     }
-    
+
     function ittourValidateTour() {
         var singleTourSummary = $('#single-tour-booking__holder');
 

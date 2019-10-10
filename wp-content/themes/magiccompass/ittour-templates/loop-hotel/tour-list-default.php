@@ -24,7 +24,6 @@ if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
 ?>
 
 <div class="tour_list_container mt-20 mb-20">
-
     <div class="tour-list-item">
         <div class="row">
             <div class="col-lg-4 col-md-6">
