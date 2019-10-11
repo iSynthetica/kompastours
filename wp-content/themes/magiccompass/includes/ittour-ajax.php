@@ -435,3 +435,97 @@ function ajax_admin_add_hotel() {
     wp_die();
 }
 add_action( 'wp_ajax_ittour_ajax_admin_add_hotel', 'ajax_admin_add_hotel' );
+
+/**
+ * Excursions tours Ajax handlers
+ */
+
+
+function ajax_load_excursion_tour_dates() {
+    $key = !empty($_POST['key']) ? sanitize_text_field($_POST['key']) : false;
+    $date_from = !empty($_POST['date_from']) ? (int) sanitize_text_field($_POST['date_from']) / 1000 : false;
+    $date_till = !empty($_POST['date_till']) ? (int) sanitize_text_field($_POST['date_till']) / 1000 : false;
+
+    $start_date = $date_from;
+    $end_date = $date_till;
+
+    if (empty($key) && empty($date_from) && empty($date_till)) {
+        echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => __('No dates available', 'snthwp') ));
+
+        die;
+    }
+
+    $dates = get_transient( 'ittour_excursion_tour_dates_' . $key );
+    $dates_till = get_transient( 'ittour_excursion_tour_dates_till' . $key );
+
+    $now = time();
+
+    if ($date_from < $now) {
+        $date_from = $now;
+    }
+
+    $max_date = $date_from + (60 * 60 * 24 * 29);
+
+    if ($max_date < $date_till) {
+        $date_till = $max_date;
+    }
+
+    if (empty($dates)) {
+        $args = array(
+            'date_from' => date('d.m.y', $date_from),
+            'date_till' => date('d.m.y', $date_till),
+        );
+
+        $tour = ittour_excursion_tour($key, ITTOUR_LANG);
+        $tour_info = $tour->info($args);
+
+        if (is_wp_error($tour_info)) {
+            echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => __('No dates available', 'snthwp') ));
+
+            die;
+        }
+
+        if (empty($tour_info['dates'])) {
+            echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => __('No dates available', 'snthwp') ));
+
+            die;
+        }
+
+        $dates = $tour_info['dates'];
+
+        set_transient( 'ittour_excursion_tour_dates_' . $key, $dates, 60 * 60 * 3);
+        set_transient( 'ittour_excursion_tour_dates_till' . $key, $date_till, 60 * 60 * 3);
+    }
+
+    ob_start();
+    foreach ($dates as $date) {
+        $tour_date = snth_convert_date_format($date["date_from"]);
+        ?>
+        <a href="<?php echo get_site_url(); ?>/excursion-tour/<?php echo $key ?>/<?php echo $tour_date ?>/<?php echo $tour_date ?>/" class="btn size-xs shape-rnd type-hollow hvr-invert">
+            <i class="far fa-calendar-alt"></i> <?php echo snth_convert_date_to_human($date["date_from"]); ?>
+        </a>
+        <?php
+    }
+
+    if ($end_date > $date_till) {
+        ?>
+        <span class="btn btn-success size-xs shape-rnd type-hollow hvr-invert load-more-dates">
+            <?php echo __('More', 'snthwp'); ?>...
+        </span>
+        <?php
+    }
+    $dates_list = ob_get_clean();
+
+    $message = array(
+        'dates' => $dates_list,
+    );
+
+    $response = array('success' => 1, 'error' => 0, 'message' => $message);
+
+    echo json_encode($response);
+
+    wp_die();
+}
+
+add_action('wp_ajax_nopriv_ittour_ajax_load_excursion_tour_dates', 'ajax_load_excursion_tour_dates');
+add_action('wp_ajax_ittour_ajax_load_excursion_tour_dates', 'ajax_load_excursion_tour_dates');

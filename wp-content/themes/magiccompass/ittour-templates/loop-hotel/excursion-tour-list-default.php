@@ -150,7 +150,7 @@
                                         </p>
 
                                         <p style="padding-left:35px;margin-top:8px;">
-                                            <span class="more-dates__link" data-date-from="<?php echo $tour['date_from']; ?>" data-date-till="<?php echo $tour['date_till']; ?>">
+                                            <span class="more-dates__link" data-tour-key="<?php echo $tour['key'] ?>" data-date-from="<?php echo $tour['date_from_unix']; ?>" data-date-till="<?php echo $tour['date_till_unix']; ?>">
                                                 <span class="show-more-dates">
                                                     <?php echo __('Show available dates', 'snthwp'); ?>
                                                     <i class="fas fa-chevron-down"></i>
@@ -216,4 +216,4 @@
         </div>
     </div>
 </div>
-<?php var_dump($tour); ?>
+<?php // var_dump($tour); ?>

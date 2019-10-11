@@ -27567,6 +27567,14 @@ i.list-item-icon {
       display: inline-block; }
     .tour_list_container .more-dates__link i {
       font-size: 0.75rem; }
+  .tour_list_container .dates_list_more .btn.size-xs {
+    height: 1.625rem;
+    line-height: 1.5rem;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    font-size: 0.75rem; }
+    .tour_list_container .dates_list_more .btn.size-xs i {
+      font-size: 0.75rem; }
   .tour_list_container .more-offers__link {
     display: block;
     text-align: center;

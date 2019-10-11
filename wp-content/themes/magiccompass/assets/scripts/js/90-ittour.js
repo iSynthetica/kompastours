@@ -300,6 +300,9 @@
         var control = $(this);
         var parent = control.parents('.more-dates__container');
         var moreOffers = parent.find('.dates_list_more');
+        var key = control.data('tour-key');
+        var date_from = control.data('date-from');
+        var date_till = control.data('date-till');
 
         if (control.hasClass('active')) {
             control.removeClass('active');
@@ -307,6 +310,42 @@
         } else {
             control.addClass('active');
             moreOffers.slideDown();
+
+            var data = {
+                action: 'ittour_ajax_load_excursion_tour_dates',
+                key: key,
+                date_from: date_from,
+                date_till: date_till
+            };
+
+            $.ajax({
+                url: snthWpJsObj.ajaxurl,
+                method: 'post',
+                dataType: "json",
+                data: data,
+                success: function (response) {
+                    var decoded;
+
+                    try {
+                        decoded = response;
+                    } catch(err) {
+                        console.log(err);
+                        decoded = false;
+                    }
+
+                    if (decoded) {
+                        if (decoded.success) {
+                            var fragments = response.message.dates;
+
+                            moreOffers.html(fragments);
+                        } else {
+
+                        }
+                    } else {
+                        alert('Something went wrong');
+                    }
+                }
+            });
         }
     });
 
