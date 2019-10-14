@@ -52,6 +52,12 @@ observer.observe();
         });
     });
 
+    $(document.body).on('click', '#phones-actions-header__btn', function() {
+        var parentHolder = $('#contact-actions-header__holder');
+
+        parentHolder.toggleClass('phones-active');
+    });
+
     $('body').click(function (event) {
         if (!$('body').hasClass('et_mobile_device')) {
             if(

@@ -38,7 +38,7 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
     </div>
 </section>
 
-<section id="home-search-form__section" class="pt-10 pb-10 ptb-md-0 ">
+<section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
         <?php ittour_show_template('form/section-search.php'); ?>
     </div>

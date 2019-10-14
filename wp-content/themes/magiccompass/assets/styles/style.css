@@ -20496,7 +20496,7 @@ a.btn_login:hover, .btn_login:hover {
     opacity: 0;
     visibility: hidden; }
   .pf-body .site-header nav.nav-box-width {
-    padding: 0 50px; }
+    padding: 0; }
   .pf-body .big-menu-right {
     position: fixed;
     top: 0;
@@ -21631,6 +21631,49 @@ a.btn_login:hover, .btn_login:hover {
   -ms-transform: translateY(0%);
   transform: translateY(0%); }
   .phones-active #phones-actions__holder .phones-actions__close {
+    display: inline-block; }
+
+#contact-actions-header__holder {
+  position: relative; }
+  #contact-actions-header__holder button.btn {
+    position: relative;
+    padding-right: 2.1875rem;
+    box-shadow: none; }
+    #contact-actions-header__holder button.btn i {
+      position: absolute;
+      right: 0.625rem;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%); }
+
+.toggle-is-active #contact-actions-header__holder {
+  z-index: 1 !important; }
+
+#phones-actions-header__holder {
+  position: absolute;
+  bottom: -0.3125rem;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  transition: all 0.5s;
+  display: none; }
+  #phones-actions-header__holder .phones-actions__close {
+    position: absolute;
+    bottom: -2rem;
+    right: 0.3125rem;
+    display: none;
+    transition: all 0.3s; }
+  #phones-actions-header__holder > div {
+    position: absolute;
+    top: 0; }
+
+.phones-active #phones-actions-header__holder {
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+  display: block; }
+  .phones-active #phones-actions-header__holder .phones-actions__close {
     display: inline-block; }
 
 /* scroll to top */
@@ -26939,15 +26982,15 @@ input.styled_1[type="checkbox"], input.styled_1[type="radio"] {
       background-color: #e04f67; } }
 
 @media (min-width: 768px) {
-  #home-search-form__section .search-form_ajax, #home-search-form__section .search-form_static {
+  #home-search-form__section1 .search-form_ajax, #home-search-form__section1 .search-form_static {
     position: relative; }
-    #home-search-form__section .search-form_ajax .search-form__holder, #home-search-form__section .search-form_static .search-form__holder {
+    #home-search-form__section1 .search-form_ajax .search-form__holder, #home-search-form__section1 .search-form_static .search-form__holder {
       position: absolute;
       width: 100%;
       top: -8.125rem; } }
 
 @media (min-width: 992px) {
-  #home-search-form__section .search-form_ajax .search-form__holder, #home-search-form__section .search-form_static .search-form__holder {
+  #home-search-form__section1 .search-form_ajax .search-form__holder, #home-search-form__section1 .search-form_static .search-form__holder {
     position: absolute;
     width: 100%;
     top: -5.3125rem; } }

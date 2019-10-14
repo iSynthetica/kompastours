@@ -90,6 +90,58 @@
     }
 }
 
+#contact-actions-header__holder {
+    position: relative;
+    button.btn {
+        position: relative;
+        padding-right: rem-calc(35);
+        box-shadow: none;
+        i {
+            position: absolute;
+            right: rem-calc(10);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+.toggle-is-active {
+    #contact-actions-header__holder {
+        z-index: 1 !important;
+    }
+}
+
+#phones-actions-header__holder {
+    position: absolute;
+    bottom: rem-calc(-5);
+    transform: translateY(100%);
+    transition: all 0.5s;
+    display: none;
+
+    .phones-actions__close {
+        position: absolute;
+        bottom: rem-calc(-32);
+        right: rem-calc(5);
+        display: none;
+        transition: all 0.3s;
+    }
+
+    & > div {
+        position: absolute;
+        top: 0;
+    }
+}
+
+.phones-active {
+    #phones-actions-header__holder {
+        transform: translateY(0%);
+        display: block;
+
+        .phones-actions__close {
+            display: inline-block;
+        }
+    }
+}
+
 /* scroll to top */
 .scroll-top-arrow, .scroll-top-arrow:focus {
     color: #fff;

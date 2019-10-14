@@ -34,6 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </button>
                 <div class="navbar-collapse collapse justify-content-end" id="navbar-collapse-toggle-1">
                     <?php snth_show_template('nav/pofo-main.php'); ?>
+                    <?php snth_show_template('global/contact-actions-header.php'); ?>
                 </div>
             </div>
         </div>
