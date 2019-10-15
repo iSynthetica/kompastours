@@ -36,8 +36,8 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
         ittour_show_template('form/section-search.php', array(
             'country'       => $country_id,
             'hotel_rating'  => '78:4',
-            'tour_type'     => 1,
-            'tour_kind'     => 1,
+            'tour_type'     => '1',
+            'tour_kind'     => '0',
             'meal_type'     => '560:512:498:496:388:1956',
         ));
         ?>

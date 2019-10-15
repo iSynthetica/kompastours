@@ -22,7 +22,6 @@ if ( !is_array( $form_fields ) ) {
 $search_steps = get_field('timeline_items', 493);
 ?>
 <div class="search-form__holder">
-<div class="search-form__holder">
     <form id="search-form" action="/search/" method="get" class="search-form repeater">
         <div id="search-form-main__holder">
             <div id="select-from-city__holder">

@@ -864,12 +864,12 @@ function ittour_get_transport_type_field($args = array()) {
 
     <ul id="tour_type_select" class="form-list">
         <li>
-            <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo '1' === $type ? ' checked' : ''; ?>>
+            <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo 1 === (int)$type ? ' checked' : ''; ?>>
             <label for="tour_type_included"><?php echo __('Transit included', 'snthwp'); ?></label>
         </li>
 
         <li>
-            <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo '2' === $type ? ' checked' : ''; ?>>
+            <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo 2 === (int)$type ? ' checked' : ''; ?>>
             <label for="tour_type_excluded"><?php echo __('Transit not included', 'snthwp'); ?></label>
         </li>
 
@@ -881,12 +881,12 @@ function ittour_get_transport_type_field($args = array()) {
 
     <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) && '2' !== $type ? '' : ' style="display:none;"' ?>>
         <li>
-            <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo '1' === $kind ? ' checked' : ''; ?>>
+            <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo 1 === (int)$kind ? ' checked' : ''; ?>>
             <label for="tour_kind_flight"><?php echo __('Plane', 'snthwp'); ?></label>
         </li>
 
         <li>
-            <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo '2' === $kind ? ' checked' : ''; ?>>
+            <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo 2 === (int)$kind ? ' checked' : ''; ?>>
             <label for="tour_kind_bus"><?php echo __('Bus', 'snthwp'); ?></label>
         </li>
 
