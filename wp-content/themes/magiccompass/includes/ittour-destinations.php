@@ -19,7 +19,8 @@ function ittour_create_country($name, $slug, $id, $iso, $group, $type, $transpor
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'country', 'destination_type', false );
+    $term = get_term_by('slug', 'country', 'destination_type');
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
     $transport_array = array_map('trim',explode(',', $transport));
@@ -48,7 +49,8 @@ function ittour_update_country($post_id, $name, $slug, $id, $iso, $group, $type,
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'country', 'destination_type', false );
+    $term = get_term_by('slug', 'country', 'destination_type');
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
     $transport_array = array_map('trim',explode(',', $transport));
@@ -155,7 +157,8 @@ function ittour_create_region($name, $slug, $id, $type, $country_id, $parent_id 
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'region', 'destination_type', false );
+    $term = get_term_by('slug', 'region', 'destination_type');
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
 
@@ -184,7 +187,8 @@ function ittour_update_region($post_id, $name, $slug, $id, $type, $country_id, $
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'region', 'destination_type', false );
+    $term = get_term_by('slug', 'region', 'destination_type');
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
 
@@ -269,7 +273,7 @@ function ittour_destination_by_ittour_id($id) {
     return $destination_info;
 }
 
-function ittour_create_hotel($name, $slug, $id, $rating, $type, $country_id, $region_id, $parent_id = 0) {
+function ittour_create_hotel($name, $slug, $id, $rating, $type, $country_id, $region_id, $parent_id = 0, $hotel_info = '') {
     // Prepare post data
     $post_data = array(
         'post_title'    => wp_strip_all_tags( $name ),
@@ -286,7 +290,9 @@ function ittour_create_hotel($name, $slug, $id, $rating, $type, $country_id, $re
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'hotel', 'destination_type', false );
+    $term = get_term_by('slug', 'hotel', 'destination_type');
+
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
 
@@ -296,10 +302,14 @@ function ittour_create_hotel($name, $slug, $id, $rating, $type, $country_id, $re
     $update_field = update_field( 'ittour_region_id', $region_id, $post_id );
     $update_field = update_field( 'ittour_type', $type_array, $post_id );
 
+    if (!empty($hotel_info)) {
+        $update_field = update_field( 'ittour_info', $hotel_info, $post_id );
+    }
+
     return $post_id;
 }
 
-function ittour_update_hotel($post_id, $name, $slug, $id, $rating, $type, $country_id, $region_id, $parent_id = 0) {
+function ittour_update_hotel($post_id, $name, $slug, $id, $rating, $type, $country_id, $region_id, $parent_id = 0, $hotel_info = '') {
     // Prepare post data
     $post_data = array(
         'ID'             => $post_id,
@@ -317,7 +327,8 @@ function ittour_update_hotel($post_id, $name, $slug, $id, $rating, $type, $count
 
     $post_id = wp_insert_post( $post_data );
 
-    wp_set_post_terms( $post_id, 'hotel', 'destination_type', false );
+    $term = get_term_by('slug', 'hotel', 'destination_type');
+    wp_set_post_terms( $post_id, $term->term_id, 'destination_type', false );
 
     $type_array = array_map('trim',explode(',', $type));
 

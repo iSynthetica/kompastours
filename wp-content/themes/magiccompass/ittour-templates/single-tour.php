@@ -30,7 +30,6 @@ if (empty($_GET['key'])) {
         $tour_info = $tour->info();
     }
 
-
     if (empty($tour_info["from_city_id"]) && !empty($_GET["from_city"])) {
         $tour_info["from_city_id"] = (int) $_GET["from_city"];
     }
@@ -66,6 +65,17 @@ if (empty($_GET['key'])) {
         $region_title = '<a href="'.$region_url.'">'.$tour_info['region'].'</a>';
     } else {
         $region_title = $tour_info['region'];
+    }
+
+    $hotel_site_info = ittour_destination_by_ittour_id($tour_info['hotel_id']);
+
+    if (!empty($hotel_site_info)) {
+        $hotel_site_ID = $hotel_site_info['ID'];
+    } elseif (!empty($region)) {
+        $ittour_hotel_name = $tour_info["hotel"] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info["hotel_rating"]);
+        $ittour_hotel_slug = snth_get_slug_lat($ittour_hotel_name);
+        $ittour_hotel_info = !empty($tour_info["hotel_info"]) ? $tour_info["hotel_info"] : '';
+        $hotel_site_ID = ittour_create_hotel($ittour_hotel_name, $ittour_hotel_slug, $tour_info['hotel_id'], $tour_info["hotel_rating"], '', $tour_info['country_id'], $tour_info['region_id'], $region[0]->ID, $ittour_hotel_info);
     }
 
     $ittour_content = ittour_get_template('single-tour-content.php', array(

@@ -1421,7 +1421,6 @@ function ittour_get_hotel_number_rating_by_id($id) {
         case '5':
             $rating = '5*';
             break;
-            break;
         case '78':
             $rating = '5*';
             break;
