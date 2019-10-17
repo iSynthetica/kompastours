@@ -79,6 +79,9 @@ require_once(SNTH_INCLUDES.'/ittour-bootstrap.php');
 // ittour API
 require_once(SNTH_INCLUDES.'/cpt.php');
 
+// ittour API
+require_once(SNTH_INCLUDES.'/cpt-library.php');
+
 // Helpers library
 require_once(SNTH_INCLUDES.'/media.php');
 

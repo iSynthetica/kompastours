@@ -81,6 +81,44 @@ observer.observe();
         }
     });
 
+    $(document.body).on('click', '#send-testimonial-form__submit', function() {
+        var formData = $("#send-testimonial").serializeArray();
+
+        $.ajax({
+            url: snthWpJsObj.ajaxurl,
+            method: 'post',
+            dataType: "json",
+            data: {
+                action: 'snth_ajax_send_testimonial',
+                formData: formData
+            },
+            success: function (response) {
+                var decoded;
+
+                try {
+                    decoded = response;
+                } catch(err) {
+                    console.log(err);
+                    decoded = false;
+                }
+
+                if (decoded) {
+                    if (decoded.success) {
+                        $("#send-testimonial").remove();
+                        var fragments = response.message.fragments;
+                        updateFragments(fragments);
+                    } else {
+                        var fragments = response.message.fragments;
+
+                        updateFragments(fragments);
+                    }
+                } else {
+                    alert('Something went wrong');
+                }
+            }
+        });
+    });
+
     $(document).ready(function() {});
 
     $(window).on('load', function () {});
