@@ -227,3 +227,59 @@ function snth_landing_cpt() {
 
 }
 add_action( 'init', 'snth_landing_cpt', 0 );
+
+// Register Custom Post Type
+function snth_testimonials_cpt() {
+
+    $labels = array(
+        'name'                  => _x( 'Testimonials', 'Post Type General Name', 'snthwp' ),
+        'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'snthwp' ),
+        'menu_name'             => __( 'Testimonials', 'snthwp' ),
+        'name_admin_bar'        => __( 'Testimonial', 'snthwp' ),
+        'archives'              => __( 'Testimonial Archives', 'snthwp' ),
+        'attributes'            => __( 'Testimonial Attributes', 'snthwp' ),
+        'parent_item_colon'     => __( 'Parent Testimonial:', 'snthwp' ),
+        'all_items'             => __( 'All Testimonials', 'snthwp' ),
+        'add_new_item'          => __( 'Add New Testimonial', 'snthwp' ),
+        'add_new'               => __( 'Add New', 'snthwp' ),
+        'new_item'              => __( 'New Testimonial', 'snthwp' ),
+        'edit_item'             => __( 'Edit Testimonial', 'snthwp' ),
+        'update_item'           => __( 'Update Testimonial', 'snthwp' ),
+        'view_item'             => __( 'View Testimonial', 'snthwp' ),
+        'view_items'            => __( 'View Testimonials', 'snthwp' ),
+        'search_items'          => __( 'Search Testimonial', 'snthwp' ),
+        'not_found'             => __( 'Not found', 'snthwp' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'snthwp' ),
+        'featured_image'        => __( 'Featured Image', 'snthwp' ),
+        'set_featured_image'    => __( 'Set featured image', 'snthwp' ),
+        'remove_featured_image' => __( 'Remove featured image', 'snthwp' ),
+        'use_featured_image'    => __( 'Use as featured image', 'snthwp' ),
+        'insert_into_item'      => __( 'Insert into Testimonial', 'snthwp' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this Testimonial', 'snthwp' ),
+        'items_list'            => __( 'Testimonials list', 'snthwp' ),
+        'items_list_navigation' => __( 'Testimonials list navigation', 'snthwp' ),
+        'filter_items_list'     => __( 'Filter Testimonials list', 'snthwp' ),
+    );
+    $args = array(
+        'label'                 => __( 'Testimonial', 'snthwp' ),
+        'description'           => __( 'Testimonial pages generator', 'snthwp' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'page-attributes' ),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 6,
+        'menu_icon'             => 'dashicons-heart',
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'testimonial', $args );
+
+}
+add_action( 'init', 'snth_testimonials_cpt', 0 );

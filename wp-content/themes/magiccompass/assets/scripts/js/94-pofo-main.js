@@ -29,6 +29,39 @@
             return false;
         });
 
+        var swiperThreeSlides = new Swiper('.swiper-three-slides', {
+            allowTouchMove: true,
+            slidesPerView: 3,
+            preventClicks: false,
+            pagination: {
+                el: '.swiper-pagination-three-slides',
+                clickable: true
+            },
+            autoplay: {
+                delay: 3000
+            },
+            keyboard: {
+                enabled: true
+            },
+            navigation: {
+                nextEl: '.swiper-three-slide-next',
+                prevEl: '.swiper-three-slide-prev'
+            },
+            breakpoints: {
+                991: {
+                    slidesPerView: 2
+                },
+                767: {
+                    slidesPerView: 1
+                }
+            },
+            on: {
+                resize: function () {
+                    swiperThreeSlides.update();
+                }
+            }
+        });
+
         /*==============================================================*/
         //magnificPopup Start
         /*==============================================================*/
@@ -90,6 +123,7 @@
                 }
             }
         });
+
         $(document).on('click', '.popup-modal-dismiss', function (e) {
             e.preventDefault();
             $.magnificPopup.close();

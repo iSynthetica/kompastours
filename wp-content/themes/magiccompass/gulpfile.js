@@ -81,6 +81,8 @@ const SOURCE = {
 
         VENDORS + '/daterange-custom/daterangepicker.js',
 
+        VENDORS + '/swiper/swiper.min.js',
+
         MODULES + '/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
 
         MODULES + '/jquery-smooth-scroll/jquery.smooth-scroll.js',
