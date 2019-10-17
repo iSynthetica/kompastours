@@ -21,5 +21,7 @@ if ($testimonials) {
 
     <?php
 }
+
+snth_show_template('global/form-testimonials.php');
 ?>
 <h1>Testimonials</h1>
