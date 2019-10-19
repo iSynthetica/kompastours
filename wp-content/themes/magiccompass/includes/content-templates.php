@@ -38,7 +38,7 @@ function snth_the_breadcrumbs() {
     $is_woo_active = snth_is_woocommerce_active();
     $is_yoast_seo_active = snth_is_yoast_seo_active();
 
-    $wrap_before = '<section id="breadcrumbs-section"><div id="position"><div class="container"><ul>';
+    $wrap_before = '<section id="breadcrumbs-section"><div id="position"><div class="container"><ul itemscope itemtype="http://schema.org/BreadcrumbList">';
     $wrap_after = '</ul></div></div></section>';
 
     $sep_item = '<li class="separator">/</li>'; // разделитель между "крошками"
@@ -46,21 +46,22 @@ function snth_the_breadcrumbs() {
     $sep_after = '&nbsp'; // тег после разделителя
     $sep = $sep_before . $sep_item . $sep_after;
 
-    $link_before = '<li itemprop="name">';
+    $link_before = '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">';
     $link_after = '</li>';
     $link_attr = ' itemprop="item"';
-    $link_in_before = '';
-    $link_in_after = '';
-    $link = $link_before . '<a href="%1$s"' . $link_attr . '>' . $link_in_before . '%2$s' . $link_in_after . '</a>' . $link_after;
+    $link_in_before = '<span itemprop="name">';
+    $link_in_after = '</span>';
+    $link = $link_before . '<a href="%1$s"' . $link_attr . '>' . $link_in_before . '%2$s' . $link_in_after . '<meta itemprop="position" content="%3$s" /></a>' . $link_after;
 
-    $current_before = '<span class="current">'; // тег перед текущей "крошкой"
+    $current_before = '<span class="current" itemprop="name">'; // тег перед текущей "крошкой"
     $current_after = '</span>'; // тег после текущей "крошки"
     /* == Options - End == */
 
     global $post;
 
+    $position = 1;
     $home_url = home_url('/');
-    $home_link = $link_before . '<a href="' . $home_url . '"' . $link_attr . '>' . $link_in_before . $text['home'] . $link_in_after . '</a>' . $link_after;
+    $home_link = $link_before . '<a href="' . $home_url . '"' . $link_attr . '>' . $link_in_before . $text['home'] . $link_in_after . '<meta itemprop="position" content="1" /></a>' . $link_after;
     $frontpage_id = get_option('page_on_front');
     $homepage_id = get_option('page_for_posts');
 
@@ -83,7 +84,7 @@ function snth_the_breadcrumbs() {
             }
 
             if ($show_blog_link) {
-                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+                echo sprintf($link, get_permalink($homepage_id), $text['blog'], '2');
                 echo $sep;
             }
 
@@ -100,7 +101,7 @@ function snth_the_breadcrumbs() {
 
             if ( get_query_var('paged') ) {
                 $cat = $cat->cat_ID;
-                echo sprintf($link, get_category_link($cat), get_cat_name($cat)) . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
+                echo sprintf($link, get_category_link($cat), get_cat_name($cat), '2') . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
             } else {
                 if ($show_current) echo $current_before . sprintf($text['category'], single_cat_title('', false)) . $current_after;
             }
@@ -113,14 +114,14 @@ function snth_the_breadcrumbs() {
             }
 
             if ($show_blog_link) {
-                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+                echo sprintf($link, get_permalink($homepage_id), $text['blog'], '2');
                 echo $sep;
             }
 
             if ( get_query_var('paged') ) {
                 $tag_id = get_queried_object_id();
                 $tag = get_tag($tag_id);
-                echo sprintf($link, get_tag_link($tag_id), $tag->name) . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
+                echo sprintf($link, get_tag_link($tag_id), $tag->name, '2') . $sep . $current_before . sprintf($text['page'], get_query_var('paged')) . $current_after;
             } else {
                 if ($show_current) echo $current_before . sprintf($text['tag'], single_tag_title('', false)) . $current_after;
             }
@@ -145,7 +146,7 @@ function snth_the_breadcrumbs() {
                             $page = get_post($parent_id);
 
                             if ($parent_id != $frontpage_id) {
-                                $breadcrumbs[] = sprintf($link, get_permalink($page->ID), get_the_title($page->ID));
+                                $breadcrumbs[] = sprintf($link, get_permalink($page->ID), get_the_title($page->ID), '2');
                             }
 
                             $parent_id = $page->post_parent;
@@ -184,7 +185,7 @@ function snth_the_breadcrumbs() {
                 }
 
                 $cats = get_category_parents($cat, TRUE, $sep);
-                $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr .'>' . $link_in_before . '$2' . $link_in_after .'</a>' . $link_after, $cats);
+                $cats = preg_replace('#<a([^>]+)>([^<]+)<\/a>#', $link_before . '<a$1' . $link_attr .'>' . $link_in_before . '$2' . $link_in_after .'<meta itemprop="position" content="2" /></a>' . $link_after, $cats);
 
                 if (!$show_current || get_query_var('cpage')) {
                     $cats = preg_replace("#^(.+)$sep$#", "$1", $cats);
@@ -194,12 +195,12 @@ function snth_the_breadcrumbs() {
                     echo $sep;
                 }
 
-                echo sprintf($link, get_permalink($homepage_id), $text['blog']);
+                echo sprintf($link, get_permalink($homepage_id), $text['blog'], '2');
 
                 echo $sep . $cats;
 
                 if ($show_current) {
-                    echo $link_before . $current_before . get_the_title($id) . $current_after . $link_after;
+                    echo $link_before . $current_before . get_the_title($id) . $current_after . '<meta itemprop="position" content="3" />' . $link_after;
                 }
             }
         }
@@ -219,7 +220,7 @@ function snth_the_breadcrumbs() {
                         $page = get_post($parent_id);
 
                         if ($parent_id != $frontpage_id) {
-                            $breadcrumbs[] = sprintf($link, get_permalink($page->ID), get_the_title($page->ID));
+                            $breadcrumbs[] = sprintf($link, get_permalink($page->ID), get_the_title($page->ID), '2');
                         }
 
                         $parent_id = $page->post_parent;

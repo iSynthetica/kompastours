@@ -9,4 +9,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 
+RedirectMatch 301 /countries/page/2/(.*) /countries//$1
+RedirectMatch 301 /countries/page/14/(.*) /countries//$1
+
 # END WordPress
