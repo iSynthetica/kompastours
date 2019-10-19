@@ -35,14 +35,21 @@ if ( $latest_posts ) {
 
     $original_post = $GLOBALS['post'];
     ?>
-    <div itemscope itemtype="http://schema.org/ItemList">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="text-center mt-0 mb-20 mb-md-40 font-weight-600"><span itemprop="name"><?php echo __('Popular countries', 'snthwp') ?></span></h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+            <div class="mt-0 mb-20">
+                <input type="text" class="form-control" value="" id="popularCountrySearch" placeholder="<?php echo __('Input Country title', 'snthwp') ?>">
             </div>
         </div>
+    </div>
+
+    <div itemscope itemtype="http://schema.org/ItemList">
 
         <div class="row">
+            <div class="col-12 country-section-title">
+                <h2 class="text-center mt-0 mb-20 mb-md-40 font-weight-600"><span itemprop="name"><?php echo __('Popular countries', 'snthwp') ?></span></h2>
+            </div>
+
             <?php
             // Start the Loop.
             $i = 1;
@@ -57,7 +64,7 @@ if ( $latest_posts ) {
                     $ittour_country = get_field('ittour_id');
                     $ittour_iso = get_field('ittour_iso');
                     ?>
-                    <div class="col-12 col-md-6 col-lg-4" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <div class="col-12 col-md-6 col-lg-4 region-grid__col" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
                         <meta itemprop="position" content="<?php echo $i; ?>" />
                         <meta itemprop="url" content="<?php echo esc_url( get_permalink() ); ?>" />
                         <div class="region-grid__container mb-20" itemtype="http://schema.org/TouristDestination" itemscope>
@@ -71,6 +78,10 @@ if ( $latest_posts ) {
                                     if (!empty($img_url)) {
                                         ?>
                                         <div class="img-overlay lozad" data-background-image="<?php echo $img_url; ?>"></div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="img-overlay lozad" data-background-image="<?php echo snth_default_image($size = 'long_small_thumb'); ?>"></div>
                                         <?php
                                     }
                                     ?>
@@ -91,10 +102,6 @@ if ( $latest_posts ) {
                     unset($latest_posts[$country_key]);
                 }
             }
-            ?>
-        </div>
-    </div>
-    <?php
     $GLOBALS['post'] = $original_post;
 
     echo ob_get_clean();
@@ -104,13 +111,10 @@ if ( $latest_posts ) {
 
         $original_post = $GLOBALS['post'];
         ?>
-        <div class="row">
-            <div class="col-12">
+            <div class="col-12 country-section-title">
                 <h2 class="text-center mt-0 mb-20 mb-md-40 font-weight-600"><?php echo __('Other countries', 'snthwp') ?></h2>
             </div>
-        </div>
 
-        <div class="row">
             <?php
             // Start the Loop.
             $i = 1;
@@ -123,7 +127,7 @@ if ( $latest_posts ) {
                 $ittour_country = get_field('ittour_id');
                 $ittour_iso = get_field('ittour_iso');
                 ?>
-                <div class="col-12 col-md-6 col-lg-4" itemprop="itemListElement">
+                <div class="col-12 col-md-6 col-lg-4 region-grid__col">
                     <div class="region-grid__container mb-20">
                         <div class="img_container">
                             <a href="<?php echo esc_url( get_permalink() ); ?>" style="display: block">
@@ -135,6 +139,10 @@ if ( $latest_posts ) {
                                 if (!empty($img_url)) {
                                     ?>
                                     <div class="img-overlay lozad" data-background-image="<?php echo $img_url; ?>"></div>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <div class="img-overlay lozad" data-background-image="<?php echo snth_default_image($size = 'long_small_thumb'); ?>"></div>
                                     <?php
                                 }
                                 ?>
@@ -158,6 +166,10 @@ if ( $latest_posts ) {
         $GLOBALS['post'] = $original_post;
 
         echo ob_get_clean();
+
+        ?>
+        </div>
+        <?php
     }
 } else {
 

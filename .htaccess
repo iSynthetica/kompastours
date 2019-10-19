@@ -10,6 +10,24 @@ RewriteRule . /index.php [L]
 </IfModule>
 
 RedirectMatch 301 /countries/page/2/(.*) /countries//$1
+RedirectMatch 301 /countries/page/3/(.*) /countries//$1
+RedirectMatch 301 /countries/page/4/(.*) /countries//$1
+RedirectMatch 301 /countries/page/5/(.*) /countries//$1
+RedirectMatch 301 /countries/page/6/(.*) /countries//$1
+RedirectMatch 301 /countries/page/7/(.*) /countries//$1
+RedirectMatch 301 /countries/page/8/(.*) /countries//$1
+RedirectMatch 301 /countries/page/9/(.*) /countries//$1
+RedirectMatch 301 /countries/page/10/(.*) /countries//$1
+RedirectMatch 301 /countries/page/11/(.*) /countries//$1
+RedirectMatch 301 /countries/page/12/(.*) /countries//$1
+RedirectMatch 301 /countries/page/13/(.*) /countries//$1
 RedirectMatch 301 /countries/page/14/(.*) /countries//$1
+RedirectMatch 301 /countries/page/15/(.*) /countries//$1
+RedirectMatch 301 /countries/page/16/(.*) /countries//$1
+RedirectMatch 301 /countries/page/17/(.*) /countries//$1
+RedirectMatch 301 /countries/page/18/(.*) /countries//$1
+RedirectMatch 301 /countries/page/19/(.*) /countries//$1
+RedirectMatch 301 /countries/page/20/(.*) /countries//$1
+RedirectMatch 301 /countries/page/21/(.*) /countries//$1
 
 # END WordPress

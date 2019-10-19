@@ -119,6 +119,32 @@ observer.observe();
         });
     });
 
+    $(document.body).on('change keyup', '#popularCountrySearch', function() {
+        var searchText = $(this).val();
+        var fieldsKT = $(document.body).find('.region-grid__col');
+        var sectionTitle = $(document.body).find('.country-section-title');
+
+        $.each(sectionTitle, function(index, sectionTitleHTML) {
+            var title = $(sectionTitleHTML);
+            if ('' === $.trim(searchText)) {
+                title.show();
+            } else {
+                title.hide();
+            }
+        });
+
+        $.each(fieldsKT, function(index, fieldKTHTML) {
+            var fieldKT = $(fieldKTHTML);
+            var fieldName = fieldKT.find('.hotel_title').text();
+
+            if(fieldName.search(new RegExp(searchText, 'i')) !== -1) {
+                fieldKT.show();
+            } else {
+                fieldKT.hide();
+            }
+        });
+    });
+
     $(document).ready(function() {});
 
     $(window).on('load', function () {});
