@@ -20156,7 +20156,8 @@ h1, h2, h3 {
 .title-style1 {
   font-size: 24px;
   text-transform: uppercase;
-  font-weight: bold; }
+  font-weight: bold;
+  text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7); }
   .title-style1:before, .title-style1:after {
     display: inline-block;
     width: 1.875rem;
