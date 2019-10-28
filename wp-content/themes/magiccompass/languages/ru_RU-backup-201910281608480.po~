@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-19 16:09+0000\n"
-"PO-Revision-Date: 2019-10-19 16:10+0000\n"
+"POT-Creation-Date: 2019-10-28 16:07+0000\n"
+"PO-Revision-Date: 2019-10-28 16:08+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -50,8 +50,8 @@ msgstr "Поиск туров"
 
 #: ittour-templates/search-results.php:53 ittour-templates/single-tour.php:47
 #: ittour-templates/excursion-search-results.php:33
-#: includes/ittour-template-functions.php:1520
-#: includes/ittour-template-functions.php:1730 includes/ittour-ajax.php:17
+#: includes/ittour-template-functions.php:1526
+#: includes/ittour-template-functions.php:1736 includes/ittour-ajax.php:17
 #: parts/landings/section-min-prices-by-month.php:18
 #: parts/landings/section-order-form.php:18
 msgid "€"
@@ -59,8 +59,8 @@ msgstr "€"
 
 #: ittour-templates/search-results.php:55 ittour-templates/single-tour.php:49
 #: ittour-templates/excursion-search-results.php:35
-#: includes/ittour-template-functions.php:1522
-#: includes/ittour-template-functions.php:1732 includes/ittour-ajax.php:19
+#: includes/ittour-template-functions.php:1528
+#: includes/ittour-template-functions.php:1738 includes/ittour-ajax.php:19
 #: parts/landings/section-min-prices-by-month.php:20
 #: parts/landings/section-order-form.php:20
 msgid "$"
@@ -69,8 +69,8 @@ msgstr "$"
 #: ittour-templates/search-results.php:57 ittour-templates/single-tour.php:51
 #: ittour-templates/excursion-search-results.php:37
 #: includes/ittour-template-functions.php:1247
-#: includes/ittour-template-functions.php:1524
-#: includes/ittour-template-functions.php:1734 includes/ittour-ajax.php:21
+#: includes/ittour-template-functions.php:1530
+#: includes/ittour-template-functions.php:1740 includes/ittour-ajax.php:21
 #: parts/landings/section-min-prices-by-month.php:22
 #: parts/landings/section-order-form.php:22
 #: ittour-templates/admin/api-countries.php:179
@@ -129,7 +129,7 @@ msgstr "Продолжительность тура"
 #: includes/ittour-template-functions.php:273 includes/enqueue-scripts.php:53
 #: ittour-templates/form/search-tab.php:173
 #: ittour-templates/single-tour/book-tour-form-popup.php:87
-#: ittour-templates/loop-hotel/tour-list-default.php:132
+#: ittour-templates/loop-hotel/tour-list-default.php:137
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:89
 #: ittour-templates/loop-hotel/part-offers.php:21
 msgid "nights"
@@ -165,7 +165,7 @@ msgstr "Тип номера"
 #: includes/ittour-template-functions.php:359
 #: includes/ittour-template-functions.php:366
 #: includes/ittour-template-functions.php:885
-#: includes/ittour-template-functions.php:2477
+#: includes/ittour-template-functions.php:2483
 #: ittour-templates/single-tour/book-tour-form-popup.php:137
 msgid "Plane"
 msgstr "Самолет"
@@ -173,7 +173,7 @@ msgstr "Самолет"
 #: ittour-templates/single-tour-content.php:118
 #: includes/ittour-template-functions.php:368
 #: includes/ittour-template-functions.php:890
-#: includes/ittour-template-functions.php:2483
+#: includes/ittour-template-functions.php:2489
 #: ittour-templates/single-tour/book-tour-form-popup.php:140
 msgid "Bus"
 msgstr "Автобус"
@@ -246,9 +246,9 @@ msgstr "Регионы"
 msgid "ITTour Hotels Settings"
 msgstr "ITTour Настройки отеля"
 
-#: includes/admin.php:44 includes/ittour-template-functions.php:1869
-#: includes/ittour-template-functions.php:2107
-#: includes/ittour-template-functions.php:2189
+#: includes/admin.php:44 includes/ittour-template-functions.php:1875
+#: includes/ittour-template-functions.php:2113
+#: includes/ittour-template-functions.php:2195
 #: parts/landings/section-min-prices-by-month.php:106
 #: ittour-templates/general/prices-by-rating.php:39
 msgid "Hotels"
@@ -319,15 +319,15 @@ msgstr "Проезд не включен"
 #: includes/ittour-template-functions.php:815
 #: includes/ittour-template-functions.php:832
 #: includes/ittour-template-functions.php:834
-#: includes/ittour-template-functions.php:1640
-#: includes/ittour-template-functions.php:2112
-#: includes/ittour-template-functions.php:2192
-#: includes/ittour-template-functions.php:2315
+#: includes/ittour-template-functions.php:1646
+#: includes/ittour-template-functions.php:2118
+#: includes/ittour-template-functions.php:2198
+#: includes/ittour-template-functions.php:2321
 #: ittour-templates/general/prices-by-rating.php:44
 #: ittour-templates/single-tour/price.php:30
-#: ittour-templates/search/tour-grid-default.php:53
-#: ittour-templates/loop-hotel/tour-list-default.php:191
-#: ittour-templates/loop-hotel/tour-list-default.php:312
+#: ittour-templates/search/tour-grid-default.php:91
+#: ittour-templates/loop-hotel/tour-list-default.php:196
+#: ittour-templates/loop-hotel/tour-list-default.php:317
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:185
 msgid "uah."
 msgstr "грн."
@@ -432,242 +432,244 @@ msgstr "EUR"
 msgid "Tour operator"
 msgstr ""
 
-#: includes/ittour-template-functions.php:1627
-#: includes/ittour-template-functions.php:2309
+#: includes/ittour-template-functions.php:1633
+#: includes/ittour-template-functions.php:2315
 #: parts/landings/section-order-form.php:90
 #: ittour-templates/general/form-find-me-tour.php:75
 #: ittour-templates/general/form-find-me-tour-static.php:75
-#: ittour-templates/search/tour-grid-default.php:45
-#: ittour-templates/loop-hotel/tour-list-default.php:302
+#: ittour-templates/search/tour-grid-default.php:83
+#: ittour-templates/loop-hotel/tour-list-default.php:307
 msgid "Nights"
 msgstr "Ночей"
 
-#: includes/ittour-template-functions.php:1651
-#: includes/ittour-template-functions.php:2320
-#: ittour-templates/loop-hotel/tour-list-default.php:207
-#: ittour-templates/loop-hotel/tour-list-default.php:216
-#: ittour-templates/loop-hotel/tour-list-default.php:323
+#: includes/ittour-template-functions.php:1657
+#: includes/ittour-template-functions.php:2326
+#: ittour-templates/search/tour-grid-default.php:127
+#: ittour-templates/loop-hotel/tour-list-default.php:212
+#: ittour-templates/loop-hotel/tour-list-default.php:221
+#: ittour-templates/loop-hotel/tour-list-default.php:331
+#: ittour-templates/loop-hotel/tour-list-default.php:340
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:203
 msgid "Details"
 msgstr "Подробнее"
 
-#: includes/ittour-template-functions.php:1718
+#: includes/ittour-template-functions.php:1724
 #: ittour-templates/form/search-tab.php:348
 msgid "Search"
 msgstr "Поиск"
 
-#: includes/ittour-template-functions.php:1873
-#: includes/ittour-template-functions.php:2110
-#: includes/ittour-template-functions.php:2192
-#: includes/ittour-template-functions.php:2422
+#: includes/ittour-template-functions.php:1879
+#: includes/ittour-template-functions.php:2116
+#: includes/ittour-template-functions.php:2198
+#: includes/ittour-template-functions.php:2428
 #: parts/landings/section-min-prices-by-month.php:110
 #: parts/landings/section-order-form.php:141
 #: parts/destination/hotel-calendar.php:76
 #: ittour-templates/general/prices-by-rating.php:42
 #: ittour-templates/general/form-find-me-tour.php:138
 #: ittour-templates/general/form-find-me-tour-static.php:138
-#: ittour-templates/search/tour-grid-default.php:51
+#: ittour-templates/search/tour-grid-default.php:89
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:185
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:189
 msgid "from"
 msgstr "от"
 
-#: includes/ittour-template-functions.php:1897
+#: includes/ittour-template-functions.php:1903
 msgid "of January"
 msgstr "Января"
 
-#: includes/ittour-template-functions.php:1901 includes/enqueue-scripts.php:70
+#: includes/ittour-template-functions.php:1907 includes/enqueue-scripts.php:70
 msgid "Jan"
 msgstr "Янв"
 
-#: includes/ittour-template-functions.php:1904
+#: includes/ittour-template-functions.php:1910
 msgid "January"
 msgstr "Январь"
 
-#: includes/ittour-template-functions.php:1909
+#: includes/ittour-template-functions.php:1915
 msgid "of February"
 msgstr "Февраля"
 
-#: includes/ittour-template-functions.php:1913 includes/enqueue-scripts.php:71
+#: includes/ittour-template-functions.php:1919 includes/enqueue-scripts.php:71
 msgid "Feb"
 msgstr "Фев"
 
-#: includes/ittour-template-functions.php:1916
+#: includes/ittour-template-functions.php:1922
 msgid "February"
 msgstr "Февраль"
 
-#: includes/ittour-template-functions.php:1921
+#: includes/ittour-template-functions.php:1927
 msgid "of March"
 msgstr "Марта"
 
-#: includes/ittour-template-functions.php:1925 includes/enqueue-scripts.php:72
+#: includes/ittour-template-functions.php:1931 includes/enqueue-scripts.php:72
 msgid "Mar"
 msgstr "Мар"
 
-#: includes/ittour-template-functions.php:1928
+#: includes/ittour-template-functions.php:1934
 msgid "March"
 msgstr "Март"
 
-#: includes/ittour-template-functions.php:1933
+#: includes/ittour-template-functions.php:1939
 msgid "of April"
 msgstr "Апреля"
 
-#: includes/ittour-template-functions.php:1937 includes/enqueue-scripts.php:73
+#: includes/ittour-template-functions.php:1943 includes/enqueue-scripts.php:73
 msgid "Apr"
 msgstr "Апр"
 
-#: includes/ittour-template-functions.php:1940
+#: includes/ittour-template-functions.php:1946
 msgid "April"
 msgstr "Апрель"
 
-#: includes/ittour-template-functions.php:1945
+#: includes/ittour-template-functions.php:1951
 msgid "of May"
 msgstr "Мая"
 
-#: includes/ittour-template-functions.php:1949
-#: includes/ittour-template-functions.php:1952 includes/enqueue-scripts.php:74
+#: includes/ittour-template-functions.php:1955
+#: includes/ittour-template-functions.php:1958 includes/enqueue-scripts.php:74
 msgid "May"
 msgstr "Май"
 
-#: includes/ittour-template-functions.php:1957
+#: includes/ittour-template-functions.php:1963
 msgid "of June"
 msgstr "Июня"
 
-#: includes/ittour-template-functions.php:1961 includes/enqueue-scripts.php:75
+#: includes/ittour-template-functions.php:1967 includes/enqueue-scripts.php:75
 msgid "Jun"
 msgstr "Июн"
 
-#: includes/ittour-template-functions.php:1964
+#: includes/ittour-template-functions.php:1970
 msgid "June"
 msgstr "Июнь"
 
-#: includes/ittour-template-functions.php:1968
+#: includes/ittour-template-functions.php:1974
 msgid "July"
 msgstr "Июль"
 
-#: includes/ittour-template-functions.php:1973
+#: includes/ittour-template-functions.php:1979
 msgid "of August"
 msgstr "Августа"
 
-#: includes/ittour-template-functions.php:1977 includes/enqueue-scripts.php:77
+#: includes/ittour-template-functions.php:1983 includes/enqueue-scripts.php:77
 msgid "Aug"
 msgstr "Авг"
 
-#: includes/ittour-template-functions.php:1980
+#: includes/ittour-template-functions.php:1986
 msgid "August"
 msgstr "Август"
 
-#: includes/ittour-template-functions.php:1985
+#: includes/ittour-template-functions.php:1991
 msgid "of September"
 msgstr "Сентября"
 
-#: includes/ittour-template-functions.php:1989 includes/enqueue-scripts.php:78
+#: includes/ittour-template-functions.php:1995 includes/enqueue-scripts.php:78
 msgid "Sep"
 msgstr "Сен"
 
-#: includes/ittour-template-functions.php:1992
+#: includes/ittour-template-functions.php:1998
 msgid "September"
 msgstr "Сентябрь"
 
-#: includes/ittour-template-functions.php:1996
+#: includes/ittour-template-functions.php:2002
 msgid "of October"
 msgstr "Октября"
 
-#: includes/ittour-template-functions.php:2000 includes/enqueue-scripts.php:79
+#: includes/ittour-template-functions.php:2006 includes/enqueue-scripts.php:79
 msgid "Oct"
 msgstr "Окт"
 
-#: includes/ittour-template-functions.php:2003
+#: includes/ittour-template-functions.php:2009
 msgid "October"
 msgstr "Октябрь"
 
-#: includes/ittour-template-functions.php:2007
+#: includes/ittour-template-functions.php:2013
 msgid "of November"
 msgstr "Ноября"
 
-#: includes/ittour-template-functions.php:2011 includes/enqueue-scripts.php:80
+#: includes/ittour-template-functions.php:2017 includes/enqueue-scripts.php:80
 msgid "Nov"
 msgstr "Ноя"
 
-#: includes/ittour-template-functions.php:2014
+#: includes/ittour-template-functions.php:2020
 msgid "November"
 msgstr "Ноябрь"
 
-#: includes/ittour-template-functions.php:2018
+#: includes/ittour-template-functions.php:2024
 msgid "of December"
 msgstr "Декабря"
 
-#: includes/ittour-template-functions.php:2022 includes/enqueue-scripts.php:81
+#: includes/ittour-template-functions.php:2028 includes/enqueue-scripts.php:81
 msgid "Dec"
 msgstr "Дек"
 
-#: includes/ittour-template-functions.php:2025
+#: includes/ittour-template-functions.php:2031
 msgid "December"
 msgstr "Декабрь"
 
-#: includes/ittour-template-functions.php:2266
+#: includes/ittour-template-functions.php:2272
 msgid "Room Type"
 msgstr "Тип номера"
 
-#: includes/ittour-template-functions.php:2267
+#: includes/ittour-template-functions.php:2273
 msgid "Meal Type"
 msgstr "Тип питания"
 
-#: includes/ittour-template-functions.php:2268
+#: includes/ittour-template-functions.php:2274
 msgid "Guests / Nights"
 msgstr "Гостей / Ночей"
 
-#: includes/ittour-template-functions.php:2269
+#: includes/ittour-template-functions.php:2275
 #: crm/includes/class/crm-claimmanager.php:267
 #: crm/includes/class/crm-claimmanager.php:274
 #: crm/includes/class/crm-claimmanager.php:281
 msgid "Price"
 msgstr "Цена"
 
-#: includes/ittour-template-functions.php:2385
+#: includes/ittour-template-functions.php:2391
 #: parts/destination/hotel-calendar.php:38
 msgid "Monday"
 msgstr "Понедельник"
 
-#: includes/ittour-template-functions.php:2386
+#: includes/ittour-template-functions.php:2392
 #: parts/destination/hotel-calendar.php:39
 msgid "Tuesday"
 msgstr "Вторник"
 
-#: includes/ittour-template-functions.php:2387
+#: includes/ittour-template-functions.php:2393
 #: parts/destination/hotel-calendar.php:40
 msgid "Wednesday"
 msgstr "Среда"
 
-#: includes/ittour-template-functions.php:2388
+#: includes/ittour-template-functions.php:2394
 #: parts/destination/hotel-calendar.php:41
 msgid "Thursday"
 msgstr "Четверг"
 
-#: includes/ittour-template-functions.php:2389
+#: includes/ittour-template-functions.php:2395
 #: parts/destination/hotel-calendar.php:42
 msgid "Friday"
 msgstr "Пятница"
 
-#: includes/ittour-template-functions.php:2390
+#: includes/ittour-template-functions.php:2396
 #: parts/destination/hotel-calendar.php:43
 msgid "Saturday"
 msgstr "Суббота"
 
-#: includes/ittour-template-functions.php:2391
+#: includes/ittour-template-functions.php:2397
 #: parts/destination/hotel-calendar.php:44
 msgid "Sunday"
 msgstr "Воскресенье"
 
-#: includes/ittour-template-functions.php:2409
+#: includes/ittour-template-functions.php:2415
 msgid "Today"
 msgstr "Сегодня"
 
-#: includes/ittour-template-functions.php:2489
+#: includes/ittour-template-functions.php:2495
 msgid "Train"
 msgstr ""
 
-#: includes/ittour-template-functions.php:2495
+#: includes/ittour-template-functions.php:2501
 msgid "Walking"
 msgstr ""
 
@@ -675,21 +677,25 @@ msgstr ""
 msgid "Home"
 msgstr "Главная"
 
-#: includes/content-templates.php:29
+#: includes/content-templates.php:28
+msgid "All countries"
+msgstr ""
+
+#: includes/content-templates.php:30
 #, php-format
 msgid "Posts tagged with \"%s\""
 msgstr "Посты с тегом \"%s\""
 
-#: includes/content-templates.php:30
+#: includes/content-templates.php:31
 #, php-format
 msgid "Page %s"
 msgstr "Страница %s"
 
-#: includes/content-templates.php:271
+#: includes/content-templates.php:283
 msgid "<i class=\"fas fa-angle-left\"></i>"
 msgstr "<i class=\"fas fa-angle-left\"></i>"
 
-#: includes/content-templates.php:272
+#: includes/content-templates.php:284
 msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr "<i class=\"fas fa-angle-right\"></i>"
 
@@ -1528,22 +1534,22 @@ msgid "Find tour"
 msgstr "Найти тур"
 
 #: parts/destination/loop.php:41
-msgid "The most popular countries"
-msgstr "Самые популярные страны"
+msgid "Input Country title"
+msgstr ""
 
-#: parts/destination/loop.php:107
+#: parts/destination/loop.php:50
 msgid "Popular countries"
 msgstr "Популярные страны"
 
-#: parts/destination/loop.php:173
+#: parts/destination/loop.php:115
 msgid "Other countries"
-msgstr ""
+msgstr "Остальные страны"
 
-#: parts/destination/country.php:54
+#: parts/destination/country.php:55
 msgid "<span>Top</span> Tours"
 msgstr "Рекомендуемые туры"
 
-#: parts/destination/country.php:84
+#: parts/destination/country.php:85
 msgid "<span>Popular</span> Regions"
 msgstr "Популярные регионы"
 
@@ -1752,9 +1758,9 @@ msgstr "или"
 
 #: ittour-templates/single-tour/hotel-reviews.php:34
 #: ittour-templates/search/pagination.php:13
-#: ittour-templates/search/tour-grid-default.php:66
-#: ittour-templates/loop-hotel/tour-list-default.php:46
-#: ittour-templates/loop-hotel/tour-list-default.php:70
+#: ittour-templates/search/tour-grid-default.php:104
+#: ittour-templates/loop-hotel/tour-list-default.php:51
+#: ittour-templates/loop-hotel/tour-list-default.php:75
 msgid "out of"
 msgstr "из"
 
@@ -1849,34 +1855,34 @@ msgstr "Следующий"
 msgid "How to"
 msgstr "Как правильно"
 
-#: ittour-templates/search/tour-grid-default.php:84
+#: ittour-templates/search/tour-grid-default.php:133
 msgid "Want to this hotel"
 msgstr "Хочу в этот отель"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:106
+#: ittour-templates/loop-hotel/tour-list-default.php:111
 msgid "adults"
 msgstr "взрослые"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:119
+#: ittour-templates/loop-hotel/tour-list-default.php:124
 msgid "children"
 msgstr "дети"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:150
-#: ittour-templates/loop-hotel/tour-list-default.php:269
+#: ittour-templates/loop-hotel/tour-list-default.php:155
+#: ittour-templates/loop-hotel/tour-list-default.php:274
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:119
 msgid "Not included"
 msgstr "Не включено"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:161
-#: ittour-templates/loop-hotel/tour-list-default.php:280
+#: ittour-templates/loop-hotel/tour-list-default.php:166
+#: ittour-templates/loop-hotel/tour-list-default.php:285
 msgid "Ask manager"
 msgstr "Спросить менеджера"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:231
+#: ittour-templates/loop-hotel/tour-list-default.php:236
 msgid "More offers"
 msgstr "Больше предложений"
 
-#: ittour-templates/loop-hotel/tour-list-default.php:235
+#: ittour-templates/loop-hotel/tour-list-default.php:240
 msgid "Hide offers"
 msgstr "Спрятать предложения"
 
