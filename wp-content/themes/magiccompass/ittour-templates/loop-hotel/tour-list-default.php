@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 if (!empty($country_info)) {
     $country_url = get_permalink($country_info['ID']);
+    $country_slug = $country_info['slug'];
     $country_title = '<a target="_blank" href="'.$country_url.'">'.$hotel['country'].'</a>';
 } else {
     $country_title = $hotel['country'];
@@ -17,10 +18,14 @@ if (!empty($country_info)) {
 
 if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
     $region_url = get_permalink($regions_info[$hotel["region_id"]]['ID']);
+    $region_slug = $regions_info[$hotel["region_id"]]['slug'];
     $region_title = '<a target="_blank" href="'.$region_url.'">'.$hotel['region'].'</a>';
 } else {
     $region_title = $hotel['region'];
 }
+
+$hotel_title = $hotel['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($hotel['hotel_rating']);
+$hotel_slug = snth_get_slug_lat($hotel_title);
 ?>
 
 <div class="tour_list_container mt-20 mb-20">
@@ -73,7 +78,7 @@ if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
                             }
                             ?>
                             <h3 class="hotel_title m-0">
-                                <strong><?php echo $hotel['hotel']; ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating']); ?></strong>
+                                <strong><?php echo $hotel_title; ?></strong>
                             </h3>
 
                             <div class="hotel_location"><?php echo $country_title . ', ' .$region_title; ?></div>
@@ -198,10 +203,10 @@ if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
 
                                     <div class="col-lg-12 col-5">
                                         <?php
-                                        if (false) {
+                                        if (!empty($country_slug) && !empty($region_slug) && !empty($hotel_slug)) {
                                             ?>
                                             <a
-                                                    href="/countries/<?php echo $country_info['slug'] ?>/region/hotel/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
+                                                    href="/countries/<?php echo $country_slug ?>/<?php echo $region_slug; ?>/<?php echo $hotel_slug ?>/tour/<?php echo $first_offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
                                                     class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
                                             >
                                                 <?php echo __('Details', 'snthwp'); ?>
@@ -316,11 +321,26 @@ if (!empty($hotel["region_id"]) && !empty($regions_info[$hotel["region_id"]])) {
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="tour_list_more_button">
-                                        <a
-                                                href="/tour/<?php echo $offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
-                                                class="btn shape-rnd type-hollow hvr-invert size-xs"
-                                        >
+                                        <?php
+                                        if (!empty($country_slug) && !empty($region_slug) && !empty($hotel_slug)) {
+                                            ?>
+                                            <a
+                                                    href="/countries/<?php echo $country_slug ?>/<?php echo $region_slug; ?>/<?php echo $hotel_slug ?>/tour/<?php echo $offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
+                                                    class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
+                                            >
+                                                <?php echo __('Details', 'snthwp'); ?>
+                                            </a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a
+                                                    href="/tour/<?php echo $offer['key'] ?>/<?php echo $from_city ?><?php echo !empty($child_age) ? '/' . $child_age : '' ?>"
+                                                    class="btn shape-rnd type-hollow hvr-invert size-xs"
+                                            >
                                             <?php echo __('Details', 'snthwp'); ?>
+                                            <?php
+                                        }
+                                        ?>
                                         </a>
                                     </div>
                                 </div>

@@ -25,6 +25,7 @@ function snth_the_breadcrumbs() {
     /* == Options - Start == */
     $text['home'] = __('Home', 'snthwp');
     $text['blog'] = __('Blog', 'snthwp');
+    $text['all_countries'] = __('All countries', 'snthwp');
     $text['category'] = '%s';
     $text['tag'] = __('Posts tagged with "%s"', 'snthwp');
     $text['page'] = __('Page %s', 'snthwp');
@@ -77,7 +78,14 @@ function snth_the_breadcrumbs() {
             echo $home_link;
         }
 
-        if (is_category()) {
+        if (is_post_type_archive('destination')) {
+            if ($show_home_link) {
+                echo $sep;
+            }
+
+            if ($show_current) echo $current_before . $text['all_countries'] . $current_after;
+        }
+        elseif (is_category()) {
 
             if ($show_home_link) {
                 echo $sep;
@@ -134,6 +142,9 @@ function snth_the_breadcrumbs() {
                 if ($show_home_link) {
                     echo $sep;
                 }
+
+                echo sprintf($link, get_post_type_archive_link( 'destination' ), $text['all_countries'], '2');
+                echo $sep;
 
                 $id = $post->ID;
                 $parent_id = ($post) ? $post->post_parent : '';

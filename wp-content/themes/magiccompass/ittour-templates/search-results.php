@@ -35,14 +35,14 @@ $meal_type = false;
 
 $ittour_content = '';
 
-if (!$country_id) {
+if (!$country_id) { // Open new search page
     $template = 'no-sidebar';
     $page_title_template = snth_get_template('titles/static-image-bg.php', array(
             'title' => __('Search tours', 'snthwp')
         )
     );
     $ittour_content = ittour_get_template('search/no-parameters.php');
-} else {
+} else { // Search started
     $args = array();
 
     $country_info = ittour_destination_by_ittour_id($country_id);

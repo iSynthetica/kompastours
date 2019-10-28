@@ -15,11 +15,10 @@ $country_info = array();
 $regions_info = array();
 
 if (!empty($country_id)) {
-    // $country = ittour_get_destination_by_ittour_id($country_id);
     $country_info = ittour_destination_by_ittour_id($country_id);
 }
 
-if (!empty($region_id)) {
+if (!empty($region_id)) { // If search includes Region get region info from DB or API
     $region_info = ittour_destination_by_ittour_id($region_id);
 
     if (empty($region_info)) {
