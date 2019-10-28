@@ -1503,7 +1503,13 @@ function ittour_get_tours_grid($country, $args = array()) {
     $search_result = $search->get($country, $args);
 
     ob_start();
-    ittour_show_template('search/tour-grid-default.php', array('result' => $search_result));
+    $template_args = array('result' => $search_result, 'country_id' => $country);
+
+    if (!empty($args['from_city'])) {
+        $template_args['from_city'] = $args['from_city'];
+    }
+
+    ittour_show_template('search/tour-grid-default.php', $template_args);
 
     return ob_get_clean();
 }

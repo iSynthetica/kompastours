@@ -25,6 +25,7 @@ $template_args = array(
     'type' => 1,
     'country' => $country_id,
     'items_per_page' => 12,
+    'from_city' => 2014,
 );
 
 $popular_regions = get_field('popular_country_regions', get_the_ID());
