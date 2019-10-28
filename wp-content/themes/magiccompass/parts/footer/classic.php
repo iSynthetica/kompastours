@@ -33,7 +33,13 @@
                             <?php
                             foreach ($social as $item) {
                                 ?>
-                                <li class="display-on-<?php echo $item['use_on'] ?>"><a class="icon type-bg size-xs bg-<?php echo $item['icon'] ?>-color mb-0" href="<?php echo $item['link'] ?>" title="<?php echo $item['label'] ?>"><i class="fab fa-<?php echo $item['icon'] ?>"></i></a></li>
+                                <li class="display-on-<?php echo $item['use_on'] ?>"><a
+                                            class="icon type-bg size-xs bg-<?php echo $item['icon'] ?>-color mb-0"
+                                            href="<?php echo $item['link'] ?>"
+                                            title="<?php echo $item['label'] ?>"
+                                            target="_blank"
+                                            rel="nofollow"
+                                    ><i class="fab fa-<?php echo $item['icon'] ?>"></i></a></li>
                                 <?php
                             }
                             ?>
