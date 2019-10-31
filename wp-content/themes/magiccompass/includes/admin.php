@@ -47,6 +47,24 @@ function ittour_admin_menu() {
         'ittour_hotels_admin_page'
     );
 
+    add_submenu_page(
+        'ittour-page',
+        __('ITTour Params', 'snthwp'),
+        __('Params', 'snthwp'),
+        'manage_options',
+        'ittour-params',
+        'ittour_params_admin_page'
+    );
+
+    add_submenu_page(
+        'ittour-page',
+        __('ITTour Help', 'snthwp'),
+        __('Help', 'snthwp'),
+        'manage_options',
+        'ittour-help',
+        'ittour_help_admin_page'
+    );
+
 }
 add_action( 'admin_menu', 'ittour_admin_menu' );
 
@@ -80,12 +98,32 @@ function ittour_regions_admin_page() {
     <?php
 }
 
+function ittour_params_admin_page() {
+    ?>
+    <div class="wrap">
+        <h2><?php _e('ITTour Params', 'snthwp'); ?></h2>
+
+        <?php ittour_show_template('admin/api-params.php') ?>
+    </div>
+    <?php
+}
+
 function ittour_hotels_admin_page() {
     ?>
     <div class="wrap">
         <h2><?php _e('ITTour Hotels', 'snthwp'); ?></h2>
 
         <?php ittour_show_template('admin/api-hotels.php') ?>
+    </div>
+    <?php
+}
+
+function ittour_help_admin_page() {
+    ?>
+    <div class="wrap">
+        <h2><?php _e('ITTour Help', 'snthwp'); ?></h2>
+
+        <?php ittour_show_template('admin/api-help.php') ?>
     </div>
     <?php
 }

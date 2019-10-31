@@ -18,7 +18,34 @@ function snth_footer_first_sidebar_shortcode() {
 }
 add_shortcode( 'snth_footer_first_sidebar', 'snth_footer_first_sidebar_shortcode' );
 
+function snth_ittour_tours_grid($attr = array()) {
+    $atts = shortcode_atts(
+        array(
+            'country' => 338,
+            'type' => 1,
+            'kind' => '',
+            'from_city' => 2014,
+            'region' => '',
+            'hotel' => '',
+            'hotel_rating' => '78', //
+            'adult_amount' => '',
+            'child_amount' => '',
+            'child_age' => '',
+            'night_from' => '',
+            'night_till' => '',
+            'date_from' => '',
+            'date_till' => '',
+            'meal_type' => '560:512:498:496:388:1956',
+            'price_from' => '',
+            'price_till' => '',
+            'items_per_page' => 12,
+        ),
+        $attr
+    );
 
+    return ittour_get_template( 'general/tours-list-ajax.php', $atts );
+}
+add_shortcode( 'ittour_tours_grid', 'snth_ittour_tours_grid' );
 
 function snth_tour_request_by_country_shortcode() {
     ob_start();
