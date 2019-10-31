@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-28 16:07+0000\n"
-"PO-Revision-Date: 2019-10-28 16:08+0000\n"
+"PO-Revision-Date: 2019-10-28 16:23+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -191,7 +191,7 @@ msgstr "Отправление из"
 
 #: ittour-templates/single-tour-content.php:160
 msgid "Tour comment"
-msgstr ""
+msgstr "Комментарий к туру"
 
 #: ittour-templates/single-tour-content.php:195
 msgid "Hotel Reviews"

@@ -679,7 +679,7 @@ msgstr "Главная"
 
 #: includes/content-templates.php:28
 msgid "All countries"
-msgstr ""
+msgstr "Все страны"
 
 #: includes/content-templates.php:30
 #, php-format
