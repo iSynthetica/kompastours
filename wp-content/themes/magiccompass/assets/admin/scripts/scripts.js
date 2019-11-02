@@ -149,6 +149,100 @@
         });
     });
 
+    $(document.body).on('click', '.code-example-copy', function() {
+        var control = $(this);
+        var parent = control.parents('.code-example');
+        var message = parent.find('.code-example-copied');
+        var toCopy = parent.find('.code-example-value');
+
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(toCopy.text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        toCopy.addClass('copied');
+        control.hide();
+        message.show();
+
+        setTimeout(function() {
+            toCopy.removeClass('copied');
+            control.show();
+            message.hide();
+        }, 2000);
+    });
+
+    $(document.body).on('change', '#add_parameter_country', function() {
+        var val = $(this).val();
+        var name = $(this).find('option:selected').text();
+        var regionsByCountries = $.parseJSON($('#regions_by_countries_hidden').val());
+
+        $('#param_country_label').text(name);
+
+        var regionsHtml = '';
+
+        var regions = regionsByCountries[parseInt(val)];
+        regionsHtml += '<option value="">выберите регион</option>';
+
+        for (var i = 0; i < regions.length; i++) {
+            regionsHtml += '<option value="'+regions[i].id+'">'+regions[i].name+'</option>';
+        }
+
+        $('#add_parameter_region').empty().html(regionsHtml);
+
+        generate_shortcode();
+    });
+
+    $(document.body).on('change', '#add_parameter_from_city', function() {
+        var val = $(this).val();
+        var name = $(this).find('option:selected').text();
+
+        $('#param_from_city_label').text(name);
+
+        generate_shortcode();
+    });
+
+    $(document.body).on('change', '#add_parameter_region', function() {
+        var val = $(this).val();
+        var name = $(this).find('option:selected').text();
+
+        if (val) {
+            $('#param_region_label').text(name);
+            $('#param_region_description').css({display: 'inline-block'});
+        } else {
+            $('#param_region_label').text('');
+            $('#param_region_description').css({display: 'none'});
+        }
+
+        generate_shortcode();
+    });
+
+    $(document.body).on('change', '#add_parameter_from_city', function() {
+        var val = $(this).val();
+        var name = $(this).find('option:selected').text();
+
+        $('#param_from_city_label').text(name);
+
+        generate_shortcode();
+    });
+
+    function generate_shortcode() {
+        var shortcodeHolder = $('#tours_grid_shortcode_holder .code-example-value');
+        var country = $('#add_parameter_country').val();
+        var from_city = $('#add_parameter_from_city').val();
+        var region = $('#add_parameter_region').val();
+
+        var shortcode = '[ittour_tours_grid';
+        shortcode += ' country="' + country + '"';
+        shortcode += ' from_city="' + from_city + '"';
+        if (region) {
+            shortcode += ' region="' + region + '"';
+        }
+        shortcode += ']';
+
+        shortcodeHolder.text(shortcode);
+    }
+
     $(document).ready(function() {
 
     });

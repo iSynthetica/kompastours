@@ -7,3 +7,37 @@ table.mc-table th, table.mc-table td {
     vertical-align: top;
     border-top: 1px solid #999;
 }
+
+
+.wp-admin .code-example {
+    position: relative;
+    background-color: rgba(0,0,0,.07);
+    border: 1px solid rgba(0,0,0,.2);
+    padding: 15px;
+    margin-top: 25px;
+}
+
+.wp-admin .code-example .code-example-value {
+    font-family: monospace;
+}
+.wp-admin .code-example .code-example-value.copied {
+    background-color: rgba(0, 185, 238, 0.2);
+}
+.wp-admin .code-example .code-example-copy,
+.wp-admin .code-example .code-example-copied {
+    display: inline-block;
+    font-size: 12px;
+    top: -20px;
+    right: 10px;
+    position: absolute;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+}
+.wp-admin .code-example .code-example-copy:hover {
+    color: #333;
+}
+.wp-admin .code-example .code-example-copied {
+    display: none;
+    cursor: default;
+}
