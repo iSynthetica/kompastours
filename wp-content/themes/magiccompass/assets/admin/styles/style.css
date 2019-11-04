@@ -74,10 +74,15 @@ table.mc-table th, table.mc-table td {
     padding: 3px;
     margin-top: 1px;
     margin-bottom: 1px;
+    border: 1px solid transparent;
 }
 .add-multi-parameter-container li:hover {
     background-color: #f5f5f5;
 }
 .add-multi-parameter-container li label {
     display: block;
+}
+.add-multi-parameter-container li.selected {
+    border: 1px solid #0085ba;
+    color: #0085ba;
 }

@@ -190,7 +190,59 @@
 
         $('#add_parameter_region').empty().html(regionsHtml);
 
-        generate_shortcode();
+        $.post(
+            ajaxurl,
+            {
+                'action': 'ittour_ajax_get_country_parameters',
+                'country_id': val
+            },
+
+            function(response) {
+                if( response.status === 'error') {
+
+                } else {
+
+                    console.log(response)
+                    var hotels =  response.message.hotels;
+
+                    var hotelsHtml = '<ul>';
+
+                    for (var i = 0; i < hotels.length; i++) {
+                        var hotelRating = '5*';
+
+                        if ('7' === hotels[i].hotel_rating_id || '2' === hotels[i].hotel_rating_id) {
+                            hotelRating = '2*';
+                        } else if ('3' === hotels[i].hotel_rating_id) {
+                            hotelRating = '3*';
+                        }  else if ('4' === hotels[i].hotel_rating_id) {
+                            hotelRating = '4*';
+                        }
+
+                        hotelsHtml += '<li>';
+                        hotelsHtml += '<label for"hotel_'+hotels[i].id+'">';
+                        hotelsHtml += '<input '
+                        hotelsHtml += 'id="hotel_'+hotels[i].id+'" ';
+                        hotelsHtml += 'type="checkbox" ';
+                        hotelsHtml += 'value="'+hotels[i].id+'" ';
+                        hotelsHtml += 'data-name="'+hotels[i].name+' ' +hotelRating+ '" ';
+                        hotelsHtml += 'data-region="'+hotels[i].region_id+'"> ';
+                        hotelsHtml += hotels[i].name+ ' ' + hotelRating;
+                        hotelsHtml += ' (id '+hotels[i].id+')</label>';
+                        hotelsHtml += '</li>';
+                    }
+
+                    hotelsHtml += '</ul>';
+
+                    $('#hotel-container').html(hotelsHtml);
+                    $('#add_parameter_hotel').val('');
+                    $('#param_hotel_label').text('');
+                    $('#param_hotel_description').css({display: 'none'});
+
+                    generate_shortcode();
+                }
+            },
+            'json'
+        );
     });
 
     $(document.body).on('change', '#add_parameter_from_city', function() {
@@ -232,21 +284,80 @@
         generate_shortcode();
     });
 
+    $(document.body).on('change', '.add-multi-parameter-container input', function() {
+        var parent = $(this).parents('.add-parameter');
+        var label = $(this).parents('li');
+        var items = parent.find('.add-multi-parameter-container input');
+        var itemsSelected = parent.find('.add-multi-parameter-container input:checked');
+        var paramsHolder = parent.find('.add_multi_parameter_text');
+        var parameter = paramsHolder.data('parameter');
+        var ids = '';
+        var names = '';
+        var count = 0;
+
+        if ($(this).is(':checked')) {
+            label.addClass('selected');
+        } else {
+            label.removeClass('selected');
+        }
+
+        if (itemsSelected.length) {
+            itemsSelected.each(function() {
+                var id = $(this).val();
+                var name = $(this).data('name');
+
+                if ('' !== ids) {
+                    ids += ':';
+                }
+
+                if ('' !== names) {
+                    names += ', ';
+                }
+
+                ids += id;
+                names += name;
+
+                count++;
+            });
+        }
+
+        if (ids) {
+            paramsHolder.val(ids);
+            $('#param_'+parameter+'_label').text(names);
+            $('#param_'+parameter+'_description').css({display: 'inline-block'});
+        } else {
+            paramsHolder.val('');
+            $('#param_'+parameter+'_label').text('');
+            $('#param_'+parameter+'_description').css({display: 'none'});
+        }
+
+        generate_shortcode();
+    });
+
     function generate_shortcode() {
         var shortcodeHolder = $('#tours_grid_shortcode_holder .code-example-value');
         var country = $('#add_parameter_country').val();
         var from_city = $('#add_parameter_from_city').val();
         var region = $('#add_parameter_region').val();
+        var hotel = $('#add_parameter_hotel').val();
+        var hotel_rating = $('#add_parameter_hotel_rating').val();
         var night_from = $('#add_parameter_night_from').val();
         var night_till = $('#add_parameter_night_till').val();
         var date_from = $('#add_parameter_date_from').val();
         var date_till = $('#add_parameter_date_till').val();
+        var meal_type = $('#add_parameter_meal_type').val();
 
         var shortcode = '[ittour_tours_grid';
         shortcode += ' country="' + country + '"';
         shortcode += ' from_city="' + from_city + '"';
         if (region) {
             shortcode += ' region="' + region + '"';
+        }
+        if (hotel) {
+            shortcode += ' hotel="' + hotel + '"';
+        }
+        if (hotel_rating) {
+            shortcode += ' hotel_rating="' + hotel_rating + '"';
         }
         if (night_from) {
             shortcode += ' night_from="' + night_from + '"';
@@ -259,6 +370,9 @@
         }
         if (date_till) {
             shortcode += ' date_till="' + date_till + '"';
+        }
+        if (meal_type) {
+            shortcode += ' meal_type="' + meal_type + '"';
         }
         shortcode += ']';
 

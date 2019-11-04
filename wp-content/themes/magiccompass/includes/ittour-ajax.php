@@ -214,15 +214,24 @@ function ittour_ajax_get_country_parameters() {
     }
 
     $country_id = sanitize_key( $_POST['country_id'] );
+    $country = $country_id;
 
     $args = array();
 
+    $region = '';
     if (!empty($_POST['region'])) {
         $args['region'] = sanitize_key( $_POST['region'] );
+        $region = '_' . sanitize_key( $_POST['region'] );
     }
 
-    $params_obj = ittour_params();
-    $params = $params_obj->getCountry($country_id, $args);
+    $params = get_transient('ittour_country_search_params_' . $country . $region);
+
+    if (!$params) {
+        $params_obj = ittour_params();
+        $params = $params_obj->getCountry($country_id, $args);
+
+        set_transient('ittour_country_search_params_' . $country . $region, $params, 60 * 60 * 12);
+    }
 
     echo json_encode(array( "status" => 'success', 'message' => $params ));
 

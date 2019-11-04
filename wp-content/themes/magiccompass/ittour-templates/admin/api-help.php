@@ -8,7 +8,7 @@ $params = get_transient('ittour_search_params');
 if (!$params) {
     $params = $params_obj->get();
 
-    set_transient('ittour_search_params', $params, 60 * 60 * 6);
+    set_transient('ittour_search_params', $params, 60 * 60 * 12);
 }
 
 $country_params = get_transient('ittour_country_search_params_' . $default_country);
@@ -16,7 +16,7 @@ $country_params = get_transient('ittour_country_search_params_' . $default_count
 if (!$country_params) {
     $country_params = $params_obj->getCountry($default_country);
 
-    set_transient('ittour_country_search_params_' . $default_country, $country_params, 60 * 60 * 6);
+    set_transient('ittour_country_search_params_' . $default_country, $country_params, 60 * 60 * 12);
 }
 
 $regions_by_countries = array();
@@ -54,6 +54,8 @@ if (!$params) {
     Страна <strong id="param_country_label">Египет</strong>,
     город вылета <strong id="param_from_city_label">Киев</strong>
     <span id="param_region_description" style="display: none;">, регион <strong id="param_region_label"></strong></span>
+    <span id="param_hotel_description" style="display: none;">, список отелей <strong id="param_hotel_label"></strong></span>
+    <span id="param_hotel_rating_description" style="display: none;">, звезд в отелях <strong id="param_hotel_rating_label"></strong></span>
     <span id="param_night_from_description" style="display: none;">, количество ночей в туре от <strong id="param_night_from_label"></strong></span>
     <span id="param_night_till_description" style="display: none;">, количество ночей в туре до <strong id="param_night_till_label"></strong></span>
     <span id="param_date_from_description" style="display: none;">, дата начала тура от <strong id="param_date_from_label"></strong></span>
@@ -61,6 +63,7 @@ if (!$params) {
     <span id="param_adult_amount_description" style="display: none;">, количество взрослых <strong id="param_adult_amount_label"></strong></span>
     <span id="param_child_amount_description" style="display: none;">, количество детей <strong id="param_child_amount_label"></strong></span>
     <span id="param_child_age_description" style="display: none;">, возраст детей <strong id="param_child_age_label"></strong></span>
+    <span id="param_meal_type_description" style="display: none;">, типы питания <strong id="param_meal_type_label"></strong></span>
 </p>
 
 <h4>
@@ -147,14 +150,22 @@ if (!$params) {
         <?php $parameter_item = 'hotel'; ?>
 
         <div class="add-parameter">
-            <div id="<?php $parameter_item ?>-container" class="add-multi-parameter-container">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+
+            <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
                     <?php
                     foreach ($country_params["hotels"] as $hotel) {
                         ?>
                         <li>
                             <label for="<?php echo $parameter_item . '_' . $hotel['id'] ?>">
-                                <input id="<?php echo $parameter_item . '_' . $hotel['id'] ?>" type="checkbox" value="<?php echo $hotel['id'] ?>" data-region="<?php echo $hotel['region_id'] ?>">
+                                <input
+                                        id="<?php echo $parameter_item . '_' . $hotel['id'] ?>"
+                                        type="checkbox"
+                                        value="<?php echo $hotel['id'] ?>"
+                                        data-name='<?php echo $hotel['name'] ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']) ?>'
+                                        data-region="<?php echo $hotel['region_id'] ?>"
+                                >
                                 <?php echo $hotel['name'] ?> <?php echo ittour_get_hotel_number_rating_by_id($hotel['hotel_rating_id']) ?> (id <?php echo $hotel['id'] ?>)
                             </label>
                         </li>
@@ -174,15 +185,22 @@ if (!$params) {
         <?php $parameter_item = 'hotel_rating'; ?>
 
         <div class="add-parameter">
-            <div id="<?php $parameter_item ?>-container" class="add-multi-parameter-container">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+
+            <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
                     <?php
                     foreach ($params["hotel_ratings"] as $hotel_rating) {
                         ?>
                         <li>
                             <label for="<?php echo $parameter_item . '_' . $hotel_rating['id'] ?>">
-                                <input id="<?php echo $parameter_item . '_' . $hotel_rating['id'] ?>" type="checkbox" value="<?php echo $hotel_rating['id'] ?>">
-                                <?php echo $hotel_rating['name'] ?> * (id <?php echo $hotel_rating['id'] ?>)
+                                <input
+                                        id="<?php echo $parameter_item . '_' . $hotel_rating['id'] ?>"
+                                        type="checkbox"
+                                        value="<?php echo $hotel_rating['id'] ?>"
+                                        data-name="<?php echo $hotel_rating['name'] ?>*"
+                                >
+                                <?php echo $hotel_rating['name'] ?>* (id <?php echo $hotel_rating['id'] ?>)
                             </label>
                         </li>
                         <?php
@@ -286,14 +304,20 @@ if (!$params) {
         <?php $parameter_item = 'meal_type'; ?>
 
         <div class="add-parameter">
-            <div id="<?php $parameter_item ?>-container" class="add-multi-parameter-container">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+
+            <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
                     <?php
                     foreach ($country_params["meal_types"] as $meal_type) {
                         ?>
                         <li>
                             <label for="<?php echo $parameter_item . '_' . $meal_type['id'] ?>">
-                                <input id="<?php echo $parameter_item . '_' . $meal_type['id'] ?>" type="checkbox" value="<?php echo $meal_type['id'] ?>">
+                                <input
+                                        id="<?php echo $parameter_item . '_' . $meal_type['id'] ?>"
+                                        type="checkbox"
+                                        value="<?php echo $meal_type['id'] ?>"
+                                       data-name="<?php echo $meal_type['name'] ?>">
                                 <?php echo $meal_type['name'] ?> (id <?php echo $meal_type['id'] ?>)
                             </label>
                         </li>
