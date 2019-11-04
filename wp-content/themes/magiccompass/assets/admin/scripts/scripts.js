@@ -172,6 +172,15 @@
         }, 2000);
     });
 
+    $(document.body).on('change', '#add_parameter_from_city', function() {
+        var val = $(this).val();
+        var name = $(this).find('option:selected').text();
+
+        $('#param_from_city_label').text(name);
+
+        generate_shortcode();
+    });
+
     $(document.body).on('change', '#add_parameter_country', function() {
         var val = $(this).val();
         var name = $(this).find('option:selected').text();
@@ -245,15 +254,6 @@
         );
     });
 
-    $(document.body).on('change', '#add_parameter_from_city', function() {
-        var val = $(this).val();
-        var name = $(this).find('option:selected').text();
-
-        $('#param_from_city_label').text(name);
-
-        generate_shortcode();
-    });
-
     $(document.body).on('change', '#add_parameter_region', function() {
         var val = $(this).val();
         var name = $(this).find('option:selected').text();
@@ -265,6 +265,22 @@
             $('#param_region_label').text('');
             $('#param_region_description').css({display: 'none'});
         }
+
+        var hotels = $('#hotel-container li input');
+
+        hotels.each(function() {
+            var item = $(this);
+
+            if (val === '' || item.data('region') == val) {
+                item.parents('li').css({"display" : "block"});
+            } else {
+                item.parents('li').css({"display" : "none"});
+            }
+
+            $('#add_parameter_hotel').val('');
+            $('#param_hotel_label').text('');
+            $('#param_hotel_description').css({display: 'none'});
+        });
 
         generate_shortcode();
     });
