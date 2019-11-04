@@ -217,11 +217,17 @@
         generate_shortcode();
     });
 
-    $(document.body).on('change', '#add_parameter_from_city', function() {
+    $(document.body).on('change', '.add_parameter_text', function() {
         var val = $(this).val();
-        var name = $(this).find('option:selected').text();
+        var parameter = $(this).data('parameter');
 
-        $('#param_from_city_label').text(name);
+        if (val) {
+            $('#param_'+parameter+'_label').text(val);
+            $('#param_'+parameter+'_description').css({display: 'inline-block'});
+        } else {
+            $('#param_'+parameter+'_label').text('');
+            $('#param_'+parameter+'_description').css({display: 'none'});
+        }
 
         generate_shortcode();
     });
@@ -231,12 +237,28 @@
         var country = $('#add_parameter_country').val();
         var from_city = $('#add_parameter_from_city').val();
         var region = $('#add_parameter_region').val();
+        var night_from = $('#add_parameter_night_from').val();
+        var night_till = $('#add_parameter_night_till').val();
+        var date_from = $('#add_parameter_date_from').val();
+        var date_till = $('#add_parameter_date_till').val();
 
         var shortcode = '[ittour_tours_grid';
         shortcode += ' country="' + country + '"';
         shortcode += ' from_city="' + from_city + '"';
         if (region) {
             shortcode += ' region="' + region + '"';
+        }
+        if (night_from) {
+            shortcode += ' night_from="' + night_from + '"';
+        }
+        if (night_till) {
+            shortcode += ' night_till="' + night_till + '"';
+        }
+        if (date_from) {
+            shortcode += ' date_from="' + date_from + '"';
+        }
+        if (date_till) {
+            shortcode += ' date_till="' + date_till + '"';
         }
         shortcode += ']';
 
