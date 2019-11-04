@@ -260,7 +260,7 @@
 
         if (val) {
             $('#param_region_label').text(name);
-            $('#param_region_description').css({display: 'inline-block'});
+            $('#param_region_description').css({display: 'inline-block'}) ;
         } else {
             $('#param_region_label').text('');
             $('#param_region_description').css({display: 'none'});
