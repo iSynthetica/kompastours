@@ -1,9 +1,9 @@
 === Smash Balloon Social Photo Feed ===
 Contributors: smashballoon, craig-at-smash-balloon
 Tags: Instagram, Instagram feed, Instagram photos, Instagram widget, Instagram gallery
-Requires at least: 3.0
-Tested up to: 5.2
-Stable tag: 1.12.2
+Requires at least: 3.4
+Tested up to: 5.3
+Stable tag: 2.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -324,6 +324,38 @@ We understand that sometimes you need help, have issues or just have questions. 
 * Plus more customization options added all the time!
 
 == Changelog ==
+= 2.1.1 =
+* New: Added ability to enqueue the CSS file through the shortcode. This loads the file in the footer of the site, and only on pages that include a feed. Enable on the "Customize" tab.
+* Tweak: Resized images can be used in the page source code when "Disable js image loading" setting is enabled.
+* Fix: HTML for header would still be visible in the source of the page when removing the header using showheader=false in the shortcode
+
+= 2.1 =
+* New: Added the ability to overwrite default templates in your theme. View [this article](https://smashballoon.com/guide-to-creating-custom-templates/) for more information.
+* New: Added several PHP hooks for modifying feeds settings and functionality.
+* Fix: Using the "Load Initial Posts with AJAX" setting would cause images to not resize with the browser window.
+* Fix: Added back language files for translations.
+* Fix: Changing the image resolution setting would not change the image size.
+* Fix: Follow button would not show if there was no connected account.
+* Fix: Deleting any connected account will delete any connected accounts that have errors in the data that was saved for them.
+
+= 2.0.2 =
+* Fix: HTML for header would still be visible in the source of the page when removing the header using showheader=false in the shortcode
+* Fix: CSS added to prevent layout issues when adding the feed to a "text" widget for certain themes
+
+= 2.0.1 =
+* Tweak: Force cache of major caching plugins to clear when updating plugin to avoid issues with previous CSS/JavaScript files being cached
+* Tweak: Added version number to the end of JavaScript and CSS files to clear browser caches that are causing errors
+* Fix: Added back filter to allow using shortcode in a custom HTML widget
+* Fix: Added back settings to display bio information in header and change header size which were mistakenly removed in the last update
+* Fix: Fixed a PHP notice which might display under certain circumstances
+
+= 2.0 =
+* **MAJOR UDPATE**
+* New: We've rebuilt the plugin from the ground up with a focus on performance and reliability. Your feeds are now loaded from the server using PHP removing the reliance on AJAX.
+* New: Local copies of images are now automatically stored on your server and used in your feed. You can disable this feature in the "Advanced" section of the "Customize" tab. Use the "Favor Local Images" setting on the "Customize" tab, "Advanced" sub-tab to have the plugin use local images whenever available, thus removing reliance on the Instagram CDN.
+* New: You can now set the plugin to check for new Instagram posts in the background rather than when the page loads by using the new "Background caching" option which utilizes the WordPress "cron" feature. Enable this using the "Check for new posts" setting on the "Configure" tab.
+* New: If you have a business account for Instagram, you can now connect to the new Instagram API. You can continue to use your connected personal account and do not need to connect a business account.
+
 = 1.12.2 =
 * Fix: Fixed error from Instagram when connecting a personal account.
 
