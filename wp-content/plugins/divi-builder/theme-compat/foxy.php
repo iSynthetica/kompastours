@@ -125,50 +125,50 @@ class ET_Builder_Theme_Compat_Foxy {
 
 		if ( $has_shop_module || $is_fb ) {
 			$shop_compat_style = '
-				#et-boc .et_pb_shop .woocommerce ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce ul.products li.product {
 					margin: 0 3.05% 2.992em 0 !important;
 					width: 22.05% !important;
 				}
 
-				#et-boc .et_pb_shop .woocommerce.columns-1 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce.columns-1 ul.products li.product {
 					width: 100% !important;
 					margin-right: 0;
 				}
 
-				#et-boc .et_pb_shop .woocommerce.columns-2 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce.columns-2 ul.products li.product {
 					width: 48% !important;
 					margin: 0 2% 2.992em 0 !important;
 				}
 
-				#et-boc .et_pb_shop .woocommerce.columns-3 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce.columns-3 ul.products li.product {
 					width: 30.75% !important;
 					margin-right: 2.5% !important;
 				}
 
-				#et-boc .et_pb_shop .woocommerce.columns-4 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce.columns-4 ul.products li.product {
 					margin-right: 2.9% !important;
 				}
 
-				#et-boc .et_pb_shop .woocommerce.columns-5 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce.columns-5 ul.products li.product {
 					width: 16.95% !important;
 				}
 
-				#et-boc .woocommerce-page.columns-6 ul.products li.product,
-				#et-boc .woocommerce.columns-6 ul.products li.product {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .woocommerce-page.columns-6 ul.products li.product,
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .woocommerce.columns-6 ul.products li.product {
 					width: 13.5% !important;
 					margin: 0 3.8% 2.992em 0 !important;
 				}
 
-				#et-boc .et_pb_shop .onsale {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .onsale {
 					right: auto !important;
 				}
 
-				#et-boc .et_pb_shop .woocommerce ul.products li.product h3 {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop .woocommerce ul.products li.product h3 {
 					font-size: 1em !important;
 					padding: .3em 0 !important;
 				}
 
-				#et-boc .et_pb_shop  .woocommerce ul.products li.product .star-rating {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_shop  .woocommerce ul.products li.product .star-rating {
 					margin: 4px 0 0.7em 0 !important;
 				}
 			';
@@ -180,27 +180,27 @@ class ET_Builder_Theme_Compat_Foxy {
 
 		if ( $has_comments_module || $is_fb ) {
 			$comments_compat_style = '
-				#et-boc .et_pb_comments_module .comment-body {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .comment-body {
 					padding: 40px 40px 90px;
 					min-height: 110px;
 					margin-bottom: 80px;
 					background: white;
 				}
 
-				#et-boc .et_pb_comments_module .comment-reply-link.et_pb_button {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .comment-reply-link.et_pb_button {
 					bottom: -60px;
 					top: auto;
 				}
 
-				#et-boc .et_pb_comments_module .testimonial-author {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .testimonial-author {
 					padding-left: 40px;
 				}
 
-				#et-boc .et_pb_comments_module .testimonial-author .et-avatar:before {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .testimonial-author .et-avatar:before {
 					box-shadow: none !important;
 				}
 
-				#et-boc .et_pb_comments_module .testimonial-author .et-avatar {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .testimonial-author .et-avatar {
 					padding: 5px;
 					border-radius: 50%;
 					box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
@@ -208,17 +208,17 @@ class ET_Builder_Theme_Compat_Foxy {
 					background: white;
 				}
 
-				#et-boc .et_pb_comments_module .testimonial-author .avatar {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .testimonial-author .avatar {
 					border-radius: 50%;
 					display: block;
 				}
 
-				#et-boc .et_pb_comments_module .testimonial-author strong {
+				' . ET_BUILDER_CSS_LAYOUT_PREFIX . ' .et_pb_comments_module .testimonial-author strong {
 					padding: 18px 0 0;
 				}
 
 				@media (max-width: 767px) {
-					.et-db #et-boc #comment-wrap li.comment article {
+					' . ET_BUILDER_CSS_PREFIX . ' #comment-wrap li.comment article {
 						padding-right: 40px;
 					}
 				}

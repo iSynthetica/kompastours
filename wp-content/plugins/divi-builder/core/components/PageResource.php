@@ -279,8 +279,7 @@ class ET_Core_PageResource {
 		$this->write_file_location = $this->location;
 
 		$slug           = sanitize_text_field( $slug );
-		$global         = 'global' === $post_id ? '-global' : '';
-		$this->filename = "et-{$this->owner}-{$slug}{$global}";
+		$this->filename = "et-{$this->owner}-{$slug}-{$post_id}";
 		$this->slug     = "{$this->filename}-cached-inline-{$this->type}s";
 
 		$this->data     = array();
@@ -805,7 +804,7 @@ class ET_Core_PageResource {
 			return $tag;
 		}
 
-		/** @see ET_Core_Support_Center::toggle_safe_mode */
+		/** @see ET_Core_SupportCenter::toggle_safe_mode */
 		if ( et_core_is_safe_mode_active() ) {
 			return $tag;
 		}
@@ -902,7 +901,9 @@ class ET_Core_PageResource {
 
 		$files = array_merge(
 			(array) glob( "{$cache_dir}/et-{$_owner}-*" ),
-			(array) glob( "{$cache_dir}/{$_post_id}/et-{$_owner}-*" )
+			(array) glob( "{$cache_dir}/{$_post_id}/et-{$_owner}-*" ),
+			(array) glob( "{$cache_dir}/*/et-{$_owner}-*-tb-{$_post_id}-*" ),
+			(array) glob( "{$cache_dir}/*/et-{$_owner}-*-tb-for-{$_post_id}-*" )
 		);
 
 		foreach( (array) $files as $file ) {
@@ -1078,8 +1079,8 @@ class ET_Core_PageResource {
 
 		$current_location = $this->location;
 
-		self::_assign_output_location( $location, $this );
 		self::_unassign_output_location( $current_location, $this );
+		self::_assign_output_location( $location, $this );
 
 		$this->location = $location;
 	}

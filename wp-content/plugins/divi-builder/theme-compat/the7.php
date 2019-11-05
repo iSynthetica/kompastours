@@ -56,15 +56,15 @@ class ET_Builder_Theme_Compat_The7 {
 	 */
 	function fix_woocommerce_styling() {
 		$style = '
-			.et-db #et-boc .et_pb_shop .featured { display: block !important; }
-			.et-db #et-boc .et_pb_shop .product { padding: 10px; }
-			.et-db #et-boc .et_pb_shop .product .woo-buttons-on-img img { display: block; width: 100%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-1 .wf-cell  { width: 100%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-2 .wf-cell  { width: 49%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-3 .wf-cell  { width: 33.33%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-4 .wf-cell  { width: 25%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-5 .wf-cell  { width: 20%; }
-			.et-db #et-boc .et_pb_shop .woocommerce.columns-6 .wf-cell  { width: 16.4%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .featured { display: block !important; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .product { padding: 10px; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .product .woo-buttons-on-img img { display: block; width: 100%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-1 .wf-cell  { width: 100%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-2 .wf-cell  { width: 49%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-3 .wf-cell  { width: 33.33%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-4 .wf-cell  { width: 25%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-5 .wf-cell  { width: 20%; }
+			' . ET_BUILDER_CSS_PREFIX . ' .et_pb_shop .woocommerce.columns-6 .wf-cell  { width: 16.4%; }
 		';
 
 		wp_add_inline_style( 'dt-main', $style );

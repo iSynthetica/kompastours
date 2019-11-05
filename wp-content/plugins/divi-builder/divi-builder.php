@@ -3,7 +3,7 @@
  * Plugin Name: Divi Builder
  * Plugin URI: http://elegantthemes.com
  * Description: The ultimate WordPress page builder. Already included and not needed when using the Divi or Extra theme.
- * Version: 2.27.4
+ * Version: 4.0.5
  * Author: Elegant Themes
  * Author URI: http://elegantthemes.com
  * License: GPLv2 or later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'ET_BUILDER_PLUGIN_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'ET_BUILDER_PLUGIN_URI', plugins_url('', __FILE__) );
-define( 'ET_BUILDER_PLUGIN_VERSION', '2.27.4' );
+define( 'ET_BUILDER_PLUGIN_VERSION', '4.0.5' );
 
 if ( ! class_exists( 'ET_Dashboard_v2' ) ) {
 	require_once( ET_BUILDER_PLUGIN_DIR . 'dashboard/dashboard.php' );
@@ -158,7 +158,7 @@ class ET_Builder_Plugin extends ET_Dashboard_v2 {
 		et_pb_register_posttypes();
 
 		add_action( 'admin_menu', array( $this, 'add_divi_menu' ));
-		
+
 		// Check if the plugin was just activated and call for the et_builder_prepare_bfb().
 		if ( 'activated' === get_option( 'et_pb_builder_plugin_status', '' ) ) {
 			et_builder_prepare_bfb();
@@ -175,6 +175,9 @@ class ET_Builder_Plugin extends ET_Dashboard_v2 {
 		if ( et_pb_is_allowed( 'theme_options' ) ) {
 			add_submenu_page( 'et_divi_options', esc_html__( 'Plugin Options', 'et_builder_plugin' ), esc_html__( 'Plugin Options', 'et_builder_plugin' ), 'manage_options', 'et_divi_options', array( $this, 'options_page' ) );
 		}
+
+		et_theme_builder_add_admin_page( 'et_divi_options' );
+
 		// Add Divi Library menu only if it's enabled for current user
 		if ( et_pb_is_allowed( 'divi_library' ) ) {
 			add_submenu_page( 'et_divi_options', esc_html__( 'Divi Library', 'et_builder' ), esc_html__( 'Divi Library', 'et_builder' ), 'manage_options', 'edit.php?post_type=et_pb_layout' );
@@ -472,3 +475,14 @@ function et_divi_builder_auto_deactivate_notice() {
 		unset( $_GET['activate'] );
 	}
 }
+
+/**
+ * Support Center
+ *
+ * @since ??
+ */
+function et_add_divi_builder_support_center() {
+	$support_center = new ET_Core_SupportCenter( 'divi_builder_plugin' );
+	$support_center->init();
+}
+add_action( 'init', 'et_add_divi_builder_support_center' );

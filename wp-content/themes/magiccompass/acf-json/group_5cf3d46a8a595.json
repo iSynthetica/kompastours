@@ -16,7 +16,8 @@
                 "id": ""
             },
             "choices": {
-                "country_min_prices": "Страна Минимальные - цены"
+                "country_min_prices": "Страна Минимальные - цены",
+                "divi": "Divi"
             },
             "default_value": [],
             "allow_null": 0,
@@ -387,5 +388,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1559751691
+    "modified": 1572947005
 }

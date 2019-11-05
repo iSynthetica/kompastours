@@ -216,13 +216,13 @@ class ET_Core_Data_Utils {
 	 * Gets a value from a nested array using an address string.
 	 *
 	 * @param array  $array   An array which contains value located at `$address`.
-	 * @param string $address The location of the value within `$array` (dot notation).
+	 * @param string|array $address The location of the value within `$array` (dot notation).
 	 * @param mixed  $default Value to return if not found. Default is an empty string.
 	 *
 	 * @return mixed The value, if found, otherwise $default.
 	 */
 	public function array_get( $array, $address, $default = '' ) {
-		$keys   = explode( '.', $address );
+		$keys   = is_array( $address ) ? $address : explode( '.', $address );
 		$value  = $array;
 
 		foreach ( $keys as $key ) {
@@ -480,7 +480,7 @@ class ET_Core_Data_Utils {
 	/**
 	 * Whether or not a value includes another value.
 	 *
-	 * @param string $haystack The value to look in.
+	 * @param mixed  $haystack The value to look in.
 	 * @param string $needle   The value to look for.
 	 *
 	 * @return bool
@@ -661,18 +661,56 @@ class ET_Core_Data_Utils {
 			return array( $selector );
 		}
 
-		foreach ( $selectors as $selector ) {
+		foreach ( $selectors as $_selector ) {
 			foreach ( $placeholders as $placeholder ) {
-				if ( strpos( $selector, $placeholder ) !== false ) {
-					$exceptions[] = $selector;
+				if ( strpos( $_selector, $placeholder ) !== false ) {
+					$exceptions[] = $_selector;
 					continue 2;
 				}
 			}
 
-			$main_selector[] = $selector;
+			$main_selector[] = $_selector;
 		}
 
-		return array_merge( array( implode( ', ', $main_selector ) ), $exceptions );
+		return array_filter( array_merge( array( implode( ', ', $main_selector ) ), $exceptions ) );
+	}
+
+	/**
+	 * Whether or not a string starts with a substring.
+	 *
+	 * @since 4.0
+	 *
+	 * @param string $string
+	 * @param string $substring
+	 *
+	 * @return bool
+	 */
+	public function starts_with( $string, $substring ) {
+		return 0 === strpos( $string, $substring );
+	}
+
+	/**
+	 * Convert string to camel case format.
+	 *
+	 * @since 4.0
+	 *
+	 * @param string $string Original string data.
+	 * @param array  $no_strip Additional regex pattern exclusion.
+	 *
+	 * @return string
+	 */
+	function camel_case( $string, $no_strip = array() ) {
+		$words = preg_split( '/[^a-zA-Z0-9' . implode( '', $no_strip ) . ']+/i', strtolower( $string ) );
+
+		if ( count( $words ) === 1 ) {
+			return $words[0];
+		}
+
+		$camel_cased = implode( '', array_map( 'ucwords', $words ) );
+
+		$camel_cased[0] = strtolower( $camel_cased[0] );
+
+		return $camel_cased;
 	}
 }
 

@@ -472,65 +472,6 @@ function dbp_action_toggle_bfb( $enable ) {
 add_action( 'et_builder_toggle_bfb', 'dbp_action_toggle_bfb' );
 
 /**
- * Theme implementation for show BFB opt-in modal check.
- *
- * @since 2.18
- *
- * @param bool $default
- *
- * @return bool
- */
-function dbp_filter_show_bfb_optin_modal( $default = false ) {
-	$options = get_option( 'et_pb_builder_options', array() );
-	$shown = isset( $options['bfb_optin_modal_shown'] ) ? $options['bfb_optin_modal_shown'] : $default;
-
-	// Don't show the optin modal if no BB activated or BFB already activated
-	if ( ! et_pb_is_pagebuilder_used() || et_builder_bfb_enabled() ) {
-		return false;
-	}
-
-	if ( is_bool( $shown ) ) {
-		return $shown;
-	}
-
-	// 'true'  = modal has been shown.
-	// 'false' = modal is queued to be shown, but has not had the chance yet.
-	return $shown === 'false';
-}
-add_filter( 'et_builder_show_bfb_optin_modal', 'dbp_filter_show_bfb_optin_modal' );
-
-/**
- * DBP implementation for BFB opt-in modal shown.
- *
- * @since 2.18
- *
- * @return void
- */
-function dbp_action_bfb_optin_modal_shown() {
-	$options = get_option( 'et_pb_builder_options', array() );
-	$options['bfb_optin_modal_shown'] = 'true';
-	update_option( 'et_pb_builder_options', $options );
-}
-add_action( 'et_builder_bfb_optin_modal_shown', 'dbp_action_bfb_optin_modal_shown' );
-
-/**
- * DBP implementation for queue BFB opt-in modal.
- *
- * @since 2.18
- *
- * @return void
- */
-function dbp_action_queue_bfb_optin_modal() {
-	if ( et_builder_bfb_enabled() ) {
-		return;
-	}
-
-	$options = get_option( 'et_pb_builder_options', array() );
-	$options['bfb_optin_modal_shown'] = 'false';
-	update_option( 'et_pb_builder_options', $options );
-}
-add_action( 'et_builder_queue_bfb_optin_modal', 'dbp_action_queue_bfb_optin_modal' );
-/**
  * Filter the list of post types the Divi Builder is enabled on based on plugin options.
  *
  * @since 2.10

@@ -86,6 +86,7 @@ class ET_Builder_Theme_Compat_Loader {
 			'Salient',
 			'Foxy',
 			'Twenty Nineteen',
+			'JupiterX',
 		) );
 	}
 

@@ -47,6 +47,7 @@ class ET_Builder_Theme_Compat_Flatsome {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 10 );
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'register_shop_thumbnail' ) );
+		add_action( 'et_builder_wc_product_before_render_layout_registration', array( $this, 'remove_builder_wc_product_elements' ) );
 	}
 
 	/**
@@ -75,6 +76,19 @@ class ET_Builder_Theme_Compat_Flatsome {
 	function register_shop_thumbnail() {
 		remove_action( 'flatsome_woocommerce_shop_loop_images', 'woocommerce_template_loop_product_thumbnail', 10 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10);
+	}
+
+	/**
+	 * Remove unwanted WC products element added by theme; builder's WooCommerce module
+	 * will render these element (if added to the layout)
+	 *
+	 * @since ??
+	 *
+	 * @return void
+	 */
+	function remove_builder_wc_product_elements() {
+		// Remove custom breadcrumb added by Flatsome
+		remove_action( 'flatsome_breadcrumb' , 'woocommerce_breadcrumb', 20 );
 	}
 }
 ET_Builder_Theme_Compat_Flatsome::init();

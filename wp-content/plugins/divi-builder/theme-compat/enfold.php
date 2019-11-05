@@ -55,6 +55,7 @@ class ET_Builder_Theme_Compat_Enfold {
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'reset_shop_onsale_position') );
 		add_action( 'et_pb_shop_after_print_shop', array( $this, 'return_shop_onsale_position') );
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'register_shop_thumbnail' ) );
+		add_action( 'et_builder_wc_product_before_render_layout_registration', array( $this, 'remove_builder_wc_product_elements' ) );
 	}
 
 	/**
@@ -86,6 +87,30 @@ class ET_Builder_Theme_Compat_Enfold {
 	function register_shop_thumbnail() {
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'avia_woocommerce_thumbnail', 10 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10);
+	}
+
+	/**
+	 * Remove unwanted WC products element added by theme; builder's WooCommerce module
+	 * will render these element (if added to the layout)
+	 *
+	 * @since ??
+	 *
+	 * @return void
+	 */
+	function remove_builder_wc_product_elements() {
+		// Remove product data tabs which causes builder layout to be rendered twice
+		remove_action(
+			'woocommerce_after_single_product_summary',
+			'woocommerce_output_product_data_tabs',
+			1
+		);
+
+		// Remove the related products and upsells
+		remove_action(
+			'woocommerce_after_single_product_summary',
+			'avia_woocommerce_display_output_upsells',
+			30
+		);
 	}
 }
 ET_Builder_Theme_Compat_Enfold::init();

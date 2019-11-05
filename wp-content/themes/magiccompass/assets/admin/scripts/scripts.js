@@ -300,6 +300,22 @@
         generate_shortcode();
     });
 
+    $(document.body).on('change', '.add_parameter_dropdown', function() {
+        var val = $(this).val();
+        var label = $(this).find('option:selected').text();
+        var parameter = $(this).data('parameter');
+
+        if (val) {
+            $('#param_'+parameter+'_label').text(label);
+            $('#param_'+parameter+'_description').css({display: 'inline-block'});
+        } else {
+            $('#param_'+parameter+'_label').text('');
+            $('#param_'+parameter+'_description').css({display: 'none'});
+        }
+
+        generate_shortcode();
+    });
+
     $(document.body).on('change', '.add-multi-parameter-container input', function() {
         var parent = $(this).parents('.add-parameter');
         var label = $(this).parents('li');
@@ -310,6 +326,7 @@
         var ids = '';
         var names = '';
         var count = 0;
+        var max = paramsHolder.data('parameter-max');
 
         if ($(this).is(':checked')) {
             label.addClass('selected');
@@ -347,6 +364,10 @@
             $('#param_'+parameter+'_description').css({display: 'none'});
         }
 
+        if (max) {
+            parent.find('.parameter-count').text(count);
+        }
+
         generate_shortcode();
     });
 
@@ -362,6 +383,8 @@
         var date_from = $('#add_parameter_date_from').val();
         var date_till = $('#add_parameter_date_till').val();
         var meal_type = $('#add_parameter_meal_type').val();
+        var tour_type = $('#add_parameter_type').val();
+        var tour_kind = $('#add_parameter_kind').val();
 
         var shortcode = '[ittour_tours_grid';
         shortcode += ' country="' + country + '"';
@@ -389,6 +412,12 @@
         }
         if (meal_type) {
             shortcode += ' meal_type="' + meal_type + '"';
+        }
+        if (tour_type) {
+            shortcode += ' type="' + tour_type + '"';
+        }
+        if (tour_kind) {
+            shortcode += ' kind="' + tour_kind + '"';
         }
         shortcode += ']';
 

@@ -226,7 +226,7 @@ function et_core_page_resource_fallback() {
 		return;
 	}
 
-	/** @see ET_Core_Support_Center::toggle_safe_mode */
+	/** @see ET_Core_SupportCenter::toggle_safe_mode */
 	if ( et_core_is_safe_mode_active() ) {
 		return;
 	}
@@ -268,8 +268,7 @@ if ( ! function_exists( 'et_core_page_resource_get' ) ):
  */
 function et_core_page_resource_get( $owner, $slug, $post_id = null, $priority = 10, $location = 'head-late', $type = 'style' ) {
 	$post_id = $post_id ? $post_id : et_core_page_resource_get_the_ID();
-	$global  = 'global' === $post_id ? '-global' : '';
-	$_slug   = "et-{$owner}-{$slug}{$global}-cached-inline-{$type}s";
+	$_slug   = "et-{$owner}-{$slug}-{$post_id}-cached-inline-{$type}s";
 
 	$all_resources = ET_Core_PageResource::get_resources();
 
@@ -290,7 +289,7 @@ function et_core_page_resource_maybe_output_fallback_script() {
 		return;
 	}
 
-	/** @see ET_Core_Support_Center::toggle_safe_mode */
+	/** @see ET_Core_SupportCenter::toggle_safe_mode */
 	if ( et_core_is_safe_mode_active() ) {
 		return;
 	}

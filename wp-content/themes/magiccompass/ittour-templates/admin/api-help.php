@@ -64,6 +64,8 @@ if (!$params) {
     <span id="param_child_amount_description" style="display: none;">, количество детей <strong id="param_child_amount_label"></strong></span>
     <span id="param_child_age_description" style="display: none;">, возраст детей <strong id="param_child_age_label"></strong></span>
     <span id="param_meal_type_description" style="display: none;">, типы питания <strong id="param_meal_type_label"></strong></span>
+    <span id="param_type_description" style="display: none;">, проезд <strong id="param_type_label"></strong></span>
+    <span id="param_kind_description" style="display: none;">, тип транспорта <strong id="param_kind_label"></strong></span>
 </p>
 
 <h4>
@@ -147,10 +149,13 @@ if (!$params) {
             <code>hotel="XXXX:XXXX:XXXX"</code> - отели в стране тура, где "XXXX" id отелей разделенных ":", можно указать от 1 до 10 отелей в одном шорткоде.
         </p>
 
-        <?php $parameter_item = 'hotel'; ?>
+        <?php
+        $parameter_item = 'hotel';
+        $parameter_max = 10;
+        ?>
 
         <div class="add-parameter">
-            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" data-parameter-max="<?php echo $parameter_max; ?>" type="hidden" style="width: 100%;">
 
             <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
@@ -174,6 +179,11 @@ if (!$params) {
                     ?>
                 </ul>
             </div>
+
+            <p>
+                Выбрано <strong class="parameter-count">0</strong> отелей из <strong><?php echo $parameter_max ?></strong>
+            </p>
+
         </div>
     </div>
 
@@ -182,10 +192,13 @@ if (!$params) {
             <code>hotel_rating="XX:XX"</code> - количество звезд отелей в результате поиска, где "XX" id звезд отелей разделенных ":", можно указать от 1 до 2 id в одном шорткоде.
         </p>
 
-        <?php $parameter_item = 'hotel_rating'; ?>
+        <?php
+        $parameter_item = 'hotel_rating';
+        $parameter_max = 2;
+        ?>
 
         <div class="add-parameter">
-            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" data-parameter-max="<?php echo $parameter_max; ?>" type="hidden" style="width: 100%;">
 
             <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
@@ -208,6 +221,10 @@ if (!$params) {
                     ?>
                 </ul>
             </div>
+
+            <p>
+                Выбрано <strong class="parameter-count">0</strong> единиц из <strong><?php echo $parameter_max ?></strong>
+            </p>
         </div>
     </div>
 </div>
@@ -223,9 +240,7 @@ if (!$params) {
         <div class="add-parameter">
             <input id="add_parameter_night_from" class="add_parameter_text" data-parameter="night_from" type="number" min="1" max="30">
         </div>
-    </div>
 
-    <div>
         <p>
             <code>night_till="X"</code> - количество ночей в туре до (число от 1 до 30).
         </p>
@@ -234,11 +249,7 @@ if (!$params) {
             <input id="add_parameter_night_till" class="add_parameter_text" data-parameter="night_till" type="number" min="1" max="30">
         </div>
     </div>
-</div>
 
-<hr>
-
-<div class="two-col-holder">
     <div>
         <p>
             <code>date_from="ДД.ММ.ГГ"</code> - дата начала тура от (например: 20.12.19).
@@ -248,9 +259,6 @@ if (!$params) {
             <input id="add_parameter_date_from" class="add_parameter_text" data-parameter="date_from" type="text">
         </div>
 
-    </div>
-
-    <div>
         <p>
             <code>date_till="ДД.ММ.ГГ"</code> - дата начала тура до (например: 30.12.19) не больше 12-ти дней от date_from.
         </p>
@@ -304,7 +312,7 @@ if (!$params) {
         <?php $parameter_item = 'meal_type'; ?>
 
         <div class="add-parameter">
-            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="text" style="width: 100%;">
+            <input id="add_parameter_<?php echo $parameter_item ?>" class="add_multi_parameter_text" data-parameter="<?php echo $parameter_item ?>" type="hidden" style="width: 100%;">
 
             <div id="<?php echo $parameter_item ?>-container" class="add-multi-parameter-container">
                 <ul>
@@ -330,6 +338,40 @@ if (!$params) {
     </div>
 
     <div>
+        <p>
+            <code>type="XX"</code> - включен или не включен проезд.
+        </p>
 
+        <div class="add-parameter">
+            <select id="add_parameter_type" data-parameter="type" class="add_parameter_dropdown">
+                <option value="">-- выбрать --</option>
+                <?php
+                foreach ($params["types"] as $type) {
+                    ?>
+                    <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                    <?php
+                }
+                ?>
+            </select>
+        </div>
+
+        <p>
+            <code>kind="XX"</code> - тип транспорта.
+        </p>
+
+        <div class="add-parameter">
+            <select id="add_parameter_kind" data-parameter="kind" class="add_parameter_dropdown">
+                <option value="">-- выбрать --</option>
+                <?php
+                foreach ($params["transport_types"] as $type) {
+                    if ('-2' !== $type['id']) {
+                        ?>
+                        <option value="<?php echo $type['id'] ?>"><?php echo $type['name'] ?></option>
+                        <?php
+                    }
+                }
+                ?>
+            </select>
+        </div>
     </div>
 </div>

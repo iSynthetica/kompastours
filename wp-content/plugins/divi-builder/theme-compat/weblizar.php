@@ -69,7 +69,7 @@ class ET_Builder_Theme_Compat_Weblizar {
 	 * @return void
 	 */
 	function add_styling_fix() {
-		$style = '.et-db #et-boc .et_pb_widget_area .sidebar-block { margin-top: 0; margin-bottom: 30px; color: inherit; }';
+		$style = ET_BUILDER_CSS_PREFIX . ' .et_pb_widget_area .sidebar-block { margin-top: 0; margin-bottom: 30px; color: inherit; }';
 		wp_add_inline_style( 'et-builder-modules-style', $style );
 	}
 }

@@ -841,7 +841,11 @@ class ET_Dashboard_v2 {
 								break;
 
 								case 'select' :
-									$current_option_list = isset( $option[ 'value_'. $current_location ] ) ? $option[ 'value_'. $current_location ] : $option[ 'value' ];
+									$current_option_list = isset( $option[ 'value_'. $current_location ] )
+										? $option[ 'value_'. $current_location ]
+										: isset( $option[ 'value' ] )
+											? $option[ 'value' ]
+											: $option[ 'options' ];
 									if ( isset( $option[ 'filter'] ) ) {
 										$current_option_list = apply_filters( $option[ 'filter'], $current_option_list );
 									}
