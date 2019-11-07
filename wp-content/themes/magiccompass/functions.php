@@ -82,6 +82,9 @@ require_once(SNTH_INCLUDES.'/cpt.php');
 // ittour API
 require_once(SNTH_INCLUDES.'/cpt-library.php');
 
+// ittour API
+require_once(SNTH_INCLUDES.'/Class_SNTH_Gallery.php');
+
 // Helpers library
 require_once(SNTH_INCLUDES.'/media.php');
 

@@ -662,3 +662,86 @@ Stack trace:
 [05-Nov-2019 19:13:55 UTC] PHP  15. include() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/ittour-template-functions.php:28
 [05-Nov-2019 19:13:55 UTC] PHP  16. snth_convert_date_to_human() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/ittour-templates/single-tour/hotel-reviews.php:44
 [05-Nov-2019 19:13:55 UTC] PHP  17. date_format() /var/www/synthetica/magiccompass/ru/public_html/wp-content/themes/magiccompass/includes/helpers.php:218
+[06-Nov-2019 14:40:12 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php on line 65
+[06-Nov-2019 14:40:12 UTC] PHP Stack trace:
+[06-Nov-2019 14:40:12 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post-new.php:0
+[06-Nov-2019 14:40:12 UTC] PHP   2. include() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post-new.php:75
+[06-Nov-2019 14:40:12 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/edit-form-advanced.php:393
+[06-Nov-2019 14:40:12 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-header.php:104
+[06-Nov-2019 14:40:12 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Nov-2019 14:40:12 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Nov-2019 14:40:12 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Nov-2019 14:40:12 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:775
+[06-Nov-2019 14:40:12 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:195
+[06-Nov-2019 14:40:12 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[06-Nov-2019 14:40:12 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[06-Nov-2019 14:40:12 UTC] PHP  12. wp_get_available_translations() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[06-Nov-2019 14:40:12 UTC] PHP  13. translations_api() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:126
+[06-Nov-2019 14:40:12 UTC] PHP  14. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:65
+[06-Nov-2019 14:40:29 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php on line 65
+[06-Nov-2019 14:40:29 UTC] PHP Stack trace:
+[06-Nov-2019 14:40:29 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post-new.php:0
+[06-Nov-2019 14:40:29 UTC] PHP   2. include() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post-new.php:75
+[06-Nov-2019 14:40:29 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/edit-form-advanced.php:393
+[06-Nov-2019 14:40:29 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-header.php:104
+[06-Nov-2019 14:40:29 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Nov-2019 14:40:29 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Nov-2019 14:40:29 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Nov-2019 14:40:29 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:775
+[06-Nov-2019 14:40:29 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:195
+[06-Nov-2019 14:40:29 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[06-Nov-2019 14:40:29 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[06-Nov-2019 14:40:29 UTC] PHP  12. wp_get_available_translations() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[06-Nov-2019 14:40:29 UTC] PHP  13. translations_api() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:126
+[06-Nov-2019 14:40:29 UTC] PHP  14. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:65
+[06-Nov-2019 14:41:01 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php on line 65
+[06-Nov-2019 14:41:01 UTC] PHP Stack trace:
+[06-Nov-2019 14:41:01 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:0
+[06-Nov-2019 14:41:01 UTC] PHP   2. include() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:197
+[06-Nov-2019 14:41:01 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/edit-form-advanced.php:393
+[06-Nov-2019 14:41:01 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-header.php:104
+[06-Nov-2019 14:41:01 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Nov-2019 14:41:01 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Nov-2019 14:41:01 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Nov-2019 14:41:01 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:775
+[06-Nov-2019 14:41:01 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:195
+[06-Nov-2019 14:41:01 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[06-Nov-2019 14:41:01 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[06-Nov-2019 14:41:01 UTC] PHP  12. wp_get_available_translations() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[06-Nov-2019 14:41:01 UTC] PHP  13. translations_api() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:126
+[06-Nov-2019 14:41:01 UTC] PHP  14. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:65
+[06-Nov-2019 14:41:22 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php on line 65
+[06-Nov-2019 14:41:22 UTC] PHP Stack trace:
+[06-Nov-2019 14:41:22 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:0
+[06-Nov-2019 14:41:22 UTC] PHP   2. include() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:197
+[06-Nov-2019 14:41:22 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/edit-form-advanced.php:393
+[06-Nov-2019 14:41:22 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-header.php:104
+[06-Nov-2019 14:41:22 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Nov-2019 14:41:22 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Nov-2019 14:41:22 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Nov-2019 14:41:22 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:775
+[06-Nov-2019 14:41:22 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:195
+[06-Nov-2019 14:41:22 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[06-Nov-2019 14:41:22 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[06-Nov-2019 14:41:22 UTC] PHP  12. wp_get_available_translations() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[06-Nov-2019 14:41:22 UTC] PHP  13. translations_api() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:126
+[06-Nov-2019 14:41:22 UTC] PHP  14. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:65
+[06-Nov-2019 14:44:14 UTC] PHP Warning:  Произошла непредвиденная ошибка. Возможно, что-то не так с сайтом WordPress.org или с настройками вашего сервера. Если проблема не решится, обратитесь на <a href="https://ru.wordpress.org/support/">форумы поддержки</a>. (Не удалось установить защищённое соединение с WordPress.org. Пожалуйста, свяжитесь с администратором сервера.) in /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php on line 65
+[06-Nov-2019 14:44:14 UTC] PHP Stack trace:
+[06-Nov-2019 14:44:14 UTC] PHP   1. {main}() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:0
+[06-Nov-2019 14:44:14 UTC] PHP   2. include() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/post.php:197
+[06-Nov-2019 14:44:14 UTC] PHP   3. require_once() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/edit-form-advanced.php:393
+[06-Nov-2019 14:44:14 UTC] PHP   4. do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/admin-header.php:104
+[06-Nov-2019 14:44:14 UTC] PHP   5. WP_Hook->do_action() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/plugin.php:465
+[06-Nov-2019 14:44:14 UTC] PHP   6. WP_Hook->apply_filters() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:310
+[06-Nov-2019 14:44:14 UTC] PHP   7. WPSEO_Metabox->enqueue() /var/www/synthetica/magiccompass/ru/public_html/wp-includes/class-wp-hook.php:286
+[06-Nov-2019 14:44:14 UTC] PHP   8. WPSEO_Metabox->localize_post_scraper_script() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:775
+[06-Nov-2019 14:44:14 UTC] PHP   9. WPSEO_Metabox_Formatter->get_values() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/metabox/class-metabox.php:195
+[06-Nov-2019 14:44:14 UTC] PHP  10. WPSEO_Metabox_Formatter->get_defaults() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:35
+[06-Nov-2019 14:44:14 UTC] PHP  11. WPSEO_Language_Utils::get_site_language_name() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/admin/formatter/class-metabox-formatter.php:51
+[06-Nov-2019 14:44:14 UTC] PHP  12. wp_get_available_translations() /var/www/synthetica/magiccompass/ru/public_html/wp-content/plugins/wordpress-seo/inc/language-utils.php:65
+[06-Nov-2019 14:44:14 UTC] PHP  13. translations_api() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:126
+[06-Nov-2019 14:44:14 UTC] PHP  14. trigger_error() /var/www/synthetica/magiccompass/ru/public_html/wp-admin/includes/translation-install.php:65
+[07-Nov-2019 08:18:03 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'COUNT (*) FROM mc_posts WHERE post_type = 'gallery'' at line 1 в ответ на запрос COUNT (*) FROM mc_posts WHERE post_type = 'gallery';, выполненный require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/magiccompass/front-page.php'), snth_show_template, include('/themes/magiccompass/parts/front.php'), snth_show_template, include('/themes/magiccompass/parts/home/section-gallery.php'), Class_SNTH_Gallery::is_gallery_items
+[07-Nov-2019 08:21:38 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) FROM mc_posts WHERE post_type = 'gallery' AND post_status = 'publish'' at line 1 в ответ на запрос SELECT COUNT (*) FROM mc_posts WHERE post_type = 'gallery' AND post_status = 'publish';, выполненный require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/magiccompass/front-page.php'), snth_show_template, include('/themes/magiccompass/parts/front.php'), snth_show_template, include('/themes/magiccompass/parts/home/section-gallery.php'), Class_SNTH_Gallery::is_gallery_items
+[07-Nov-2019 08:22:14 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) FROM mc_posts WHERE post_type = 'gallery' AND post_status = 'publish'' at line 1 в ответ на запрос SELECT COUNT (*) FROM mc_posts WHERE post_type = 'gallery' AND post_status = 'publish';, выполненный require('wp-blog-header.php'), require_once('wp-includes/template-loader.php'), include('/themes/magiccompass/front-page.php'), snth_show_template, include('/themes/magiccompass/parts/front.php'), snth_show_template, include('/themes/magiccompass/parts/home/section-gallery.php'), Class_SNTH_Gallery::is_gallery_items

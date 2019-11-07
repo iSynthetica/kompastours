@@ -52,6 +52,8 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
 
 <?php snth_show_template('home/section-blog.php') ?>
 
+<?php snth_show_template('home/section-gallery.php') ?>
+
 <?php snth_show_template('home/section-partners.php') ?>
 
 <?php snth_show_template('home/section-content.php') ?>
