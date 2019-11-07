@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php get_header('transparent'); ?>
 
 <?php snth_show_template('archive-gallery.php', array(
-    'content' => 'gallery',
+    'content' => 'loop-gallery',
 )) ?>
 
 <?php get_footer(); ?>

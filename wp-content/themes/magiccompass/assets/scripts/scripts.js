@@ -27943,7 +27943,12 @@ observer.observe();
         });
     });
 
-    $(document).ready(function() {});
+    $(document).ready(function() {
+        lightGallery(document.getElementById('gallery-container'), {selector: '.gallery-item'})
+        // $('#gallery-container').lightGallery({
+        //     selector: '.gallery-item'
+        // });
+    });
 
     $(window).on('load', function () {});
 

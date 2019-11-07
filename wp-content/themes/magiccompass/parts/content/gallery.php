@@ -1,45 +1,39 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: snth
- * Date: 27.01.19
- * Time: 12:56
- */
+$content_before = get_field('content_before');
+$content_gallery = get_field('content_gallery');
+$content_after = get_field('content_after');
 ?>
 
 <?php
-if ( have_posts() ) {
+if (!empty($content_before)) {
+    echo wpautop($content_before);
+}
+?>
+
+<?php
+// var_dump($content_gallery);
+
+if (!empty($content_gallery)) {
     ?>
-    <div class="box_style_2">
-        <div class="row">
-            <?php
-            // Start the Loop.
-            while ( have_posts() ) :
-                the_post();
-
-                if (has_post_thumbnail()) {
-                    $img_url = get_the_post_thumbnail_url( get_the_ID(), 'archive_photo_thumb' );
-                } else {
-                    $thumbnail = get_field('blog_page_thumbnail', 'options');
-                    $img_url = wp_get_attachment_image_url($thumbnail, 'archive_photo_thumb');
-                }
-                ?>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <article class="post">
-                        <a href="<?php echo esc_url( get_permalink() ); ?>">
-                            <img src="<?php echo $img_url; ?>" alt="Image" class="img-fluid">
-                        </a>
-
-                        <h2 class="entry-title"><?php the_title(); ?></h2>
-                    </article>
-                </div>
-            <?php
-            endwhile;
+    <div id="gallery-container" class="row">
+        <?php
+        foreach ($content_gallery as $photo) {
+            $full_img = $photo['url'];
+            $preview_img = $photo['sizes']['blog_thumb'];
             ?>
-        </div>
+            <div class="col-12 col-md-6 col-lg-4 gallery-item" data-src="<?php echo $full_img; ?>">
+                <img src="<?php echo $preview_img ?>" alt="">
+            </div>
+            <?php
+        }
+        ?>
     </div>
     <?php
-} else {
+}
+?>
 
+<?php
+if (!empty($content_after)) {
+    echo wpautop($content_after);
 }
 ?>
