@@ -332,7 +332,7 @@ function snth_gallery_cpt() {
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 15,
-        'menu_icon'             => 'dashicons-location',
+        'menu_icon'             => 'dashicons-format-gallery',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,

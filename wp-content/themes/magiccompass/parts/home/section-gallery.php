@@ -5,16 +5,7 @@ if (empty($is_gallery_items)) {
     return;
 }
 
-$blog = array(
-    "section_title" => __('Photogallery'),
-    "primary_button" => array(
-        'link' => array(
-            'url' => '#'
-        ),
-        'label' => __('All galleries')
-    ),
-    "secondary_button" => array(),
-);
+$blog = get_field('gallery_section');
 ?>
 
 <section id="blog" class="ptb-20 ptb-md-40 ptb-lg-60 bg-white-color blog-post-style3">
