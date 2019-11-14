@@ -6,6 +6,8 @@
  * @subpackage Magiccompass/Parts/Destination
  * @version 0.0.10
  * @since 0.0.10
+ *
+ * @var $country_post_id
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -32,6 +34,10 @@ $template_args = array(
                 if (!empty(get_the_post_thumbnail_url($region->ID))) {
                     ?>
                     <div class="img-overlay" style="background-image: url('<?php echo get_the_post_thumbnail_url($region->ID, 'full') ?>')"></div>
+                    <?php
+                } elseif (!empty(get_the_post_thumbnail_url($country_post_id))) {
+                    ?>
+                    <div class="img-overlay" style="background-image: url('<?php echo get_the_post_thumbnail_url($country_post_id, 'full') ?>')"></div>
                     <?php
                 }
                 ?>

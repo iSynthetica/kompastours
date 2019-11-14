@@ -94,7 +94,8 @@ if (!empty($popular_regions)) {
                         ?>
                         <div class="col-lg-4 col-md-6">
                             <?php ittour_show_template('country/popular-region.php', array(
-                                'post_id' => $region
+                                'post_id' => $region,
+                                'country_post_id' => $post->ID
                             )); ?>
                         </div>
                         <?php
