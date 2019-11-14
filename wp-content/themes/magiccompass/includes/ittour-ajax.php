@@ -127,6 +127,8 @@ add_action('wp_ajax_nopriv_ittour_ajax_load_search_form', 'ittour_ajax_load_sear
 add_action('wp_ajax_ittour_ajax_load_search_form', 'ittour_ajax_load_search_form');
 
 function ittour_ajax_get_tours_list() {
+    error_log('=========================================');
+    error_log(date('H:i:s'));
     $country            = !empty($_POST['country']) ? (int) sanitize_text_field($_POST['country'])  : false;
 
     $type               = !empty($_POST['type']) ? (int) sanitize_text_field($_POST['type']) : false;
@@ -186,12 +188,28 @@ function ittour_ajax_get_tours_list() {
         $result = ittour_get_min_prices_by_month($country, $args);
     }
 
+
+    error_log(date('H:i:s'));
+    error_log('=========================================');
+
     echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => $result ));
 
     die;
 }
 add_action('wp_ajax_nopriv_ittour_ajax_get_tours_list', 'ittour_ajax_get_tours_list');
 add_action('wp_ajax_ittour_ajax_get_tours_list', 'ittour_ajax_get_tours_list');
+
+function ittour_ajax_get_tours_list_multiple() {
+    $parameters = $_POST['parameters'];
+
+    $new_params = $parameters;
+
+    echo json_encode(array( 'success' => 1, 'error' => 0, 'message' => 'done' ));
+
+    die;
+}
+add_action('wp_ajax_nopriv_ittour_ajax_get_tours_list_multiple', 'ittour_ajax_get_tours_list_multiple');
+add_action('wp_ajax_ittour_ajax_get_tours_list_multiple', 'ittour_ajax_get_tours_list_multiple');
 
 function ittour_ajax_load_select_child() {
     ob_start();

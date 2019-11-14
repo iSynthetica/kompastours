@@ -88,15 +88,19 @@ if (!empty($popular_regions)) {
             </div>
             <div class="row">
                 <?php
-                foreach ($popular_regions as $region) {
-                    ?>
-                    <div class="col-lg-4 col-md-6">
-                        <?php ittour_show_template('country/popular-region.php', array(
+                //if (false) {
+                    $id_index = 1;
+                    foreach ($popular_regions as $region) {
+                        ?>
+                        <div class="col-lg-4 col-md-6">
+                            <?php ittour_show_template('country/popular-region.php', array(
                                 'post_id' => $region
-                        )); ?>
-                    </div>
-                    <?php
-                }
+                            )); ?>
+                        </div>
+                        <?php
+                        $id_index++;
+                    }
+                //}
                 ?>
             </div>
         </div>

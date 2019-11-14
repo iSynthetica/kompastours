@@ -26,7 +26,6 @@ class ittourApi {
     }
 
     protected function request($params = '') {
-        error_log($params);
         $url = $this->url . $this->module . $params;
 
         $curl = curl_init($url);

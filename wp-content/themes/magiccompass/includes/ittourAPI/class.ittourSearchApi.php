@@ -23,7 +23,7 @@ class ittourSearchApi extends ittourApi {
         $now = $endDate = time();
 
         $this->date_from = date('d.m.y', strtotime('+1 day', $now));
-        $this->date_till = date('d.m.y', strtotime('+11 days', $now));
+        $this->date_till = date('d.m.y', strtotime('+13 days', $now));
         $this->night_from = 7;
         $this->night_till = 9;
         $this->from_city = 2014;
@@ -51,7 +51,20 @@ class ittourSearchApi extends ittourApi {
 
         $params = '?' . http_build_query($args);
 
-        return $this->request($params);
+        $hash = md5($params);
+        $result = get_transient('ittour_search_cache_' . $hash);
+
+        if (!empty($result)) {
+            return $result;
+        }
+
+        $result = $this->request($params);
+
+        if (!is_wp_error($result)) {
+            set_transient('ittour_search_cache_' . $hash, $result, 20 * 60);
+        }
+
+        return $result;
     }
 
     public function getList($country_id, $args = array()) {
@@ -62,6 +75,19 @@ class ittourSearchApi extends ittourApi {
 
         $params = '-list?' . http_build_query($args);
 
-        return $this->request($params);
+        $hash = md5($params);
+        $result = get_transient('ittour_search_cache_' . $hash);
+
+        if (!empty($result)) {
+            return $result;
+        }
+
+        $result = $this->request($params);
+
+        if (!is_wp_error($result)) {
+            set_transient('ittour_search_cache_' . $hash, $result, 20 * 60);
+        }
+
+        return $result;
     }
 }

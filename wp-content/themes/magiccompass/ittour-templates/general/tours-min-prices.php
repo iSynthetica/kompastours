@@ -62,7 +62,7 @@ if (!$country) {
             <div class="progress-bar__container" style="padding:10px;">
                 <div class="row">
                     <div class="col-12">
-                        <div class="progress" style="height: 15px;">
+                        <div class="progress" style="height: 5px;">
                             <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                             </div>
                         </div>

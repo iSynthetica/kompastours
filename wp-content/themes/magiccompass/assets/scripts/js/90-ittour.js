@@ -404,12 +404,101 @@
         var toursListContainer = $('.tours-list-ajax__container');
 
         if (toursListContainer.length > 0) {
+            var parameters = [];
+
             toursListContainer.each(function() {
                 var container = $(this);
 
+                parameters.push(ittourGetToursListParams(container));
+
                 ittourGetToursList(container);
             });
+
+            // console.log(parameters);
+            //
+            // $.ajax({
+            //     url: snthWpJsObj.ajaxurl,
+            //     method: 'post',
+            //     // dataType: 'json',
+            //     // processData: false,
+            //     data: {
+            //         action: 'ittour_ajax_get_tours_list_multiple',
+            //         parameters: JSON.stringify(parameters)
+            //     },
+            //     success: function (response) {
+            //         var decoded;
+            //
+            //         try {
+            //             decoded = $.parseJSON(response);
+            //         } catch(err) {
+            //             console.log(err);
+            //             decoded = false;
+            //         }
+            //
+            //         if (decoded) {
+            //             if (decoded.success) {
+            //                 alert(decoded.message);
+            //             } else {
+            //                 alert(decoded.message);
+            //             }
+            //         } else {
+            //             alert('Something went wrong');
+            //         }
+            //
+            //     }
+            // });
         }
+    }
+
+    function ittourGetToursListParams(container) {
+        var type = container.data('tour-type');
+        var kind = container.data('tour-kind');
+        var country = container.data('country');
+        var fromCity = container.data('from-city');
+        var region = container.data('region');
+        var hotel = container.data('hotel');
+        var hotelRating = container.data('hotel-rating');
+        var adultAmount = container.data('adult-amount');
+        var childAmount = container.data('child-amount');
+        var childAge = container.data('child-age');
+        var nightFrom = container.data('night-from');
+        var nightTill = container.data('night-till');
+        var dateFrom = container.data('date-from');
+        var dateTill = container.data('date-till');
+        var mealType = container.data('meal-type');
+        var priceFrom = container.data('price-from');
+        var priceTill = container.data('price-till');
+        var page = container.data('page');
+        var itemsPerPage = container.data('items-per-page');
+        var pricesInGroup = container.data('prices-in-group');
+        var template = container.data('template');
+
+        var data = {
+            container: container,
+            type: type,
+            kind: kind,
+            country: country,
+            fromCity: fromCity,
+            region: region,
+            hotel: hotel,
+            hotelRating: hotelRating,
+            adultAmount: adultAmount,
+            childAmount: childAmount,
+            childAge: childAge,
+            nightFrom: nightFrom,
+            nightTill: nightTill,
+            dateFrom: dateFrom,
+            dateTill: dateTill,
+            mealType: mealType,
+            priceFrom: priceFrom,
+            priceTill: priceTill,
+            page: page,
+            itemsPerPage: itemsPerPage,
+            pricesInGroup: pricesInGroup,
+            template: template,
+        };
+
+        return data;
     }
 
     function ittourGetToursList(container) {

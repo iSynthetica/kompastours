@@ -2127,8 +2127,9 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
 }
 
 function ittour_get_min_prices_by_region($country, $args = array()) {
-
+    error_log(date('H:i:s'));
     $saved_prices_by_rating = get_option('ittour_prices_by_rating');
+    $saved_prices_by_rating = false;
     $time = time();
     $expiration_period = 60 * 60 * 4;
     $expiration_period = 60 * 10;
@@ -2155,7 +2156,7 @@ function ittour_get_min_prices_by_region($country, $args = array()) {
 
     if ($need_update) {
         $args['items_per_page'] = 1;
-        $search = ittour_search('uk');
+        $search = ittour_search(ITTOUR_LANG);
 
         $hotel_ratings = array('78', '4', '3');
 
