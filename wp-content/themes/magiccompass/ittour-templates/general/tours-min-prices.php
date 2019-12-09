@@ -6,11 +6,14 @@
  * @subpackage Magiccompass/IttourParts/General
  * @version 0.0.9
  * @since 0.0.9
+ *
+ * @var $saved_prices_by_rating
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $country = !empty($country) ? $country : false;
+$region = !empty($region) ? $region : false;
 
 if (!$country) {
     ?>
@@ -48,30 +51,52 @@ if (!$country) {
     if (!empty($prices_in_group)) $tours_list_data      .= ' data-prices-in-group="'.$prices_in_group.'"';
     if (!empty($template)) $tours_list_data             .= ' data-template="'.$template.'"';
 
-    ?>
-    <div class="tours-list-ajax__container"<?php echo $tours_list_data; ?>>
+    if (!empty($saved_prices_by_rating)) {
+        $is_expired = time() > $saved_prices_by_rating['expired'];
 
-        <?php
-        if (!empty($prices_by_rating)) {
-            ittour_show_template('general/prices-by-rating.php', array(
-                'country' => $country,
-                'prices_by_rating' => $prices_by_rating
-            ));
+        if ($is_expired) {
+            ?>
+        <div class="tours-list-ajax__container"<?php echo $tours_list_data; ?>>
+            <?php
         } else {
             ?>
-            <div class="progress-bar__container" style="padding:10px;">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="progress" style="height: 5px;">
-                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+        <div class="tours-list__container">
+            <?php
+        }
+        ittour_show_template('general/prices-by-rating.php', array(
+                    'country' => $country,
+                    'region' => $region,
+                    'prices_by_rating' => $saved_prices_by_rating['prices']
+                ));
+        ?>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="tours-list-ajax__container"<?php echo $tours_list_data; ?>>
+
+            <?php
+            if (!empty($prices_by_rating)) {
+                ittour_show_template('general/prices-by-rating.php', array(
+                    'country' => $country,
+                    'prices_by_rating' => $prices_by_rating
+                ));
+            } else {
+                ?>
+                <div class="progress-bar__container" style="padding:10px;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="progress" style="height: 5px;">
+                                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php
-        }
-        ?>
-    </div>
-    <?php
+                <?php
+            }
+            ?>
+        </div>
+        <?php
+    }
 }

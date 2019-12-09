@@ -2128,11 +2128,10 @@ function ittour_get_min_prices_by_country($country, $args = array()) {
 
 function ittour_get_min_prices_by_region($country, $args = array()) {
     error_log(date('H:i:s'));
-    $saved_prices_by_rating = get_option('ittour_prices_by_rating');
-    $saved_prices_by_rating = false;
+    $saved_prices_by_rating = ittour_get_region_prices_by_rating($country);
+    // $saved_prices_by_rating_region = get_option('ittour_prices_by_rating_' . $country . '_' . $args['region']);
     $time = time();
-    $expiration_period = 60 * 60 * 4;
-    $expiration_period = 60 * 10;
+    $expiration_period = 60 * 60 * 6;
 
     if (!empty($saved_prices_by_rating)) {
         if (!empty($saved_prices_by_rating[$args['region']]['prices'])) {
@@ -2176,12 +2175,17 @@ function ittour_get_min_prices_by_region($country, $args = array()) {
             }
         }
 
-        $saved_prices_by_rating[$args['region']] = array(
+        // $saved_prices_by_rating = get_option('ittour_prices_by_rating', array()); // Updated array
+
+        $prices_array = array(
             'prices' => $prices_by_rating,
             'expired'   => $time + $expiration_period
         );
 
-        $updated_prices_by_rating = update_option('ittour_prices_by_rating', $saved_prices_by_rating);
+        $updated_prices_by_rating_region = update_option('ittour_prices_by_rating_' . $country . '_' . $args['region'], $prices_array);
+
+//        $saved_prices_by_rating[$args['region']] = $prices_array;
+//        $updated_prices_by_rating = update_option('ittour_prices_by_rating', $saved_prices_by_rating);
     } else {
         $prices_by_rating = $old_prices_by_rating;
     }

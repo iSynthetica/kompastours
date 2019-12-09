@@ -8,6 +8,7 @@
  * @since 0.0.10
  *
  * @var $country_post_id
+ * @var $saved_prices_by_rating
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -22,6 +23,10 @@ $template_args = array(
     'region' => $ittour_region,
     'template' => 'min-prices-by-region',
 );
+
+if (!empty($saved_prices_by_rating[$ittour_region])) {
+    $template_args['saved_prices_by_rating'] = $saved_prices_by_rating[$ittour_region];
+}
 ?>
 
 <div class="region-grid__container mb-20">

@@ -387,3 +387,22 @@ function ittour_is_tour_outdated($date, $format = 'Y-m-d') {
 
     return $date_timestamp < $current_timestamp;
 }
+
+function ittour_get_region_prices_by_rating($country) {
+    global $wpdb;
+
+    $sql = "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE '%ittour_prices_by_rating_".$country."_%';";
+    $result = $wpdb->get_results( $sql, ARRAY_A );
+    $prices = array();
+
+    if (!empty($result)) {
+        foreach ($result as $item) {
+            $region_id = explode('_', $item['option_name'])[5];
+            $price = unserialize($item['option_value']);
+
+            $prices[$region_id] = $price;
+        }
+    }
+
+    return $prices;
+}

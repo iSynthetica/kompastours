@@ -88,20 +88,21 @@ if (!empty($popular_regions)) {
             </div>
             <div class="row">
                 <?php
-                //if (false) {
-                    $id_index = 1;
-                    foreach ($popular_regions as $region) {
-                        ?>
-                        <div class="col-lg-4 col-md-6">
-                            <?php ittour_show_template('country/popular-region.php', array(
-                                'post_id' => $region,
-                                'country_post_id' => $post->ID
-                            )); ?>
-                        </div>
-                        <?php
-                        $id_index++;
-                    }
-                //}
+                $saved_prices_by_rating = ittour_get_region_prices_by_rating($country_id);
+                $id_index = 1;
+
+                foreach ($popular_regions as $region) {
+                    ?>
+                    <div class="col-lg-4 col-md-6">
+                        <?php ittour_show_template('country/popular-region.php', array(
+                            'post_id' => $region,
+                            'country_post_id' => $post->ID,
+                            'saved_prices_by_rating' => $saved_prices_by_rating
+                        )); ?>
+                    </div>
+                    <?php
+                    $id_index++;
+                }
                 ?>
             </div>
         </div>

@@ -8,12 +8,14 @@
  * @since 0.0.11
  */
 
+$region = !empty($region) ? $region : '';
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $url = '/search/';
 $url .= '?from_city=2014';
 $url .= '&country=' . $country;
-$url .= '&region=';
+$url .= '&region=' . $region;
 $url .= '&tour_type=1';
 $url .= '&tour_kind=1';
 $url .= '&adult_amount=2';
