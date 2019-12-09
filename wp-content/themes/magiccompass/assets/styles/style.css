@@ -26494,6 +26494,41 @@ blockquote.styled {
 .bg-dark {
   background-color: #111; }
 
+.snth-star-rating-container {
+  display: inline-block;
+  width: auto;
+  height: 22px;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  font-size: 22px;
+  width: 124px; }
+  .snth-star-rating-container .snth-star-empty,
+  .snth-star-rating-container .snth-star-rating {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: left;
+    height: 22px; }
+    .snth-star-rating-container .snth-star-empty i,
+    .snth-star-rating-container .snth-star-rating i {
+      font-weight: 900; }
+  .snth-star-rating-container .snth-star-empty {
+    color: #b4b4b4;
+    z-index: 0; }
+  .snth-star-rating-container .snth-star-rating {
+    overflow: hidden;
+    color: #dcb600;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0; }
+    .snth-star-rating-container .snth-star-rating-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 124px; }
+
 /*============================================================================================*/
 /* 4.  UPDATES  */
 /*============================================================================================*/

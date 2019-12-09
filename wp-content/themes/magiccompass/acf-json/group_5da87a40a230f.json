@@ -110,6 +110,65 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5dee3d6b8d0a8",
+            "label": "Рейтинг",
+            "name": "rating",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5dee3d788d0a9",
+                    "label": "Текущая оценка",
+                    "name": "current",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5dee3dc38d0aa",
+                    "label": "Максимальная оценка",
+                    "name": "max",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -129,5 +188,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571325058
+    "modified": 1575894520
 }

@@ -362,3 +362,13 @@ function snth_default_image($size = 'full') {
 
     return $image;
 }
+
+function snth_rating($current, $max) {
+    $width = ($current / $max) * 100;
+    ?>
+    <div class="snth-star-rating-container">
+        <div class="snth-star-empty"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+        <div class="snth-star-rating" style="width: <?php echo $width; ?>%"><div class="snth-star-rating-inner"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div></div>
+    </div>
+    <?php
+}
