@@ -25782,12 +25782,6 @@ var SNTHJS = SNTHJS || {};
             .toggleClass('icon-minus icon-plus');
     }
 
-    /* Button show/hide map */
-    $(".btn_map").on("click", function () {
-        var el = $(this);
-        el.text() == el.data("text-swap") ? el.text(el.data("text-original")) : el.text(el.data("text-swap"));
-    });
-
     /* Animation on scroll */
     new WOW().init();
 
@@ -25815,7 +25809,11 @@ var SNTHJS = SNTHJS || {};
         function toggleHandler(toggle) {
             toggle.addEventListener("click", function (e) {
                 e.preventDefault();
-                (this.classList.contains("active") === true) ? this.classList.remove("active"): this.classList.add("active");
+                if (this.classList.contains("active") === true) {
+                    this.classList.remove("active");
+                } else {
+                    this.classList.add("active");
+                }
             });
         }
 
@@ -25844,20 +25842,21 @@ var SNTHJS = SNTHJS || {};
             var oldValue = $button.parent().find("input").val();
             var max = $button.parent().find("input").data('max');
             var min = $button.parent().find("input").data('min');
+            var newVal;
 
             if ($button.text() == "+") {
                 if ( max && parseFloat(oldValue) === parseFloat(max) ) {
-                    var newVal = parseFloat(oldValue);
+                    newVal = parseFloat(oldValue);
                 } else {
-                    var newVal = parseFloat(oldValue) + 1;
+                    newVal = parseFloat(oldValue) + 1;
                 }
             } else {
                 // Don't allow decrementing below zero
 
                 if ( min && parseFloat(oldValue) === parseFloat(min) ) {
-                    var newVal = parseFloat(oldValue);
+                    newVal = parseFloat(oldValue);
                 } else if ( oldValue > 1) {
-                    var newVal = parseFloat(oldValue) - 1;
+                    newVal = parseFloat(oldValue) - 1;
                 } else {
                     newVal = 0;
                 }
@@ -25950,20 +25949,6 @@ var SNTHJS = SNTHJS || {};
             zIndex: 0
         });
     }
-
-    /* Search */
-    $(".search-overlay-menu-btn").on("click", function (a) {
-        $('body').addClass('has-fullscreen-modal');
-        $(".search-overlay-menu").addClass("open"), $('.search-overlay-menu > form > input[type="search"]').focus();}),
-        $(".search-overlay-close").on("click", function (a) {
-            $(".search-overlay-menu").removeClass("open");
-            $('body').removeClass('has-fullscreen-modal');
-        }),
-        $(".search-overlay-menu, .search-overlay-menu .search-overlay-close").on("click keyup", function (a) {
-            (a.target == this || "search-overlay-close" == a.target.className || 27 == a.keyCode) && $(this).removeClass("open");
-        });
-
-
 }(jQuery));
 /**
  * Ittour scripts
@@ -26040,6 +26025,7 @@ var SNTHJS = SNTHJS || {};
 
     $(document.body).on('click', '#find-me-tour-form__submit', function() {
         var formData = $("#find-me-tour-form").serializeArray();
+        var fragments;
 
         var country_name = $('#country_req_select').find('option:selected').text();
 
@@ -26067,11 +26053,10 @@ var SNTHJS = SNTHJS || {};
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -26082,7 +26067,8 @@ var SNTHJS = SNTHJS || {};
     });
 
     $(document.body).on('click', '#lp-order-form__submit', function() {
-        var formData = $("#lp-order-form").serializeArray();
+        var formData = $("#lp-order-form").serializeArray(),
+            fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -26104,11 +26090,10 @@ var SNTHJS = SNTHJS || {};
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -26129,6 +26114,7 @@ var SNTHJS = SNTHJS || {};
 
     $(document.body).on('click', '.validate-btn', function() {
         var singleTourSummary = $('#single-tour-booking__holder');
+        var fragments;
 
         var key = singleTourSummary.data('key');
         var currency = singleTourSummary.data('currency');
@@ -26156,12 +26142,11 @@ var SNTHJS = SNTHJS || {};
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                         runValidationCountdown();
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -26172,7 +26157,8 @@ var SNTHJS = SNTHJS || {};
     });
 
     $(document.body).on('click', '.book-btn', function() {
-        var formData = $("#booking-form").serializeArray();
+        var formData = $("#booking-form").serializeArray(),
+            fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -26194,13 +26180,12 @@ var SNTHJS = SNTHJS || {};
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         $( ".book-btn" ).remove();
                         $( ".error_messages" ).remove();
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -26325,11 +26310,11 @@ var SNTHJS = SNTHJS || {};
     }
 
     function ittourValidateTour() {
-        var singleTourSummary = $('#single-tour-booking__holder');
-
-        var key = singleTourSummary.data('key');
-        var currency = singleTourSummary.data('currency');
-        var tourInfo = singleTourSummary.data('tour-info');
+        var singleTourSummary = $('#single-tour-booking__holder'),
+            fragments,
+            key = singleTourSummary.data('key'),
+            currency = singleTourSummary.data('currency'),
+            tourInfo = singleTourSummary.data('tour-info');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -26353,11 +26338,11 @@ var SNTHJS = SNTHJS || {};
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                         runValidationCountdown();
                     } else {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -26751,22 +26736,52 @@ var SNTHJS = SNTHJS || {};
     var start = $.now();
     var starsArray = [];
     var maxStarsNum = 2;
+    var locale = {
+        format: 'DD.MM.YY',
+        firstDay: 1,
+        daysOfWeek: [
+            snthWpJsObj.calendar.daysOfWeekShort.su,
+            snthWpJsObj.calendar.daysOfWeekShort.mo,
+            snthWpJsObj.calendar.daysOfWeekShort.tu,
+            snthWpJsObj.calendar.daysOfWeekShort.we,
+            snthWpJsObj.calendar.daysOfWeekShort.th,
+            snthWpJsObj.calendar.daysOfWeekShort.fr,
+            snthWpJsObj.calendar.daysOfWeekShort.sa
+        ],
+        monthNames: [
+            snthWpJsObj.calendar.monthNamesShort.jan,
+            snthWpJsObj.calendar.monthNamesShort.feb,
+            snthWpJsObj.calendar.monthNamesShort.mar,
+            snthWpJsObj.calendar.monthNamesShort.apr,
+            snthWpJsObj.calendar.monthNamesShort.may,
+            snthWpJsObj.calendar.monthNamesShort.jun,
+            snthWpJsObj.calendar.monthNamesShort.jul,
+            snthWpJsObj.calendar.monthNamesShort.aug,
+            snthWpJsObj.calendar.monthNamesShort.sep,
+            snthWpJsObj.calendar.monthNamesShort.oct,
+            snthWpJsObj.calendar.monthNamesShort.nov,
+            snthWpJsObj.calendar.monthNamesShort.dec
+        ]
+    };
+
+    var startDateTime = moment().startOf('hour').add(12, 'hour');
+
+    $(document.body).on('click', '#change-search-type-container i', function() {
+        var control = $(this);
+        var container = control.parents('.search-form__holder');
+        container.removeClass('tour-search-active').removeClass('excursion-search-active');
+
+        if (control.hasClass('ittour-switch-tour')) {
+            container.addClass('tour-search-active');
+        } else {
+            container.addClass('excursion-search-active');
+        }
+    });
 
     $(document.body).on('search_form_loaded', function() {
         $(".numbers-alt.numbers-gor").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
 
         $(".numbers-alt.numbers-ver").append('<div class="incr buttons_inc"><i class="fas fa-plus"></i></div><div class="decr buttons_inc"><i class="fas fa-minus"></i></div>');
-
-        var dateFrom = $('input.date-pick').data('date-from');
-        var dateTill = $('input.date-pick').data('date-till');
-
-        var startDate = moment().startOf('hour').add(12, 'hour');
-        var endDate = moment().startOf('hour').add(132, 'hour');
-
-        if (dateFrom && dateTill) {
-            startDate = moment(dateFrom, "DD.MM.YY");
-            endDate = moment(dateTill, "DD.MM.YY");
-        }
 
         var selectedCountryVal = $('#country_select').val();
 
@@ -26783,8 +26798,20 @@ var SNTHJS = SNTHJS || {};
             allowClear: true
         });
 
+        $('#country_excursion_select').select2({
+            placeholder: snthWpJsObj.searchForm.selectCountry,
+            maximumSelectionLength: 10,
+            allowClear: true
+        });
+
         $('#region_select').select2({
             placeholder: regionPlaceholder,
+            allowClear: true
+        });
+
+        $('#city_excursion_select').select2({
+            placeholder: regionPlaceholder,
+            maximumSelectionLength: 10,
             allowClear: true
         });
 
@@ -26793,48 +26820,57 @@ var SNTHJS = SNTHJS || {};
             maximumSelectionLength: 10
         });
 
-        $('input.date-pick').daterangepicker({
+        var dateFrom = $('#search-form input.date-pick').data('date-from');
+        var dateTill = $('#search-form input.date-pick').data('date-till');
+
+        var startDate = startDateTime;
+        var endDate = moment().startOf('hour').add(132, 'hour');
+
+        if (dateFrom && dateTill) {
+            startDate = moment(dateFrom, "DD.MM.YY");
+            endDate = moment(dateTill, "DD.MM.YY");
+        }
+
+        $('#search-form input.date-pick').daterangepicker({
             startDate: startDate,
             endDate: endDate,
-            minDate: moment().startOf('hour').add(12, 'hour'),
+            minDate: startDateTime,
             alwaysShowCalendars: true,
             parentEl: '.date-pick__select__container',
             maxSpan: {
                 "days": 12
             },
-            locale: {
-                format: 'DD.MM.YY',
-                firstDay: 1,
-                daysOfWeek: [
-                    snthWpJsObj.calendar.daysOfWeekShort.su,
-                    snthWpJsObj.calendar.daysOfWeekShort.mo,
-                    snthWpJsObj.calendar.daysOfWeekShort.tu,
-                    snthWpJsObj.calendar.daysOfWeekShort.we,
-                    snthWpJsObj.calendar.daysOfWeekShort.th,
-                    snthWpJsObj.calendar.daysOfWeekShort.fr,
-                    snthWpJsObj.calendar.daysOfWeekShort.sa
-                ],
-                monthNames: [
-                    snthWpJsObj.calendar.monthNamesShort.jan,
-                    snthWpJsObj.calendar.monthNamesShort.feb,
-                    snthWpJsObj.calendar.monthNamesShort.mar,
-                    snthWpJsObj.calendar.monthNamesShort.apr,
-                    snthWpJsObj.calendar.monthNamesShort.may,
-                    snthWpJsObj.calendar.monthNamesShort.jun,
-                    snthWpJsObj.calendar.monthNamesShort.jul,
-                    snthWpJsObj.calendar.monthNamesShort.aug,
-                    snthWpJsObj.calendar.monthNamesShort.sep,
-                    snthWpJsObj.calendar.monthNamesShort.oct,
-                    snthWpJsObj.calendar.monthNamesShort.nov,
-                    snthWpJsObj.calendar.monthNamesShort.dec
-                ]
-            },
+            locale: locale,
             applyButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
             cancelButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
             autoApply: true
         });
-        var loadForm = $.now() - start;
-        console.log(loadForm + ' s');
+
+        var dateExcursionFrom = $('#excursion-search-form input.date-pick').data('date-from');
+        var dateExcursionTill = $('#excursion-search-form input.date-pick').data('date-till');
+
+        var startDateExcursion = startDateTime;
+        var endDateExcursion = moment().startOf('hour').add(132, 'hour');
+
+        if (dateExcursionFrom && dateExcursionFrom) {
+            startDateExcursion = moment(dateExcursionFrom, "DD.MM.YY");
+            endDateExcursion = moment(dateExcursionTill, "DD.MM.YY");
+        }
+
+        $('#excursion-search-form input.date-pick').daterangepicker({
+            startDate: startDateExcursion,
+            endDate: endDateExcursion,
+            minDate: startDateTime,
+            alwaysShowCalendars: true,
+            parentEl: '.date-pick__select__container',
+            maxSpan: {
+                "days": 12
+            },
+            locale: locale,
+            applyButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
+            cancelButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
+            autoApply: true
+        });
 
         var selectedRatings = $( "#hotel_rating_select input:checked" );
 
@@ -26845,7 +26881,7 @@ var SNTHJS = SNTHJS || {};
 
     $(document.body).on('click', '.form-data-toggle-control', function() {
         var controller = $(this);
-        var form = controller.parents('#search-form');
+        var form = controller.parents('form');
         var target = controller.data('form_toggle_target');
         var toggleTarget  = form.find('#' + target);
         var toggleTargets = form.find('.form-data-toggle-target');
@@ -26873,9 +26909,6 @@ var SNTHJS = SNTHJS || {};
     $(document.body).on('click', '#city_from_select_mobile li label', function() {
         var selectedCity = $(this).parent('li').find('input').val();
         var selectedCitySummary = $(this).parent('li').find('input').data('summary');
-
-        console.log(selectedCity);
-
         var fromCityList = $('#city_from_select_mobile');
 
         fromCityList.find('li input').each(function() {
@@ -26900,18 +26933,16 @@ var SNTHJS = SNTHJS || {};
         });
 
         selectedCityListItem.attr('checked', true);
-
-        console.log(selectedCity);
     });
 
     $(document.body).on('change', '#country_select', function() {
-        var selectedCountry = $('#country_select').find(":selected").val();
-        var regionsByCountries = $.parseJSON($('#regions_by_countries').val());
-
-        var regionsHtml = '<select name="region" id="region_select" class="form-control form-select2" style="width: 100%">';
+        var selectedCountry = $('#country_select').find(":selected").val(),
+            regionsByCountries = $.parseJSON($('#regions_by_countries').val()),
+            regionsHtml = '<select name="region" id="region_select" class="form-control form-select2" style="width: 100%">',
+            regionPlaceholder;
 
         if ('' === selectedCountry) {
-            var regionPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
+            regionPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
             regionsHtml += '<option></option>';
         } else {
             regionPlaceholder = snthWpJsObj.searchForm.selectRegion;
@@ -26971,8 +27002,6 @@ var SNTHJS = SNTHJS || {};
                 $('#hotel_rating_select input[value="'+star_el+'"]').prop('checked',true);
             });
         } else if (method === false) {
-            console.log('unselected');
-
             if (starsArray.length > 0) {
                 $('#hotel_rating_select input[value="'+star+'"]').prop('checked',false);
 
@@ -27089,7 +27118,7 @@ var SNTHJS = SNTHJS || {};
         if ('' === selectedCountry || ('' !== selectedCountry && '' === selectedHotel)) {
             $('#filter_options').prop('disabled', true);
             $('#start_search').prop('disabled', true);
-            $('.start_search').prop('disabled', true);
+            $('#search-form .start_search').prop('disabled', true);
 
             $('#destination-select_section .btn-next-step').prop('disabled', true);
             $('#dates-select_section .btn-next-step').prop('disabled', true);
@@ -27106,7 +27135,7 @@ var SNTHJS = SNTHJS || {};
         } else {
             $('#filter_options').prop('disabled', false);
             $('#start_search').prop('disabled', false);
-            $('.start_search').prop('disabled', false);
+            $('#search-form .start_search').prop('disabled', false);
 
             $('#destination-select_section .btn-next-step').prop('disabled', false);
             $('#dates-select_section .btn-next-step').prop('disabled', false);
@@ -27249,6 +27278,188 @@ var SNTHJS = SNTHJS || {};
     }
 
     // ================================
+    //  Excursion
+    // ================================
+    $(document.body).on('click', '#excursion_city_from_select_mobile li label', function() {
+        var selectedCity = $(this).parent('li').find('input').val();
+        var selectedCitySummary = $(this).parent('li').find('input').data('summary');
+        var fromCityList = $('#city_from_select_mobile');
+
+        fromCityList.find('li input').each(function() {
+            var checkbox = $(this);
+
+            if (checkbox.val() !== selectedCity) {
+                checkbox.attr('checked', false);
+            }
+        });
+
+        $('#from_excursion_city').val(selectedCity);
+        $('#from-city-excursion_summary').val(selectedCitySummary);
+
+        fromExcursionCityChanged(selectedCity);
+    });
+
+    $(document.body).on('change', '#from_excursion_city', function(){
+        var selectedCity = $(this).val();
+        var fromCityList = $('#excursion_city_from_select_mobile');
+        var selectedCityListItem = $('#from_city_' + selectedCity);
+
+        fromCityList.find('li input').each(function() {
+            $(this).attr('checked', false);
+        });
+
+        selectedCityListItem.attr('checked', true);
+
+        fromExcursionCityChanged(selectedCity);
+    });
+
+    function fromExcursionCityChanged(selectedCityFrom) {
+        console.log($.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]);
+        var selectedCountries = $('#country_excursion_select').val(),
+            countriesByCityFrom = $.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]['countries'],
+            countriesHtml = '<select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%" multiple>';
+
+        if (typeof countriesByCityFrom === 'object' && countriesByCityFrom !== null && Object.keys(countriesByCityFrom).length) {
+            for (var k in countriesByCityFrom) {
+                var selected = '';
+                if (selectedCountries && selectedCountries.length && selectedCountries.includes(countriesByCityFrom[k].id)) {
+                    selected = ' selected';
+                }
+                countriesHtml += '<option value="'+countriesByCityFrom[k].id+'"'+selected+'>'+countriesByCityFrom[k].name+'</option>';
+            }
+        }
+
+        countriesHtml += '<option></option>';
+        countriesHtml += '</select>';
+
+        $('#country_excursion_select').select2('destroy');
+        $('#country_excursion_select').replaceWith(countriesHtml);
+        $('#country_excursion_select').select2({
+            placeholder: snthWpJsObj.searchForm.selectCountry,
+            maximumSelectionLength: 10,
+            allowClear: true
+        });
+
+        $( '#country_excursion_select' ).trigger( 'change' );
+    }
+
+    $(document.body).on('change', '#country_excursion_select', function() {
+        var selectedCountries = $(this).val(),
+            selectedCityFrom = $('#from_excursion_city').val(),
+            selectedCities = $('#city_excursion_select').val(),
+            citiesByCountry = $.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]['countries'],
+            citiesHtml = '<select id="city_excursion_select" name="city[]" class="form-control form-select2" style="width: 100%" multiple>',
+            citiesPlaceholder;
+
+        if (selectedCountries && selectedCountries.length) {
+            citiesPlaceholder = snthWpJsObj.searchForm.selectCity;
+
+            citiesHtml += '<option></option>';
+
+            for (var i = 0; i < selectedCountries.length; i++) {
+                var countryId = selectedCountries[i];
+                var citiesByCountryId = citiesByCountry[countryId]['cities'];
+
+                console.log(citiesByCountryId);
+
+                if (citiesByCountryId && snthGetObjectLength(citiesByCountryId)) {
+                    var citiesByCountryIdLength = snthGetObjectLength(citiesByCountryId);
+
+                    $.each( citiesByCountryId, function( key, value ) {
+                        console.log(value);
+
+                        var selected = '';
+                        if (selectedCities && selectedCities.length && selectedCities.includes(value.id)) {
+                            selected = ' selected';
+                        }
+                        citiesHtml += '<option value="'+value.id+'"'+selected+'>'+value.name+'</option>';
+                    });
+                }
+            }
+        } else {
+            citiesPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;
+            citiesHtml += '<option></option>';
+        }
+
+        citiesHtml += '</select>';
+
+        $('#city_excursion_select').select2('destroy');
+        $('#city_excursion_select').replaceWith(citiesHtml);
+        $('#city_excursion_select').select2({
+            placeholder: citiesPlaceholder,
+            maximumSelectionLength: 10,
+            allowClear: true
+        });
+
+        ittourShowExcursionDestinationSummary();
+    });
+
+    function snthGetObjectLength(object) {
+        var key, count = 0;
+
+        for (key in object) {
+            if (object.hasOwnProperty(key)){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    function ittourShowExcursionDestinationSummary() {
+        var selectedCountries = [],
+            selectedCities = [];
+
+        var summary = '';
+
+        $.each($('#country_excursion_select').find(":selected"), function() {
+            selectedCountries.push($(this).text());
+
+            if ('' !== summary) {
+                summary += ', ';
+            }
+
+            summary += $(this).text();
+        });
+
+        $.each($('#city_excursion_select').find(":selected"), function() {
+            selectedCities.push($(this).text());
+        });
+
+        if ('' !== summary) {
+            $('#destination_excursion_summary').val(summary);
+
+            $('#filter_excursion_options').prop('disabled', false);
+            $('#start_excursion_search').prop('disabled', false);
+            $('#excursion-search-form .start_search').prop('disabled', false);
+
+            $('#destination-excursion-select_section .btn-next-step').prop('disabled', false);
+            $('#dates-excursion-select_section .btn-next-step').prop('disabled', false);
+            $('#filter-excursion-select__section .btn-prev-step').prop('disabled', false);
+
+            $('#dates-excursion-duration_summary').prop('disabled', false).prop('readonly', true);
+            $('#dates-excursion-duration_summary__container').removeClass('disabled-item');
+            // $('#filter_summary').prop('disabled', false).prop('readonly', true);
+            // $('#filter_summary__container').removeClass('disabled-item');
+        } else {
+            $('#destination_excursion_summary').val('');
+
+            $('#filter_excursion_options').prop('disabled', true);
+            $('#start_excursion_search').prop('disabled', true);
+            $('#excursion-search-form .start_search').prop('disabled', true);
+
+            $('#destination-excursion-select_section .btn-next-step').prop('disabled', true);
+            $('#dates-excursion-select_section .btn-next-step').prop('disabled', true);
+            $('#filter-excursion-select__section .btn-prev-step').prop('disabled', true);
+
+            $('#dates-excursion-duration_summary').prop('disabled', true);
+            $('#dates-excursion-duration_summary__container').addClass('disabled-item');
+            //$('#filter_summary').prop('disabled', true);
+            //$('#filter_summary__container').addClass('disabled-item');
+        }
+    }
+
+    // ================================
     //  Guests
     // ================================
     $(document.body).on('blur', '#adult_amount', function() {
@@ -27349,41 +27560,43 @@ var SNTHJS = SNTHJS || {};
     //  Dates / Duration
     // ================================
     $(document.body).on('apply.daterangepicker', function(ev, picker) {
-        var datesSelect = $('#date-pick__select'),
+        var pickerElement = $(picker.element);
+        var parentForm  = pickerElement.parents('form.search-form');
+        var datesSelect, datesVal;
+
+        if (parentForm.hasClass('search-tour-form')) {
+            datesSelect = $('#date-pick__select');
             datesVal = datesSelect.val();
 
-        datesSelect.data('current_value', datesVal);
+            datesSelect.data('current_value', datesVal);
 
-        ittourShowDatesDurationSummary();
+            ittourShowDatesDurationSummary('');
+        } else if (parentForm.hasClass('search-excursion-form')) {
+            datesSelect = $('#date-excursion-pick__select');
+            datesVal = datesSelect.val();
+            datesSelect.data('current_value', datesVal);
+
+            ittourShowDatesDurationSummary('excursion-');
+        }
     });
 
-    $(document.body).on('input', '#duration-from__select', function() {
+    $(document.body).on('blur', '.duration__select', function() {
         var durationSelect = $(this),
-            durationVal = durationSelect.val();
+            durationVal = durationSelect.val(),
+            parentForm  = durationSelect.parents('form.search-form');
 
         durationSelect.data('current_value', durationVal);
 
-        ittourShowDatesDurationSummary();
+        if (parentForm.hasClass('search-tour-form')) {
+            ittourShowDatesDurationSummary('');
+        } else if (parentForm.hasClass('search-excursion-form')) {
+            ittourShowDatesDurationSummary('excursion-');
+        }
     });
 
-    $(document.body).on('input', '#duration-till__select', function() {
-        var durationSelect = $(this),
-            durationVal = durationSelect.val();
-
-        durationSelect.data('current_value', durationVal);
-
-        ittourShowDatesDurationSummary();
-    });
-
-    function ittourShowDatesDurationSummary() {
-        var datesSelect = $('#date-pick__select'),
+    function ittourShowDatesDurationSummary($type) {
+        var datesSelect = $('#date-'+$type+'pick__select'),
             datesCurrentValue = datesSelect.data('current_value');
-
-        var durationFromSelect = $('#duration-from__select'),
-            durationFromCurrentValue = durationFromSelect.data('current_value');
-
-        var durationTillSelect = $('#duration-till__select'),
-            durationTillCurrentValue = durationTillSelect.data('current_value');
 
         var datesSelected = '',
             durationSelected = '';
@@ -27392,12 +27605,20 @@ var SNTHJS = SNTHJS || {};
             datesSelected = datesCurrentValue + ', ';
         }
 
-        if (durationFromCurrentValue && durationTillCurrentValue) {
-            durationSelected = durationFromCurrentValue + ' - ' + durationTillCurrentValue + ' ' + snthWpJsObj.searchForm.nights;
+        if ('excursion-' != $type) {
+            var durationFromSelect = $('#duration-'+$type+'from__select'),
+                durationFromCurrentValue = durationFromSelect.data('current_value');
+
+            var durationTillSelect = $('#duration-'+$type+'till__select'),
+                durationTillCurrentValue = durationTillSelect.data('current_value');
+
+            if (durationFromCurrentValue && durationTillCurrentValue) {
+                durationSelected = durationFromCurrentValue + ' - ' + durationTillCurrentValue + ' ' + snthWpJsObj.searchForm.nights;
+            }
         }
 
 
-        var datesDurationSummary = $('#dates-duration_summary');
+        var datesDurationSummary = $('#dates-'+$type+'duration_summary');
 
         datesDurationSummary.val(datesSelected + durationSelected);
     }
@@ -27885,7 +28106,7 @@ var SNTHJS = SNTHJS || {};
     }
 
 }(jQuery));
-const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+var observer = lozad(); // lazy loads elements with default selector as '.lozad'
 observer.observe();
 
 (function ($) {
@@ -27904,6 +28125,7 @@ observer.observe();
 
     $(document.body).on('click', '#contact-form__submit', function() {
         var formData = $("#contact-form").serializeArray();
+        var fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -27925,10 +28147,10 @@ observer.observe();
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
 
                         updateFragments(fragments);
                     }
@@ -27950,8 +28172,10 @@ observer.observe();
             if(
                 !$(event.target).closest('.form-data-toggle-target').length &&
                 !$(event.target).closest('.select2-container').length &&
+                !$(event.target).parents('.select2-container').length &&
                 !$(event.target).hasClass('form-data-toggle-target') &&
                 !$(event.target).hasClass('form-data-toggle-control') &&
+                !$(event.target).hasClass('select2-selection__choice__remove') &&
                 !$(event.target).hasClass('available') &&
                 !$(event.target).closest('.date-pick__select__container').length &&
                 !$(event.target).closest('.available').length &&
@@ -27970,6 +28194,7 @@ observer.observe();
 
     $(document.body).on('click', '#send-testimonial-form__submit', function() {
         var formData = $("#send-testimonial").serializeArray();
+        var fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -27992,11 +28217,10 @@ observer.observe();
                 if (decoded) {
                     if (decoded.success) {
                         $("#send-testimonial").remove();
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -28033,10 +28257,7 @@ observer.observe();
     });
 
     $(document).ready(function() {
-        lightGallery(document.getElementById('gallery-container'), {selector: '.gallery-item'})
-        // $('#gallery-container').lightGallery({
-        //     selector: '.gallery-item'
-        // });
+        lightGallery(document.getElementById('gallery-container'), {selector: '.gallery-item'});
     });
 
     $(window).on('load', function () {});

@@ -894,12 +894,23 @@ class ET_Builder_Module_Menu extends ET_Builder_Module {
 			return '';
 		}
 
-		$url = function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : WC()->cart->get_cart_url();
-
-		return sprintf(
+		$url    = function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : WC()->cart->get_cart_url();
+		$output = sprintf(
 			'<a href="%1$s" class="et_pb_menu__icon et_pb_menu__cart-button"></a>',
 			esc_url( $url )
 		);
+
+		/**
+		 * Filter the cart icon output.
+		 *
+		 * @since 4.0.6
+		 *
+		 * @param string $output
+		 * @param string $menu_slug
+		 *
+		 * @return string
+		 */
+		return apply_filters( 'et_pb_menu_module_cart_output', $output, self::$menu_slug );
 	}
 
 	/**
@@ -935,7 +946,7 @@ class ET_Builder_Module_Menu extends ET_Builder_Module {
 					<form role="search" method="get" class="et_pb_menu__search-form" action="%1$s">
 						<input type="search" class="et_pb_menu__search-input" placeholder="%2$s" name="s" title="%3$s" />
 					</form>
-					<button type="button" class="et_pb_menu__icon et_pb_menu__close-search-button" />
+					<button type="button" class="et_pb_menu__icon et_pb_menu__close-search-button"></button>
 				</div>
 			</div>',
 			esc_url( home_url( '/' ) ),

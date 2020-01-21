@@ -28,6 +28,9 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 
 	/**
 	 * Initialize.
+	 *
+	 * @since 4.0.7 Introduced Product title toggle slug to allow Copy/Paste
+	 *           @see   {https://github.com/elegantthemes/Divi/issues/17436}
 	 */
 	public function init() {
 		$this->name   = esc_html__( 'Woo Related Product', 'et_builder' );
@@ -47,10 +50,10 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 			),
 			'advanced' => array(
 				'toggles' => array(
-					'overlay' => esc_html__( 'Overlay', 'et_builder' ),
-					'image'   => esc_html__( 'Image', 'et_builder' ),
+					'overlay'       => esc_html__( 'Overlay', 'et_builder' ),
+					'image'         => esc_html__( 'Image', 'et_builder' ),
 					// Avoid Text suffix by manually defining the `star` toggle slug.
-					'star'    => esc_html__( 'Star Rating', 'et_builder' ),
+					'star'          => esc_html__( 'Star Rating', 'et_builder' ),
 				),
 			),
 		);
@@ -84,6 +87,15 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 					'hide_line_height'   => true,
 					'hide_text_shadow'   => true,
 					'use_original_label' => true,
+					'text_align'         => array(
+						'label' => esc_html__( 'Star Rating Alignment', 'et_builder' ),
+					),
+					'font_size'          => array(
+						'label' => esc_html__( 'Star Rating Size', 'et_builder' ),
+					),
+					'text_color'         => array(
+						'label' => esc_html__( 'Star Rating Color', 'et_builder' ),
+					),
 					'toggle_slug'        => 'star',
 				),
 				'product_title' => array(
@@ -435,6 +447,12 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 		 */
 		self::$static_props = $args;
 
+		// Force set product's class to ET_Theme_Builder_Woocommerce_Product_Variable_Placeholder
+		// in TB so related product can outputs visible content based on pre-filled value in TB
+		if ( 'true' === et_()->array_get( $conditional_tags, 'is_tb', false ) ) {
+			add_filter( 'woocommerce_product_class', 'et_theme_builder_wc_product_class' );
+		}
+
 		add_filter(
 			'woocommerce_output_related_products_args',
 			array(
@@ -534,6 +552,8 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 	/**
 	 * Renders the module output.
 	 *
+	 * @since 4.1.0 Show only Products irrespective of Customizer Product Catalog setting on Shop page.
+	 *
 	 * @param  array  $attrs       List of attributes.
 	 * @param  string $content     Content being processed.
 	 * @param  string $render_slug Slug of module that is used for rendering output.
@@ -599,7 +619,36 @@ class ET_Builder_Module_Woocommerce_Related_Products extends ET_Builder_Module {
 
 		$this->add_classname( $this->get_text_orientation_classname() );
 
+		$is_shop                        = function_exists( 'is_shop' ) && is_shop();
+		$is_wc_loop_prop_get_set_exists = function_exists( 'wc_get_loop_prop' ) && function_exists( 'wc_set_loop_prop' );
+		$is_product_category            = function_exists( 'is_product_category' ) && is_product_category();
+
+		if ( $is_shop ) {
+			$display_type = ET_Builder_Module_Helper_Woocommerce_Modules::set_display_type_to_render_only_products( 'woocommerce_shop_page_display' );
+		} else if ( $is_product_category ) {
+			$display_type = ET_Builder_Module_Helper_Woocommerce_Modules::set_display_type_to_render_only_products( 'woocommerce_category_archive_display' );
+		}
+
+		// Required to handle Customizer preview pane.
+		// Refer: https://github.com/elegantthemes/Divi/issues/17998#issuecomment-565955422
+		if ( $is_wc_loop_prop_get_set_exists && is_customize_preview() ) {
+			$is_filtered = wc_get_loop_prop( 'is_filtered' );
+			wc_set_loop_prop( 'is_filtered', true );
+		}
+
 		$output = self::get_related_products( $this->props );
+
+		// Required to handle Customizer preview pane.
+		// Refer: https://github.com/elegantthemes/Divi/issues/17998#issuecomment-565955422
+		if ( $is_wc_loop_prop_get_set_exists && is_customize_preview() && isset( $is_filtered ) ) {
+			wc_set_loop_prop( 'is_filtered', $is_filtered );
+		}
+
+		if ( $is_shop && isset( $display_type ) ) {
+			ET_Builder_Module_Helper_Woocommerce_Modules::reset_display_type( 'woocommerce_shop_page_display', $display_type );
+		} else if ( $is_product_category && isset( $display_type ) ) {
+			ET_Builder_Module_Helper_Woocommerce_Modules::reset_display_type( 'woocommerce_category_archive_display', $display_type );
+		}
 
 		// Render empty string if no output is generated to avoid unwanted vertical space.
 		if ( '' === $output ) {

@@ -11,21 +11,11 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 global $post;
+global $ittour_global_form_args;
 
 $template_args = array(
     'type' => 1,
-    'country' => $country_id,
-    'tour_type'     => 1,
-    'tour_kind'     => 1,
-    'meal_type'     => '560:512:498',
     'items_per_page' => 12,
-);
-
-$template_args = array(
-    'type' => 1,
-    'country' => $country_id,
-    'items_per_page' => 12,
-    'from_city' => 2014,
 );
 
 $popular_regions = get_field('popular_country_regions', get_the_ID());
@@ -33,15 +23,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
 
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
-        <?php
-        ittour_show_template('form/section-search.php', array(
-            'country'       => $country_id,
-            'hotel_rating'  => '78:4',
-            'tour_type'     => '1',
-            'tour_kind'     => '0',
-            'meal_type'     => '560:512:498:496:388:1956',
-        ));
-        ?>
+        <?php ittour_show_template('form/section-search.php', $ittour_global_form_args); ?>
     </div>
 </section>
 
@@ -58,7 +40,7 @@ $popular_regions = get_field('popular_country_regions', get_the_ID());
         </div>
     </div>
 
-    <?php ittour_show_template('general/tours-list-ajax.php', $template_args); ?>
+    <?php ittour_show_template('general/tours-list-ajax.php', array_merge($ittour_global_form_args, $template_args)); ?>
 </section>
 
 <?php

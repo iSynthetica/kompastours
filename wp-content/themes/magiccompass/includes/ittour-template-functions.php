@@ -69,20 +69,40 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
 }
 
 function ittour_get_form_fields($args = array()) {
-    $start = microtime(true);
-    $params_obj = ittour_params(ITTOUR_LANG);
+    global $ittour_get_form_fields;
+
+//    delete_transient('ittour_search_params');
+//    delete_transient('ittour_search_excursion_params');
 
     $params = get_transient('ittour_search_params');
+    $params_obj = ittour_params(ITTOUR_LANG);
+    $excursion_params_obj = ittour_excursion_params(ITTOUR_LANG);
 
     if (!$params) {
         $params = $params_obj->get();
 
-        set_transient('ittour_search_params', $params, 60 * 60 * 6);
+        if (is_wp_error( $params )) {
+            return $params->get_error_message();
+        } else {
+            set_transient('ittour_search_params', $params, 60 * 60 * 6);
+        }
     }
 
-    if (is_wp_error( $params )) {
-        return $params->get_error_message();
+    $params['countries'] = ittour_get_destination_by_id($params["countries"]);
+
+    $excursion_params = get_transient('ittour_search_excursion_params');
+
+    if (!$excursion_params) {
+        $excursion_params = $excursion_params_obj->get();
+
+        if (is_wp_error( $excursion_params )) {
+            return $excursion_params->get_error_message();
+        } else {
+            set_transient('ittour_search_excursion_params', $excursion_params, 60 * 60 * 6);
+        }
     }
+
+    $excursion_params = ittour_set_excursion_parameters($excursion_params, $args);
 
     $country_params = array();
 
@@ -104,23 +124,49 @@ function ittour_get_form_fields($args = array()) {
 
     if (!$form_fields) {
         $from_cities_array = get_option('ittour_from_cities');
+        $from_cities_excursion_array = $excursion_params["from_cities"];
 
         $form_fields = array(
             'from_city_summary' => ittour_get_from_city_summary_field($args, $from_cities_array),
             'select_from_city' => ittour_get_from_city_field($args, $from_cities_array),
             'list_from_city' => ittour_get_from_city_field($args, $from_cities_array, 'list'),
+
             'destination_summary' => ittour_get_destination_summary_field($params, $country_params, $args),
-            'dates_summary' => ittour_get_dates_summary_field($args),
-            'guests_summary' => ittour_get_guests_summary_field($args),
-            'filter_summary' => ittour_get_filter_summary_field($args),
             'countries' =>  ittour_get_country_field($params, $args),
             'regions' =>  ittour_get_region_field($params, $args),
             'hotels' =>  ittour_get_hotel_field($params, $args),
             'hotel_ratings' =>  ittour_get_hotel_ratings_field($params, $args),
+
+            'dates_summary' => ittour_get_dates_summary_field($params, $args),
+            'dates_holder' => ittour_get_tour_dates_holder($args),
+            'duration_holder' => ittour_get_tour_duration_holder($args),
+
+            'guests_summary' => ittour_get_guests_summary_field($params, $args),
+
+            'filter_summary' => ittour_get_filter_summary_field($params, $args),
+            'filter_button' => ittour_get_filter_button($params, $args),
+
+            'tour_params' => $params,
+
+
+            'from_city_excursion_summary' => ittour_get_from_city_excursion_summary_field($args, $from_cities_excursion_array),
+            'select_from_city_excursion' => ittour_get_from_city_excursion_field($args, $from_cities_excursion_array),
+            'list_from_city_excursion' => ittour_get_from_city_excursion_field($args, $from_cities_excursion_array, 'list'),
+
+            'destination_excursion_summary' => ittour_get_destination_excursion_summary_field($excursion_params, $args),
+            'regions_excursion' =>  ittour_get_region_excursion_field($excursion_params, $args),
+            'dates_excursion_summary' => ittour_get_dates_excursion_summary_field($args),
+            'countries_excursion' =>  ittour_get_country_excursion_field($excursion_params, $args),
+
+            'filter_excursion_button' => ittour_get_filter_excursion_button($excursion_params, $args),
+            'dates_excursion_holder' => ittour_get_excursion_dates_holder($args),
+            'duration_excursion_holder' => ittour_get_excursion_duration_holder($args),
             'transport_types' =>  ittour_get_transport_type_field($args),
             'meal_types' =>  itour_get_meal_type_field($args),
             'price_limit' =>  ittour_get_price_limit_field($args),
             'countries_req' =>  ittour_get_country_req_field($params, $args),
+
+            'excursion_params' => $excursion_params,
         );
 
         if (empty($args)) {
@@ -128,19 +174,19 @@ function ittour_get_form_fields($args = array()) {
         }
     }
 
-//    $end = microtime(true) - $start;
-//    error_log($end . ' ms');
+    $ittour_get_form_fields = $form_fields;
 
     return $form_fields;
 }
 
+// Tour search
 function ittour_get_from_city_summary_field($args, $from_cities_array) {
     $default_city = '2014'; // Kiev is default city
 
-    if (empty($args) || empty($args['fromCity'])) {
+    if (empty($args) || empty($args['from_city'])) {
         $selected_city = $default_city;
     } else {
-        $selected_city = $args['fromCity'];
+        $selected_city = $args['from_city'];
     }
 
     ob_start();
@@ -171,10 +217,10 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
     $value = '';
 
     if (!empty($args)) {
-        if (empty($args['hotel']) && !empty($args['hotelRating'])) {
+        if (empty($args['hotel']) && !empty($args['hotel_rating'])) {
             $hotel_name = '';
 
-            $hotel_rating_array = explode(':', $args['hotelRating']);
+            $hotel_rating_array = explode(':', $args['hotel_rating']);
 
             foreach ($hotel_rating_array as $key => $hotel_rating) {
                 $hotel_rating_array[$key] = ittour_get_hotel_number_rating_by_id($hotel_rating);
@@ -252,26 +298,20 @@ function ittour_get_destination_summary_field($params, $country_params, $args = 
     return ob_get_clean();
 }
 
-function ittour_get_dates_summary_field($args) {
+function ittour_get_dates_summary_field($params, $args) {
     $disabled_class = '';
     $field_status = ' readonly';
 
-    if (empty($args['country'])) {
+    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
         $disabled_class = ' disabled-item';
         $field_status = ' disabled';
     }
 
-    if (empty($args['dateFrom'])) {
-        $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
-        $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
-        $dates_value = $date_from . ' - ' . $date_till . ', 7 - 9 ' . __('nights', 'snthwp');
-    } else {
-        $date_from = $args['dateFrom'];
-        $date_till = $args['dateTill'];
-        $night_from = $args['nightFrom'];
-        $night_till = $args['nightTill'];
-        $dates_value = $date_from . ' - ' . $date_till . ', '.$night_from.' - '.$night_till.' ' . __('nights', 'snthwp');
-    }
+    $date_from = $args['date_from'];
+    $date_till = $args['date_till'];
+    $night_from = $args['night_from'];
+    $night_till = $args['night_till'];
+    $dates_value = $date_from . ' - ' . $date_till . ', '.$night_from.' - '.$night_till.' ' . __('nights', 'snthwp');
 
     ob_start();
     ?>
@@ -297,19 +337,19 @@ function ittour_get_dates_summary_field($args) {
     return ob_get_clean();
 }
 
-function ittour_get_guests_summary_field($args) {
+function ittour_get_guests_summary_field($params, $args) {
     $disabled_class = '';
     $field_status = ' readonly';
 
-    if (empty($args['country'])) {
+    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
         $disabled_class = ' disabled-item';
         $field_status = ' disabled';
     }
 
-    if (empty($args['adultAmount'])) {
+    if (empty($args['adult_amount'])) {
         $guests_value = '2';
     } else {
-        $adults_amount = $args['adultAmount'];
+        $adults_amount = $args['adult_amount'];
         $guests_value = $adults_amount;
 
         if (!empty($args['childAmount']) && !empty($args['childAge'])) {
@@ -332,11 +372,11 @@ function ittour_get_guests_summary_field($args) {
             </div>
 
             <input id="guests_summary"
-                type="text"
-                class="form-control form-data-toggle-control"
-                data-form_toggle_target="guests-select_section"
-                placeholder="<?php echo __('Guests', 'snthwp') ?>"
-                value="<?php echo $guests_value ?>"<?php echo $field_status; ?>
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="guests-select_section"
+                   placeholder="<?php echo __('Guests', 'snthwp') ?>"
+                   value="<?php echo $guests_value ?>"<?php echo $field_status; ?>
             >
         </div>
     </div>
@@ -344,11 +384,11 @@ function ittour_get_guests_summary_field($args) {
     return ob_get_clean();
 }
 
-function ittour_get_filter_summary_field($args) {
+function ittour_get_filter_summary_field($params, $args) {
     $disabled_class = '';
     $field_status = ' readonly';
 
-    if (empty($args['country'])) {
+    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
         $disabled_class = ' disabled-item';
         $field_status = ' disabled';
     }
@@ -359,10 +399,10 @@ function ittour_get_filter_summary_field($args) {
         $field_value .= __('Plane', 'snthwp');
         $field_value .= ', UAI, AI, FB';
     } else {
-        if (!empty($args['tourType'])) {
-            if ('1' === $args['tourType']) {
-                if (!empty($args['tourKind'])) {
-                    if ('1' === $args['tourKind']) {
+        if (!empty($args['tour_type'])) {
+            if ('1' === $args['tour_type']) {
+                if (!empty($args['tour_kind'])) {
+                    if ('1' === $args['tour_kind']) {
                         $field_value .= __('Plane', 'snthwp');
                     } else {
                         $field_value .= __('Bus', 'snthwp');
@@ -370,13 +410,13 @@ function ittour_get_filter_summary_field($args) {
                 } else {
                     $field_value .= __('Transit included', 'snthwp');
                 }
-            } elseif ('2' === $args['tourType']) {
+            } elseif ('2' === $args['tour_type']) {
                 $field_value = __('Transit not included', 'snthwp');
             }
         }
 
-        if (!empty($args['mealType'])) {
-            $meal_types_array = explode(':', $args['mealType']);
+        if (!empty($args['meal_type'])) {
+            $meal_types_array = explode(':', $args['meal_type']);
 
             foreach ($meal_types_array as $index => $id) {
                 $short = ittour_get_meal_types_array($id);
@@ -466,11 +506,11 @@ function ittour_get_filter_summary_field($args) {
             </div>
 
             <input id="filter_summary"
-                type="text"
-                class="form-control form-data-toggle-control"
-                data-form_toggle_target="filter-select__section"
-                placeholder="<?php echo __('Additional filter', 'snthwp') ?>"
-                value="<?php echo $field_value; ?>"<?php echo $field_status; ?>
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="filter-select__section"
+                   placeholder="<?php echo __('Additional filter', 'snthwp') ?>"
+                   value="<?php echo $field_value; ?>"<?php echo $field_status; ?>
             >
         </div>
     </div>
@@ -478,8 +518,48 @@ function ittour_get_filter_summary_field($args) {
     return ob_get_clean();
 }
 
+function ittour_get_filter_button($params, $args) {
+    $field_status = '';
+
+    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
+        $field_status = ' disabled';
+    }
+    ob_start();
+    ?>
+    <button id="filter_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-select__section"<?php echo $field_status; ?>>
+        <i class="fas fa-sliders-h form-data-toggle-control-icon"></i>
+    </button>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_tour_dates_holder($args) {
+    $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
+    $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 7, date('Y')));
+    $dates_data = ' data-date-from="'.$date_from.'" data-date-till="'.$date_till.'"';
+    if (!empty($args['date_from']) && !empty($args['date_till'])) {
+        $dates_data = ' data-date-from="'.$args['date_from'].'" data-date-till="'.$args['date_till'].'"';
+    }
+    ob_start();
+    ittour_dates_holder($dates_data, $date_from, $date_till);
+    return ob_get_clean();
+}
+
+function ittour_get_tour_duration_holder($args) {
+    $night_from = '7';
+    $night_till = '9';
+
+    if (!empty($args['night_from']) &&!empty($args['night_till'])) {
+        $night_from = $args['night_from'];
+        $night_till = $args['night_till'];
+    }
+    ob_start();
+    ittour_duration_holder($night_from, $night_till);
+    return ob_get_clean();
+}
+
 function ittour_get_from_city_field($args, $from_cities_array, $template = 'select') {
-    $from_city = !empty($args['fromCity']) ? $args['fromCity'] : '2014';
+    $from_city = !empty($args['from_city']) ? $args['from_city'] : '2014';
 
     ob_start();
     if ('select' === $template) {
@@ -502,11 +582,11 @@ function ittour_get_from_city_field($args, $from_cities_array, $template = 'sele
                 ?>
                 <li>
                     <input
-                        id="from_city_<?php echo $city_id ?>"
-                        class="iCheckGray styled_1"
-                        type="checkbox"
-                        value="<?php echo $city_id ?>"
-                        data-summary="<?php echo __('departure from', 'snthwp') . ' ' . $city_array['genitive_case'] ?>"
+                            id="from_city_<?php echo $city_id ?>"
+                            class="iCheckGray styled_1"
+                            type="checkbox"
+                            value="<?php echo $city_id ?>"
+                            data-summary="<?php echo __('departure from', 'snthwp') . ' ' . $city_array['genitive_case'] ?>"
                         <?php echo $city_id == $from_city ? ' checked' : ''; ?>
                     >
                     <label for="from_city_<?php echo $city_id ?>">
@@ -526,12 +606,6 @@ function ittour_get_from_city_field($args, $from_cities_array, $template = 'sele
     return ob_get_clean();
 }
 
-/**
- * @param $params
- * @param array $args
- *
- * @return string
- */
 function ittour_get_country_field($params, $args = array()) {
     $country_id = !empty($args['country']) ? $args['country'] : false;
 
@@ -564,44 +638,6 @@ function ittour_get_country_field($params, $args = array()) {
     return ob_get_clean();
 }
 
-function ittour_get_country_req_field($params, $args = array()) {
-    $country_id = !empty($args['country']) ? $args['country'] : false;
-
-    ob_start();
-    if (!empty($params['countries'])) {
-        ?>
-        <select id="country_req_select" name="country" class="form-control form-select2" style="width: 100%">
-            <option></option>
-
-            <?php
-            foreach ($params['countries'] as $country) {
-                $selected = '';
-
-                if ($country_id && (int)$country['id'] === (int)$country_id) {
-                    $selected .= ' selected';
-                }
-                ?>
-                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
-                <?php
-            }
-            ?>
-        </select>
-        <?php
-    } else {
-        ?>
-        <input type="text" placeholder="Country" class="form-control" name="country" required>
-        <?php
-    }
-
-    return ob_get_clean();
-}
-
-/**
- * @param $params
- * @param array $args
- *
- * @return string
- */
 function ittour_get_region_field($params, $args = array()) {
     ob_start();
 
@@ -652,11 +688,446 @@ function ittour_get_region_field($params, $args = array()) {
     return ob_get_clean();
 }
 
-/**
- * @param array $args
- *
- * @return string
- */
+// Excursion Tour search
+function ittour_set_excursion_parameters($excursion_params, $args = array()) {
+    $excursion_params['selected_from_city'] = $args['from_city_excursion'];
+    $excursion_params['selected_country'] = !empty($args["country_excursion"]) ? explode(':', $args["country_excursion"]) : array();
+    $excursion_params['selected_city'] = !empty($args["city"]) ? explode(':', $args["city"]) : array();
+
+    $excursion_params['from_cities'] = ittour_get_destination_by_id($excursion_params["from_cities"]);
+    $excursion_params['countries'] = ittour_get_destination_by_id($excursion_params["countries"]);
+    $excursion_params['cities'] = ittour_get_destination_by_id($excursion_params["cities"]);
+    $excursion_params['transport_types'] = ittour_get_destination_by_id($excursion_params["transport_types"]);
+    $excursion_params['countries_by_selected_cities_from'] = array();
+    $excursion_params['cities_by_selected_cities_from'] = array();
+
+    $countries_by_cities_from = array();
+    $cities_by_cities_from = array();
+    $cities_by_countries = array();
+    $cities_from_dependencies = array();
+
+    foreach ($excursion_params['from_cities'] as $from_city_id => $from_city) {
+        if (!empty($from_city['country_id'])) {
+            $countries_by_city_from = array();
+            $country_ids = explode(',', $from_city['country_id']);
+
+            foreach ($country_ids as $country_id) {
+                $countries_by_city_from[$country_id] = $excursion_params['countries'][trim($country_id)];
+            }
+
+            $countries_by_cities_from[$from_city_id] = $countries_by_city_from;
+            $cities_from_dependencies[$from_city_id]['countries'] = $countries_by_city_from;
+        }
+
+        if (!empty($from_city['transport_id'])) {
+            $transport_by_city_from = array();
+            $transport_ids = explode(',', $from_city['transport_id']);
+
+            foreach ($transport_ids as $transport_id) {
+                $transport_by_city_from[$transport_id] = $excursion_params['transport_types'][trim($transport_id)];
+            }
+        }
+    }
+
+    $excursion_params['countries_by_cities_from'] = $countries_by_cities_from;
+
+    foreach ($excursion_params['cities'] as $city_id => $city) {
+        $cities_by_countries[$city['country_id']][$city_id] = $city;
+        $cities_by_cities_from[$city['country_id']][$city_id] = $city;
+
+        if (!empty($city['from_city_id'])) {
+            $from_city_ids = explode(',', $city['from_city_id']);
+
+            foreach ($from_city_ids as $from_city_id) {
+                $cities_by_cities_from[$from_city_id][$city_id] = $city;
+                $cities_from_dependencies[$from_city_id]['countries'][$city['country_id']]['cities'][$city_id] = $city;
+            }
+        }
+    }
+
+    $excursion_params['cities_by_countries'] = $cities_by_countries;
+    $excursion_params['cities_by_cities_from'] = $cities_by_cities_from;
+    $excursion_params['cities_from_dependencies'] = $cities_from_dependencies;
+
+    return $excursion_params;
+}
+
+function ittour_get_from_city_excursion_summary_field($args, $from_cities_array) {
+    $from_city = !empty($args['from_city_excursion']) ? $args['from_city_excursion'] : '2014';
+    $from_cities_array = ittour_get_destination_by_id($from_cities_array);
+    ob_start();
+    ?>
+    <div id="from-city-excursion_summary__container" class="search-summary__container">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+            <span class="btn btn-light">
+                <i class="fas fa-map-signs"></i>
+            </span>
+            </div>
+
+            <input id="from-city-excursion_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="from-city-excursion-select_section"
+                   placeholder="" readonly
+                   value="<?php echo __('city of departure', 'snthwp') . ' ' . $from_cities_array[$from_city]['name'] ?>"
+            >
+        </div>
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_destination_excursion_summary_field($params, $args = array()) {
+    $value = '';
+    if (!empty($args["country_excursion"])) {
+        $country_array = explode(':', $args["country_excursion"]);
+
+        foreach ($country_array as $country_id) {
+            if (!empty($params["countries"][$country_id]) && !empty($params["countries"][$country_id]['name'])) {
+                if (!empty($value)) {
+                    $value .= ', ';
+                }
+
+                $value .= $params["countries"][$country_id]['name'];
+            }
+        }
+    }
+
+    ob_start();
+    ?>
+    <input type="hidden" id="cities_from_excursion_dependencies" value='<?php echo json_encode($params["cities_from_dependencies"], JSON_HEX_APOS) ?>'>
+    <div id="destination-excursion_summary__container" class="search-summary__container">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+                <span class="btn"><i class="fas fa-map-marker-alt"></i></span>
+            </div>
+
+            <input id="destination_excursion_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="destination-excursion-select_section"
+                   placeholder="<?php echo __('Select Destination *', 'snthwp'); ?>"
+                   value="<?php echo $value; ?>" readonly
+            >
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_country_excursion_field($params, $args = array()) {
+    $city_from = $args['from_city_excursion'];
+    $country_id = !empty($args['country_excursion']) ? $args['country_excursion'] : false;
+    $country_array = array();
+
+    if (!empty($country_id)) {
+        $country_array = explode(':', $country_id);
+
+        foreach ($country_array as $index => $cntr_id) {
+            if (empty($params["cities_from_dependencies"][$city_from]['countries'][$cntr_id])) {
+                unset($country_array[$index]);
+            }
+        }
+    }
+
+    ob_start();
+
+        ?>
+        <select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%" multiple>
+            <?php
+            if (!empty($params['cities_from_dependencies'][$city_from]['countries'])) {
+                foreach ($params['cities_from_dependencies'][$city_from]['countries'] as $id => $country) {
+                    if (!empty($params['countries_by_cities_from'][$args['from_city_excursion']][$id])) {
+                        $selected = '';
+
+                        if (!empty($country_array) && in_array($id, $country_array)) {
+                            $selected .= ' selected';
+                        }
+                        ?>
+                        <option value="<?php echo $id ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                        <?php
+                    }
+                }
+            } else {
+                ?>
+                <option value=""><?php echo __('No tours from ', 'snthwp') . $params["from_cities"][$city_from]['name']; ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_region_excursion_field($params, $args = array()) {
+    $city_from = $args['from_city_excursion'];
+    $country_id = !empty($args['country_excursion']) ? $args['country_excursion'] : false;
+    $city_id = !empty($args['city']) ? $args['city'] : false;
+
+    $country_array = array();
+    $cities_array = array();
+    $city_array = array();
+
+    if (!empty($country_id)) {
+        $country_array = explode(':', $country_id);
+
+        foreach ($country_array as $index => $cntr_id) {
+            if (empty($params["cities_from_dependencies"][$city_from]['countries'][$cntr_id])) {
+                unset($country_array[$index]);
+            } else {
+                if (!empty($params["cities_from_dependencies"][$city_from]['countries'][$cntr_id]['cities'])) {
+                    foreach ($params["cities_from_dependencies"][$city_from]['countries'][$cntr_id]['cities'] as $ct_id => $city) {
+                        $cities_array[$ct_id] = $city;
+                    }
+                }
+            }
+        }
+
+        if (!empty($city_id)) {
+            $city_array = explode(':', $city_id);
+
+            foreach ($city_array as $index => $ct_id) {
+                if (empty($cities_array[$ct_id])) {
+                    unset($city_array[$index]);
+                }
+            }
+        }
+    }
+
+
+    ob_start();
+        ?>
+
+        <select id="city_excursion_select" name="city[]" class="form-control form-select2" style="width: 100%" multiple>
+            <?php
+            if (!empty($cities_array)) {
+                foreach ($cities_array as $city) {
+                    if (!empty($country_array) && in_array($city['country_id'], $country_array)) {
+                        $selected = '';
+
+                        if (!empty($city_array) && in_array($city['id'], $city_array)) {
+                            $selected .= ' selected';
+                        }
+                        ?>
+                        <option value="<?php echo $city['id']; ?>"<?php echo $selected ?>><?php echo $city['name']; ?></option>
+                        <?php
+                    }
+                }
+            } else {
+                ?>
+                <option value=""><?php echo __('No tours from ', 'snthwp'); ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_dates_excursion_summary_field($args) {
+    $disabled_class = '';
+    $field_status = ' readonly';
+
+    if (empty($args['country_excursion']) || empty($params['countries'][$args['country_excursion']])) {
+        $disabled_class = ' disabled-item';
+        $field_status = ' disabled';
+    }
+
+    ob_start();
+    ?>
+    <div id="dates-excursion-duration_summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+            <span class="btn btn-light">
+                <i class="far fa-calendar-alt"></i>
+            </span>
+            </div>
+
+            <input id="dates-excursion-duration_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="dates-excursion-select_section"
+                   placeholder="<?php echo __('Dates / Duration *', 'snthwp') ?>"
+                   value="<?php echo $args['date_excursion_from'] . ' - ' . $args['date_excursion_till'] ?>"<?php echo $field_status; ?>
+            >
+        </div>
+    </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+function ittour_get_excursion_dates_holder($args) {
+    $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
+    $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 7, date('Y')));
+    $dates_data = ' data-date-from="'.$date_from.'" data-date-till="'.$date_till.'"';
+    if (!empty($args['date_excursion_from']) && !empty($args['date_excursion_till'])) {
+        $dates_data = ' data-date-from="'.$args['date_excursion_from'].'" data-date-till="'.$args['date_excursion_till'].'"';
+    }
+    ob_start();
+    ittour_dates_holder($dates_data, $date_from, $date_till, 'excursion-');
+    return ob_get_clean();
+}
+
+function ittour_get_filter_excursion_button($params, $args) {
+    $field_status = '';
+
+    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
+        $field_status = ' disabled';
+    }
+    ob_start();
+    ?>
+    <button id="filter_excursion_options" type="button" class="btn form-data-summary form-data-toggle-control" data-form_toggle_target="filter-excursion-select__section"<?php echo $field_status; ?>>
+        <i class="fas fa-sliders-h form-data-toggle-control-icon"></i>
+    </button>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_excursion_duration_holder($args) {
+    $night_from = '7';
+    $night_till = '9';
+
+    if (!empty($args['nightExcursionFrom']) &&!empty($args['nightExcursionTill'])) {
+        $night_from = $args['nightExcursionFrom'];
+        $night_till = $args['nightExcursionTill'];
+    }
+    ob_start();
+    ittour_duration_holder($night_from, $night_till, 'excursion-');
+    return ob_get_clean();
+}
+
+function ittour_get_from_city_excursion_field($args, $from_cities_array, $template = 'select') {
+    $from_city = !empty($args['from_city_excursion']) ? $args['from_city_excursion'] : '2014';
+    $countries_by_city = array();
+    $transport_by_city = array();
+
+    ob_start();
+    if ('select' === $template) {
+        ?>
+        <select class="form-control" name="from_city" id="from_excursion_city">
+            <?php
+            foreach ($from_cities_array as $city) {
+                ?>
+                <option value="<?php echo $city['id']; ?>"<?php echo $city['id'] == $from_city ? ' selected' : ''; ?>><?php echo $city['name']; ?></option>
+                <?php
+
+                $countries_by_city[$city['id']] = $city['country_id'];
+                $transport_by_city[$city['id']] = $city['transport_id'];
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <ul id="excursion_city_from_select_mobile" class="form-list">
+            <?php
+            foreach ($from_cities_array as $city) {
+                ?>
+                <li>
+                    <input
+                            id="from_city_excursion_<?php echo $city['id'] ?>"
+                            class="iCheckGray styled_1"
+                            type="checkbox"
+                            value="<?php echo $city['id'] ?>"
+                            data-summary="<?php echo __('departure from', 'snthwp') . ' ' . $city['name'] ?>"
+                        <?php echo $city['id'] == $from_city ? ' checked' : ''; ?>
+                    >
+                    <label for="from_city_excursion_<?php echo $city['id'] ?>">
+                        <?php echo $city['name'] ?>
+                    </label>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+        <?php
+    }
+    return ob_get_clean();
+}
+
+// Shared
+function ittour_dates_holder($dates_data, $date_from, $date_till, $type = '') {
+    ?>
+    <div class="form-group">
+        <label><?php echo __('Dates of start tour', 'snthwp') ?></label>
+        <input id="date-<?php echo $type ?>pick__select" class="date-pick form-control" name="date" type="text" data-current_value="<?php echo $date_from . ' - ' . $date_till ?>"<?php echo $dates_data; ?> readonly="readonly">
+
+        <div class="date-pick__select__container"></div>
+    </div>
+    <?php
+}
+
+function ittour_duration_holder($night_from, $night_till, $type = '') {
+    ?>
+    <div class="duration-holder">
+        <label><?php echo __('Duration', 'snthwp') ?> (<?php echo __('nights', 'snthwp') ?>)</label>
+        <div class="form-group">
+
+            <div class="numbers-alt numbers-gor style_1" style="display: inline-block">
+                <input
+                        type="number"
+                        value="<?php echo $night_from ?>"
+                        id="duration-<?php echo $type ?>from__select"
+                        class="qty2 form-control duration__select"
+                        name="night_from"
+                        data-current_value="<?php echo $night_from ?>"
+                        readonly="readonly"
+                >
+            </div>
+            <span class="d-inline-block mrl-10">-</span>
+            <div class="numbers-alt numbers-gor style_1" style="display: inline-block">
+                <input
+                        type="number"
+                        value="<?php echo $night_till ?>"
+                        id="duration-<?php echo $type ?>till__select"
+                        class="qty2 form-control duration__select"
+                        name="night_till"
+                        data-current_value="<?php echo $night_till ?>"
+                        readonly="readonly"
+                >
+            </div>
+        </div>
+    </div>
+    <?php
+}
+
+function ittour_get_country_req_field($params, $args = array()) {
+    $country_id = !empty($args['country']) ? $args['country'] : false;
+
+    ob_start();
+    if (!empty($params['countries'])) {
+        ?>
+        <select id="country_req_select" name="country" class="form-control form-select2" style="width: 100%">
+            <option></option>
+
+            <?php
+            foreach ($params['countries'] as $country) {
+                $selected = '';
+
+                if ($country_id && (int)$country['id'] === (int)$country_id) {
+                    $selected .= ' selected';
+                }
+                ?>
+                <option value="<?php echo $country['id'] ?>"<?php echo $selected ?>><?php echo $country['name'] ?></option>
+                <?php
+            }
+            ?>
+        </select>
+        <?php
+    } else {
+        ?>
+        <input type="text" placeholder="Country" class="form-control" name="country" required>
+        <?php
+    }
+
+    return ob_get_clean();
+}
+
 function ittour_get_hotel_field($params, $args = array()) {
     if (!empty($args['country'])) {
         $params_obj = ittour_params();
@@ -673,8 +1144,8 @@ function ittour_get_hotel_field($params, $args = array()) {
 
                 if (!empty($args['region']) && $args['region'] !== $hotel['region_id']) $show = false;
 
-                if (!empty($args['hotelRating'])) {
-                    $hotel_ratings_array = explode(':', $args['hotelRating']);
+                if (!empty($args['hotel_rating'])) {
+                    $hotel_ratings_array = explode(':', $args['hotel_rating']);
                     $hotel_rating_name = $hotel['hotel_rating_id'];
 
                     if ('7' === $hotel_rating_name) {
@@ -721,8 +1192,8 @@ function ittour_get_hotel_ratings_field($params, $args = array()) {
             $selected = '';
             $disabled = '';
 
-            if (!empty($args['hotelRating'])) {
-                $hotel_rating_array = explode(':', $args['hotelRating']);
+            if (!empty($args['hotel_rating'])) {
+                $hotel_rating_array = explode(':', $args['hotel_rating']);
 
                 if (in_array($hotel_rating['id'], $hotel_rating_array) || (!empty($hotel_rating['name']) && in_array($hotel_rating['name'], $hotel_rating_array))) {
                     $selected = ' checked';
@@ -850,11 +1321,11 @@ function ittour_get_transport_type_field($args = array()) {
         $type = '1';
         $kind = '';
     } else {
-        if (!empty($args['tourType'])) {
-            $type = $args['tourType'];
+        if (!empty($args['tour_type'])) {
+            $type = $args['tour_type'];
 
-            if (!empty($args['tourKind'])) {
-                $kind = $args['tourKind'];
+            if (!empty($args['tour_kind'])) {
+                $kind = $args['tour_kind'];
             }
         }
     }
@@ -905,8 +1376,8 @@ function itour_get_meal_type_field($args = array()) {
     if (empty($args)) {
         $selected_values = array('560', '512', '498', '496', '388', '1956');
     } else {
-        if (!empty($args['mealType'])) {
-            $selected_values = explode(':', $args['mealType']);
+        if (!empty($args['meal_type'])) {
+            $selected_values = explode(':', $args['meal_type']);
         } else {
             $selected_values = array('');
         }
@@ -1501,6 +1972,10 @@ function ittour_get_transport_type_by_id($id) {
 function ittour_get_tours_grid($country, $args = array()) {
     $search = ittour_search(ITTOUR_LANG);
     $search_result = $search->get($country, $args);
+
+    if (is_wp_error($search_result)) {
+        $search_result = array();
+    }
 
     ob_start();
     $template_args = array('result' => $search_result, 'country_id' => $country);
@@ -2345,6 +2820,18 @@ function ittour_get_hotel_tours_section($country_id, $hotel_id, $hotel_rating, $
     $table_html = ob_get_clean();
 
     return array( 'table_html' => $table_html );
+}
+
+function ittour_get_destination_by_id($array) {
+    $array_by_id = array();
+
+    foreach ($array as $item) {
+        if (!empty($item['id'])) {
+            $array_by_id[$item['id']] = $item;
+        }
+    }
+
+    return $array_by_id;
 }
 
 /**

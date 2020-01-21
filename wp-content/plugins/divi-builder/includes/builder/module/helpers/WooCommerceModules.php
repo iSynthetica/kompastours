@@ -827,28 +827,47 @@ if ( et_is_woocommerce_plugin_active() ) {
 					return $chars;
 			}
 		}
-	}
 
-	/**
-	 * Class ET_WC_Product_Variable_TB_Placeholder
-	 *
-	 * Variable product class extension for displaying WooCommerce placeholder on Theme Builder
-	 */
-	class ET_WC_Product_Variable_TB_Placeholder extends WC_Product_Variable {
 		/**
-		 * Add to cart's <select> requires variable product type and get_available_variations() method
-		 * outputting product->children value. Filtering get_available_variations() can't be done so
-		 * extending WC_Product_Variable and set fixed value for get_available_variations() method
+		 * Sets the Display type to render only Products.
 		 *
-		 * @since 4.0.1
+		 * @since 4.1.0
 		 *
-		 * @return array
+		 * @see     https://github.com/elegantthemes/Divi/issues/17998
+		 *
+		 * @used-by ET_Builder_Module_Woocommerce_Related_Products::render()
+		 * @used-by ET_Builder_Module_Woocommerce_Upsells::render()
+		 *
+		 * @param string $option_name
+		 * @param string $display_type
+		 *
+		 * @return string
 		 */
-		function get_available_variations() {
-			$variation_1 = new WC_Product_Simple();
+		public static function set_display_type_to_render_only_products( $option_name,
+        $display_type = '' ) {
+			$existing_display_type = get_option( $option_name );
+			update_option( $option_name, $display_type );
 
-			return array( $variation_1 );
+			return $existing_display_type;
 		}
+
+		/**
+		 * Resets the display type to the existing value.
+		 *
+		 * @since 4.1.0
+		 *
+		 * @see     https://github.com/elegantthemes/Divi/issues/17998
+		 *
+		 * @used-by ET_Builder_Module_Woocommerce_Related_Products::render()
+		 * @used-by ET_Builder_Module_Woocommerce_Upsells::render()
+		 *
+		 * @param $option_name
+		 * @param $display_type
+		 */
+		public static function reset_display_type( $option_name, $display_type ) {
+			update_option( $option_name, $display_type );
+		}
+
 	}
 
 	add_filter(

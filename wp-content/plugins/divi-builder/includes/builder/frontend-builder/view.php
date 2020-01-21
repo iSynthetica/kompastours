@@ -56,6 +56,7 @@ function et_fb_app_boot( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'et_fb_app_boot', 1 );
+add_filter( 'et_builder_render_layout', 'et_fb_app_boot', 1 );
 
 function et_fb_wp_nav_menu( $menu ) {
 	// Ensure we fix any unclosed HTML tags in menu since they would break the VB
@@ -194,7 +195,7 @@ function et_builder_inject_preboot_script() {
 
 	$preboot_path   = ET_BUILDER_DIR . 'frontend-builder/build/preboot.js';
 	if ( file_exists( $preboot_path ) ) {
-		$preboot_script = file_get_contents( $preboot_path );
+		$preboot_script = et_()->WPFS()->get_contents( $preboot_path );
 	} else {
 		// if the file doesn't exists, it means we're using `yarn hot`
 		$site_url = wp_parse_url( get_site_url() );

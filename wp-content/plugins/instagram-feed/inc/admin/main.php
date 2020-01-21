@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function sb_instagram_menu() {
 	$cap = current_user_can( 'manage_instagram_feed_options' ) ? 'manage_instagram_feed_options' : 'manage_options';
 
+	$cap = apply_filters( 'sbi_settings_pages_capability', $cap );
+
 	add_menu_page(
 		__( 'Instagram Feed', 'instagram-feed' ),
 		__( 'Instagram Feed', 'instagram-feed' ),
@@ -81,6 +83,7 @@ function sb_instagram_settings_page() {
 		'sb_instagram_ajax_theme'           => false,
 		'sb_instagram_disable_resize'       => false,
 		'sb_instagram_favor_local'          => false,
+		'sb_instagram_minnum' => 0,
 		'disable_js_image_loading'          => false,
 		'enqueue_js_in_head'                => false,
 		'enqueue_css_in_shortcode' => false,
@@ -102,6 +105,7 @@ function sb_instagram_settings_page() {
 	$disable_js_image_loading = $options[ 'disable_js_image_loading' ];
 	$sb_instagram_disable_resize = $options[ 'sb_instagram_disable_resize' ];
 	$sb_instagram_favor_local = $options[ 'sb_instagram_favor_local' ];
+	$sb_instagram_minnum = $options[ 'sb_instagram_minnum' ];
 
 	$sb_instagram_cache_time = $options[ 'sb_instagram_cache_time' ];
 	$sb_instagram_cache_time_unit = $options[ 'sb_instagram_cache_time_unit' ];
@@ -285,6 +289,7 @@ function sb_instagram_settings_page() {
 				isset($_POST[ 'disable_js_image_loading' ]) ? $disable_js_image_loading = $_POST[ 'disable_js_image_loading' ] : $disable_js_image_loading = '';
 				isset($_POST[ 'sb_instagram_disable_resize' ]) ? $sb_instagram_disable_resize= sanitize_text_field( $_POST[ 'sb_instagram_disable_resize' ] ) : $sb_instagram_disable_resize = '';
 				isset($_POST[ 'sb_instagram_favor_local' ]) ? $sb_instagram_favor_local = sanitize_text_field( $_POST[ 'sb_instagram_favor_local' ] ) : $sb_instagram_favor_local = '';
+				isset($_POST[ 'sb_instagram_minnum' ]) ? $sb_instagram_minnum = sanitize_text_field( $_POST[ 'sb_instagram_minnum' ] ) : $sb_instagram_minnum = '';
 
 				if (isset($_POST[ 'sb_instagram_cron' ]) ) $sb_instagram_cron = $_POST[ 'sb_instagram_cron' ];
 				isset($_POST[ 'sb_instagram_backup' ]) ? $sb_instagram_backup = $_POST[ 'sb_instagram_backup' ] : $sb_instagram_backup = '';
@@ -328,6 +333,8 @@ function sb_instagram_settings_page() {
 				$options[ 'disable_js_image_loading' ] = $disable_js_image_loading;
 				$options[ 'sb_instagram_disable_resize' ] = $sb_instagram_disable_resize;
 				$options[ 'sb_instagram_favor_local' ] = $sb_instagram_favor_local;
+				$options[ 'sb_instagram_minnum' ] = $sb_instagram_minnum;
+
 				$options[ 'sb_ajax_initial' ] = $sb_ajax_initial;
 				$options[ 'sb_instagram_cron' ] = $sb_instagram_cron;
 				$options['sb_instagram_backup'] = $sb_instagram_backup;
@@ -456,17 +463,36 @@ function sb_instagram_settings_page() {
 						<?php else:  ?>
 							<?php foreach ( $connected_accounts as $account ) :
 								$username = $account['username'] ? $account['username'] : $account['user_id'];
-							if ( isset( $account['local_avatar'] ) && $account['local_avatar'] && isset( $options['sb_instagram_favor_local'] ) && $options['sb_instagram_favor_local' ] === 'on' ) {
-								$upload = wp_upload_dir();
-								$resized_url = trailingslashit( $upload['baseurl'] ) . trailingslashit( SBI_UPLOADS_NAME );
-								$profile_picture = '<img class="sbi_ca_avatar" src="'.$resized_url . $account['username'].'.jpg" />'; //Could add placeholder avatar image
-							} else {
-								$profile_picture = $account['profile_picture'] ? '<img class="sbi_ca_avatar" src="'.$account['profile_picture'].'" />' : ''; //Could add placeholder avatar image
-							}
+                                if ( isset( $account['local_avatar'] ) && $account['local_avatar'] && isset( $options['sb_instagram_favor_local'] ) && $options['sb_instagram_favor_local' ] === 'on' ) {
+                                    $upload = wp_upload_dir();
+                                    $resized_url = trailingslashit( $upload['baseurl'] ) . trailingslashit( SBI_UPLOADS_NAME );
+                                    $profile_picture = '<img class="sbi_ca_avatar" src="'.$resized_url . $account['username'].'.jpg" />'; //Could add placeholder avatar image
+                                } else {
+                                    $profile_picture = $account['profile_picture'] ? '<img class="sbi_ca_avatar" src="'.$account['profile_picture'].'" />' : ''; //Could add placeholder avatar image
+                                }
+								$account_type = isset( $account['type'] ) ? $account['type'] : 'personal';
+
+								if ( empty( $profile_picture ) && $account_type === 'personal' ) {
+									$account_update = sbi_account_data_for_token( $account['access_token'] );
+									if ( isset( $account['is_valid'] ) ) {
+										$split = explode( '.', $account['access_token'] );
+										$connected_accounts[ $split[0] ] = array(
+											'access_token' => $account['access_token'],
+											'user_id' => $split[0],
+											'username' => $account_update['username'],
+											'is_valid' => true,
+											'last_checked' => time(),
+											'profile_picture' => $account_update['profile_picture']
+										);
+										$sbi_options = get_option( 'sb_instagram_settings', array() );
+										$sbi_options['connected_accounts'] = $connected_accounts;
+										update_option( 'sb_instagram_settings', $sbi_options );
+									}
+								}
+
 								$access_token_expired = (in_array(  $account['access_token'], $expired_tokens, true ) || in_array( sbi_maybe_clean( $account['access_token'] ), $expired_tokens, true ));
 								$is_invalid_class = ! $account['is_valid'] || $access_token_expired ? ' sbi_account_invalid' : '';
 								$in_user_feed = in_array( $account['user_id'], $user_feed_ids, true );
-								$account_type = isset( $account['type'] ) ? $account['type'] : 'personal';
 
 								?>
                                 <div class="sbi_connected_account<?php echo $is_invalid_class; ?><?php if ( $in_user_feed ) echo ' sbi_account_active' ?> sbi_account_type_<?php echo $account_type; ?>" id="sbi_connected_account_<?php echo esc_attr( $account['user_id'] ); ?>" data-accesstoken="<?php echo esc_attr( $account['access_token'] ); ?>" data-userid="<?php echo esc_attr( $account['user_id'] ); ?>" data-username="<?php echo esc_attr( $account['username'] ); ?>" data-type="<?php echo esc_attr( $account_type ); ?>">
@@ -716,7 +742,7 @@ function sb_instagram_settings_page() {
 								<p class="sbi_pro_tooltip"><?php _e( 'Upgrade to the Pro version to display Hashtag and Tagged feeds', 'instagram-feed' ); ?><i class="fa fa-caret-down" aria-hidden="true"></i></p>
 								<a href="https://smashballoon.com/instagram-feed/?utm_source=plugin-free&utm_campaign=sbi" target="_blank" class="sbi_lock"><i class="fa fa-rocket"></i><?php _e('Pro', 'instagram-feed'); ?></a>
 
-								<input readonly type="text" size="25" style="height: 32px; top: -2px; position: relative; box-shadow: none;" />
+								<input readonly type="text" size="25" style="height: 32px; top: -2px; position: relative; box-shadow: none;" disabled />
 								&nbsp;<a class="sbi_tooltip_link sbi_pro" href="JavaScript:void(0);"><?php _e( 'What is this?', 'instagram-feed' ); ?></a>
 
 								<p class="sbi_tooltip"><?php _e( 'Display posts from a specific hashtag instead of from a user', 'instagram-feed' ); ?></p>
@@ -729,7 +755,7 @@ function sb_instagram_settings_page() {
                                 <label class="sbi_radio_label" for="sb_instagram_type_tagged"><?php _e( 'Tagged:', 'instagram-feed' ); ?></label>
                             </div>
                             <div class="sbi_col sbi_two">
-                                <input readonly type="text" size="25" style="height: 32px; top: -2px; position: relative; box-shadow: none;" />
+                                <input readonly type="text" size="25" style="height: 32px; top: -2px; position: relative; box-shadow: none;" disabled />
                                 &nbsp;<a class="sbi_tooltip_link sbi_pro" href="JavaScript:void(0);"><?php _e( 'What is this?', 'instagram-feed' ); ?></a>
 
                                 <p class="sbi_tooltip"><?php _e( 'Display posts that your account has been tagged in.', 'instagram-feed' ); ?></p>
@@ -1128,7 +1154,7 @@ function sb_instagram_settings_page() {
 						<select name="sb_instagram_image_res">
 							<option value="auto" <?php if($sb_instagram_image_res == "auto") echo 'selected="selected"' ?> ><?php _e('Auto-detect (recommended)', 'instagram-feed'); ?></option>
 							<option value="thumb" <?php if($sb_instagram_image_res == "thumb") echo 'selected="selected"' ?> ><?php _e('Thumbnail (150x150)', 'instagram-feed'); ?></option>
-							<option value="medium" <?php if($sb_instagram_image_res == "medium") echo 'selected="selected"' ?> ><?php _e('Medium (306x306)', 'instagram-feed'); ?></option>
+							<option value="medium" <?php if($sb_instagram_image_res == "medium") echo 'selected="selected"' ?> ><?php _e('Medium (320x320)', 'instagram-feed'); ?></option>
 							<option value="full" <?php if($sb_instagram_image_res == "full") echo 'selected="selected"' ?> ><?php _e('Full size (640x640)', 'instagram-feed'); ?></option>
 						</select>
 
@@ -1727,6 +1753,17 @@ function sb_instagram_settings_page() {
                         <input id="sbi_reset_resized" class="button-secondary" type="submit" value="<?php esc_attr_e( 'Reset Resized Images' ); ?>" style="vertical-align: middle;"/>
                         <a class="sbi_tooltip_link" href="JavaScript:void(0);"><?php _e('What does this mean?', 'instagram-feed'); ?></a>
                         <p class="sbi_tooltip"><?php _e("The plugin creates and stores resized versions of images in order to serve a more optimized resolution size in the feed. Click this button to clear all data related to resized images. Enable the setting to favor local images to always use a local, resized image if one is available.", 'instagram-feed'); ?></p>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row"><label><?php _e('API request size', 'instagram-feed'); ?></label><code class="sbi_shortcode"> minnum
+                            Eg: minnum=25</code></th>
+                    <td>
+                        <input name="sb_instagram_minnum" type="number" min="0" max="100" value="<?php echo esc_attr( $sb_instagram_minnum ); ?>" />
+                        <span class="sbi_note"><?php _e('Leave at "0" for default', 'instagram-feed'); ?></span>
+                        <a class="sbi_tooltip_link" href="JavaScript:void(0);"><?php _e('What does this mean?', 'instagram-feed'); ?></a>
+                        <p class="sbi_tooltip"><?php _e("If your feed contains a lot of IG TV posts or your feed is not displaying any posts despite there being posts available on Instagram.com, try increasing this number to 25 or more.", 'instagram-feed'); ?></p>
                     </td>
                 </tr>
 
@@ -2540,7 +2577,7 @@ echo 'test not successful';
 			<img src="<?php echo SBI_PLUGIN_URL . 'img/instagram-pro-promo.png?2019'; ?>" alt="<?php esc_attr_e( 'Instagram Feed Pro', 'instagram-feed' ); ?>">
 		</a>
 
-		<p class="sbi_plugins_promo dashicons-before dashicons-admin-plugins"> <?php _e('Check out our other free plugins: <a href="https://wordpress.org/plugins/custom-facebook-feed/" target="_blank">Facebook</a> and <a href="https://wordpress.org/plugins/custom-twitter-feeds/" target="_blank">Twitter</a>.', 'instagram-feed' ); ?></p>
+		<p class="sbi_plugins_promo dashicons-before dashicons-admin-plugins"> <?php _e('Check out our other free plugins: <a href="https://wordpress.org/plugins/custom-facebook-feed/" target="_blank">Facebook</a>, <a href="https://wordpress.org/plugins/custom-twitter-feeds/" target="_blank">Twitter</a>, and <a href="https://wordpress.org/plugins/feeds-for-youtube/" target="_blank">YouTube</a>.', 'instagram-feed' ); ?></p>
 
 		<div class="sbi_share_plugin">
 			<h3><?php _e('Like the plugin? Help spread the word!', 'instagram-feed'); ?></h3>

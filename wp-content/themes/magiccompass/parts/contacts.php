@@ -8,6 +8,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+global $ittour_global_form_args;
+$search_form_args = $ittour_global_form_args;
+
 if (empty($template)) {
     $template = 'no-sidebar';
 }
@@ -90,6 +93,12 @@ wp_localize_script('gmapLocations', 'jointsMapObj', array(
     'zoom'      =>  14,
 ));
 ?>
+
+<section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
+    <div class="container">
+        <?php ittour_show_template('form/section-search.php', $search_form_args); ?>
+    </div>
+</section>
 
 <?php snth_show_template('breadcrumbs.php'); ?>
 

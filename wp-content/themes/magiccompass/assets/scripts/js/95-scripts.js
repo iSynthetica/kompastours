@@ -1,4 +1,4 @@
-const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+var observer = lozad(); // lazy loads elements with default selector as '.lozad'
 observer.observe();
 
 (function ($) {
@@ -17,6 +17,7 @@ observer.observe();
 
     $(document.body).on('click', '#contact-form__submit', function() {
         var formData = $("#contact-form").serializeArray();
+        var fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -38,10 +39,10 @@ observer.observe();
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
 
                         updateFragments(fragments);
                     }
@@ -63,8 +64,10 @@ observer.observe();
             if(
                 !$(event.target).closest('.form-data-toggle-target').length &&
                 !$(event.target).closest('.select2-container').length &&
+                !$(event.target).parents('.select2-container').length &&
                 !$(event.target).hasClass('form-data-toggle-target') &&
                 !$(event.target).hasClass('form-data-toggle-control') &&
+                !$(event.target).hasClass('select2-selection__choice__remove') &&
                 !$(event.target).hasClass('available') &&
                 !$(event.target).closest('.date-pick__select__container').length &&
                 !$(event.target).closest('.available').length &&
@@ -83,6 +86,7 @@ observer.observe();
 
     $(document.body).on('click', '#send-testimonial-form__submit', function() {
         var formData = $("#send-testimonial").serializeArray();
+        var fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -105,11 +109,10 @@ observer.observe();
                 if (decoded) {
                     if (decoded.success) {
                         $("#send-testimonial").remove();
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -146,10 +149,7 @@ observer.observe();
     });
 
     $(document).ready(function() {
-        lightGallery(document.getElementById('gallery-container'), {selector: '.gallery-item'})
-        // $('#gallery-container').lightGallery({
-        //     selector: '.gallery-item'
-        // });
+        lightGallery(document.getElementById('gallery-container'), {selector: '.gallery-item'});
     });
 
     $(window).on('load', function () {});

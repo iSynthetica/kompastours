@@ -135,9 +135,11 @@ class SB_Instagram_Parse
 	 * @return array
 	 *
 	 * @since 2.0/5.0
+	 * @since 2.1.3/5.2.3 added 'd' element as a default backup from the API
 	 */
 	public static function get_media_src_set( $post, $resized_images = array() ) {
 		$media_urls = array(
+			'd' => SB_Instagram_Parse::get_media_url( $post ),
 			'150' => '',
 			'320' => '',
 			'640' => ''
@@ -163,12 +165,15 @@ class SB_Instagram_Parse
 			$media_urls['320'] = $permalink . 'media?size=m';
 
 			// use resized images if exists
-			if ( isset( $resized_images[ $post_id ]['id'] ) && $resized_images[ $post_id ]['id'] !== 'pending' && $resized_images[ $post_id ]['id'] !== 'video' ) {
+			if ( isset( $resized_images[ $post_id ]['id'] )
+			     && $resized_images[ $post_id ]['id'] !== 'pending'
+			     && $resized_images[ $post_id ]['id'] !== 'video'
+			     && $resized_images[ $post_id ]['id'] !== 'error' ) {
 				if ( isset( $resized_images[ $post_id ]['sizes']['full'] ) ) {
-					$media_urls['640'] = sbi_get_resized_uploads_url() . $resized_images[ $post_id ]['id'] . 'full.jpg';
+					$media_urls['640'] = $resized_images[ $post_id ]['id'];
 				}
 				if ( isset( $resized_images[ $post_id ]['sizes']['low'] ) ) {
-					$media_urls['320'] = sbi_get_resized_uploads_url() . $resized_images[ $post_id ]['id'] . 'low.jpg';
+					$media_urls['320'] = $resized_images[ $post_id ]['id'];
 				}
 			}
 

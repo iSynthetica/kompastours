@@ -74,7 +74,7 @@ foreach ($result['hotels'] as $hotel) {
     <div class="content-wrap">
         <div class="container clearfix">
             <div class="row common-height clearfix">
-                <?php ittour_show_template('search/pagination.php', array('result' => $result, 'url' => $url)); ?>
+                <?php ittour_show_template('search/pagination.php', array('result' => $result, 'url' => $url, 'type' => 'search')); ?>
             </div>
         </div>
     </div>

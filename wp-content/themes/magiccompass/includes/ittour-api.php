@@ -149,36 +149,6 @@ add_action( 'template_redirect', function() {
     $key = get_query_var( 'tour' );
 
     if ( $key ) {
-        $_GET['key'] = $key;
-
-        $from_city = get_query_var( 'from_city' );
-
-        if (!empty($from_city)) {
-            $_GET['from_city'] = $from_city;
-        }
-
-        $child_age = get_query_var( 'child_age' );
-
-        if (!empty($child_age)) {
-            $_GET['child_age'] = $child_age;
-        }
-
-        global $ittour_global_tour_result;
-
-        if (empty($_GET['key'])) {
-            $ittour_global_tour_result['error'] = 'no_key';
-        } else {
-            $tour_key = $_GET['key'];
-            $tour = ittour_tour($tour_key, ITTOUR_LANG);
-            $tour_info = $tour->info();
-
-            if (is_wp_error($tour_info)) {
-
-            } else {
-                $ittour_global_tour_result['result'] = $tour_info;
-            }
-        }
-
         include SNTH_DIR . '/templates/tour.php';
         die;
     }
@@ -186,14 +156,473 @@ add_action( 'template_redirect', function() {
     $key = get_query_var( 'excursion-tour' );
 
     if ( $key ) {
-        $date_from = get_query_var( 'date_from' );
-        $date_till = get_query_var( 'date_till' );
-
-        $_GET['key'] = $key;
-        $_GET['date_from'] = $date_from;
-        $_GET['date_till'] = $date_till;
-
         include SNTH_DIR . '/templates/excursion-tour.php';
         die;
     }
 } );
+
+add_action("wp", "ittour_set_global_variable");
+
+function ittour_set_global_variable() {
+    global $ittour_global_tour_result;
+    global $ittour_global_form_args;
+    global $ittour_global_template_args;
+
+    $ittour_global_tour_result = array();
+    $ittour_global_form_args = array();
+    $ittour_global_template_args = array();
+
+    ittour_set_default_global_search_form_params();
+
+    $request_uri = $_SERVER['REQUEST_URI'];
+    if (false !== strpos($request_uri, '/excursion-search')) {
+        ittour_set_global_excursion_search_result();
+    } elseif (false !== strpos($request_uri, '/search')) {
+        ittour_set_global_tour_search_result();
+    } elseif ($key = get_query_var( 'tour' )) { // Single tour page
+        ittour_set_global_single_tour($key);
+    } elseif ($key = get_query_var( 'excursion-tour' )) { // Single excursion tour page
+        ittour_set_global_single_excursion_tour($key);
+    }
+
+    ittour_set_global_form_fields();
+}
+
+function ittour_set_global_form_fields() {
+    global $ittour_global_form_args;
+    global $ittour_global_form_fields;
+
+    $ittour_global_form_fields = ittour_get_form_fields($ittour_global_form_args);
+}
+
+function ittour_set_global_tour_search_result() {
+    global $ittour_global_tour_result;
+    global $ittour_global_form_args;
+    global $ittour_global_template_args;
+
+    $country_id = !empty($_GET['country']) ? sanitize_text_field($_GET['country']) : false;
+
+    if (!$country_id) { // Open new search page
+        $ittour_global_tour_result['error'] = 'no_country';
+    } else {
+        $ittour_global_form_args['country'] = $country_id;
+        $ittour_global_template_args['country_id'] = $country_id;
+        $ittour_global_template_args = array_merge($ittour_global_template_args, get_tour_main_currency($country_id));
+
+        $args = array();
+
+        if (!empty($_GET['region'])) {
+            $region = sanitize_text_field($_GET['region']);
+            $args['region'] = $region;
+            $ittour_global_form_args['region'] = $region;
+            $ittour_global_template_args['region_id'] = $region;
+        }
+
+        if (!empty($_GET['from_city'])) {
+            $from_city = sanitize_text_field($_GET['from_city']);
+            $args['from_city'] = $from_city;
+            $ittour_global_form_args['from_city'] = $from_city;
+            $ittour_global_template_args['from_city'] = $from_city;
+        }
+
+        if (!empty($_GET['adult_amount'])) {
+            $adult_amount = sanitize_text_field($_GET['adult_amount']);
+            $args['adult_amount'] = $adult_amount;
+            $ittour_global_form_args['adult_amount'] = $adult_amount;
+        }
+
+        if (!empty($_GET['child_amount'])) {
+            $args['child_amount'] = count($_GET['child_amount']);
+            $args['child_age'] = implode(':', $_GET['child_amount']);
+            $ittour_global_form_args['child_amount'] = $args['child_amount'];
+            $ittour_global_form_args['child_age'] = $args['child_age'];
+            $ittour_global_template_args['child_age'] = $args['child_age'];
+        }
+
+        if (!empty($_GET['hotel'])) {
+            if (is_array($_GET['hotel'])) {
+                $hotel = array();
+
+                foreach ($_GET['hotel'] as $key => $id) {
+                    $hotel[$key] = sanitize_text_field($id);
+                }
+
+                $hotel = implode(':', $hotel);
+            } elseif (is_string($_GET['hotel']) || is_integer($_GET['hotel'])) {
+                $hotel = sanitize_text_field($_GET['hotel']);
+            }
+
+            if (!empty($hotel)) {
+                $args['hotel'] = $hotel;
+                $ittour_global_form_args['hotel'] = $hotel;
+            }
+        }
+
+        if (!empty($_GET['hotel_rating'])) {
+            if (is_array($_GET['hotel_rating'])) {
+                $hotel_rating = array();
+
+                foreach ($_GET['hotel_rating'] as $key => $id) {
+                    $hotel_rating[$key] = sanitize_text_field($id);
+                }
+
+                $hotel_rating = implode(':', $hotel_rating);
+            } elseif (is_string($_GET['hotel_rating']) || is_integer($_GET['hotel_rating'])) {
+                $hotel_rating = sanitize_text_field($_GET['hotel_rating']);
+            }
+
+            if (!empty($hotel_rating)) {
+                $args['hotel_rating'] = $hotel_rating;
+                $ittour_global_form_args['hotel_rating'] = $hotel_rating;
+            }
+        }
+
+        if (!empty($_GET['date']) && is_string($_GET['date'])) {
+            $dates = explode('-', sanitize_text_field($_GET['date']));
+
+            if (2 === count($dates)) {
+                $tour_dates = array(
+                    'date_from' => trim($dates[0]),
+                    'date_till' => trim($dates[1]),
+                );
+
+                $args = array_merge($args, $tour_dates);
+                $ittour_global_form_args = array_merge($ittour_global_form_args, $tour_dates);
+            }
+        }
+
+        $tour_nights = get_tour_nights();
+        $args = array_merge($args, $tour_nights);
+        $ittour_global_form_args = array_merge($ittour_global_form_args, $tour_nights);
+
+        if (!empty($_GET['meal_type'])) {
+            if (is_array($_GET['meal_type'])) {
+                $meal_type = array();
+
+                foreach ($_GET['meal_type'] as $key => $id) {
+                    $meal_type[$key] = sanitize_text_field($id);
+                }
+
+                $meal_type = implode(':', $meal_type);
+            } elseif (is_string($_GET['meal_type']) || is_integer($_GET['meal_type'])) {
+                $meal_type = sanitize_text_field($_GET['meal_type']);
+            }
+
+            if (!empty($meal_type)) {
+                $args['meal_type'] = $meal_type;
+                $ittour_global_form_args['meal_type'] = $meal_type;
+            }
+        }
+
+        // Price Limit
+        if (!empty($_GET['price_limit'])) {
+            $price_limit = false;
+
+            if ('custom' === $_GET['price_limit']) {
+                $price_from = !empty($_GET["price_limit_from"]) ? $_GET["price_limit_from"] : false;
+                $price_till = !empty($_GET["price_limit_till"]) ? $_GET["price_limit_till"] : false;
+
+                if ($price_from || $price_till) {
+                    $price_limit = 'custom';
+
+                    if ($price_from) $price_limit .= ':f-' . $price_from;
+                    if ($price_till) $price_limit .= ':t-' . $price_till;
+                }
+
+            } else {
+                $price_limit_array = explode(':', $_GET['price_limit']);
+
+                $price_from = !empty($price_limit_array[0]) ? $price_limit_array[0] : false;
+                $price_till = !empty($price_limit_array[1]) ? $price_limit_array[1] : false;
+
+                $price_limit = $_GET['price_limit'];
+            }
+
+            if ($price_from) {
+                $args['price_from'] = $price_from;
+                $ittour_global_form_args['price_from'] = $price_from;
+            }
+
+            if ($price_till) {
+                $args['price_till'] = $price_till;
+                $ittour_global_form_args['price_till'] = $price_till;
+            }
+
+            $ittour_global_form_args['price_limit'] = $price_limit;
+        }
+
+        if (!empty($_GET['tour_type'])) {
+            $tour_type = sanitize_text_field($_GET['tour_type']);
+            $args['type'] = $tour_type;
+            $ittour_global_form_args['tour_type'] = $tour_type;
+
+            if ('2' !== $tour_type && !empty($_GET['tour_kind'])) {
+                $tour_kind = sanitize_text_field($_GET['tour_kind']);
+                $args['kind'] = $tour_kind;
+                $ittour_global_form_args['tour_kind'] = $tour_kind;
+            }
+        }
+
+        if (!empty($_GET['search_page'])) {
+            $page = sanitize_text_field($_GET['search_page']);
+            $args['page'] = $page;
+            unset($_GET['search_page']);
+        }
+
+        $url = http_build_query($_GET);
+        $ittour_global_template_args['url'] = $url;
+
+        $search = ittour_search(ITTOUR_LANG);
+        $search_result = $search->get($country_id, $args);
+
+        if (is_wp_error($search_result)) {
+            $ittour_global_tour_result['result'] = $search_result;
+            $ittour_global_template_args['result'] = $search_result;
+        } else {
+            $ittour_global_tour_result['result'] = $search_result;
+            $ittour_global_template_args['result'] = $search_result;
+        }
+    }
+}
+
+function ittour_set_global_excursion_search_result() {
+    global $ittour_global_tour_result;
+    global $ittour_global_form_args;
+    global $ittour_global_template_args;
+
+    $country_id = !empty($_GET['country']) ? $_GET['country'] : false;
+
+    if (empty($country_id) || !is_array($country_id)) {
+        $ittour_global_tour_result['error'] = 'no_country';
+    } else {
+        $ittour_global_template_args = array_merge($ittour_global_template_args, get_tour_main_currency());
+        // Set search country
+        foreach ($country_id as $key => $id) {
+            $country_id[$key] = sanitize_text_field($id);
+        }
+
+        $country_id_string = implode(':', $country_id);
+        $ittour_global_form_args['country_excursion'] = $country_id_string;
+
+        // Set Search results
+        $args = array();
+
+        // City
+        $city_id = !empty($_GET['city']) ? $_GET['city'] : false;
+
+        if (!empty($city_id && is_array($city_id))) {
+            foreach ($city_id as $key => $id) {
+                $city_id[$key] = sanitize_text_field($id);
+            }
+
+            $city_id_string = implode(':', $city_id);
+
+            if (!empty($city_id_string)) {
+                $args['city'] = $city_id_string;
+                $ittour_global_form_args['city'] = $city_id_string;
+            }
+        }
+
+        // Dates
+        if (!empty($_GET['date'])) {
+            $dates = explode('-', $_GET['date']);
+
+            $date_from = trim($dates[0]);
+            $date_till = trim($dates[1]);
+
+            $args['date_from'] = $date_from;
+            $args['date_till'] = $date_till;
+
+            $ittour_global_form_args['date_excursion_from'] = $date_from;
+            $ittour_global_form_args['date_excursion_till'] = $date_till;
+        }
+
+        if (!empty($_GET['from_city'])) {
+            $args['from_city'] = sanitize_text_field($_GET['from_city']);
+            $ittour_global_form_args['from_city_excursion'] = $args['from_city'];
+        }
+
+        if (!empty($_GET['search_page'])) {
+            $args['page'] = $_GET['search_page'];
+            unset($_GET['search_page']);
+        }
+
+        $url = http_build_query($_GET);
+        $ittour_global_template_args['url'] = $url;
+
+        $search = ittour_excursion_search(ITTOUR_LANG);
+        $search_result = $search->get($country_id_string, $args);
+
+        if (is_wp_error($search_result)) {
+            $ittour_global_tour_result['result'] = $search_result;
+            $ittour_global_template_args['result'] = $search_result;
+        } else {
+            $ittour_global_tour_result['result'] = $search_result;
+            $ittour_global_template_args['result'] = $search_result;
+        }
+    }
+}
+
+function ittour_set_global_single_tour($key) {
+    $_GET['key'] = $key;
+
+    $from_city = get_query_var( 'from_city' );
+
+    if (!empty($from_city)) {
+        $_GET['from_city'] = $from_city;
+    }
+
+    $child_age = get_query_var( 'child_age' );
+
+    if (!empty($child_age)) {
+        $_GET['child_age'] = $child_age;
+    }
+
+    global $ittour_global_tour_result;
+
+    if (empty($_GET['key'])) {
+        $ittour_global_tour_result['error'] = 'no_key';
+    } else {
+        $tour_key = $_GET['key'];
+        $tour = ittour_tour($tour_key, ITTOUR_LANG);
+        $tour_info = $tour->info();
+
+        if (is_wp_error($tour_info)) {
+
+        } else {
+            $ittour_global_tour_result['result'] = $tour_info;
+        }
+    }
+}
+
+function ittour_set_global_single_excursion_tour($key) {
+    $date_from = get_query_var( 'date_from' );
+    $date_till = get_query_var( 'date_till' );
+
+    $_GET['key'] = $key;
+    $_GET['date_from'] = $date_from;
+    $_GET['date_till'] = $date_till;
+
+    global $ittour_global_tour_result;
+
+    if (empty($_GET['key'])) {
+        $ittour_global_tour_result['error'] = 'no_key';
+    } else {
+        $tour_key = $_GET['key'];
+        $tour = ittour_excursion_tour($tour_key, ITTOUR_LANG);
+        $date_from = !empty($_GET['date_from']) ? sanitize_text_field($_GET['date_from']) : false;
+        $date_till = !empty($_GET['date_till']) ? sanitize_text_field($_GET['date_till']) : false;
+        $hikes = !empty($_GET['hikes']) ? sanitize_text_field($_GET['hikes']) : true;
+        $includes = !empty($_GET['includes']) ? sanitize_text_field($_GET['includes']) : true;
+        $desc = !empty($_GET['desc']) ? sanitize_text_field($_GET['desc']) : 'day_detail';
+
+        $args = array();
+
+        if ($date_from) $args['date_from']  = $date_from;
+        if ($date_till) $args['date_till']  = $date_till;
+        if ($hikes) $args['hikes']  = $hikes;
+        if ($includes) $args['includes']  = $includes;
+        if ($desc) $args['desc']  = $desc;
+
+        $tour_info = $tour->info($args);
+
+        if (is_wp_error($tour_info)) {
+
+        } else {
+            $ittour_global_tour_result['result'] = $tour_info;
+        }
+    }
+}
+
+function ittour_set_default_global_search_form_params() {
+    global $ittour_global_form_args;
+
+    $date_from = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 1, date('Y')));
+    $date_till = date('d.m.y', mktime(0, 0, 0, date('m'), date('d') + 7, date('Y')));
+    $night_from = '7';
+    $night_till = '9';
+
+//    $ittour_global_form_args['hotel_rating'] = '78:4';
+    $ittour_global_form_args['from_city'] = '2014'; // 30419 - 1, 753 - 9, 2014
+    $ittour_global_form_args['meal_type'] = '560:512:498:496:388:1956';
+
+    $ittour_global_form_args['date_from'] = $date_from;
+    $ittour_global_form_args['date_till'] = $date_till;
+
+    $ittour_global_form_args['night_from'] = $night_from;
+    $ittour_global_form_args['night_till'] = $night_till;
+
+    $ittour_global_form_args['tour_type'] = '';
+    $ittour_global_form_args['tour_kind'] = '';
+
+    $ittour_global_form_args['date_excursion_from'] = $date_from;
+    $ittour_global_form_args['date_excursion_till'] = $date_till;
+
+    $ittour_global_form_args['from_city_excursion'] = '2014'; // 30419 - 1, 753 - 9, 2014
+
+    if (is_single()) {
+        if ( get_post_type() === 'destination' ) {
+            global $post;
+            $post_id = $post->ID;
+            $destination_type = wp_get_post_terms( $post_id, 'destination_type' )[0]->slug;
+
+            if ('country' === $destination_type) {
+                $country_id = get_field('ittour_id', $post_id);
+            } elseif ('region' === $destination_type) {
+                $region_id = get_field('ittour_id', $post_id);
+                $country_id = get_field('ittour_country_id', $post_id);
+            }
+        }
+
+        if (!empty($country_id)) {
+            $ittour_global_form_args['country'] = $country_id;
+            $ittour_global_form_args['country_excursion'] = $country_id;
+
+            if (!empty($region_id)) {
+                $ittour_global_form_args['region'] = $region_id;
+                $ittour_global_form_args['city'] = $region_id;
+            }
+        }
+    }
+}
+
+function get_tour_nights($type = 'tour') {
+    if (!empty($_GET['night_from']) && empty($_GET['night_till'])) {
+        $night_from = sanitize_text_field($_GET['night_from']);
+        $night_till = $night_from;
+    } elseif (empty($_GET['night_from']) && !empty($_GET['night_till'])) {
+        $night_till = sanitize_text_field($_GET['night_till']);
+        $night_from = $night_till;
+    } else {
+        $night_from = '7';
+        $night_till = '9';
+    }
+
+    return array(
+        'night_from' => $night_from,
+        'night_till' => $night_till
+    );
+}
+
+function get_tour_main_currency($country_id = false) {
+    if ($country_id) {
+        $country_info = ittour_destination_by_ittour_id(sanitize_text_field($country_id));
+
+        $main_currency = $country_info["main_currency"];
+    } else {
+        $main_currency = '10';
+    }
+
+    if ('10' === $main_currency) {
+        $main_currency_label = __('€', 'snthwp');
+    } else if ('1' === $main_currency) {
+        $main_currency_label = __('$', 'snthwp');
+    } else {
+        $main_currency_label = __('UAH', 'snthwp');
+    }
+
+    return array(
+        'main_currency_label' => $main_currency_label,
+        'main_currency' => $main_currency,
+    );
+}

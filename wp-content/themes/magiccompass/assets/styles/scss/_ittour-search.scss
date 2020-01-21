@@ -3,9 +3,51 @@
     z-index: 10;
 }
 
-#search-form-main__holder {
+.search-form__holder {
+    position: relative;
+
+    #change-search-type-container {
+        position: absolute;
+        top: rem-calc(-30);
+        right: rem-calc(10);
+        i {
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: $color-white;
+            &.ittour-switch-tour {
+                background-color: $main-site-color;
+            }
+            &.ittour-switch-excursion {
+                background-color: $additional-site-color;
+            }
+        }
+    }
+
+    &.tour-search-active {
+        #excursion-search-form {
+            display: none;
+        }
+        .search-form-main__holder {
+            background-color: $main-site-color;
+        }
+    }
+
+    &.excursion-search-active {
+        #search-form {
+            display: none;
+        }
+        .search-form-main__holder {
+            background-color: $additional-site-color;
+        }
+    }
+}
+
+.search-form-main__holder {
     padding: rem-calc(10);
-    background-color: $main-site-color;
     position: relative;
 
     .search-summary__row {
@@ -57,7 +99,7 @@
     }
 
     .search-btn {
-        &[disabled] {
+        &.btn[disabled] {
             opacity: 1;
             cursor: default;
             background-color: $color-gray-30;
@@ -72,7 +114,7 @@
         }
     }
 
-    #filter_options {
+    #filter_options, #filter_excursion_options {
         text-align: center;
         font-size: rem-calc(22);
         line-height: rem-calc(40);
@@ -94,7 +136,8 @@
         }
     }
 
-    #select-from-city__holder {
+    #select-from-city__holder,
+    #select-from-city-excursion__holder {
         @media (min-width: 768px) {
             z-index: 100;
             position: absolute;
@@ -122,6 +165,11 @@
 
         @media (max-width: 767px) {
             display: none;
+        }
+    }
+    #select-from-city-excursion__holder {
+        @media (min-width: 768px) {
+            background-color: $additional-site-color;
         }
     }
 }
@@ -261,8 +309,7 @@
     }
 }
 
-#search-form-main__holder .search-summary__row .search-summary__col
-{
+.search-form-main__holder .search-summary__row .search-summary__col {
     .input-group {
         &.input-group__style-1 {
             .input-group-prepend {
@@ -317,13 +364,52 @@
     }
 }
 
+.excursion-search-active .search-form-main__holder .search-summary__row .search-summary__col {
+    .input-group {
+        &.input-group__style-1 {
+            .input-group-prepend {
+                border: 1px solid $additional-site-color;
+                border-right: none;
+
+                .btn {
+                    color: $additional-site-color;
+                }
+            }
+            .form-control {
+                border: 1px solid $additional-site-color;
+                border-left: none;
+            }
+        }
+    }
+
+    .disabled-item {
+        .input-group.input-group__style-1 {
+            .input-group-prepend {
+                background-color: $color-gray-10;
+                border: 1px solid $color-gray-20;
+                border-right: none;
+                .btn {
+                    background-color: $color-gray-10;
+                    color: $color-gray-40;
+                    border: 1px solid $color-gray-10;
+                }
+            }
+
+            .form-control {
+                border: 1px solid $color-gray-20;
+                border-left: none;
+            }
+        }
+    }
+}
+
 #find-me-tour-form__holder {
     padding: rem-calc(0 10 10 10);
     background-color: $main-site-color;
 }
 
 @media (min-width: 768px) {
-    #filter_summary__col {
+    #filter_summary__col, #filter-excursion_summary__col {
         position: absolute;
         width: rem-calc(60);
         height: rem-calc(40);
@@ -337,14 +423,17 @@
         z-index: auto !important;
     }
 
-    #search-form-main__holder {
-        background-color: transparent;
+    .search-form__holder.tour-search-active,
+    .search-form__holder.excursion-search-active {
+        .search-form-main__holder {
+            background-color: transparent;
 
-        .search-summary__row {
-            padding-right: 0;
+            .search-summary__row {
+                padding-right: 0;
 
-            .search-summary__col {
-                margin-bottom: rem-calc(5);
+                .search-summary__col {
+                    margin-bottom: rem-calc(5);
+                }
             }
         }
     }

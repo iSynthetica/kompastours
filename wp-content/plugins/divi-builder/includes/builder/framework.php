@@ -28,14 +28,19 @@ if ( ! defined( 'ET_BUILDER_PLACEHOLDER_PORTRAIT_IMAGE_DATA' ) ) {
 	define( 'ET_BUILDER_PLACEHOLDER_PORTRAIT_IMAGE_DATA', 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGZpbGw9IiNFQkVCRUIiIGQ9Ik0wIDBoNTAwdjUwMEgweiIvPgogICAgICAgIDxyZWN0IGZpbGwtb3BhY2l0eT0iLjEiIGZpbGw9IiMwMDAiIHg9IjY4IiB5PSIzMDUiIHdpZHRoPSIzNjQiIGhlaWdodD0iNTY4IiByeD0iMTgyIi8+CiAgICAgICAgPGNpcmNsZSBmaWxsLW9wYWNpdHk9Ii4xIiBmaWxsPSIjMDAwIiBjeD0iMjQ5IiBjeT0iMTcyIiByPSIxMDAiLz4KICAgIDwvZz4KPC9zdmc+Cg==' );
 }
 
+require_once ET_BUILDER_DIR . 'feature/gutenberg/blocks/Layout.php';
+require_once ET_BUILDER_DIR . 'feature/gutenberg/utils/Conversion.php';
 require_once ET_BUILDER_DIR . 'core.php';
+require_once ET_BUILDER_DIR . 'conditions.php';
 require_once ET_BUILDER_DIR . 'post/PostStack.php';
 require_once ET_BUILDER_DIR . 'feature/ClassicEditor.php';
+require_once ET_BUILDER_DIR . 'feature/AjaxCache.php';
 require_once ET_BUILDER_DIR . 'feature/post-content.php';
 require_once ET_BUILDER_DIR . 'feature/dynamic-content.php';
 require_once ET_BUILDER_DIR . 'feature/search-posts.php';
 require_once ET_BUILDER_DIR . 'feature/ErrorReport.php';
 require_once ET_BUILDER_DIR . 'api/DiviExtensions.php';
+require_once ET_BUILDER_DIR . 'api/rest/BlockLayout.php';
 require_once ET_BUILDER_DIR . 'frontend-builder/theme-builder/theme-builder.php';
 require_once ET_BUILDER_DIR . 'feature/custom-defaults/Settings.php';
 require_once ET_BUILDER_DIR . 'feature/custom-defaults/History.php';
@@ -96,7 +101,17 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 			'et_builder_save_custom_defaults_history',
 			'et_builder_retrieve_custom_defaults_history',
 			'et_theme_builder_api_import_theme_builder_step',
+			'et_pb_submit_subscribe_form',
 		),
+	);
+
+	// AJAX requests that use PHP modules cache for performance reasons.
+	$builder_use_cache_actions = array(
+		'heartbeat',
+		'et_builder_retrieve_custom_defaults_history',
+		'et_fb_get_saved_templates',
+		'et_fb_ajax_save',
+		'et_fb_ajax_drop_autosave',
 	);
 
 	// Added built-in third party plugins support
@@ -147,10 +162,11 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 
 	define( 'ET_BUILDER_LOAD_ON_AJAX', $load_builder_on_ajax );
 
+	$action             = et_()->array_get( $_POST, 'action', false );
 	$force_builder_load = isset( $_POST['et_load_builder_modules'] ) && '1' === $_POST['et_load_builder_modules'];
-	$force_memory_limit = isset( $_POST['action'] ) && 'et_fb_retrieve_builder_data' === $_POST['action'];
+	$force_memory_limit = 'et_fb_retrieve_builder_data' === $action;
 
-	if ( isset( $_REQUEST['action'] ) && 'heartbeat' === $_REQUEST['action'] ) {
+	if ( 'heartbeat' === $action ) {
 		// if this is the heartbeat, and if its not packing our heartbeat data, then return
 		if ( !isset( $_REQUEST['data'] ) || !isset( $_REQUEST['data']['et'] ) ) {
 			return;
@@ -161,6 +177,10 @@ if ( wp_doing_ajax() && ! is_customize_preview() ) {
 
 	if ( $force_memory_limit || et_should_memory_limit_increase() ) {
 		et_increase_memory_limit();
+	}
+
+	if ( $action && in_array( $action, $builder_use_cache_actions ) ) {
+		add_filter( 'et_builder_ajax_use_cache', '__return_true' );
 	}
 	// phpcs:enable
 }
@@ -592,7 +612,7 @@ function et_builder_body_classes( $classes ) {
 	$post_type = get_post_type( $post_id );
 
 	// Add layout classes when on library page
-	if ( 'et_pb_layout' === $post_type ) {
+	if ( et_core_is_fb_enabled() && 'et_pb_layout' === $post_type ) {
 		$layout_type = et_fb_get_layout_type( $post_id );
 		$layout_scope = et_fb_get_layout_term_slug( $post_id, 'scope' );
 
@@ -872,6 +892,7 @@ function et_pb_content_main_query( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'et_pb_content_main_query', 1500 );
+add_filter( 'et_builder_render_layout', 'et_pb_content_main_query', 1500 );
 
 /**
  * Added special class name for comment items that are placed outside builder
@@ -947,7 +968,7 @@ function et_builder_enqueue_assets_main() {
 	wp_enqueue_style( 'et-core-admin', ET_CORE_URL . 'admin/css/core.css', array(), ET_CORE_VERSION );
 	wp_enqueue_style( 'et-core-portability', ET_CORE_URL . 'admin/css/portability.css', array(), ET_CORE_VERSION );
 
-	wp_register_style( 'et_pb_admin_date_css', "{$root}/styles/jquery-ui-1.10.4.custom.css", array(), $ver );
+	wp_register_style( 'et_pb_admin_date_css', "{$root}/styles/jquery-ui-1.12.1.custom.css", array(), $ver );
 	wp_register_style( 'et-fb-top-window', "{$assets}/css/fb-top-window.css", array(), $ver );
 
 	$conditional_deps = array();

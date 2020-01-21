@@ -54,6 +54,7 @@ function snth_enqueue_scripts() {
             'selectCountryFirst'    => __('Select country first', 'snthwp'),
             'selectCountry'         => __('Select country', 'snthwp'),
             'selectRegion'          => __('Select region', 'snthwp'),
+            'selectCity'            => __('Select city', 'snthwp'),
             'selectHotel'           => __('Select hotel', 'snthwp'),
         ),
         'calendar' => array(

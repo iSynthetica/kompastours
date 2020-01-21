@@ -72,7 +72,7 @@ class ET_Builder_Module_Woocommerce_Meta extends ET_Builder_Module {
 				'link' => array(
 					'label'           => esc_html__( 'Link', 'et_builder' ),
 					'css'             => array(
-						'main' => '%%order_class%% .product_meta a',
+						'main' => '%%order_class%% div.product_meta a',
 					),
 					'font_size'       => array(
 						'default' => '14px',

@@ -64,7 +64,7 @@ function et_fb_get_dynamic_asset( $prefix, $post_type = false, $update = false )
 		$content = apply_filters( "et_fb_get_asset_$prefix", false, $post_type );
 		if ( $exists && $update ) {
 			// Compare with old one (when a previous version exists)
-			$update = file_get_contents( $file ) !== $content;
+			$update = et_()->WPFS()->get_contents( $file ) !== $content;
 		}
 		if ( ( $update || ! $exists ) ) {
 
@@ -84,7 +84,7 @@ function et_fb_get_dynamic_asset( $prefix, $post_type = false, $update = false )
 			$uniq = str_replace( '.', '', (string) microtime( true ) );
 			$file = sprintf( '%s/%s-%s-%s.js', $cache, $prefix, $post_type, $uniq );
 
-			if ( is_writable( dirname( $file ) ) && file_put_contents( $file, $content ) ) {
+			if ( wp_is_writable( dirname( $file ) ) && et_()->WPFS()->put_contents( $file, $content ) ) {
 				$updated = true;
 				$exists  = true;
 			}
@@ -92,9 +92,8 @@ function et_fb_get_dynamic_asset( $prefix, $post_type = false, $update = false )
 	}
 
 	$url = ! $exists ? false : sprintf(
-		'%s/%s/%s-%s-%s.js',
-		content_url( ET_Core_PageResource::get_cache_directory( 'relative' ) ),
-		$lang,
+		'%s/%s-%s-%s.js',
+		et_()->path( et_core_cache_dir()->url, $lang ),
 		$prefix,
 		$post_type,
 		$uniq
@@ -158,25 +157,6 @@ function et_fb_enqueue_assets() {
 	// Get WP major version
 	$wp_major_version = substr( $wp_version, 0, 3 );
 
-	// Register scripts.
-	wp_register_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1 );
-	wp_register_script( 'wp-color-picker', admin_url( 'js/color-picker.min.js' ), array( 'iris' ), false, 1 );
-
-	if ( version_compare( $wp_major_version, '4.9', '>=' ) ) {
-		wp_register_script( 'wp-color-picker-alpha', "{$root}/scripts/ext/wp-color-picker-alpha.min.js", array( 'jquery', 'wp-color-picker' ), ET_BUILDER_VERSION, true );
-	} else {
-		wp_register_script( 'wp-color-picker-alpha', "{$root}/scripts/ext/wp-color-picker-alpha-48.min.js", array( 'jquery', 'wp-color-picker' ), ET_BUILDER_VERSION, true );
-	}
-
-	$colorpicker_l10n = array(
-		'clear'         => esc_html__( 'Clear', 'et_builder' ),
-		'defaultString' => esc_html__( 'Default', 'et_builder' ),
-		'pick'          => esc_html__( 'Select Color', 'et_builder' ),
-		'current'       => esc_html__( 'Current Color', 'et_builder' ),
-	);
-
-	wp_localize_script( 'wp-color-picker', 'wpColorPickerL10n', $colorpicker_l10n );
-
 	wp_register_script( 'react-tiny-mce', "{$assets}/vendors/tinymce.min.js" );
 
 	if ( version_compare( $wp_major_version, '4.5', '<' ) ) {
@@ -232,13 +212,24 @@ function et_fb_enqueue_assets() {
 		$dependencies_list[] = 'et-shortcodes-js';
 	}
 
+	$cached_assets_deps = array();
 	if ( defined( 'ET_BUILDER_CACHE_ASSETS' ) && ET_BUILDER_CACHE_ASSETS ) {
 		// Use cached files for helpers and definitions
 		foreach ( array( 'helpers', 'definitions' ) as $asset ) {
 			if ( $url = et_()->array_get( et_fb_get_dynamic_asset( $asset ), 'url' ) ) {
 				// The asset exists, we can add it to bundle's dependencies
-				$key = "et-dynamic-asset-$asset";
-				wp_register_script( $key, $url, array(), ET_BUILDER_VERSION );
+				$key                = "et-dynamic-asset-$asset";
+				/**
+				 * Filters the dependencies of cached assets.
+				 *
+				 * @since ?
+				 *
+				 * @param array $deps.
+				 * @param string $key.
+				 */
+				$deps               = apply_filters( 'et_builder_dynamic_asset_deps', array(), $key );
+				$cached_assets_deps = array_merge( $cached_assets_deps, $deps );
+				wp_register_script( $key, $url, $deps, ET_BUILDER_VERSION );
 				$dependencies_list[] = $key;
 			}
 		}
@@ -275,7 +266,7 @@ function et_fb_enqueue_assets() {
 
 	if ( $is_production && $external_assets && ! et_builder_bfb_enabled() && ! et_builder_tb_enabled() ) {
 		// Set bundle deps.
-		et_fb_app_only_bundle_deps( $fb_bundle_dependencies );
+		et_fb_app_only_bundle_deps( array_merge( $fb_bundle_dependencies, $cached_assets_deps ) );
 		add_filter( 'script_loader_tag', 'et_fb_app_src', 10, 3 );
 		// Enqueue the top window VB boot script.
 		et_fb_enqueue_bundle( 'et-frontend-builder', 'boot.js', $fb_bundle_dependencies );

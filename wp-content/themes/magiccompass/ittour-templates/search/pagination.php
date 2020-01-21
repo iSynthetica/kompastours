@@ -18,7 +18,7 @@ $next_page = $result['has_more_pages'] ? $current_page + 1 : false;
             if ($prev_page) {
                 ?>
                 <li class="page-item">
-                    <a class="page-link" href="/search/?<?php echo $url . '&search_page=' . $prev_page; ?>" aria-label="Previous">
+                    <a class="page-link" href="/<?php echo $type; ?>/?<?php echo $url . '&search_page=' . $prev_page; ?>" aria-label="Previous">
                         <i class="fas fa-chevron-left"></i> <?php echo __('Previous', 'snthwp'); ?>
                     </a>
                 </li>
@@ -28,8 +28,8 @@ $next_page = $result['has_more_pages'] ? $current_page + 1 : false;
             if ($next_page) {
                 ?>
                 <li class="page-item">
-                    <a class="page-link" href="/search/?<?php echo $url . '&search_page=' . $next_page; ?>" aria-label="Next">
-                        <i class="fas fa-chevron-right"></i> <?php echo __('Next', 'snthwp'); ?>
+                    <a class="page-link" href="/<?php echo $type; ?>/?<?php echo $url . '&search_page=' . $next_page; ?>" aria-label="Next">
+                        <?php echo __('Next', 'snthwp'); ?> <i class="fas fa-chevron-right"></i>
                     </a>
                 </li>
                 <?php

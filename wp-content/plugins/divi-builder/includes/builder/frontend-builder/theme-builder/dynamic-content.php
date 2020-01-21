@@ -46,6 +46,7 @@ function et_theme_builder_filter_resolve_default_dynamic_content( $content, $nam
 		),
 		'post_author_bio' => __( 'Your dynamic author bio will display here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor urna eleifend diam eleifend sollicitudin a fringilla turpis. Curabitur lectus enim.', 'et_builder' ),
 		'post_featured_image' => ET_BUILDER_PLACEHOLDER_LANDSCAPE_IMAGE_DATA,
+		'term_description' => __( 'Your dynamic category description will display here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor urna eleifend diam eleifend sollicitudin a fringilla turpis. Curabitur lectus enim.', 'et_builder' ),
 		'site_logo' => 'https://www.elegantthemes.com/img/divi.png',
 	);
 
@@ -59,7 +60,21 @@ function et_theme_builder_filter_resolve_default_dynamic_content( $content, $nam
 			break;
 
 		case 'post_excerpt':
-			$content = esc_html( $placeholders[ $name ] );
+			$words      = (int) $_->array_get( $settings, 'words', $def( $post_id, $name, 'words' ) );
+			$read_more  = $_->array_get( $settings, 'read_more_label', $def( $post_id, $name, 'read_more_label' ) );
+			$content    = esc_html( $placeholders[ $name ] );
+
+			if ( $words > 0 ) {
+				$content = wp_trim_words( $content, $words );
+			}
+
+			if ( ! empty( $read_more ) ) {
+				$content .= sprintf(
+					' <a href="%1$s">%2$s</a>',
+					'#',
+					esc_html( $read_more )
+				);
+			}
 			break;
 
 		case 'post_date':
@@ -152,7 +167,15 @@ function et_theme_builder_filter_resolve_default_dynamic_content( $content, $nam
 			$content = esc_html( $placeholders[ $name ] );
 			break;
 
+		case 'term_description':
+			$content = esc_html( $placeholders[ $name ] );
+			break;
+
 		case 'post_link_url':
+			$content = '#';
+			break;
+
+		case 'post_author_url':
 			$content = '#';
 			break;
 

@@ -52,6 +52,8 @@ class ET_Builder_Theme_Compat_Enfold {
 			add_action( 'wp_enqueue_scripts', array( $this, 'add_fb_styling_fix' ), 12 );
 		}
 
+		add_filter( 'avf_enqueue_wp_mediaelement', array( $this, 'force_load_mediaelement_on_visual_builder' ), 10, 2 );
+
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'reset_shop_onsale_position') );
 		add_action( 'et_pb_shop_after_print_shop', array( $this, 'return_shop_onsale_position') );
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'register_shop_thumbnail' ) );
@@ -87,6 +89,31 @@ class ET_Builder_Theme_Compat_Enfold {
 	function register_shop_thumbnail() {
 		remove_action( 'woocommerce_before_shop_loop_item_title', 'avia_woocommerce_thumbnail', 10 );
 		add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10);
+	}
+
+	/**
+	 * Force load mediaelement on visual builder. Enfold has theme option at `Dashboard > Enfold >
+	 * Performance > Disable Features > Self hosted videos and audio features (WP-Mediaelement
+	 * scripts` which disable mediaelement in certain occassion for performance and it causes visual
+	 * builder scripts not being loaded because `wp-mediaelement` is one of its dependency
+	 *
+	 * Enfold Theme version: 4.5.6
+	 *
+	 * @todo Once this issue no longer exist, limit the scope of this fix using version_compare
+	 *
+	 * @since ??
+	 *
+	 * @param bool  $condition
+	 * @param array $options
+	 *
+	 * @return bool modified $condition
+	 */
+	function force_load_mediaelement_on_visual_builder( $condition, $options ) {
+		if ( et_core_is_fb_enabled() ) {
+			return true;
+		}
+
+		return $condition;
 	}
 
 	/**

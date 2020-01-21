@@ -3,7 +3,7 @@
  * Plugin Name: Divi Builder
  * Plugin URI: http://elegantthemes.com
  * Description: The ultimate WordPress page builder. Already included and not needed when using the Divi or Extra theme.
- * Version: 4.0.5
+ * Version: 4.2.1
  * Author: Elegant Themes
  * Author URI: http://elegantthemes.com
  * License: GPLv2 or later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'ET_BUILDER_PLUGIN_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'ET_BUILDER_PLUGIN_URI', plugins_url('', __FILE__) );
-define( 'ET_BUILDER_PLUGIN_VERSION', '4.0.5' );
+define( 'ET_BUILDER_PLUGIN_VERSION', '4.2.1' );
 
 if ( ! class_exists( 'ET_Dashboard_v2' ) ) {
 	require_once( ET_BUILDER_PLUGIN_DIR . 'dashboard/dashboard.php' );
@@ -69,9 +69,9 @@ class ET_Builder_Plugin extends ET_Dashboard_v2 {
 
 		add_filter( 'et_pb_builder_options_array', array( $this, 'get_builder_options' ) );
 
-		$theme_file_path_length = strlen( get_theme_file_path() );
+		$theme_file_path_length = strlen( get_stylesheet_directory() );
 
-		if ( class_exists( 'WooCommerce' ) && function_exists( 'wc_locate_template' ) && substr( wc_locate_template( 'archive-product.php' ), 0, $theme_file_path_length ) === get_theme_file_path() ) {
+		if ( class_exists( 'WooCommerce' ) && function_exists( 'wc_locate_template' ) && substr( wc_locate_template( 'archive-product.php' ), 0, $theme_file_path_length ) === get_stylesheet_directory() ) {
 			add_action( 'et_pb_shop_before_print_shop', array( $this, 'force_woocommerce_default_templates' ) );
 			add_action( 'et_pb_shop_after_print_shop', array( $this, 'return_woocommerce_default_templates' ) );
 		}

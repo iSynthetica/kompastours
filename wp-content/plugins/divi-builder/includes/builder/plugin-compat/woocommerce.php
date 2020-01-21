@@ -68,6 +68,7 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 
 		// Theme Builder.
 		add_filter( 'et_theme_builder_template_settings_options', array( $this, 'maybe_filter_theme_builder_template_settings_options' ) );
+		add_action( 'et_theme_builder_after_layout_opening_wrappers', array( $this, 'maybe_trigger_woo_hooks_in_theme_builder_body' ) );
 	}
 
 	/**
@@ -196,24 +197,28 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 					array(
 						'id'       => 'woocommerce:shop',
 						'label'    => esc_html__( 'Shop', 'et_builder' ),
+						'title'    => trim( str_replace( home_url(), '', get_post_type_archive_link( 'product' ) ), '/' ),
 						'priority' => 120,
 						'validate' => array( $this, 'theme_builder_validate_woocommerce_shop' ),
 					),
 					array(
 						'id'       => 'woocommerce:cart',
 						'label'    => esc_html__( 'Cart', 'et_builder' ),
+						'title'    => get_post_field( 'post_name', wc_get_page_id( 'cart' ) ),
 						'priority' => 120,
 						'validate' => array( $this, 'theme_builder_validate_woocommerce_cart' ),
 					),
 					array(
 						'id'       => 'woocommerce:checkout',
 						'label'    => esc_html__( 'Checkout', 'et_builder' ),
+						'title'    => get_post_field( 'post_name', wc_get_page_id( 'checkout' ) ),
 						'priority' => 120,
 						'validate' => array( $this, 'theme_builder_validate_woocommerce_checkout' ),
 					),
 					array(
 						'id'       => 'woocommerce:my_account',
 						'label'    => esc_html__( 'My Account', 'et_builder' ),
+						'title'    => get_post_field( 'post_name', wc_get_page_id( 'myaccount' ) ),
 						'priority' => 130,
 						'validate' => array( $this, 'theme_builder_validate_woocommerce_my_account' ),
 					),
@@ -303,6 +308,47 @@ class ET_Builder_Plugin_Compat_WooCommerce extends ET_Builder_Plugin_Compat_Base
 	 */
 	public function theme_builder_validate_woocommerce_my_account( $type, $subtype, $id, $setting ) {
 		return ET_Theme_Builder_Request::TYPE_SINGULAR === $type && $id === wc_get_page_id( 'myaccount' );
+	}
+
+	/**
+	 * Trigger Woo hooks before a Theme Builder body layout is rendered
+	 * so stuff like structured data is output.
+	 *
+	 * @since 4.0.10
+	 *
+	 * @param string $layout_type
+	 */
+	public function maybe_trigger_woo_hooks_in_theme_builder_body( $layout_type ) {
+		global $product;
+
+		if ( ET_THEME_BUILDER_BODY_LAYOUT_POST_TYPE !== $layout_type || ! is_singular( 'product' ) ) {
+			return;
+		}
+
+		if ( $product && ! is_a( $product, 'WC_Product' ) ) {
+			// Required for Woo to setup its $product global.
+			the_post();
+		}
+
+		// Make sure builder and non-builder products do not render
+		// anything as this will be taken care of by the
+		// Post Content module in TB, if used.
+		et_builder_wc_disable_default_layout();
+		remove_action(
+			'woocommerce_after_single_product_summary',
+			'et_builder_wc_product_render_layout',
+			5
+		);
+
+		// Trigger the usual Woo hooks so functionality like structured data works.
+		do_action( 'woocommerce_before_single_product' );
+
+		if ( ! post_password_required() ) {
+			do_action( 'woocommerce_before_single_product_summary' );
+			do_action( 'woocommerce_single_product_summary' );
+			do_action( 'woocommerce_after_single_product_summary' );
+			do_action( 'woocommerce_after_single_product' );
+		}
 	}
 }
 new ET_Builder_Plugin_Compat_WooCommerce;

@@ -26,6 +26,21 @@ if ( ! defined( 'ET_BUILDER_WC_PRODUCT_PAGE_CONTENT_STATUS_META_KEY' ) ) {
 }
 
 /**
+ * Returning <img> string for default image placeholder
+ *
+ * @since 4.0.10
+ *
+ * @return string
+ */
+function et_builder_wc_placeholder_img() {
+	return sprintf(
+		'<img src="%1$s" alt="2$s" />',
+		et_core_esc_attr( 'placeholder', ET_BUILDER_PLACEHOLDER_LANDSCAPE_IMAGE_DATA ),
+		esc_attr__( 'Product image', 'et_builder' )
+	);
+}
+
+/**
  * Gets the Product Content options.
  *
  * This array is used in Divi Page Settings metabox and in Divi Theme Options ⟶ Builder ⟶ Post Type integration.
@@ -482,8 +497,11 @@ function et_builder_wc_render_module_template( $function_name, $args = array(), 
 
 	switch( $function_name ) {
 		case 'woocommerce_breadcrumb':
+			$breadcrumb_separator = et_()->array_get( $args, 'breadcrumb_separator', '' );
+			$breadcrumb_separator = str_replace( '&#8221;', '', $breadcrumb_separator );
+
 			woocommerce_breadcrumb( array(
-				'delimiter'   => ' ' . et_()->array_get( $args, 'breadcrumb_separator', '' ) . ' ',
+				'delimiter'   => ' ' . $breadcrumb_separator . ' ',
 				'home'        => et_()->array_get( $args, 'breadcrumb_home_text', '' ),
 			) );
 			break;
@@ -620,51 +638,11 @@ function et_builder_wc_override_template_part( $template, $slug, $name ) {
 }
 
 /**
- * Overrides the default WooCommerce layout.
+ * Disable all default WooCommerce single layout hooks.
  *
- * @see woocommerce/includes/wc-template-functions.php
- *
- * @since 3.29
+ * @since 4.0.10
  */
-function et_builder_wc_override_default_layout() {
-	if ( ! is_singular( 'product' ) ) {
-		return;
-	}
-
-	// global $post won't be available with `after_setup_theme` hook and hence `wp` hook is used.
-	global $post;
-
-	if ( ! et_pb_is_pagebuilder_used( $post->ID ) ) {
-		return;
-	}
-
-	$product_page_layout         = et_builder_wc_get_product_layout( $post->ID );
-	$is_product_content_modified = 'modified' === get_post_meta( $post->ID, ET_BUILDER_WC_PRODUCT_PAGE_CONTENT_STATUS_META_KEY, true );
-	$is_preview_loading          = is_preview();
-
-	// BFB was enabled but page content wasn't saved yet. Load default layout on FE.
-	if ( 'et_build_from_scratch' === $product_page_layout && ! $is_product_content_modified && ! $is_preview_loading ) {
-		return;
-	}
-
-	/*
-	 * The `has_shortcode()` check does not work here. Hence solving the need using `strpos()`.
-	 *
-	 * The WHY behind the check is explained in the following issue.
-	 * @see https://github.com/elegantthemes/Divi/issues/16155
-	 */
-	if ( ! $product_page_layout && ! et_core_is_fb_enabled()
-	     || ( $product_page_layout && 'et_build_from_scratch' !== $product_page_layout )
-	) {
-		return;
-	}
-
-	// Force use WooCommerce's default template if current theme is not Divi or Extra (handling
-	// possible custom template on DBP / Child Theme)
-	if ( ! in_array( wp_get_theme()->get( 'Name' ), array( 'Divi', 'Extra' ) ) ) {
-		add_filter( 'wc_get_template_part', 'et_builder_wc_override_template_part', 10, 3 );
-	}
-
+function et_builder_wc_disable_default_layout() {
 	// To remove a hook, the $function_to_remove and $priority arguments must match
 	// with which the hook was added.
 	remove_action(
@@ -733,6 +711,55 @@ function et_builder_wc_override_default_layout() {
 		'woocommerce_output_related_products',
 		20
 	);
+}
+
+/**
+ * Overrides the default WooCommerce layout.
+ *
+ * @see woocommerce/includes/wc-template-functions.php
+ *
+ * @since 3.29
+ */
+function et_builder_wc_override_default_layout() {
+	if ( ! is_singular( 'product' ) ) {
+		return;
+	}
+
+	// global $post won't be available with `after_setup_theme` hook and hence `wp` hook is used.
+	global $post;
+
+	if ( ! et_pb_is_pagebuilder_used( $post->ID ) ) {
+		return;
+	}
+
+	$product_page_layout         = et_builder_wc_get_product_layout( $post->ID );
+	$is_product_content_modified = 'modified' === get_post_meta( $post->ID, ET_BUILDER_WC_PRODUCT_PAGE_CONTENT_STATUS_META_KEY, true );
+	$is_preview_loading          = is_preview();
+
+	// BFB was enabled but page content wasn't saved yet. Load default layout on FE.
+	if ( 'et_build_from_scratch' === $product_page_layout && ! $is_product_content_modified && ! $is_preview_loading ) {
+		return;
+	}
+
+	/*
+	 * The `has_shortcode()` check does not work here. Hence solving the need using `strpos()`.
+	 *
+	 * The WHY behind the check is explained in the following issue.
+	 * @see https://github.com/elegantthemes/Divi/issues/16155
+	 */
+	if ( ! $product_page_layout && ! et_core_is_fb_enabled()
+	     || ( $product_page_layout && 'et_build_from_scratch' !== $product_page_layout )
+	) {
+		return;
+	}
+
+	// Force use WooCommerce's default template if current theme is not Divi or Extra (handling
+	// possible custom template on DBP / Child Theme)
+	if ( ! in_array( wp_get_theme()->get( 'Name' ), array( 'Divi', 'Extra' ) ) ) {
+		add_filter( 'wc_get_template_part', 'et_builder_wc_override_template_part', 10, 3 );
+	}
+
+	et_builder_wc_disable_default_layout();
 
 	do_action( 'et_builder_wc_product_before_render_layout_registration' );
 
@@ -797,11 +824,12 @@ function et_builder_has_woocommerce_module( $content = '' ) {
 }
 
 /**
- * Check if current global $post uses builder, not `product` CPT, and contains WooCommerce
- * module inside it. This check is needed because WooCommerce by default only adds scripts
- * and style to `product` CPT while WooCommerce Modules can be used at any CPT
+ * Check if current global $post uses builder / layout block, not `product` CPT, and contains
+ * WooCommerce module inside it. This check is needed because WooCommerce by default only adds
+ * scripts and style to `product` CPT while WooCommerce Modules can be used at any CPT
  *
  * @since 3.29
+ * @since 4.1.0 check if layout block is used instead of builder
  *
  * @since bool
  */
@@ -825,7 +853,26 @@ function et_builder_wc_is_non_product_post_type() {
 		}
 	}
 
-	return $post && et_pb_is_pagebuilder_used( $post->ID ) && et_builder_has_woocommerce_module( $post->post_content );
+	// If no post found, bail early
+	if ( ! $post ) {
+		return false;
+	}
+
+	$is_builder_used      = et_pb_is_pagebuilder_used( $post->ID );
+	$is_layout_block_used = has_block( 'divi/layout', $post->post_content );
+
+	// If no builder or layout block used, bail early
+	if ( ! $is_builder_used && ! $is_layout_block_used ) {
+		return false;
+	}
+
+	$has_wc_module = et_builder_has_woocommerce_module( $post->post_content );
+
+	if ( ( $is_builder_used || $is_layout_block_used ) && $has_wc_module ) {
+		return true;
+	}
+
+	return false;
 }
 
 /**
@@ -922,6 +969,55 @@ function et_builder_wc_add_inner_content_class( $classes ) {
 }
 
 /**
+ * Add WooCommerce class names on Divi Shop Page (not WooCommerce Shop).
+ *
+ * @since 4.0.7
+ *
+ * @param array $classes Array of Classes.
+ *
+ * @return array
+ */
+function et_builder_wc_add_outer_content_class( $classes ) {
+	$body_classes = get_body_class();
+
+	// Add Class only to WooCommerce Shop page if built using Divi (i.e. Divi Shop page).
+	if ( ! ( function_exists( 'is_shop' ) && is_shop() ) ) {
+		return $classes;
+	}
+
+	// Add Class only when the WooCommerce Shop page is built using Divi.
+	if ( ! et_builder_wc_is_non_product_post_type() ) {
+		return $classes;
+	}
+
+	// Precautionary check: $body_classes should always be an array.
+	if ( ! is_array( $body_classes ) ) {
+		return $classes;
+	}
+
+	// Add Class only when the <body> tag does not contain them.
+	$woocommerce_classes = array( 'woocommerce', 'woocommerce-page' );
+	$common_classes      = array_intersect( $body_classes, array(
+		'woocommerce',
+		'woocommerce-page',
+	) );
+	if ( is_array( $common_classes )
+		 && count( $woocommerce_classes ) === count( $common_classes ) ) {
+		return $classes;
+	}
+
+	// Precautionary check: $classes should always be an array.
+	if ( ! is_array( $classes ) ) {
+		return $classes;
+	}
+
+	$classes[] = 'woocommerce';
+	$classes[] = 'woocommerce-page';
+
+	return $classes;
+}
+
+/**
  * Sets the Product page layout post meta on two occurrences.
  *
  * They are 1) On WP Admin Publish/Update post 2) On VB Save.
@@ -991,6 +1087,26 @@ function et_builder_set_product_content_status( $post_id ) {
 }
 
 /**
+ * Returns alternative hook to make Woo Extra Product Options display fields in FE when TB is
+ * enabled.
+ *
+ * - The Woo Extra Product Options addon does not display the extra fields on the FE.
+ * - This is because the original hook i.e. `woocommerce_before_single_product` in the plugin
+ * is not triggered when TB is enabled.
+ * - Hence return a suitable hook that is fired for all types of Products i.e. Simple, Variable,
+ * etc.
+ *
+ * @see WEPOF_Product_Options_Frontend::define_public_hooks()
+ *
+ * @since 4.0.9
+ *
+ * @return string WooCommerce Hook that is being fired on TB enabled Product pages.
+ */
+function et_builder_trigger_extra_product_options( $hook ) {
+	return 'woocommerce_before_add_to_cart_form';
+}
+
+/**
  * Entry point for the woocommerce-modules.php file.
  *
  * @since 3.29
@@ -1002,6 +1118,8 @@ function et_builder_wc_init() {
 	// Add WooCommerce class names on non-`product` CPT which uses builder
 	add_filter( 'body_class', 'et_builder_wc_add_body_class' );
 	add_filter( 'et_builder_inner_content_class', 'et_builder_wc_add_inner_content_class' );
+	add_filter( 'et_builder_outer_content_class', 'et_builder_wc_add_outer_content_class' );
+
 
 	// Load WooCommerce related scripts
 	add_action( 'wp_enqueue_scripts', 'et_builder_wc_load_scripts', 15 );
@@ -1053,6 +1171,12 @@ function et_builder_wc_init() {
 	 * @see https://github.com/elegantthemes/Divi/issues/16420
 	 */
 	add_action( 'et_update_post', 'et_builder_set_product_content_status' );
+
+	/*
+	 * Fix Woo Extra Product Options addon compatibility.
+	 * @see https://github.com/elegantthemes/Divi/issues/17909
+	 */
+	add_filter( 'thwepof_hook_name_before_single_product', 'et_builder_trigger_extra_product_options' );
 }
 
 et_builder_wc_init();

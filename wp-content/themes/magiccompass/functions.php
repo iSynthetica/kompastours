@@ -110,43 +110,9 @@ require_once(SNTH_DIR . '/crm/crm.php');
 add_action('wp_head', 'remove_one_wpseo_og', 1);
 
 function remove_one_wpseo_og() {
-    if ( is_page_template( 'templates/tour.php' )) {
+    if ( is_page_template( 'templates/tour.php' ) || is_page_template( 'templates/excursion-tour.php' ) ) {
         remove_action( 'wpseo_head', array( $GLOBALS['wpseo_og'], 'opengraph' ), 30 );
     }
-}
-
-add_action("wp", "ittour_set_global_variable");
-
-function ittour_set_global_variable() {
-    if ( is_page_template( 'templates/tour.php' )) {
-        global $ittour_global_tour_result;
-
-        if (empty($_GET['key'])) {
-            $ittour_global_tour_result['error'] = 'no_key';
-        } else {
-            $tour_key = $_GET['key'];
-            $tour = ittour_tour($tour_key, ITTOUR_LANG);
-            $tour_info = $tour->info();
-
-            if (is_wp_error($tour_info)) {
-
-            } else {
-                $ittour_global_tour_result['result'] = $tour_info;
-            }
-        }
-    }
-}
-
-add_filter( 'wp_title', 'custom_title', 1000 );
-
-function custom_title($title) {
-    if ( is_page_template( 'templates/tour.php' )) {
-        global $ittour_global_tour_result;
-
-        $title = 'My title';
-    }
-
-    return $title;
 }
 
 function ittour_change_page_title( $title ) {
@@ -172,12 +138,54 @@ function ittour_change_page_title( $title ) {
         if (!empty($page_title)) {
             $title = $page_title;
         }
+    } else {
+        $key = get_query_var( 'excursion-tour' );
+
+        if ( !empty($key)) {
+            global $ittour_global_tour_result;
+
+            $page_title = '';
+
+            if (!empty($ittour_global_tour_result["result"]["name"])) {
+                $page_title .= $ittour_global_tour_result["result"]["name"];
+            }
+
+            if (!empty($ittour_global_tour_result["result"]["countries"])) {
+                $countries_array = array();
+
+                foreach ($ittour_global_tour_result["result"]["countries"] as $country) {
+                    if (!empty($country['name'])) {
+                        $countries_array[] = $country['name'];
+                    }
+                }
+
+                if (!empty($countries_array)) {
+                    $countries_list = implode(', ', $countries_array);
+
+                    if (!empty($page_title)) {
+                        $page_title .= ' | ';
+                    }
+
+                    $page_title .= $countries_list;
+                }
+            }
+
+            if (!empty($page_title)) {
+                $title = $page_title;
+            }
+        }
     }
 
     return $title;
 }
 
 add_filter( 'wpseo_title', 'ittour_change_page_title', 1000, 1 );
+
+function ittour_change_page_metadesc ( $description ) {
+    return $description;
+}
+
+add_filter( 'wpseo_metadesc', 'ittour_change_page_metadesc', 1000, 1 );
 
 function ittour_insert_open_graph() {
     $key = get_query_var( 'tour' );
@@ -267,5 +275,3 @@ function blog_canonical( $canonical ) {
 }
 // RUN THE FILTER ON PAGES. NORMAL PAGES GET A NORMAL CANONICAL REFERENCE, BLOG POSTS GET THE REMAPPED ONE
 add_filter( 'wpseo_canonical', 'blog_canonical' );
-
-// $title = apply_filters( 'pre_get_document_title', '' );

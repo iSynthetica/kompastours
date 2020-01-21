@@ -46,6 +46,7 @@ class ET_Builder_Theme_Compat_SmartMag {
 		}
 
 		add_action( 'et_pb_shop_before_print_shop', array( $this, 'register_shop_thumbnail' ) );
+		add_action( 'wp_enqueue_scripts', array($this, 'dequeue_scripts') );
 	}
 
 	/**
@@ -61,6 +62,22 @@ class ET_Builder_Theme_Compat_SmartMag {
 		if ( class_exists( 'Bunyad' ) && null !== Bunyad::get('smart_mag') && isset( Bunyad::get('smart_mag')->woocommerce ) ) {
 			remove_action( 'woocommerce_before_shop_loop_item_title', array( Bunyad::get('smart_mag')->woocommerce, 'cart_icon' ), 10 );
 			add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10);
+		}
+	}
+
+	/**
+	 * Dequeue SmartMag's script which causes conflict in particular situation
+	 *
+	 * @since ??
+	 *
+	 * @return void
+	 */
+	function dequeue_scripts() {
+		// Fixed disappearing block preview layout because SmartMatg's frontend code expects
+		// `.navigation-wrap` to be exist and retrieving its offset value without further check
+		// which breaks js and keep preview rendering blank on layout block
+		if ( ET_GB_Block_Layout::is_layout_block_preview() ) {
+			wp_dequeue_script( 'bunyad-theme' );
 		}
 	}
 }

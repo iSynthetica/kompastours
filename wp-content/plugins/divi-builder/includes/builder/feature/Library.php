@@ -637,6 +637,11 @@ class ET_Builder_Library {
 		 */
 		$post_types = apply_filters( 'et_library_builder_post_types', et_builder_get_builder_post_types() );
 
+		// Remove Extra's category layouts from "Your Existing Pages" layout list
+		if ( in_array( 'layout', $post_types ) ) {
+			unset( $post_types[ array_search( 'layout', $post_types ) ] );
+		}
+
 		if ( wp_doing_ajax() ) {
 			// VB case
 			$exclude = isset( $_POST['postId'] ) ? (int) $_POST['postId'] : false;
@@ -1009,7 +1014,7 @@ class ET_Builder_Library {
 
 		$tmp_file = tempnam( $tmp_dir, 'et' );
 
-		@file_put_contents( $tmp_file, $response );
+		et_()->WPFS()->put_contents( $tmp_file, $response );
 
 		// Remove any previous buffered content since we're setting `Content-Length` header
 		// based on $response value only.

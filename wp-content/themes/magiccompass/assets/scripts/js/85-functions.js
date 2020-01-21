@@ -157,12 +157,6 @@ var SNTHJS = SNTHJS || {};
             .toggleClass('icon-minus icon-plus');
     }
 
-    /* Button show/hide map */
-    $(".btn_map").on("click", function () {
-        var el = $(this);
-        el.text() == el.data("text-swap") ? el.text(el.data("text-original")) : el.text(el.data("text-swap"));
-    });
-
     /* Animation on scroll */
     new WOW().init();
 
@@ -190,7 +184,11 @@ var SNTHJS = SNTHJS || {};
         function toggleHandler(toggle) {
             toggle.addEventListener("click", function (e) {
                 e.preventDefault();
-                (this.classList.contains("active") === true) ? this.classList.remove("active"): this.classList.add("active");
+                if (this.classList.contains("active") === true) {
+                    this.classList.remove("active");
+                } else {
+                    this.classList.add("active");
+                }
             });
         }
 
@@ -219,20 +217,21 @@ var SNTHJS = SNTHJS || {};
             var oldValue = $button.parent().find("input").val();
             var max = $button.parent().find("input").data('max');
             var min = $button.parent().find("input").data('min');
+            var newVal;
 
             if ($button.text() == "+") {
                 if ( max && parseFloat(oldValue) === parseFloat(max) ) {
-                    var newVal = parseFloat(oldValue);
+                    newVal = parseFloat(oldValue);
                 } else {
-                    var newVal = parseFloat(oldValue) + 1;
+                    newVal = parseFloat(oldValue) + 1;
                 }
             } else {
                 // Don't allow decrementing below zero
 
                 if ( min && parseFloat(oldValue) === parseFloat(min) ) {
-                    var newVal = parseFloat(oldValue);
+                    newVal = parseFloat(oldValue);
                 } else if ( oldValue > 1) {
-                    var newVal = parseFloat(oldValue) - 1;
+                    newVal = parseFloat(oldValue) - 1;
                 } else {
                     newVal = 0;
                 }
@@ -325,18 +324,4 @@ var SNTHJS = SNTHJS || {};
             zIndex: 0
         });
     }
-
-    /* Search */
-    $(".search-overlay-menu-btn").on("click", function (a) {
-        $('body').addClass('has-fullscreen-modal');
-        $(".search-overlay-menu").addClass("open"), $('.search-overlay-menu > form > input[type="search"]').focus();}),
-        $(".search-overlay-close").on("click", function (a) {
-            $(".search-overlay-menu").removeClass("open");
-            $('body').removeClass('has-fullscreen-modal');
-        }),
-        $(".search-overlay-menu, .search-overlay-menu .search-overlay-close").on("click keyup", function (a) {
-            (a.target == this || "search-overlay-close" == a.target.className || 27 == a.keyCode) && $(this).removeClass("open");
-        });
-
-
 }(jQuery));

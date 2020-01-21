@@ -295,10 +295,23 @@ class ET_Theme_Builder_Request {
 			}
 
 			if ( is_numeric( $a_piece ) ) {
-				return (float) $a_piece <= (float) $b_piece ? $a : $b;
+				$prioritized = (float) $a_piece <= (float) $b_piece ? $a : $b;
+			} else {
+				$prioritized = strcmp( $a, $b ) <= 0 ? $a : $b;
 			}
 
-			return strcmp( $a, $b ) <= 0 ? $a : $b;
+			/**
+			 * Filters the higher prioritized setting in a given pair that
+			 * has equal built-in priority.
+			 *
+			 * @since 4.2
+			 *
+			 * @param string $prioritized_setting
+			 * @param string $setting_a
+			 * @param string $setting_b
+			 * @param ET_Theme_Builder_Request $request
+			 */
+			return apply_filters( 'et_theme_builder_prioritized_template_setting', $prioritized, $a, $b, $this );
 		}
 
 		// We should only reach this point if $a and $b are equal so it doesn't

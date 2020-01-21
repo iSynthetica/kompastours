@@ -178,6 +178,8 @@ class SB_Instagram_API_Connect
 
 		$error_time = 300;
 		if ( isset( $response['meta']['error_type'] ) ) {
+			$sb_instagram_posts_manager->add_error( 'api', array( 'Error connecting', sprintf( __( 'API error %s:', 'instagram-feed'), $response['meta']['code'] ) . ' ' . $response['meta']['error_message'] ) );
+
 			if ( $response['meta']['error_type'] === 'OAuthAccessTokenException' ) {
 				$options = get_option( 'sb_instagram_settings', array() );
 
@@ -212,6 +214,8 @@ class SB_Instagram_API_Connect
 				$sb_instagram_posts_manager->add_frontend_error( $response['meta']['error_type'], $error );
 			}
 		} elseif ( isset( $response['error']['message'] ) ) {
+			$sb_instagram_posts_manager->add_error( 'api', array( 'Error connecting', sprintf( __( 'API error %s:', 'instagram-feed'), $response['error']['code'] ) . ' ' . $response['error']['message'] ) );
+
 			if ( (int)$response['error']['code'] === 18 ) {
 				$options = get_option( 'sb_instagram_settings', array() );
 
@@ -350,7 +354,7 @@ class SB_Instagram_API_Connect
 			if ( $endpoint_slug === 'header' ) {
 				$url = 'https://api.instagram.com/v1/users/' . $connected_account['user_id'] . '?access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
 			} else {
-				$num = min( $num, 33 );
+				$num = $num > 20 ? min( $num, 33 ) : 20; // minimum set at 20 due to IG TV bug
 				$url = 'https://api.instagram.com/v1/users/' . $connected_account['user_id'] . '/media/recent?count='.$num.'&access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
 			}
 		} else {

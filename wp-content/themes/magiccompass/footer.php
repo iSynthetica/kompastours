@@ -6,7 +6,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
-
+global $ittour_global_form_fields;
 $social = get_field('social', 'options');
 $phones = get_field('phones', 'options');
 $messangers = get_field('messangers', 'options');
@@ -26,11 +26,7 @@ $messangers = get_field('messangers', 'options');
     )); ?>
 
 
-    <?php
-    $form_fields = ittour_get_form_fields();
-
-    ittour_show_template('general/form-find-me-tour.php', array('form_fields' => $form_fields));
-    ?>
+    <?php ittour_show_template('general/form-find-me-tour.php', array('form_fields' => $ittour_global_form_fields)); ?>
 
     <?php wp_footer(); ?>
 

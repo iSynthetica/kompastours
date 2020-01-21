@@ -73,6 +73,7 @@
 
     $(document.body).on('click', '#find-me-tour-form__submit', function() {
         var formData = $("#find-me-tour-form").serializeArray();
+        var fragments;
 
         var country_name = $('#country_req_select').find('option:selected').text();
 
@@ -100,11 +101,10 @@
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -115,7 +115,8 @@
     });
 
     $(document.body).on('click', '#lp-order-form__submit', function() {
-        var formData = $("#lp-order-form").serializeArray();
+        var formData = $("#lp-order-form").serializeArray(),
+            fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -137,11 +138,10 @@
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -162,6 +162,7 @@
 
     $(document.body).on('click', '.validate-btn', function() {
         var singleTourSummary = $('#single-tour-booking__holder');
+        var fragments;
 
         var key = singleTourSummary.data('key');
         var currency = singleTourSummary.data('currency');
@@ -189,12 +190,11 @@
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                         runValidationCountdown();
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -205,7 +205,8 @@
     });
 
     $(document.body).on('click', '.book-btn', function() {
-        var formData = $("#booking-form").serializeArray();
+        var formData = $("#booking-form").serializeArray(),
+            fragments;
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -227,13 +228,12 @@
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         $( ".book-btn" ).remove();
                         $( ".error_messages" ).remove();
                         updateFragments(fragments);
                     } else {
-                        var fragments = response.message.fragments;
-
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {
@@ -358,11 +358,11 @@
     }
 
     function ittourValidateTour() {
-        var singleTourSummary = $('#single-tour-booking__holder');
-
-        var key = singleTourSummary.data('key');
-        var currency = singleTourSummary.data('currency');
-        var tourInfo = singleTourSummary.data('tour-info');
+        var singleTourSummary = $('#single-tour-booking__holder'),
+            fragments,
+            key = singleTourSummary.data('key'),
+            currency = singleTourSummary.data('currency'),
+            tourInfo = singleTourSummary.data('tour-info');
 
         $.ajax({
             url: snthWpJsObj.ajaxurl,
@@ -386,11 +386,11 @@
 
                 if (decoded) {
                     if (decoded.success) {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                         runValidationCountdown();
                     } else {
-                        var fragments = response.message.fragments;
+                        fragments = response.message.fragments;
                         updateFragments(fragments);
                     }
                 } else {

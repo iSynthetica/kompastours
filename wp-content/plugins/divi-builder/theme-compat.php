@@ -85,7 +85,13 @@ class ET_Builder_Theme_Compat_Loader {
 			'The7',
 			'Salient',
 			'Foxy',
+			'Bridge',
+			'Jupiter',
+			'Impreza',
+			'Twenty Sixteen',
+			'Twenty Seventeen',
 			'Twenty Nineteen',
+			'Twenty Twenty',
 			'JupiterX',
 		) );
 	}
@@ -95,13 +101,22 @@ class ET_Builder_Theme_Compat_Loader {
 	 * @return bool
 	 */
 	function has_theme_compat() {
-		$post_id = get_the_ID();
+		global $wp_query;
 
-		// in dashboard and preview, always load theme-compat file
-		$is_using_pagebuilder = is_admin() || is_et_pb_preview() ? true : isset( $post_id ) && et_pb_is_pagebuilder_used( $post_id );
+		// On non-singular page, get_the_ID() returns post ID of the first post in the main loop
+		// Thus explicitly set as null if current page isn't singular to avoid inaccurate check
+		$post_id = is_singular() ? get_the_ID() : null;
 
-		// Check whether: 1) current page uses Divi builder or 2) current theme has compatibility file
-		if ( $is_using_pagebuilder && in_array( $this->get_theme( 'Name' ), $this->theme_list() ) ) {
+		// in dashboard, layout block preview,  and preview, always load theme-compat file
+		$load_compat_file     = is_admin() || is_et_pb_preview() || has_block( 'divi/layout', $post_id );
+		$is_using_pagebuilder = $load_compat_file  ? true : isset( $post_id ) && et_pb_is_pagebuilder_used( $post_id );
+
+		// Check if current page is not singular but one of its main loop's post use builder
+		$not_singular_posts_has_builder = ! $is_using_pagebuilder && ! is_singular() && et_dbp_is_query_has_builder( $wp_query );
+
+		// Check whether: 1) current page uses builder or current page is not singular but  one of
+		// its post use builder 2) current theme has compatibility file
+		if ( ( $is_using_pagebuilder || $not_singular_posts_has_builder ) && in_array( $this->get_theme( 'Name' ), $this->theme_list() ) ) {
 			return true;
 		}
 

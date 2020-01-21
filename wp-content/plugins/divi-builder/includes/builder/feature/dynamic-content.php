@@ -85,13 +85,16 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
 		}
 	}
 
-	$default_category = 'post' === $post_type ? 'category' : "${post_type}_category";
+	$default_category_type = 'post' === $post_type ? 'category' : "${post_type}_category";
 
-	if ( ! empty( $post_taxonomy_types ) && ! isset( $post_taxonomy_types[$default_category] ) ) {
-		// Use the 1st available taxonomy as the default value.
-		// Do it in 2 steps in order to support PHP < 5.4 (array dereferencing).
-		$default_category = array_keys( $post_taxonomy_types );
-		$default_category = $default_category[0];
+	if ( ! isset( $post_taxonomy_types[ $default_category_type ] ) ) {
+		$default_category_type = 'category';
+
+		if ( ! empty( $post_taxonomy_types ) ) {
+			// Use the 1st available taxonomy as the default value.
+			$default_category_type = array_keys( $post_taxonomy_types );
+			$default_category_type = $default_category_type[0];
+		}
 	}
 
 	$date_format_options = array(
@@ -192,7 +195,7 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
 					'label'   => esc_html__( 'Category Type', 'et_builder' ),
 					'type'    => 'select',
 					'options' => $post_taxonomy_types,
-					'default' => $default_category,
+					'default' => $default_category_type,
 				),
 			),
 		);
@@ -303,6 +306,13 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
 		'type'  => 'text',
 	);
 
+	if ( et_builder_tb_enabled() ) {
+		$fields['term_description'] = array(
+			'label' => esc_html__( 'Category Description', 'et_builder' ),
+			'type'  => 'text',
+		);
+	}
+
 	$fields['site_title'] = array(
 		'label' => esc_html__( 'Site Title', 'et_builder' ),
 		'type'  => 'text',
@@ -340,6 +350,11 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
 		'type'   => 'url',
 	);
 
+	$fields['post_author_url'] = array(
+		'label'  => esc_html__( 'Author Page Link', 'et_builder' ),
+		'type'   => 'url',
+	);
+
 	$fields['home_url'] = array(
 		'label'  => esc_html__( 'Homepage Link', 'et_builder' ),
 		'type'   => 'url',
@@ -373,7 +388,7 @@ function et_builder_get_built_in_dynamic_content_fields( $post_id ) {
 
 	$fields['post_author_profile_picture'] = array(
 		// Translators: %1$s: Post type name
-		'label'  => esc_html( sprintf( __( '%1$s Author Profile Picture', 'et_builder' ), $post_type_label ) ),
+		'label'  => esc_html__( 'Author Profile Picture', 'et_builder' ),
 		'type'   => 'image',
 	);
 
@@ -730,8 +745,25 @@ function et_builder_wrap_dynamic_content( $post_id, $name, $value, $settings ) {
 	$user_id     = get_post_field( 'post_author', $cap_post_id );
 
 	if ( ! user_can( $user_id, 'unfiltered_html' ) ) {
-		$before = esc_html( $before );
-		$after  = esc_html( $after );
+		$whitelist = array_merge(
+			wp_kses_allowed_html( '' ),
+			array(
+				'h1'   => array(),
+				'h2'   => array(),
+				'h3'   => array(),
+				'h4'   => array(),
+				'h5'   => array(),
+				'h6'   => array(),
+				'ol'   => array(),
+				'ul'   => array(),
+				'li'   => array(),
+				'span' => array(),
+				'p'    => array(),
+			)
+		);
+
+		$before = wp_kses( $before, $whitelist );
+		$after  = wp_kses( $after, $whitelist );
 	}
 
 	return $before . $value . $after;
@@ -756,9 +788,15 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 	$_       = ET_Core_Data_Utils::instance();
 	$def     = 'et_builder_get_dynamic_attribute_field_default';
 	$post    = get_post( $post_id );
-	$author  = $post ? get_userdata( $post->post_author ) : false;
+	$author  = null;
 	$wrapped = false;
 	$is_woo  = false;
+
+	if ( $post ) {
+		$author = get_userdata( $post->post_author );
+	} else if ( is_author() ) {
+		$author = get_queried_object();
+	}
 
 	switch ( $name ) {
 		case 'product_title': // Intentional fallthrough.
@@ -769,7 +807,7 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 				$content = et_builder_get_current_title( $post_id );
 			}
 
-			$content = esc_html( $content );
+			$content = et_core_intentionally_unescaped( $content, 'cap_based_sanitized' );
 			break;
 
 		case 'post_excerpt':
@@ -842,6 +880,11 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			$post_taxonomies = et_builder_get_taxonomy_types( get_post_type( $post_id ) );
 			$taxonomy        = $_->array_get( $settings, 'category_type', '' );
 
+			if ( in_array( $taxonomy, array( 'et_header_layout_category', 'et_body_layout_category', 'et_footer_layout_category' ) ) ) {
+				// TB layouts were storing an invalid taxonomy in <= 4.0.3 so we have to correct it:
+				$taxonomy = $def( $post_id, $name, 'category_type' );
+			}
+
 			if ( ! isset( $post_taxonomies[ $taxonomy ] ) ) {
 				break;
 			}
@@ -876,10 +919,6 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			break;
 
 		case 'post_author':
-			if ( ! $post ) {
-				break;
-			}
-
 			$name_format      = $_->array_get( $settings, 'name_format', $def( $post_id, $name, 'name_format' ) );
 			$link             = $_->array_get( $settings, 'link', $def( $post_id, $name, 'link' ) );
 			$link             = 'on' === $link;
@@ -888,7 +927,7 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			$label            = '';
 			$url              = '';
 
-			if ( false === $author ) {
+			if ( ! $author ) {
 				$content = '';
 				break;
 			}
@@ -943,7 +982,11 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 				break;
 			}
 
-			$content = esc_html( $author->description );
+			$content = et_core_intentionally_unescaped( $author->description, 'cap_based_sanitized' );
+			break;
+
+		case 'term_description':
+			$content = et_core_intentionally_unescaped( term_description(), 'cap_based_sanitized' );
 			break;
 
 		case 'site_title':
@@ -977,6 +1020,14 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			$content = esc_url( get_permalink( $post_id ) );
 			break;
 
+		case 'post_author_url':
+			if ( ! $author ) {
+				break;
+			}
+
+			$content = esc_url( get_author_posts_url( $author->ID ) );
+			break;
+
 		case 'home_url':
 			$content = esc_url( home_url( '/' ) );
 			break;
@@ -991,18 +1042,26 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			break;
 
 		case 'post_featured_image':
-			if ( ! $post ) {
-				break;
-			}
-
 			if ( isset( $overrides[ $name ] ) ) {
 				$id      = (int) $overrides[ $name ];
 				$content = wp_get_attachment_image_url( $id, 'full' );
 				break;
 			}
 
-			$url = get_the_post_thumbnail_url( $post_id, 'full' );
-			$content = $url ? esc_url( $url ) : '';
+			if ( is_category() || is_tag() || is_tax() ) {
+				$term_id       = (int) get_queried_object_id();
+				$attachment_id = (int) get_term_meta( $term_id, 'thumbnail_id', true );
+				$url           = wp_get_attachment_image_url( $attachment_id, 'full' );
+				$content       = $url ? esc_url( $url ) : '';
+				break;
+			}
+
+			if ( $post ) {
+				$url     = get_the_post_thumbnail_url( $post_id, 'full' );
+				$content = $url ? esc_url( $url ) : '';
+				break;
+			}
+
 			break;
 
 		case 'post_author_profile_picture':
@@ -1237,20 +1296,18 @@ function et_builder_filter_resolve_default_dynamic_content( $content, $name, $se
 			break;
 	}
 
-	if ( $post_id > 0 ) {
-		// Handle in post type URL options.
-		$post_types = et_builder_get_public_post_types();
-		foreach ( $post_types as $public_post_type ) {
-			$key = 'post_link_url_' . $public_post_type->name;
+	// Handle in post type URL options.
+	$post_types = et_builder_get_public_post_types();
+	foreach ( $post_types as $public_post_type ) {
+		$key = 'post_link_url_' . $public_post_type->name;
 
-			if ( $key !== $name ) {
-				continue;
-			}
-
-			$selected_post_id  = $_->array_get( $settings, 'post_id', $def( $post_id, $name, 'post_id' ) );
-			$content           = esc_url( get_permalink( $selected_post_id ) );
-			break;
+		if ( $key !== $name ) {
+			continue;
 		}
+
+		$selected_post_id  = $_->array_get( $settings, 'post_id', $def( $post_id, $name, 'post_id' ) );
+		$content           = esc_url( get_permalink( $selected_post_id ) );
+		break;
 	}
 
 	// Wrap non plain text woo data to add custom selector for styling inheritance.
@@ -1439,6 +1496,19 @@ function et_builder_serialize_dynamic_content( $dynamic, $content, $settings ) {
 	$result = 0 === $options ? str_replace( '\/', '/', $result ) : $result;
 
 	return '@ET-DC@' . base64_encode( $result ) . '@';
+}
+
+/**
+ * Strip dynamic content.
+ *
+ * @since 4.0.9
+ *
+ * @param string $content
+ *
+ * @return string
+ */
+function et_builder_strip_dynamic_content( $content ) {
+	return preg_replace( '/@ET-DC@(.*?)@/', '', $content );
 }
 
 /**

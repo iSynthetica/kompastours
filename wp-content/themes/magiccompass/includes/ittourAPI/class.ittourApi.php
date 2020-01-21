@@ -28,17 +28,28 @@ class ittourApi {
     protected function request($params = '') {
         $url = $this->url . $this->module . $params;
 
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->headers);
-        curl_setopt($curl, CURLOPT_HEADER, false);
-        $result = curl_exec($curl);
-        curl_close($curl);
+        $result = wp_remote_get( $url, array('headers' => array(
+            'Authorization' => $this->token,
+            'Accept-Language' => $this->lang,
+        )));
 
-        return $this->prepare($result);
+        $body = wp_remote_retrieve_body( $result );
+
+//        $curl = curl_init($url);
+//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+//        curl_setopt($curl, CURLOPT_HTTPHEADER, $this->headers);
+//        curl_setopt($curl, CURLOPT_HEADER, false);
+//        $result = curl_exec($curl);
+//        curl_close($curl);
+
+        return $this->prepare($body);
     }
 
     private function prepare($data) {
+        if (empty($data)) {
+            return new WP_Error( 'ittour_error', 'Bad response', 404 );
+        }
+
         $result = json_decode($data, 1);
 
         if (!empty($result['error'])) {

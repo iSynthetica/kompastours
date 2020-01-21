@@ -362,6 +362,10 @@ endif;
 if ( function_exists( 'woocommerce_get_product_thumbnail' ) ) {
 	add_action( 'et_pb_shop_before_print_shop', 'et_divi_builder_add_shop_thumbnail' );
 
+	// Include Overlay in Related Products when using DBP since it is not included by default.
+	remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+	add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail' );
+
 	/**
 	 * Remove WooCommerce's default product thumbnail on shop module and add Divi's product thumbnail
 	 */
@@ -373,8 +377,8 @@ if ( function_exists( 'woocommerce_get_product_thumbnail' ) ) {
 		// If default product thumbnail is registered, deregister and register Divi's product thumbnail
 		// Theme which has modified WooCommerce's product thumbnail should be modified via theme compatibility file
 		if ( isset( $item_title_hook ) && isset( $item_title_hook[10] ) && isset( $item_title_hook[10]['woocommerce_template_loop_product_thumbnail'] ) ) {
-			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail');
-			add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10);
+			remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail' );
+			add_action( 'woocommerce_before_shop_loop_item_title', 'et_divi_builder_template_loop_product_thumbnail', 10 );
 		}
 	}
 
@@ -493,3 +497,139 @@ function et_divi_builder_filter_enabled_builder_post_type_options( $options ) {
 }
 endif;
 add_filter( 'et_builder_enabled_builder_post_type_options', 'et_divi_builder_filter_enabled_builder_post_type_options' );
+
+/**
+ * Check if posts of given wp_query has builder or not. This check is optimized for speed and not
+ * accuracy so as long as one of the post contains `[et_pb_section`, this check will consider it
+ * use builder
+ *
+ * @since ??
+ *
+ * @param WP_Query $wp_query
+ *
+ * @return bool
+ */
+function et_dbp_is_query_has_builder( $wp_query ) {
+	// Cache result
+	static $et_dbp_is_query_has_builder = array();
+
+	// No posts found, return early. Can't use have_posts() here because it causes infinite loop
+	if ( empty( $wp_query->posts ) ) {
+		return false;
+	}
+
+	// Populate ids of current wp_query
+	$ids = implode( '-', wp_list_pluck( $wp_query->posts, 'ID' ) );
+
+	// This search has been done before; return from static var
+	if ( isset( $et_dbp_is_query_has_builder[ $ids ] ) ) {
+		return $et_dbp_is_query_has_builder[ $ids ];
+	}
+
+	// Loop posts, and look for section module shortcode's substring
+	$has = false;
+
+	foreach ( $wp_query->posts as $post ) {
+		if ( false !== strpos( $post->post_content, '[et_pb_section' ) ) {
+			$has = true;
+
+			// If have been found, no need to look further
+			break;
+		}
+	}
+
+	// Save result on static var to speed up next search
+	$et_dbp_is_query_has_builder[ $ids ] = $has;
+
+	return $has;
+}
+
+/**
+ * Check if posts on given wp_query needs to be wrapped so the styling is correctly assigned
+ * Singular page's wrapper has been correctly assigned by builder; what hasn't been correctly
+ * assigned is non-singular posts query
+ *
+ * @since ??
+ *
+ * @param WP_Query $wp_query
+ *
+ * @return bool
+ */
+function et_dbp_should_wrap_content_has_builder( $wp_query ) {
+	// Do not wrap if not main query, is singular, no section shortcode found on posts content
+	$do_not_wrap = ! is_main_query() || is_singular() || ! et_dbp_is_query_has_builder( $wp_query );
+
+	return ! $do_not_wrap;
+}
+
+/**
+ * Wrap main loop of non singular page if one of the post has builder content
+ *
+ * @since ??
+ *
+ * @param WP_Query $wp_query
+ */
+function et_dbp_main_loop_start( $wp_query ) {
+	// If TB's template already used, no need to wrap loops since the entire page is already wrapped
+	$override_header = et_theme_builder_overrides_layout( ET_THEME_BUILDER_HEADER_LAYOUT_POST_TYPE );
+	$override_body   = et_theme_builder_overrides_layout( ET_THEME_BUILDER_BODY_LAYOUT_POST_TYPE );
+	$override_footer = et_theme_builder_overrides_layout( ET_THEME_BUILDER_FOOTER_LAYOUT_POST_TYPE );
+
+	if ( $override_header || $override_body || $override_footer ) {
+		return;
+	}
+
+	if ( ! et_dbp_should_wrap_content_has_builder( $wp_query ) ) {
+		return;
+	}
+
+	echo et_builder_get_builder_content_opening_wrapper();
+}
+add_action( 'loop_start', 'et_dbp_main_loop_start');
+
+/**
+ * (close) Wrap main loop of non singular page if one of the post has builder content
+ *
+ * @since ??
+ *
+ * @param WP_Query $wp_query
+ */
+function et_dbp_main_loop_end( $wp_query ) {
+	// If TB's template already used, no need to wrap loops since the entire page is already wrapped
+	$override_header = et_theme_builder_overrides_layout( ET_THEME_BUILDER_HEADER_LAYOUT_POST_TYPE );
+	$override_body   = et_theme_builder_overrides_layout( ET_THEME_BUILDER_BODY_LAYOUT_POST_TYPE );
+	$override_footer = et_theme_builder_overrides_layout( ET_THEME_BUILDER_FOOTER_LAYOUT_POST_TYPE );
+
+	if ( $override_header || $override_body || $override_footer ) {
+		return;
+	}
+
+	if ( ! et_dbp_should_wrap_content_has_builder( $wp_query ) ) {
+		return;
+	}
+
+	echo et_builder_get_builder_content_closing_wrapper();
+}
+add_action( 'loop_end', 'et_dbp_main_loop_end');
+
+/**
+ * Wrap the content of non singular page with layout wrapper if one of the post has builder content.
+ * NOTE: layout content wrapper can't be added righ after builder wrapper because it might affect
+ * main loops' content such as post title, etc
+ *
+ * @since ??
+ *
+ * @param string $content
+ *
+ * @return string modified content
+ */
+function et_dbp_main_loop_content( $content ) {
+	global $wp_query;
+
+	if ( ! et_dbp_should_wrap_content_has_builder( $wp_query ) ) {
+		return $content;
+	}
+
+	return et_builder_get_layout_opening_wrapper() . $content . et_builder_get_layout_closing_wrapper();
+}
+add_filter( 'the_content', 'et_dbp_main_loop_content' );
