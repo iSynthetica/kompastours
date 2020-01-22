@@ -29,7 +29,6 @@ snth_show_template('titles/static-image-bg.php', array(
 );
 ?>
 
-
 <?php snth_show_template('breadcrumbs.php'); ?>
 
 <div class="wrap">

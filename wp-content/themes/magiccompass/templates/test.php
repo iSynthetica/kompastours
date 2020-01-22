@@ -200,7 +200,11 @@ if (false) {
 
 // $params_obj = ittour_params(ITTOUR_LANG);
 
-$url = 'https://api.ittour.com.ua/module/params';
+$url = 'https://kompas.tours/wp-json/ittour/v1/module-excursion/search?date_from=23.01.20&date_till=29.01.20&show_selected_countries=0&show_selected_cities=0&city=3824%3A3826%3A5146&from_city=2014&country=6';
+
+$url = 'https://kompas.tours/wp-json/ittour/v1/module-excursion/search?date_from=23.01.20&date_till=29.01.20&show_selected_countries=0&show_selected_cities=0&city=3824:3826:5146&from_city=2014&country=6';
+$url = 'https://kompas.tours/wp-json/ittour/v1/module-excursion/search?date_from=23.01.20&date_till=29.01.20&show_selected_countries=0&show_selected_cities=0&city=3826&from_city=2014&country=6';
+
 $result = wp_remote_get( $url, array('headers' => array(
     'Authorization' => '7aa2df955c46238ae4cdeb2d187f1158test',
     'Accept-Language' => 'ua',
