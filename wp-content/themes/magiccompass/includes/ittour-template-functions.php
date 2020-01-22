@@ -352,14 +352,14 @@ function ittour_get_guests_summary_field($params, $args) {
         $adults_amount = $args['adult_amount'];
         $guests_value = $adults_amount;
 
-        if (!empty($args['childAmount']) && !empty($args['childAge'])) {
-            $child_ages = explode(':', $args['childAge']);
+        if (!empty($args['child_amount']) && !empty($args['child_age'])) {
+            $child_ages = explode(':', $args['child_age']);
 
             foreach ($child_ages as $key => $child_age) {
                 $child_ages[$key] = $child_age . __('y', 'snthwp');
             }
 
-            $guests_value .= ' + ' . $args['childAmount'] . ' ( ' . implode(' ', $child_ages) . ' )';
+            $guests_value .= ' + ' . $args['child_amount'] . ' ( ' . implode(' ', $child_ages) . ' )';
         }
     }
 
@@ -435,8 +435,8 @@ function ittour_get_filter_summary_field($params, $args) {
             $field_value .= implode(', ', $meal_types_array);
         }
 
-        if (!empty($args['priceLimit'])) {
-            $price_limit_array = explode(':', $args['priceLimit']);
+        if (!empty($args['price_limit'])) {
+            $price_limit_array = explode(':', $args['price_limit']);
 
             if ('custom' === $price_limit_array[0]) {
                 $price_from = '';
@@ -1226,7 +1226,7 @@ function ittour_get_price_limit_field($args = array()) {
     ob_start();
     $selected = '';
     $disabled = '';
-    $price_limit = !empty($args['priceLimit']) ? $args['priceLimit'] : '';
+    $price_limit = !empty($args['price_limit']) ? $args['price_limit'] : '';
     $is_custom = false;
     $price_from = '';
     $price_till = '';

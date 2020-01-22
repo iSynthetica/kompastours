@@ -23,7 +23,7 @@ $template_args = array(
 
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
-        <?php ittour_show_template('form/section-search.php', $ittour_global_form_args); ?>
+        <?php ittour_show_template('form/section-search.php'); ?>
     </div>
 </section>
 

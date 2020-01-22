@@ -39,7 +39,7 @@ if (!empty($ittour_global_tour_result['error'])) {
 
 <section id="search-section">
     <div class="container">
-        <?php ittour_show_template('form/section-search.php', $ittour_global_form_args);?>
+        <?php ittour_show_template('form/section-search.php');?>
     </div>
 </section>
 

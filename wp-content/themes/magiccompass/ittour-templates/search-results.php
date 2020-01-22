@@ -59,7 +59,7 @@ echo $page_title_template;
 
 <section id="search-section">
     <div class="container">
-        <?php ittour_show_template('form/section-search.php', $ittour_global_form_args); ?>
+        <?php ittour_show_template('form/section-search.php'); ?>
     </div>
 </section>
 

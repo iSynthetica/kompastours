@@ -8,8 +8,6 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-global $ittour_global_form_args;
-
 if (empty($template)) {
     $template = 'no-sidebar';
 }
@@ -42,7 +40,7 @@ $thumbnail_url = !empty($thumbnail_url) ? $thumbnail_url : get_the_post_thumbnai
 
 <section id="search-form__section" class="pt-10 pb-10 ptb-md-0 ">
     <div class="container">
-        <?php ittour_show_template('form/section-search.php', $ittour_global_form_args); ?>
+        <?php ittour_show_template('form/section-search.php'); ?>
     </div>
 </section>
 

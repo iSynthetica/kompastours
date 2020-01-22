@@ -6,19 +6,18 @@
  * @version 0.0.1
  * @since 0.0.1
  */
-
-if (empty($args)) {
-    $args = array();
-}
 global $ittour_global_form_fields;
+global $ittour_global_form_args;
 
 $form_fields = $ittour_global_form_fields;
+$form_args = $ittour_global_form_args;
 
 if ( !is_array( $form_fields ) ) {
     return;
 }
-$search_disabled = empty($args['country']) || empty($form_fields['tour_params']['countries'][$args['country']]);
-$search_excursion_disabled = empty($args['country_excursion']) || empty($form_fields['excursion_params']['selected_country']);
+$search_disabled = empty($form_args['country']) || empty($form_fields['tour_params']['countries'][$form_args['country']]);
+$search_excursion_disabled = empty($form_args['country_excursion']) || empty($form_fields['excursion_params']['selected_country']);
+
 $request_uri = $_SERVER['REQUEST_URI'];
 $form_active = 'tour-search-active';
 if (false !== strpos($request_uri, 'excursion-search') || false !== strpos($request_uri, 'excursion-tour')) {
@@ -194,13 +193,7 @@ $search_steps = get_field('timeline_items', 493);
                                         </div>
 
                                         <div class="form-group">
-                                            <?php
-                                            $adult_amount = '2';
-
-                                            if (!empty($args['adult_amount'])) {
-                                                $adult_amount = $args['adult_amount'];
-                                            }
-                                            ?>
+                                            <?php $adult_amount = $form_args['adult_amount']; ?>
                                             <label><?php echo __('Adult amount', 'snthwp') ?></label>
 
                                             <div class="numbers-alt numbers-gor style_1">
@@ -214,8 +207,8 @@ $search_steps = get_field('timeline_items', 493);
                                             <div id="child_amount_repeater_holder" data-limit="3">
                                                 <div class="child_amount_group">
                                                     <?php
-                                                    if (!empty($args['childAmount']) && !empty($args['childAge'])) {
-                                                        $child_ages = explode(':', $args['childAge']);
+                                                    if (!empty($form_args['child_amount']) && !empty($form_args['child_age'])) {
+                                                        $child_ages = explode(':', $form_args['child_age']);
 
                                                         foreach ($child_ages as $child_age) {
                                                             ittour_show_template('form/search-select-child-amount.php', array('child_age' => (int)$child_age));

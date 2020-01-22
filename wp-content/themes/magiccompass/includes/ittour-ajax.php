@@ -138,8 +138,8 @@ function ittour_ajax_get_tours_list() {
     $hotel              = !empty($_POST['hotel']) ? sanitize_text_field($_POST['hotel']) : false;
     $hotel_rating       = !empty($_POST['hotelRating']) ? sanitize_text_field($_POST['hotelRating']) : false;
     $adult_amount       = !empty($_POST['adultAmount']) ? (int) sanitize_text_field($_POST['adultAmount']) : false;
-    $child_amount       = !empty($_POST['childAmount']) ? (int) sanitize_text_field($_POST['childAmount']) : false;
-    $child_age          = !empty($_POST['childAge']) ? sanitize_text_field($_POST['childAge']) : false;
+    $child_amount       = !empty($_POST['child_amount']) ? (int) sanitize_text_field($_POST['child_amount']) : false;
+    $child_age          = !empty($_POST['child_age']) ? sanitize_text_field($_POST['child_age']) : false;
     $night_from         = !empty($_POST['nightFrom']) ? (int) sanitize_text_field($_POST['nightFrom']) : false;
     $night_till         = !empty($_POST['nightTill']) ? (int) sanitize_text_field($_POST['nightTill']) : false;
     $date_from          = !empty($_POST['dateFrom']) ? sanitize_text_field($_POST['dateFrom']) : false;

@@ -544,6 +544,7 @@ function ittour_set_default_global_search_form_params() {
 
 //    $ittour_global_form_args['hotel_rating'] = '78:4';
     $ittour_global_form_args['from_city'] = '2014'; // 30419 - 1, 753 - 9, 2014
+    $ittour_global_form_args['adult_amount'] = '2';
     $ittour_global_form_args['meal_type'] = '560:512:498:496:388:1956';
 
     $ittour_global_form_args['date_from'] = $date_from;
