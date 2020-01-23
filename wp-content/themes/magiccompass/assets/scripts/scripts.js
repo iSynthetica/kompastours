@@ -26800,7 +26800,6 @@ var SNTHJS = SNTHJS || {};
 
         $('#country_excursion_select').select2({
             placeholder: snthWpJsObj.searchForm.selectCountry,
-            maximumSelectionLength: 10,
             allowClear: true
         });
 
@@ -26864,7 +26863,7 @@ var SNTHJS = SNTHJS || {};
             alwaysShowCalendars: true,
             parentEl: '.date-pick__select__container',
             maxSpan: {
-                "days": 12
+                "days": 30
             },
             locale: locale,
             applyButtonClasses : 'btn hvr-invert shape-rnd size-xs font-alt',
@@ -27317,7 +27316,7 @@ var SNTHJS = SNTHJS || {};
         console.log($.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]);
         var selectedCountries = $('#country_excursion_select').val(),
             countriesByCityFrom = $.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]['countries'],
-            countriesHtml = '<select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%" multiple>';
+            countriesHtml = '<select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%">';
 
         if (typeof countriesByCityFrom === 'object' && countriesByCityFrom !== null && Object.keys(countriesByCityFrom).length) {
             for (var k in countriesByCityFrom) {
@@ -27336,7 +27335,6 @@ var SNTHJS = SNTHJS || {};
         $('#country_excursion_select').replaceWith(countriesHtml);
         $('#country_excursion_select').select2({
             placeholder: snthWpJsObj.searchForm.selectCountry,
-            maximumSelectionLength: 10,
             allowClear: true
         });
 

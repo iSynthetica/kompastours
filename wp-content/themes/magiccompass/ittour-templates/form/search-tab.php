@@ -23,7 +23,9 @@ $form_active = 'tour-search-active';
 if (false !== strpos($request_uri, 'excursion-search') || false !== strpos($request_uri, 'excursion-tour')) {
  $form_active = 'excursion-search-active';
 }
-$search_steps = get_field('timeline_items', 493);
+
+$search_steps = get_field('timeline_items', get_search_page_id());
+$search_excursion_steps = get_field('timeline_items', get_search_page_id('excursion'));
 ?>
 <div class="search-form__holder <?php echo $form_active; ?>">
     <form id="search-form" action="/search/" method="get" class="search-form search-tour-form repeater">
@@ -326,9 +328,9 @@ $search_steps = get_field('timeline_items', 493);
                                             <div class="search-form-step__header">
                                                 <?php
                                                 $step_index = 0;
-                                                if (!empty($search_steps[$step_index])) {
-                                                    if (!empty($search_steps[$step_index]["content"]["title"])) {
-                                                        ?><h4><?php echo $search_steps[$step_index]["content"]["title"] ?></h4><?php
+                                                if (!empty($search_excursion_steps[$step_index])) {
+                                                    if (!empty($search_excursion_steps[$step_index]["content"]["title"])) {
+                                                        ?><h4><?php echo $search_excursion_steps[$step_index]["content"]["title"] ?></h4><?php
                                                     }
                                                 } else {
                                                     ?><h4><?php echo __('Select destination', 'snthwp') ?></h4><?php

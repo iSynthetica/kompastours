@@ -11,7 +11,13 @@ $page_title_template = snth_get_template('titles/static-image-bg.php', array (
 );
 
 if (!empty($ittour_global_tour_result['error'])) {
-    $ittour_content = $ittour_global_tour_result['error'];
+    $ittour_content = '';
+
+    if ($ittour_global_tour_result['error'] !== 'no_parameters') {
+        $ittour_content .= get_error_message(get_ittour_error($ittour_global_tour_result['error']));
+    }
+
+    $ittour_content .= ittour_get_template('search/no-parameters.php');
 } elseif (!empty($ittour_global_tour_result['result'])) {
     $search_result = $ittour_global_tour_result['result'];
 
@@ -29,7 +35,7 @@ if (!empty($ittour_global_tour_result['error'])) {
         }
     }
 } else {
-    $ittour_content = 'No tours';
+    $ittour_content = ittour_get_template('search/no-parameters.php');
 }
 ?>
 

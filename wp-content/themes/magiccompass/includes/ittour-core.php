@@ -53,3 +53,118 @@ function add_logout_link( $items, $args )
 
     return $items;
 }
+
+function get_search_page_id($type = 'tour') {
+    $allowed_types = array('tour', 'excursion');
+
+    if (in_array($type, $allowed_types)) {
+        if ('tour' === $type) {
+            $id = get_field('tour_search_page', 'options');
+        } else {
+            $id = get_field('excursion_search_page', 'options');
+        }
+
+        return $id;
+    }
+
+    return false;
+}
+
+function get_ittour_error($error) {
+    $errors = array(
+        'no_country' => __('Country field is required', 'snthwp'),
+    );
+
+    if (!empty($errors[$error])) {
+        return $errors[$error];
+    }
+
+    return $error;
+}
+
+function get_excursion_allowed_parameters() {
+    return array(
+        'country' => array(
+            'title' => __('Countries', 'snthwp'),
+            'required' => true,
+            'description' => "ID's стран",
+        ),
+        'transport_type' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "ID's типов транспорта",
+        ),
+        'from_city' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "ID's городов вылета",
+        ),
+        'city' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "ID's городов на маршруте",
+        ),
+        'date' => array(
+            'title' => __('Tour date', 'snthwp'),
+            'required' => false,
+            'description' => "Дата отправления от (формат d.m.y)",
+            'options' => array(
+                'date_from' => array(
+                    'title' => __('Transport', 'snthwp'),
+                    'required' => false,
+                    'description' => "Дата отправления от (формат d.m.y)",
+                ),
+                'date_till' => array(
+                    'title' => __('Transport', 'snthwp'),
+                    'required' => false,
+                    'description' => "Дата отправления до (формат d.m.y, не больше 30-ти дней от date_from)",
+                ),
+            ),
+        ),
+        'show_selected_countries' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Маршруты по выбранным странам (0 - нет)",
+        ),
+        'show_selected_cities' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "	Маршруты по выбранным городам (0 - нет)",
+        ),
+        'night_moves' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Ночный переездов. По умолчанию: 0 (Любой)",
+        ),
+        'page' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Номер страницы. По умолчанию: 1",
+        ),
+        'items_per_page' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Количество туров на странице (от 1 до 100). По умолчанию: 10",
+        ),
+        'country_image_count' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Количество изображений отеля (от 0 до 20). По умолчанию: 1",
+        ),
+        'accomodation' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "ID типа размещения (от 1 до 8)",
+        ),
+        'adult' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Количество взрослых, чел. По умолчанию: 1",
+        ),
+        'child' => array(
+            'title' => __('Transport', 'snthwp'),
+            'required' => false,
+            'description' => "Количество детей, чел (от 0 до 1). По умолчанию: 0",
+        ),
+    );
+}

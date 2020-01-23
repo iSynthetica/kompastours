@@ -770,6 +770,7 @@ function ittour_get_from_city_excursion_summary_field($params, $args) {
     return ob_get_clean();
 }
 
+
 function ittour_get_destination_excursion_summary_field($params, $args = array()) {
     $value = '';
     if (!empty($args["country_excursion"])) {
@@ -826,7 +827,7 @@ function ittour_get_country_excursion_field($params, $args = array()) {
     ob_start();
 
         ?>
-        <select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%" multiple>
+        <select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%">
             <?php
             if (!empty($params['cities_from_dependencies'][$city_from]['countries'])) {
                 foreach ($params['cities_from_dependencies'][$city_from]['countries'] as $id => $country) {
@@ -2969,4 +2970,15 @@ function ittour_excursion_get_transport_by_id($id) {
     }
 
     return $transport;
+}
+
+function get_error_message($error) {
+    ob_start();
+    ?>
+    <div class="alert alert-danger alert-dismissable mt-10 mb-10">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <i class="fas fa-exclamation-triangle"></i> <?php echo $error; ?>
+    </div>
+    <?php
+    return ob_get_clean();
 }

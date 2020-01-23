@@ -390,10 +390,26 @@ function ittour_set_global_excursion_search_result() {
     global $ittour_global_form_args;
     global $ittour_global_template_args;
 
-    $country_id = !empty($_GET['country']) ? $_GET['country'] : false;
+    $allowed_parameters = get_excursion_allowed_parameters();
+    $allowed_parameters_keys = array_keys($allowed_parameters);
 
-    if (empty($country_id) || !is_array($country_id)) {
-        $ittour_global_tour_result['error'] = 'no_country';
+    $country_id = !empty($_GET['country']) ? $_GET['country'] : false;
+    $parameters = $_GET;
+
+    if (empty($country_id)) {
+        foreach ($parameters as $parameter_field => $parameter_value) {
+            if (!in_array($parameter_field, $allowed_parameters_keys)) {
+                unset($parameters[$parameter_field]);
+            }
+        }
+
+        if (!empty($parameters)) {
+            $ittour_global_tour_result['error'] = 'no_country';
+        } else {
+            $ittour_global_tour_result['error'] = 'no_parameters';
+        }
+    } elseif (!is_array($country_id)) {
+        $ittour_global_tour_result['error'] = 'wrong_country_format';
     } else {
         $ittour_global_template_args = array_merge($ittour_global_template_args, get_tour_main_currency());
         // Set search country
