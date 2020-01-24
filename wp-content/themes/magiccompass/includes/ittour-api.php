@@ -281,13 +281,23 @@ function ittour_set_global_tour_search_result() {
             $dates = explode('-', sanitize_text_field($_GET['date']));
 
             if (2 === count($dates)) {
-                $tour_dates = array(
-                    'date_from' => trim($dates[0]),
-                    'date_till' => trim($dates[1]),
-                );
+                $date_from = trim($dates[0]);
+                $date_till = trim($dates[1]);
 
-                $args = array_merge($args, $tour_dates);
-                $ittour_global_form_args = array_merge($ittour_global_form_args, $tour_dates);
+                $now = time();
+
+                $date_from_timestamp = snth_convert_date_format($date_from, $format_from = 'd.m.y', $format_to = 'U');
+                $date_till_timestamp = snth_convert_date_format($date_till, $format_from = 'd.m.y', $format_to = 'U');
+
+                if ((int)$now > (int)$date_from_timestamp || (int)$now > (int)$date_till_timestamp) {
+                    $ittour_global_tour_result['error'] = __('Tour dates must be more or equal to the current date.', 'snthwp');
+                } else {
+                    $args['date_from'] = $date_from;
+                    $args['date_till'] = $date_till;
+
+                    $ittour_global_form_args['date_excursion_from'] = $date_from;
+                    $ittour_global_form_args['date_excursion_till'] = $date_till;
+                }
             }
         }
 
@@ -372,15 +382,20 @@ function ittour_set_global_tour_search_result() {
         $url = http_build_query($_GET);
         $ittour_global_template_args['url'] = $url;
 
-        $search = ittour_search(ITTOUR_LANG);
-        $search_result = $search->get($country_id, $args);
+        if (empty($ittour_global_tour_result['error'])) {
+            $search = ittour_search(ITTOUR_LANG);
+            $search_result = $search->get($country_id, $args);
 
-        if (is_wp_error($search_result)) {
-            $ittour_global_tour_result['result'] = $search_result;
-            $ittour_global_template_args['result'] = $search_result;
+            if (is_wp_error($search_result)) {
+                $ittour_global_tour_result['result'] = $search_result;
+                $ittour_global_template_args['result'] = $search_result;
+            } else {
+                $ittour_global_tour_result['result'] = $search_result;
+                $ittour_global_template_args['result'] = $search_result;
+            }
         } else {
-            $ittour_global_tour_result['result'] = $search_result;
-            $ittour_global_template_args['result'] = $search_result;
+            $ittour_global_tour_result['result'] = array();
+            $ittour_global_template_args['result'] = array();
         }
     }
 }
@@ -446,11 +461,21 @@ function ittour_set_global_excursion_search_result() {
             $date_from = trim($dates[0]);
             $date_till = trim($dates[1]);
 
-            $args['date_from'] = $date_from;
-            $args['date_till'] = $date_till;
+            $now = time();
 
-            $ittour_global_form_args['date_excursion_from'] = $date_from;
-            $ittour_global_form_args['date_excursion_till'] = $date_till;
+            $date_from_timestamp = snth_convert_date_format($date_from, $format_from = 'd.m.y', $format_to = 'U');
+            $date_till_timestamp = snth_convert_date_format($date_till, $format_from = 'd.m.y', $format_to = 'U');
+
+            if ((int)$now > (int)$date_from_timestamp || (int)$now > (int)$date_till_timestamp) {
+                $ittour_global_tour_result['error'] = __('Tour dates must be more or equal to the current date.', 'snthwp');
+            } else {
+                $args['date_from'] = $date_from;
+                $args['date_till'] = $date_till;
+
+                $ittour_global_form_args['date_excursion_from'] = $date_from;
+                $ittour_global_form_args['date_excursion_till'] = $date_till;
+            }
+
         }
 
         if (!empty($_GET['from_city'])) {
@@ -466,16 +491,22 @@ function ittour_set_global_excursion_search_result() {
         $url = http_build_query($_GET);
         $ittour_global_template_args['url'] = $url;
 
-        $search = ittour_excursion_search(ITTOUR_LANG);
-        $search_result = $search->get($country_id_string, $args);
+        if (empty($ittour_global_tour_result['error'])) {
+            $search = ittour_excursion_search(ITTOUR_LANG);
+            $search_result = $search->get($country_id_string, $args);
 
-        if (is_wp_error($search_result)) {
-            $ittour_global_tour_result['result'] = $search_result;
-            $ittour_global_template_args['result'] = $search_result;
+            if (is_wp_error($search_result)) {
+                $ittour_global_tour_result['result'] = $search_result;
+                $ittour_global_template_args['result'] = $search_result;
+            } else {
+                $ittour_global_tour_result['result'] = $search_result;
+                $ittour_global_template_args['result'] = $search_result;
+            }
         } else {
-            $ittour_global_tour_result['result'] = $search_result;
-            $ittour_global_template_args['result'] = $search_result;
+            $ittour_global_tour_result['result'] = array();
+            $ittour_global_template_args['result'] = array();
         }
+
     }
 }
 

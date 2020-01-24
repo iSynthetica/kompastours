@@ -828,6 +828,7 @@ function ittour_get_country_excursion_field($params, $args = array()) {
 
         ?>
         <select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%">
+            <option></option>
             <?php
             if (!empty($params['cities_from_dependencies'][$city_from]['countries'])) {
                 foreach ($params['cities_from_dependencies'][$city_from]['countries'] as $id => $country) {
@@ -2972,12 +2973,23 @@ function ittour_excursion_get_transport_by_id($id) {
     return $transport;
 }
 
-function get_error_message($error) {
+function get_error_message($message) {
     ob_start();
     ?>
     <div class="alert alert-danger alert-dismissable mt-10 mb-10">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <i class="fas fa-exclamation-triangle"></i> <?php echo $error; ?>
+        <i class="fas fa-exclamation-triangle"></i> <?php echo $message; ?>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
+function get_info_message($message) {
+    ob_start();
+    ?>
+    <div class="alert alert-info alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        <i class="fas fa-info-circle"></i> <?php echo $message; ?>
     </div>
     <?php
     return ob_get_clean();

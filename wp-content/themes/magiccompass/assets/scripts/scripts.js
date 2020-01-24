@@ -27349,30 +27349,29 @@ var SNTHJS = SNTHJS || {};
             citiesHtml = '<select id="city_excursion_select" name="city[]" class="form-control form-select2" style="width: 100%" multiple>',
             citiesPlaceholder;
 
+        console.log(selectedCountries);
+
         if (selectedCountries && selectedCountries.length) {
             citiesPlaceholder = snthWpJsObj.searchForm.selectCity;
 
             citiesHtml += '<option></option>';
 
-            for (var i = 0; i < selectedCountries.length; i++) {
-                var countryId = selectedCountries[i];
-                var citiesByCountryId = citiesByCountry[countryId]['cities'];
+            var countryId = selectedCountries;
+            console.log(countryId);
+            var citiesByCountryId = citiesByCountry[countryId]['cities'];
 
-                console.log(citiesByCountryId);
+            if (citiesByCountryId && snthGetObjectLength(citiesByCountryId)) {
+                var citiesByCountryIdLength = snthGetObjectLength(citiesByCountryId);
 
-                if (citiesByCountryId && snthGetObjectLength(citiesByCountryId)) {
-                    var citiesByCountryIdLength = snthGetObjectLength(citiesByCountryId);
+                $.each( citiesByCountryId, function( key, value ) {
+                    // console.log(value);
 
-                    $.each( citiesByCountryId, function( key, value ) {
-                        console.log(value);
-
-                        var selected = '';
-                        if (selectedCities && selectedCities.length && selectedCities.includes(value.id)) {
-                            selected = ' selected';
-                        }
-                        citiesHtml += '<option value="'+value.id+'"'+selected+'>'+value.name+'</option>';
-                    });
-                }
+                    var selected = '';
+                    if (selectedCities && selectedCities.length && selectedCities.includes(value.id)) {
+                        selected = ' selected';
+                    }
+                    citiesHtml += '<option value="'+value.id+'"'+selected+'>'+value.name+'</option>';
+                });
             }
         } else {
             citiesPlaceholder = snthWpJsObj.searchForm.selectCountryFirst;

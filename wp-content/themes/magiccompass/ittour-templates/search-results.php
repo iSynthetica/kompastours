@@ -25,7 +25,13 @@ if (!empty($ittour_global_tour_result['error'])) {
             'title' => __('Search tours', 'snthwp')
         )
     );
-    $ittour_content = ittour_get_template('search/no-parameters.php');
+    $ittour_content = '';
+
+    if ($ittour_global_tour_result['error'] !== 'no_parameters') {
+        $ittour_content .= get_error_message(get_ittour_error($ittour_global_tour_result['error']));
+    }
+
+    $ittour_content .= ittour_get_template('search/no-parameters.php');
 }  elseif (!empty($ittour_global_tour_result['result'])) {
     $search_result = $ittour_global_tour_result['result'];
 

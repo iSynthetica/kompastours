@@ -2,6 +2,8 @@
 /**
  * @var $tour
  */
+
+global $ittour_global_form_args;
 ?>
 
 <div class="tour_list_container mt-20 mb-20">
@@ -197,7 +199,7 @@
 
                                     <div class="col-lg-12 col-5">
                                         <a
-                                            href="/excursion-tour/<?php echo $tour['key'] ?>/01.11.19/01.11.19/"
+                                            href="/excursion-tour/<?php echo $tour['key'] ?>/<?php echo $ittour_global_form_args["date_excursion_from"]; ?>/<?php echo $ittour_global_form_args["date_excursion_till"]; ?>/"
                                             class="btn shape-rnd type-hollow hvr-invert size-sm size-extended"
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>

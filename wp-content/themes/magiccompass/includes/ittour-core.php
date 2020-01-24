@@ -73,6 +73,7 @@ function get_search_page_id($type = 'tour') {
 function get_ittour_error($error) {
     $errors = array(
         'no_country' => __('Country field is required', 'snthwp'),
+        'Field date_from must be more or equal to the current date.' => __('Field date_from must be more or equal to the current date.', 'snthwp'),
     );
 
     if (!empty($errors[$error])) {
