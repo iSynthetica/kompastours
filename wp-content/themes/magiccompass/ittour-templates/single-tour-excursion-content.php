@@ -67,6 +67,55 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                         <?php
                     }
 
+
+                    ?>
+                    <ul class="tour-details-list">
+                        <?php
+
+                        if (!empty($tour_info["transport_type"]) && !empty($tour_info["transport_type_id"])) {
+                            ?>
+                            <li>
+                                <?php
+                                if (1 == $tour_info["transport_type_id"]) {
+                                    ?><i class="fas fa-plane list-item-icon"></i><?php
+                                } elseif (2 == $tour_info["transport_type_id"]) {
+                                    ?><i class="fas fa-bus list-item-icon"></i><?php
+                                } elseif (3 == $tour_info["transport_type_id"]) {
+                                    ?><i class="fas fa-train list-item-icon"></i><?php
+                                } else {
+                                    ?><i class="fas fa-walking list-item-icon"></i><?php
+                                }
+                                ?>
+
+                                <small><?php _e('Transport', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["transport_type"]; ?></strong>
+                            </li>
+                            <?php
+                        }
+
+                        if (!empty($tour_info['cities'])) {
+                            $count = count($tour_info['cities']);
+                            $i = 1;
+                            ?>
+                            <li>
+                                <i class="fas fa-route list-item-icon"></i>
+                                <small><?php _e('Cities in the route', 'snthwp'); ?>:</small>
+                                <strong>
+                                <?php
+                                foreach ($tour_info['cities'] as $city) {
+                                    echo $city['name'];
+                                    if ($i < $count) echo ', ';
+                                    $i++;
+                                }
+                                ?>
+                                </strong>
+                            </li>
+                            <?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+
                     if (!empty($tour_info['not_include'])) {
                         ?>
                         <h3><?php _e('Tour price not includes', 'snthwp'); ?></h3>
