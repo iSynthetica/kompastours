@@ -201,9 +201,15 @@ function ittour_set_global_tour_search_result() {
     global $ittour_global_template_args;
 
     $country_id = !empty($_GET['country']) ? sanitize_text_field($_GET['country']) : false;
+    $parameters = $_GET;
 
     if (!$country_id) { // Open new search page
-        $ittour_global_tour_result['error'] = 'no_country';
+
+        if (!empty($parameters)) {
+            $ittour_global_tour_result['error'] = 'no_country';
+        } else {
+            $ittour_global_tour_result['error'] = 'no_parameters';
+        }
     } else {
         $ittour_global_form_args['country'] = $country_id;
         $ittour_global_template_args['country_id'] = $country_id;
