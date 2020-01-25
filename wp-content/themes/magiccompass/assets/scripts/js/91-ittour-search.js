@@ -1010,6 +1010,23 @@
         filterSummary.val(filterSummaryText);
     }
 
+    $(document.body).on('click', '.scroll-to-tab', function(e) {
+        e.preventDefault();
+        var btn = $(this);
+        var scrollTo = btn.data('scroll-to');
+        var scrollTab = btn.data('scroll-tab');
+
+        console.log(scrollTo);
+        console.log(scrollTab);
+
+        $.smoothScroll({
+            scrollTarget: scrollTo,
+            offset: -60
+        });
+
+        $(scrollTab).trigger( "click" );
+    });
+
 
     $(document).ready(function() {
         var staticForm = $('#search-form');
@@ -1021,8 +1038,7 @@
         }
     });
 
-    $(window).on('load', function () {
-    });
+    $(window).on('load', function () {});
 
     $(window).on('scroll', function() {});
 

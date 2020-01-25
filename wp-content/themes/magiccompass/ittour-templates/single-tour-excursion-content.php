@@ -53,24 +53,19 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 </div>
 
                 <div class="col-md-12 col-lg-5">
-                    <?php
-                    if (!empty($tour_info['include'])) {
-                        ?>
-                        <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
-                        <ul class="tour-details-list">
-                            <?php
-                            foreach ($tour_info['include'] as $item) {
-                                ?><li><?php echo $item; ?></li><?php
-                            }
-                            ?>
-                        </ul>
-                        <?php
-                    }
-
-
-                    ?>
                     <ul class="tour-details-list">
                         <?php
+
+                        if (!empty($tour_info["from_city"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-map-pin list-item-icon"></i>
+                                <small><?php _e('Departure from', 'snthwp'); ?>:</small>
+                                <strong><?php echo $tour_info["from_city"] ?></strong>
+                            </li>
+                            <?php
+                            unset($tour_info['from_city']);
+                        }
 
                         if (!empty($tour_info["transport_type"]) && !empty($tour_info["transport_type_id"])) {
                             ?>
@@ -91,6 +86,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <strong><?php echo $tour_info["transport_type"]; ?></strong>
                             </li>
                             <?php
+                            unset($tour_info['transport_type']);
+                            unset($tour_info['transport_type_id']);
+                        }
+
+                        if (!empty($tour_info["duration"])) {
+                            ?>
+                            <li>
+                                <i class="far fa-clock list-item-icon"></i>
+                                <small><?php _e('Tour duration', 'snthwp'); ?>:</small>
+                                <strong>
+                                    <?php
+                                    echo $tour_info["duration"] ?> <?php _e('nights', 'snthwp');
+                                    ?>
+                                </strong>
+                            </li>
+                            <?php
+                            unset($tour_info['duration']);
+                        }
+
+                        if (!empty($tour_info["night_moves"])) {
+                            ?>
+                            <li>
+                                <i class="far fa-moon list-item-icon"></i>
+                                <small><?php _e('Night moves', 'snthwp'); ?>:</small>
+                                <strong>
+                                    <?php echo $tour_info["night_moves"] ?>
+                                </strong>
+                            </li>
+                            <?php
+                            unset($tour_info['night_moves']);
                         }
 
                         if (!empty($tour_info['cities'])) {
@@ -101,20 +126,73 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <i class="fas fa-route list-item-icon"></i>
                                 <small><?php _e('Cities in the route', 'snthwp'); ?>:</small>
                                 <strong>
+                                    <?php
+                                    foreach ($tour_info['cities'] as $city) {
+                                        echo $city['name'];
+                                        if ($i < $count) echo ', ';
+                                        $i++;
+                                    }
+
+                                    ?>
+                                </strong>
+
                                 <?php
-                                foreach ($tour_info['cities'] as $city) {
-                                    echo $city['name'];
-                                    if ($i < $count) echo ', ';
-                                    $i++;
+                                if (!empty($tour_info["description"])) {
+                                    ?>
+                                    <small>(<a href="#" class="scroll-to-tab" data-scroll-to="#single_tour_tabs" data-scroll-tab="#excursions-review-tab"><?php _e('tour description', 'snthwp'); ?></a>)</small>
+                                    <?php
                                 }
                                 ?>
+                            </li>
+                            <?php
+                            unset($tour_info['cities']);
+                        }
+
+                        if (!empty($tour_info['hikes'])) {
+                            $count = count($tour_info['hikes']);
+                            ?>
+                            <li>
+                                <i class="fas fa-archway list-item-icon"></i>
+                                <small><?php _e('Excursions', 'snthwp'); ?>:</small>
+                                <strong><?php echo $count; ?></strong>
+                                <small>(<a href="#" class="scroll-to-tab" data-scroll-to="#single_tour_tabs" data-scroll-tab="#excursions-tab"><?php _e('excursions description', 'snthwp'); ?></a>)</small>
+                            </li>
+                            <?php
+                            unset($tour_info['cities']);
+                        }
+
+                        if (!empty($tour_info['meal_type_full'])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-utensils list-item-icon"></i>
+                                <small><?php _e('Meal type', 'snthwp'); ?>:</small>
+                                <strong>
+                                    <?php echo $tour_info['meal_type_full']; ?>
                                 </strong>
                             </li>
                             <?php
+
+                            unset($tour_info['meal_type_full']);
+                            if (!empty($tour_info['meal_type'])) {
+                                unset($tour_info['meal_type']);
+                            }
                         }
                         ?>
                     </ul>
+
                     <?php
+                    if (!empty($tour_info['include'])) {
+                        ?>
+                        <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
+                        <ul class="tour-details-list">
+                            <?php
+                            foreach ($tour_info['include'] as $item) {
+                                ?><li><?php echo $item; ?></li><?php
+                            }
+                            ?>
+                        </ul>
+                        <?php
+                    }
 
                     if (!empty($tour_info['not_include'])) {
                         ?>
@@ -146,43 +224,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         if (!empty($tour_info["description"])) {
             ?>
             <li class="nav-item">
-                <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="true">
+                <a class="nav-link active" id="excursions-review-tab" data-toggle="tab" href="#excursions-review" role="tab" aria-controls="excursions-review" aria-selected="true">
                     <?php _e('Tour description', 'snthwp'); ?>
                 </a>
             </li>
             <?php
             $first = false;
         }
-        ?>
 
-        <li class="nav-item">
-            <a class="nav-link<?php echo $first ? ' active' : ''; ?>"
-               id="calendar-tab"
-               data-toggle="tab"
-               href="#calendar"
-               role="tab"
-               aria-controls="calendar"
-               aria-selected="<?php echo $first ? 'true' : 'false'; ?>"
-            >
-                <?php _e('More Tours', 'snthwp'); ?>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" id="home-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">
-                <?php _e('Hotel Description', 'snthwp'); ?>
-            </a>
-        </li>
-
-        <?php
-        if (!empty($tour_info["hotel_info"]['lat']) && !empty($tour_info["hotel_info"]['lng'])) {
+        if (!empty($tour_info["hikes"])) {
             ?>
             <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                    <?php _e('Location', 'snthwp'); ?>
+                <a class="nav-link<?php echo $first ? ' active' : ''; ?>"
+                   id="excursions-tab"
+                   data-toggle="tab"
+                   href="#excursions"
+                   role="tab"
+                   aria-controls="excursions"
+                   aria-selected="<?php echo $first ? 'true' : 'false'; ?>"
+                >
+                    <?php _e('Excursions List', 'snthwp'); ?>
                 </a>
             </li>
             <?php
+            $first = false;
         }
         ?>
     </ul>
@@ -193,7 +258,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
         if (!empty($tour_info["description"])) {
             ?>
-            <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active" id="excursions-review" role="tabpanel" aria-labelledby="excursions-review-tab">
                 <?php
                 echo $tour_info['description'];
                 ?>
@@ -201,82 +266,51 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <?php
             $first_tab = false;
         }
-        ?>
 
-        <div class="tab-pane fade<?php echo $first_tab ? ' show active' : ''; ?>" id="calendar" role="tabpanel" aria-labelledby="home-tab">
-            <?php
-            $template_args = array(
-                'country' => $tour_info["country_id"],
-                'region' => $tour_info["region_id"],
-                'hotel' => $tour_info["hotel_id"],
-                'hotel_rating' => $tour_info["hotel_rating"],
-            );
-
-            if (!empty($tour_info['date_from'])) {
-                $date_obj = date_create_from_format('Y-m-d', $tour_info['date_from']);
-                $tour_date = date_format($date_obj, 'd.m.y');
-
-                $date_range = ittour_get_date_range($tour_date, 2);
-
-                $template_args['date_from'] = $date_range["date_from"];
-                $template_args['date_till'] = $date_range["date_till"];
-            }
-
-            if (!empty($tour_info['adult_amount'])) {
-                $template_args['adult_amount'] = $tour_info["adult_amount"];
-            }
-
-            if (!empty($tour_info['from_city_id'])) {
-                $template_args['from_city'] = $tour_info["from_city_id"];
-            }
-
-            if (!empty($tour_info['child_amount']) && !empty($tour_info['child_age'])) {
-                $template_args['child_amount'] = $tour_info["child_amount"];
-                $template_args['child_age'] = $tour_info["child_age"];
-            }
-
-            if (!empty($tour_info["type"])) {
-                $template_args['type'] = $tour_info["type"];
-
-                if (1 === $tour_info["type"] && !empty($tour_info["transport_type"])) {
-                    $kind = 1;
-
-                    if ('bus' === $tour_info["transport_type"]) {
-                        $kind = 2;
-                    }
-
-                    $template_args['kind'] = $kind;
-                }
-            }
-
-            $template_args['template'] = 'table-sort-by-date';
-
-            ittour_show_template('general/tours-list-ajax.php', $template_args); ?>
-        </div>
-
-        <div class="tab-pane fade" id="description" role="tabpanel" aria-labelledby="home-tab">
-            <?php
-            ittour_show_template('single-tour/hotel-description.php', array('hotel_info' => $tour_info['hotel_info']));
+        if (!empty($tour_info["hikes"])) {
             ?>
-        </div>
-
-
-
-        <?php
-        if (!empty($tour_info["hotel_info"]['lat']) && !empty($tour_info["hotel_info"]['lng'])) {
-            ?>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="tab-pane fade<?php echo $first_tab ? ' show active' : ''; ?>" id="excursions" role="tabpanel" aria-labelledby="excursions-tab">
                 <?php
-                ittour_show_template('single-tour/hotel-map.php', array(
-                    'hotel_info' => $tour_info['hotel_info'],
-                    'hotel_title' => $tour_info['hotel'] . ' ' . ittour_get_hotel_number_rating_by_id($tour_info['hotel_rating'])
-                ));
+                foreach ($tour_info["hikes"] as $hike) {
+                    ?>
+                    <div class="hike-item">
+                        <h4>
+                            <?php echo $hike['name']; ?>
+                            (<?php
+                            if (empty($hike['prices'])) {
+                                echo __('Free', 'snthwp');
+                            } else {
+                                echo $hike['prices'][10] . '€';
+                            }
+                            ?>)
+                        </h4>
+                        <p>
+                            <i class="fas fa-map-marker-alt list-item-icon"></i>
+                            <?php echo $hike['country']; ?>, <?php echo $hike['city']; ?>
+                        </p>
+
+                        <?php //var_dump($hike['prices']); ?>
+
+                        <?php echo wpautop(sanitize_text_field($hike['description']));?>
+                    </div>
+                    <?php
+                }
+                // var_dump($tour_info["hikes"]);
                 ?>
             </div>
             <?php
+            $first_tab = false;
+
+            unset($tour_info["hikes"]);
         }
         ?>
     </div>
 </div>
 
-<?php var_dump($tour_info); ?>
+<?php
+unset($tour_info["name"]);
+unset($tour_info["countries"]);
+unset($tour_info["include"]);
+unset($tour_info["not_include"]);
+// var_dump($tour_info);
+?>

@@ -442,3 +442,27 @@
         background-color: transparent;
     }
 }
+
+#excursions-review {
+    table {
+        display: block;
+        width: 100%!important;
+        max-width: 100%!important;
+        tbody {
+            display: block;
+            width: 100%!important;
+            max-width: 100%!important;
+        }
+        tr {
+            display: block;
+            width: 100%!important;
+            max-width: 100%!important;
+
+            td {
+                display: block;
+                width: 100%!important;
+                max-width: 100%!important;
+            }
+        }
+    }
+}

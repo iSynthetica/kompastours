@@ -28800,6 +28800,23 @@ i.list-item-icon {
   #find-me-tour-form__holder {
     background-color: transparent; } }
 
+#excursions-review table {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important; }
+  #excursions-review table tbody {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important; }
+  #excursions-review table tr {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important; }
+    #excursions-review table tr td {
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important; }
+
 .tour_review_rate {
   margin-bottom: 0.625rem; }
   .tour_review_rate i {
