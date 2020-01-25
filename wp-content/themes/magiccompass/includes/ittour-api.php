@@ -478,6 +478,26 @@ function ittour_set_global_excursion_search_result() {
 
         }
 
+        if (!empty($_GET['night_moves'])) {
+            $night_moves = !empty($_GET['night_moves']) ? $_GET['night_moves'] : false;
+
+            if (!empty($night_moves)) {
+                $args['night_moves'] = $night_moves;
+                $ittour_global_form_args['night_moves'] = $night_moves;
+            }
+        }
+
+        if (!empty($_GET['transport_type'])) {
+            $transport_type = !empty($_GET['transport_type']) ? $_GET['transport_type'] : false;
+
+            $transport_type_string = $transport_type;
+
+            if (!empty($transport_type_string)) {
+                $args['transport_type'] = $transport_type_string;
+                $ittour_global_form_args['transport_type_excursion'] = $transport_type_string;
+            }
+        }
+
         if (!empty($_GET['from_city'])) {
             $args['from_city'] = sanitize_text_field($_GET['from_city']);
             $ittour_global_form_args['from_city_excursion'] = $args['from_city'];

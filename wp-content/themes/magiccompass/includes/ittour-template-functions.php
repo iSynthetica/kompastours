@@ -1,66 +1,4 @@
 <?php
-/**
- * Show templates passing attributes and including the file.
- *
- * @param string $template_name
- * @param array $args
- * @param string $template_path
- */
-function ittour_show_template($template_name, $args = array(), $template_path = 'ittour-templates')
-{
-    if (!empty($args) && is_array($args)) {
-        extract($args);
-    }
-
-    $located = snth_locate_template($template_name, $template_path);
-
-    if (!file_exists($located)) {
-        return;
-    }
-
-    include($located);
-}
-
-/**
- * Like show, but returns the HTML instead of outputting.
- *
- * @param $template_name
- * @param array $args
- * @param string $template_path
- * @param string $default_path
- *
- * @return string
- */
-function ittour_get_template($template_name, $args = array(), $template_path = 'ittour-templates')
-{
-    ob_start();
-    snth_show_template($template_name, $args, $template_path);
-    return ob_get_clean();
-}
-
-/**
- * Locate a template and return the path for inclusion.
- *
- * @param $template_name
- * @param string $template_path
- * @return string
- */
-function ittour_locate_template($template_name, $template_path = 'ittour-templates')
-{
-    if (!$template_path) {
-        $template_path = 'ittour-templates';
-    }
-
-    $template = locate_template(
-        array(
-            trailingslashit($template_path) . $template_name,
-            $template_name
-        )
-    );
-
-    return $template;
-}
-
 function ittour_get_form_fields($args = array()) {
     global $ittour_get_form_fields;
 
@@ -134,6 +72,7 @@ function ittour_get_form_fields($args = array()) {
 
             'filter_summary' => ittour_get_filter_summary_field($params, $args),
             'filter_button' => ittour_get_filter_button($params, $args),
+            'transport_types' =>  ittour_get_transport_type_field($args),
             'meal_types' =>  itour_get_meal_type_field($args),
             'price_limit' =>  ittour_get_price_limit_field($args),
 
@@ -148,9 +87,12 @@ function ittour_get_form_fields($args = array()) {
             'dates_excursion_summary' => ittour_get_dates_excursion_summary_field($excursion_params, $args),
             'countries_excursion' =>  ittour_get_country_excursion_field($excursion_params, $args),
 
+            'filter_excursion_summary' => ittour_get_filter_excursion_summary_field($excursion_params, $args),
             'filter_excursion_button' => ittour_get_filter_excursion_button($excursion_params, $args),
+            'transport_types_excursion' =>  ittour_get_transport_type_excursion_field($excursion_params, $args),
+            'night_moves_excursion' =>  ittour_get_night_moves_excursion_field($excursion_params, $args),
+
             'dates_excursion_holder' => ittour_get_excursion_dates_holder($args),
-            'transport_types' =>  ittour_get_transport_type_field($args),
             'countries_req' =>  ittour_get_country_req_field($params, $args),
 
             'excursion_params' => $excursion_params,
@@ -675,6 +617,64 @@ function ittour_get_region_field($params, $args = array()) {
     return ob_get_clean();
 }
 
+function ittour_get_transport_type_field($args = array()) {
+    ob_start();
+    $type = '';
+    $kind = '';
+
+    if (empty($args)) {
+        $type = '1';
+        $kind = '';
+    } else {
+        if (!empty($args['tour_type'])) {
+            $type = $args['tour_type'];
+
+            if (!empty($args['tour_kind'])) {
+                $kind = $args['tour_kind'];
+            }
+        }
+    }
+
+    ?>
+    <label><?php echo __('Transport', 'snthwp') ?></label>
+
+    <ul id="tour_type_select" class="form-list">
+        <li>
+            <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo 1 === (int)$type ? ' checked' : ''; ?>>
+            <label for="tour_type_included"><?php echo __('Transit included', 'snthwp'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo 2 === (int)$type ? ' checked' : ''; ?>>
+            <label for="tour_type_excluded"><?php echo __('Transit not included', 'snthwp'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_type_no" class="styled_1" name="tour_type" type="radio" value="" <?php echo '' === $type ? ' checked' : ''; ?>>
+            <label for="tour_type_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
+        </li>
+    </ul>
+
+    <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) && '2' !== $type ? '' : ' style="display:none;"' ?>>
+        <li>
+            <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo 1 === (int)$kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_flight"><?php echo __('Plane', 'snthwp'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo 2 === (int)$kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_bus"><?php echo __('Bus', 'snthwp'); ?></label>
+        </li>
+
+        <li>
+            <input id="tour_kind_no" class="styled_1" name="tour_kind" type="radio" value=""<?php echo '' === $kind ? ' checked' : ''; ?>>
+            <label for="tour_kind_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
+        </li>
+    </ul>
+    <?php
+    return ob_get_clean();
+}
+
 // Excursion Tour search
 function ittour_set_excursion_parameters($excursion_params, $args = array()) {
     $selected_from_city = $args['from_city_excursion'];
@@ -685,6 +685,19 @@ function ittour_set_excursion_parameters($excursion_params, $args = array()) {
     $excursion_params['countries'] = ittour_get_destination_by_id($excursion_params["countries"]);
     $excursion_params['cities'] = ittour_get_destination_by_id($excursion_params["cities"]);
     $excursion_params['transport_types'] = ittour_get_destination_by_id($excursion_params["transport_types"]);
+
+    foreach ($excursion_params['transport_types'] as $tti => $tt) {
+        $countries = explode(',', $tt['country_id']);
+        $excursion_params['transport_types'][$tti]['countries'] = $countries;
+
+        foreach ($countries as $country_id) {
+            if (!empty($excursion_params['countries'][$country_id])) {
+                $excursion_params['countries'][$country_id]['transport'][$tti] = $tt;
+            }
+        }
+    }
+
+    $excursion_params['night_moves'] = ittour_get_destination_by_id($excursion_params["night_moves"]);
 
     foreach ($selected_country as $i => $sc) {
         if (empty($excursion_params['countries'][$sc])) {
@@ -727,18 +740,67 @@ function ittour_set_excursion_parameters($excursion_params, $args = array()) {
     foreach ($excursion_params['cities'] as $city_id => $city) {
         if (!empty($city['from_city_id'])) {
             $from_city_ids = explode(',', $city['from_city_id']);
+            $transport_by_city = explode(',', $city['transport_id']);
+            $transport_by_city_array = array();
+
+            foreach ($transport_by_city as $transport_id) {
+                $transport_by_city_array[$transport_id] = $excursion_params['transport_types'][trim($transport_id)];
+            }
 
             foreach ($from_city_ids as $from_city_id) {
                 $cities_from_dependencies[$from_city_id]['countries'][$city['country_id']]['cities'][$city_id] = $city;
+                $cities_from_dependencies[$from_city_id]['countries'][$city['country_id']]['cities'][$city_id]['transport'] = $transport_by_city_array;
             }
         }
     }
 
-    $excursion_params['cities_from_dependencies'] = $cities_from_dependencies;
+    // Set selected parameters
 
+    $excursion_params['cities_from_dependencies'] = $cities_from_dependencies;
     $excursion_params['selected_from_city'] = $selected_from_city;
     $excursion_params['selected_country'] = $selected_country;
     $excursion_params['selected_city'] = $selected_city;
+
+    $transport_types_to_show = $excursion_params['transport_types'];
+    $selected_transport = $excursion_params['transport_types'];
+    $current_city_from_dep = $cities_from_dependencies[$selected_from_city];
+
+    if (!empty($selected_city)) {
+        $current_city_from_dep_transport = array();
+    } elseif (!empty($selected_country)) {
+        $current_city_from_dep_transport = array();
+
+        foreach ($selected_country as $country_id) {
+            $transport = $current_city_from_dep['countries'][$country_id]['transport'];
+            $current_city_from_dep_transport = array_merge($current_city_from_dep_transport, $transport);
+        }
+    } else {
+        $current_city_from_dep_transport = $current_city_from_dep["transport"];
+    }
+
+    $current_city_from_dep_transport_keys = array_keys($current_city_from_dep_transport);
+
+    foreach ($transport_types_to_show as $tttsi => $ttts) {
+        if (!in_array($tttsi, $current_city_from_dep_transport_keys)) {
+            unset($transport_types_to_show[$tttsi]);
+            unset($selected_transport[$tttsi]);
+        }
+    }
+
+    if (!empty($args["transport_type_excursion"])) {
+        $selected_transport_args = $args["transport_type_excursion"];
+
+        foreach ($selected_transport as $ti => $tt) {
+            if ((int)$ti !== (int)$selected_transport_args) {
+                unset($selected_transport[$ti]);
+            }
+        }
+    } else {
+        $selected_transport = array();
+    }
+
+    $excursion_params['selected_transport'] = array_keys($selected_transport);
+    $excursion_params['transport_types_to_show'] = array_keys($transport_types_to_show);
 
     return $excursion_params;
 }
@@ -769,7 +831,6 @@ function ittour_get_from_city_excursion_summary_field($params, $args) {
 
     return ob_get_clean();
 }
-
 
 function ittour_get_destination_excursion_summary_field($params, $args = array()) {
     $value = '';
@@ -964,10 +1025,42 @@ function ittour_get_excursion_dates_holder($args) {
     return ob_get_clean();
 }
 
+function ittour_get_filter_excursion_summary_field($params, $args) {
+    $disabled_class = '';
+    $field_status = ' readonly';
+
+    if (empty($params['selected_country'])) {
+        $disabled_class = ' disabled-item';
+        $field_status = ' disabled';
+    }
+
+    $field_value = '';
+
+    ob_start();
+    ?>
+    <div id="filter_excursion-summary__container" class="search-summary__container<?php echo $disabled_class; ?>">
+        <div class="input-group input-group__style-1">
+            <div class="input-group-prepend">
+                <span class="btn btn-light"><i class="fas fa-sliders-h form-data-toggle-control-icon"></i></span>
+            </div>
+
+            <input id="filter_excursion_summary"
+                   type="text"
+                   class="form-control form-data-toggle-control"
+                   data-form_toggle_target="filter-excursion-select__section"
+                   placeholder="<?php echo __('Additional filter', 'snthwp') ?>"
+                   value="<?php echo $field_value; ?>"<?php echo $field_status; ?>
+            >
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+
 function ittour_get_filter_excursion_button($params, $args) {
     $field_status = '';
 
-    if (empty($args['country']) || empty($params['countries'][$args['country']])) {
+    if (empty($params['selected_country'])) {
         $field_status = ' disabled';
     }
     ob_start();
@@ -1020,6 +1113,68 @@ function ittour_get_from_city_excursion_field($params, $args, $template = 'selec
         </ul>
         <?php
     }
+    return ob_get_clean();
+}
+
+function ittour_get_transport_type_excursion_field($excursion_params, $args = array()) {
+    ob_start();
+    $selected_transport_keys = $excursion_params["selected_transport"];
+    $transport_types_to_show_keys = $excursion_params["transport_types_to_show"];
+
+    if (!empty($excursion_params["transport_types"])) {
+        ?>
+        <label><?php echo __('Transport', 'snthwp') ?></label>
+
+        <ul id="excursion_transport_type_select" class="form-list">
+            <li>
+                <input id="excursion_transport_type_any" class="styled_1" name="transport_type" type="radio" value=""<?php echo empty($selected_transport_keys) ? ' checked' : ''; ?>>
+                <label for="excursion_transport_type_any"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
+            </li>
+            <?php
+            foreach ($excursion_params["transport_types"] as $id => $transport_type) {
+                $to_show = in_array($id, $transport_types_to_show_keys);
+                $selected = $to_show && in_array($id, $selected_transport_keys);
+                ?>
+                <li<?php echo !$to_show ? ' style="display:none"' : ''; ?>>
+                    <input id="excursion_transport_type_<?php echo $id ?>" class="styled_1" name="transport_type" type="radio" value="<?php echo $id ?>"<?php echo $selected ? ' checked' : ''; ?>>
+                    <label for="excursion_transport_type_<?php echo $id ?>"><?php echo $transport_type['name']; ?></label>
+                </li>
+                <?php
+            }
+            ?>
+        </ul>
+        <?php
+    }
+    ?>
+    <?php
+    return ob_get_clean();
+}
+
+function ittour_get_night_moves_excursion_field($excursion_params, $args = array()) {
+    ob_start();
+    $selected_night_moves = !empty($args["night_moves"]) ? $args["night_moves"] : false;
+    ?>
+    <label><?php echo __('Night moves', 'snthwp') ?></label>
+    <ul id="excursion_transport_type_select" class="form-list">
+        <?php
+        if (!empty($excursion_params["night_moves"])) {
+            foreach ($excursion_params["night_moves"] as $nmi => $nm) {
+                ?>
+                <li>
+                    <input id="excursion_night_moves_<?php echo $nmi ?>" class="styled_1" name="night_moves" type="radio" value="<?php echo $nmi ?>"<?php echo (string)$selected_night_moves === (string)$nmi ? ' checked' : ''; ?>>
+                    <label for="excursion_night_moves_<?php echo $nmi ?>"><?php echo $nm['name']; ?></label>
+                </li>
+                <?php
+            }
+        }
+        ?>
+
+        <li>
+            <input id="excursion_night_moves_0" class="styled_1" name="night_moves" type="radio" value="0"<?php echo empty($selected_night_moves) ? ' checked' : ''; ?>>
+            <label for="excursion_night_moves_any"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
+        </li>
+    </ul>
+    <?php
     return ob_get_clean();
 }
 
@@ -1279,64 +1434,6 @@ function ittour_get_price_limit_field($args = array()) {
                     </div>
                 </div>
             </div>
-        </li>
-    </ul>
-    <?php
-    return ob_get_clean();
-}
-
-function ittour_get_transport_type_field($args = array()) {
-    ob_start();
-    $type = '';
-    $kind = '';
-
-    if (empty($args)) {
-        $type = '1';
-        $kind = '';
-    } else {
-        if (!empty($args['tour_type'])) {
-            $type = $args['tour_type'];
-
-            if (!empty($args['tour_kind'])) {
-                $kind = $args['tour_kind'];
-            }
-        }
-    }
-
-    ?>
-    <label><?php echo __('Transport', 'snthwp') ?></label>
-
-    <ul id="tour_type_select" class="form-list">
-        <li>
-            <input id="tour_type_included" class="styled_1" name="tour_type" type="radio" value="1"<?php echo 1 === (int)$type ? ' checked' : ''; ?>>
-            <label for="tour_type_included"><?php echo __('Transit included', 'snthwp'); ?></label>
-        </li>
-
-        <li>
-            <input id="tour_type_excluded" class="styled_1" name="tour_type" type="radio" value="2"<?php echo 2 === (int)$type ? ' checked' : ''; ?>>
-            <label for="tour_type_excluded"><?php echo __('Transit not included', 'snthwp'); ?></label>
-        </li>
-
-        <li>
-            <input id="tour_type_no" class="styled_1" name="tour_type" type="radio" value="" <?php echo '' === $type ? ' checked' : ''; ?>>
-            <label for="tour_type_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
-        </li>
-    </ul>
-
-    <ul id="tour_kind_select" class="form-list"<?php echo !empty($type) && '2' !== $type ? '' : ' style="display:none;"' ?>>
-        <li>
-            <input id="tour_kind_flight" class="styled_1" name="tour_kind" type="radio" value="1"<?php echo 1 === (int)$kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_flight"><?php echo __('Plane', 'snthwp'); ?></label>
-        </li>
-
-        <li>
-            <input id="tour_kind_bus" class="styled_1" name="tour_kind" type="radio" value="2"<?php echo 2 === (int)$kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_bus"><?php echo __('Bus', 'snthwp'); ?></label>
-        </li>
-
-        <li>
-            <input id="tour_kind_no" class="styled_1" name="tour_kind" type="radio" value=""<?php echo '' === $kind ? ' checked' : ''; ?>>
-            <label for="tour_kind_no"><?php echo __('Doesn\'t metter', 'snthwp'); ?></label>
         </li>
     </ul>
     <?php
@@ -2987,7 +3084,7 @@ function get_error_message($message) {
 function get_info_message($message) {
     ob_start();
     ?>
-    <div class="alert alert-info alert-dismissable">
+    <div class="alert alert-info alert-dismissable mt-10 mb-10">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
         <i class="fas fa-info-circle"></i> <?php echo $message; ?>
     </div>

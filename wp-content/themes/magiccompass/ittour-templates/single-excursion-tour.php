@@ -19,27 +19,7 @@ $tour_key = $_GET['key'];
 
 global $ittour_global_tour_result;
 
-if (!empty($ittour_global_tour_result["result"])) {
-    $tour_info = $ittour_global_tour_result["result"];
-} else {
-    $date_from                  = !empty($_GET['date_from']) ? sanitize_text_field($_GET['date_from']) : false;
-    $date_till                  = !empty($_GET['date_till']) ? sanitize_text_field($_GET['date_till']) : false;
-    $hikes                  = !empty($_GET['hikes']) ? sanitize_text_field($_GET['hikes']) : true;
-    $includes                  = !empty($_GET['includes']) ? sanitize_text_field($_GET['includes']) : true;
-    $desc                  = !empty($_GET['desc']) ? sanitize_text_field($_GET['desc']) : 'day_detail';
-
-    $args = array();
-
-    if ($date_from) $args['date_from']  = $date_from;
-    if ($date_till) $args['date_till']  = $date_till;
-    if ($hikes) $args['hikes']  = $hikes;
-    if ($includes) $args['includes']  = $includes;
-    if ($desc) $args['desc']  = $desc;
-
-    $tour = ittour_excursion_tour($tour_key, ITTOUR_LANG);
-    $tour_info = $tour->info($args);
-}
-
+$tour_info = $ittour_global_tour_result["result"];
 $main_currency_label = array();
 $main_currency = array();
 

@@ -23,8 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             <div class="row">
                 <div class="col-md-12 col-lg-7">
                     <?php
-                    // Show gallery images
-
                     if (!empty($tour_info["countries"][0]["images"][0]["full"])) {
                         $gallery_images = array();
 
@@ -47,9 +45,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
                         ittour_show_template('general/tour-gallery.php', array('gallery_images' => $gallery_images));
                     }
-
+                    snth_the_social_share();
                     ?>
-                    <?php snth_the_social_share(); ?>
                 </div>
 
                 <div class="col-md-12 col-lg-5">
@@ -64,7 +61,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <strong><?php echo $tour_info["from_city"] ?></strong>
                             </li>
                             <?php
-                            unset($tour_info['from_city']);
                         }
 
                         if (!empty($tour_info["transport_type"]) && !empty($tour_info["transport_type_id"])) {
@@ -86,8 +82,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <strong><?php echo $tour_info["transport_type"]; ?></strong>
                             </li>
                             <?php
-                            unset($tour_info['transport_type']);
-                            unset($tour_info['transport_type_id']);
                         }
 
                         if (!empty($tour_info["duration"])) {
@@ -102,7 +96,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 </strong>
                             </li>
                             <?php
-                            unset($tour_info['duration']);
                         }
 
                         if (!empty($tour_info["night_moves"])) {
@@ -115,7 +108,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 </strong>
                             </li>
                             <?php
-                            unset($tour_info['night_moves']);
                         }
 
                         if (!empty($tour_info['cities'])) {
@@ -145,7 +137,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 ?>
                             </li>
                             <?php
-                            unset($tour_info['cities']);
                         }
 
                         if (!empty($tour_info['hikes'])) {
@@ -158,7 +149,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 <small>(<a href="#" class="scroll-to-tab" data-scroll-to="#single_tour_tabs" data-scroll-tab="#excursions-tab"><?php _e('excursions description', 'snthwp'); ?></a>)</small>
                             </li>
                             <?php
-                            unset($tour_info['cities']);
                         }
 
                         if (!empty($tour_info['meal_type_full'])) {
@@ -171,11 +161,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                                 </strong>
                             </li>
                             <?php
-
-                            unset($tour_info['meal_type_full']);
-                            if (!empty($tour_info['meal_type'])) {
-                                unset($tour_info['meal_type']);
-                            }
                         }
                         ?>
                     </ul>
@@ -212,6 +197,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
         </div>
 
         <div class="col-md-4 col-lg-3">
+            <?php
+            ittour_show_template('single-excursion-tour/book-tour.php', array(
+                    'tour_info' => $tour_info,
+                    'main_currency_label' => $main_currency_label,
+                    'main_currency' => $main_currency,
+                )
+            );
+            ?>
+
+            <?php ittour_show_template('single-excursion-tour/book-by-phone.php') ?>
         </div>
     </div>
 </section>
@@ -300,17 +295,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             </div>
             <?php
             $first_tab = false;
-
-            unset($tour_info["hikes"]);
         }
         ?>
     </div>
 </div>
 
 <?php
-unset($tour_info["name"]);
-unset($tour_info["countries"]);
-unset($tour_info["include"]);
-unset($tour_info["not_include"]);
 // var_dump($tour_info);
 ?>

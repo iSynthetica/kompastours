@@ -20645,7 +20645,8 @@ a.btn_login:hover, .btn_login:hover {
   background-color: #fff;
   border: 1px solid #ced4da; }
 
-#search-form .form-list {
+#search-form .form-list,
+#excursion-search-form .form-list {
   list-style: none;
   padding: 0;
   margin: 0 0 15px 0; }
@@ -28646,7 +28647,8 @@ i.list-item-icon {
       display: none; }
     .search-form-toggle__holder .form-data-toggle-footer {
       display: none; }
-    .search-form-toggle__holder #filter-select__section {
+    .search-form-toggle__holder #filter-select__section,
+    .search-form-toggle__holder #filter-excursion-select__section {
       left: auto;
       right: 0; }
     .search-form-toggle__holder #guests-select_section, .search-form-toggle__holder #dates-select_section {

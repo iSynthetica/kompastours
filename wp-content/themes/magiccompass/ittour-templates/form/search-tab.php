@@ -421,7 +421,7 @@ $search_excursion_steps = get_field('timeline_items', get_search_page_id('excurs
 
                         <div id="filter-excursion_summary__col" class="col-12 search-summary__col">
                             <div class="d-block d-md-none">
-                                <?php echo $form_fields['filter_summary']; ?>
+                                <?php echo $form_fields['filter_excursion_summary']; ?>
                             </div>
 
                             <div class="d-none d-md-block">
@@ -435,6 +435,14 @@ $search_excursion_steps = get_field('timeline_items', get_search_page_id('excurs
                                             <div class="search-form-step__header">
                                                 <h4><?php echo __('Filter', 'snthwp') ?></h4>
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo $form_fields['transport_types_excursion']; ?>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <?php echo $form_fields['night_moves_excursion']; ?>
                                         </div>
                                     </div>
 

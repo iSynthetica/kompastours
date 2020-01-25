@@ -27282,7 +27282,7 @@ var SNTHJS = SNTHJS || {};
     $(document.body).on('click', '#excursion_city_from_select_mobile li label', function() {
         var selectedCity = $(this).parent('li').find('input').val();
         var selectedCitySummary = $(this).parent('li').find('input').data('summary');
-        var fromCityList = $('#city_from_select_mobile');
+        var fromCityList = $('#excursion_city_from_select_mobile');
 
         fromCityList.find('li input').each(function() {
             var checkbox = $(this);
@@ -27301,7 +27301,7 @@ var SNTHJS = SNTHJS || {};
     $(document.body).on('change', '#from_excursion_city', function(){
         var selectedCity = $(this).val();
         var fromCityList = $('#excursion_city_from_select_mobile');
-        var selectedCityListItem = $('#from_city_' + selectedCity);
+        var selectedCityListItem = $('#from_city_excursion_' + selectedCity);
 
         fromCityList.find('li input').each(function() {
             $(this).attr('checked', false);
@@ -27313,7 +27313,7 @@ var SNTHJS = SNTHJS || {};
     });
 
     function fromExcursionCityChanged(selectedCityFrom) {
-        console.log($.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]);
+        // console.log($.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]);
         var selectedCountries = $('#country_excursion_select').val(),
             countriesByCityFrom = $.parseJSON($('#cities_from_excursion_dependencies').val())[selectedCityFrom]['countries'],
             countriesHtml = '<select id="country_excursion_select" name="country[]" class="form-control form-select2" style="width: 100%">';
@@ -27760,7 +27760,6 @@ var SNTHJS = SNTHJS || {};
 
         $(scrollTab).trigger( "click" );
     });
-
 
     $(document).ready(function() {
         var staticForm = $('#search-form');

@@ -33,7 +33,7 @@ if (!empty($ittour_global_tour_result['error'])) {
 
             $ittour_content = ittour_get_template('search/excursion-result.php', array_merge($template_args, $ittour_global_template_args));
         } else {
-            $ittour_content .= '';
+            $ittour_content = '';
             $ittour_content .= get_info_message(get_ittour_error('no_excursion_tours'));
             $ittour_content .= ittour_get_template('search/no-parameters.php');
         }

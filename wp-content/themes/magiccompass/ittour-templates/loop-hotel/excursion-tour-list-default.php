@@ -111,22 +111,24 @@ global $ittour_global_form_args;
                                 }
 
                                 if (!empty($tour['transport_type_id'])) {
-                                    $transport_type = ittour_excursion_get_transport_by_id($tour['transport_type_id']);
-
-                                    if (!empty($transport_type)) {
-                                        ?>
-                                        <div class="col-6">
-                                            <p>
-                                                <i class="<?php echo $transport_type['icon']; ?> list-item-icon"></i> <?php echo $transport_type['label']; ?>
-                                                (<?php echo !empty($tour['is_ticket_price_included']) ? __('Transit included', 'snthwp') : __('Not included', 'snthwp') ?>)
-                                            </p>
-                                        </div>
-                                        <?php
-                                    }
-
-                                    unset($tour['transport_type_id']);
-                                    unset($tour['transport_type']);
-                                    unset($tour['is_ticket_price_included']);
+                                    ?>
+                                    <div class="col-6">
+                                        <p>
+                                            <?php
+                                            if (1 == $tour["transport_type_id"]) {
+                                                ?><i class="fas fa-plane list-item-icon"></i><?php
+                                            } elseif (2 == $tour["transport_type_id"]) {
+                                                ?><i class="fas fa-bus list-item-icon"></i><?php
+                                            } elseif (3 == $tour["transport_type_id"]) {
+                                                ?><i class="fas fa-train list-item-icon"></i><?php
+                                            } else {
+                                                ?><i class="fas fa-walking list-item-icon"></i> <?php _e('only', 'snthwp'); ?><?php
+                                            }
+                                            ?>
+                                            <?php echo $tour["transport_type"]; ?>
+                                        </p>
+                                    </div>
+                                    <?php
                                 }
 
                                 if (!empty($tour['meal_type_full'])) {
@@ -138,9 +140,6 @@ global $ittour_global_form_args;
                                         </p>
                                     </div>
                                     <?php
-
-                                    unset($tour['meal_type_full']);
-                                    unset($tour['meal_type']);
                                 }
 
                                 if (!empty($tour['date_from']) && !empty($tour['date_till'])) {
@@ -151,7 +150,10 @@ global $ittour_global_form_args;
                                             <?php echo snth_convert_date_to_human($tour['date_from']); ?> - <?php echo snth_convert_date_to_human($tour['date_till']); ?>
                                         </p>
 
-                                        <p style="padding-left:35px;margin-top:8px;">
+                                        <?php
+                                        if (false) {
+                                            ?>
+                                            <p style="padding-left:35px;margin-top:8px;">
                                             <span class="more-dates__link" data-tour-key="<?php echo $tour['key'] ?>" data-date-from="<?php echo $tour['date_from_unix']; ?>" data-date-till="<?php echo $tour['date_till_unix']; ?>">
                                                 <span class="show-more-dates">
                                                     <?php echo __('Show available dates', 'snthwp'); ?>
@@ -162,16 +164,17 @@ global $ittour_global_form_args;
                                                     <i class="fas fa-chevron-up"></i>
                                                 </span>
                                             </span>
-                                        </p>
+                                            </p>
 
-                                        <div class="dates_list_more" style="display: none;">
-                                             idhsfh soihfisdhf
-                                             dfsjh fshdofds
-                                        </div>
+                                            <div class="dates_list_more" style="display: none;">
+                                                idhsfh soihfisdhf
+                                                dfsjh fshdofds
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                     <?php
-                                    unset($tour['date_from']);
-                                    unset($tour['date_till']);
                                 }
                                 ?>
                             </div>
