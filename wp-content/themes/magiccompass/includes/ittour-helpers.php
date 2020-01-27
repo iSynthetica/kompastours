@@ -60,3 +60,13 @@ function ittour_locate_template($template_name, $template_path = 'ittour-templat
 
     return $template;
 }
+
+function ittour_get_excursion_accomodation_by_id($accomodations) {
+    $return = array();
+
+    foreach ($accomodations as $accomodation) {
+        $return[$accomodation['id']] = $accomodation;
+    }
+
+    return $return;
+}

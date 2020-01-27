@@ -12,11 +12,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
-<pre>
-    <?php
-    //print_r($tour_info);
-    ?>
-</pre>
 <section id="single-tour-main-info__container">
     <div class="row">
         <div class="col-md-8 col-lg-9">
@@ -301,5 +296,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </div>
 
 <?php
-// var_dump($tour_info);
+var_dump($tour_info);
+
+if (!empty($tour_info['dates'])) {
+    foreach ($tour_info['dates'] as $tour_date) {
+        var_dump($tour_date);
+    }
+}
+
+var_dump($tour_info['accomodations']);
 ?>

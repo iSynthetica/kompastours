@@ -25,16 +25,20 @@ foreach ($tours as $tour) {
         $actual_date_till = snth_convert_date_format($tour['date_till'], $format_from = 'Y-m-d', $format_to = 'U');
     }
 
+    if (!empty($tour['currency_id'])) {
+        $currency_id = $tour['currency_id'];
+    }
+
 
     if (empty($excursion_db)) {
         $name = $tour['name'];
         $slug = snth_get_slug_lat($name);
         $key = $tour['key'];
 
-        $id_db = ittour_create_excursion($name, $slug, $key, $tour, $actual_date_from, $actual_date_till);
+        $id_db = ittour_create_excursion($name, $slug, $key, $tour, $actual_date_from, $actual_date_till, $currency_id);
     } else {
         $post_id = $excursion_db[0]->ID;
-        ittour_update_excursion_dates($post_id, $actual_date_from, $actual_date_till);
+        ittour_update_excursion_dates($post_id, $actual_date_from, $actual_date_till, $currency_id);
     }
 }
 ?>

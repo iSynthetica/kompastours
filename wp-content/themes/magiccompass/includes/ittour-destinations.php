@@ -427,7 +427,7 @@ function ittour_get_excursion_by_ittour_key($key) {
     return $destinations;
 }
 
-function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_till) {
+function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_till, $currency_id) {
     // Prepare post data
     $post_data = array(
         'post_title'    => wp_strip_all_tags( $name ),
@@ -440,6 +440,7 @@ function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_ti
 
 
     $update_field = update_field( 'ittour_key', $key, $post_id );
+    $update_field = update_field( 'ittour_currency_id', $currency_id, $post_id );
 
     if (!empty($date_from) && !empty($date_till)) {
         $update_field = update_field( 'ittour_date_from', $date_from, $post_id );
@@ -449,7 +450,7 @@ function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_ti
     return $post_id;
 }
 
-function ittour_update_excursion_dates($post_id, $date_from, $date_till) {
+function ittour_update_excursion_dates($post_id, $date_from, $date_till, $currency_id) {
 //    // Prepare post data
 //    $post_data = array(
 //        'post_title'    => wp_strip_all_tags( $name ),
@@ -462,6 +463,7 @@ function ittour_update_excursion_dates($post_id, $date_from, $date_till) {
 
 
 //    $update_field = update_field( 'ittour_key', $key, $post_id );
+    $update_field = update_field( 'ittour_currency_id', $currency_id, $post_id );
 
     if (!empty($date_from) && !empty($date_till)) {
         $update_field = update_field( 'ittour_date_from', $date_from, $post_id );

@@ -15,10 +15,10 @@ if (empty($template)) {
     $template = 'no-sidebar';
 }
 
-$tour_key = $_GET['key'];
 
 global $ittour_global_tour_result;
 
+$tour_key = $_GET['key'];
 $tour_info = $ittour_global_tour_result["result"];
 $main_currency_label = array();
 $main_currency = array();
