@@ -427,7 +427,7 @@ function ittour_get_excursion_by_ittour_key($key) {
     return $destinations;
 }
 
-function ittour_create_excursion($name, $slug, $key, $data) {
+function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_till) {
     // Prepare post data
     $post_data = array(
         'post_title'    => wp_strip_all_tags( $name ),
@@ -440,11 +440,33 @@ function ittour_create_excursion($name, $slug, $key, $data) {
 
 
     $update_field = update_field( 'ittour_key', $key, $post_id );
-//    $update_field = update_field( 'ittour_iso', $iso, $post_id );
-//    $update_field = update_field( 'ittour_country_group', $group, $post_id );
-//    $update_field = update_field( 'ittour_type', $type_array, $post_id );
-//    $update_field = update_field( 'ittour_transport', $transport_array, $post_id );
-//    $update_field = update_field( 'main_currency', $ittour_currency, $post_id );
+
+    if (!empty($date_from) && !empty($date_till)) {
+        $update_field = update_field( 'ittour_date_from', $date_from, $post_id );
+        $update_field = update_field( 'ittour_date_till', $date_till, $post_id );
+    }
+
+    return $post_id;
+}
+
+function ittour_update_excursion_dates($post_id, $date_from, $date_till) {
+//    // Prepare post data
+//    $post_data = array(
+//        'post_title'    => wp_strip_all_tags( $name ),
+//        'post_status'   => 'publish',
+//        'post_type'      => 'excursion',
+//        'post_name'      => $slug,
+//    );
+//
+//    $post_id = wp_insert_post( $post_data );
+
+
+//    $update_field = update_field( 'ittour_key', $key, $post_id );
+
+    if (!empty($date_from) && !empty($date_till)) {
+        $update_field = update_field( 'ittour_date_from', $date_from, $post_id );
+        $update_field = update_field( 'ittour_date_till', $date_till, $post_id );
+    }
 
     return $post_id;
 }
