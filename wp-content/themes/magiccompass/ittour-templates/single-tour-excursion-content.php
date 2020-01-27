@@ -185,6 +185,24 @@
                             </li>
                             <?php
                         }
+
+                        if (!empty($tour_info["include"]) ||!empty($tour_info["not_include"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-info-circle list-item-icon"></i>
+                                <a href="#" class="scroll-to-tab" data-scroll-to="#single_tour_tabs" data-scroll-tab="#additional-tab"><?php _e('Additional info', 'snthwp'); ?></a>
+                            </li>
+                            <?php
+                        }
+
+                        if (!empty($tour_info["document_description"])) {
+                            ?>
+                            <li>
+                                <i class="fas fa-passport list-item-icon"></i>
+                                <a href="#" class="scroll-to-tab" data-scroll-to="#single_tour_tabs" data-scroll-tab="#documents-tab"><?php _e('Info about Documents', 'snthwp'); ?></a>
+                            </li>
+                            <?php
+                        }
                         ?>
                     </ul>
                 </div>

@@ -600,14 +600,41 @@ function ittour_set_global_single_excursion_tour($key) {
         $excursion_db = ittour_get_excursion_by_ittour_key($tour_key);
         $tour_info = $tour->info($args);
 
+        $tour_currency = '2';
+        $tour_currency_label = __('UAH', 'snthwp');
+        $local_currency = $tour_currency;
+        $local_currency_label = $tour_currency_label;
+
         if (is_wp_error($tour_info)) {
+            if (!empty($excursion_db)) {
+                $post_id = $excursion_db[0]->ID;
+                $tour_info_db = get_field('ittour_info', $post_id);
 
+                if (!empty($tour_info_db)) {
+                    $tour_info = unserialize($tour_info_db);
+
+                    $tour_info['ittour_date_from'] = get_field('ittour_date_from', $post_id);
+                    $tour_info['ittour_date_till'] = get_field('ittour_date_till', $post_id);
+                    $ittour_currency_id = get_field('ittour_currency_id', $post_id);
+
+                    if (!empty($ittour_currency_id)) {
+                        $tour_currency = $ittour_currency_id;
+
+                        if ('10' === $tour_currency) {
+                            $tour_currency_label = __('€', 'snthwp');
+                        } else if ('1' === $tour_currency) {
+                            $tour_currency_label = __('$', 'snthwp');
+                        }
+                    }
+
+                    $tour_info['local_currency'] = $local_currency;
+                    $tour_info['local_currency_label'] = $local_currency_label;
+                    $tour_info['tour_currency'] = $tour_currency;
+                    $tour_info['tour_currency_label'] = $tour_currency_label;
+                    $ittour_global_tour_result['result'] = $tour_info;
+                }
+            }
         } else {
-            $tour_currency = '2';
-            $tour_currency_label = __('UAH', 'snthwp');
-            $local_currency = $tour_currency;
-            $local_currency_label = $tour_currency_label;
-
             if (!empty($excursion_db)) {
                 $post_id = $excursion_db[0]->ID;
                 $post_id = ittour_update_excursion_info($post_id, serialize($tour_info));
