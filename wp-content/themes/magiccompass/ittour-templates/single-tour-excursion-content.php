@@ -187,34 +187,6 @@
                         }
                         ?>
                     </ul>
-
-                    <?php
-                    if (!empty($tour_info['include'])) {
-                        ?>
-                        <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
-                        <ul class="tour-details-list">
-                            <?php
-                            foreach ($tour_info['include'] as $item) {
-                                ?><li><?php echo $item; ?></li><?php
-                            }
-                            ?>
-                        </ul>
-                        <?php
-                    }
-
-                    if (!empty($tour_info['not_include'])) {
-                        ?>
-                        <h3><?php _e('Tour price not includes', 'snthwp'); ?></h3>
-                        <ul class="tour-details-list">
-                            <?php
-                            foreach ($tour_info['not_include'] as $item) {
-                                ?><li><?php echo $item; ?></li><?php
-                            }
-                            ?>
-                        </ul>
-                        <?php
-                    }
-                    ?>
                 </div>
             </div>
         </div>
@@ -267,6 +239,42 @@
             <?php
             $first = false;
         }
+
+        if (!empty($tour_info["include"]) ||!empty($tour_info["not_include"])) {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link<?php echo $first ? ' active' : ''; ?>"
+                   id="additional-tab"
+                   data-toggle="tab"
+                   href="#additional"
+                   role="tab"
+                   aria-controls="additional"
+                   aria-selected="<?php echo $first ? 'true' : 'false'; ?>"
+                >
+                    <?php _e('Additional info', 'snthwp'); ?>
+                </a>
+            </li>
+            <?php
+            $first = false;
+        }
+
+        if (!empty($tour_info["document_description"])) {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link<?php echo $first ? ' active' : ''; ?>"
+                   id="documents-tab"
+                   data-toggle="tab"
+                   href="#documents"
+                   role="tab"
+                   aria-controls="documents"
+                   aria-selected="<?php echo $first ? 'true' : 'false'; ?>"
+                >
+                    <?php _e('Info about Documents', 'snthwp'); ?>
+                </a>
+            </li>
+            <?php
+            $first = false;
+        }
         ?>
     </ul>
 
@@ -313,7 +321,59 @@
                     </div>
                     <?php
                 }
-                // var_dump($tour_info["hikes"]);
+                ?>
+            </div>
+            <?php
+            $first_tab = false;
+        }
+
+        if (!empty($tour_info["include"]) ||!empty($tour_info["not_include"])) {
+            ?>
+            <div class="tab-pane fade<?php echo $first_tab ? ' show active' : ''; ?>" id="additional" role="tabpanel" aria-labelledby="additional-tab">
+                <?php
+                if (!empty($tour_info['include'])) {
+                    ?>
+                    <h3><?php _e('Tour price includes', 'snthwp'); ?></h3>
+                    <ul class="p-0 list-style-4 list-success">
+                        <?php
+                        foreach ($tour_info['include'] as $item) {
+                            ?><li><?php echo $item; ?></li><?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+                }
+
+                if (!empty($tour_info['not_include'])) {
+                    ?>
+                    <h3><?php _e('Tour price not includes', 'snthwp'); ?></h3>
+                    <ul class="p-0 list-style-4 list-danger">
+                        <?php
+                        foreach ($tour_info['not_include'] as $item) {
+                            ?><li><?php echo $item; ?></li><?php
+                        }
+                        ?>
+                    </ul>
+                    <?php
+                }
+                ?>
+            </div>
+            <?php
+            $first_tab = false;
+        }
+
+        if (!empty($tour_info["document_description"])) {
+            ?>
+            <div class="tab-pane fade<?php echo $first_tab ? ' show active' : ''; ?>" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+                <?php
+                if (!empty($tour_info['document_description'])) {
+                    ?>
+                    <h3><?php _e('Important information', 'snthwp'); ?></h3>
+                    <?php
+                    echo wpautop(sanitize_textarea_field($tour_info['document_description']));
+                    ?>
+                    <?php
+                }
                 ?>
             </div>
             <?php
@@ -324,7 +384,7 @@
 </div>
 
 <?php
-//var_dump($tour_info);
+// var_dump($tour_info);
 //
 //if (!empty($tour_info['dates'])) {
 //    foreach ($tour_info['dates'] as $tour_date) {
