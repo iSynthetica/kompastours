@@ -406,3 +406,45 @@ function ittour_get_region_prices_by_rating($country) {
 
     return $prices;
 }
+
+function ittour_get_excursion_by_ittour_key($key) {
+    $args = array(
+        'numberposts' => '1',
+        'post_type'   => 'excursion',
+        'meta_query' => array(
+            array(
+                'key'     => 'ittour_key',
+                'value'   => $key,
+                'compare' => '='
+            )
+        )
+    );
+
+    $destinations = get_posts($args);
+
+    wp_reset_postdata();
+
+    return $destinations;
+}
+
+function ittour_create_excursion($name, $slug, $key, $data) {
+    // Prepare post data
+    $post_data = array(
+        'post_title'    => wp_strip_all_tags( $name ),
+        'post_status'   => 'publish',
+        'post_type'      => 'excursion',
+        'post_name'      => $slug,
+    );
+
+    $post_id = wp_insert_post( $post_data );
+
+
+    $update_field = update_field( 'ittour_key', $key, $post_id );
+//    $update_field = update_field( 'ittour_iso', $iso, $post_id );
+//    $update_field = update_field( 'ittour_country_group', $group, $post_id );
+//    $update_field = update_field( 'ittour_type', $type_array, $post_id );
+//    $update_field = update_field( 'ittour_transport', $transport_array, $post_id );
+//    $update_field = update_field( 'main_currency', $ittour_currency, $post_id );
+
+    return $post_id;
+}

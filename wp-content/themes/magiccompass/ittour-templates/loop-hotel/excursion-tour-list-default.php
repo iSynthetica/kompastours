@@ -64,13 +64,10 @@ global $ittour_global_form_args;
                                         </p>
                                     </div>
                                     <?php
-
-                                    unset($tour['from_city']);
                                 }
 
                                 if (!empty($tour['city_names'])) {
                                     $city_list = implode(', ', $tour['city_names']);
-                                    unset($tour['city_names']);
                                     ?>
                                     <div class="col-6">
                                         <p>
@@ -78,9 +75,6 @@ global $ittour_global_form_args;
                                         </p>
                                     </div>
                                     <?php
-
-                                    unset($tour['from_city']);
-                                    unset($tour['from_city_gen']);
                                 }
 
                                 if (!empty($tour["duration"])) {
@@ -93,8 +87,6 @@ global $ittour_global_form_args;
                                         </p>
                                     </div>
                                     <?php
-                                    unset($tour["night_moves"]);
-                                    unset($tour["duration"]);
                                 }
 
                                 if (!empty($tour["hikes_count"])) {
@@ -106,8 +98,6 @@ global $ittour_global_form_args;
                                         </p>
                                     </div>
                                     <?php
-
-                                    unset($tour["hikes_count"]);
                                 }
 
                                 if (!empty($tour['transport_type_id'])) {
@@ -193,11 +183,6 @@ global $ittour_global_form_args;
                                         <div class="tour_price_currency d-inline-block d-lg-block mb-lg-10">
                                             <small><?php echo __('from', 'snthwp'); ?></small> <sup><?php echo $main_currency_label ?></sup><strong><?php echo $tour['prices'][$main_currency] ?></strong>
                                         </div>
-
-                                        <?php
-                                        unset($tour['prices']);
-                                        unset($tour['currency_id']);
-                                        ?>
                                     </div>
 
                                     <div class="col-lg-12 col-5">
@@ -207,10 +192,6 @@ global $ittour_global_form_args;
                                         >
                                             <?php echo __('Details', 'snthwp'); ?>
                                         </a>
-
-                                        <?php
-                                        unset($tour['key']);
-                                        ?>
                                     </div>
                                 </div>
                             </div>
