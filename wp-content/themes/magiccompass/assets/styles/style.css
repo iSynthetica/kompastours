@@ -20230,6 +20230,24 @@ h1, h2, h3 {
   .title-style1 {
     font-size: 48px; } }
 
+/* list style 3 */
+.list-style-3 {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .list-style-3 li {
+    position: relative;
+    padding: 0 0 0 22px;
+    margin: 0 0 15px 0; }
+    .list-style-3 li:before {
+      content: "";
+      width: 10px;
+      height: 1px;
+      background-color: #ff214f;
+      position: absolute;
+      top: 11px;
+      left: 0; }
+
 .box_style_1 {
   background: #fff;
   border-radius: 3px;

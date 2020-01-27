@@ -31,16 +31,32 @@ if (!empty($tour_info['accomodations'])) {
 >
     <?php
     if (!empty($tour_info['dates'])) {
+        $local_currency = $tour_info['local_currency'];
+        $currency = $tour_info['tour_currency'];
+
         foreach ($tour_info['dates'] as $tour_date) {
             ?>
             <h4><?php echo $tour_date['date_from']; ?></h4>
-            <ul>
+            <ul class="p-0 list-style-3">
                 <?php
                 foreach ($tour_date['prices'] as $price) {
-                    ?>
-                    <li><?php echo $accomodations[$price['accomodation_id']]['name'] ?>: <?php echo $price['prices'][10] ?> (<?php echo $price['prices'][2] ?>)</li>
-                    <?php
-                    // var_dump($price);
+                    if ($local_currency === $currency) {
+                        ?>
+                        <li>
+                            <?php echo $accomodations[$price['accomodation_id']]['name'] ?>:
+                            <?php echo $price['prices'][$local_currency] ?>
+                            <?php echo __('UAH', 'snthwp'); ?>
+                        </li>
+                        <?php
+                    } else {
+                        ?>
+                        <li>
+                            <?php echo $accomodations[$price['accomodation_id']]['name'] ?>:
+                            <?php echo $tour_info['tour_currency_label']; ?><?php echo $price['prices'][$currency] ?>
+                            (<?php echo $price['prices'][$local_currency] ?> <?php echo __('UAH', 'snthwp'); ?>)
+                        </li>
+                        <?php
+                    }
                 }
                 ?>
             </ul>

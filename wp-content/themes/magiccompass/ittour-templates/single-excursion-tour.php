@@ -20,8 +20,8 @@ global $ittour_global_tour_result;
 
 $tour_key = $_GET['key'];
 $tour_info = $ittour_global_tour_result["result"];
-$main_currency_label = array();
-$main_currency = array();
+$main_currency_label = __('UAH', 'snthwp');
+$main_currency = '2';
 
 $ittour_content = ittour_get_template('single-tour-excursion-content.php', array(
         'tour_info' => $tour_info,

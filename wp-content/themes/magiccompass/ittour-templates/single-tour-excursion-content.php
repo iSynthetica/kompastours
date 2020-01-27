@@ -9,7 +9,7 @@
  * @var $tour_info
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit;
+ if ( ! defined( 'ABSPATH' ) ) exit;
 
 ?>
 <section id="single-tour-main-info__container">
@@ -47,6 +47,34 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 <div class="col-md-12 col-lg-5">
                     <ul class="tour-details-list">
                         <?php
+
+                        if (!empty($tour_info["ittour_date_till"])) {
+                            $now = time();
+
+                            if ($now < (int)$tour_info["ittour_date_till"]) {
+                                $date_actual = snth_convert_date_to_human(date('Y-m-d', $tour_info["ittour_date_till"]));
+
+                                if (!empty($date_actual)) {
+                                    ?>
+                                    <li>
+                                        <i class="far fa-calendar-alt list-item-icon"></i>
+                                        <small><?php _e('Tour actual until', 'snthwp'); ?>:</small>
+                                        <strong><?php echo $date_actual; ?></strong>
+                                    </li>
+
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <li>
+                                    <i class="fas fa-map-pin list-item-icon"></i>
+                                    <strong><?php _e('Tour is outdated', 'snthwp'); ?></strong>
+                                </li>
+                                <?php
+                            }
+                            ?>
+                            <?php
+                        }
 
                         if (!empty($tour_info["from_city"])) {
                             ?>
@@ -296,13 +324,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 </div>
 
 <?php
-var_dump($tour_info);
-
-if (!empty($tour_info['dates'])) {
-    foreach ($tour_info['dates'] as $tour_date) {
-        var_dump($tour_date);
-    }
-}
-
-var_dump($tour_info['accomodations']);
+//var_dump($tour_info);
+//
+//if (!empty($tour_info['dates'])) {
+//    foreach ($tour_info['dates'] as $tour_date) {
+//        var_dump($tour_date);
+//    }
+//}
+//
+//var_dump($tour_info['accomodations']);
 ?>

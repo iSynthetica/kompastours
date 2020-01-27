@@ -77,6 +77,25 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5e2f0ed654a96",
+            "label": "ITTour Info",
+            "name": "ittour_info",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -96,5 +115,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580129544
+    "modified": 1580142311
 }

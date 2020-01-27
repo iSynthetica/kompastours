@@ -451,24 +451,18 @@ function ittour_create_excursion($name, $slug, $key, $data, $date_from, $date_ti
 }
 
 function ittour_update_excursion_dates($post_id, $date_from, $date_till, $currency_id) {
-//    // Prepare post data
-//    $post_data = array(
-//        'post_title'    => wp_strip_all_tags( $name ),
-//        'post_status'   => 'publish',
-//        'post_type'      => 'excursion',
-//        'post_name'      => $slug,
-//    );
-//
-//    $post_id = wp_insert_post( $post_data );
-
-
-//    $update_field = update_field( 'ittour_key', $key, $post_id );
     $update_field = update_field( 'ittour_currency_id', $currency_id, $post_id );
 
     if (!empty($date_from) && !empty($date_till)) {
         $update_field = update_field( 'ittour_date_from', $date_from, $post_id );
         $update_field = update_field( 'ittour_date_till', $date_till, $post_id );
     }
+
+    return $post_id;
+}
+
+function ittour_update_excursion_info($post_id, $info) {
+    $update_field = update_field( 'ittour_info', $info, $post_id );
 
     return $post_id;
 }
