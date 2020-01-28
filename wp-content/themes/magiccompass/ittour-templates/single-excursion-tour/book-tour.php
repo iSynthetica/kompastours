@@ -91,6 +91,8 @@ if (!empty($tour_info['accomodations'])) {
                     <?php
                 }
             }
+
+            break;
         }
     }
 

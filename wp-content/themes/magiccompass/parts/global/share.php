@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <small><?php echo __('Share:', 'snthwp') ?></small>
 </div>
 
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style pb-20">
     <a class="a2a_button_viber"></a>
     <a class="a2a_button_telegram"></a>
 <!--    <a class="a2a_button_whatsapp"></a>-->
