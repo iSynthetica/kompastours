@@ -107,6 +107,7 @@ function ittour_rewrite_rule() {
     add_rewrite_tag( '%child_age%', '(.*)' );
 
     add_rewrite_rule('^excursion-tour/([^/]*)/([^/]*)/([^/]*)/?', 'index.php?excursion-tour=$matches[1]&date_from=$matches[2]&date_till=$matches[3]', 'top');
+    add_rewrite_rule('^excursion-tour/([^/]*)/?', 'index.php?excursion-tour=$matches[1]', 'top');
     add_rewrite_tag( '%excursion-tour%', '(.*)' );
     add_rewrite_tag( '%date_from%', '(.*)' );
     add_rewrite_tag( '%date_till%', '(.*)' );
@@ -627,6 +628,46 @@ function ittour_set_global_single_excursion_tour($key) {
                         }
                     }
 
+                    if (!empty($tour_info["countries"])) {
+                        $countries = array();
+                        $countries_id = array();
+
+                        foreach ($tour_info["countries"] as $country) {
+                            if (!empty($country['name'])) $countries[] = $country['name'];
+                            if (!empty($country['id'])) $countries_id[] = $country['id'];
+                        }
+
+                        if (!empty($countries)) {
+                            $countries = implode(', ', $countries);
+                            $tour_info['country_name_list'] = $countries;
+                        }
+
+                        if (!empty($countries_id)) {
+                            $countries_id = implode(', ', $countries_id);
+                            $tour_info['country_id_list'] = $countries_id;
+                        }
+                    }
+
+                    if (!empty($tour_info["cities"])) {
+                        $cities = array();
+                        $cities_id = array();
+
+                        foreach ($tour_info["cities"] as $city) {
+                            if (!empty($city['name'])) $cities[] = $city['name'];
+                            if (!empty($city['id'])) $cities_id[] = $city['id'];
+                        }
+
+                        if (!empty($cities)) {
+                            $cities = implode(',', $cities);
+                            $tour_info['city_name_list'] = $cities;
+                        }
+
+                        if (!empty($cities_id)) {
+                            $cities_id = implode(',', $cities_id);
+                            $tour_info['city_id_list'] = $cities_id;
+                        }
+                    }
+
                     $tour_info['local_currency'] = $local_currency;
                     $tour_info['local_currency_label'] = $local_currency_label;
                     $tour_info['tour_currency'] = $tour_currency;
@@ -650,6 +691,46 @@ function ittour_set_global_single_excursion_tour($key) {
                         $tour_currency_label = __('€', 'snthwp');
                     } else if ('1' === $tour_currency) {
                         $tour_currency_label = __('$', 'snthwp');
+                    }
+                }
+
+                if (!empty($tour_info["countries"])) {
+                    $countries = array();
+                    $countries_id = array();
+
+                    foreach ($tour_info["countries"] as $country) {
+                        if (!empty($country['name'])) $countries[] = $country['name'];
+                        if (!empty($country['id'])) $countries_id[] = $country['id'];
+                    }
+
+                    if (!empty($countries)) {
+                        $countries = implode(', ', $countries);
+                        $tour_info['country_name_list'] = $countries;
+                    }
+
+                    if (!empty($countries_id)) {
+                        $countries_id = implode(', ', $countries_id);
+                        $tour_info['country_id_list'] = $countries_id;
+                    }
+                }
+
+                if (!empty($tour_info["cities"])) {
+                    $cities = array();
+                    $cities_id = array();
+
+                    foreach ($tour_info["cities"] as $city) {
+                        if (!empty($city['name'])) $cities[] = $city['name'];
+                        if (!empty($city['id'])) $cities_id[] = $city['id'];
+                    }
+
+                    if (!empty($cities)) {
+                        $cities = implode(', ', $cities);
+                        $tour_info['city_name_list'] = $cities;
+                    }
+
+                    if (!empty($cities_id)) {
+                        $cities_id = implode(', ', $cities_id);
+                        $tour_info['city_id_list'] = $cities_id;
                     }
                 }
             }

@@ -14,6 +14,8 @@
  * @author  WooThemes
  * @package WooCommerce/Templates/Emails
  * @version 2.4.0
+ *
+ * @var $preheader_text
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -230,34 +232,47 @@ if ( ! defined( 'ABSPATH' ) ) {
         }
     </style>
 </head>
-<body class="body"
-      style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#f1f1f1; -webkit-text-size-adjust:none">
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#f1f1f1; -webkit-text-size-adjust:none">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f1f1f1">
     <tr>
         <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="1"></td>
         <td align="center" valign="top">
             <table width="650" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
                 <tr>
-                    <td class="td"
-                        style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
+                    <td class="td" style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; Margin:0">
                         <div class="hide-for-mobile">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                   style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                <tr>
-                                    <td height="38" class="spacer"
-                                        style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                        &nbsp;
-                                    </td>
-                                </tr>
-                            </table>
+                            <?php snth_email_content_row_spacer(38) ?>
                         </div>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                               style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
+                        <?php snth_email_content_row_spacer(20) ?>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td height="20" class="spacer"
-                                    style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                    &nbsp;
-                                </td>
+                                <!-- Column -->
+                                <th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+                                            <td align="center">
+                                                <?php snth_email_content_row_spacer(5) ?>
+
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="section-title" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:12px; line-height:16px; text-align:center; text-transform:uppercase">
+                                                                <?php echo $preheader_text ?> &nbsp;
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                                <?php snth_email_content_row_spacer(5) ?>
+                                            </td>
+                                            <td class="content-spacing"
+                                                style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+                                        </tr>
+                                    </table>
+                                </th>
+                                <!-- END Column -->
                             </tr>
                         </table>
 
@@ -273,16 +288,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <td class="content-spacing"
                                                 style="font-size:0pt; line-height:0pt; text-align:left" width="30"></td>
                                             <td>
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                       class="spacer"
-                                                       style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                    <tr>
-                                                        <td height="14" class="spacer"
-                                                            style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                            &nbsp;
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <?php snth_email_content_row_spacer(14) ?>
 
                                                 <table class="center" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
@@ -309,16 +315,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         </td>
                                                     </tr>
                                                 </table>
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                       class="spacer"
-                                                       style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                    <tr>
-                                                        <td height="14" class="spacer"
-                                                            style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                            &nbsp;
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <?php snth_email_content_row_spacer(14) ?>
 
                                             </td>
                                             <td class="content-spacing"
@@ -328,23 +325,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 </th>
                                 <!-- END Column -->
                                 <!-- Column -->
-                                <th class="column-top"
-                                    style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0">
+                                <th class="column-top" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0">
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td class="content-spacing"
-                                                style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
+                                            <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="20"></td>
                                             <td align="right">
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                       class="spacer"
-                                                       style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                    <tr>
-                                                        <td height="14" class="spacer"
-                                                            style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                            &nbsp;
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <?php snth_email_content_row_spacer(14) ?>
 
                                                 <!-- Socials -->
                                                 <table class="center" border="0" cellspacing="0" cellpadding="0">
@@ -382,16 +368,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                     </tr>
                                                 </table>
                                                 <!-- END Socials -->
-                                                <table width="100%" border="0" cellspacing="0" cellpadding="0"
-                                                       class="spacer"
-                                                       style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                    <tr>
-                                                        <td height="14" class="spacer"
-                                                            style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                            &nbsp;
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                <?php snth_email_content_row_spacer(14) ?>
 
                                             </td>
                                             <td class="content-spacing"
@@ -402,15 +379,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <!-- END Column -->
                             </tr>
                         </table>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                               style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                            <tr>
-                                <td height="20" class="spacer"
-                                    style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                    &nbsp;
-                                </td>
-                            </tr>
-                        </table>
+                        <?php snth_email_content_row_spacer(20) ?>
 
                         <!-- END Top Bar -->
 
@@ -420,15 +389,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left"
                                     width="20"></td>
                                 <td>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                           style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                        <tr>
-                                            <td height="32" class="spacer"
-                                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                &nbsp;
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <?php snth_email_content_row_spacer(32) ?>
 
                                     <div class="fluid-img-logo" style="font-size:0pt; line-height:0pt; text-align:left">
                                         <div class="img-center"
@@ -437,29 +398,13 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         src="<?php echo SNTH_IMAGES_URL; ?>/logo-new-color.png" border="0" width="210"
                                                         height="78" alt=""/></a></div>
                                     </div>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                           style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                        <tr>
-                                            <td height="32" class="spacer"
-                                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                &nbsp;
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <?php snth_email_content_row_spacer(32) ?>
 
                                 </td>
                                 <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left"
                                     width="20"></td>
                             </tr>
                         </table>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                               style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                            <tr>
-                                <td height="10" class="spacer"
-                                    style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                    &nbsp;
-                                </td>
-                            </tr>
-                        </table>
+                        <?php snth_email_content_row_spacer(10) ?>
 
                         <repeater>

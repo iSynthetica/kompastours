@@ -82,6 +82,29 @@ if (empty($tour_info)) {
                     <?php
                 }
 
+                if (!empty($tour_info['tour_url'])) {
+                    ?>
+                    <!-- Content -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="35%">
+                                <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
+                                    <?php _e('Tour link', 'snthwp'); ?>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
+                                    <?php echo $tour_info['tour_url']; ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <?php snth_email_content_row_spacer(5) ?>
+                    <!-- Content -->
+                    <?php
+                }
+
                 if (!empty($tour_info['country_name_list'])) {
                     ?>
                     <!-- Content -->

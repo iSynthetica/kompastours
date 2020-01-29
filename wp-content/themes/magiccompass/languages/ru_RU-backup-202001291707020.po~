@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-29 17:00+0000\n"
-"PO-Revision-Date: 2020-01-29 17:00+0000\n"
+"PO-Revision-Date: 2020-01-29 17:06+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -153,7 +153,7 @@ msgstr "Дополнительная информация"
 #: ittour-templates/single-tour-excursion-content.php:202
 #: ittour-templates/single-tour-excursion-content.php:295
 msgid "Info about Documents"
-msgstr ""
+msgstr "Необходимые документы"
 
 #: ittour-templates/single-tour-excursion-content.php:241
 msgid "Tour description"
@@ -1119,7 +1119,7 @@ msgstr "Uploaded to this Excursion"
 
 #: includes/cpt.php:101
 msgid "Excursions list"
-msgstr ""
+msgstr "Список экскурсий"
 
 #: includes/cpt.php:102
 msgid "Excursions list navigation"
@@ -1301,7 +1301,7 @@ msgstr "Filter Partners list"
 
 #: includes/cpt.php:203
 msgid "Partners of our tourist agency"
-msgstr ""
+msgstr "Наши партнеры"
 
 #: includes/cpt.php:229
 msgctxt "Post Type General Name"
@@ -1900,7 +1900,7 @@ msgstr "Популярные регионы"
 
 #: parts/email/email-client-info.php:32
 msgid "Client Information"
-msgstr ""
+msgstr "Информация о клиенте"
 
 #: parts/email/email-client-info.php:69 crm/parts/admin/clients-list.php:26
 #: crm/parts/admin/clients-list.php:60
@@ -1909,11 +1909,11 @@ msgstr "Имя"
 
 #: parts/email/email-client-info.php:92
 msgid "Phone number"
-msgstr ""
+msgstr "Номер телефона"
 
 #: parts/email/email-client-info.php:138
 msgid "Additional"
-msgstr ""
+msgstr "Дополнительная информация"
 
 #: parts/email/email-header.php:295
 msgid "Home page"
@@ -1921,11 +1921,11 @@ msgstr "Главная страница"
 
 #: parts/email/email-tour-info.php:32
 msgid "Tour Information"
-msgstr ""
+msgstr "Информация о туре"
 
 #: parts/email/email-tour-info.php:69
 msgid "Tour title"
-msgstr ""
+msgstr "Название тура"
 
 #: parts/email/email-tour-info.php:115 ittour-templates/form/search-tab.php:376
 msgid "Cities"

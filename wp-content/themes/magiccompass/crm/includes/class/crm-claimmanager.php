@@ -485,14 +485,29 @@ class CRM_ClaimManager {
 
     public static function send_admin_email( $data ) {
         $email_heading = !empty($data["requestTypeName"]) ? $data["requestTypeName"] : __('New Tour request', 'snthwp');
-        $subject = !empty($data["requestTypeName"]) ? $data["requestTypeName"] : __('New Tour request', 'snthwp');
+        $subject = $email_heading;
+
+        $preheader_text = '';
+
+        if (!empty($data['tour_name'])) {
+            $preheader_text .= $data['tour_name'];
+        }
+
+        if (!empty($data['country_name_list'])) {
+            $preheader_text .= ' - ' . $data['country_name_list'];
+        }
+
+        if (!empty($data['city_name_list'])) {
+            $preheader_text .= ' - ' . $data['city_name_list'];
+        }
+
         $headers = array();
         $headers[] = 'From: Kompas Tours <order.kompas@gmail.com>';
         $headers[] = 'content-type: text/html';
 
         ob_start();
 
-        snth_show_template('email/email-header.php', array('preheader_text' => 'New Booking request'));
+        snth_show_template('email/email-header.php', array('preheader_text' => $preheader_text));
         snth_show_template('email/email-title.php', array('email_heading' => $email_heading));
         snth_show_template('email/email-tour-info.php', array('tour_info' => $data));
         snth_show_template('email/email-client-info.php', array('tour_info' => $data));

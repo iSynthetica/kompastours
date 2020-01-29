@@ -20,7 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 <?php
 
 if (!empty($tour_info["tour_id"])) {
-    ?><input type="hidden" name="tour_id" value="<?php echo $tour_info["tour_id"] ?>"><?php
+    ?>
+    <input type="hidden" name="tour_id" value="<?php echo $tour_info["tour_id"] ?>">
+    <input type="hidden" name="tour_url" value="<?php echo get_site_url(); ?>/excursion-tour/<?php echo $tour_info["tour_id"] ?>">
+    <?php
 }
 
 if (!empty($tour_info["name"])) {
@@ -31,45 +34,25 @@ if (!empty($tour_info["from_city"])) {
     ?><input type="hidden" name="from_city_name" value="<?php echo $tour_info["from_city"] ?>"><?php
 }
 
-if (!empty($tour_info["countries"])) {
-    $countries = array();
-    $countries_id = array();
-
-    foreach ($tour_info["countries"] as $country) {
-        if (!empty($country['name'])) $countries[] = $country['name'];
-        if (!empty($country['id'])) $countries_id[] = $country['id'];
-    }
-
-    if (!empty($countries)) {
-        $countries = implode(',', $countries);
-        ?><input type="hidden" name="country_name_list" value="<?php echo $countries ?>"><?php
-    }
-
-    if (!empty($countries_id)) {
-        $countries_id = implode(',', $countries_id);
-        ?><input type="hidden" name="country_id_list" value="<?php echo $countries_id ?>"><?php
-    }
+if (!empty($tour_info["country_name_list"])) {
+        ?><input type="hidden" name="country_name_list" value="<?php echo $tour_info["country_name_list"] ?>"><?php
 }
 
-if (!empty($tour_info["cities"])) {
-    $cities = array();
-    $cities_id = array();
-
-    foreach ($tour_info["cities"] as $city) {
-        if (!empty($city['name'])) $cities[] = $city['name'];
-        if (!empty($city['id'])) $cities_id[] = $city['id'];
-    }
-
-    if (!empty($cities)) {
-        $cities = implode(',', $cities);
-        ?><input type="hidden" name="city_name_list" value="<?php echo $cities ?>"><?php
-    }
-
-    if (!empty($cities_id)) {
-        $cities_id = implode(',', $cities_id);
-        ?><input type="hidden" name="city_id_list" value="<?php echo $cities_id ?>"><?php
-    }
+if (!empty($tour_info["country_id_list"])) {
+        ?><input type="hidden" name="country_id_list" value="<?php echo $tour_info["country_id_list"] ?>"><?php
 }
+
+if (!empty($tour_info["city_name_list"])) {
+        ?><input type="hidden" name="city_name_list" value="<?php echo $tour_info["city_name_list"] ?>"><?php
+}
+
+if (!empty($tour_info["city_id_list"])) {
+        ?><input type="hidden" name="city_id_list" value="<?php echo $tour_info["city_id_list"] ?>"><?php
+}
+
+?>
+
+<?php
 
 if (!empty($tour_info["meal_type"]) || $tour_info["meal_type_full"]) {
     $meal_type = '';

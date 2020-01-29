@@ -20,7 +20,7 @@ $tour_data = '';
 
 ob_start();
 
-snth_show_template('email/email-header.php');
+snth_show_template('email/email-header.php', array('preheader_text' => 'New tour request'));
 snth_show_template('email/email-title.php', array('email_heading' => 'New tour request'));
 snth_show_template('email/email-tour-info.php');
 snth_show_template('email/email-client-info.php');
