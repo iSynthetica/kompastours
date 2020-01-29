@@ -372,3 +372,21 @@ function snth_rating($current, $max) {
     </div>
     <?php
 }
+
+function snth_email_content_spacing($width = "30") {
+    ?>
+    <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left" width="<?php echo $width; ?>"></td>
+    <?php
+}
+
+function snth_email_content_row_spacer($height = "30") {
+    ?>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
+        <tr>
+            <td height="<?php echo $height; ?>" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <?php
+}

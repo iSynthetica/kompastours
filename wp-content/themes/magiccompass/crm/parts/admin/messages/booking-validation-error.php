@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="error_messages">
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger mb-0 p-5 pr-10 pl-10" role="alert">
         <?php
         foreach ($errors as $error) {
             ?>

@@ -132,8 +132,8 @@ function snth_ajax_contact_form() {
 
     $tos = array (
         'i.synthetica@gmail.com',
-        'info@kompas.tours',
-        'tetlisna@gmail.com',
+//        'info@kompas.tours',
+//        'tetlisna@gmail.com',
     );
 
     $subject = __('Message from contact form');

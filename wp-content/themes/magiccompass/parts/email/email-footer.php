@@ -24,21 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
                         </repeater>
 
+                        <?php snth_email_content_row_spacer(10) ?>
                         <!-- Footer -->
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ff5e56">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#2e95ce">
                             <tr>
                                 <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left"
                                     width="30"></td>
                                 <td>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                           style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                        <tr>
-                                            <td height="30" class="spacer"
-                                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                &nbsp;
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <?php snth_email_content_row_spacer(30) ?>
 
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
@@ -50,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         <td>
                                                             <div class="h2-white-m-center"
                                                                  style="color:#ffffff; font-family:Arial,sans-serif; font-size:22px; line-height:26px; text-align:left; font-weight:bold; text-transform:uppercase">
-                                                                EDUCATION BOOKS
+                                                                ТА "КОМПАС TOURS"
                                                             </div>
                                                             <table width="100%" border="0" cellspacing="0"
                                                                    cellpadding="0" class="spacer"
@@ -62,11 +55,6 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                     </td>
                                                                 </tr>
                                                             </table>
-
-                                                            <div class="text-white-m-center"
-                                                                 style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:left">
-                                                                Email template from mailbakery
-                                                            </div>
                                                             <div style="font-size:0pt; line-height:0pt;"
                                                                  class="mobile-br-15"></div>
 
@@ -86,53 +74,35 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                             <table class="center" border="0" cellspacing="0"
                                                                    cellpadding="0">
                                                                 <tr>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="https://www.facebook.com/k0mpas.tours" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_facebook.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_twitter.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_gplus.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_youtube.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_instagram.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_pinterest.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="32"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_linkedin.jpg"
-                                                                                    border="0" width="18" height="21"
-                                                                                    alt=""/></a></td>
-                                                                    <td class="img"
-                                                                        style="font-size:0pt; line-height:0pt; text-align:left"
-                                                                        width="18"><a href="#" target="_blank"><img
-                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email/ico4_rss.jpg" border="0"
-                                                                                    width="18" height="21" alt=""/></a>
+                                                                    <td class="img-center"
+                                                                        style="font-size:0pt; line-height:0pt; text-align:center"
+                                                                        width="30"><a href="https://www.facebook.com/k0mpas.tours/" target="_blank"><img
+                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/fb.jpg" border="0"
+                                                                                    width="26" height="26" alt=""/></a>
+                                                                    </td>
+                                                                    <td class="img-center"
+                                                                        style="font-size:0pt; line-height:0pt; text-align:center"
+                                                                        width="30"><a href="https://www.instagram.com/kompas.tours/" target="_blank"><img
+                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/insta.jpg" border="0"
+                                                                                    width="26" height="26" alt=""/></a>
+                                                                    </td>
+                                                                    <td class="img-center"
+                                                                        style="font-size:0pt; line-height:0pt; text-align:center"
+                                                                        width="30"><a href="https://t.me/Kompastours" target="_blank"><img
+                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/telegram.jpg" border="0"
+                                                                                    width="26" height="26" alt=""/></a>
+                                                                    </td>
+                                                                    <td class="img-center"
+                                                                        style="font-size:0pt; line-height:0pt; text-align:center"
+                                                                        width="30"><a href="https://invite.viber.com/?g2=AQBIE%2Fnv0OsV%2FkiV1LuRl7BUAnQ2eiIQwVEU%2FMg%2BzXtsqfeH1G9xLF3DD8QRe%2B41" target="_blank"><img
+                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/viber.jpg" border="0"
+                                                                                    width="26" height="26" alt=""/></a>
+                                                                    </td>
+                                                                    <td class="img-center"
+                                                                        style="font-size:0pt; line-height:0pt; text-align:center"
+                                                                        width="30"><a href="https://www.youtube.com/channel/UCH778PYnWOLiU9I641pOCnQ" target="_blank"><img
+                                                                                    src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/yt.jpg" border="0"
+                                                                                    width="26" height="26" alt=""/></a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -144,15 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <!-- END Column -->
                                         </tr>
                                     </table>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                           style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                        <tr>
-                                            <td height="26" class="spacer"
-                                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                &nbsp;
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <?php snth_email_content_row_spacer(26) ?>
 
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
@@ -165,16 +127,14 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         <td>
                                                             <div class="text-white-m-center"
                                                                  style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:left">
-                                                                <a href="#" target="_blank" class="link-white"
+                                                                <a href="https://kompas.tours/contacts/" target="_blank" class="link-white"
                                                                    style="color:#ffffff; text-decoration:none"><span
                                                                             class="link-white"
-                                                                            style="color:#ffffff; text-decoration:none">East Pixel Bld. 99, Creative City 9000</span></a>,
-                                                                Republic of Design <br/>Phone: <a href="tel:+1123456789"
-                                                                                                  target="_blank"
-                                                                                                  class="link-white"
-                                                                                                  style="color:#ffffff; text-decoration:none"><span
+                                                                            style="color:#ffffff; text-decoration:none">Полтава, вул. Стрітенська, 30</span></a><br/>
+                                                                <a href="https://kompas.tours/contacts/" target="_blank" class="link-white"
+                                                                   style="color:#ffffff; text-decoration:none"><span
                                                                             class="link-white"
-                                                                            style="color:#ffffff; text-decoration:none">+1 (123) 456-789</span></a>
+                                                                            style="color:#ffffff; text-decoration:none">Полтава, вул. Пушкіна, 45</span></a>
                                                             </div>
                                                             <div style="font-size:0pt; line-height:0pt;"
                                                                  class="mobile-br-15"></div>
@@ -200,18 +160,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                                                 <td>
                                                                                     <div class="text-white-r-m-center"
                                                                                          style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:right">
-                                                                                        <multiline><a href="#"
+                                                                                        <multiline><a href="https://kompas.tours/"
                                                                                                       target="_blank"
                                                                                                       class="link-white"
                                                                                                       style="color:#ffffff; text-decoration:none"><span
                                                                                                         class="link-white"
-                                                                                                        style="color:#ffffff; text-decoration:none">Update</span></a>
-                                                                                            &nbsp; | &nbsp; <a href="#"
+                                                                                                        style="color:#ffffff; text-decoration:none"><?php _e('Home', 'snthwp'); ?></span></a>
+                                                                                            &nbsp; | &nbsp; <a href="https://kompas.tours/countries/"
                                                                                                                target="_blank"
                                                                                                                class="link-white"
                                                                                                                style="color:#ffffff; text-decoration:none"><span
                                                                                                         class="link-white"
-                                                                                                        style="color:#ffffff; text-decoration:none">Unsubscribe</span></a>
+                                                                                                        style="color:#ffffff; text-decoration:none"><?php _e('Popular countries', 'snthwp'); ?></span></a>
                                                                                         </multiline>
                                                                                     </div>
                                                                                 </td>
@@ -227,30 +187,91 @@ if ( ! defined( 'ABSPATH' ) ) {
                                             <!-- END Column -->
                                         </tr>
                                     </table>
-                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                                           style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
+                                    <?php snth_email_content_row_spacer(15) ?>
+
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td height="30" class="spacer"
-                                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                                &nbsp;
-                                            </td>
+                                            <!-- Column -->
+                                            <th class="column-top"
+                                                style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0"
+                                                width="320">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="text-white-m-center"
+                                                                 style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">
+                                                                <a href="tel:+380955068581"
+                                                                                                  target="_blank"
+                                                                                                  class="link-white"
+                                                                                                  style="color:#ffffff; text-decoration:none"><span
+                                                                            class="link-white"
+                                                                            style="color:#ffffff; text-decoration:none">+38(095) 506 85 81</span></a>
+                                                            </div>
+                                                            <div style="font-size:0pt; line-height:0pt;"
+                                                                 class="mobile-br-15"></div>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                            <!-- END Column -->
+                                            <!-- Column -->
+                                            <th class="column-top"
+                                                style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0"
+                                                width="320">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="text-white-m-center"
+                                                                 style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">
+                                                                <a href="tel:+380985741481"
+                                                                                                  target="_blank"
+                                                                                                  class="link-white"
+                                                                                                  style="color:#ffffff; text-decoration:none"><span
+                                                                            class="link-white"
+                                                                            style="color:#ffffff; text-decoration:none">+38(098) 574 14 81</span></a>
+                                                            </div>
+                                                            <div style="font-size:0pt; line-height:0pt;"
+                                                                 class="mobile-br-15"></div>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                            <!-- END Column -->
+                                            <!-- Column -->
+                                            <th class="column-top"
+                                                style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top; Margin:0"
+                                                width="320">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="text-white-m-center"
+                                                                 style="color:#ffffff; font-family:Arial,sans-serif; font-size:12px; line-height:20px; text-align:center">
+                                                                <a href="tel:+380955068581" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none">
+                                                                    <span class="link-white" style="color:#ffffff; text-decoration:none">
+                                                                        +38(095) 506 85 81
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                            <div style="font-size:0pt; line-height:0pt;"
+                                                                 class="mobile-br-15"></div>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </th>
+                                            <!-- END Column -->
                                         </tr>
                                     </table>
+                                    <?php snth_email_content_row_spacer(30) ?>
 
                                 </td>
                                 <td class="content-spacing" style="font-size:0pt; line-height:0pt; text-align:left"
                                     width="30"></td>
                             </tr>
                         </table>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
-                               style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                            <tr>
-                                <td height="20" class="spacer"
-                                    style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
-                                    &nbsp;
-                                </td>
-                            </tr>
-                        </table>
+                        <?php snth_email_content_row_spacer(20) ?>
 
                         <!-- END Footer -->
                     </td>

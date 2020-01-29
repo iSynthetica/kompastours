@@ -92,29 +92,7 @@ function ittour_ajax_book_tour() {
 
     unset($validation_errors);
 
-    $user = CRM_User::getByField('user_phone', $form_data_array['clientPhone']);
-
-    if (!$user) {
-        $user_data = array(
-            'user_display_name' => $form_data_array['clientName'],
-            'user_email' => $form_data_array['clientEmail'],
-            'user_phone' => $form_data_array['clientPhone'],
-            'user_registered' => gmdate( 'Y-m-d H:i:s' ),
-        );
-
-        if (!empty($form_data_array['clientViber'])) {
-            $user_data['user_viber'] = 1;
-        }
-
-        if (!empty($form_data_array['clientTelegram'])) {
-            $user_data['user_telegram'] = 1;
-        }
-
-        $user_id = CRM_User::insert($user_data);
-    } else {
-        $user_id = $user->ID;
-    }
-
+    $user_id = CRM_ClaimManager::get_client_id($form_data_array);
     $data_for_email = $form_data_array;
 
     unset($form_data_array['clientName']);
@@ -129,7 +107,8 @@ function ittour_ajax_book_tour() {
     $form_data_array['claim_meta_group'] = 'tour_booking_parameters';
 
     $claim_id = CRM_ClaimManager::create_new_booking_request($form_data_array);
-    $email_sent = CRM_ClaimManager::send_moituristy_email('tour_booking_request', $data_for_email);
+    // $email_sent = CRM_ClaimManager::send_moituristy_email('tour_booking_request', $data_for_email);
+    $email_sent = CRM_ClaimManager::send_admin_email($data_for_email);
     $fake_claim_id = $claim_id + CRM_Claim::$initial_claim_number;
 
     $success_message = crm_get_template('admin/messages/booking-success.php', array('claim_id' => $fake_claim_id));

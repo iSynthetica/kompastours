@@ -25,68 +25,42 @@ const SOURCE = {
     scripts: [
 
         MODULES + '/popper.js/dist/umd/popper.js',
-
         BOOTSTRAP + '/dist/js/bootstrap.js',
 
         // Jrespond
         MODULES + '/jrespond/js/jRespond.js',
-
-        // BlockUI
         VENDORS + '/jquery-blockui/jquery.blockUI.min.js',
-
         VENDORS + '/retina-replace-js/retina-repalce.js',
-
         MODULES + '/jquery-parallax.js/parallax.js',
-
         MODULES + '/magnific-popup/dist/jquery.magnific-popup.js',
-
         MODULES + '/wowjs/dist/wow.js',
-
         // MODULES + '/ion-rangeslider/js/ion.rangeSlider.js',
-
         VENDORS + '/rAF.js',
-
         VENDORS + '/footer-reveal/footer-reveal.js',
-
         VENDORS + '/bootstrap-notify/bootstrap-notify.js',
-
         VENDORS + '/jquery-countTo/jquery.countTo.js',
-
         VENDORS + '/counter.js',
 
         // VENDORS + '/Datedropper3/datedropper.js',
-
         // VENDORS + '/timedropper/timedropper.js',
-
         // MODULES + '/owl.carousel/dist/owl.carousel.js',
-
         // MODULES + '/handlebars/dist/handlebars.js',
-
         // MODULES + '/jquery.repeater/jquery.repeater.js',
-
         // VENDORS + '/showpassword.js',
+        // VENDORS + '/icheck/icheck.js',
 
         VENDORS + '/bootsnav/bootsnav.js',
         VENDORS + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.js',
-
-        // VENDORS + '/icheck/icheck.js',
-
         MODULES + '/lightgallery.js/dist/js/lightgallery.js',
         MODULES + '/lg-thumbnail.js/dist/lg-thumbnail.js',
-
         MODULES + '/select2/dist/js/select2.js',
         MODULES + '/lozad/dist/lozad.js',
-
         MODULES + '/daterangepicker/moment.min.js',
-
         VENDORS + '/daterange-custom/daterangepicker.js',
-
         VENDORS + '/swiper/swiper.min.js',
-
+        VENDORS + '/jquery.cookie.js',
         MODULES + '/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
-
         MODULES + '/jquery-smooth-scroll/jquery.smooth-scroll.js',
-
         // VENDORS + '/ddslick/jquery.ddslick.js',
 
         // Place custom JS here, files will be concantonated, minified if ran with --production

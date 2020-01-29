@@ -482,4 +482,60 @@ class CRM_ClaimManager {
 
         return $result;
     }
+
+    public static function send_admin_email( $data ) {
+        $email_heading = !empty($data["requestTypeName"]) ? $data["requestTypeName"] : __('New Tour request', 'snthwp');
+        $subject = !empty($data["requestTypeName"]) ? $data["requestTypeName"] : __('New Tour request', 'snthwp');
+        $headers = array();
+        $headers[] = 'From: Kompas Tours <order.kompas@gmail.com>';
+        $headers[] = 'content-type: text/html';
+
+        ob_start();
+
+        snth_show_template('email/email-header.php', array('preheader_text' => 'New Booking request'));
+        snth_show_template('email/email-title.php', array('email_heading' => $email_heading));
+        snth_show_template('email/email-tour-info.php', array('tour_info' => $data));
+        snth_show_template('email/email-client-info.php', array('tour_info' => $data));
+        snth_show_template('email/email-footer.php');
+
+        $email_content = ob_get_clean();
+
+        $tos = array(
+            'i.synthetica@gmail.com',
+            'test-z1wvbpfpg@mail-tester.com'
+        );
+
+        foreach ($tos as $to) {
+            $result = wp_mail( $to, $subject, $email_content, $headers );
+        }
+
+        return true;
+    }
+
+    public static function get_client_id($form_data_array) {
+        $user = CRM_User::getByField('user_phone', $form_data_array['clientPhone']);
+
+        if (!$user) {
+            $user_data = array(
+                'user_display_name' => $form_data_array['clientName'],
+                'user_email' => $form_data_array['clientEmail'],
+                'user_phone' => $form_data_array['clientPhone'],
+                'user_registered' => gmdate( 'Y-m-d H:i:s' ),
+            );
+
+            if (!empty($form_data_array['clientViber'])) {
+                $user_data['user_viber'] = 1;
+            }
+
+            if (!empty($form_data_array['clientTelegram'])) {
+                $user_data['user_telegram'] = 1;
+            }
+
+            $user_id = CRM_User::insert($user_data);
+        } else {
+            $user_id = $user->ID;
+        }
+
+        return $user_id;
+    }
 }

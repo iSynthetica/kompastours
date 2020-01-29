@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 07:55+0000\n"
-"PO-Revision-Date: 2020-01-28 08:22+0000\n"
+"POT-Creation-Date: 2020-01-29 17:00+0000\n"
+"PO-Revision-Date: 2020-01-29 17:01+0000\n"
 "Last-Translator: Synthetica <i.synthetica@gmail.com>\n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -37,7 +37,7 @@ msgid "Schedule"
 msgstr "Расписание"
 
 #: parts/countries.php:23 includes/ittour-core.php:90 includes/admin.php:26
-#: ittour-templates/form/search-tab.php:370
+#: parts/email/email-tour-info.php:92 ittour-templates/form/search-tab.php:370
 msgid "Countries"
 msgstr "Страны"
 
@@ -65,7 +65,7 @@ msgstr "Результаты поиска"
 
 #: ittour-templates/single-tour-excursion-content.php:61
 msgid "Tour actual until"
-msgstr ""
+msgstr "Тур актуален до"
 
 #: ittour-templates/single-tour-excursion-content.php:71
 #: ittour-templates/single-tour/tour-not-actual-message.php:25
@@ -96,6 +96,7 @@ msgstr "Транспорт"
 
 #: ittour-templates/single-tour-excursion-content.php:114
 #: ittour-templates/single-tour-content.php:64
+#: parts/email/email-tour-info.php:161
 #: crm/includes/class/crm-claimmanager.php:189
 msgid "Tour duration"
 msgstr "Продолжительность тура"
@@ -104,10 +105,12 @@ msgstr "Продолжительность тура"
 #: ittour-templates/single-tour-content.php:65
 #: includes/ittour-template-functions.php:243
 #: includes/ittour-template-functions.php:1196 includes/enqueue-scripts.php:53
+#: parts/email/email-tour-info.php:167
 #: ittour-templates/single-tour/book-tour-form-popup.php:87
 #: ittour-templates/loop-hotel/tour-list-default.php:137
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:85
 #: ittour-templates/loop-hotel/part-offers.php:21
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:53
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:86
 msgid "nights"
 msgstr "ночей"
@@ -137,42 +140,43 @@ msgstr "описание экскурсий"
 #: ittour-templates/single-tour-excursion-content.php:181
 #: ittour-templates/single-tour-content.php:94
 #: includes/ittour-template-functions.php:1458
+#: parts/email/email-tour-info.php:138
 #: crm/includes/class/crm-claimmanager.php:197
 msgid "Meal type"
 msgstr "Тип питания"
 
 #: ittour-templates/single-tour-excursion-content.php:193
-#: ittour-templates/single-tour-excursion-content.php:272
+#: ittour-templates/single-tour-excursion-content.php:277
 msgid "Additional info"
 msgstr "Дополнительная информация"
 
 #: ittour-templates/single-tour-excursion-content.php:202
-#: ittour-templates/single-tour-excursion-content.php:290
+#: ittour-templates/single-tour-excursion-content.php:295
 msgid "Info about Documents"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:236
+#: ittour-templates/single-tour-excursion-content.php:241
 msgid "Tour description"
 msgstr "Описание тура"
 
-#: ittour-templates/single-tour-excursion-content.php:254
+#: ittour-templates/single-tour-excursion-content.php:259
 msgid "Excursions List"
 msgstr "Список экскурсий"
 
-#: ittour-templates/single-tour-excursion-content.php:325
+#: ittour-templates/single-tour-excursion-content.php:330
 msgid "Free"
 msgstr "Бесплатно"
 
-#: ittour-templates/single-tour-excursion-content.php:354
+#: ittour-templates/single-tour-excursion-content.php:359
 #: ittour-templates/single-tour-content.php:46
 msgid "Tour price includes"
 msgstr "В стоимость тура включено"
 
-#: ittour-templates/single-tour-excursion-content.php:367
+#: ittour-templates/single-tour-excursion-content.php:372
 msgid "Tour price not includes"
 msgstr "В стоимость тура не включено"
 
-#: ittour-templates/single-tour-excursion-content.php:389
+#: ittour-templates/single-tour-excursion-content.php:394
 msgid "Important information"
 msgstr "Важная информация"
 
@@ -207,6 +211,8 @@ msgstr "$"
 #: ittour-templates/admin/api-countries.php:179
 #: ittour-templates/single-excursion-tour/book-tour.php:76
 #: ittour-templates/single-excursion-tour/book-tour.php:84
+#: ittour-templates/single-excursion-tour/request-tour.php:75
+#: ittour-templates/single-excursion-tour/request-tour.php:83
 #: crm/includes/class/crm-claimmanager.php:267
 msgid "UAH"
 msgstr "грн."
@@ -241,6 +247,7 @@ msgstr "Тип номера"
 #: includes/ittour-template-functions.php:661
 #: includes/ittour-template-functions.php:3045
 #: ittour-templates/single-tour/book-tour-form-popup.php:137
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:72
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:114
 msgid "Plane"
 msgstr "Самолет"
@@ -250,6 +257,7 @@ msgstr "Самолет"
 #: includes/ittour-template-functions.php:666
 #: includes/ittour-template-functions.php:3051
 #: ittour-templates/single-tour/book-tour-form-popup.php:140
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:75
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:117
 msgid "Bus"
 msgstr "Автобус"
@@ -297,7 +305,7 @@ msgstr "Поле Страна, не может быть пустым"
 
 #: includes/ittour-core.php:76
 msgid "Sorry, no tours found for your parameters."
-msgstr ""
+msgstr "Извините, мы не смогли найти туры для Вашего запроса."
 
 #: includes/ittour-core.php:77
 msgid "Field date_from must be more or equal to the current date."
@@ -607,6 +615,8 @@ msgstr "Поиск"
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:184
 #: ittour-templates/single-excursion-tour/book-tour.php:75
 #: ittour-templates/single-excursion-tour/book-tour.php:83
+#: ittour-templates/single-excursion-tour/request-tour.php:74
+#: ittour-templates/single-excursion-tour/request-tour.php:82
 msgid "from"
 msgstr "от"
 
@@ -811,9 +821,9 @@ msgstr ""
 
 #: includes/ittour-api.php:299 includes/ittour-api.php:476
 msgid "Tour dates must be more or equal to the current date."
-msgstr ""
+msgstr "Даты тура должны быть больше текущей даты."
 
-#: includes/content-templates.php:26
+#: includes/content-templates.php:26 parts/email/email-footer.php:168
 msgid "Home"
 msgstr "Главная"
 
@@ -840,24 +850,24 @@ msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr "<i class=\"fas fa-angle-right\"></i>"
 
 #: includes/ajax-forms.php:39 includes/ajax-forms.php:208
-#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:177
-#: crm/includes/ajax-front.php:382
+#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:156
+#: crm/includes/ajax-front.php:361
 msgid "Input your name, please"
 msgstr "Введите Ваше имя"
 
 #: includes/ajax-forms.php:47
 msgid "Input your email, please"
-msgstr ""
+msgstr "Введите адрес электронной почты"
 
 #: includes/ajax-forms.php:52 includes/ajax-forms.php:217
-#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:221
-#: crm/includes/ajax-front.php:426
+#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:200
+#: crm/includes/ajax-front.php:405
 msgid "Input correct email, please"
 msgstr "Введите корректный адрес электронной почты"
 
 #: includes/ajax-forms.php:69 includes/ajax-forms.php:234
-#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:200
-#: crm/includes/ajax-front.php:405
+#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:179
+#: crm/includes/ajax-front.php:384
 msgid "Input correct phone, please"
 msgstr "Введите правильный номер телефона"
 
@@ -877,7 +887,7 @@ msgstr "Выберите регион"
 
 #: includes/enqueue-scripts.php:57
 msgid "Select city"
-msgstr ""
+msgstr "Выберите город"
 
 #: includes/enqueue-scripts.php:58
 msgid "Select hotel"
@@ -973,7 +983,7 @@ msgstr "Редактировать направление"
 
 #: includes/cpt.php:26
 msgid "Update Destination"
-msgstr ""
+msgstr "Update Destination"
 
 #: includes/cpt.php:27
 msgid "View Destination"
@@ -1000,7 +1010,7 @@ msgstr ""
 #: includes/cpt.php:32 includes/cpt.php:95 includes/cpt.php:191
 #: includes/cpt.php:247 includes/cpt.php:310 includes/cpt.php:366
 msgid "Featured Image"
-msgstr ""
+msgstr "Featured Image"
 
 #: includes/cpt.php:33 includes/cpt.php:96 includes/cpt.php:192
 #: includes/cpt.php:248 includes/cpt.php:311 includes/cpt.php:367
@@ -1019,11 +1029,11 @@ msgstr "Использовать как главное изображение"
 
 #: includes/cpt.php:36 includes/cpt.php:370
 msgid "Insert into Destination"
-msgstr ""
+msgstr "Insert into Destination"
 
 #: includes/cpt.php:37
 msgid "Uploaded to this Destination"
-msgstr ""
+msgstr "Uploaded to this Destination"
 
 #: includes/cpt.php:38
 msgid "Destinations list"
@@ -1035,11 +1045,11 @@ msgstr ""
 
 #: includes/cpt.php:40
 msgid "Filter Destinations list"
-msgstr ""
+msgstr "Filter Destinations list"
 
 #: includes/cpt.php:50
 msgid "Destinations post type for countries and regions"
-msgstr ""
+msgstr "Destinations post type for countries and regions"
 
 #: includes/cpt.php:77
 msgctxt "Post Type General Name"
@@ -1057,11 +1067,11 @@ msgstr ""
 
 #: includes/cpt.php:81
 msgid "Excursion Archives"
-msgstr ""
+msgstr "Excursion Archives"
 
 #: includes/cpt.php:82
 msgid "Excursion Attributes"
-msgstr ""
+msgstr "Excursion Attributes"
 
 #: includes/cpt.php:83
 msgid "Parent Excursion:"
@@ -1081,19 +1091,19 @@ msgstr ""
 
 #: includes/cpt.php:88
 msgid "Edit Excursion"
-msgstr ""
+msgstr "Edit Excursion"
 
 #: includes/cpt.php:89
 msgid "Update Excursion"
-msgstr ""
+msgstr "Update Excursion"
 
 #: includes/cpt.php:90
 msgid "View Excursion"
-msgstr ""
+msgstr "View Excursion"
 
 #: includes/cpt.php:91
 msgid "View Excursions"
-msgstr ""
+msgstr "View Excursions"
 
 #: includes/cpt.php:92
 msgid "Search Excursion"
@@ -1101,11 +1111,11 @@ msgstr ""
 
 #: includes/cpt.php:99
 msgid "Insert into Excursion"
-msgstr ""
+msgstr "Insert into Excursion"
 
 #: includes/cpt.php:100
 msgid "Uploaded to this Excursion"
-msgstr ""
+msgstr "Uploaded to this Excursion"
 
 #: includes/cpt.php:101
 msgid "Excursions list"
@@ -1117,11 +1127,11 @@ msgstr ""
 
 #: includes/cpt.php:103
 msgid "Filter Excursions list"
-msgstr ""
+msgstr "Filter Excursions list"
 
 #: includes/cpt.php:107
 msgid "Excursion Post Type"
-msgstr ""
+msgstr "Excursion Post Type"
 
 #: includes/cpt.php:134
 msgctxt "Taxonomy General Name"
@@ -1161,11 +1171,11 @@ msgstr "Добавить новый тип"
 
 #: includes/cpt.php:142
 msgid "Edit Type"
-msgstr ""
+msgstr "Edit Type"
 
 #: includes/cpt.php:143
 msgid "Update Type"
-msgstr ""
+msgstr "Update Type"
 
 #: includes/cpt.php:144
 msgid "View Type"
@@ -1251,11 +1261,11 @@ msgstr "Новый партнер"
 
 #: includes/cpt.php:184
 msgid "Edit Partner"
-msgstr ""
+msgstr "Edit Partner"
 
 #: includes/cpt.php:185
 msgid "Update Partner"
-msgstr ""
+msgstr "Update Partner"
 
 #: includes/cpt.php:186
 msgid "View Partner"
@@ -1271,11 +1281,11 @@ msgstr "Поиск партнеров"
 
 #: includes/cpt.php:195
 msgid "Insert into Partner"
-msgstr ""
+msgstr "Insert into Partner"
 
 #: includes/cpt.php:196
 msgid "Uploaded to this Partner"
-msgstr ""
+msgstr "Uploaded to this Partner"
 
 #: includes/cpt.php:197
 msgid "Partners list"
@@ -1287,7 +1297,7 @@ msgstr ""
 
 #: includes/cpt.php:199
 msgid "Filter Partners list"
-msgstr ""
+msgstr "Filter Partners list"
 
 #: includes/cpt.php:203
 msgid "Partners of our tourist agency"
@@ -1357,11 +1367,11 @@ msgstr "Поиск лендингов"
 
 #: includes/cpt.php:251
 msgid "Insert into Landing"
-msgstr ""
+msgstr "Insert into Landing"
 
 #: includes/cpt.php:252
 msgid "Uploaded to this Landing"
-msgstr ""
+msgstr "Uploaded to this Landing"
 
 #: includes/cpt.php:253
 msgid "Landings list"
@@ -1369,15 +1379,15 @@ msgstr "Список лендингов"
 
 #: includes/cpt.php:254
 msgid "Landings list navigation"
-msgstr ""
+msgstr "Landings list navigation"
 
 #: includes/cpt.php:255
 msgid "Filter Landings list"
-msgstr ""
+msgstr "Filter Landings list"
 
 #: includes/cpt.php:265
 msgid "Landing pages generator"
-msgstr ""
+msgstr "Landing pages generator"
 
 #: includes/cpt.php:292
 msgctxt "Post Type General Name"
@@ -1423,19 +1433,19 @@ msgstr ""
 
 #: includes/cpt.php:303
 msgid "Edit Testimonial"
-msgstr ""
+msgstr "Edit Testimonial"
 
 #: includes/cpt.php:304
 msgid "Update Testimonial"
-msgstr ""
+msgstr "Update Testimonial"
 
 #: includes/cpt.php:305
 msgid "View Testimonial"
-msgstr ""
+msgstr "View Testimonial"
 
 #: includes/cpt.php:306
 msgid "View Testimonials"
-msgstr ""
+msgstr "View Testimonials"
 
 #: includes/cpt.php:307
 msgid "Search Testimonial"
@@ -1443,11 +1453,11 @@ msgstr ""
 
 #: includes/cpt.php:314
 msgid "Insert into Testimonial"
-msgstr ""
+msgstr "Insert into Testimonial"
 
 #: includes/cpt.php:315
 msgid "Uploaded to this Testimonial"
-msgstr ""
+msgstr "Uploaded to this Testimonial"
 
 #: includes/cpt.php:316
 msgid "Testimonials list"
@@ -1459,7 +1469,7 @@ msgstr ""
 
 #: includes/cpt.php:318
 msgid "Filter Testimonials list"
-msgstr ""
+msgstr "Filter Testimonials list"
 
 #: includes/cpt.php:322
 msgid "Testimonial pages generator"
@@ -1509,19 +1519,19 @@ msgstr ""
 
 #: includes/cpt.php:359
 msgid "Edit Gallery"
-msgstr ""
+msgstr "Edit Gallery"
 
 #: includes/cpt.php:360
 msgid "Update Gallery"
-msgstr ""
+msgstr "Update Gallery"
 
 #: includes/cpt.php:361
 msgid "View Gallery"
-msgstr ""
+msgstr "View Gallery"
 
 #: includes/cpt.php:362
 msgid "View Galleries"
-msgstr ""
+msgstr "View Galleries"
 
 #: includes/cpt.php:363
 msgid "Search Gallery"
@@ -1529,7 +1539,7 @@ msgstr ""
 
 #: includes/cpt.php:371
 msgid "Uploaded to this Gallery"
-msgstr ""
+msgstr "Uploaded to this Gallery"
 
 #: includes/cpt.php:372
 msgid "Galleries list"
@@ -1541,7 +1551,7 @@ msgstr "Навигация по списку Галерей"
 
 #: includes/cpt.php:374
 msgid "Filter Galleries list"
-msgstr ""
+msgstr "Filter Galleries list"
 
 #: includes/cpt.php:384
 msgid "Galleries post type"
@@ -1549,7 +1559,7 @@ msgstr "Тип записи Галерея"
 
 #: includes/settings.php:43
 msgid "Archive Photo Template"
-msgstr ""
+msgstr "Archive Photo Template"
 
 #: includes/settings.php:49
 msgid "Archive Blog Thumb"
@@ -1601,11 +1611,11 @@ msgstr ""
 
 #: includes/settings.php:113
 msgid "Blog Sidebar"
-msgstr ""
+msgstr "Blog Sidebar"
 
 #: includes/settings.php:114
 msgid "Blog sidebar."
-msgstr ""
+msgstr "Blog sidebar."
 
 #: includes/ittour-ajax.php:480 includes/ittour-ajax.php:510
 #: includes/ittour-ajax.php:516
@@ -1624,13 +1634,18 @@ msgstr "Страница контактов"
 msgid "Search Result Page"
 msgstr "Страница результатов поиска"
 
+#: parts/email/email-client-info.php:115 crm/parts/admin/clients-list.php:28
+#: crm/parts/admin/clients-list.php:62
+msgid "Email"
+msgstr "Email"
+
 #. Name of the template
 msgid "Excursion Search Result Page"
-msgstr ""
+msgstr "Excursion Search Result Page"
 
 #. Name of the template
 msgid "Excursion Tour Result Page"
-msgstr ""
+msgstr "Страница результатов экскурсионных туров"
 
 #. Name of the template
 msgid "Test MB JSON Page"
@@ -1638,7 +1653,7 @@ msgstr ""
 
 #. Name of the template
 msgid "Empty Page"
-msgstr ""
+msgstr "Empty Page"
 
 #. Name of the template
 msgid "Tour Result Page"
@@ -1682,44 +1697,45 @@ msgstr "Клиенты"
 
 #: crm/includes/admin.php:55
 msgid "Moi Turisty Page"
-msgstr ""
+msgstr "Страница Moi Turisty"
 
 #: crm/includes/admin.php:56
 msgid "Moi Turisty"
-msgstr ""
+msgstr "Moi Turisty"
 
-#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:186
-#: crm/includes/ajax-front.php:391
+#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:165
+#: crm/includes/ajax-front.php:370
 msgid "Input your phone, please"
 msgstr "Введите номер телефона"
 
-#: crm/includes/ajax-front.php:213 crm/includes/ajax-front.php:418
+#: crm/includes/ajax-front.php:192 crm/includes/ajax-front.php:397
 msgid "Select tour date, please"
 msgstr "Выберите дату тура"
 
-#: crm/includes/ajax-front.php:233 crm/includes/ajax-front.php:438
+#: crm/includes/ajax-front.php:212 crm/includes/ajax-front.php:417
 msgid "Input number as Adult amount, please"
-msgstr ""
+msgstr "Количество взрослых должно быть числом"
 
-#: crm/includes/ajax-front.php:249 crm/includes/ajax-front.php:454
+#: crm/includes/ajax-front.php:228 crm/includes/ajax-front.php:433
 msgid "Input number as Children amount, please"
-msgstr ""
+msgstr "Количество детей должно быть числом"
 
-#: crm/includes/ajax-front.php:265 crm/includes/ajax-front.php:479
+#: crm/includes/ajax-front.php:244 crm/includes/ajax-front.php:458
 msgid "Input number as Price from, please"
-msgstr ""
+msgstr "Стоимость от должна быть числом"
 
-#: crm/includes/ajax-front.php:281 crm/includes/ajax-front.php:495
+#: crm/includes/ajax-front.php:260 crm/includes/ajax-front.php:474
 msgid "Input number as Price till, please"
-msgstr ""
+msgstr "Стоимость до должна быть числом"
 
-#: crm/includes/ajax-front.php:466
+#: crm/includes/ajax-front.php:445
 msgid "Select country, please"
-msgstr ""
+msgstr "Выберите страну, пожалуйста"
 
 #: parts/landings/section-order-form.php:32
 #: ittour-templates/general/form-find-me-tour.php:20
 #: ittour-templates/general/form-find-me-tour-static.php:20
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:130
 msgid "Send request"
 msgstr "Отправить запрос"
 
@@ -1728,6 +1744,7 @@ msgstr "Отправить запрос"
 #: ittour-templates/general/form-find-me-tour.php:26
 #: ittour-templates/general/form-find-me-tour-static.php:26
 #: ittour-templates/single-tour/book-tour-form-popup.php:218
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:94
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:147
 msgid "Your name"
 msgstr "Ваше имя"
@@ -1745,6 +1762,7 @@ msgstr "Введите Ваше имя"
 #: ittour-templates/general/form-find-me-tour.php:33
 #: ittour-templates/general/form-find-me-tour-static.php:33
 #: ittour-templates/single-tour/book-tour-form-popup.php:225
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:116
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:154
 msgid "Your email"
 msgstr "Ваш email"
@@ -1762,6 +1780,7 @@ msgstr "Введите Ваш email"
 #: ittour-templates/general/form-find-me-tour.php:42
 #: ittour-templates/general/form-find-me-tour-static.php:42
 #: ittour-templates/single-tour/book-tour-form-popup.php:234
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:98
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:163
 msgid "Your phone"
 msgstr "Номер телефона"
@@ -1860,9 +1879,10 @@ msgstr "Найти тур"
 
 #: parts/destination/loop.php:41
 msgid "Input Country title"
-msgstr ""
+msgstr "Введите название страну"
 
-#: parts/destination/loop.php:50
+#: parts/destination/loop.php:50 parts/email/email-footer.php:174
+#: parts/email/email-header.php:307
 msgid "Popular countries"
 msgstr "Популярные страны"
 
@@ -1877,6 +1897,39 @@ msgstr "Рекомендуемые туры"
 #: parts/destination/country.php:67
 msgid "<span>Popular</span> Regions"
 msgstr "Популярные регионы"
+
+#: parts/email/email-client-info.php:32
+msgid "Client Information"
+msgstr "Информация о клиенте"
+
+#: parts/email/email-client-info.php:69 crm/parts/admin/clients-list.php:26
+#: crm/parts/admin/clients-list.php:60
+msgid "Name"
+msgstr "Имя"
+
+#: parts/email/email-client-info.php:92
+msgid "Phone number"
+msgstr ""
+
+#: parts/email/email-client-info.php:138
+msgid "Additional"
+msgstr ""
+
+#: parts/email/email-header.php:295
+msgid "Home page"
+msgstr "Главная страница"
+
+#: parts/email/email-tour-info.php:32
+msgid "Tour Information"
+msgstr "Информация о туре"
+
+#: parts/email/email-tour-info.php:69
+msgid "Tour title"
+msgstr ""
+
+#: parts/email/email-tour-info.php:115 ittour-templates/form/search-tab.php:376
+msgid "Cities"
+msgstr "Города"
 
 #: parts/content/contacts.php:21
 msgid "Our offices"
@@ -1951,7 +2004,7 @@ msgstr ""
 
 #: ittour-templates/admin/api-params.php:50
 msgid "Create new API key"
-msgstr ""
+msgstr "Create new API key"
 
 #: ittour-templates/admin/api-countries.php:62
 msgid "Currency"
@@ -2014,13 +2067,9 @@ msgstr "Укажите количество взрослых и детей"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: ittour-templates/form/search-tab.php:376
-msgid "Cities"
-msgstr "Города"
-
 #: ittour-templates/form/search-tab.php:401
 msgid "Select dates of start tour"
-msgstr ""
+msgstr "Выберите период начала туры"
 
 #: ittour-templates/single-tour/hotel-table.php:71
 #: ittour-templates/single-tour/hotel-calendar.php:71
@@ -2251,6 +2300,18 @@ msgstr "Услуги отеля"
 msgid "Price from"
 msgstr "Цена от"
 
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:121
+msgid "Do you have any questions? Ask them here."
+msgstr "Ваши пожелания или вопросы."
+
+#: ittour-templates/single-excursion-tour/book-tour-form-hidden-fields.php:18
+msgid "Excursion Tour Request"
+msgstr "Заявка на экскурсионный тур"
+
+#: ittour-templates/single-excursion-tour/request-tour.php:103
+msgid "Tour request"
+msgstr "Заявка на тур"
+
 #: crm/parts/messages/request-success.php:6
 #: crm/parts/admin/messages/booking-success.php:6
 msgid "Your request number"
@@ -2265,14 +2326,6 @@ msgstr ""
 #: crm/parts/admin/clients-list.php:17
 msgid "CRM Clients"
 msgstr "CRM Клиенты"
-
-#: crm/parts/admin/clients-list.php:26 crm/parts/admin/clients-list.php:60
-msgid "Name"
-msgstr "Имя"
-
-#: crm/parts/admin/clients-list.php:28 crm/parts/admin/clients-list.php:62
-msgid "Email"
-msgstr "Email"
 
 #: crm/parts/admin/clients-list.php:29 crm/parts/admin/clients-list.php:63
 msgid "Registered"
@@ -2293,7 +2346,7 @@ msgstr "Клиент"
 
 #: crm/parts/admin/crm-main.php:21
 msgid "In order to start working with CRM you need to create Clients table"
-msgstr ""
+msgstr "In order to start working with CRM you need to create Clients table"
 
 #: crm/parts/admin/crm-main.php:24
 msgid "Create Clients Table"
@@ -2301,16 +2354,17 @@ msgstr "Создать таблицу клиентов"
 
 #: crm/parts/admin/crm-main.php:31
 msgid "Clients table was changed, please upgrade it in your DB."
-msgstr ""
+msgstr "Clients table was changed, please upgrade it in your DB."
 
 #: crm/parts/admin/crm-main.php:34
 msgid "Update Clients Table"
-msgstr ""
+msgstr "Update Clients Table"
 
 #: crm/parts/admin/crm-main.php:43
 msgid ""
 "In order to start working with CRM you need to create Clients meta table"
 msgstr ""
+"In order to start working with CRM you need to create Clients meta table"
 
 #: crm/parts/admin/crm-main.php:46
 msgid "Create Clients Meta Table"
@@ -2318,15 +2372,15 @@ msgstr "Создать таблицу метаданных клиентов"
 
 #: crm/parts/admin/crm-main.php:53
 msgid "Clients meta table was changed, please upgrade it in your DB."
-msgstr ""
+msgstr "Clients meta table was changed, please upgrade it in your DB."
 
 #: crm/parts/admin/crm-main.php:56
 msgid "Update Clients Meta Table"
-msgstr ""
+msgstr "Update Clients Meta Table"
 
 #: crm/parts/admin/crm-main.php:69
 msgid "In order to start working with CRM you need to create Claims table"
-msgstr ""
+msgstr "In order to start working with CRM you need to create Claims table"
 
 #: crm/parts/admin/crm-main.php:72
 msgid "Create Claims Table"
@@ -2334,15 +2388,16 @@ msgstr "Создать таблицу обращений"
 
 #: crm/parts/admin/crm-main.php:79
 msgid "Claims table was changed, please upgrade it in your DB."
-msgstr ""
+msgstr "Claims table was changed, please upgrade it in your DB."
 
 #: crm/parts/admin/crm-main.php:82
 msgid "Update Claims Table"
-msgstr ""
+msgstr "Update Claims Table"
 
 #: crm/parts/admin/crm-main.php:91
 msgid "In order to start working with CRM you need to create Claims Meta table"
 msgstr ""
+"In order to start working with CRM you need to create Claims Meta table"
 
 #: crm/parts/admin/crm-main.php:94
 msgid "Create Claims Meta Table"
@@ -2350,11 +2405,11 @@ msgstr "Создать таблицу метаданных обращения"
 
 #: crm/parts/admin/crm-main.php:101
 msgid "Claims Meta table was changed, please upgrade it in your DB."
-msgstr ""
+msgstr "Claims Meta table was changed, please upgrade it in your DB."
 
 #: crm/parts/admin/crm-main.php:104
 msgid "Update Claims Meta Table"
-msgstr ""
+msgstr "Update Claims Meta Table"
 
 #: crm/parts/admin/clients-edit.php:16
 msgid "Edit Client"
@@ -2440,6 +2495,11 @@ msgstr ""
 msgid "Tour link on Kompas Tours"
 msgstr ""
 
+#: crm/includes/class/crm-claimmanager.php:487
+#: crm/includes/class/crm-claimmanager.php:488
+msgid "New Tour request"
+msgstr ""
+
 #: crm/includes/class/crm-claim.php:167
 msgid "Pending"
 msgstr "В ожидании"
@@ -2492,7 +2552,7 @@ msgstr "Изменен"
 #: crm/parts/admin/claim-sections/claim-edit-service-info.php:54
 #: crm/parts/admin/claim-sections/claim-edit-tour_booking_parameters.php:65
 msgid "Take to work"
-msgstr ""
+msgstr "Взять в работу"
 
 #: crm/parts/admin/claim-sections/claim-edit-tour_booking_parameters.php:42
 msgid "Booking requests parameters"

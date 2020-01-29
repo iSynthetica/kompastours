@@ -208,6 +208,11 @@
         var formData = $("#booking-form").serializeArray(),
             fragments;
 
+        var clientName = $('#clientName').val();
+        var clientPhone = $('#clientPhone').val();
+        var clientEmail = $('#clientEmail').val();
+        // $.cookie("wooaiocurrency", currency_code, { expires: 7, path: '/' });
+
         $.ajax({
             url: snthWpJsObj.ajaxurl,
             method: 'post',
@@ -231,6 +236,9 @@
                         fragments = response.message.fragments;
                         $( ".book-btn" ).remove();
                         $( ".error_messages" ).remove();
+                        $.cookie("clientName", clientName, { expires: 7, path: '/' });
+                        $.cookie("clientPhone", clientPhone, { expires: 7, path: '/' });
+                        $.cookie("clientEmail", clientEmail, { expires: 7, path: '/' });
                         updateFragments(fragments);
                     } else {
                         fragments = response.message.fragments;

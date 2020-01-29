@@ -262,7 +262,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         </table>
 
                         <!-- Top Bar -->
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f1712a">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ff5e56">
                             <tr>
                                 <!-- Column -->
                                 <th class="column-top"
@@ -287,12 +287,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                 <table class="center" border="0" cellspacing="0" cellpadding="0">
                                                     <tr>
                                                         <td class="text-top-white"
-                                                            style="color:#ffffff; font-family:Arial,sans-serif; font-size:11px; line-height:26px; text-align:left; text-transform:uppercase">
+                                                            style="color:#ffffff; font-family:Arial,sans-serif; font-size:11px; line-height:16px; text-align:left; text-transform:uppercase">
                                                             <multiline>
-                                                                <a href="https://kompas.tours/" target="_blank" class="link-white-u"
+                                                                <a href="#" target="_blank" class="link-white-u"
                                                                    style="color:#ffffff; text-decoration:underline"><span
                                                                             class="link-white-u"
-                                                                            style="color:#ffffff; text-decoration:underline"><?php _e('Home page', 'snthwp'); ?></span></a>
+                                                                            style="color:#ffffff; text-decoration:underline">View Online</span></a>
                                                             </multiline>
                                                         </td>
                                                         <td class="img"
@@ -301,10 +301,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                         <td class="text-top-white"
                                                             style="color:#ffffff; font-family:Arial,sans-serif; font-size:11px; line-height:16px; text-align:left; text-transform:uppercase">
                                                             <multiline>
-                                                                <a href="https://kompas.tours/countries/" target="_blank" class="link-white-u"
+                                                                <a href="#" target="_blank" class="link-white-u"
                                                                    style="color:#ffffff; text-decoration:underline"><span
                                                                             class="link-white-u"
-                                                                            style="color:#ffffff; text-decoration:underline"><?php _e('Popular countries', 'snthwp'); ?></span></a>
+                                                                            style="color:#ffffff; text-decoration:underline">FORWARD</span></a>
                                                             </multiline>
                                                         </td>
                                                     </tr>
@@ -351,34 +351,32 @@ if ( ! defined( 'ABSPATH' ) ) {
                                                     <tr>
                                                         <td class="img-center"
                                                             style="font-size:0pt; line-height:0pt; text-align:center"
-                                                            width="30"><a href="https://www.facebook.com/k0mpas.tours/" target="_blank"><img
-                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/fb.jpg" border="0"
-                                                                        width="26" height="26" alt=""/></a>
-                                                        </td>
+                                                            width="40"><a href="https://www.facebook.com/k0mpas.tours" target="_blank"><img
+                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email/ico_facebook.jpg" border="0"
+                                                                        width="14" height="13" alt=""/></a></td>
                                                         <td class="img-center"
                                                             style="font-size:0pt; line-height:0pt; text-align:center"
-                                                            width="30"><a href="https://www.instagram.com/kompas.tours/" target="_blank"><img
-                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/insta.jpg" border="0"
-                                                                        width="26" height="26" alt=""/></a>
-                                                        </td>
+                                                            width="40"><a href="#" target="_blank"><img
+                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email/ico_twitter.jpg" border="0"
+                                                                        width="14" height="13" alt=""/></a></td>
                                                         <td class="img-center"
                                                             style="font-size:0pt; line-height:0pt; text-align:center"
-                                                            width="30"><a href="https://t.me/Kompastours" target="_blank"><img
-                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/telegram.jpg" border="0"
-                                                                        width="26" height="26" alt=""/></a>
-                                                        </td>
+                                                            width="40"><a href="#" target="_blank"><img
+                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email/ico_gplus.jpg" border="0" width="14"
+                                                                        height="13" alt=""/></a></td>
                                                         <td class="img-center"
                                                             style="font-size:0pt; line-height:0pt; text-align:center"
-                                                            width="30"><a href="https://invite.viber.com/?g2=AQBIE%2Fnv0OsV%2FkiV1LuRl7BUAnQ2eiIQwVEU%2FMg%2BzXtsqfeH1G9xLF3DD8QRe%2B41" target="_blank"><img
-                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/viber.jpg" border="0"
-                                                                        width="26" height="26" alt=""/></a>
-                                                        </td>
+                                                            width="40"><a href="#" target="_blank"><img
+                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email/ico_pinterest.jpg" border="0"
+                                                                        width="14" height="13" alt=""/></a></td>
                                                         <td class="img-center"
                                                             style="font-size:0pt; line-height:0pt; text-align:center"
-                                                            width="30"><a href="https://www.youtube.com/channel/UCH778PYnWOLiU9I641pOCnQ" target="_blank"><img
-                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email-icons/yt.jpg" border="0"
-                                                                        width="26" height="26" alt=""/></a>
-                                                        </td>
+                                                            width="40"><a href="#" target="_blank"><img
+                                                                        src="<?php echo SNTH_IMAGES_URL; ?>/email/ico_instagram.jpg" border="0"
+                                                                        width="14" height="13" alt=""/></a></td>
+                                                        <td class="img-center"
+                                                            style="font-size:0pt; line-height:0pt; text-align:center"
+                                                            width="40"><a href="#" target="_blank" style="color:#fff;"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-youtube fa-w-18 fa-2x"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" class=""></path></svg></a></td>
                                                     </tr>
                                                 </table>
                                                 <!-- END Socials -->
@@ -455,7 +453,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer"
                                style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
                             <tr>
-                                <td height="10" class="spacer"
+                                <td height="20" class="spacer"
                                     style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
                                     &nbsp;
                                 </td>

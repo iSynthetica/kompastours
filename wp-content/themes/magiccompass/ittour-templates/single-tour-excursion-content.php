@@ -211,12 +211,17 @@
 
         <div class="col-md-4 col-lg-3">
             <?php
-            ittour_show_template('single-excursion-tour/book-tour.php', array(
-                    'tour_info' => $tour_info,
-                    'main_currency_label' => $main_currency_label,
-                    'main_currency' => $main_currency,
-                )
-            );
+            if (false) {
+                ittour_show_template('single-excursion-tour/book-tour.php', array(
+                        'tour_info' => $tour_info,
+                        'main_currency_label' => $main_currency_label,
+                        'main_currency' => $main_currency,
+                    )
+                );
+            }
+            ?>
+            <?php
+            ittour_show_template('single-excursion-tour/request-tour.php', array('tour_info' => $tour_info));
             ?>
 
             <?php ittour_show_template('single-excursion-tour/book-by-phone.php') ?>
@@ -400,15 +405,3 @@
         ?>
     </div>
 </div>
-
-<?php
-// var_dump($tour_info);
-//
-//if (!empty($tour_info['dates'])) {
-//    foreach ($tour_info['dates'] as $tour_date) {
-//        var_dump($tour_date);
-//    }
-//}
-//
-//var_dump($tour_info['accomodations']);
-?>

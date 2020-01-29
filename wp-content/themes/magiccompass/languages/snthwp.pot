@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Magiccompass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 07:55+0000\n"
+"POT-Creation-Date: 2020-01-29 17:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -37,7 +37,7 @@ msgid "Schedule"
 msgstr ""
 
 #: parts/countries.php:23 includes/ittour-core.php:90 includes/admin.php:26
-#: ittour-templates/form/search-tab.php:370
+#: parts/email/email-tour-info.php:92 ittour-templates/form/search-tab.php:370
 msgid "Countries"
 msgstr ""
 
@@ -96,6 +96,7 @@ msgstr ""
 
 #: ittour-templates/single-tour-excursion-content.php:114
 #: ittour-templates/single-tour-content.php:64
+#: parts/email/email-tour-info.php:161
 #: crm/includes/class/crm-claimmanager.php:189
 msgid "Tour duration"
 msgstr ""
@@ -104,10 +105,12 @@ msgstr ""
 #: ittour-templates/single-tour-content.php:65
 #: includes/ittour-template-functions.php:243
 #: includes/ittour-template-functions.php:1196 includes/enqueue-scripts.php:53
+#: parts/email/email-tour-info.php:167
 #: ittour-templates/single-tour/book-tour-form-popup.php:87
 #: ittour-templates/loop-hotel/tour-list-default.php:137
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:85
 #: ittour-templates/loop-hotel/part-offers.php:21
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:53
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:86
 msgid "nights"
 msgstr ""
@@ -137,42 +140,43 @@ msgstr ""
 #: ittour-templates/single-tour-excursion-content.php:181
 #: ittour-templates/single-tour-content.php:94
 #: includes/ittour-template-functions.php:1458
+#: parts/email/email-tour-info.php:138
 #: crm/includes/class/crm-claimmanager.php:197
 msgid "Meal type"
 msgstr ""
 
 #: ittour-templates/single-tour-excursion-content.php:193
-#: ittour-templates/single-tour-excursion-content.php:272
+#: ittour-templates/single-tour-excursion-content.php:277
 msgid "Additional info"
 msgstr ""
 
 #: ittour-templates/single-tour-excursion-content.php:202
-#: ittour-templates/single-tour-excursion-content.php:290
+#: ittour-templates/single-tour-excursion-content.php:295
 msgid "Info about Documents"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:236
+#: ittour-templates/single-tour-excursion-content.php:241
 msgid "Tour description"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:254
+#: ittour-templates/single-tour-excursion-content.php:259
 msgid "Excursions List"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:325
+#: ittour-templates/single-tour-excursion-content.php:330
 msgid "Free"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:354
+#: ittour-templates/single-tour-excursion-content.php:359
 #: ittour-templates/single-tour-content.php:46
 msgid "Tour price includes"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:367
+#: ittour-templates/single-tour-excursion-content.php:372
 msgid "Tour price not includes"
 msgstr ""
 
-#: ittour-templates/single-tour-excursion-content.php:389
+#: ittour-templates/single-tour-excursion-content.php:394
 msgid "Important information"
 msgstr ""
 
@@ -207,6 +211,8 @@ msgstr ""
 #: ittour-templates/admin/api-countries.php:179
 #: ittour-templates/single-excursion-tour/book-tour.php:76
 #: ittour-templates/single-excursion-tour/book-tour.php:84
+#: ittour-templates/single-excursion-tour/request-tour.php:75
+#: ittour-templates/single-excursion-tour/request-tour.php:83
 #: crm/includes/class/crm-claimmanager.php:267
 msgid "UAH"
 msgstr ""
@@ -241,6 +247,7 @@ msgstr ""
 #: includes/ittour-template-functions.php:661
 #: includes/ittour-template-functions.php:3045
 #: ittour-templates/single-tour/book-tour-form-popup.php:137
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:72
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:114
 msgid "Plane"
 msgstr ""
@@ -250,6 +257,7 @@ msgstr ""
 #: includes/ittour-template-functions.php:666
 #: includes/ittour-template-functions.php:3051
 #: ittour-templates/single-tour/book-tour-form-popup.php:140
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:75
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:117
 msgid "Bus"
 msgstr ""
@@ -607,6 +615,8 @@ msgstr ""
 #: ittour-templates/loop-hotel/excursion-tour-list-default.php:184
 #: ittour-templates/single-excursion-tour/book-tour.php:75
 #: ittour-templates/single-excursion-tour/book-tour.php:83
+#: ittour-templates/single-excursion-tour/request-tour.php:74
+#: ittour-templates/single-excursion-tour/request-tour.php:82
 msgid "from"
 msgstr ""
 
@@ -813,7 +823,7 @@ msgstr ""
 msgid "Tour dates must be more or equal to the current date."
 msgstr ""
 
-#: includes/content-templates.php:26
+#: includes/content-templates.php:26 parts/email/email-footer.php:168
 msgid "Home"
 msgstr ""
 
@@ -840,8 +850,8 @@ msgid "<i class=\"fas fa-angle-right\"></i>"
 msgstr ""
 
 #: includes/ajax-forms.php:39 includes/ajax-forms.php:208
-#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:177
-#: crm/includes/ajax-front.php:382
+#: crm/includes/ajax-front.php:38 crm/includes/ajax-front.php:156
+#: crm/includes/ajax-front.php:361
 msgid "Input your name, please"
 msgstr ""
 
@@ -850,14 +860,14 @@ msgid "Input your email, please"
 msgstr ""
 
 #: includes/ajax-forms.php:52 includes/ajax-forms.php:217
-#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:221
-#: crm/includes/ajax-front.php:426
+#: crm/includes/ajax-front.php:47 crm/includes/ajax-front.php:200
+#: crm/includes/ajax-front.php:405
 msgid "Input correct email, please"
 msgstr ""
 
 #: includes/ajax-forms.php:69 includes/ajax-forms.php:234
-#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:200
-#: crm/includes/ajax-front.php:405
+#: crm/includes/ajax-front.php:68 crm/includes/ajax-front.php:179
+#: crm/includes/ajax-front.php:384
 msgid "Input correct phone, please"
 msgstr ""
 
@@ -1624,6 +1634,11 @@ msgstr ""
 msgid "Search Result Page"
 msgstr ""
 
+#: parts/email/email-client-info.php:115 crm/parts/admin/clients-list.php:28
+#: crm/parts/admin/clients-list.php:62
+msgid "Email"
+msgstr ""
+
 #. Name of the template
 msgid "Excursion Search Result Page"
 msgstr ""
@@ -1688,38 +1703,39 @@ msgstr ""
 msgid "Moi Turisty"
 msgstr ""
 
-#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:186
-#: crm/includes/ajax-front.php:391
+#: crm/includes/ajax-front.php:54 crm/includes/ajax-front.php:165
+#: crm/includes/ajax-front.php:370
 msgid "Input your phone, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:213 crm/includes/ajax-front.php:418
+#: crm/includes/ajax-front.php:192 crm/includes/ajax-front.php:397
 msgid "Select tour date, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:233 crm/includes/ajax-front.php:438
+#: crm/includes/ajax-front.php:212 crm/includes/ajax-front.php:417
 msgid "Input number as Adult amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:249 crm/includes/ajax-front.php:454
+#: crm/includes/ajax-front.php:228 crm/includes/ajax-front.php:433
 msgid "Input number as Children amount, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:265 crm/includes/ajax-front.php:479
+#: crm/includes/ajax-front.php:244 crm/includes/ajax-front.php:458
 msgid "Input number as Price from, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:281 crm/includes/ajax-front.php:495
+#: crm/includes/ajax-front.php:260 crm/includes/ajax-front.php:474
 msgid "Input number as Price till, please"
 msgstr ""
 
-#: crm/includes/ajax-front.php:466
+#: crm/includes/ajax-front.php:445
 msgid "Select country, please"
 msgstr ""
 
 #: parts/landings/section-order-form.php:32
 #: ittour-templates/general/form-find-me-tour.php:20
 #: ittour-templates/general/form-find-me-tour-static.php:20
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:130
 msgid "Send request"
 msgstr ""
 
@@ -1728,6 +1744,7 @@ msgstr ""
 #: ittour-templates/general/form-find-me-tour.php:26
 #: ittour-templates/general/form-find-me-tour-static.php:26
 #: ittour-templates/single-tour/book-tour-form-popup.php:218
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:94
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:147
 msgid "Your name"
 msgstr ""
@@ -1745,6 +1762,7 @@ msgstr ""
 #: ittour-templates/general/form-find-me-tour.php:33
 #: ittour-templates/general/form-find-me-tour-static.php:33
 #: ittour-templates/single-tour/book-tour-form-popup.php:225
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:116
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:154
 msgid "Your email"
 msgstr ""
@@ -1762,6 +1780,7 @@ msgstr ""
 #: ittour-templates/general/form-find-me-tour.php:42
 #: ittour-templates/general/form-find-me-tour-static.php:42
 #: ittour-templates/single-tour/book-tour-form-popup.php:234
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:98
 #: ittour-templates/single-excursion-tour/book-tour-form-popup.php:163
 msgid "Your phone"
 msgstr ""
@@ -1861,7 +1880,8 @@ msgstr ""
 msgid "Input Country title"
 msgstr ""
 
-#: parts/destination/loop.php:50
+#: parts/destination/loop.php:50 parts/email/email-footer.php:174
+#: parts/email/email-header.php:307
 msgid "Popular countries"
 msgstr ""
 
@@ -1875,6 +1895,39 @@ msgstr ""
 
 #: parts/destination/country.php:67
 msgid "<span>Popular</span> Regions"
+msgstr ""
+
+#: parts/email/email-client-info.php:32
+msgid "Client Information"
+msgstr ""
+
+#: parts/email/email-client-info.php:69 crm/parts/admin/clients-list.php:26
+#: crm/parts/admin/clients-list.php:60
+msgid "Name"
+msgstr ""
+
+#: parts/email/email-client-info.php:92
+msgid "Phone number"
+msgstr ""
+
+#: parts/email/email-client-info.php:138
+msgid "Additional"
+msgstr ""
+
+#: parts/email/email-header.php:295
+msgid "Home page"
+msgstr ""
+
+#: parts/email/email-tour-info.php:32
+msgid "Tour Information"
+msgstr ""
+
+#: parts/email/email-tour-info.php:69
+msgid "Tour title"
+msgstr ""
+
+#: parts/email/email-tour-info.php:115 ittour-templates/form/search-tab.php:376
+msgid "Cities"
 msgstr ""
 
 #: parts/content/contacts.php:21
@@ -2011,10 +2064,6 @@ msgstr ""
 #: ittour-templates/form/search-tab.php:413
 #: ittour-templates/form/search-tab.php:436
 msgid "Filter"
-msgstr ""
-
-#: ittour-templates/form/search-tab.php:376
-msgid "Cities"
 msgstr ""
 
 #: ittour-templates/form/search-tab.php:401
@@ -2250,6 +2299,18 @@ msgstr ""
 msgid "Price from"
 msgstr ""
 
+#: ittour-templates/single-excursion-tour/request-tour-form-popup.php:121
+msgid "Do you have any questions? Ask them here."
+msgstr ""
+
+#: ittour-templates/single-excursion-tour/book-tour-form-hidden-fields.php:18
+msgid "Excursion Tour Request"
+msgstr ""
+
+#: ittour-templates/single-excursion-tour/request-tour.php:103
+msgid "Tour request"
+msgstr ""
+
 #: crm/parts/messages/request-success.php:6
 #: crm/parts/admin/messages/booking-success.php:6
 msgid "Your request number"
@@ -2262,14 +2323,6 @@ msgstr ""
 
 #: crm/parts/admin/clients-list.php:17
 msgid "CRM Clients"
-msgstr ""
-
-#: crm/parts/admin/clients-list.php:26 crm/parts/admin/clients-list.php:60
-msgid "Name"
-msgstr ""
-
-#: crm/parts/admin/clients-list.php:28 crm/parts/admin/clients-list.php:62
-msgid "Email"
 msgstr ""
 
 #: crm/parts/admin/clients-list.php:29 crm/parts/admin/clients-list.php:63
@@ -2436,6 +2489,11 @@ msgstr ""
 
 #: crm/includes/class/crm-claimmanager.php:413
 msgid "Tour link on Kompas Tours"
+msgstr ""
+
+#: crm/includes/class/crm-claimmanager.php:487
+#: crm/includes/class/crm-claimmanager.php:488
+msgid "New Tour request"
 msgstr ""
 
 #: crm/includes/class/crm-claim.php:167

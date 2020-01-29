@@ -29,7 +29,7 @@ if (empty($tour_info)) {
                 <table border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td>
-                            <div class="section-title" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:16px; line-height:24px; text-align:left; text-transform:uppercase"><?php _e( 'Client Information', 'snthwp' ); ?></div>
+                            <div class="section-title" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:16px; line-height:24px; text-align:left; text-transform:uppercase"><?php _e( 'Tour Information', 'snthwp' ); ?></div>
 
                             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="spacer" style="font-size:0pt; line-height:0pt; text-align:center; width:100%; min-width:100%">
                                 <tr>
@@ -59,20 +59,20 @@ if (empty($tour_info)) {
                 <?php snth_email_content_row_spacer(5) ?>
 
                 <?php
-                if (!empty($tour_info['clientName'])) {
+                if (!empty($tour_info['tour_name'])) {
                     ?>
                     <!-- Content -->
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="35%">
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
-                                    <?php _e('Name', 'snthwp'); ?>
+                                    <?php _e('Tour title', 'snthwp'); ?>
                                 </div>
                             </td>
 
                             <td>
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
-                                    <?php echo $tour_info['clientName']; ?>
+                                    <?php echo $tour_info['tour_name']; ?>
                                 </div>
                             </td>
                         </tr>
@@ -82,20 +82,20 @@ if (empty($tour_info)) {
                     <?php
                 }
 
-                if (!empty($tour_info['clientPhone'])) {
+                if (!empty($tour_info['country_name_list'])) {
                     ?>
                     <!-- Content -->
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="35%">
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
-                                    <?php _e('Phone number', 'snthwp'); ?>
+                                    <?php _e('Countries', 'snthwp'); ?>
                                 </div>
                             </td>
 
                             <td>
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
-                                    <?php echo $tour_info['clientPhone']; ?>
+                                    <?php echo $tour_info['country_name_list']; ?>
                                 </div>
                             </td>
                         </tr>
@@ -105,20 +105,20 @@ if (empty($tour_info)) {
                     <?php
                 }
 
-                if (!empty($tour_info['clientEmail'])) {
+                if (!empty($tour_info['city_name_list'])) {
                     ?>
                     <!-- Content -->
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="35%">
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
-                                    <?php _e('Email', 'snthwp'); ?>
+                                    <?php _e('Cities', 'snthwp'); ?>
                                 </div>
                             </td>
 
                             <td>
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
-                                    <?php echo $tour_info['clientEmail']; ?>
+                                    <?php echo $tour_info['city_name_list']; ?>
                                 </div>
                             </td>
                         </tr>
@@ -128,20 +128,43 @@ if (empty($tour_info)) {
                     <?php
                 }
 
-                if (!empty($tour_info['clientQuestions'])) {
+                if (!empty($tour_info['meal_type'])) {
                     ?>
                     <!-- Content -->
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td width="35%">
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
-                                    <?php _e('Additional', 'snthwp'); ?>
+                                    <?php _e('Meal type', 'snthwp'); ?>
                                 </div>
                             </td>
 
                             <td>
                                 <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
-                                    <?php echo wpautop($tour_info['clientQuestions']); ?>
+                                    <?php echo $tour_info['meal_type']; ?>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <?php snth_email_content_row_spacer(5) ?>
+                    <!-- Content -->
+                    <?php
+                }
+
+                if (!empty($tour_info['night_from'])) {
+                    ?>
+                    <!-- Content -->
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="35%">
+                                <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; text-align:left">
+                                    <?php _e('Tour duration', 'snthwp'); ?>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="text" style="color:#2c2c2c; font-family:Arial,sans-serif; font-size:14px; line-height:18px; font-weight: 700; text-align:left">
+                                    <?php echo $tour_info['night_from']; ?> <?php echo __('nights', 'snthwp'); ?>
                                 </div>
                             </td>
                         </tr>
