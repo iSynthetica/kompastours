@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * @var $offices
  */
+
+// var_dump($offices);
 ?>
 
 <div class="row">
@@ -28,6 +30,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                     ?>
                     <div class="col-md-6">
                         <h4 class="font-weight-900 mt-0 mb-10"><?php echo $office["title"] ?></h4>
+                        <?php
+                        if (!empty($office["address"])) {
+                            ?>
+                            <p><?php echo $office["address"]; ?></p>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <?php
                 }

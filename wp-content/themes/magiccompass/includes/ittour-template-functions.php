@@ -1,7 +1,7 @@
 <?php
 function ittour_get_form_fields($args = array()) {
     global $ittour_get_form_fields;
-
+    delete_transient('ittour_search_params');
     $params = get_transient('ittour_search_params');
     $params_obj = ittour_params(ITTOUR_LANG);
     $excursion_params_obj = ittour_excursion_params(ITTOUR_LANG);

@@ -242,9 +242,9 @@ function ittour_ajax_get_country_parameters() {
         $region = '_' . sanitize_key( $_POST['region'] );
     }
 
-    $params = get_transient('ittour_country_search_params_' . $country . $region);
+    // $params = get_transient('ittour_country_search_params_' . $country . $region);
 
-    if (!$params) {
+    if (empty($params)) {
         $params_obj = ittour_params();
         $params = $params_obj->getCountry($country_id, $args);
 

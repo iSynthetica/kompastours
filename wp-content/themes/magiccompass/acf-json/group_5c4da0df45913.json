@@ -891,6 +891,25 @@
                     ]
                 },
                 {
+                    "key": "field_5e3c244153444",
+                    "label": "Адрес",
+                    "name": "address",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5d052574af35c",
                     "label": "Map",
                     "name": "map",
@@ -1006,5 +1025,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579795789
+    "modified": 1580999818
 }
