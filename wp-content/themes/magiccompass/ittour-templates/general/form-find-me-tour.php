@@ -87,7 +87,7 @@ $from_cities_array = get_option('ittour_from_cities');
                                     <div class="form-group">
                                         <label class="font-alt"><?php echo __('Adult amount', 'snthwp'); ?></label>
                                         <div class="numbers-alt numbers-gor style_1">
-                                            <input type="number" value="2" id="adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount" readonly>
+                                            <input type="number" value="2" id="req_adult_amount" data-min="1" data-max="4" class="qty2 form-control" name="adult_amount" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@ $from_cities_array = get_option('ittour_from_cities');
                                     <div class="form-group">
                                         <label class="font-alt"><?php echo __('Children amount', 'snthwp'); ?></label>
                                         <div class="numbers-alt numbers-gor style_1">
-                                            <input type="number" value="0" id="child_amount" data-min="0" data-max="3" class="qty2 form-control" name="child_amount" readonly>
+                                            <input type="number" value="0" id="req_child_amount" data-min="0" data-max="3" class="qty2 form-control" name="child_amount" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@ $from_cities_array = get_option('ittour_from_cities');
                                     <div class="form-group">
                                         <label for="from_city" class="font-alt"><?php echo __('Departure city', 'snthwp'); ?></label>
 
-                                        <select class="form-control" name="from_city" id="from_city">
+                                        <select class="form-control" name="from_city" id="req_from_city">
                                             <?php
                                             foreach ($from_cities_array as $from_city_id => $from_city) {
                                                 ?>
