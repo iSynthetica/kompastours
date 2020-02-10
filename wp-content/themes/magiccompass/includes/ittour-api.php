@@ -302,8 +302,11 @@ function ittour_set_global_tour_search_result() {
                     $args['date_from'] = $date_from;
                     $args['date_till'] = $date_till;
 
-                    $ittour_global_form_args['date_excursion_from'] = $date_from;
-                    $ittour_global_form_args['date_excursion_till'] = $date_till;
+                    $ittour_global_form_args['date_from'] = $date_from;
+                    $ittour_global_form_args['date_till'] = $date_till;
+
+//                    $ittour_global_form_args['date_excursion_from'] = $date_from;
+//                    $ittour_global_form_args['date_excursion_till'] = $date_till;
                 }
             }
         }
