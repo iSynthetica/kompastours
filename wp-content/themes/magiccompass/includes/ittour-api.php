@@ -802,7 +802,18 @@ function ittour_set_default_global_search_form_params() {
 }
 
 function get_tour_nights($type = 'tour') {
-    if (!empty($_GET['night_from']) && empty($_GET['night_till'])) {
+    if (!empty($_GET['night_from']) && !empty($_GET['night_till'])) {
+        $night_from = (int) sanitize_text_field($_GET['night_from']);
+        $night_till = (int) sanitize_text_field($_GET['night_till']);
+
+        if ($night_from > $night_till) {
+            $night_from_temp = $night_till;
+            $night_till_temp = $night_from;
+
+            $night_from = $night_from_temp;
+            $night_till = $night_till_temp;
+        }
+    } elseif (!empty($_GET['night_from']) && empty($_GET['night_till'])) {
         $night_from = sanitize_text_field($_GET['night_from']);
         $night_till = $night_from;
     } elseif (empty($_GET['night_from']) && !empty($_GET['night_till'])) {
