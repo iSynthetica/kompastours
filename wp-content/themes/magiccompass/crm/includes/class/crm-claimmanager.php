@@ -483,6 +483,39 @@ class CRM_ClaimManager {
         return $result;
     }
 
+    public static function send_allinclusivecrm($data) {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.allinclusivecrm.com/v1/site/api/create",
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => http_build_query(array(
+                "name"      => "ФОП Лісна Тетяна Владиславівна Компас",
+                "phone"     => "+38 (067) 111 2222",
+                "email"     => "tetlisna@gmail.com",
+                "comment"   => "Еду с 3 детьми",
+                "data"      => "Заявки по Турции",
+            )),
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer 8311690182:nUCZ-KIjP3Jtz00unE1XuSE2OMtRbanGjLuCWfwr5O3HYP0LMcYQvtV1USF2TamGbR-Cx7sUFXBMQQ3JegRFhneLNqhsv8yZkI8x",
+            ),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            return "cURL Error #:" . $err;
+        } else {
+            return $response;
+        }
+
+    }
+
     public static function send_admin_email( $data ) {
         $email_heading = !empty($data["requestTypeName"]) ? $data["requestTypeName"] : __('New Tour request', 'snthwp');
         $subject = $email_heading;
